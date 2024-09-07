@@ -1,5 +1,6 @@
 FROM ubuntu:22.04
 SHELL ["/bin/bash", "-c"]
+ARG TARGETARCH
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN <<EOF
@@ -38,6 +39,11 @@ PACKAGES=(
 	"graphviz"
 	"python3"
 )
+
+if [ "$TARGETARCH" != "amd64" ]; then
+	# gcc-mingw-w64-x86-64-win32: required to build wine on aarch64
+	PACKAGES+=("gcc-mingw-w64-x86-64-win32")
+fi
 
 apt-get update
 apt-get install -y -o APT::Immediate-Configure=0 "${PACKAGES[@]}"
