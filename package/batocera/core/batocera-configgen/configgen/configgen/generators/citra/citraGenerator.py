@@ -15,6 +15,7 @@ from ..Generator import Generator
 if TYPE_CHECKING:
     from ...controller import ControllerMapping
     from ...Emulator import Emulator
+    from ...input import InputMapping
     from ...types import HotkeysContext
 
 
@@ -251,11 +252,11 @@ class CitraGenerator(Generator):
 
         # Options required to load the functions when the configuration file is created
         if not citraConfig.has_option("Controls", "profiles\\size"):
-            citraConfig.set("Controls", "profile", 0)
+            citraConfig.set("Controls", "profile", "0")
             citraConfig.set("Controls", "profile\\default", "true")
             citraConfig.set("Controls", "profiles\\1\\name", "default")
             citraConfig.set("Controls", "profiles\\1\\name\\default", "true")
-            citraConfig.set("Controls", "profiles\\size", 1)
+            citraConfig.set("Controls", "profiles\\size", "1")
 
         for index in playersControllers :
             controller = playersControllers[index]
@@ -273,7 +274,7 @@ class CitraGenerator(Generator):
             citraConfig.write(configfile)
 
     @staticmethod
-    def setButton(key, padGuid, padInputs):
+    def setButton(key: str, padGuid: str, padInputs: InputMapping) -> str | None:
         # It would be better to pass the joystick num instead of the guid because 2 joysticks may have the same guid
         if key in padInputs:
             input = padInputs[key]
@@ -287,7 +288,7 @@ class CitraGenerator(Generator):
                 return ("engine:sdl,guid:{},axis:{},direction:{},threshold:{}").format(padGuid, input.id, "+", 0.5)
 
     @staticmethod
-    def setAxis(key, padGuid, padInputs):
+    def setAxis(key: str, padGuid: str, padInputs: InputMapping) -> str:
         inputx = None
         inputy = None
 
@@ -307,7 +308,7 @@ class CitraGenerator(Generator):
         return ("axis_x:{},guid:{},axis_y:{},engine:sdl").format(inputx.id, padGuid, inputy.id)
 
     @staticmethod
-    def hatdirectionvalue(value):
+    def hatdirectionvalue(value: str) -> str:
         if int(value) == 1:
             return "up"
         if int(value) == 4:
