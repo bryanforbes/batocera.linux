@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 from ... import Command
 from ...batoceraPaths import CONFIGS, ensure_parents_and_open, mkdir_if_not_exists
-from ...controller import generateSdlGameControllerConfig
+from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -236,7 +236,7 @@ class TheForceEngineGenerator(Generator):
         return Command.Command(
             array=commandArray,
             env={
-                "SDL_GAMECONTROLLERCONFIG": generateSdlGameControllerConfig(playersControllers),
+                "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers),
                 "TFE_DATA_HOME": forceConfigDir
             }
         )

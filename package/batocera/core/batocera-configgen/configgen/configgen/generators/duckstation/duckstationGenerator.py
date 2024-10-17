@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING
 
 from ... import Command
 from ...batoceraPaths import BIOS, CONFIGS, ensure_parents_and_open
-from ...controller import generateSdlGameControllerConfig, writeSDLGameDBAllControllers
+from ...controller import generate_sdl_game_controller_config, write_sdl_controller_db
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -523,7 +523,7 @@ class DuckstationGenerator(Generator):
 
         # write our own gamecontrollerdb.txt file before launching the game
         dbfile = "/usr/share/duckstation/resources/gamecontrollerdb.txt"
-        writeSDLGameDBAllControllers(playersControllers, dbfile)
+        write_sdl_controller_db(playersControllers, dbfile)
 
         # check if we're running wayland
         if environ.get("WAYLAND_DISPLAY"):
@@ -538,7 +538,7 @@ class DuckstationGenerator(Generator):
                 "LD_LIBRARY_PATH": "/usr/stenzek-shaderc/lib:/usr/lib",
                 "XDG_CONFIG_HOME": CONFIGS,
                 "QT_QPA_PLATFORM": qt_qpa_platform,
-                "SDL_GAMECONTROLLERCONFIG": generateSdlGameControllerConfig(playersControllers),
+                "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers),
                 "SDL_JOYSTICK_HIDAPI": "0"
             }
         )

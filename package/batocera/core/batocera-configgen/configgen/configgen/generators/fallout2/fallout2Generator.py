@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING, Final
 
 from ... import Command
 from ...batoceraPaths import CONFIGS, ROMS, mkdir_if_not_exists
-from ...controller import generateSdlGameControllerConfig
+from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -143,7 +143,7 @@ class Fallout2Generator(Generator):
         return Command.Command(
             array=commandArray,
             env={
-                "SDL_GAMECONTROLLERCONFIG": generateSdlGameControllerConfig(playersControllers)
+                "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers)
             }
         )
 
