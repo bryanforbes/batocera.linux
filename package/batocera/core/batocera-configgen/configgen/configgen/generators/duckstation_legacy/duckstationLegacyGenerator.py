@@ -6,8 +6,9 @@ from os import environ
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ... import Command, controllersConfig
+from ... import Command
 from ...batoceraPaths import BIOS, CONFIGS, ensure_parents_and_open
+from ...controller import generateSdlGameControllerConfig, writeSDLGameDBAllControllers
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -495,14 +496,14 @@ class DuckstationLegacyGenerator(Generator):
 
         # write our own gamecontrollerdb.txt file before launching the game
         dbfile = "/usr/share/duckstation/resources/gamecontrollerdb.txt"
-        controllersConfig.writeSDLGameDBAllControllers(playersControllers, dbfile)
+        writeSDLGameDBAllControllers(playersControllers, dbfile)
 
         return Command.Command(
             array=commandArray,
             env={
                 "XDG_CONFIG_HOME": CONFIGS,
                 "QT_QPA_PLATFORM": "xcb",
-                "SDL_GAMECONTROLLERCONFIG": controllersConfig.generateSdlGameControllerConfig(playersControllers),
+                "SDL_GAMECONTROLLERCONFIG": generateSdlGameControllerConfig(playersControllers),
                 "SDL_JOYSTICK_HIDAPI": "0"
             }
         )
