@@ -8,7 +8,7 @@ from .mupenPaths import MUPEN_CONFIG_DIR, MUPEN_SAVES
 if TYPE_CHECKING:
     from configparser import ConfigParser
 
-    from ...controllersConfig import ControllerMapping
+    from ...controller import ControllerMapping
     from ...Emulator import Emulator
     from ...types import Resolution
 

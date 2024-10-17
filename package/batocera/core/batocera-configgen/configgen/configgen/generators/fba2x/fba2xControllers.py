@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from configparser import ConfigParser
 
-    from ...controllersConfig import Controller, ControllerMapping
+    from ...controller import Controller, ControllerMapping
 
 # Map an emulationstation button name to the corresponding fba2x name
 fba4bnts = {

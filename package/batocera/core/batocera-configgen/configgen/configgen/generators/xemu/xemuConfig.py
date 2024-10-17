@@ -7,7 +7,7 @@ from ...batoceraPaths import ensure_parents_and_open
 from .xemuPaths import XEMU_CONFIG
 
 if TYPE_CHECKING:
-    from ...controllersConfig import ControllerMapping
+    from ...controller import ControllerMapping
     from ...Emulator import Emulator
     from ...types import Resolution
 
