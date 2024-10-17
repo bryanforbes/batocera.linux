@@ -6,7 +6,8 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from configparser import ConfigParser
 
-    from ...controllersConfig import Controller, ControllerMapping
+    from ...controller import Controller, ControllerPlayerMapping
+
 
 # Map an emulationstation button name to the corresponding fba2x name
 fba4bnts = {
@@ -56,7 +57,7 @@ fbaspecials = {
                 'hotkey': 'HOTKEY'
               }
 
-def updateControllersConfig(iniConfig: ConfigParser, rom: str, controllers: ControllerMapping) -> None:
+def updateControllersConfig(iniConfig: ConfigParser, rom: str, controllers: ControllerPlayerMapping) -> None:
     # remove any previous section to remove all configured keys
     if iniConfig.has_section("Joystick"):
         iniConfig.remove_section("Joystick")
@@ -72,7 +73,7 @@ def updateControllersConfig(iniConfig: ConfigParser, rom: str, controllers: Cont
         updateControllerConfig(iniConfig, controller, controllers[controller], is6btn(rom))
 
 # Create a configuration file for a given controller
-def updateControllerConfig(iniConfig: ConfigParser, player: str, controller: Controller, special6: bool = False) -> None:
+def updateControllerConfig(iniConfig: ConfigParser, player: int, controller: Controller, special6: bool = False) -> None:
     fbaBtns = fba4bnts
     if special6:
         fbaBtns = fba6bnts
@@ -96,7 +97,7 @@ def updateControllerConfig(iniConfig: ConfigParser, player: str, controller: Con
             input = controller.inputs[btnkey]
             iniConfig.set("Joystick", f'{btnvalue}_{player}', input.id)
 
-    if player == '1':
+    if player == 1:
         for btnkey in fbaspecials:
             btnvalue = fbaspecials[btnkey]
             if btnkey in controller.inputs:

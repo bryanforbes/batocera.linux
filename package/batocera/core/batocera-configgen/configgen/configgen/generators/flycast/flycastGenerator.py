@@ -4,8 +4,9 @@ import configparser
 from shutil import copyfile
 from typing import TYPE_CHECKING
 
-from ... import Command, controllersConfig
+from ... import Command
 from ...batoceraPaths import CONFIGS, ensure_parents_and_open, mkdir_if_not_exists
+from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 from . import flycastControllers
 from .flycastPaths import FLYCAST_BIOS, FLYCAST_CONFIG, FLYCAST_SAVES, FLYCAST_VMU_BLANK, FLYCAST_VMUA1, FLYCAST_VMUA2
@@ -228,7 +229,7 @@ class FlycastGenerator(Generator):
                 "XDG_DATA_HOME":FLYCAST_SAVES.parent,
                 "FLYCAST_DATADIR":FLYCAST_SAVES.parent,
                 "FLYCAST_BIOS_PATH":FLYCAST_BIOS,
-                "SDL_GAMECONTROLLERCONFIG": controllersConfig.generateSdlGameControllerConfig(playersControllers),
+                "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers),
                 "SDL_JOYSTICK_HIDAPI": "0"
             }
         )

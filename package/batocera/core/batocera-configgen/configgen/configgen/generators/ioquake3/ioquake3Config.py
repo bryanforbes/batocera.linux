@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from collections.abc import Iterable
     from pathlib import Path
 
-    from ...controllersConfig import ControllerMapping
+    from ...controller import ControllerPlayerMapping
     from ...Emulator import Emulator
     from ...types import Resolution
 
@@ -63,7 +63,7 @@ def writeCfgFile(system: Emulator, filename: Path, init_line: str, defaults_to_a
                 if line not in lines:
                     file.write(line)
 
-def writeCfgFiles(system: Emulator, rom: Path, playersControllers: ControllerMapping, gameResolution: Resolution) -> None:
+def writeCfgFiles(system: Emulator, rom: Path, playersControllers: ControllerPlayerMapping, gameResolution: Resolution) -> None:
     # create the cfg files for each quake3 rom / mod folder
     files: list[Path] = []
 

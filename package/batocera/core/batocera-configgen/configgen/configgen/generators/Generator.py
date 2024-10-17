@@ -7,7 +7,7 @@ if TYPE_CHECKING:
     from collections.abc import Mapping
 
     from ..Command import Command
-    from ..controllersConfig import ControllerMapping
+    from ..controller import ControllerPlayerMapping
     from ..Emulator import Emulator
     from ..types import DeviceInfoMapping, GunMapping, HotkeysContext, Resolution
 
@@ -18,7 +18,7 @@ class Generator(metaclass=ABCMeta):
         self,
         system: Emulator,
         rom: str,
-        playersControllers: ControllerMapping,
+        playersControllers: ControllerPlayerMapping,
         metadata: Mapping[str, str],
         guns: GunMapping,
         wheels: DeviceInfoMapping,

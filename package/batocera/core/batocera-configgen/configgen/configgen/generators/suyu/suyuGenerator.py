@@ -13,7 +13,7 @@ from ..Generator import Generator
 if TYPE_CHECKING:
     from pathlib import Path
 
-    from ...controllersConfig import ControllerMapping
+    from ...controller import ControllerPlayerMapping
     from ...Emulator import Emulator
     from ...types import HotkeysContext
 
@@ -43,7 +43,7 @@ class SuyuGenerator(Generator):
             "QT_QPA_PLATFORM":"xcb"})
 
     @staticmethod
-    def writeSuyuConfig(suyuConfigFile: Path, system: Emulator, playersControllers: ControllerMapping):
+    def writeSuyuConfig(suyuConfigFile: Path, system: Emulator, playersControllers: ControllerPlayerMapping):
         # pads
         suyuButtonsMapping = {
             "button_a":      "a",

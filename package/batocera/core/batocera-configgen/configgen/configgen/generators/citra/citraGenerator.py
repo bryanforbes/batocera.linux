@@ -7,12 +7,14 @@ from os import environ
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ... import Command, controllersConfig
+from ... import Command
 from ...batoceraPaths import CACHE, CONFIGS, SAVES, ensure_parents_and_open
+from ...controller import ControllerPlayerMapping, generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
     from ...Emulator import Emulator
+    from ...input import InputMapping
     from ...types import HotkeysContext
 
 
@@ -40,7 +42,7 @@ class CitraGenerator(Generator):
             "XDG_CACHE_HOME":CACHE,
             "XDG_RUNTIME_DIR":SAVES / "3ds" / "citra-emu",
             "QT_QPA_PLATFORM":"xcb",
-            "SDL_GAMECONTROLLERCONFIG": controllersConfig.generateSdlGameControllerConfig(playersControllers),
+            "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers),
             "SDL_JOYSTICK_HIDAPI": "0"
             }
         )
@@ -56,7 +58,7 @@ class CitraGenerator(Generator):
     def writeCITRAConfig(
         citraConfigFile: Path,
         system: Emulator,
-        playersControllers: controllersConfig.ControllerMapping
+        playersControllers: ControllerPlayerMapping
     ) -> None:
         # Pads
         citraButtons = {
@@ -249,16 +251,16 @@ class CitraGenerator(Generator):
 
         # Options required to load the functions when the configuration file is created
         if not citraConfig.has_option("Controls", "profiles\\size"):
-            citraConfig.set("Controls", "profile", 0)
+            citraConfig.set("Controls", "profile", "0")
             citraConfig.set("Controls", "profile\\default", "true")
             citraConfig.set("Controls", "profiles\\1\\name", "default")
             citraConfig.set("Controls", "profiles\\1\\name\\default", "true")
-            citraConfig.set("Controls", "profiles\\size", 1)
+            citraConfig.set("Controls", "profiles\\size", "1")
 
         for index in playersControllers :
             controller = playersControllers[index]
             # We only care about player 1
-            if controller.player != "1":
+            if controller.player != 1:
                 continue
             for x in citraButtons:
                 citraConfig.set("Controls", "profiles\\1\\" + x, f'"{CitraGenerator.setButton(citraButtons[x], controller.guid, controller.inputs)}"')
@@ -271,7 +273,7 @@ class CitraGenerator(Generator):
             citraConfig.write(configfile)
 
     @staticmethod
-    def setButton(key, padGuid, padInputs):
+    def setButton(key: str, padGuid: str, padInputs: InputMapping) -> str | None:
         # It would be better to pass the joystick num instead of the guid because 2 joysticks may have the same guid
         if key in padInputs:
             input = padInputs[key]
@@ -285,7 +287,7 @@ class CitraGenerator(Generator):
                 return ("engine:sdl,guid:{},axis:{},direction:{},threshold:{}").format(padGuid, input.id, "+", 0.5)
 
     @staticmethod
-    def setAxis(key, padGuid, padInputs):
+    def setAxis(key: str, padGuid: str, padInputs: InputMapping) -> str:
         inputx = None
         inputy = None
 
@@ -305,7 +307,7 @@ class CitraGenerator(Generator):
         return ("axis_x:{},guid:{},axis_y:{},engine:sdl").format(inputx.id, padGuid, inputy.id)
 
     @staticmethod
-    def hatdirectionvalue(value):
+    def hatdirectionvalue(value: str):
         if int(value) == 1:
             return "up"
         if int(value) == 4:

@@ -7,12 +7,14 @@ from os import environ
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ... import Command, controllersConfig
+from ... import Command
 from ...batoceraPaths import CACHE, CONFIGS, SAVES, ensure_parents_and_open
+from ...controller import ControllerPlayerMapping, generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
     from ...Emulator import Emulator
+    from ...input import InputMapping
 
 eslog = logging.getLogger(__name__)
 
@@ -32,7 +34,7 @@ class LemonadeGenerator(Generator):
             "XDG_CACHE_HOME":CACHE,
             "XDG_RUNTIME_DIR":SAVES / "3ds" / "lemonade-emu",
             "QT_QPA_PLATFORM":"xcb",
-            "SDL_GAMECONTROLLERCONFIG": controllersConfig.generateSdlGameControllerConfig(playersControllers),
+            "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers),
             "SDL_JOYSTICK_HIDAPI": "0"
             }
         )
@@ -45,7 +47,7 @@ class LemonadeGenerator(Generator):
             return True
 
     @staticmethod
-    def writeLEMONADEConfig(lemonadeConfigFile: Path, system: Emulator, playersControllers: controllersConfig.ControllerMapping):
+    def writeLEMONADEConfig(lemonadeConfigFile: Path, system: Emulator, playersControllers: ControllerPlayerMapping):
         # Pads
         lemonadeButtons = {
             "button_a":      "a",
@@ -246,7 +248,7 @@ class LemonadeGenerator(Generator):
         for index in playersControllers :
             controller = playersControllers[index]
             # We only care about player 1
-            if controller.player != "1":
+            if controller.player != 1:
                 continue
             for x in lemonadeButtons:
                 lemonadeConfig.set("Controls", "profiles\\1\\" + x, f'"{LemonadeGenerator.setButton(lemonadeButtons[x], controller.guid, controller.inputs)}"')
@@ -259,7 +261,7 @@ class LemonadeGenerator(Generator):
             lemonadeConfig.write(configfile)
 
     @staticmethod
-    def setButton(key, padGuid, padInputs):
+    def setButton(key, padGuid, padInputs: InputMapping):
         # It would be better to pass the joystick num instead of the guid because 2 joysticks may have the same guid
         if key in padInputs:
             input = padInputs[key]
@@ -273,7 +275,7 @@ class LemonadeGenerator(Generator):
                 return ("engine:sdl,guid:{},axis:{},direction:{},threshold:{}").format(padGuid, input.id, "+", 0.5)
 
     @staticmethod
-    def setAxis(key, padGuid, padInputs):
+    def setAxis(key, padGuid, padInputs: InputMapping):
         inputx = None
         inputy = None
 

@@ -9,7 +9,7 @@ from ...batoceraPaths import CONFIGS, SAVES, mkdir_if_not_exists
 from ..Generator import Generator
 
 if TYPE_CHECKING:
-    from ...controllersConfig import ControllerMapping
+    from ...controller import ControllerPlayerMapping
     from ...types import HotkeysContext
 
 
@@ -56,7 +56,7 @@ class EasyRPGGenerator(Generator):
         return Command.Command(array=commandArray)
 
     @staticmethod
-    def padConfig(configdir: Path, playersControllers: ControllerMapping) -> None:
+    def padConfig(configdir: Path, playersControllers: ControllerPlayerMapping) -> None:
         keymapping = {
             "button_up": None,
             "button_down": None,

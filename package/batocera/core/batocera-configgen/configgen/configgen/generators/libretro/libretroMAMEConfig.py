@@ -16,7 +16,7 @@ from ...batoceraPaths import BIOS, CONFIGS, DEFAULTS_DIR, ROMS, SAVES, USER_DECO
 if TYPE_CHECKING:
     from collections.abc import Sequence
 
-    from ...controllersConfig import ControllerMapping
+    from ...controller import ControllerPlayerMapping
     from ...Emulator import Emulator
     from ...types import GunMapping
 
@@ -50,7 +50,7 @@ retroPad = {
     "start":            "START"
 }
 
-def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator, rom: Path, guns: GunMapping) -> None:
+def generateMAMEConfigs(playersControllers: ControllerPlayerMapping, system: Emulator, rom: Path, guns: GunMapping) -> None:
     # Generate command line for MAME/MESS/MAMEVirtual
     commandLine: list[str | Path] = []
     romDrivername = rom.stem
@@ -539,7 +539,7 @@ def getMameControlScheme(system: Emulator, rom: Path) -> str:
 
 def generateMAMEPadConfig(
     cfgPath: Path,
-    playersControllers: ControllerMapping,
+    playersControllers: ControllerPlayerMapping,
     system: Emulator,
     messSysName: str,
     rom: Path,

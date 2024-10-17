@@ -12,6 +12,7 @@ from ...batoceraPaths import CONFIGS, SAVES, ensure_parents_and_open, mkdir_if_n
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from ...controller import ControllerPlayerMapping
     from ...Emulator import Emulator
     from ...types import GunMapping, HotkeysContext
 
@@ -148,7 +149,7 @@ def copy_xml():
     if not dest_path.exists() or source_path.stat().st_mtime > dest_path.stat().st_mtime:
         shutil.copy2(source_path, dest_path)
 
-def configPadsIni(system: Emulator, rom: Path, playersControllers: controllersConfig.ControllerMapping, guns: GunMapping, altControl: bool, sensitivity: str) -> None:
+def configPadsIni(system: Emulator, rom: Path, playersControllers: ControllerPlayerMapping, guns: GunMapping, altControl: bool, sensitivity: str) -> None:
     if altControl:
         templateFile = SUPERMODEL_SHARE / "Supermodel-Driving.ini.template"
         mapping = {
@@ -316,7 +317,7 @@ def configPadsIni(system: Emulator, rom: Path, playersControllers: controllersCo
     with ensure_parents_and_open(targetFile, 'w') as configfile:
         targetConfig.write(configfile)
 
-def transformValue(value, playersControllers, mapping, mapping_fallback):
+def transformValue(value, playersControllers: ControllerPlayerMapping, mapping, mapping_fallback):
     # remove comments
     cleanValue = value
     matches = re.search("^([^;]*[^ ])[ ]*;.*$", value)
@@ -336,7 +337,7 @@ def transformValue(value, playersControllers, mapping, mapping_fallback):
         # integers
         return cleanValue
 
-def transformElement(elt, playersControllers, mapping, mapping_fallback):
+def transformElement(elt, playersControllers: ControllerPlayerMapping, mapping, mapping_fallback):
     # Docs/README.txt
     # JOY1_LEFT  is the same as JOY1_XAXIS_NEG
     # JOY1_RIGHT is the same as JOY1_XAXIS_POS
@@ -398,23 +399,26 @@ def transformElement(elt, playersControllers, mapping, mapping_fallback):
         return None
     return elt
 
-def getMappingKeyIncludingFallback(playersControllers, padnum, key, mapping, mapping_fallback):
-    if padnum in playersControllers:
-        if key not in mapping or (key in mapping and mapping[key] not in playersControllers[padnum].inputs):
-            if key in mapping_fallback and mapping_fallback[key] in playersControllers[padnum].inputs:
+def getMappingKeyIncludingFallback(playersControllers: ControllerPlayerMapping, padnum: str, key, mapping, mapping_fallback):
+    padnum_int = int(padnum)
+    if padnum_int in playersControllers:
+        if key not in mapping or (key in mapping and mapping[key] not in playersControllers[padnum_int].inputs):
+            if key in mapping_fallback and mapping_fallback[key] in playersControllers[padnum_int].inputs:
                 return mapping_fallback[key]
     return mapping[key]
 
-def joy2realjoyid(playersControllers, joy):
-    if joy in playersControllers:
-        return playersControllers[joy].index
+def joy2realjoyid(playersControllers: ControllerPlayerMapping, joy: str):
+    joy_int = int(joy)
+    if joy_int in playersControllers:
+        return playersControllers[joy_int].index
     return None
 
-def hatOrAxis(playersControllers, player):
+def hatOrAxis(playersControllers: ControllerPlayerMapping, player: str):
     #default to axis
     type = "axis"
-    if (player) in playersControllers:
-        pad = playersControllers[(player)]
+    player_int = int(player)
+    if player_int in playersControllers:
+        pad = playersControllers[player_int]
         for button in pad.inputs:
             input = pad.inputs[button]
             if input.type == "hat":
@@ -423,9 +427,10 @@ def hatOrAxis(playersControllers, player):
                 type = "axis"
     return type
 
-def input2input(playersControllers, player, joynum, button, axisside = None):
-    if (player) in playersControllers:
-        pad = playersControllers[(player)]
+def input2input(playersControllers: ControllerPlayerMapping, player: str, joynum, button, axisside = None):
+    player_int = int(player)
+    if player_int in playersControllers:
+        pad = playersControllers[player_int]
         if button in pad.inputs:
             input = pad.inputs[button]
             if input.type == "button":
@@ -443,12 +448,12 @@ def input2input(playersControllers, player, joynum, button, axisside = None):
                 sidestr = ""
                 if axisside is not None:
                     if axisside == 1:
-                        if input.value == 1:
+                        if input.value == "1":
                             sidestr = "_NEG"
                         else:
                             sidestr = "_POS"
                     else:
-                        if input.value == 1:
+                        if input.value == "1":
                             sidestr = "_POS"
                         else:
                             sidestr = "_NEG"

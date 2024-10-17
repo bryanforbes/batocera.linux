@@ -11,14 +11,14 @@ from .cemuPaths import CEMU_CONTROLLER_PROFILES
 if TYPE_CHECKING:
     from pathlib import Path
 
-    from ...controllersConfig import ControllerMapping
+    from ...controller import Controller, ControllerPlayerMapping
     from ...Emulator import Emulator
 
 # Create the controller configuration file
 # First controller will ALWAYS be a Gamepad
 # Additional controllers will either be a Pro Controller or Wiimote
 
-def generateControllerConfig(system: Emulator, playersControllers: ControllerMapping) -> None:
+def generateControllerConfig(system: Emulator, playersControllers: ControllerPlayerMapping) -> None:
 
     # -= Wii U controller types =-
     GAMEPAD = "Wii U GamePad"
@@ -168,17 +168,17 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         }
     }
 
-    def getOption(option, defaultValue):
+    def getOption(option: str, defaultValue: str):
         if (system.isOptSet(option)):
             return system.config[option]
         else:
             return defaultValue
 
-    def addTextElement(parent, name, value):
+    def addTextElement(parent: ET.Element, name: str, value: str) -> None:
         element = ET.SubElement(parent, name)
         element.text = value
 
-    def addAnalogControl(parent, name):
+    def addAnalogControl(parent: ET.Element, name: str) -> None:
         element = ET.SubElement(parent, name)
         addTextElement(element, "deadzone", DEFAULT_DEADZONE)
         addTextElement(element, "range", DEFAULT_RANGE)
@@ -186,12 +186,12 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
     def getConfigFileName(controller: int) -> Path:
         return CEMU_CONTROLLER_PROFILES / f"controller{controller}.xml"
 
-    def isWiimote(pad):
-        return WIIMOTE_NAME == pad.realName
+    def isWiimote(pad: Controller):
+        return WIIMOTE_NAME == pad.real_name
 
-    def findWiimoteType(pad):
+    def findWiimoteType(pad: Controller):
         context = pyudev.Context()
-        device = pyudev.Devices.from_device_file(context, pad.dev)
+        device = pyudev.Devices.from_device_file(context, pad.device_path)
         names = []
         for input_device in context.list_devices(parent=device.find_parent('hid')).match_subsystem('input'):
             if 'NAME' in input_device.properties:
@@ -226,8 +226,8 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
     # sort pads by index
     pads_by_index = playersControllers
     dict(sorted(pads_by_index.items(), key=lambda kv: kv[1].index))
-    guid_n = {}
-    guid_count = {}
+    guid_n: dict[int, int] = {}
+    guid_count: dict[str, int] = {}
     for playercontroller, pad in pads_by_index.items():
         if pad.guid in guid_count:
             guid_count[pad.guid] += 1
@@ -270,8 +270,8 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         # Create controller configuration
         controllerNode = ET.SubElement(root, 'controller')
         addTextElement(controllerNode, 'api', api)
-        addTextElement(controllerNode, 'uuid', "{}_{}".format(guid_n[pad.index], pad.guid)) # controller guid
-        addTextElement(controllerNode, 'display_name', pad.realName) # controller name
+        addTextElement(controllerNode, 'uuid', f"{guid_n[pad.index]}_{pad.guid}") # controller guid
+        addTextElement(controllerNode, 'display_name', pad.real_name) # controller name
         addTextElement(controllerNode, 'rumble', getOption('cemu_rumble', '0')) # % chosen
         addAnalogControl(controllerNode, 'axis')
         addAnalogControl(controllerNode, 'rotation')

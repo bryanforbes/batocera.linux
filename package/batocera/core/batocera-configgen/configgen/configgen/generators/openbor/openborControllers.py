@@ -4,13 +4,13 @@ import logging
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from ...controllersConfig import Controller, ControllerMapping
+    from ...controller import Controller, ControllerPlayerMapping
     from ...settings.unixSettings import UnixSettings
 
 
 eslog = logging.getLogger(__name__)
 
-def generateControllerConfig(config: UnixSettings, playersControllers: ControllerMapping, core: str):
+def generateControllerConfig(config: UnixSettings, playersControllers: ControllerPlayerMapping, core: str):
     if core == "openbor4432":
         setupControllers(config, playersControllers, 32, False)
     elif core == "openbor7142":
@@ -30,7 +30,7 @@ def JoystickValue(key: str, pad: Controller, joy_max_inputs: int, new_axis_vals:
 
     elif input.type == "hat":
         if new_axis_vals:
-            hatfirst = 1 + (int(pad.index)) * joy_max_inputs + int(pad.nbbuttons) + 4 * int(input.id)
+            hatfirst = 1 + pad.index * joy_max_inputs + pad.button_count + 4 * int(input.id)
             if (input.value == "2"):   # SDL_HAT_RIGHT
                 hatfirst += 3
             elif (input.value == "4"): # SDL_HAT_DOWN
@@ -38,7 +38,7 @@ def JoystickValue(key: str, pad: Controller, joy_max_inputs: int, new_axis_vals:
             elif (input.value == "8"): # SDL_HAT_LEFT
                 hatfirst += 2
         else:
-            hatfirst = 1 + (int(pad.index)) * joy_max_inputs + int(pad.nbbuttons) + 2 * int(pad.nbaxes) + 4 * int(input.id)
+            hatfirst = 1 + pad.index * joy_max_inputs + pad.button_count + 2 * pad.axis_count + 4 * int(input.id)
             if (input.value == "2"):   # SDL_HAT_RIGHT
                 hatfirst += 1
             elif (input.value == "4"): # SDL_HAT_DOWN
@@ -48,9 +48,9 @@ def JoystickValue(key: str, pad: Controller, joy_max_inputs: int, new_axis_vals:
         value = hatfirst
 
     elif input.type == "axis":
-        axisfirst = 1 + (int(pad.index)) * joy_max_inputs + int(pad.nbbuttons) + 2 * int(input.id)
+        axisfirst = 1 + pad.index * joy_max_inputs + pad.button_count + 2 * int(input.id)
         if new_axis_vals:
-            axisfirst += int(pad.nbhats)*4
+            axisfirst += pad.hat_count*4
         if ((invertAxis and int(input.value) < 0) or (not invertAxis and int(input.value) > 0)):
             axisfirst += 1
         value = axisfirst
@@ -61,7 +61,7 @@ def JoystickValue(key: str, pad: Controller, joy_max_inputs: int, new_axis_vals:
     #eslog.debug("input.type={} input.id={} input.value={} => result={}".format(input.type, input.id, input.value, value))
     return value
 
-def setupControllers(config: UnixSettings, playersControllers: ControllerMapping, joy_max_inputs: int, new_axis_vals: bool) -> None:
+def setupControllers(config: UnixSettings, playersControllers: ControllerPlayerMapping, joy_max_inputs: int, new_axis_vals: bool) -> None:
     idx = 0
     for playercontroller, pad in sorted(playersControllers.items()):
         config.save("keys." + str(idx) + ".0" , JoystickValue("up",       pad, joy_max_inputs, new_axis_vals)) # MOVEUP

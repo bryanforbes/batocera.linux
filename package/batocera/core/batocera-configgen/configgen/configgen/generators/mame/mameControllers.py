@@ -12,13 +12,13 @@ from .mamePaths import MAME_CONFIG, MAME_DEFAULT_DATA
 if TYPE_CHECKING:
     from pathlib import Path
 
-    from ...controllersConfig import ControllerMapping
+    from ...controller import Controller, ControllerPlayerMapping
     from ...Emulator import Emulator
     from ...types import DeviceInfoMapping, GunMapping
 
 eslog = logging.getLogger(__name__)
 
-def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sysName: str, altButtons: str, customCfg: bool, specialController: str, decorations: str | None, useGuns: bool, guns: GunMapping, useWheels: bool, wheels: DeviceInfoMapping, useMouse: bool, multiMouse: bool, system: Emulator) -> None:
+def generatePadsConfig(cfgPath: Path, playersControllers: ControllerPlayerMapping, sysName: str, altButtons: str, customCfg: bool, specialController: str, decorations: str | None, useGuns: bool, guns: GunMapping, useWheels: bool, wheels: DeviceInfoMapping, useMouse: bool, multiMouse: bool, system: Emulator) -> None:
     # config file
     config = minidom.Document()
     configFile = cfgPath / "default.cfg"
@@ -325,7 +325,7 @@ def reverseMapping(key):
         return "joystick2left"
     return None
 
-def generatePortElement(pad, config, nplayer, padindex, mapping, key, input, reversed, altButtons, gunmappings, isWheel, mousemappings, multiMouse, pedalkey):
+def generatePortElement(pad: Controller, config, nplayer, padindex, mapping, key, input, reversed, altButtons, gunmappings, isWheel, mousemappings, multiMouse, pedalkey):
     # Generic input
     xml_port = config.createElement("port")
     xml_port.setAttribute("type", "P{}_{}".format(nplayer, mapping))
@@ -367,7 +367,7 @@ def generateGunPortElement(config, nplayer, mapping, gunmappings, pedalkey):
     xml_newseq.appendChild(value)
     return xml_port
 
-def generateSpecialPortElementPlayer(pad, config, tag, nplayer, padindex, mapping, key, input, reversed, mask, default, gunmappings, mousemappings, multiMouse, pedalkey):
+def generateSpecialPortElementPlayer(pad: Controller, config, tag, nplayer, padindex, mapping, key, input, reversed, mask, default, gunmappings, mousemappings, multiMouse, pedalkey):
     # Special button input (ie mouse button to gamepad)
     xml_port = config.createElement("port")
     xml_port.setAttribute("tag", tag)
@@ -393,7 +393,7 @@ def generateSpecialPortElementPlayer(pad, config, tag, nplayer, padindex, mappin
     xml_newseq.appendChild(value)
     return xml_port
 
-def generateSpecialPortElement(pad, config, tag, nplayer, padindex, mapping, key, input, reversed, mask, default, pedalkey):
+def generateSpecialPortElement(pad: Controller, config, tag, nplayer, padindex, mapping, key, input, reversed, mask, default, pedalkey):
     # Special button input (ie mouse button to gamepad)
     xml_port = config.createElement("port")
     xml_port.setAttribute("tag", tag)
@@ -449,7 +449,7 @@ def generateAnalogPortElement(pad, config, tag, nplayer, padindex, mapping, inck
     xml_newseq_std.appendChild(stdvalue)
     return xml_port
 
-def input2definition(pad, key, input, joycode, reversed, altButtons, ignoreAxis = False, isWheel = False):
+def input2definition(pad: Controller, key, input, joycode, reversed, altButtons, ignoreAxis = False, isWheel = False):
 
     mameAxisMappingNames = {0: "XAXIS", 1: "YAXIS", 2: "ZAXIS", 3: "RXAXIS", 4: "RYAXIS", 5: "RZAXIS"}
 
@@ -547,7 +547,7 @@ def input2definition(pad, key, input, joycode, reversed, altButtons, ignoreAxis 
 
     return "unknown"
 
-def hasStick(pad):
+def hasStick(pad: Controller):
     if "joystick1up" in pad.inputs:
         return True
     else:

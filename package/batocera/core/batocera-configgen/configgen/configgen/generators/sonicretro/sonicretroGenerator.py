@@ -6,7 +6,8 @@ import os
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ... import Command, controllersConfig
+from ... import Command
+from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -173,7 +174,7 @@ class SonicRetroGenerator(Generator):
 
         for index in playersControllers:
             controller = playersControllers[index]
-            if controller.player != "1":
+            if controller.player != 1:
                 continue
             for x in sonicButtons:
                 sonicConfig.set("Controller 1", f"{x}", f"{sonicButtons[x]}")
@@ -188,7 +189,7 @@ class SonicRetroGenerator(Generator):
         return Command.Command(
             array=commandArray,
             env={
-                'SDL_GAMECONTROLLERCONFIG': controllersConfig.generateSdlGameControllerConfig(playersControllers)
+                'SDL_GAMECONTROLLERCONFIG': generate_sdl_game_controller_config(playersControllers)
             })
 
     def getMouseMode(self, config, rom):

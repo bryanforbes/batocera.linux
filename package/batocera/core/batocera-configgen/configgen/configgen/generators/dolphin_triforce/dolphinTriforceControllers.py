@@ -12,18 +12,18 @@ if TYPE_CHECKING:
     from collections.abc import Mapping
     from pathlib import Path
 
-    from ...controllersConfig import Controller, ControllerMapping
+    from ...controller import Controller, ControllerPlayerMapping
     from ...Emulator import Emulator
 
 eslog = logging.getLogger(__name__)
 
 # Create the controller configuration file
-def generateControllerConfig(system: Emulator, playersControllers: ControllerMapping, rom: Path) -> None:
+def generateControllerConfig(system: Emulator, playersControllers: ControllerPlayerMapping, rom: Path) -> None:
 
     generateHotkeys(playersControllers)
     generateControllerConfig_gamecube(system, playersControllers,rom)               # Pass ROM name to allow for per ROM configuration
 
-def generateControllerConfig_gamecube(system: Emulator, playersControllers: ControllerMapping, rom: Path) -> None:
+def generateControllerConfig_gamecube(system: Emulator, playersControllers: ControllerPlayerMapping, rom: Path) -> None:
     # Exclude Buttons/Y from mapping as that just resets the system. Buttons/Z is used to insert credit. Therefore it is set to Select.
     gamecubeMapping = {
         'y':            'Buttons/B',     'b':             'Buttons/A',
@@ -70,7 +70,7 @@ def removeControllerConfig_gamecube() -> None:
     if configFileName.is_file():
         configFileName.unlink()
 
-def generateHotkeys(playersControllers: ControllerMapping) -> None:
+def generateHotkeys(playersControllers: ControllerPlayerMapping) -> None:
     configFileName = DOLPHIN_TRIFORCE_CONFIG / "Config" / "Hotkeys.ini"
     f = codecs.open(str(configFileName), "w", encoding="utf_8")
 
@@ -88,7 +88,7 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
     for playercontroller, pad in sorted(playersControllers.items()):
         if nplayer == 1:
             f.write("[Hotkeys1]" + "\n")
-            f.write("Device = SDL/0/" + pad.realName.strip() + "\n")
+            f.write("Device = SDL/0/" + pad.real_name.strip() + "\n")
 
             # Search the hotkey button
             hotkey = None
@@ -108,7 +108,7 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
 
                 # Write the configuration for this key
                 if keyname is not None:
-                    write_key(f, keyname, input.type, input.id, input.value, pad.nbaxes, False, hotkey.id)
+                    write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, hotkey.id)
 
                 #else:
                 #    f.write("# undefined key: name="+input.name+", type="+input.type+", id="+str(input.id)+", value="+str(input.value)+"\n")
@@ -118,7 +118,7 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
     f.write
     f.close()
 
-def generateControllerConfig_any(system: Emulator, playersControllers: ControllerMapping, filename: str, anyDefKey: str, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str] = {}) -> None:
+def generateControllerConfig_any(system: Emulator, playersControllers: ControllerPlayerMapping, filename: str, anyDefKey: str, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str] = {}) -> None:
     configFileName = DOLPHIN_TRIFORCE_CONFIG / filename
     f = codecs.open(str(configFileName), "w", encoding="utf_8")
     nplayer = 1
@@ -129,14 +129,14 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
 
     for playercontroller, pad in sorted(playersControllers.items()):
         # Handle x pads having the same name
-        if pad.realName.strip() in double_pads:
-            nsamepad = double_pads[pad.realName.strip()]
+        if pad.real_name.strip() in double_pads:
+            nsamepad = double_pads[pad.real_name.strip()]
         else:
             nsamepad = 0
-        double_pads[pad.realName.strip()] = nsamepad+1
+        double_pads[pad.real_name.strip()] = nsamepad+1
 
         f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
-        f.write("Device = SDL/" + str(nsamepad).strip() + "/" + pad.realName.strip() + "\n")
+        f.write("Device = SDL/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
 
         if system.isOptSet("use_pad_profiles") and system.getOptBoolean("use_pad_profiles") == True:
             if not generateControllerConfig_any_from_profiles(f, pad):
@@ -177,12 +177,12 @@ def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Control
 
         # Write the configuration for this key
         if keyname is not None:
-            write_key(f, keyname, input.type, input.id, input.value, pad.nbaxes, False, None)
+            write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, None)
             if 'Triggers' in keyname and input.type == 'axis':
-                write_key(f, keyname + '-Analog', input.type, input.id, input.value, pad.nbaxes, False, None)
+                write_key(f, keyname + '-Analog', input.type, input.id, input.value, pad.axis_count, False, None)
         # Write the 2nd part
         if input.name in { "joystick1up", "joystick1left", "joystick2up", "joystick2left"} and keyname is not None:
-            write_key(f, anyReverseAxes[keyname], input.type, input.id, input.value, pad.nbaxes, True, None)
+            write_key(f, anyReverseAxes[keyname], input.type, input.id, input.value, pad.axis_count, True, None)
         # Rumble option
         if system.isOptSet("rumble") and system.getOptBoolean("rumble") == True:
             f.write("Rumble/Motor = Weak\n")
@@ -200,7 +200,7 @@ def generateControllerConfig_any_from_profiles(f: codecs.StreamReaderWriter, pad
 
             deviceVals = re.match("^([^/]*)/[0-9]*/(.*)$", profileDevice)
             if deviceVals is not None:
-                if deviceVals.group(1) == "SDL" and deviceVals.group(2).strip() == pad.realName.strip():
+                if deviceVals.group(1) == "SDL" and deviceVals.group(2).strip() == pad.real_name.strip():
                     eslog.debug("Eligible profile device found")
                     for key, val in profileConfig.items("Profile"):
                         if key != "Device":

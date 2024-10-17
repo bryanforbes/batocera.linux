@@ -1,4 +1,11 @@
-# -*- coding: utf-8 -*-
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from xml.dom.minidom import Document, Element
+
+    from ...controller import ControllerPlayerMapping
 
 cannonballJoystick = {
     "b": "acc",
@@ -13,18 +20,17 @@ cannonballJoystick = {
 }
 
 # Create the controller configuration file
-def generateControllerConfig(config, xml_root, playersControllers):
+def generateControllerConfig(config: Document, xml_root: Element, playersControllers: ControllerPlayerMapping) -> None:
     from .cannonballGenerator import CannonballGenerator
     xml_controls = CannonballGenerator.getSection(config, xml_root, "controls")
 
     nplayer = 1
-    for playercontroller, pad in sorted(playersControllers.items()):
+    for _, pad in sorted(playersControllers.items()):
         if nplayer == 1:
             CannonballGenerator.setSectionConfig(config, xml_controls, "pad_id", str(pad.index))
             xml_padconfig = CannonballGenerator.getSection(config, xml_controls, "padconfig")
 
-            for x in pad.inputs:
-                input = pad.inputs[x]
+            for input in pad.inputs.values():
                 if input.type == "button":
                     if input.name in cannonballJoystick:
                         CannonballGenerator.setSectionConfig(config, xml_padconfig, cannonballJoystick[input.name], input.id)

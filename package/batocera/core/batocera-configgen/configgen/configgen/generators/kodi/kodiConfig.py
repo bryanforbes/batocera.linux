@@ -9,12 +9,13 @@ from ...batoceraPaths import HOME, ensure_parents_and_open, mkdir_if_not_exists
 if TYPE_CHECKING:
     from pathlib import Path
 
-    from ...controllersConfig import ControllerMapping
+    from ...controller import ControllerPlayerMapping
+
 
 _KODI_USERDATA: Final = HOME / '.kodi' / 'userdata'
 
 
-def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, provider: str):
+def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerPlayerMapping, provider: str):
     kodihatspositions    = {1: 'up', 2: 'right', 4: 'down', 8: 'left'}
     kodireversepositions = {'joystick1up': 'joystick1down', 'joystick1left': 'joystick1right', 'joystick2up': 'joystick2down', 'joystick2left': 'joystick2right' }
     kodiaxes             = { 'joystick1up': True, 'joystick1down': True, 'joystick1left': True, 'joystick1right': True,
@@ -46,25 +47,25 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
         cur = currentControllers[controller]
 
         # skip duplicates
-        if cur.realName in controllersDone:
+        if cur.real_name in controllersDone:
             continue
-        controllersDone[cur.realName] = True
+        controllersDone[cur.real_name] = True
 
         # initialized the file
-        kodiJoy = kodiJoystick.with_name(kodiJoystick.name.format(cur.guid+"_"+hashlib.md5(cur.realName.encode('utf-8')).hexdigest())).open("w") # because 2 pads with a different name have sometimes the same vid/pid...
+        kodiJoy = kodiJoystick.with_name(kodiJoystick.name.format(cur.guid+"_"+hashlib.md5(cur.real_name.encode('utf-8')).hexdigest())).open("w") # because 2 pads with a different name have sometimes the same vid/pid...
         config = minidom.Document()
         xmlbuttonmap = config.createElement('buttonmap')
         config.appendChild(xmlbuttonmap)
 
         xmldevice = config.createElement('device')
-        xmldevice.attributes["name"] = cur.realName
+        xmldevice.attributes["name"] = cur.real_name
         xmldevice.attributes["provider"] = provider
 
         if provider == "udev":
             xmldevice.attributes["vid"], xmldevice.attributes["pid"] = vidpid(cur.guid)
 
-        xmldevice.attributes["buttoncount"] = cur.nbbuttons
-        xmldevice.attributes["axiscount"] = str(2*int(cur.nbhats) + int(cur.nbaxes))
+        xmldevice.attributes["buttoncount"] = str(cur.button_count)
+        xmldevice.attributes["axiscount"] = str(2*int(cur.hat_count) + int(cur.axis_count))
         xmlbuttonmap.appendChild(xmldevice)
         xmlcontroller = config.createElement('controller')
         xmlcontroller.attributes["id"] = "game.controller.default"
@@ -87,9 +88,9 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
                         xmlhat = config.createElement('feature')
                         val = ""
                         if kodihatspositions[int(input.value)] == "left" or kodihatspositions[int(input.value)] == "right":
-                            val = cur.nbaxes
+                            val = str(cur.axis_count)
                         else:
-                            val = str(int(cur.nbaxes)+1)
+                            val = str(cur.axis_count+1)
                         if kodihatspositions[int(input.value)] == "down" or kodihatspositions[int(input.value)] == "right":
                             xmlhat.attributes["axis"] = "+" + val
                         else:
@@ -127,7 +128,7 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
         kodiJoy.write(config.toprettyxml())
         kodiJoy.close()
 
-def writeKodiConfig(controllersFromES: ControllerMapping) -> None:
+def writeKodiConfig(controllersFromES: ControllerPlayerMapping) -> None:
     # if there is no controller, don't remove the current generated one
     # it allows people to start kodi at startup when having only bluetooth joysticks
     # or this allows people to plug the last used joystick

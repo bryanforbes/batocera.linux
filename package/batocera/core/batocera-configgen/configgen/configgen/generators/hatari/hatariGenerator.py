@@ -10,6 +10,8 @@ from ...batoceraPaths import BIOS, CONFIGS, mkdir_if_not_exists
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from ...controller import ControllerPlayerMapping
+    from ...Emulator import Emulator
     from ...types import HotkeysContext
 
 eslog = logging.getLogger(__name__)
@@ -94,7 +96,7 @@ class HatariGenerator(Generator):
         return Command.Command(array=commandArray)
 
     @staticmethod
-    def generateConfig(system, playersControllers):
+    def generateConfig(system: Emulator, playersControllers: ControllerPlayerMapping):
         config = configparser.ConfigParser(interpolation=None)
         # To prevent ConfigParser from converting to lower case
         config.optionxform = str
