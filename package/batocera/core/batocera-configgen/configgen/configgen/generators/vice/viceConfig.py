@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from pathlib import Path
 
     from ...Emulator import Emulator
-    from ...types import GunMapping
+    from ...gun import GunMapping
 
 
 def setViceConfig(vice_config_dir: Path, system: Emulator, metadata: Mapping[str, str], guns: GunMapping, rom: str) -> None:
@@ -55,7 +55,7 @@ def setViceConfig(vice_config_dir: Path, system: Emulator, metadata: Mapping[str
         viceConfig.set(systemCore, "SDLGLAspectMode",        "2")
         viceConfig.set(systemCore, "VICBorderMode",        "0")
     viceConfig.set(systemCore, "VICFullscreen",        "1")
-    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) >= 1:
+    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and guns:
         if "gun_type" in metadata and metadata["gun_type"] == "stack_light_rifle":
             viceConfig.set(systemCore, "JoyPort1Device",             "15")
         else:

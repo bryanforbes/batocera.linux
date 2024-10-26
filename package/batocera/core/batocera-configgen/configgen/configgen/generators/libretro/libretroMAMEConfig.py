@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 
     from ...controller import Controller, ControllerMapping
     from ...Emulator import Emulator
-    from ...types import GunMapping
+    from ...gun import GunMapping
 
 _logger = logging.getLogger(__name__)
 
@@ -713,7 +713,7 @@ def generateMAMEPadConfig(
             xml_input_alt.appendChild(xml_kbenable_alt)
 
     # Don't configure pads if guns are present and "use_guns" is on
-    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
+    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and guns:
         return
 
     # Fill in controls on cfg files

@@ -18,8 +18,9 @@ if TYPE_CHECKING:
     from collections.abc import Mapping
 
     from ...Emulator import Emulator
+    from ...gun import GunMapping
     from ...input import Input
-    from ...types import DeviceInfoMapping, GunMapping, HotkeysContext
+    from ...types import DeviceInfoMapping, HotkeysContext
 
 _logger = logging.getLogger(__name__)
 
@@ -501,7 +502,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
     ###
 
     # guns
-    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
+    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and guns:
         gun1onport2 = len(guns) == 1 and "gun_gun1port" in metadata and metadata["gun_gun1port"] == "2"
         pedalsKeys = {1: "c", 2: "v", 3: "b", 4: "n"}
 

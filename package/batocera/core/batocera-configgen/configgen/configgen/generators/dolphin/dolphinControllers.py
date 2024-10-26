@@ -14,7 +14,8 @@ if TYPE_CHECKING:
 
     from ...controller import Controller, ControllerMapping
     from ...Emulator import Emulator
-    from ...types import DeviceInfoMapping, GunMapping
+    from ...gun import GunMapping
+    from ...types import DeviceInfoMapping
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +23,7 @@ _logger = logging.getLogger(__name__)
 def generateControllerConfig(system: Emulator, playersControllers: ControllerMapping, metadata: Mapping[str, str], wheels: DeviceInfoMapping, rom: Path, guns: GunMapping) -> None:
 
     if system.name == "wii":
-        if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
+        if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and guns:
             generateControllerConfig_guns("WiimoteNew.ini", "Wiimote", metadata, guns)
             generateControllerConfig_gamecube(system, playersControllers, {}, rom)           # You can use the gamecube pads on the wii together with wiimotes
         elif (system.isOptSet('emulatedwiimotes') and system.getOptBoolean('emulatedwiimotes') == False):
@@ -329,7 +330,7 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
                 "right":   { "code": "BTN_8",      "button": "8"      }
             }
 
-            gundevname = guns[nplayer-1]["name"]
+            gundevname = guns[nplayer-1].name
 
             # Handle x pads having the same name
             nsamepad = 0
@@ -342,7 +343,7 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
             f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
             f.write("Device = evdev/" + str(nsamepad).strip() + "/" + gundevname.strip() + "\n")
 
-            buttons = guns[nplayer-1]["buttons"]
+            buttons = guns[nplayer-1].buttons
             _logger.debug("Gun : %s", buttons)
 
             # custom remapping

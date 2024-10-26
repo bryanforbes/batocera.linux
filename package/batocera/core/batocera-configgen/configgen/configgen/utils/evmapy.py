@@ -10,14 +10,13 @@ from typing import TYPE_CHECKING
 
 import evdev
 
-from ..controllersConfig import mouseButtonToCode
+from ..gun import Gun, GunMapping, gun_button_to_code
 
 if TYPE_CHECKING:
     from collections.abc import Mapping
     from types import TracebackType
 
     from ..controller import ControllerMapping
-    from ..types import Gun, GunMapping
 
 
 _logger = logging.getLogger(__name__)
@@ -126,16 +125,16 @@ class evmapy(AbstractContextManager[None, None]):
             ngun = 1
             for gun in self.guns:
                 if "actions_gun"+str(ngun) in padActionConfig:
-                    configfile = "/var/run/evmapy/{}.json" .format (os.path.basename(self.guns[gun]["node"]))
+                    configfile = f"/var/run/evmapy/{os.path.basename(self.guns[gun].node)}.json"
                     _logger.debug("config file for keysfile is %s (from %s) - gun", configfile, keysfile)
                     padConfig = {}
                     padConfig["buttons"] = []
                     padConfig["axes"] = []
                     padConfig["actions"] = []
-                    for button in self.guns[gun]["buttons"]:
+                    for button in self.guns[gun].buttons:
                         padConfig["buttons"].append({
                             "name": button,
-                            "code": mouseButtonToCode(button)
+                            "code": gun_button_to_code(button)
                         })
                     padConfig["grab"] = False
 
@@ -416,11 +415,11 @@ class evmapy(AbstractContextManager[None, None]):
     def __get_gun_trigger(self, trigger: str | list[str], gun: Gun, /) -> str | list[str] | None:
         if isinstance(trigger, list):
             for button in trigger:
-                if button not in gun["buttons"]:
+                if button not in gun.buttons:
                     return None
             return trigger
         else:
-            if trigger not in gun["buttons"]:
+            if trigger not in gun.buttons:
                 return None
             return trigger
 

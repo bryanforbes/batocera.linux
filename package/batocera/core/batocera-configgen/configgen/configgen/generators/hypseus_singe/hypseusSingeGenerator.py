@@ -9,9 +9,10 @@ from typing import TYPE_CHECKING, Final, cast
 
 import ffmpeg
 
-from ... import Command, controllersConfig
+from ... import Command
 from ...batoceraPaths import CONFIGS, ROMS, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
+from ...gun import guns_borders_size_name
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -251,7 +252,7 @@ class HypseusSingeGenerator(Generator):
             if system.isOptSet('singe_sprites') and system.getOptBoolean("singe_sprites"):
                 commandArray.append("-blend_sprites")
 
-            bordersSize = controllersConfig.gunsBordersSizeName(guns, system.config)
+            bordersSize = guns_borders_size_name(guns, system.config)
             if bordersSize is not None:
 
                 borderColor = "w"
