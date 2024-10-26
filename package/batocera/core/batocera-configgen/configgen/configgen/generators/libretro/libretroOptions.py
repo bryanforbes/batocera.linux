@@ -2957,14 +2957,14 @@ def _pcsx_rearmed_options(
         # gun cross
         # Crossbar Colors
         for player in [ {"id": 1, "color": "red"}, {"id": 2, "color": "blue"} ]:
-          if system.isOptSet('pcsx_rearmed_crosshair'+str(player["id"])):
-            coreSettings.save('pcsx_rearmed_crosshair'+str(player["id"]), '"' + system.config['pcsx_rearmed_crosshair'+str(player["id"])] + '"')
-          else:
-            if controllersConfig.gunsNeedCrosses(guns):
-                status = '"'+player["color"]+'"'
+            if system.isOptSet('pcsx_rearmed_crosshair'+str(player["id"])):
+                coreSettings.save('pcsx_rearmed_crosshair'+str(player["id"]), '"' + system.config['pcsx_rearmed_crosshair'+str(player["id"])] + '"')
             else:
-                status = '"disabled"'
-            coreSettings.save('pcsx_rearmed_crosshair'+str(player["id"]), status)
+                if controllersConfig.gunsNeedCrosses(guns):
+                    status = '"'+player["color"]+'"'
+                else:
+                    status = '"disabled"'
+                coreSettings.save('pcsx_rearmed_crosshair'+str(player["id"]), status)
 
 
 def _theodore_options(
