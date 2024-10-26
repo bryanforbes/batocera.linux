@@ -8,14 +8,17 @@ from ...utils.configparser import CaseSensitiveConfigParser
 from .libretroPaths import RETROARCH_CONFIG
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
     from pathlib import Path
 
     from ...Emulator import Emulator
     from ...settings.unixSettings import UnixSettings
     from ...types import DeviceInfoMapping, GunMapping
 
-def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping) -> None:
 
+def _cap32_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Amstrad CPC / GX4000
     if (system.config['core'] == 'cap32'):
         # Virtual Keyboard by default (select+start) change to (start+Y)
@@ -43,6 +46,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('cap32_lang_layout', '"english"')
 
+
+def _atari8000_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Atari 800 and 5200
     if (system.config['core'] == 'atari800'):
 
@@ -92,6 +99,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             else:
                 coreSettings.save('atari800_opt2', '"disabled"')
 
+
+def _virtualjaguar_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Atari Jaguar
     if (system.config['core'] == 'virtualjaguar'):
         # Fast Blitter (Older, Faster, Less compatible)
@@ -110,12 +121,20 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('virtualjaguar_doom_res_hack', '"disabled"')
 
+
+def _handy_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Atari Lynx
     if (system.config['core'] == 'handy'):
         # Display rotation
         # Set this option to start game at 'None' because it crash the emulator
         coreSettings.save('handy_rot', '"None"')
 
+
+def _commodore_64_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Commodore 64
     if (system.config['core'] == 'vice_x64') or (system.config['core'] == 'vice_x64sc') or (system.config['core'] == 'vice_xscpu64'):
 
@@ -215,6 +234,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('vice_physical_keyboard_pass_through', '"disabled"')
 
+
+def _commodore_128_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Commodore 128
     if (system.config['core'] == 'vice_x128'):
 
@@ -276,6 +299,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('vice_physical_keyboard_pass_through', '"disabled"')
 
+
+def _commodore_plus_4_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Commodore Plus/4
     if (system.config['core'] == 'vice_xplus4'):
 
@@ -335,6 +362,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('vice_physical_keyboard_pass_through', '"disabled"')
 
+
+def _commodore_vic_20_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Commodore VIC-20
     if (system.config['core'] == 'vice_xvic'):
 
@@ -394,6 +425,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('vice_physical_keyboard_pass_through', '"disabled"')
 
+
+def _commodore_pet_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Commodore PET
     if (system.config['core'] == 'vice_xpet'):
 
@@ -453,6 +488,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('vice_physical_keyboard_pass_through', '"disabled"')
 
+
+def _commodore_amiga_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Commodore AMIGA
     if (system.config['core'] == 'puae') or (system.config['core'] == 'puae2021'):
         # Functional mapping for Amiga system
@@ -632,6 +671,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             else:
                 coreSettings.save('puae_cd32pad_options', '"disabled"')
 
+
+def _dolphin_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Dolpin Wii
     if (system.config['core'] == 'dolphin'):
         # Wii System Languages
@@ -670,6 +713,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('dolphin_osd_enabled', '"enabled"')
 
+
+def _o2em_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Magnavox - Odyssey2 / Phillips Videopac+
     if (system.config['core'] == 'o2em'):
         # Virtual keyboard transparency
@@ -709,6 +756,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             coreSettings.save('o2em_low_pass_filter', '"disabled"')
             coreSettings.save('o2em_low_pass_range',  '"0"')
 
+
+def _mame_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # MAME/MESS/MAMEVirtual
     if (system.config['core'] in [ 'mame', 'mess', 'mamevirtual' ]):
         # Lightgun mode
@@ -740,6 +791,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('mame_mouse_enable', '"disabled"')
 
+
+def _same_cdi_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # SAME_CDI
     if (system.config['core'] == 'same_cdi'):
         # Lightgun mode
@@ -768,6 +823,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         # Activate mouse
         coreSettings.save('same_cdi_mouse_enable', '"enabled"')
 
+
+def _mame078plus_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # MAME 2003 Plus
     if (system.config['core'] == 'mame078plus'):
         # Skip Disclaimer and Warnings
@@ -814,8 +873,13 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
                 status = '"disabled"'
             coreSettings.save('mame2003-plus_crosshair_enabled', status)
 
-    # TODO: Add CORE options for MAME / iMame4all
 
+# TODO: Add CORE options for MAME / iMame4all
+
+
+def _vecx_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # MB Vectrex
     if (system.config['core'] == 'vecx'):
         # Res Multiplier
@@ -824,6 +888,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('vecx_res_multi', '"1"')
 
+
+def _dosbox_pure_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Microsoft DOS
     if (system.config['core'] == 'dosbox_pure'):
 
@@ -896,6 +964,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('dosbox_pure_midi', '"disabled"')
 
+
+def _bluemsx_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Microsoft MSX and Colecovision
     if (system.config['core'] == 'bluemsx'):
         # Auto Select Core
@@ -925,6 +997,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('bluemsx_overscan', '"MSX2"')
 
+
+def _pce_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nec PC Engine / CD
     if system.config['core'] == 'pce' or system.config['core'] == 'pce_fast':
         # Remove 16-sprites-per-scanline hardware limit
@@ -933,6 +1009,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('pce_nospritelimit', '"enabled"')
 
+
+def _quasi88_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nec PC-8800
     if system.config['core'] == 'quasi88':
         # PC Model
@@ -951,6 +1031,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('q88_pcg-8100', '"disabled"')
 
+
+def _np2kai_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nec PC-9800
     # https://github.com/AZO234/NP2kai/blob/6e8f651a72c2ece37cc52e17cdaf4fdb87a6b2f9/sdl/libretro/libretro_core_options.h
     if system.config['core'] == 'np2kai':
@@ -1014,6 +1098,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('np2kai_joymode', '"Arrows"')
 
+
+def _mednafen_supergrafx_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nec PC Engine SuperGrafx
     if (system.config['core'] == 'mednafen_supergrafx'):
         # Remove 16-sprites-per-scanline hardware limit
@@ -1022,6 +1110,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('sgx_nospritelimit', '"enabled"')
 
+
+def _pcfx_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nec PC-FX
     if (system.config['core'] == 'pcfx'):
         # Remove 16-sprites-per-scanline hardware limit
@@ -1030,6 +1122,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('pcfx_nospritelimit', '"enabled"')
 
+
+def _citra_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo 3DS
     # TODO: Add CORE Options for 3DS
     if (system.config['core'] == 'citra'):
@@ -1040,6 +1136,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             f.write("video_driver = \"glcore\"\n")
             f.close()
 
+
+def _mupen64plus_next_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo 64
     if (system.config['core'] == 'mupen64plus-next'):
         # Threaded Rendering
@@ -1179,6 +1279,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('mupen64plus-astick-sensitivity', '"100"')
 
+
+def _parallel_n64_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'parallel_n64'):
         coreSettings.save('parallel-n64-64dd-hardware', '"disabled"')
         coreSettings.save('parallel-n64-boot-device',   '"Default"')
@@ -1292,6 +1396,9 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             coreSettings.save('parallel-n64-boot-device',   '"64DD IPL"')
 
 
+def _desmume_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo DS
     if (system.config['core'] == 'desmume'):
         # Emulate Stylus on Right Stick
@@ -1327,6 +1434,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('desmume_screens_layout', '"top/bottom"')
 
+
+def _melonds_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'melonds'):
         # Console Mode
         if system.isOptSet('melonds_console_mode'):
@@ -1373,6 +1484,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('melonds_screen_layout',     '"Top/Bottom"')
 
+
+def _melondsds_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'melondsds'):
         # System Settings
         if system.isOptSet('melondsds_console_mode'):
@@ -1464,6 +1579,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('melonds_show_lid_state', '"disabled"')
 
+
+def _tgbdual_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo Gameboy (Dual Screen) / GB Color (Dual Screen)
     if (system.config['core'] == 'tgbdual'):
         # Emulates two Game Boy units
@@ -1477,6 +1596,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         # Switches the player screens
         coreSettings.save('tgbdual_switch_screens',   '"normal"')
 
+
+def _gambatte_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo Gameboy / GB Color / GB Advance
     if (system.config['core'] == 'gambatte'):
         # GB / GBC: Use official Bootlogo
@@ -1524,6 +1647,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
                 coreSettings.save('gambatte_gb_colorization',         '"internal"')      #It's an empty file, set to Classic Green
                 coreSettings.save('gambatte_gb_internal_palette',     '"Special 1"')
 
+
+def _mgba_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'mgba'):
         # Skip BIOS intro
         if system.isOptSet('skip_bios_mgba') and system.config['skip_bios_mgba'] == "True":
@@ -1572,6 +1699,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('mgba_gb_model', '"Autodetect"')
 
+
+def _vba_m_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'vba-m'):
         # GB / GBC / GBA: Auto select fine hardware mode
         # Emulator AUTO mode not working fine
@@ -1626,6 +1757,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             else:
                 coreSettings.save('vbam_tilt_sensitivity', '"10"')
 
+
+def _nestopia_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo NES / Famicom Disk System
     if (system.config['core'] == 'nestopia'):
         # gun
@@ -1692,6 +1827,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('nestopia_select_adapter', '"auto"')
 
+
+def _fceumm_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'fceumm'):
         # gun
         if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) >= 1:
@@ -1757,6 +1896,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('fceumm_overclocking', '"disabled"')
 
+
+def _mesen_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'mesen'):
         if system.isOptSet('mesen_region'):
             coreSettings.save('mesen_region', '"' + system.config['mesen_region'] + '"')
@@ -1813,6 +1956,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('mesen_overclock_type', '"Before NMI (Recommended)"')
 
+
+def _pokemini_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo Pokemon Mini
     if (system.config['core'] == 'pokemini'):
         # LCD Filter
@@ -1826,6 +1973,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('pokemini_lcdmode', '"analog"')
 
+
+def _snes9x_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo SNES
     if (system.config['core'] == 'snes9x'):
         # Reduce sprite flickering (Hack, Unsafe)
@@ -1871,6 +2022,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) >= 1:
             coreSettings.save('snes9x_superscope_reverse_buttons', '"disabled"')
 
+
+def _snes9x_next_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'snes9x_next'):
         # Reduce sprite flickering (Hack, Unsafe)
         if system.isOptSet('2010_reduce_sprite_flicker'):
@@ -1902,6 +2057,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
                 status = '"disabled"'
             coreSettings.save('snes9x_2010_superscope_crosshair', status)
 
+
+def _bsnes_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # TODO: Add CORE options for BSnes and PocketSNES
     if (system.config['core'] == 'bsnes'):
         if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) >= 1:
@@ -1912,6 +2071,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('bsnes_video_filter', '"disabled"')
 
+
+def _mesen_s_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo SNES/GB/GBC/SGB
     if (system.config['core'] == 'mesen-s'):
         # Force appropriate Game Boy mode for the system (unless overriden)
@@ -1961,6 +2124,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('mesen-s_superfx_overclock', '"100%"')
 
+
+def _vb_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Nintendo Virtual Boy
     if (system.config['core'] == 'vb'):
         # 2D Color Mode
@@ -1974,6 +2141,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('vb_anaglyph_preset', '"disabled"')
 
+
+def _opera_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Panasonic 3DO
     if (system.config['core'] == 'opera'):
         # Audio Process on separate CPU thread
@@ -2016,6 +2187,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('opera_nvram_storage', '"per game"')
 
+
+def _xrick_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Rick Dangerous
     if (system.config['core'] == 'xrick'):
         # Crop Borders
@@ -2039,6 +2214,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('xrick_cheat3', '"disabled"')
 
+
+def _scummvm_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # ScummVM CORE Options
     if (system.config['core'] == 'scummvm'):
         # Analog Deadzone
@@ -2057,6 +2236,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('scummvm_speed_hack', '"enabled"')
 
+
+def _flycast_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sega Dreamcast / Atomiswave / Naomi
     if (system.config['core'] == 'flycast'):
         # force vmu all, to save in saves (otherwise, it saves in game_dir, which is bios)
@@ -2174,6 +2357,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('reicast_analog_stick_deadzone', '"15%"') # default value
 
+
+def _genesisplusgx_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sega SG1000 / Master System / Game Gear / Megadrive / Mega CD
     if (system.config['core'] == 'genesisplusgx'):
         # Allows each game to have its own one brm file for save without lack of space
@@ -2256,6 +2443,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) >= 1:
             coreSettings.save('genesis_plus_gx_gun_input', '"lightgun"')
 
+
+def _picodrive_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sega 32X (Sega Megadrive / MegaCD / Master System)
     if system.config['core'] == 'picodrive':
         # Reduce sprite flickering
@@ -2286,6 +2477,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('picodrive_ramcart', '"disabled"')
 
+
+def _yabasanshiro_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sega Saturn
     if (system.config['core'] == 'yabasanshiro'):
         # Video Resolution
@@ -2313,6 +2508,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('yabasanshiro_system_language', '"english"')
 
+
+def _kronos_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'kronos'):
         # Set best OpenGL renderer
         coreSettings.save('kronos_videocoretype', '"opengl_cs"')
@@ -2356,6 +2555,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('kronos_language_id', '"English"')
 
+
+def _beetle_saturn_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # gun cross / wheel
     if (system.config['core'] == 'beetle-saturn'):
         # gun
@@ -2373,6 +2576,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('beetle_saturn_analog_stick_deadzone', '"15%"') # default value
 
+
+def _px68k_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sharp X68000
     if (system.config['core'] == 'px68k'):
         # Fresh config file
@@ -2411,6 +2618,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             coreSettings.save('px68k_joytype1', '"Default (2 Buttons)"')
             coreSettings.save('px68k_joytype2', '"Default (2 Buttons)"')
 
+
+def _81_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sinclair ZX81
     if (system.config['core'] == '81'):
         # Tape Fast Load
@@ -2434,6 +2645,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('81_highres', '"WRX"')
 
+
+def _fuse_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sinclair ZX Spectrum
     if (system.config['core'] == 'fuse'):
         if system.isOptSet('fuse_machine'):
@@ -2447,6 +2662,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('fuse_hide_border', '"disabled"')
 
+
+def _fbneo_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # SNK Neogeo AES MVS / Neogeo CD
     if (system.config['core'] == 'fbneo'):
         # Diagnostic input
@@ -2503,6 +2722,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             else:
                 coreSettings.save('fbneo-memcard-mode', '"per-game"')
 
+
+def _neocd_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # SNK Neogeo CD
     if (system.config['core'] == 'neocd'):
         # Console region
@@ -2521,6 +2744,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('neocd_per_content_saves', '"On"')
 
+
+def _ppsspp_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sony PSP
     if (system.config['core'] == 'ppsspp'):
         if system.isOptSet('ppsspp_resolution'):
@@ -2528,6 +2755,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('ppsspp_internal_resolution', '"480x272"')
 
+
+def _mednafen_psx_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Sony PSX
     if (system.config['core'] == 'mednafen_psx'):
         # CPU Frequency Scaling (Overclock)
@@ -2582,6 +2813,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             coreSettings.save('beetle_psx_hw_enable_multitap_port1', '"disabled"')
             coreSettings.save('beetle_psx_hw_enable_multitap_port2', '"disabled"')
 
+
+def _duckstation_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'swanstation' or system.config['core'] == 'duckstation'):
         # renderer
         if system.isOptSet("gpu_software") and system.getOptBoolean("gpu_software"):
@@ -2629,7 +2864,7 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('swanstation_GPU_WidescreenHack',  '"false"')
             coreSettings.save('swanstation_Display_AspectRatio', '"4:3"')
-         # Crop Mode
+            # Crop Mode
         if system.isOptSet('swanstation_CropMode'):
             coreSettings.save('swanstation_Display_CropMode', '"' + system.config['swanstation_CropMode'] + '"')
         else:
@@ -2644,6 +2879,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
                 status = '"false"'
             coreSettings.save('swanstation_Controller_ShowCrosshair', status)
 
+
+def _pcsx2_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'pcsx2'):
         # Fast Boot
         if system.isOptSet('lr_pcsx2_fast_boot'):
@@ -2651,6 +2890,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('pcsx2_fast_boot', '"disabled"')
 
+
+def _pcsx_rearmed_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     if (system.config['core'] == 'pcsx_rearmed'):
         # Display Games Hack Options
         coreSettings.save('pcsx_rearmed_show_gpu_peops_settings', '"enabled"')
@@ -2723,11 +2966,19 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
                 status = '"disabled"'
             coreSettings.save('pcsx_rearmed_crosshair'+str(player["id"]), status)
 
+
+def _theodore_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Thomson MO5 / TO7
     if (system.config['core'] == 'theodore'):
         # Auto run games
         coreSettings.save('theodore_autorun',   '"enabled"')
 
+
+def _potator_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # Watara SuperVision
     if (system.config['core'] == 'potator'):
         # Watara Color Palette
@@ -2741,8 +2992,13 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('potator_lcd_ghosting', '0')
 
-    ## PORTs
 
+## PORTs
+
+
+def _prboom_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # DOOM
     if (system.config['core'] == 'prboom'):
         # Internal resolution
@@ -2751,6 +3007,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('prboom-resolution', '"320x200"')
 
+
+def _tyrquake_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # QUAKE
     if (system.config['core'] == 'tyrquake'):
         # Resolution
@@ -2769,6 +3029,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('tyrquake_rumble', '"disabled"')
 
+
+def _mrboom_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # BOMBERMAN
     if (system.config['core'] == 'mrboom'):
         # Team mode
@@ -2777,6 +3041,10 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
         else:
             coreSettings.save('mrboom-aspect', '"Native"')
 
+
+def _hatarib_options(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
     # HatariB
     if (system.config['core'] == 'hatarib'):
         # Defaults
@@ -2840,7 +3108,7 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
                 coreSettings.save('hatarib_hardtype', '"3"')
             else:
                 coreSettings.save('hatarib_hardtype', '"4"')
-        elif rom_extension == '.gemdos':
+        elif rom.suffix.lower() == '.gemdos':
             coreSettings.save('hatarib_hardimg', '"hatarib/hdd"')
             coreSettings.save('hatarib_hardboot', '"1"')
             coreSettings.save('hatarib_hardtype', '"0"')
@@ -2851,10 +3119,96 @@ def generateCoreSettings(coreSettings: UnixSettings, system: Emulator, rom: Path
             coreSettings.save('hatarib_hardboot', '"0"')
             coreSettings.save('hatarib_hard_readonly', '"1"')
 
+
+_option_functions: dict[str, Callable[[UnixSettings, Emulator, Path, GunMapping, DeviceInfoMapping], None]] = {
+    'cap32': _cap32_options,
+    'atari8000': _atari8000_options,
+    'virtualjaguar': _virtualjaguar_options,
+    'handy': _handy_options,
+    'vice_x64': _commodore_64_options,
+    'vice_x64sc': _commodore_64_options,
+    'vice_xscpu64': _commodore_64_options,
+    'vice_x128': _commodore_128_options,
+    'vice_xplus4': _commodore_plus_4_options,
+    'vice_xvic': _commodore_vic_20_options,
+    'vice_xpet': _commodore_pet_options,
+    'puae': _commodore_amiga_options,
+    'puae2021': _commodore_amiga_options,
+    'dolphin': _dolphin_options,
+    'o2em': _o2em_options,
+    'mame': _mame_options,
+    'mess': _mame_options,
+    'mamevirtual': _mame_options,
+    'same_cdi': _same_cdi_options,
+    'mame078plus': _mame078plus_options,
+    'vecx': _vecx_options,
+    'dosbox_pure': _dosbox_pure_options,
+    'bluemsx': _bluemsx_options,
+    'pce': _pce_options,
+    'pce_fast': _pce_options,
+    'quasi88': _quasi88_options,
+    'np2kai': _np2kai_options,
+    'mednafen_supergrafx': _mednafen_supergrafx_options,
+    'pcfx': _pcfx_options,
+    'citra': _citra_options,
+    'mupen64plus-next': _mupen64plus_next_options,
+    'parallel_n64': _parallel_n64_options,
+    'desmume': _desmume_options,
+    'melonds': _melonds_options,
+    'melondsds': _melondsds_options,
+    'tgbdual': _tgbdual_options,
+    'gambatte': _gambatte_options,
+    'mgba': _mgba_options,
+    'vba-m': _vba_m_options,
+    'nestopia': _nestopia_options,
+    'fceumm': _fceumm_options,
+    'mesen': _mesen_options,
+    'pokemini': _pokemini_options,
+    'snes9x': _snes9x_options,
+    'snes9x_next': _snes9x_next_options,
+    'bsnes': _bsnes_options,
+    'mesen-s': _mesen_s_options,
+    'vb': _vb_options,
+    'opera': _opera_options,
+    'xrick': _xrick_options,
+    'scummvm': _scummvm_options,
+    'flycast': _flycast_options,
+    'genesisplusgx': _genesisplusgx_options,
+    'picodrive': _picodrive_options,
+    'yabasanshiro': _yabasanshiro_options,
+    'kronos': _kronos_options,
+    'beetle-saturn': _beetle_saturn_options,
+    'px68k': _px68k_options,
+    '81': _81_options,
+    'fuse': _fuse_options,
+    'fbneo': _fbneo_options,
+    'neocd': _neocd_options,
+    'ppsspp': _ppsspp_options,
+    'mednafen_psx': _mednafen_psx_options,
+    'swanstation': _duckstation_options,
+    'duckstation': _duckstation_options,
+    'pcsx2': _pcsx2_options,
+    'pcsx_rearmed': _pcsx_rearmed_options,
+    'theodore': _theodore_options,
+    'potator': _potator_options,
+    'prboom': _prboom_options,
+    'tyrquake': _tyrquake_options,
+    'mrboom': _mrboom_options,
+    'hatarib': _hatarib_options,
+}
+
+
+def generateCoreSettings(
+    coreSettings: UnixSettings, system: Emulator, rom: Path, guns: GunMapping, wheels: DeviceInfoMapping, /,
+) -> None:
+    set_options = _option_functions.get(system.config['core'])
+    if set_options is not None:
+        set_options(coreSettings, system, rom, guns, wheels)
+
     # Custom : Allow the user to configure directly retroarchcore.cfg via batocera.conf via lines like : snes.retroarchcore.opt=val
-    for user_config in system.config:
-        if user_config[:14] == "retroarchcore.":
-            coreSettings.save(user_config[14:], '"' + system.config[user_config] + '"')
+    for user_config, value in system.config.items():
+        if user_config.startswith("retroarchcore."):
+            coreSettings.save(user_config[14:], f'"{value}"')
 
 def generateHatariConf(hatariConf: Path) -> None:
     hatariConfig = CaseSensitiveConfigParser(interpolation=None)
