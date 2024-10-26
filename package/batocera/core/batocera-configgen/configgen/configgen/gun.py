@@ -2,11 +2,18 @@ from __future__ import annotations
 
 import logging
 import re
+import shutil
 from collections.abc import Mapping
 from dataclasses import dataclass
-from typing import Final, cast
+from pathlib import Path
+from typing import TYPE_CHECKING, Final, cast
 
 import evdev
+
+from .batoceraPaths import BATOCERA_SHARE_DIR, CONFIGS, SAVES, mkdir_if_not_exists
+
+if TYPE_CHECKING:
+    from .Emulator import Emulator
 
 _input_re = re.compile(r"^/dev/input/event([0-9]*)$")
 _logger = logging.getLogger(__name__)
@@ -27,11 +34,29 @@ _mouse_code_to_button: Final = {
 
 _mouse_button_to_code: Final = {button: code for code, button in _mouse_code_to_button.items()}
 
+_PRECALIBRATION_DIR: Final = BATOCERA_SHARE_DIR / "guns-precalibrations"
+
 def _get_mouse_buttons(device: evdev.InputDevice) -> list[str]:
     caps_keys = device.capabilities()[evdev.ecodes.EV_KEY]
     mouse_caps = set(caps_keys) & set(_mouse_code_to_button.keys())
 
     return [button for cap, button in _mouse_code_to_button.values() if cap in mouse_caps]
+
+
+def _copy_file(src: Path, dst: Path) -> None:
+    if src.exists() and not dst.exists():
+        mkdir_if_not_exists(dst.parent)
+        shutil.copyfile(src, dst)
+
+def _copy_dir(src: Path, dst: Path) -> None:
+    if src.exists() and not dst.exists():
+        mkdir_if_not_exists(dst.parent)
+        shutil.copytree(src, dst)
+
+def _copy_fils_in_dir(srcdir: Path, dstdir: Path, starts_with: str, ends_with: str) -> None:
+    for src in srcdir.iterdir():
+        if src.name.startswith(starts_with): # and src.endswith(ends_with):
+            _copy_file(src, dstdir / src.name)
 
 
 @dataclass(slots=True, kw_only=True)
@@ -82,6 +107,66 @@ class Gun:
             _logger.info("no guns found")
 
         return guns
+
+    @classmethod
+    def get_and_precalibrate_all(cls, system_name: str, system: Emulator, rom: str | Path, /) -> GunDict:
+        if not system.isOptSet('use_guns') or not system.getOptBoolean('use_guns'):
+            _logger.info("guns disabled.")
+            return {}
+
+        dir = _PRECALIBRATION_DIR / system_name
+
+        if dir.exists():
+            emulator = cast('str', system.config['emulator'])
+            core = cast('str | None', system.config.get('core'))
+            rom = Path(rom)
+
+            if system_name == "atomiswave":
+                for suffix in ["nvmem", "nvmem2"]:
+                    src = dir / "reicast" / f"{rom.name}.{suffix}"
+                    dst = SAVES / "atomiswave" / "reicast" / f"{rom.name}.{suffix}"
+                    _copy_file(src, dst)
+
+            elif system_name == "mame":
+                target_dir: str | None = None
+                if emulator == "mame":
+                    target_dir = "mame"
+                elif emulator == "libretro":
+                    if core == "mame078plus":
+                        target_dir = "mame/mame2003-plus"
+                    elif core == "mame":
+                        target_dir = "mame/mame"
+
+                if target_dir is not None:
+                    src = dir / "nvram" / rom.stem
+                    dst = SAVES / target_dir / "nvram" / rom.stem
+                    _copy_dir(src, dst)
+                    srcdir = dir / "diff"
+                    dstdir = SAVES / target_dir / "diff"
+                    _copy_fils_in_dir(srcdir, dstdir, rom.stem + "_", ".dif")
+
+            elif system_name == "model2":
+                src = dir / "NVDATA" / f"{rom.name}.DAT"
+                dst = SAVES / "model2" / "NVDATA" / f"{rom.name}.DAT"
+                _copy_file(src, dst)
+
+            elif system_name == "naomi":
+                for suffix in ["nvmem", "eeprom"]:
+                    src = dir / "reicast" / f"{rom.name}.{suffix}"
+                    dst = SAVES / "naomi" / "reicast" / f"{rom.name}.{suffix}"
+                    _copy_file(src, dst)
+
+            elif system_name == "supermodel":
+                src = dir / "NVDATA" / f"{rom.stem}.nv"
+                dst = SAVES / "supermodel" / "NVDATA" / f"{rom.stem}.nv"
+                _copy_file(src, dst)
+
+            elif system_name == "namco2x6" and emulator == "play":
+                src = dir / "play" / rom.stem
+                dst = CONFIGS / "play" / "Play Data Files" / "arcadesaves" / f"{rom.stem}.backupram"
+                _copy_file(src, dst)
+
+        return cls.get_all()
 
 
 def gun_button_to_code(button: str) -> int | None:
