@@ -8,9 +8,10 @@ import stat
 from pathlib import Path, PureWindowsPath
 from typing import TYPE_CHECKING, Final
 
-from ... import Command, controllersConfig
+from ... import Command
 from ...batoceraPaths import HOME, ROMS, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
+from ...gun import guns_borders_size_name
 from ...utils import wine
 from ...utils.configparser import CaseSensitiveConfigParser
 from ..Generator import Generator
@@ -112,9 +113,9 @@ class Model2EmuGenerator(Generator):
         if rom in known_gun_roms:
             if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
                 for gun in guns:
-                    if guns[gun]["need_borders"]:
+                    if guns[gun].need_borders:
                         if lua_file_path.exists():
-                            bordersSize = controllersConfig.gunsBordersSizeName(guns, system.config)
+                            bordersSize = guns_borders_size_name(guns, system.config)
                             # add more intelligence for lower resolution screens to avoid massive borders
                             if bordersSize == "thin":
                                 thickness = "1"
@@ -176,7 +177,7 @@ class Model2EmuGenerator(Generator):
             Config.set("Renderer","DrawCross", format(system.config["model2_crossHairs"]))
         else:
             for gun in guns:
-                if guns[gun]["need_cross"]:
+                if guns[gun].need_cross:
                     Config.set("Renderer","DrawCross", "1")
                 else:
                     Config.set("Renderer","DrawCross", "0")
