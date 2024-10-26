@@ -12,7 +12,7 @@ from xml.dom import minidom
 
 from PIL import Image
 
-from ... import Command, controllersConfig
+from ... import Command
 from ...batoceraPaths import (
     BATOCERA_SHARE_DIR,
     BIOS,
@@ -24,6 +24,7 @@ from ...batoceraPaths import (
     USER_DECORATIONS,
     mkdir_if_not_exists,
 )
+from ...gun import guns_border_ratio_type, guns_borders_size_name
 from ...utils import bezels as bezelsUtil, videoMode as videoMode
 from ..Generator import Generator
 from . import mameControllers
@@ -558,11 +559,11 @@ class MameGenerator(Generator):
             bezelSet = None
         try:
             if messMode != -1:
-                MameGenerator.writeBezelConfig(bezelSet, system, rom_path, messSysName[messMode], gameResolution, controllersConfig.gunsBordersSizeName(guns, system.config), controllersConfig.gunsBorderRatioType(guns, system.config))
+                MameGenerator.writeBezelConfig(bezelSet, system, rom_path, messSysName[messMode], gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
             else:
-                MameGenerator.writeBezelConfig(bezelSet, system, rom_path, "", gameResolution, controllersConfig.gunsBordersSizeName(guns, system.config), controllersConfig.gunsBorderRatioType(guns, system.config))
+                MameGenerator.writeBezelConfig(bezelSet, system, rom_path, "", gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
         except:
-            MameGenerator.writeBezelConfig(None, system, rom_path, "", gameResolution, controllersConfig.gunsBordersSizeName(guns, system.config), controllersConfig.gunsBorderRatioType(guns, system.config))
+            MameGenerator.writeBezelConfig(None, system, rom_path, "", gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
 
         buttonLayout = getMameControlScheme(system, rom_path)
 

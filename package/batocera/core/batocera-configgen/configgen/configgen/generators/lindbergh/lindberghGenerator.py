@@ -14,7 +14,9 @@ from typing import TYPE_CHECKING, Any, Final
 import requests
 from evdev import ecodes
 
-from ... import Command, controllersConfig
+from configgen.gun import guns_borders_size_name
+
+from ... import Command
 from ...batoceraPaths import SAVES, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config, get_mapping_axis_relaxed_values
 from ...utils import bezels as bezelsUtil, hotkeygen
@@ -305,7 +307,7 @@ class LindberghGenerator(Generator):
                 if guns[gun]["need_borders"]:
                     need_guns_border = True
             if need_guns_border:
-                bordersSize = controllersConfig.gunsBordersSizeName(guns, system.config)
+                bordersSize = guns_borders_size_name(guns, system.config)
                 bordersInnerSize, bordersOuterSize = bezelsUtil.gunBordersSize(bordersSize)
                 self.setConf(conf, "WHITE_BORDER_PERCENTAGE", bordersInnerSize)
                 self.setConf(conf, "BLACK_BORDER_PERCENTAGE", bordersOuterSize)
