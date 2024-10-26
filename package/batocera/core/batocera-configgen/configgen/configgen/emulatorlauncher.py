@@ -36,8 +36,8 @@ from .batoceraPaths import SAVES, SYSTEM_SCRIPTS, USER_SCRIPTS
 from .controller import Controller
 from .Emulator import Emulator
 from .generators import get_generator
-from .gun import Gun, GunDict, guns_border_ratio_type, guns_borders_size_name
-from .utils import bezels as bezelsUtil, gunsUtils, videoMode, wheelsUtils
+from .gun import Gun, guns_border_ratio_type, guns_borders_size_name
+from .utils import bezels as bezelsUtil, videoMode, wheelsUtils
 from .utils.hotkeygen import set_hotkeygen_context
 from .utils.logger import setup_logging
 from .utils.squashfs import squashfs_rom
@@ -94,12 +94,8 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: str, romConfigur
     # force use_guns in case es tells it has a gun
     if not system.isOptSet('use_guns') and args.lightgun:
         system.config["use_guns"] = True
-    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns'):
-        guns = Gun.get_all()
-        gunsUtils.precalibration(systemName, system.config['emulator'], system.config.get("core"), rom)
-    else:
-        _logger.info("guns disabled.")
-        guns: GunDict = {}
+
+    guns = Gun.get_and_precalibrate_all(systemName, system, rom)
 
     # search wheels in case use_wheels is enabled for this game
     # force use_wheels in case es tells it has a wheel
