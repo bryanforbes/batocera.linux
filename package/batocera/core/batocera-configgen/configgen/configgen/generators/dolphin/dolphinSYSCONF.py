@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from ...types import Resolution
 
 
-eslog = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 def readBEInt16(f):
     bytes = f.read(2)
@@ -86,7 +86,7 @@ def readWriteEntry(f, setval):
             raise Exception(f"unknown type {itemType}")
 
     if not setval or itemName in setval:
-        eslog.debug(f'{itemName:12s} = {itemValue}')
+        _logger.debug('%12s = %s', itemName, itemValue)
 
 def readWriteFile(filepath: Path, setval):
     # open in read read/write depending of the action
