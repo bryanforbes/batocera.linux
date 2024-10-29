@@ -219,7 +219,7 @@ class MameGenerator(Generator):
             commandArray += [ "-modesetting" ]
             commandArray += [ "-readconfig" ]
         else:
-            commandArray += [ "-resolution", "{}x{}".format(gameResolution["width"], gameResolution["height"]) ]
+            commandArray += [ "-resolution", f"{gameResolution['width']}x{gameResolution['height']}" ]
 
         # Refresh rate options to help with screen tearing
         # syncrefresh is unlisted, it requires specific display timings and 99.9% of users will get unplayable games.
@@ -520,9 +520,9 @@ class MameGenerator(Generator):
                     if (system.isOptSet('altromtype') and system.config["altromtype"] == "flop1") or (softList != "" and softList.endswith("flop")) or romExt.casefold() == ".dsk":
                         romType = 'flop'
                         if romName.casefold().endswith(".bas"):
-                            autoRunCmd = 'RUN \"{}\"\\n'.format(romName)
+                            autoRunCmd = f'RUN "{romName}"\\n'
                         else:
-                            autoRunCmd = 'LOADM \"{}\":EXEC\\n'.format(romName)
+                            autoRunCmd = f'LOADM "{romName}":EXEC\\n'
 
                 # check for a user override
                 autoRunFile = MAME_CONFIG / 'autoload' / f'{system.name}_{romType}_autoload.csv'

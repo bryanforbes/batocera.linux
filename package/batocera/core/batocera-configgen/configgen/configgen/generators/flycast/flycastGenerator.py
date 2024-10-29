@@ -55,7 +55,7 @@ class FlycastGenerator(Generator):
             Config.set("input", 'device' + str(controller.player_number), "0") # Sega Controller
             Config.set("input", 'device' + str(controller.player_number) + '.1', "1") # Sega VMU
             # Set controller pack, gui option
-            ctrlpackconfig = "flycast_ctrl{}_pack".format(controller.player_number)
+            ctrlpackconfig = f"flycast_ctrl{controller.player_number}_pack"
             if system.isOptSet(ctrlpackconfig):
                 Config.set("input", 'device' + str(controller.player_number) + '.2', str(system.config[ctrlpackconfig]))
             else:

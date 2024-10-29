@@ -387,9 +387,9 @@ class DuckstationGenerator(Generator):
                     settings.set("ControllerPorts", "MultitapMode", "Port1Only")
                     if nplayer > 4:
                         settings.set("ControllerPorts", "MultitapMode", "BothPorts")
-                pad_num = "Pad{}".format(nplayer)
-                gun_num = "Pointer-{}".format(pad.index)
-                sdl_num = "SDL-{}".format(pad.index)
+                pad_num = f"Pad{nplayer}"
+                gun_num = f"Pointer-{pad.index}"
+                sdl_num = f"SDL-{pad.index}"
                 ctrl_num = "Controller" + str(nplayer)
                 # SDL2 configs are always the same for controllers
                 if system.isOptSet("duckstation_" + ctrl_num):
@@ -455,7 +455,7 @@ class DuckstationGenerator(Generator):
                     ### find a keyboard key to simulate the action of the player (always like button 2) ; search in batocera.conf, else default config
                     pedalsKeys = {1: "c", 2: "v", 3: "b", 4: "n"}
                     pedalkey = None
-                    pedalcname = "controllers.pedals{}".format(nplayer)
+                    pedalcname = f"controllers.pedals{nplayer}"
                     if pedalcname in system.config:
                         pedalkey = system.config[pedalcname]
                     else:
