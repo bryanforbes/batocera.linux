@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 import logging
-import os
-
 from pathlib import Path
 from typing import TYPE_CHECKING, Final
 
@@ -14,7 +12,7 @@ from ..Generator import Generator
 if TYPE_CHECKING:
     from ...types import HotkeysContext
 
-eslog = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 # libretro generator uses this, so it needs to be public
 HATARI_CONFIG: Final = CONFIGS / "hatari"
@@ -198,10 +196,10 @@ class HatariGenerator(Generator):
                     else:
                         biosversion = f"tos{v_tos_version}"
                     filename = f"{biosversion}{v_language}.img"
-                    if os.path.exists(f"{biosdir}/{filename}"):
-                        eslog.debug(f"tos filename: {filename}")
+                    if (biosdir / filename).exists():
+                        _logger.debug("tos filename %s:", filename)
                         return filename
                     else:
-                        eslog.warning(f"tos filename {filename} not found")
+                        _logger.warning("tos filename %s not found", filename)
 
         raise Exception(f"no bios found for machine {machine}")

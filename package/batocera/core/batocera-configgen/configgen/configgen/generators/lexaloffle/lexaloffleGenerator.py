@@ -13,7 +13,7 @@ from ..Generator import Generator
 if TYPE_CHECKING:
     from ...types import HotkeysContext
 
-eslog = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 PICO8_BIN_PATH: Final = BIOS / "pico-8" / "pico8"
 PICO8_ROOT_PATH: Final = ROMS / "pico8"
@@ -44,13 +44,13 @@ class LexaloffleGenerator(Generator):
             CONTROLLERS=VOX_CONTROLLERS
             ROOT_PATH=VOX_ROOT_PATH
         else:
-            eslog.error(f"The Lexaloffle generator has been called for an unknwon system: {system.name}.")
+            _logger.error("The Lexaloffle generator has been called for an unknwon system: %s.", system.name)
             return -1
         if not BIN_PATH.exists():
-            eslog.error(f"Lexaloffle official binary not found at {BIN_PATH}")
+            _logger.error("Lexaloffle official binary not found at %s", BIN_PATH)
             return -1
         if not os.access(BIN_PATH, os.X_OK):
-            eslog.error(f"File {BIN_PATH} is not set as executable")
+            _logger.error("File %s is not set as executable", BIN_PATH)
             return -1
 
         # the command to run
