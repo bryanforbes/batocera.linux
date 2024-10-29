@@ -400,7 +400,7 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
             }
             for spe in specifics:
                 if "gun_"+spe in metadata:
-                    f.write("{} = {}\n".format(specifics[spe], metadata["gun_"+spe]))
+                    f.write(f"{specifics[spe]} = {metadata['gun_'+spe]}\n")
         nplayer += 1
     f.write
     f.close()

@@ -54,20 +54,20 @@ class evmapy(AbstractContextManager[None, None]):
         # consider files here in this order to get a configuration
         filesToMerge = []
         for keysfile in [
-                "{}.keys" .format (self.rom),
-                "{}/padto.keys" .format (self.rom), # case when the rom is a directory
+                f"{self.rom}.keys" ,
+                f"{self.rom}/padto.keys" , # case when the rom is a directory
                 #"/userdata/system/configs/evmapy/{}.{}.{}.keys" .format (self.system, self.emulator, self.core),
                 #"/userdata/system/configs/evmapy/{}.{}.keys" .format (self.system, self.emulator),
-                "/userdata/system/configs/evmapy/{}.keys" .format (self.system),
-                "/userdata/system/configs/evmapy/{}.keys" .format (self.emulator),
+                f"/userdata/system/configs/evmapy/{self.system}.keys" ,
+                f"/userdata/system/configs/evmapy/{self.emulator}.keys" ,
                 "/userdata/system/configs/evmapy/any.keys",
                 #"/usr/share/evmapy/{}.{}.{}.keys" .format (self.system, self.emulator, self.core),
-                "/usr/share/evmapy/{}.{}.keys" .format (self.system, self.emulator),
-                "/usr/share/evmapy/{}.keys" .format (self.system),
-                "/usr/share/evmapy/{}.keys" .format (self.emulator),
+                f"/usr/share/evmapy/{self.system}.{self.emulator}.keys" ,
+                f"/usr/share/evmapy/{self.system}.keys" ,
+                f"/usr/share/evmapy/{self.emulator}.keys" ,
                 "/usr/share/evmapy/any.keys",
         ]:
-            if os.path.exists(keysfile) and not (os.path.isdir(self.rom) and keysfile == "{}.keys" .format (self.rom)): # "{}.keys" .format (rom) is forbidden for directories, it must be inside
+            if os.path.exists(keysfile) and not (os.path.isdir(self.rom) and keysfile == f"{self.rom}.keys" ): # "{}.keys" .format (rom) is forbidden for directories, it must be inside
                 _logger.debug("evmapy file to merge : %s", keysfile)
                 filesToMerge.append(keysfile)
 
@@ -156,7 +156,7 @@ class evmapy(AbstractContextManager[None, None]):
             nplayer = 1
             for playercontroller, pad in sorted(self.controllers.items()):
                 if "actions_player"+str(nplayer) in padActionConfig:
-                    configfile = "/var/run/evmapy/{}.json" .format (os.path.basename(pad.device_path))
+                    configfile = f"/var/run/evmapy/{os.path.basename(pad.device_path)}.json" 
                     _logger.debug("config file for keysfile is %s (from %s)", configfile, keysfile)
 
                     # create mapping

@@ -232,7 +232,7 @@ def setHotKeyConfig(iniConfig: CaseSensitiveConfigParser, controllers: Controlle
     if (controller := controllers.get(1)) is not None:
         if 'hotkey' in controller.inputs:
             if 'start' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Stop", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['start'])))
+                iniConfig.set("CoreEvents", "Joy Mapping Stop", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["start"])}"')
             if system.isOptSet("mupen64-controller1") and system.config["mupen64-controller1"] == "n64limited":
                 if 'y' in controller.inputs:
                     iniConfig.set("CoreEvents", "Joy Mapping Save State", "")
@@ -251,19 +251,19 @@ def setHotKeyConfig(iniConfig: CaseSensitiveConfigParser, controllers: Controlle
                 return
 
             if 'y' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Save State", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['y'])))
+                iniConfig.set("CoreEvents", "Joy Mapping Save State", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["y"])}"')
             if 'x' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Load State", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['x'])))
+                iniConfig.set("CoreEvents", "Joy Mapping Load State", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["x"])}"')
             if 'pageup' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Screenshot", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['pageup'])))
+                iniConfig.set("CoreEvents", "Joy Mapping Screenshot", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["pageup"])}"')
             if 'up' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Increment Slot", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['up'])))
+                iniConfig.set("CoreEvents", "Joy Mapping Increment Slot", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["up"])}"')
             if 'right' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Fast Forward", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['right'])))
+                iniConfig.set("CoreEvents", "Joy Mapping Fast Forward", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["right"])}"')
             if 'a' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Reset", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['a'])))
+                iniConfig.set("CoreEvents", "Joy Mapping Reset", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["a"])}"')
             if 'b' in controller.inputs:
-                #iniConfig.set("CoreEvents", "Joy Mapping Pause", "\"J{}{}/{}\"".format(controller.index, createButtonCode(controller.inputs['hotkey']), createButtonCode(controller.inputs['b'])))
+                # iniConfig.set("CoreEvents", "Joy Mapping Pause", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["b"])}"')
                 iniConfig.set("CoreEvents", "Joy Mapping Pause", "")
 
 

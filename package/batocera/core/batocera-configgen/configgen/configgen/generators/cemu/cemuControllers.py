@@ -270,7 +270,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         # Create controller configuration
         controllerNode = ET.SubElement(root, 'controller')
         addTextElement(controllerNode, 'api', api)
-        addTextElement(controllerNode, 'uuid', "{}_{}".format(guid_n[pad.index], pad.guid)) # controller guid
+        addTextElement(controllerNode, 'uuid', f"{guid_n[pad.index]}_{pad.guid}") # controller guid
         addTextElement(controllerNode, 'display_name', pad.real_name) # controller name
         addTextElement(controllerNode, 'rumble', getOption('cemu_rumble', '0')) # % chosen
         addAnalogControl(controllerNode, 'axis')

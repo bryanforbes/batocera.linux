@@ -52,13 +52,13 @@ class SupermodelGenerator(Generator):
 
         # crosshairs
         if system.isOptSet("crosshairs"):
-            commandArray.append("-crosshairs={}".format(system.config["crosshairs"]))
+            commandArray.append(f"-crosshairs={system.config['crosshairs']}")
         else:
             if controllersConfig.gunsNeedCrosses(guns):
                 if len(guns) == 1:
-                    commandArray.append("-crosshairs={}".format("1"))
+                    commandArray.append("-crosshairs=1")
                 else:
-                    commandArray.append("-crosshairs={}".format("3"))
+                    commandArray.append("-crosshairs=3")
 
         # force feedback
         if system.isOptSet("forceFeedback") and system.getOptBoolean("forceFeedback"):
@@ -66,15 +66,15 @@ class SupermodelGenerator(Generator):
 
         # powerpc frequesncy
         if system.isOptSet("ppcFreq"):
-            commandArray.append("-ppc-frequency={}".format(system.config["ppcFreq"]))
+            commandArray.append(f"-ppc-frequency={system.config['ppcFreq']}")
 
         # crt colour
         if system.isOptSet("crt_colour"):
-            commandArray.append("-crtcolors={}".format(system.config["crt_colour"]))
+            commandArray.append(f"-crtcolors={system.config['crt_colour']}")
 
         # upscale mode
         if system.isOptSet("upscale_mode"):
-            commandArray.append("-upscalemode={}".format(system.config["upscale_mode"]))
+            commandArray.append(f"-upscalemode={system.config['upscale_mode']}")
 
         #driving controls
         if system.isOptSet("pedalSwap") and system.getOptBoolean("pedalSwap"):
@@ -89,7 +89,7 @@ class SupermodelGenerator(Generator):
             sensitivity: str = "100"
 
         # resolution
-        commandArray.append("-res={},{}".format(gameResolution["width"], gameResolution["height"]))
+        commandArray.append(f"-res={gameResolution['width']},{gameResolution['height']}")
 
         # logs
         commandArray.extend(["-log-output=/userdata/system/logs/Supermodel.log", rom])
