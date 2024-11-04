@@ -207,10 +207,7 @@ def tatooImage(input_png: str | Path, output_png: str | Path, system: Emulator) 
     tattooCanvas = Image.new("RGBA", back.size)
     # Margin for the tattoo
     margin = int((20 / 1080) * h)
-    if system.isOptSet('bezel.tattoo_corner'):
-        corner = system.config['bezel.tattoo_corner']
-    else:
-        corner = 'NW'
+    corner = system.get_option('bezel.tattoo_corner', 'NW')
     if (corner.upper() == 'NE'):
         tattooCanvas.paste(tattoo, (w-tw,margin)) # 20 pixels vertical margins (on 1080p)
     elif (corner.upper() == 'SE'):
