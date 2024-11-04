@@ -72,7 +72,7 @@ def getScreensInfos(config: Mapping[str, object]) -> list[ScreenInfo]:
         try:
             resolution2 = getCurrentResolution(vo2)
             res.append({"width": resolution2["width"], "height": resolution2["height"], "x": resolution1["width"], "y": 0})
-        except:
+        except Exception:
             pass # ignore bad information
 
     # output3
@@ -88,7 +88,7 @@ def getScreensInfos(config: Mapping[str, object]) -> list[ScreenInfo]:
         try:
             resolution3 = getCurrentResolution(vo3)
             res.append({"width": resolution3["width"], "height": resolution3["height"], "x": resolution1["width"]+resolution2["width"], "y": 0})
-        except:
+        except Exception:
             pass # ignore bad information
 
     _logger.debug("Screens:")
@@ -164,7 +164,7 @@ def getGLVersion() -> float:
             del glVerTemp[2:]
         glVersion = float('.'.join(glVerTemp))
         return glVersion
-    except:
+    except Exception:
         return 0
 
 def getGLVendor() -> str:
@@ -178,7 +178,7 @@ def getGLVendor() -> str:
         glVendString = glVendOutput.split()
         glVendor = glVendString[3].casefold()
         return glVendor
-    except:
+    except Exception:
         return "unknown"
 
 def getAltDecoration(systemName: str, rom: str | Path, emulator: str) -> str:
