@@ -79,7 +79,7 @@ class CemuGenerator(Generator):
         if configFile.exists():
             try:
                 config = minidom.parse(str(configFile))
-            except:
+            except Exception:
                 pass # reinit the file
 
         ## [ROOT]

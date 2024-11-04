@@ -601,7 +601,7 @@ def generateControllerConfig_any_from_profiles(f: codecs.StreamReaderWriter, pad
                         if key != "Device":
                             f.write(f"{key} = {val}\n")
                     return True
-        except:
+        except Exception:
             _logger.error("profile %s : FAILED", profileFile)
 
     return False

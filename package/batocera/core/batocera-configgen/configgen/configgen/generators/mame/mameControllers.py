@@ -28,7 +28,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     if configFile.exists():
         try:
             config = minidom.parse(str(configFile))
-        except:
+        except Exception:
             pass # reinit the file
     if configFile.exists() and customCfg:
         overwriteMAME = False
@@ -160,12 +160,12 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
         if configFile_alt.exists() and cfgPath == (MAME_CONFIG / sysName):
             try:
                 config_alt = minidom.parse(str(configFile_alt))
-            except:
+            except Exception:
                 pass # reinit the file
         elif configFile_alt.exists():
             try:
                 config_alt = minidom.parse(str(configFile_alt))
-            except:
+            except Exception:
                 pass # reinit the file
         if cfgPath == (MAME_CONFIG / sysName):
             perGameCfg = False

@@ -41,7 +41,7 @@ def getInvertButtonsValue() -> bool:
         if elem is not None:
             return elem.get('value') == 'true'
         return False  # Return False if not found
-    except:
+    except Exception:
         return False # when file is not yet here or malformed
 
 # return true if the option is considered defined
@@ -1193,7 +1193,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
         try:
             with overlay_info_file.open() as f:
                 infos = json.load(f)
-        except:
+        except Exception:
             infos = {}
     else:
         infos = {}
@@ -1232,7 +1232,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
                 infos["bottom"] = int(infos["height"] * 2 / 1080)
                 infos["right"]  = int(infos["width"] * 241 / 1920)
                 bezelNeedAdaptation = True
-            except:
+            except Exception:
                 pass # outch, no ratio will be applied.
         if gameResolution["width"] == infos["width"] and gameResolution["height"] == infos["height"]:
             bezelNeedAdaptation = False
@@ -1300,7 +1300,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
                 else:
                     try:
                         tattoo_output_png.unlink()
-                    except:
+                    except Exception:
                         pass
                     create_new_bezel_file = True
             if create_new_bezel_file:
@@ -1314,7 +1314,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
                     for fr in fadapted:
                         try:
                             fr.unlink()
-                        except:
+                        except Exception:
                             pass
 
         if bezel_stretch:
