@@ -59,8 +59,7 @@ class XeniaGenerator(Generator):
             vulkan_version = vulkan.get_version()
             if vulkan_version > "1.3":
                 _logger.debug("Using Vulkan version: %s", vulkan_version)
-            else:
-                if system.isOptSet('xenia_api') and system.config['xenia_api'] == "D3D12":
+                if system.get_option('xenia_api') == "D3D12":
                     _logger.debug("Vulkan version: %s is not compatible with Xenia when using D3D12", vulkan_version)
                     _logger.debug("You may have performance & graphical errors, switching to native Vulkan")
                     system.config['xenia_api'] = "Vulkan"
@@ -167,26 +166,18 @@ class XeniaGenerator(Generator):
         # add node Content
         if 'Content' not in config:
             config['Content'] = {}
-        # default 1 = First license enabled. Generally the full version license in Xbox Live Arcade (XBLA) titles.
-        if system.isOptSet('xenia_license'):
-            config['Content'] = {'license_mask': int(system.config['xenia_license'])}
-        else:
-            config['Content'] = {'license_mask': 1}
+        # Default 1= First license enabled. Generally the full version license in Xbox Live Arcade (XBLA) titles.
+        config['Content'] = {'license_mask': system.get_option_int('xenia_license', 1)}
         # add node D3D12
         if 'D3D12' not in config:
             config['D3D12'] = {}
         # readback resolve
-        if system.isOptSet('xenia_readback_resolve') and system.config['xenia_readback_resolve'] == 'True':
-            config['D3D12']['d3d12_readback_resolve'] = True
-        else:
-            config['D3D12']['d3d12_readback_resolve'] = False
+        config['D3D12']['d3d12_readback_resolve'] = system.get_option('xenia_readback_resolve') == 'True'
         # add node Display
         if 'Display' not in config:
             config['Display'] = {}
         # always run fullscreen & set internal resolution - default 1280x720
-        displayRes = 8
-        if system.isOptSet('xenia_resolution'):
-            displayRes = int(system.config['xenia_resolution'])
+        displayRes = system.get_option_int('xenia_resolution', 8)
         config['Display'] = {
             'fullscreen': True,
             'internal_display_resolution': displayRes}
@@ -195,40 +186,31 @@ class XeniaGenerator(Generator):
             config['GPU'] = {}
         # may be used to bypass fetch constant type errors in certain games.
         # set the API to use
-        if system.isOptSet('xenia_api') and system.config['xenia_api'] == 'Vulkan':
+        if system.get_option('xenia_api') == 'Vulkan':
             config['GPU']['gpu'] = 'vulkan'
         else:
             config['GPU']['gpu'] = 'd3d12'
         # vsync
-        if system.isOptSet('xenia_vsync') and system.config['xenia_vsync'] == 'False':
-            config['GPU']['vsync'] = False
-        else:
-            config['GPU']['vsync'] = True
-        config['GPU']['framerate_limit'] = int(system.config.get('xenia_vsync_fps', 0))
+        config['GPU']['vsync'] = system.get_option_bool('xenia_vsync', True)
+        config['GPU']['framerate_limit'] = system.get_option_int('xenia_vsync_fps', 0)
         # page state
-        if system.isOptSet('xenia_page_state') and system.config['xenia_page_state'] == 'True':
-            config['GPU']['clear_memory_page_state'] = True
-        else:
-            config['GPU']['clear_memory_page_state'] = False
+        config['GPU']['clear_memory_page_state'] = system.get_option_bool('xenia_page_state')
         # render target path
-        config['GPU']['render_target_path_d3d12'] = system.config.get('xenia_target_path', 'rtv')
+        config['GPU']['render_target_path_d3d12'] = system.get_option('xenia_target_path', 'rtv')
         # query occlusion
-        config['GPU']['query_occlusion_fake_sample_count'] = int(system.config.get('xenia_query_occlusion', 1000))
+        config['GPU']['query_occlusion_fake_sample_count'] = system.get_option_int('xenia_query_occlusion', 1000)
         # cache
-        config['GPU']['texture_cache_memory_limit_hard'] = int(system.config.get('xenia_limit_hard', 768))
-        config['GPU']['texture_cache_memory_limit_render_to_texture'] = int(system.config.get('xenia_limit_render_to_texture', 24))
-        config['GPU']['texture_cache_memory_limit_soft'] = int(system.config.get('xenia_limit_soft', 384))
-        config['GPU']['texture_cache_memory_limit_soft_lifetime'] = int(system.config.get('xenia_limit_soft_lifetime', 30))
+        config['GPU']['texture_cache_memory_limit_hard'] = system.get_option_int('xenia_limit_hard', 768)
+        config['GPU']['texture_cache_memory_limit_render_to_texture'] = system.get_option_int('xenia_limit_render_to_texture', 24)
+        config['GPU']['texture_cache_memory_limit_soft'] = system.get_option_int('xenia_limit_soft', 384)
+        config['GPU']['texture_cache_memory_limit_soft_lifetime'] = system.get_option_int('xenia_limit_soft_lifetime', 30)
         # add node General
         if 'General' not in config:
             config['General'] = {}
         # disable discord
         config['General']['discord'] = False
         # patches
-        if system.isOptSet('xenia_patches') and system.config['xenia_patches'] == 'True':
-            config['General'] = {'apply_patches': True}
-        else:
-            config['General'] = {'apply_patches': False}
+        config['General'] = {'apply_patches': system.get_option_bool('xenia_patches')}
         # add node HID
         if 'HID' not in config:
             config['HID'] = {}
@@ -257,7 +239,7 @@ class XeniaGenerator(Generator):
             'storage_root': str(xeniaConfig)
             }
         # mount cache
-        if system.isOptSet('xenia_cache') and system.config['xenia_cache'] == 'False':
+        if system.get_option('xenia_cache') == 'False':
             config['Storage']['mount_cache'] = False
         else:
             config['Storage']['mount_cache'] = True
@@ -266,15 +248,9 @@ class XeniaGenerator(Generator):
         if 'UI' not in config:
             config['UI'] = {}
         # run headless ?
-        if system.isOptSet('xenia_headless') and system.config['xenia_headless'] == 'True':
-            config['UI']['headless'] = True
-        else:
-            config['UI']['headless'] = False
+        config['UI'] = {'headless': system.get_option_bool('xenia_headless')}
         # achievements
-        if system.isOptSet('xenia_achievement') and system.config['xenia_achievement'] == 'True':
-            config['UI']['show_achievement_notification'] = True
-        else:
-            config['UI']['show_achievement_notification'] = False
+        config['UI']['show_achievement_notification'] = system.get_option_bool('xenia_achievement')
         # add node Vulkan
         if 'Vulkan' not in config:
             config['Vulkan'] = {}
@@ -283,15 +259,9 @@ class XeniaGenerator(Generator):
         if 'XConfig' not in config:
             config['XConfig'] = {}
         # console country
-        if system.isOptSet('xenia_country'):
-            config['XConfig'] = {'user_country': int(system.config['xenia_country'])}
-        else:
-            config['XConfig'] = {'user_country': 103} # US
+        config['XConfig'] = {'user_country': system.get_option_int('xenia_country', 103)} # 103 = US
         # language
-        if system.isOptSet('xenia_language'):
-            config['XConfig'] = {'user_language': int(system.config['xenia_language'])}
-        else:
-            config['XConfig'] = {'user_language': 1}
+        config['XConfig'] = {'user_language': system.get_option_int('xenia_language', 1)}
 
         # now write the updated toml
         with toml_file.open('w') as f:
@@ -302,7 +272,7 @@ class XeniaGenerator(Generator):
         # simplify the name for matching
         rom_name = re.sub(r'\[.*?\]', '', rom_name)
         rom_name = re.sub(r'\(.*?\)', '', rom_name)
-        if system.isOptSet('xenia_patches') and system.config['xenia_patches'] == 'True':
+        if system.get_option_bool('xenia_patches'):
             # pattern to search for matching .patch.toml files
             pattern = canarypath / 'patches' / f'*{rom_name}*.patch.toml'
             matching_files = [file_path for file_path in (canarypath / 'patches').glob(f'*{rom_name}*.patch.toml') if re.search(rom_name, file_path.name, re.IGNORECASE)]

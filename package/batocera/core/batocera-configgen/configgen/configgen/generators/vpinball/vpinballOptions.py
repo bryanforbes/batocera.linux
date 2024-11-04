@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from ...utils.missing import MISSING
+
 if TYPE_CHECKING:
     from ...Emulator import Emulator
     from ...utils.configparser import CaseSensitiveConfigParser
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
 def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulator) -> None:
     # Tables are organised by folders containing the vpx file, and sub-folders with the roms, altcolor, altsound,...
     # We keep a switch to allow users with the old unique pinmame to be able to continue using vpinball (switchon)
-    if system.isOptSet("vpinball_folders") and system.getOptBoolean("vpinball_folders") == False:
+    if system.has_option("vpinball_folders") and not system.get_option_bool("vpinball_folders"):
         vpinballSettings.set("Standalone", "PinMAMEPath", "")
     else:
         vpinballSettings.set("Standalone", "PinMAMEPath", "./")
 
     # Ball trail
-    if system.isOptSet("vpinball_balltrail"):
+    if (balltrail := system.get_option("vpinball_balltrail")) is not MISSING:
         vpinballSettings.set("Player", "BallTrail", "1")
-        vpinballSettings.set("Player", "BallTrailStrength", system.config["vpinball_balltrail"])
+        vpinballSettings.set("Player", "BallTrailStrength", balltrail)
     else:
         vpinballSettings.set("Player", "BallTrail", "0")
         vpinballSettings.set("Player", "BallTrailStrength", "0")

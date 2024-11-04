@@ -1,23 +1,60 @@
-import collections
+from __future__ import annotations
+
+import collections.abc
 import logging
-import os
 import xml.etree.ElementTree as ET
+from dataclasses import InitVar, dataclass, field
 from pathlib import Path
+from typing import TYPE_CHECKING, Any, ClassVar, Literal, TypeVar, overload
 
 import yaml
 
 from .batoceraPaths import BATOCERA_CONF, BATOCERA_SHADERS, DEFAULTS_DIR, ES_SETTINGS, USER_SHADERS
 from .settings.unixSettings import UnixSettings
+from .utils.missing import MISSING, MissingType
+
+if TYPE_CHECKING:
+    from typing_extensions import deprecated
 
 _logger = logging.getLogger(__name__)
+_T = TypeVar('_T')
+_TV = TypeVar('_TV')
+_FV = TypeVar('_FV')
 
-class Emulator():
-    def __init__(self, name, rom):
-        self.name = name
+
+# adapted from https://gist.github.com/angstwad/bf22d1822c38a92ec0a9
+def _dict_merge(destination: dict[str, Any], source: collections.abc.Mapping[str, Any]) -> None:
+    """ Recursive dict merge. Inspired by :meth:``dict.update()``, instead of
+    updating only top-level keys, dict_merge recurses down into dicts nested
+    to an arbitrary depth, updating keys. The ``merge_dct`` is merged into
+    ``dct``.
+    :param destination: dict onto which the merge is executed
+    :param source: dict merged into destination
+    :return: None
+    """
+    for key, value in source.items():
+        if (key in destination and isinstance(destination[key], dict) and isinstance(value, collections.abc.Mapping)):
+            _dict_merge(destination[key], value)
+        else:
+            destination[key] = value
+
+
+@dataclass(slots=True)
+class Emulator:
+    TRUE_VALUES: ClassVar[set[Literal['1', 'true', 'on', 'enabled', True]]] = {'1', 'true', 'on', 'enabled', True}
+    MISSING: ClassVar = MISSING
+
+    name: str
+    rom: InitVar[str]
+
+    config: dict[str, Any] = field(init=False)
+    renderconfig: dict[str, Any] = field(init=False)
+
+    def __post_init__(self, rom: str, /) -> None:
+        rom_path = Path(rom)
 
         # read the configuration from the system name
-        self.config = Emulator.get_system_config(
-            self.name,
+        self.config = self.__get_system_config(
             DEFAULTS_DIR / "configgen-defaults.yml",
             DEFAULTS_DIR / "configgen-defaults-arch.yml"
         )
@@ -25,30 +62,27 @@ class Emulator():
             _logger.error("no emulator defined. exiting.")
             raise Exception("No emulator found")
 
-        system_emulator = self.config["emulator"]
-        system_core     = self.config["core"]
-
-        gsname = self.game_settings_name(rom)
+        gsname = self.game_settings_name(rom_path)
 
         # load configuration from batocera.conf
         batoceraSettings = UnixSettings(BATOCERA_CONF)
         globalSettings = batoceraSettings.load_all('global')
-        controllersSettings = batoceraSettings.load_all('controllers', True)
+        controllersSettings = batoceraSettings.load_all('controllers', includeName=True)
         systemSettings = batoceraSettings.load_all(self.name)
-        folderSettings = batoceraSettings.load_all(self.name + ".folder[\"" + os.path.dirname(rom) + "\"]")
-        gameSettings = batoceraSettings.load_all(self.name + "[\"" + gsname + "\"]")
+        folderSettings = batoceraSettings.load_all(f'{self.name}.folder["{rom_path.parent}"]')
+        gameSettings = batoceraSettings.load_all(f'{self.name}["{gsname}"]')
 
         # add some other options
         displaySettings = batoceraSettings.load_all('display')
-        for opt in displaySettings:
-            self.config["display." + opt] = displaySettings[opt]
+        for opt, value in displaySettings.items():
+            self.config[f"display.{opt}"] = value
 
         # update config
-        Emulator.updateConfiguration(self.config, controllersSettings)
-        Emulator.updateConfiguration(self.config, globalSettings)
-        Emulator.updateConfiguration(self.config, systemSettings)
-        Emulator.updateConfiguration(self.config, folderSettings)
-        Emulator.updateConfiguration(self.config, gameSettings)
+        Emulator.update_configuration(self.config, controllersSettings)
+        Emulator.update_configuration(self.config, globalSettings)
+        Emulator.update_configuration(self.config, systemSettings)
+        Emulator.update_configuration(self.config, folderSettings)
+        Emulator.update_configuration(self.config, gameSettings)
         self.updateFromESSettings()
         _logger.debug("uimode: %s", self.config['uimode'])
 
@@ -66,22 +100,19 @@ class Emulator():
             if self.config["shaderset"] != "none":
                 rendering_defaults = USER_SHADERS / "configs" / str(self.config["shaderset"]) / "rendering-defaults.yml"
                 if rendering_defaults.exists():
-                    self.renderconfig = Emulator.get_generic_config(
-                        self.name,
+                    self.renderconfig = self.__get_yaml_defaults(
                         rendering_defaults,
                         rendering_defaults.with_name("rendering-defaults-arch.yml")
                     )
                 else:
                     rendering_defaults = BATOCERA_SHADERS / "configs" / str(self.config["shaderset"]) / "rendering-defaults.yml"
-                    self.renderconfig = Emulator.get_generic_config(
-                        self.name,
+                    self.renderconfig = self.__get_yaml_defaults(
                         rendering_defaults,
                         rendering_defaults.with_name("rendering-defaults-arch.yml")
                     )
             elif self.config["shaderset"] == "none":
                 rendering_defaults = BATOCERA_SHADERS / "configs" / "rendering-defaults.yml"
-                self.renderconfig = Emulator.get_generic_config(
-                    self.name,
+                self.renderconfig = self.__get_yaml_defaults(
                     rendering_defaults,
                     rendering_defaults.with_name("rendering-defaults-arch.yml")
                 )
@@ -89,109 +120,219 @@ class Emulator():
         # for compatibility with earlier Batocera versions, let's keep -renderer
         # but it should be reviewed when we refactor configgen (to Python3?)
         # so that we can fetch them from system.shader without -renderer
-        systemSettings = batoceraSettings.load_all(self.name + "-renderer")
-        gameSettings = batoceraSettings.load_all(self.name + "[\"" + gsname + "\"]" + "-renderer")
+        systemSettings = batoceraSettings.load_all(f'{self.name}-renderer')
+        gameSettings = batoceraSettings.load_all(f'{self.name}["{gsname}"]-renderer')
 
         # es only allow to update systemSettings and gameSettings in fact for the moment
-        Emulator.updateConfiguration(self.renderconfig, systemSettings)
-        Emulator.updateConfiguration(self.renderconfig, gameSettings)
+        Emulator.update_configuration(self.renderconfig, systemSettings)
+        Emulator.update_configuration(self.renderconfig, gameSettings)
 
-    def game_settings_name(self,rom):
+    @property
+    def core(self) -> str:
+        return self.config['core']
 
-        rom = os.path.basename(rom)
+    @property
+    def core_forced(self) -> bool:
+        return self.config['core-forced']
 
+    @property
+    def emulator(self) -> str:
+        return self.config['emulator']
+
+    @property
+    def emulator_forced(self) -> bool:
+        return self.config['emulator-forced']
+
+    @property
+    def ui_mode(self) -> Literal['Full', 'Kiosk', 'Kid']:
+        return self.config['uimode']
+
+    @property
+    def show_fps(self) -> bool:
+        return self.config['showFPS']
+
+    def game_settings_name(self, rom: Path) -> str:
         # sanitize rule by EmulationStation
         # see FileData::getConfigurationName() on batocera-emulationstation
-        rom = rom.replace('=','')
-        rom = rom.replace('#','')
-        _logger.info("game settings name: %s", rom)
-        return rom
+        gs_name = rom.name.replace('=','')
+        gs_name = gs_name.replace('#','')
+        _logger.info("game settings name: %s", gs_name)
+        return gs_name
 
-    # to be updated for python3: https://gist.github.com/angstwad/bf22d1822c38a92ec0a9
-    @staticmethod
-    def dict_merge(dct, merge_dct):
-        """ Recursive dict merge. Inspired by :meth:``dict.update()``, instead of
-        updating only top-level keys, dict_merge recurses down into dicts nested
-        to an arbitrary depth, updating keys. The ``merge_dct`` is merged into
-        ``dct``.
-        :param dct: dict onto which the merge is executed
-        :param merge_dct: dct merged into dct
-        :return: None
-        """
-        for k, v in merge_dct.items():
-            if (k in dct and isinstance(dct[k], dict) and isinstance(merge_dct[k], collections.abc.Mapping)):
-                Emulator.dict_merge(dct[k], merge_dct[k])
-            else:
-                dct[k] = merge_dct[k]
+    def __get_yaml_defaults(self, default_yaml: Path, default_arch_yaml: Path, /) -> dict[str, Any]:
+        with default_yaml.open() as f:
+            defaults: dict[str, Any] = yaml.load(f, Loader=yaml.CLoader)
 
-    @staticmethod
-    def get_generic_config(system: str, defaultyml: Path, defaultarchyml: Path):
-        with defaultyml.open('r') as f:
-            systems_default = yaml.load(f, Loader=yaml.CLoader)
+        arch_defaults: dict[str, Any] = {}
+        if default_arch_yaml.exists():
+            with default_arch_yaml.open() as f:
+                loaded_arch_defaults = yaml.load(f, Loader=yaml.CLoader)
 
-        systems_default_arch = {}
-        if defaultarchyml.exists():
-            with defaultarchyml.open('r') as f:
-                systems_default_arch = yaml.load(f, Loader=yaml.CLoader)
-                if systems_default_arch is None:
-                    systems_default_arch = {}
-        dict_all = {}
+            if loaded_arch_defaults is not None:
+                arch_defaults = loaded_arch_defaults
 
-        if "default" in systems_default:
-            dict_all = systems_default["default"]
+        config: dict[str, Any] = {}
 
-        if "default" in systems_default_arch:
-            Emulator.dict_merge(dict_all, systems_default_arch["default"])
+        if 'default' in defaults:
+            config = defaults['default']
 
-        if system in systems_default:
-            Emulator.dict_merge(dict_all, systems_default[system])
+        if 'default' in arch_defaults:
+            _dict_merge(config, arch_defaults['default'])
 
-        if system in systems_default_arch:
-            Emulator.dict_merge(dict_all, systems_default_arch[system])
+        if self.name in defaults:
+            _dict_merge(config, defaults[self.name])
 
-        return dict_all
+        if self.name in arch_defaults:
+            _dict_merge(config, arch_defaults[self.name])
 
-    @staticmethod
-    def get_system_config(system: str, defaultyml: Path, defaultarchyml: Path):
-        dict_all = Emulator.get_generic_config(system, defaultyml, defaultarchyml)
+        return config
 
-        # options are in the yaml, not in the system structure
-        # it is flat in the batocera.conf which is easier for the end user, but i prefer not flat in the yml files
-        dict_result = {"emulator": dict_all["emulator"], "core": dict_all["core"]}
-        if "options" in dict_all:
-            Emulator.dict_merge(dict_result, dict_all["options"])
-        return dict_result
+    def __get_system_config(self, default_yaml: Path, default_arch_yaml: Path, /) -> dict[str, Any]:
+        defaults = self.__get_yaml_defaults(default_yaml, default_arch_yaml)
 
-    def isOptSet(self, key):
-        if key in self.config:
-            return True
-        else:
-            return False
+        result: dict[str, Any] = { 'emulator': defaults['emulator'], 'core': defaults['core'] }
 
-    def getOptBoolean(self, key):
-        true_values = {'1', 'true', 'on', 'enabled', True}
-        value = self.config.get(key)
+        # In the yaml files, the "options" structure is not flat, so we have to flatten it here
+        # because the options are flat in batocera.conf to make it easier for end users to edit
+        if 'options' in defaults:
+            _dict_merge(result, defaults['options'])
+
+        return result
+
+    def has_option(self, key: str, /) -> bool:
+        return key in self.config
+
+    @overload
+    def get_option(self, key: str, default: MissingType = ..., /) -> Any | MissingType:
+        ...
+
+    @overload
+    def get_option(self, key: str, default: _T, /) -> Any | _T:
+        ...
+
+    def get_option(self, key: str, default: _T | MissingType = MISSING, /) -> Any | _T | MissingType:
+        return self.config.get(key, default)
+
+    @overload
+    def get_option_bool(self, key: str, default: bool = False, /, *, return_values: None = None) -> bool:
+        ...
+
+    @overload
+    def get_option_bool(self, key: str, default: bool = False, /, *, return_values: tuple[_TV, _FV]) -> _TV | _FV:
+        ...
+
+    def get_option_bool(self, key: str, default: bool = False, /, *, return_values: tuple[_TV, _FV] | None = None) -> bool | _TV | _FV:
+        value = self.config.get(key, MISSING)
+
+        if value is MISSING:
+            return default
 
         if isinstance(value, str):
             value = value.lower()
 
-        return value in true_values
+        if return_values is None:
+            return value in self.TRUE_VALUES
+        else:
+            return return_values[value not in self.TRUE_VALUES]
 
-    def getOptString(self, key):
-        if key in self.config:
-            if self.config[key]:
-                return self.config[key]
-        return ""
+    @overload
+    def get_option_str(self, key: str, default: MissingType = ..., /) -> str | MissingType:
+        ...
+
+    @overload
+    def get_option_str(self, key: str, default: str, /) -> str:
+        ...
+
+    def get_option_str(self, key: str, default: str | MissingType = MISSING, /) -> str | MissingType:
+        value = self.config.get(key, MISSING)
+
+        if value is MISSING:
+            return default
+
+        return str(value)
+
+    @overload
+    def get_option_int(self, key: str, default: MissingType = ..., /) -> int | MissingType:
+        ...
+
+    @overload
+    def get_option_int(self, key: str, default: int, /) -> int:
+        ...
+
+    def get_option_int(self, key: str, default: int | MissingType = MISSING, /) -> int | MissingType:
+        value = self.config.get(key, MISSING)
+
+        if value is MISSING:
+            return default
+
+        return int(value)
+
+    @overload
+    def get_option_float(self, key: str, default: MissingType = ..., /) -> float | MissingType:
+        ...
+
+    @overload
+    def get_option_float(self, key: str, default: float, /) -> float:
+        ...
+
+    def get_option_float(self, key: str, default: float | MissingType = MISSING, /) -> float | MissingType:
+        value = self.config.get(key, MISSING)
+
+        if value is MISSING:
+            return default
+
+        return float(value)
+
+    def option_items(self, /, *, starts_with: str | None = None) -> collections.abc.Iterator[tuple[str, Any]]:
+        if starts_with is None:
+            yield from self.config.items()
+        else:
+            starts_with_len = len(starts_with)
+            for key, value in self.config.items():
+                if key.startswith(starts_with):
+                    yield key[starts_with_len:], value
+
+
+    if TYPE_CHECKING:
+        @deprecated('Use has_option()')
+        def isOptSet(self, key: str) -> bool:
+            ...
+
+        @deprecated('Use get_option_bool()')
+        def getOptBoolean(self, key: str) -> bool:
+            ...
+
+        @deprecated('Use get_option_str()')
+        def getOptString(self, key: str) -> str:
+            ...
+    else:
+        def isOptSet(self, key: str) -> bool:
+            return key in self.config
+
+        def getOptBoolean(self, key: str) -> bool:
+            value = self.config.get(key)
+
+            if isinstance(value, str):
+                value = value.lower()
+
+            return value in self.TRUE_VALUES
+
+        def getOptString(self, key: str) -> str:
+            if key in self.config:
+                if self.config[key]:
+                    return self.config[key]
+            return ""
 
     @staticmethod
-    def updateConfiguration(config, settings):
+    def update_configuration(config: dict[str, Any], settings: dict[str, Any], /) -> None:
         # ignore all values "default", "auto", "" to take the system value instead
         # ideally, such value must not be in the configuration file
-        # but historically some user have them
-        toremove = [k for k in settings if settings[k] == "" or settings[k] == "default" or settings[k] == "auto"]
-        for k in toremove: del settings[k]
+        # but historically some users have them
 
-        config.update(settings)
+        config.update({
+            key: value for key, value in settings.items()
+            if value != '' and value != 'default' and value != 'auto'
+        })
 
     # fps value is from es
     def updateFromESSettings(self):
@@ -199,24 +340,21 @@ class Emulator():
             esConfig = ET.parse(ES_SETTINGS)
 
             # showFPS
-            try:
-                drawframerate_value = esConfig.find("./bool[@name='DrawFramerate']").attrib["value"]
-            except:
-                drawframerate_value = 'false'
+            drawframerate_node = esConfig.find("./bool[@name='DrawFramerate']")
+            drawframerate_value = drawframerate_node.attrib["value"] if drawframerate_node is not None else 'false'
             if drawframerate_value not in ['false', 'true']:
                 drawframerate_value = 'false'
-            self.config['showFPS'] = drawframerate_value
+
+            self.config['showFPS'] = drawframerate_value == 'true'
 
             # uimode
-            try:
-                uimode_value = esConfig.find("./string[@name='UIMode']").attrib["value"]
-            except:
-                uimode_value = 'Full'
+            uimode_node = esConfig.find("./string[@name='UIMode']")
+            uimode_value = uimode_node.attrib["value"] if uimode_node is not None else 'Full'
             if uimode_value not in ['Full', 'Kiosk', 'Kid']:
                 uimode_value = 'Full'
+
             self.config['uimode'] = uimode_value
 
-        except:
+        except Exception:
             self.config['showFPS'] = False
             self.config['uimode'] = "Full"
-
