@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from ...utils import videoMode
+from ...utils.missing import MISSING
 
 if TYPE_CHECKING:
 
@@ -50,12 +51,12 @@ def configureWindowing(vpinballSettings: CaseSensitiveConfigParser, system: Emul
     dmdsize = getDMDWindowSize(system, gameResolution)
 
     # Playfield
-    if not (system.isOptSet("vpinball_playfield") and system.config["vpinball_playfield"] == "manual"):
+    if system.get_option("vpinball_playfield") != "manual":
         configurePlayfield(vpinballSettings, screens, playFieldScreen)
 
     # playfiled mode
-    if system.isOptSet("vpinball_playfieldmode"):
-        vpinballSettings.set("Player", "BGSet", system.config["vpinball_playfieldmode"])
+    if (playfieldmode := system.get_option("vpinball_playfieldmode")) is not MISSING:
+        vpinballSettings.set("Player", "BGSet", playfieldmode)
     else:
         if screens[playFieldScreen]["width"] < screens[playFieldScreen]["height"]:
             vpinballSettings.set("Player", "BGSet", "1") # pincab / cabinet
@@ -74,13 +75,8 @@ def configureWindowing(vpinballSettings: CaseSensitiveConfigParser, system: Emul
     if b2s_config != "manual":
         configureB2s(vpinballSettings, flexdmd_config, pinmame_config, b2s_config, b2sdmd_config, b2sgrill_config, screens, backglassScreen, Rscreen, gameResolution, dmdsize)
 
-def getFlexDmdConfiguration(system, screens, hasDmd):
-    val = ""
-    if system.isOptSet("vpinball_flexdmd"):
-        val = system.config["vpinball_flexdmd"]
-    else:
-        if hasDmd:
-            val = "disabled"
+def getFlexDmdConfiguration(system: Emulator, screens, hasDmd):
+    val = system.get_option("vpinball_flexdmd", "disabled" if hasDmd else "")
     if val == "":
         if len(screens) > 2:
             val = "screen3"
@@ -92,11 +88,10 @@ def getFlexDmdConfiguration(system, screens, hasDmd):
         val = "disabled"
     return val
 
-def getPinmameConfiguration(system, screens):
+def getPinmameConfiguration(system: Emulator, screens):
     # pinmame : same as flexdmd (and both should never be displayed at the same time)
-    val = ""
-    if system.isOptSet("vpinball_pinmame"):
-        val = system.config["vpinball_pinmame"]
+    val = system.get_option("vpinball_pinmame", "")
+
     if val == "":
         if len(screens) > 2:
             val = "screen3"
@@ -108,10 +103,9 @@ def getPinmameConfiguration(system, screens):
         val = "disabled"
     return val
 
-def getB2sConfiguration(system, screens):
-    val = ""
-    if system.isOptSet("vpinball_b2s"):
-        val = system.config["vpinball_b2s"]
+def getB2sConfiguration(system: Emulator, screens):
+    val = system.get_option("vpinball_b2s", "")
+
     if val == "":
         if len(screens) > 1:
             val = "screen2"
@@ -121,15 +115,15 @@ def getB2sConfiguration(system, screens):
         val = "disabled"
     return val
 
-def getB2sdmdConfiguration(system, screens, hasDmd):
-    if system.isOptSet("vpinball_b2sdmd") and system.getOptBoolean("vpinball_b2sdmd") == False: # switchon
+def getB2sdmdConfiguration(system: Emulator, screens, hasDmd):
+    if system.has_option("vpinball_b2sdmd") and not system.get_option_bool("vpinball_b2sdmd"): # switchon
         return False
     if hasDmd:
         return False
     return True
 
-def getB2sgrillConfiguration(system, screens):
-    if system.isOptSet("vpinball_b2sgrill") and system.getOptBoolean("vpinball_b2sgrill") == False: # switchon
+def getB2sgrillConfiguration(system: Emulator, screens):
+    if system.has_option("vpinball_b2sgrill") and not system.get_option_bool("vpinball_b2sgrill"): # switchon
         return False
     return True
 
@@ -198,16 +192,14 @@ def configurePinmame(vpinballSettings, pinmame_config, b2s_config, screens, back
         vpinballSettings.set("Standalone", WindowName+"Width",  ConvertToPixel(gameResolution["width"],  width))
         vpinballSettings.set("Standalone", WindowName+"Height", ConvertToPixel(gameResolution["height"], height))
 
-def getDMDWindowSize(system, gameResolution):
-    if not system.isOptSet("vpinball_dmdsize"):
-        return [1024, 256] # like 128x32
-    if system.config["vpinball_dmdsize"] == "128x16":
-        return [1024, 128]
-    if system.config["vpinball_dmdsize"] == "192x64":
-        return [1024, 341]
-    if system.config["vpinball_dmdsize"] == "256x64":
-        return [1024, 128]
-    return [1024, 256] # like 128x32
+def getDMDWindowSize(system: Emulator, gameResolution):
+    match system.get_option("vpinball_dmdsize"):
+        case "128x16" | "256x64":
+            return [1024, 128]
+        case "192x64":
+            return [1024, 341]
+        case _:
+            return [1024, 256] # like 128x32
 
 def configureFlexdmd(vpinballSettings, flexdmd_config, b2s_config, screens, backglassScreen, Rscreen, gameResolution, dmdsize):
     WindowName = "FlexDMDWindow"

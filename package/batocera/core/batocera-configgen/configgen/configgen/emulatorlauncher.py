@@ -92,7 +92,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: str, romConfigur
 
     # search guns in case use_guns is enabled for this game
     # force use_guns in case es tells it has a gun
-    if not system.isOptSet('use_guns') and args.lightgun:
+    if not system.has_option('use_guns') and args.lightgun:
         system.config["use_guns"] = True
 
     guns = Gun.get_and_precalibrate_all(systemName, system, rom)
@@ -100,9 +100,9 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: str, romConfigur
     # search wheels in case use_wheels is enabled for this game
     # force use_wheels in case es tells it has a wheel
     wheelProcesses = None
-    if not system.isOptSet('use_wheels') and args.wheel:
+    if not system.has_option('use_wheels') and args.wheel:
         system.config["use_wheels"] = True
-    if system.isOptSet('use_wheels') and system.getOptBoolean('use_wheels'):
+    if system.get_option_bool('use_wheels'):
         deviceInfos = controllers.getDevicesInformation()
         (wheelProcesses, player_controllers, deviceInfos) = wheelsUtils.reconfigureControllers(player_controllers, system, rom, metadata, deviceInfos)
         wheels = wheelsUtils.getWheelsFromDevicesInfos(deviceInfos)
@@ -186,7 +186,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: str, romConfigur
             videoMode.changeMouse(True)
 
         # SDL VSync is a big deal on OGA and RPi4
-        if system.isOptSet('sdlvsync') and not system.getOptBoolean('sdlvsync'):
+        if system.has_option('sdlvsync') and not system.get_option_bool('sdlvsync'):
             system.config["sdlvsync"] = '0'
         else:
             system.config["sdlvsync"] = '1'
@@ -209,9 +209,9 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: str, romConfigur
 
             cmd = generator.generate(system, rom, player_controllers, metadata, guns, wheels, gameResolution)
 
-            if system.isOptSet('hud_support') and system.getOptBoolean('hud_support'):
+            if system.get_option_bool('hud_support'):
                 hud_bezel = getHudBezel(system, generator, rom, gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
-                if (system.isOptSet('hud') and system.config['hud'] != "" and system.config['hud'] != "none") or hud_bezel is not None:
+                if (system.has_option('hud') and system.get_option('hud') != "" and system.get_option('hud') != "none") or hud_bezel is not None:
                     gameinfos = extractGameInfosFromXml(args.gameinfoxml)
                     cmd.env["MANGOHUD_DLSYM"] = "1"
                     hudconfig = getHudConfig(system, args.systemname, system.config['emulator'], effectiveCore, rom, gameinfos, hud_bezel)
@@ -370,10 +370,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: str, gameResolution
 
     # if screen and bezel sizes doesn't match, resize
     # stretch option
-    if system.isOptSet('bezel_stretch') and system.getOptBoolean('bezel_stretch'):
-        bezel_stretch = True
-    else:
-        bezel_stretch = False
+    bezel_stretch = system.get_option_bool('bezel_stretch')
     if (bezel_width != gameResolution["width"] or bezel_height != gameResolution["height"]):
         _logger.debug("bezel needs to be resized")
         output_png_file = Path("/tmp/bezel.png")
@@ -384,7 +381,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: str, gameResolution
             return None
         overlay_png_file = output_png_file
 
-    if system.isOptSet('bezel.tattoo') and system.config['bezel.tattoo'] != "0":
+    if system.get_option('bezel.tattoo', '0') != "0":
         output_png_file = Path("/tmp/bezel_tattooed.png")
         bezelsUtil.tatooImage(overlay_png_file, output_png_file, system)
         overlay_png_file = output_png_file
@@ -443,12 +440,12 @@ def getHudConfig(system: Emulator, systemName: str, emulator: str, core: str, ro
     if bezel != "" and bezel != "none" and bezel is not None:
         configstr = f"background_image={hudConfig_protectStr(bezel)}\nlegacy_layout=false\n"
 
-    if not system.isOptSet('hud') or system.config['hud'] == "none":
+    if not system.has_option('hud') or system.get_option('hud') == "none":
         return configstr + "background_alpha=0\n" # hide the background
 
     mode = system.config["hud"]
     hud_position = "bottom-left"
-    if system.isOptSet('hud_corner') and system.config["hud_corner"] != "" :
+    if system.has_option('hud_corner') and system.get_option("hud_corner") != "" :
         if system.config["hud_corner"] == "NW":
             hud_position = "top-left"
         elif system.config["hud_corner"] == "NE":
@@ -457,7 +454,7 @@ def getHudConfig(system: Emulator, systemName: str, emulator: str, core: str, ro
             hud_position = "bottom-right"
 
     emulatorstr = emulator
-    if emulator != core and core is not None:
+    if emulator != core and core:
         emulatorstr += "/" + core
 
     gameName = ""
@@ -472,8 +469,8 @@ def getHudConfig(system: Emulator, systemName: str, emulator: str, core: str, ro
         configstr += f"position={hud_position}\nbackground_alpha=0.9\nlegacy_layout=false\ncustom_text=%GAMENAME%\ncustom_text=%SYSTEMNAME%\ncustom_text=%EMULATORCORE%\nfps\ngpu_name\nengine_version\nvulkan_driver\nresolution\nram\ngpu_stats\ngpu_temp\ncpu_stats\ncpu_temp\ncore_load"
     elif mode == "game":
         configstr += f"position={hud_position}\nbackground_alpha=0\nlegacy_layout=false\nfont_size=32\nimage_max_width=200\nimage=%THUMBNAIL%\ncustom_text=%GAMENAME%\ncustom_text=%SYSTEMNAME%\ncustom_text=%EMULATORCORE%"
-    elif mode == "custom" and system.isOptSet('hud_custom') and system.config["hud_custom"] != "" :
-        configstr += system.config["hud_custom"].replace("\\n", "\n")
+    elif mode == "custom" and (hud_custom := system.get_option_str("hud_custom")):
+        configstr += hud_custom.replace("\\n", "\n")
     else:
         configstr = configstr + "background_alpha=0\n" # hide the background
 

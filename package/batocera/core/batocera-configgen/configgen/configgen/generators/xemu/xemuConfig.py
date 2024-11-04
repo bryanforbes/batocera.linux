@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 from ...batoceraPaths import ensure_parents_and_open
 from ...utils.configparser import CaseSensitiveConfigParser
+from ...utils.missing import MISSING
 from .xemuPaths import XEMU_CONFIG
 
 if TYPE_CHECKING:
@@ -53,10 +54,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
 
 
     # Boot Animation Skip
-    if system.isOptSet("xemu_bootanim"):
-        iniConfig.set("general", "skip_boot_anim", system.config["xemu_bootanim"])
-    else:
-        iniConfig.set("general", "skip_boot_anim", "false")
+    iniConfig.set("general", "skip_boot_anim", system.get_option("xemu_bootanim", "false"))
 
     # Disable welcome screen on first launch
     iniConfig.set("general", "show_welcome", "false")
@@ -65,10 +63,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
     iniConfig.set("general", "screenshot_dir", '"/userdata/screenshots"')
 
     # Fill sys sections
-    if system.isOptSet("xemu_memory"):
-        iniConfig.set("sys", "mem_limit", '"' + system.config["xemu_memory"] + '"')
-    else:
-        iniConfig.set("sys", "mem_limit", '"64"')
+    iniConfig.set("sys", "mem_limit", f'"{system.get_option("xemu_memory", "64")}"')
 
     if system.name == "chihiro":
         iniConfig.set("sys", "mem_limit", '"128"')
@@ -82,10 +77,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
     iniConfig.set("sys.files", "dvd_path", '"' + rom + '"')
 
     # Audio quality
-    if system.isOptSet("xemu_use_dsp"):
-        iniConfig.set("audio", "use_dsp", system.config["xemu_use_dsp"])
-    else:
-        iniConfig.set("audio", "use_dsp", "false")
+    iniConfig.set("audio", "use_dsp", system.get_option("xemu_use_dsp", "false"))
 
     # API
     if system.isOptSet("xemu_api"):
@@ -94,10 +86,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
         iniConfig.set("display", "renderer", '"OPENGL"')
     
     # Rendering resolution
-    if system.isOptSet("xemu_render"):
-        iniConfig.set("display.quality", "surface_scale", system.config["xemu_render"])
-    else:
-        iniConfig.set("display.quality", "surface_scale", "1") #render scale by default
+    iniConfig.set("display.quality", "surface_scale", system.get_option("xemu_render", "1")) #render scale by default
 
     # start fullscreen
     iniConfig.set("display.window", "fullscreen_on_startup", "true")
@@ -107,45 +96,35 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
     iniConfig.set("display.window", "startup_size", '"' + window_res + '"')  
 
     # Vsync
-    if system.isOptSet("xemu_vsync"):
-        iniConfig.set("display.window", "vsync", system.config["xemu_vsync"])
-    else:
-        iniConfig.set("display.window", "vsync", "true")
+    iniConfig.set("display.window", "vsync", system.get_option("xemu_vsync", "true"))
 
     # don't show the menubar
     iniConfig.set("display.ui", "show_menubar", "false")
 
     # Scaling
-    if system.isOptSet("xemu_scaling"):
-        iniConfig.set("display.ui", "fit", '"' + system.config["xemu_scaling"] + '"')
-    else:
-        iniConfig.set("display.ui", "fit", '"scale"')
+    iniConfig.set("display.ui", "fit", f'"{system.get_option("xemu_scaling", "scale")}"')
 
     # Aspect ratio
-    if system.isOptSet("xemu_aspect"):
-        iniConfig.set("display.ui", "aspect_ratio", '"' + system.config["xemu_aspect"] + '"')
-    else:
-        iniConfig.set("display.ui", "aspect_ratio", '"auto"')
+    iniConfig.set("display.ui", "aspect_ratio", f'"{system.get_option("xemu_aspect", "auto")}"')
 
     # Fill input section
     # first, clear
     for i in range(1,5):
         iniConfig.remove_option("input.bindings", f"port{i}")
-    nplayer = 1
-    for playercontroller, pad in sorted(playersControllers.items()):
+
+    for nplayer, (_, pad) in enumerate(sorted(playersControllers.items())):
         if nplayer <= 4:
-            iniConfig.set("input.bindings", f"port{nplayer}", '"' + pad.guid + '"')
-        nplayer = nplayer + 1
+            iniConfig.set("input.bindings", f"port{nplayer}", f'"{pad.guid}"')
 
     # Network
     # Documentation: https://github.com/xemu-project/xemu/blob/master/config_spec.yml
-    if system.isOptSet("xemu_networktype"):
+    if system.has_option("xemu_networktype"):
         iniConfig.set("net", "enable", "true")
-        iniConfig.set("net", "backend", '"' + system.config["xemu_networktype"] + '"')
+        iniConfig.set("net", "backend", f'"{system.get_option("xemu_networktype")}"')
     else:
         iniConfig.set("net", "enable", "false")
     # Additionnal settings for udp: if nothing is entered in these fields, the xemu.toml is untouched
-    if system.isOptSet("xemu_udpremote"):
-        iniConfig.set("net.udp", "remote_addr", '"' + system.config["xemu_udpremote"] + '"')
-    if system.isOptSet("xemu_udpbind"):
-        iniConfig.set("net.udp", "bind_addr", '"' + system.config["xemu_udpbind"] + '"')
+    if (remote_addr := system.get_option("xemu_udpremote")) is not MISSING:
+        iniConfig.set("net.udp", "remote_addr", f'"{remote_addr}"')
+    if (bind_addr := system.get_option("xemu_udpbind")) is not MISSING:
+        iniConfig.set("net.udp", "bind_addr", f'"{bind_addr}"')
