@@ -179,7 +179,7 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
         f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
         f.write("Device = SDL/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
 
-        if system.isOptSet("triforce_pad_profiles") and system.getOptBoolean("triforce_pad_profiles") == True:
+        if system.isOptSet("triforce_pad_profiles") and system.getOptBoolean("triforce_pad_profiles"):
             if not generateControllerConfig_any_from_profiles(f, pad):
                 generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
         else:

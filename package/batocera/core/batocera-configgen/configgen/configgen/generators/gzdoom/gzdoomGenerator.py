@@ -70,7 +70,7 @@ class GZDoomGenerator(Generator):
         if gzdoom_api == "0":
             with arch_path.open("r") as file:
                 content = file.read().strip()
-                if not content == "x86_64":
+                if content != "x86_64":
                     gzdoom_api = "3"
 
         # now set the config

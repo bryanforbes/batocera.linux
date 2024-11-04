@@ -76,7 +76,7 @@ class LibretroGenerator(Generator):
                 gameShader = renderConfig['shader-' + str(altDecoration)]
             elif 'shader' in renderConfig:
                 gameShader = renderConfig['shader']
-        if 'shader' in renderConfig and gameShader != None:
+        if 'shader' in renderConfig and gameShader is not None:
             if (gfxBackend == 'glcore' or gfxBackend == 'vulkan') or (system.config['core'] in libretroConfig.coreForceSlangShaders):
                 shaderFilename = f"{gameShader}.slangp"
             else:
@@ -93,7 +93,7 @@ class LibretroGenerator(Generator):
                 shaderBezel = True
 
         # Settings batocera default config file if no user defined one
-        if not 'configfile' in system.config:
+        if 'configfile' not in system.config:
             # Using batocera config file
             system.config['configfile'] = str(RETROARCH_CUSTOM)
             # Create retroarchcustom.cfg if does not exists
@@ -329,7 +329,7 @@ class LibretroGenerator(Generator):
             configToAppend.append(overlayFile)
 
         # RetroArch 1.7.8 (Batocera 5.24) now requires the shaders to be passed as command line argument
-        if 'shader' in renderConfig and gameShader != None:
+        if 'shader' in renderConfig and gameShader is not None:
             commandArray.extend(["--set-shader", video_shader])
 
         # Generate the append
@@ -395,7 +395,7 @@ class LibretroGenerator(Generator):
                 dontAppendROM = True
                 targetlink.symlink_to(rom_path)
 
-        if dontAppendROM == False:
+        if not dontAppendROM:
             commandArray.append(rom_path)
 
         if system.isOptSet('state_slot') and system.isOptSet('state_filename') and system.config['state_filename'][-5:] != ".auto":

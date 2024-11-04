@@ -64,7 +64,7 @@ def writeControllersConfig(retroconfig: UnixSettings, system: Emulator, controll
         if system.name in ['nds', '3ds']:
             deviceList = getDevicesInformation()
             mouseIndex = getAssociatedMouse(deviceList, controllers[controller].device_path)
-        if mouseIndex == None:
+        if mouseIndex is None:
             mouseIndex = 0
         writeControllerConfig(retroconfig, controllers[controller], controller, system, retroarchspecials, lightgun, mouseIndex)
     writeHotKeyConfig(retroconfig, controllers)

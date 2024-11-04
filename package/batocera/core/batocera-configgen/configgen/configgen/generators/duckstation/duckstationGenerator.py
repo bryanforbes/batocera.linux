@@ -70,7 +70,7 @@ class DuckstationGenerator(Generator):
             settings.set("Main","SyncToHostRefreshRate", "false")
 
         # Rewind
-        #if system.isOptSet('rewind') and system.getOptBoolean('rewind') == True:
+        #if system.isOptSet('rewind') and system.getOptBoolean('rewind'):
         settings.set("Main","RewindEnable",    "true")
         settings.set("Main","RewindFrequency", "1")        # Frame skipped each seconds
         if system.isOptSet("duckstation_rewind") and system.config["duckstation_rewind"]   == '120':
@@ -235,7 +235,7 @@ class DuckstationGenerator(Generator):
         # Aspect Ratio
         if system.isOptSet("duckstation_ratio"):
             settings.set("Display", "AspectRatio", system.config["duckstation_ratio"])
-            if not system.config["duckstation_ratio"] == "4:3":
+            if system.config["duckstation_ratio"] != "4:3":
                 system.config['bezel'] = "none"
         else:
             settings.set("Display", "AspectRatio", "Auto (Game Native)")
@@ -296,7 +296,7 @@ class DuckstationGenerator(Generator):
         if not settings.has_section("Cheevos"):
             settings.add_section("Cheevos")
         # RetroAchievements
-        if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements') == True:
+        if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements'):
             headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}
             login_url = "https://retroachievements.org/"
             username  = system.config.get('retroachievements.username', "")
