@@ -253,9 +253,9 @@ class CemuGenerator(Generator):
         proc = subprocess.run(["/usr/bin/cemu/get-audio-device"], stdout=subprocess.PIPE)
         cemuAudioDevice = proc.stdout.decode('utf-8')
         _logger.debug("*** audio device = %s ***", cemuAudioDevice)
-        if system.isOptSet("cemu_audio_config") and system.getOptBoolean("cemu_audio_config") == True:
+        if system.isOptSet("cemu_audio_config") and system.getOptBoolean("cemu_audio_config"):
             CemuGenerator.setSectionConfig(config, audio_root, "TVDevice", cemuAudioDevice)
-        elif system.isOptSet("cemu_audio_config") and system.getOptBoolean("cemu_audio_config") == False:
+        elif system.isOptSet("cemu_audio_config") and not system.getOptBoolean("cemu_audio_config"):
             # don't change the config setting
             _logger.debug("*** use config audio device ***")
         else:

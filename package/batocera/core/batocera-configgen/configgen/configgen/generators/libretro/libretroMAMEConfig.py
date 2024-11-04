@@ -76,7 +76,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
         commandLine += [ '-cfg_directory', f'"{cfgPath}"' ]
         commandLine += [ '-rompath', f'"{rom.parent};/userdata/bios/mame/;/userdata/bios/"' ]
         pluginsToLoad = []
-        if not (system.isOptSet("hiscoreplugin") and system.getOptBoolean("hiscoreplugin") == False):
+        if not (system.isOptSet("hiscoreplugin") and not system.getOptBoolean("hiscoreplugin")):
             pluginsToLoad += [ "hiscore" ]
         if system.isOptSet("coindropplugin") and system.getOptBoolean("coindropplugin"):
             pluginsToLoad += [ "coindrop" ]
@@ -425,20 +425,20 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
             artPath = f"/var/run/mame_artwork/;/usr/bin/mame/artwork/;{BIOS / 'lr-mame' / 'artwork'};{BIOS / 'mame' / 'artwork'};{USER_DECORATIONS}"
         else:
             artPath = f"/var/run/mame_artwork/;/usr/bin/mame/artwork/;{BIOS / 'lr-mame' / 'artwork'}"
-        if not system.name == "ti99":
+        if system.name != "ti99":
             commandLine += [ '-artpath', f'"{artPath}"' ]
 
     # Artwork crop - default to On for lr-mame
     # Exceptions for PDP-1 (status lights) and VGM Player (indicators)
     if not system.isOptSet("artworkcrop"):
-        if not system.name in [ 'pdp1', 'vgmplay', 'ti99' ]:
+        if system.name not in [ 'pdp1', 'vgmplay', 'ti99' ]:
             commandLine += [ "-artwork_crop" ]
     else:
         if system.getOptBoolean("artworkcrop"):
             commandLine += [ "-artwork_crop" ]
 
     # Share plugins & samples with standalone MAME (except TI99)
-    if not system.name == "ti99":
+    if system.name != "ti99":
         commandLine += [ "-pluginspath", f"/usr/bin/mame/plugins/;{SAVES / 'mame' / 'plugins'}" ]
         commandLine += [ "-homepath" , SAVES / 'mame' / 'plugins' ]
         commandLine += [ "-samplepath", BIOS / "mame" / "samples" ]
@@ -588,7 +588,7 @@ def generateMAMEPadConfig(
     with controlFile.open() as openFile:
         controlList = csv.reader(openFile)
         for row in controlList:
-            if not row[0] in controlDict.keys():
+            if row[0] not in controlDict.keys():
                 controlDict[row[0]] = {}
             controlDict[row[0]][row[1]] = row[2]
 
@@ -635,7 +635,7 @@ def generateMAMEPadConfig(
         with messControlFile.open() as openMessFile:
             controlList = csv.reader(openMessFile, delimiter=';')
             for row in controlList:
-                if not row[0] in messControlDict.keys():
+                if row[0] not in messControlDict.keys():
                     messControlDict[row[0]] = {}
                 messControlDict[row[0]][row[1]] = {}
                 currentEntry = messControlDict[row[0]][row[1]]
@@ -667,9 +667,9 @@ def generateMAMEPadConfig(
                     currentEntry['mask'] = row[10]
                     currentEntry['default'] = row[11]
                 if currentEntry['reversed'] == 'False':
-                    currentEntry['reversed'] == False
+                    currentEntry['reversed'] = False
                 else:
-                    currentEntry['reversed'] == True
+                    currentEntry['reversed'] = True
 
         config_alt = minidom.Document()
         configFile_alt = cfgPath / f"{messSysName}.cfg"

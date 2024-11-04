@@ -154,7 +154,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping, r
                 f.write('    Use LED as a battery indicator: false\n')
                 f.write('    LED battery indicator brightness: 10\n')
                 f.write('    Player LED enabled: true\n')
-                if system.isOptSet(f"rpcs3_rumble{nplayer}") and system.getOptBoolean(f"rpcs3_rumble{nplayer}") == False:
+                if system.isOptSet(f"rpcs3_rumble{nplayer}") and not system.getOptBoolean(f"rpcs3_rumble{nplayer}"):
                     f.write('    Enable Large Vibration Motor: false\n')
                     f.write('    Enable Small Vibration Motor: false\n')
                 else:
@@ -254,7 +254,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping, r
                 f.write('    Use LED as a battery indicator: false\n')
                 f.write('    LED battery indicator brightness: 50\n')
                 f.write('    Player LED enabled: true\n')
-                if system.isOptSet(f"rpcs3_rumble{nplayer}") and system.getOptBoolean(f"rpcs3_rumble{nplayer}") == False:
+                if system.isOptSet(f"rpcs3_rumble{nplayer}") and not system.getOptBoolean(f"rpcs3_rumble{nplayer}"):
                     f.write('    Enable Large Vibration Motor: false\n')
                     f.write('    Enable Small Vibration Motor: false\n')
                 else:
@@ -353,7 +353,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping, r
                 f.write('    Use LED as a battery indicator: false\n')
                 f.write('    LED battery indicator brightness: 10\n')
                 f.write('    Player LED enabled: true\n')
-                if system.isOptSet(f"rpcs3_rumble{nplayer}") and system.getOptBoolean(f"rpcs3_rumble{nplayer}") == False:
+                if system.isOptSet(f"rpcs3_rumble{nplayer}") and not system.getOptBoolean(f"rpcs3_rumble{nplayer}"):
                     f.write('    Enable Large Vibration Motor: false\n')
                     f.write('    Enable Small Vibration Motor: false\n')
                 else:

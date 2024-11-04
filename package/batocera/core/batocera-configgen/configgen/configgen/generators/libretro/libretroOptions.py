@@ -2179,7 +2179,7 @@ def _xrick_options(
     # Rick Dangerous
 
     # Crop Borders
-    if system.isOptSet('xrick_crop_borders') and system.getOptBoolean('xrick_crop_borders') == False:
+    if system.isOptSet('xrick_crop_borders') and not system.getOptBoolean('xrick_crop_borders'):
         coreSettings.save('xrick_crop_borders', '"disabled"')
     else:
         coreSettings.save('xrick_crop_borders', '"enabled"')

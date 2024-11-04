@@ -185,18 +185,18 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
     else:
         retroarchConfig['video_rotation'] = '0'
 
-    if system.isOptSet('video_threaded') and system.getOptBoolean('video_threaded') == True:
+    if system.isOptSet('video_threaded') and system.getOptBoolean('video_threaded'):
         retroarchConfig['video_threaded'] = 'true'
     else:
         retroarchConfig['video_threaded'] = 'false'
 
-    if system.isOptSet('video_allow_rotate') and system.getOptBoolean('video_allow_rotate') == False:
+    if system.isOptSet('video_allow_rotate') and not system.getOptBoolean('video_allow_rotate'):
         retroarchConfig['video_allow_rotate'] = 'false'
     else:
         retroarchConfig['video_allow_rotate'] = 'true'
 
     # variable refresh rate
-    if system.isOptSet("vrr_runloop_enable") and system.getOptBoolean("vrr_runloop_enable") == True:
+    if system.isOptSet("vrr_runloop_enable") and system.getOptBoolean("vrr_runloop_enable"):
         retroarchConfig['vrr_runloop_enable'] = 'true'
     else:
         retroarchConfig['vrr_runloop_enable'] = 'false'
@@ -622,14 +622,14 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         bezel = None
 
     # Smooth option
-    if system.isOptSet('smooth') and system.getOptBoolean('smooth') == True:
+    if system.isOptSet('smooth') and system.getOptBoolean('smooth'):
         retroarchConfig['video_smooth'] = 'true'
     else:
         retroarchConfig['video_smooth'] = 'false'
 
     # Shader option
     if 'shader' in renderConfig:
-        if renderConfig['shader'] != None and renderConfig['shader'] != "none":
+        if renderConfig['shader'] is not None and renderConfig['shader'] != "none":
             retroarchConfig['video_shader_enable'] = 'true'
             retroarchConfig['video_smooth']        = 'false'     # seems to be necessary for weaker SBCs
     else:
@@ -654,8 +654,8 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
 
     # Rewind option
     retroarchConfig['rewind_enable'] = 'false'
-    if system.isOptSet('rewind') and system.getOptBoolean('rewind') == True:
-        if(not system.name in systemNoRewind):
+    if system.isOptSet('rewind') and system.getOptBoolean('rewind'):
+        if(system.name not in systemNoRewind):
             retroarchConfig['rewind_enable'] = 'true'
         else:
             retroarchConfig['rewind_enable'] = 'false'
@@ -668,17 +668,17 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
     retroarchConfig['run_ahead_frames'] = '0'
     retroarchConfig['run_ahead_secondary_instance'] = 'false'
     if system.isOptSet('runahead') and int(system.config['runahead']) >0:
-       if (not system.name in systemNoRunahead):
-          if system.isOptSet('preemptiveframes') and system.getOptBoolean('preemptiveframes') == True:
+       if (system.name not in systemNoRunahead):
+          if system.isOptSet('preemptiveframes') and system.getOptBoolean('preemptiveframes'):
              retroarchConfig['preemptive_frames_enable'] = 'true'
           else:
              retroarchConfig['run_ahead_enabled'] = 'true'
           retroarchConfig['run_ahead_frames'] = system.config['runahead']
-          if system.isOptSet('secondinstance') and system.getOptBoolean('secondinstance') == True:
+          if system.isOptSet('secondinstance') and system.getOptBoolean('secondinstance'):
               retroarchConfig['run_ahead_secondary_instance'] = 'true'
 
     # Auto frame delay (input delay reduction via frame timing)
-    if system.isOptSet('video_frame_delay_auto') and system.getOptBoolean('video_frame_delay_auto') == True:
+    if system.isOptSet('video_frame_delay_auto') and system.getOptBoolean('video_frame_delay_auto'):
         retroarchConfig['video_frame_delay_auto'] = 'true'
     else:
         retroarchConfig['video_frame_delay_auto'] = 'false'
@@ -691,7 +691,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         retroarchConfig['cheevos_unlock_sound_enable'] = 'false'
 
     # Autosave option
-    if system.isOptSet('autosave') and system.getOptBoolean('autosave') == True:
+    if system.isOptSet('autosave') and system.getOptBoolean('autosave'):
         retroarchConfig['savestate_auto_save'] = 'true'
         retroarchConfig['savestate_auto_load'] = 'true'
     else:
@@ -725,45 +725,45 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
     retroarchConfig['cheevos_start_active'] = 'false'
     retroarchConfig['cheevos_richpresence_enable'] = 'false'
 
-    if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements') == True:
-        if (system.config['core'] in coreToRetroachievements) or (system.isOptSet('cheevos_force') and system.getOptBoolean('cheevos_force') == True):
+    if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements'):
+        if (system.config['core'] in coreToRetroachievements) or (system.isOptSet('cheevos_force') and system.getOptBoolean('cheevos_force')):
             retroarchConfig['cheevos_enable'] = 'true'
             retroarchConfig['cheevos_username'] = systemConfig.get('retroachievements.username', "")
             retroarchConfig['cheevos_password'] = "" # clear the password - only use the token
             retroarchConfig['cheevos_token'] = systemConfig.get('retroachievements.token', "")
             retroarchConfig['cheevos_cmd'] = DEFAULTS_DIR / "call_achievements_hooks.sh"
             # retroachievements_hardcore_mode
-            if system.isOptSet('retroachievements.hardcore') and system.getOptBoolean('retroachievements.hardcore') == True:
+            if system.isOptSet('retroachievements.hardcore') and system.getOptBoolean('retroachievements.hardcore'):
                 retroarchConfig['cheevos_hardcore_mode_enable'] = 'true'
             else:
                 retroarchConfig['cheevos_hardcore_mode_enable'] = 'false'
             # retroachievements_leaderboards
-            if system.isOptSet('retroachievements.leaderboards') and system.getOptBoolean('retroachievements.leaderboards') == True:
+            if system.isOptSet('retroachievements.leaderboards') and system.getOptBoolean('retroachievements.leaderboards'):
                 retroarchConfig['cheevos_leaderboards_enable'] = 'true'
             else:
                 retroarchConfig['cheevos_leaderboards_enable'] = 'false'
             # retroachievements_verbose_mode
-            if system.isOptSet('retroachievements.verbose') and system.getOptBoolean('retroachievements.verbose') == True:
+            if system.isOptSet('retroachievements.verbose') and system.getOptBoolean('retroachievements.verbose'):
                 retroarchConfig['cheevos_verbose_enable'] = 'true'
             else:
                 retroarchConfig['cheevos_verbose_enable'] = 'false'
             # retroachievements_automatic_screenshot
-            if system.isOptSet('retroachievements.screenshot') and system.getOptBoolean('retroachievements.screenshot') == True:
+            if system.isOptSet('retroachievements.screenshot') and system.getOptBoolean('retroachievements.screenshot'):
                 retroarchConfig['cheevos_auto_screenshot'] = 'true'
             else:
                 retroarchConfig['cheevos_auto_screenshot'] = 'false'
             # retroarchievements_challenge_indicators
-            if system.isOptSet('retroachievements.challenge_indicators') and system.getOptBoolean('retroachievements.challenge_indicators') == True:
+            if system.isOptSet('retroachievements.challenge_indicators') and system.getOptBoolean('retroachievements.challenge_indicators'):
                 retroarchConfig['cheevos_challenge_indicators'] = 'true'
             else:
                 retroarchConfig['cheevos_challenge_indicators'] = 'false'
             # retroarchievements_encore_mode
-            if system.isOptSet('retroachievements.encore') and system.getOptBoolean('retroachievements.encore') == True:
+            if system.isOptSet('retroachievements.encore') and system.getOptBoolean('retroachievements.encore'):
                 retroarchConfig['cheevos_start_active'] = 'true'
             else:
                 retroarchConfig['cheevos_start_active'] = 'false'
             # retroarchievements_rich_presence
-            if system.isOptSet('retroachievements.richpresence') and system.getOptBoolean('retroachievements.richpresence') == True:
+            if system.isOptSet('retroachievements.richpresence') and system.getOptBoolean('retroachievements.richpresence'):
                 retroarchConfig['cheevos_richpresence_enable'] = 'true'
             else:
                 retroarchConfig['cheevos_richpresence_enable'] = 'false'
@@ -772,7 +772,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
     else:
         retroarchConfig['cheevos_enable'] = 'false'
 
-    if system.isOptSet('integerscale') and system.getOptBoolean('integerscale') == True:
+    if system.isOptSet('integerscale') and system.getOptBoolean('integerscale'):
         retroarchConfig['video_scale_integer'] = 'true'
     else:
         retroarchConfig['video_scale_integer'] = 'false'
@@ -817,13 +817,13 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
             retroarchConfig['netplay_spectate_password'] = '"' + systemConfig.get("netplay.spectatepassword", "") + '"'
 
         # Netplay hide the gameplay
-        if system.isOptSet('netplay_public_announce') and system.getOptBoolean('netplay_public_announce') == False:
+        if system.isOptSet('netplay_public_announce') and not system.getOptBoolean('netplay_public_announce'):
             retroarchConfig['netplay_public_announce'] = 'false'
         else:
             retroarchConfig['netplay_public_announce'] = 'true'
 
         # Enable or disable server spectator mode
-        if system.isOptSet('netplay.spectator') and system.getOptBoolean('netplay.spectator') == True:
+        if system.isOptSet('netplay.spectator') and system.getOptBoolean('netplay.spectator'):
             retroarchConfig['netplay_spectator_mode_enable'] = 'true'
         else:
             retroarchConfig['netplay_spectator_mode_enable'] = 'false'
@@ -838,7 +838,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
             retroarchConfig['netplay_use_mitm_server'] = "false"
 
     # Display FPS
-    if system.isOptSet('showFPS') and system.getOptBoolean('showFPS') == True:
+    if system.isOptSet('showFPS') and system.getOptBoolean('showFPS'):
         retroarchConfig['fps_show'] = 'true'
     else:
         retroarchConfig['fps_show'] = 'false'
@@ -862,7 +862,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         retroarchConfig['video_font_size'] = '11'
 
     # AI option (service for game translations)
-    if system.isOptSet('ai_service_enabled') and system.getOptBoolean('ai_service_enabled') == True:
+    if system.isOptSet('ai_service_enabled') and system.getOptBoolean('ai_service_enabled'):
         retroarchConfig['ai_service_enable'] = 'true'
         retroarchConfig['ai_service_mode'] = '0'
         retroarchConfig['ai_service_source_lang'] = '0'
@@ -874,7 +874,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
             retroarchConfig['ai_service_url'] = system.config['ai_service_url']+'&mode=Fast&output=png&target_lang='+chosen_lang
         else:
             retroarchConfig['ai_service_url'] = 'http://ztranslate.net/service?api_key=BATOCERA&mode=Fast&output=png&target_lang='+chosen_lang
-        if system.isOptSet('ai_service_pause') and system.getOptBoolean('ai_service_pause') == True:
+        if system.isOptSet('ai_service_pause') and system.getOptBoolean('ai_service_pause'):
             retroarchConfig['ai_service_pause'] = 'true'
         else:
             retroarchConfig['ai_service_pause'] = 'false'
@@ -1271,7 +1271,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
         retroarchConfig["video_viewport_bias_y"] = "1.000000"
 
     # stretch option
-    if system.isOptSet('bezel_stretch') and system.getOptBoolean('bezel_stretch') == True:
+    if system.isOptSet('bezel_stretch') and system.getOptBoolean('bezel_stretch'):
         bezel_stretch = True
     else:
         bezel_stretch = False

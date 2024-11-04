@@ -200,7 +200,7 @@ def reconfigureControllers(playersControllers: ControllerMapping, system: Emulat
         # add the new devices
         for p in newPads:
             matches = re.match(r"^/dev/input/event([0-9]*)$", str(p))
-            if matches != None:
+            if matches is not None:
                 joysticks[int(matches.group(1))] = { "node": p }
         # find new sdl numeration
         joysticksByDev: dict[str, int] = {}

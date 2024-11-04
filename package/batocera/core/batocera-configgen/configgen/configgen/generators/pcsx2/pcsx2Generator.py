@@ -261,7 +261,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
     if not pcsx2INIConfig.has_section("Achievements"):
         pcsx2INIConfig.add_section("Achievements")
     pcsx2INIConfig.set("Achievements", "Enabled", "false")
-    if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements') == True:
+    if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements'):
         username  = system.config.get('retroachievements.username', "")
         token     = system.config.get('retroachievements.token', "")
         hardcore  = system.config.get('retroachievements.hardcore', "")
@@ -436,7 +436,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
     else:
         pcsx2INIConfig.set("EmuCore", "AutoIncrementSlot", "true")
 
-    if system.isOptSet('autosave') and system.getOptBoolean('autosave') == True:
+    if system.isOptSet('autosave') and system.getOptBoolean('autosave'):
         pcsx2INIConfig.set("EmuCore", "SaveStateOnShutdown", "true")
     else:
         pcsx2INIConfig.set("EmuCore", "SaveStateOnShutdown", "false")

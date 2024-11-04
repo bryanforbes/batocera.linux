@@ -93,7 +93,7 @@ class ECWolfGenerator(Generator):
                     ecwolfArray += (f.readline().split())
 
                 # If 1. parameter isn't an argument then assume it's a path
-                if not "--" in ecwolfArray[1]:
+                if "--" not in ecwolfArray[1]:
                     try:
                         os.chdir(ecwolfArray[1])
                     except Exception as e:

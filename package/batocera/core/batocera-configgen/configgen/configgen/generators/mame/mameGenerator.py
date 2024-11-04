@@ -168,8 +168,8 @@ class MameGenerator(Generator):
         # MAME will create custom configs per game for MAME ROMs and MESS ROMs with no system attached (LCD games, TV games, etc.)
         # This will allow an alternate config path per game for MESS console/computer ROMs that may need additional config.
         if system.isOptSet("pergamecfg") and system.getOptBoolean("pergamecfg"):
-            if not messMode == -1:
-                if not messSysName[messMode] == "":
+            if messMode != -1:
+                if messSysName[messMode] != "":
                     base_path = MAME_CONFIG / messSysName[messMode]
                     mkdir_if_not_exists(base_path)
                     cfgPath = base_path / romBasename
@@ -248,7 +248,7 @@ class MameGenerator(Generator):
 
         # Load selected plugins
         pluginsToLoad = []
-        if not (system.isOptSet("hiscoreplugin") and system.getOptBoolean("hiscoreplugin") == False):
+        if not (system.isOptSet("hiscoreplugin") and not system.getOptBoolean("hiscoreplugin")):
             pluginsToLoad += [ "hiscore" ]
         if system.isOptSet("coindropplugin") and system.getOptBoolean("coindropplugin"):
             pluginsToLoad += [ "coindrop" ]
