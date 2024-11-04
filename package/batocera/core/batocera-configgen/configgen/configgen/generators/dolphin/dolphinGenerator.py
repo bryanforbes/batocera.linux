@@ -461,7 +461,7 @@ class DolphinGenerator(Generator):
 
         try:
             wii_tv_mode = dolphinSYSCONF.getRatioFromConfig(config, gameResolution)
-        except:
+        except Exception:
             pass
 
         # Auto

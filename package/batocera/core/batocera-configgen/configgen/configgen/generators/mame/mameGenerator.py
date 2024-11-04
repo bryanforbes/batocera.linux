@@ -562,7 +562,7 @@ class MameGenerator(Generator):
                 MameGenerator.writeBezelConfig(bezelSet, system, rom_path, messSysName[messMode], gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
             else:
                 MameGenerator.writeBezelConfig(bezelSet, system, rom_path, "", gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
-        except:
+        except Exception:
             MameGenerator.writeBezelConfig(None, system, rom_path, "", gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
 
         buttonLayout = getMameControlScheme(system, rom_path)
@@ -724,13 +724,13 @@ class MameGenerator(Generator):
                 tattoo_file = Path(system.config['bezel.tattoo_file'])
                 try:
                     tattoo = Image.open(tattoo_file)
-                except:
+                except Exception:
                     _logger.error("Error opening custom file: %s", tattoo_file)
             else:
                 tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
                 try:
                     tattoo = Image.open(tattoo_file)
-                except:
+                except Exception:
                     _logger.error("Error opening custom file: %s", tattoo_file)
             output_png_file = Path("/tmp/bezel_tattooed.png")
             back = Image.open(pngFile)
@@ -761,7 +761,7 @@ class MameGenerator(Generator):
 
             try:
                 pngFile.unlink()
-            except:
+            except Exception:
                 pass
 
             pngFile.symlink_to(output_png_file)
@@ -773,7 +773,7 @@ class MameGenerator(Generator):
             borderSize = bezelsUtil.gunBorderImage(pngFile, output_png_file, gunsBordersRatio, innerSize, outerSize, bezelsUtil.gunsBordersColorFomConfig(system.config))
             try:
                 pngFile.unlink()
-            except:
+            except Exception:
                 pass
             pngFile.symlink_to(output_png_file)
 

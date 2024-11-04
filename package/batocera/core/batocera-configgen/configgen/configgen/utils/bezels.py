@@ -166,18 +166,18 @@ def tatooImage(input_png: str | Path, output_png: str | Path, system: Emulator) 
             if not tattoo_file.exists():
                 tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
             tattoo = Image.open(tattoo_file)
-        except:
+        except Exception:
             _logger.error("Error opening controller overlay: %s", tattoo_file)
     elif system.config['bezel.tattoo'] == 'custom' and (tattoo_file := Path(system.config['bezel.tattoo_file'])).exists():
         try:
             tattoo = Image.open(tattoo_file)
-        except:
+        except Exception:
             _logger.error("Error opening custom file: %s", tattoo_file)
     else:
         try:
             tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
             tattoo = Image.open(tattoo_file)
-        except:
+        except Exception:
             _logger.error("Error opening custom file: %s", tattoo_file)
     # Open the existing bezel...
     back = Image.open(input_png)

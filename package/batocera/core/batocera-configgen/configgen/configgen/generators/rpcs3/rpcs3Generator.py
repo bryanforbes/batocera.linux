@@ -372,6 +372,6 @@ class Rpcs3Generator(Generator):
                 matches = re.match("^release:(.*):", line)
                 if matches:
                     return matches[1]
-        except:
+        except Exception:
             return None
         return None

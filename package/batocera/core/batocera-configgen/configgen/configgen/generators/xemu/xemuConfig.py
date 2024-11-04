@@ -19,7 +19,7 @@ def writeIniFile(system: Emulator, rom: str, playersControllers: ControllerMappi
     if XEMU_CONFIG.exists():
         try:
             iniConfig.read(XEMU_CONFIG, encoding='utf_8_sig')
-        except:
+        except Exception:
             pass
 
     createXemuConfig(iniConfig, system, rom, playersControllers, gameResolution)
@@ -84,7 +84,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
         iniConfig.set("display", "renderer", '"' + system.config["xemu_api"] + '"')
     else:
         iniConfig.set("display", "renderer", '"OPENGL"')
-    
+
     # Rendering resolution
     iniConfig.set("display.quality", "surface_scale", system.get_option("xemu_render", "1")) #render scale by default
 
@@ -93,7 +93,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
 
     # Window size
     window_res = format(gameResolution["width"]) + "x" + format(gameResolution["height"])
-    iniConfig.set("display.window", "startup_size", '"' + window_res + '"')  
+    iniConfig.set("display.window", "startup_size", '"' + window_res + '"')
 
     # Vsync
     iniConfig.set("display.window", "vsync", system.get_option("xemu_vsync", "true"))

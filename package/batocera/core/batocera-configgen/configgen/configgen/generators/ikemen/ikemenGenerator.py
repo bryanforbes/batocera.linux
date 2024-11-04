@@ -185,7 +185,7 @@ class IkemenGenerator(Generator):
         try:
             with config_path.open() as c:
                 conf = json.load(c)
-        except:
+        except Exception:
             conf = {}
 
         # Joystick configuration seems completely broken in 0.98.2 Linux
