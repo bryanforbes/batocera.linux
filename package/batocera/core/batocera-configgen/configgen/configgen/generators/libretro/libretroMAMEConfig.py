@@ -552,7 +552,7 @@ def generateMAMEPadConfig(
     if configFile.exists():
         try:
             config = minidom.parse(str(configFile))
-        except:
+        except Exception:
             pass # reinit the file
 
     if system.isOptSet('customcfg'):
@@ -662,7 +662,7 @@ def generateMAMEPadConfig(
         if configFile_alt.exists():
             try:
                 config_alt = minidom.parse(str(configFile_alt))
-            except:
+            except Exception:
                 pass # reinit the file
 
         perGameCfg = system.getOptBoolean('pergamecfg')

@@ -271,7 +271,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
         login_cmd = f"dorequest.php?r=login&u={username}&p={password}"
         try:
                 cnx = httplib2.Http()
-        except:
+        except Exception:
                 _logger.error("ERROR: Unable to connect to %s", login_url)
         try:
                 res, rout = cnx.request(login_url + login_cmd, method="GET", body=None, headers=headers)
@@ -303,7 +303,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                         pcsx2INIConfig.set("Achievements", "Leaderboards", "true")
                     else:
                         pcsx2INIConfig.set("Achievements", "Leaderboards", "false")
-        except:
+        except Exception:
                 _logger.error("ERROR: setting RetroAchievements parameters")
     # set other settings
     pcsx2INIConfig.set("Achievements", "TestMode", "false")

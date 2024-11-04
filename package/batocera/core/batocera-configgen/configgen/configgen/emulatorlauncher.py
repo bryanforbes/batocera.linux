@@ -29,7 +29,7 @@ from collections import deque
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from sys import exit
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, cast
 
 from . import controllersConfig as controllers
 from .batoceraPaths import SAVES, SYSTEM_SCRIPTS, USER_SCRIPTS
@@ -290,7 +290,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: str, gameResolution
         try:
             with overlay_info_file.open() as f:
                 infos = json.load(f)
-        except:
+        except Exception:
             _logger.warning("unable to read %s", overlay_info_file)
             infos = {}
     else:
@@ -406,14 +406,14 @@ def extractGameInfosFromXml(xml: str) -> dict[str, str]:
     try:
         infos = ET.parse(xml)
         try:
-            vals["name"] = infos.find("./game/name").text
-        except:
+            vals["name"] = cast('str', cast('ET.Element', infos.find("./game/name")).text)
+        except Exception:
             pass
         try:
-            vals["thumbnail"] = infos.find("./game/thumbnail").text
-        except:
+            vals["thumbnail"] = cast('str', cast('ET.Element', infos.find("./game/thumbnail")).text)
+        except Exception:
             pass
-    except:
+    except Exception:
         pass
     return vals
 
@@ -515,7 +515,7 @@ def runCommand(command: Command) -> int:
         # Seeing BrokenPipeError? This is probably caused by head truncating output in the front-end
         # Examine es-core/src/platform.cpp::runSystemCommand for additional context
         pass
-    except:
+    except:  # noqa: E722
         _logger.error("emulator exited")
 
     return exitcode

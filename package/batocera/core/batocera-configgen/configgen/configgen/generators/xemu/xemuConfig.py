@@ -20,7 +20,7 @@ def writeIniFile(system: Emulator, rom: str, playersControllers: ControllerMappi
         try:
             with XEMU_CONFIG.open(encoding='utf_8_sig') as fp:
                 iniConfig.readfp(fp)
-        except:
+        except Exception:
             pass
 
     createXemuConfig(iniConfig, system, rom, playersControllers, gameResolution)
