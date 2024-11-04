@@ -481,9 +481,9 @@ def generateControllerConfig_wheel(f: codecs.StreamReaderWriter, pad: Controller
 
     _logger.debug("configuring wheel for pad %s", pad.real_name)
 
-    f.write(f"Rumble/Motor = Constant\n") # only Constant works on my wheel. maybe some other values could be good
-    f.write(f"Rumble/Motor/Range = -100.\n") # value must be negative, otherwise the center is located in extremes (left/right)
-    f.write(f"Main Stick/Dead Zone = 0.\n") # not really needed while this is the default
+    f.write("Rumble/Motor = Constant\n") # only Constant works on my wheel. maybe some other values could be good
+    f.write("Rumble/Motor/Range = -100.\n") # value must be negative, otherwise the center is located in extremes (left/right)
+    f.write("Main Stick/Dead Zone = 0.\n") # not really needed while this is the default
 
     for x in pad.inputs:
         input = pad.inputs[x]
