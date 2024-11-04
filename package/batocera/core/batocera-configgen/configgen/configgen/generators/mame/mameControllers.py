@@ -42,7 +42,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     with openFile:
         controlList = csv.reader(openFile)
         for row in controlList:
-            if not row[0] in controlDict.keys():
+            if row[0] not in controlDict.keys():
                 controlDict[row[0]] = {}
             controlDict[row[0]][row[1]] = row[2]
 
@@ -119,7 +119,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
         with openMessFile:
             controlList = csv.reader(openMessFile, delimiter=';')
             for row in controlList:
-                if not row[0] in messControlDict.keys():
+                if row[0] not in messControlDict.keys():
                     messControlDict[row[0]] = {}
                 messControlDict[row[0]][row[1]] = {}
                 currentEntry = messControlDict[row[0]][row[1]]
@@ -151,9 +151,9 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
                     currentEntry['mask'] = row[10]
                     currentEntry['default'] = row[11]
                 if currentEntry['reversed'] == 'False':
-                    currentEntry['reversed'] == False
+                    currentEntry['reversed'] = False
                 else:
-                    currentEntry['reversed'] == True
+                    currentEntry['reversed'] = True
 
         config_alt = minidom.Document()
         configFile_alt = cfgPath / f"{sysName}.cfg"
@@ -211,7 +211,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     maxplayers = len(playersControllers)
     for playercontroller, pad in sorted(playersControllers.items()):
         mappings_use = mappings
-        if hasStick(pad) == False:
+        if not hasStick(pad):
             mappings_use["JOYSTICK_UP"] = "up"
             mappings_use["JOYSTICK_DOWN"] = "down"
             mappings_use["JOYSTICK_LEFT"] = "left"

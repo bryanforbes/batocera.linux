@@ -172,7 +172,7 @@ class HypseusSingeGenerator(Generator):
 
         _logger.debug("Full m2v path is: %s", video_path)
 
-        if video_path != None:
+        if video_path is not None:
             video_resolution = self.get_resolution(video_path)
             _logger.debug("Resolution: %s", video_resolution)
 
@@ -279,7 +279,7 @@ class HypseusSingeGenerator(Generator):
                         commandArray.extend(["-manymouse"]) # this is causing issues on some "non-gun" games
 
         # bezels
-        if system.isOptSet('hypseus_bezels') and system.getOptBoolean("hypseus_bezels") == False:
+        if system.isOptSet('hypseus_bezels') and not system.getOptBoolean("hypseus_bezels"):
             bezelRequired = False
 
         if bezelRequired:
