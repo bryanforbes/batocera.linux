@@ -23,7 +23,7 @@ def writePPSSPPConfig(system: Emulator):
         try:
             with ppssppConfig.open('r', encoding='utf_8_sig') as fp:
                 iniConfig.readfp(fp)
-        except:
+        except Exception:
             pass
 
     createPPSSPPConfig(iniConfig, system)
