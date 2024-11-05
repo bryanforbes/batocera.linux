@@ -114,10 +114,7 @@ class LibretroGenerator(Generator):
             # force pathes
             libretroRetroarchCustom.generateRetroarchCustomPathes(retroconfig)
             # Write configuration to retroarchcustom.cfg
-            if 'bezel' not in system.config or system.config['bezel'] == '':
-                bezel = None
-            else:
-                bezel = system.config['bezel']
+            bezel = None if (bezel_option := system.get_option('bezel', '')) == '' else bezel_option
             # some systems (ie gw) won't bezels
             if system.isOptSet('forceNoBezel') and system.getOptBoolean('forceNoBezel'):
                 bezel = None

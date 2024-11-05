@@ -131,11 +131,7 @@ def generateControllerConfig(controller: Controller, type: Literal['dreamcast', 
 
         if input.type == 'axis':
             section = 'analog'
-            if input.name == 'l2' or input.name == 'r2':
-                # Use positive axis for full trigger control
-                code = input.id + "+"
-            else:
-                code = input.id + "-"
+            code = input.id + ("+" if input.name == 'l2' or input.name == 'r2' else "-")  # Use positive axis for full trigger control
             option = f"bind{analogbind}"
             analogbind = analogbind +1
             val = f"{code}:{var}"

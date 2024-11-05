@@ -112,10 +112,7 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
                     elif input.type == 'axis' and input.name not in kodiaxes:
                         xmlaxis = config.createElement('feature')
                         val = input.id
-                        if int(input.value) >= 0:
-                            val =  "+" + val
-                        else:
-                            val =  "-" + val
+                        val = f'+{val}' if int(input.value) >= 0 else f'-{val}'
                         xmlaxis.attributes["axis"] = val
                         xmlaxis.attributes["name"] = kodimapping[input.name]
                         xmlcontroller.appendChild(xmlaxis)

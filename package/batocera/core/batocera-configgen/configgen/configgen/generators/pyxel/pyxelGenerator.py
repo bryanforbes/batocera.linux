@@ -14,10 +14,7 @@ if TYPE_CHECKING:
 class PyxelGenerator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
-        if Path(rom).suffix == '.pyxapp':
-            cmd = 'play'
-        else:
-            cmd = 'run'
+        cmd = 'play' if Path(rom).suffix == '.pyxapp' else 'run'
 
         commandArray = ["/usr/bin/pyxel", cmd, rom]
         return Command.Command(

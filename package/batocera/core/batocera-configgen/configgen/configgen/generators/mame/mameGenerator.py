@@ -146,16 +146,10 @@ class MameGenerator(Generator):
         commandArray += [ "-nvram_directory" ,    MAME_SAVES / "nvram" ]
 
         # Set custom config path if option is selected or default path if not
-        if system.isOptSet("customcfg"):
-            customCfg = system.getOptBoolean("customcfg")
-        else:
-            customCfg = False
+        customCfg = system.get_option_bool("customcfg")
 
         if system.name == "mame":
-            if customCfg:
-                cfgPath = MAME_CONFIG / "custom"
-            else:
-                cfgPath = MAME_CONFIG
+            cfgPath = MAME_CONFIG / "custom" if customCfg else MAME_CONFIG
             mkdir_if_not_exists(MAME_CONFIG)
         else:
             if customCfg:
@@ -328,10 +322,7 @@ class MameGenerator(Generator):
             #Laser 310 Memory Expansion & Joystick
             if system.name == "laser310":
                 commandArray += ['-io', 'joystick']
-                if not system.isOptSet('memslot'):
-                    laser310mem = 'laser_64k'
-                else:
-                    laser310mem = system.config['memslot']
+                laser310mem = system.get_option('memslot', 'laser_64k')
                 commandArray += ["-mem", laser310mem]
 
             # BBC Joystick
@@ -514,10 +505,7 @@ class MameGenerator(Generator):
                 if autoRunCmd == "":
                     if (system.isOptSet('altromtype') and system.config["altromtype"] == "cass") or (softList != "" and softList.endswith("cass")) or romExt.casefold() == ".cas":
                         romType = 'cass'
-                        if romName.casefold().endswith(".bas"):
-                            autoRunCmd = 'CLOAD:RUN\\n'
-                        else:
-                            autoRunCmd = 'CLOADM:EXEC\\n'
+                        autoRunCmd = "CLOAD:RUN\\n" if romName.casefold().endswith(".bas") else "CLOADM:EXEC\\n"
                     if (system.isOptSet('altromtype') and system.config["altromtype"] == "flop1") or (softList != "" and softList.endswith("flop")) or romExt.casefold() == ".dsk":
                         romType = 'flop'
                         if romName.casefold().endswith(".bas"):
@@ -551,10 +539,7 @@ class MameGenerator(Generator):
                 commandArray += [ "-autoboot_delay", str(autoRunDelay), "-autoboot_command", autoRunCmd ]
 
         # bezels
-        if 'bezel' not in system.config.keys() or system.config['bezel'] == '':
-            bezelSet = None
-        else:
-            bezelSet = system.config['bezel']
+        bezelSet = None if (bezel_option := system.get_option('bezel', '')) == '' else bezel_option
         if system.isOptSet('forceNoBezel') and system.getOptBoolean('forceNoBezel'):
             bezelSet = None
         try:
@@ -692,10 +677,7 @@ class MameGenerator(Generator):
                 _, _, rotate = MameGenerator.getMameMachineSize(rom.stem, tmpZipDir)
 
                 # assumes that all bezels are setup for 4:3H or 3:4V aspects
-                if rotate == 270 or rotate == 90:
-                    bz_width = int(img_height * (3 / 4))
-                else:
-                    bz_width = int(img_height * (4 / 3))
+                bz_width = int(img_height * (3 / 4 if rotate == 270 or rotate == 90 else 4 / 3))
                 bz_height = img_height
                 bz_x = int((img_width - bz_width) / 2)
                 bz_y = 0
@@ -743,10 +725,7 @@ class MameGenerator(Generator):
             tattoo = tattoo.resize((tatwidth,tatheight), Image.Resampling.LANCZOS)
             alpha = back.split()[-1]
             alphatat = tattoo.split()[-1]
-            if system.isOptSet('bezel.tattoo_corner'):
-                corner = system.config['bezel.tattoo_corner']
-            else:
-                corner = 'NW'
+            corner = system.get_option('bezel.tattoo_corner', 'NW')
             if (corner.upper() == 'NE'):
                 back.paste(tattoo, (img_width-tatwidth,20), alphatat) # 20 pixels vertical margins (on 1080p)
             elif (corner.upper() == 'SE'):
@@ -812,10 +791,7 @@ def getMameControlScheme(system: Emulator, rom_path: Path) -> str:
     mameRotatedstick = MAME_DEFAULT_DATA / 'mameRotatedstick.txt'
 
     # Controls for games with 5-6 buttons or other unusual controls
-    if system.isOptSet("altlayout"):
-        controllerType = system.config["altlayout"] # Option was manually selected
-    else:
-        controllerType = "auto"
+    controllerType = system.get_option("altlayout", "auto")
 
     if controllerType in [ "default", "neomini", "neocd", "twinstick", "qbert" ]:
         return controllerType

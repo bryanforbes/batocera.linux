@@ -532,10 +532,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         # Otherwise, set to portrait for games listed as 90 degrees, manual (default) if not.
         if not system.isOptSet('wswan_rotate_display'):
             wswanGameRotation = videoMode.getAltDecoration(system.name, rom, 'retroarch')
-            if wswanGameRotation == "90":
-                wswanOrientation = "portrait"
-            else:
-                wswanOrientation = "manual"
+            wswanOrientation = "portrait" if wswanGameRotation == "90" else "manual"
         else:
             wswanOrientation = system.config['wswan_rotate_display']
         retroarchConfig['wswan_rotate_display'] = wswanOrientation
@@ -866,10 +863,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         retroarchConfig['ai_service_enable'] = 'true'
         retroarchConfig['ai_service_mode'] = '0'
         retroarchConfig['ai_service_source_lang'] = '0'
-        if system.isOptSet('ai_target_lang'):
-            chosen_lang=system.config['ai_target_lang']
-        else:
-            chosen_lang='En'
+        chosen_lang = system.get_option('ai_target_lang', 'En')
         if system.isOptSet('ai_service_url') and system.config['ai_service_url']:
             retroarchConfig['ai_service_url'] = system.config['ai_service_url']+'&mode=Fast&output=png&target_lang='+chosen_lang
         else:
@@ -1271,10 +1265,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
         retroarchConfig["video_viewport_bias_y"] = "1.000000"
 
     # stretch option
-    if system.isOptSet('bezel_stretch') and system.getOptBoolean('bezel_stretch'):
-        bezel_stretch = True
-    else:
-        bezel_stretch = False
+    bezel_stretch = system.get_option_bool('bezel_stretch')
 
     tattoo_output_png = Path("/tmp/bezel_tattooed.png")
     if bezelNeedAdaptation:

@@ -26,10 +26,7 @@ class SonicRetroGenerator(Generator):
         rom_path = Path(rom)
 
         # Determine the emulator to use
-        if rom_path.name.lower().endswith("son"):
-            emu = "sonic2013"
-        else:
-            emu = "soniccd"
+        emu = "sonic2013" if rom_path.name.lower().endswith("son") else "soniccd"
 
         iniFile = rom_path / "settings.ini"
 
@@ -195,10 +192,7 @@ class SonicRetroGenerator(Generator):
         rom_path = Path(rom)
 
         # Determine the emulator to use
-        if rom_path.name.lower().endswith("son"):
-            emu = "sonic2013"
-        else:
-            emu = "soniccd"
+        emu = "sonic2013" if rom_path.name.lower().endswith("son") else "soniccd"
 
         mouseRoms = [
             "1bd5ad366df1765c98d20b53c092a528", # iOS version of SonicCD
@@ -206,10 +200,7 @@ class SonicRetroGenerator(Generator):
 
         enableMouse = False
         data_file = rom_path / 'Data.rsdk'
-        if emu == "soniccd" and data_file.is_file():
-            enableMouse = self.__getMD5(data_file) in mouseRoms
-        else:
-            enableMouse = False
+        enableMouse = self.__getMD5(data_file) in mouseRoms if emu == "soniccd" and data_file.is_file() else False
 
         return enableMouse
 

@@ -243,10 +243,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         type = PRO # default
         if system.isOptSet('cemu_controller_combination') and system.config["cemu_controller_combination"] != '0':
             if system.config["cemu_controller_combination"] == '1':
-                if (nplayer == 0):
-                    type = GAMEPAD
-                else:
-                    type = WIIMOTE
+                type = GAMEPAD if nplayer == 0 else WIIMOTE
             elif system.config["cemu_controller_combination"] == '2':
                 type = PRO
             else:
@@ -254,10 +251,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
             if system.config["cemu_controller_combination"] == '4':
                 type = CLASSIC
         else:
-            if (nplayer == 0):
-                type = GAMEPAD
-            else:
-                type = PRO
+            type = GAMEPAD if nplayer == 0 else PRO
         addTextElement(root, "type", type)
 
         if isWiimote(pad):

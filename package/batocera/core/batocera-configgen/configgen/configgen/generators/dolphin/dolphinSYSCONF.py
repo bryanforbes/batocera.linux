@@ -89,10 +89,7 @@ def readWriteEntry(f, setval):
 
 def readWriteFile(filepath: Path, setval):
     # open in read read/write depending of the action
-    if not setval:
-        f = filepath.open("rb")
-    else:
-        f = filepath.open("r+b")
+    f = filepath.open("rb" if not setval else "r+b")
 
     try:
         version    = readString(f, 4) # read SCv0

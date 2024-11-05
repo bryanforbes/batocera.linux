@@ -57,20 +57,14 @@ class DrasticGenerator(Generator):
                 subprocess.run(f"xxd -r drastic.txt > {drastic_bin}", shell=True)
                 Path("drastic.txt").unlink()
 
-        if system.isOptSet("drastic_hires") and system.config["drastic_hires"] == '1':
-            esvaluedrastichires = 1
-        else:
-            esvaluedrastichires = 0
+        esvaluedrastichires = 1 if system.get_option("drastic_hires") == "1" else 0
 
         if system.isOptSet("drastic_threaded") and system.config["drastic_threaded"] == '1':
             esvaluedrasticthreaded = 1
         else:
             esvaluedrasticthreaded = 0
 
-        if system.isOptSet("drastic_fix2d") and system.config["drastic_fix2d"] == '1':
-            esvaluedrasticfix2d = 1
-        else:
-            esvaluedrasticfix2d = 0
+        esvaluedrasticfix2d = 1 if system.get_option("drastic_fix2d") == "1" else 0
 
         if system.isOptSet("drastic_screen_orientation"):
             esvaluedrasticscreenorientation = system.config["drastic_screen_orientation"]

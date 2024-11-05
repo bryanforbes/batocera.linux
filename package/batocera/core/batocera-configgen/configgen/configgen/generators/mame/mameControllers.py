@@ -30,10 +30,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             config = minidom.parse(str(configFile))
         except Exception:
             pass # reinit the file
-    if configFile.exists() and customCfg:
-        overwriteMAME = False
-    else:
-        overwriteMAME = True
+    overwriteMAME = not (configFile.exists() and customCfg)
 
     # Load standard controls from csv
     controlFile = MAME_DEFAULT_DATA / 'mameControls.csv'
@@ -42,31 +39,31 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     with openFile:
         controlList = csv.reader(openFile)
         for row in controlList:
-            if row[0] not in controlDict.keys():
+            if row[0] not in controlDict:
                 controlDict[row[0]] = {}
             controlDict[row[0]][row[1]] = row[2]
 
     # Common controls
     mappings: dict[str, str] = {}
-    for controlDef in controlDict['default'].keys():
+    for controlDef in controlDict['default']:
         mappings[controlDef] = controlDict['default'][controlDef]
 
     # Only use gun buttons if lightguns are enabled to prevent conflicts with mouse
     gunmappings: dict[str, str] = {}
     if useGuns:
-        for controlDef in controlDict['gunbuttons'].keys():
+        for controlDef in controlDict['gunbuttons']:
             gunmappings[controlDef] = controlDict['gunbuttons'][controlDef]
 
     # Only define mouse buttons if mouse is enabled, to prevent unwanted inputs
     # For a standard mouse, left, right, scroll wheel should be mapped to action buttons, and if side buttons are available, they will be coin & start
     mousemappings: dict[str, str] = {}
     if useMouse:
-        for controlDef in controlDict['mousebuttons'].keys():
+        for controlDef in controlDict['mousebuttons']:
             mousemappings[controlDef] = controlDict['mousebuttons'][controlDef]
 
     # Buttons that change based on game/setting
     if altButtons in controlDict:
-        for controlDef in controlDict[altButtons].keys():
+        for controlDef in controlDict[altButtons]:
             mappings.update({controlDef: controlDict[altButtons][controlDef]})
 
     xml_mameconfig = getRoot(config, "mameconfig")
@@ -95,15 +92,9 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
 
     messControlDict = {}
     if sysName in [ "bbcb", "bbcm", "bbcm512", "bbcmc" ]:
-        if specialController == 'none':
-            useControls = "bbc"
-        else:
-            useControls = f"bbc-{specialController}"
+        useControls = "bbc" if specialController == "none" else f"bbc-{specialController}"
     elif sysName in [ "apple2p", "apple2e", "apple2ee" ]:
-        if specialController == 'none':
-            useControls = "apple2"
-        else:
-            useControls = f"apple2-{specialController}"
+        useControls = "apple2" if specialController == "none" else f"apple2-{specialController}"
     else:
         useControls = sysName
     _logger.debug("Using %s for controller config.", useControls)
@@ -119,7 +110,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
         with openMessFile:
             controlList = csv.reader(openMessFile, delimiter=';')
             for row in controlList:
-                if row[0] not in messControlDict.keys():
+                if row[0] not in messControlDict:
                     messControlDict[row[0]] = {}
                 messControlDict[row[0]][row[1]] = {}
                 currentEntry = messControlDict[row[0]][row[1]]
@@ -167,14 +158,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
                 config_alt = minidom.parse(str(configFile_alt))
             except Exception:
                 pass # reinit the file
-        if cfgPath == (MAME_CONFIG / sysName):
-            perGameCfg = False
-        else:
-            perGameCfg = True
-        if configFile_alt.exists() and (customCfg or perGameCfg):
-            overwriteSystem = False
-        else:
-            overwriteSystem = True
+        perGameCfg = cfgPath != MAME_CONFIG / sysName
+        overwriteSystem = not (configFile_alt.exists() and (customCfg or perGameCfg))
 
         xml_mameconfig_alt = getRoot(config_alt, "mameconfig")
         xml_mameconfig_alt.setAttribute("version", "10")
@@ -264,8 +249,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             xml_input.appendChild(generateComboPortElement(pad, config, 'standard', pad.index, "UI_RIGHT", "RIGHT", mappings_use["JOYSTICK_RIGHT"], pad.inputs[mappings_use["JOYSTICK_LEFT"]], False, "", "")) # Right
             xml_input.appendChild(generateComboPortElement(pad, config, 'standard', pad.index, "UI_SELECT", "ENTER", 'b', pad.inputs['b'], False, "", ""))                                                     # Select
 
-        if useControls in messControlDict.keys():
-            for controlDef in messControlDict[useControls].keys():
+        if useControls in messControlDict:
+            for controlDef in messControlDict[useControls]:
                 thisControl = messControlDict[useControls][controlDef]
                 if nplayer == thisControl['player']:
                     if thisControl['type'] == 'special':
@@ -445,10 +430,7 @@ def generateAnalogPortElement(pad: Controller, config: minidom.Document, tag: st
     xml_newseq_std = config.createElement("newseq")
     xml_port.appendChild(xml_newseq_std)
     xml_newseq_std.setAttribute("type", "standard")
-    if axis == '':
-        stdvalue = config.createTextNode("NONE")
-    else:
-        stdvalue = config.createTextNode(f"JOYCODE_{padindex + 1}_{axis}")
+    stdvalue = config.createTextNode("NONE" if axis == "" else f"JOYCODE_{padindex + 1}_{axis}")
     xml_newseq_std.appendChild(stdvalue)
     return xml_port
 
@@ -502,7 +484,7 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
         # Button assigment modified - blank "OR" gets removed by MAME if the button is undefined.
         for direction in ['a', 'b', 'x', 'y']:
             buttonDirections[direction] = ''
-            if direction in pad.inputs.keys():
+            if direction in pad.inputs:
                 if pad.inputs[direction].type == 'button':
                     buttonDirections[direction] = f'JOYCODE_{joycode}_BUTTON{int(pad.inputs[direction].id)+1}'
 
@@ -551,10 +533,7 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
     return "unknown"
 
 def hasStick(pad: Controller) -> bool:
-    if "joystick1up" in pad.inputs:
-        return True
-    else:
-        return False
+    return "joystick1up" in pad.inputs
 
 def getRoot(config, name):
     xml_section = config.getElementsByTagName(name)

@@ -20,10 +20,7 @@ class SteamGenerator(Generator):
             with rom_path.open() as f:
                 gameId = str.strip(f.read())
 
-        if gameId is None:
-            commandArray = ["batocera-steam"]
-        else:
-            commandArray = ["batocera-steam", gameId]
+        commandArray = ["batocera-steam"] if gameId is None else ["batocera-steam", gameId]
         return Command.Command(array=commandArray)
 
     def getMouseMode(self, config, rom):

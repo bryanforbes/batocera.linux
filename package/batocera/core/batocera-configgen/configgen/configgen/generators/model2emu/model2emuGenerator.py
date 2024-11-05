@@ -127,10 +127,7 @@ class Model2EmuGenerator(Generator):
                                 else:
                                     thickness = "2"
                             else:
-                                if gameResolution["width"] << 1080:
-                                    thickness = "2"
-                                else:
-                                    thickness = "3"
+                                thickness = "2" if gameResolution["width"] << 1080 else "3"
 
                             modify_lua_sinden(lua_file_path, "true", thickness)
                     else:
@@ -237,16 +234,10 @@ def modify_lua_widescreen(file_path: Path, condition: str) -> None:
     modified_lines = []
     for line in lines:
         if condition == "True":
-            if "wide=false" in line:
-                modified_line = line.replace("wide=false", "wide=true")
-            else:
-                modified_line = line  # No change
+            modified_line = line.replace("wide=false", "wide=true") if "wide=false" in line else line
             modified_lines.append(modified_line)
         else:
-            if "wide=true" in line:
-                modified_line = line.replace("wide=true", "wide=false")
-            else:
-                modified_line = line  # No change
+            modified_line = line.replace("wide=true", "wide=false") if "wide=true" in line else line
             modified_lines.append(modified_line)
 
     with file_path.open('w') as lua_file:

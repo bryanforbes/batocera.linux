@@ -34,20 +34,11 @@ class SonicManiaGenerator(Generator):
         ## Configuration
 
         # VSync
-        if system.isOptSet('smania_vsync'):
-            selected_vsync = system.config['smania_vsync']
-        else:
-            selected_vsync = 'y'
+        selected_vsync = system.get_option('smania_vsync', 'y')
         # Triple Buffering
-        if system.isOptSet('smania_buffering'):
-            selected_buffering = system.config['smania_buffering']
-        else:
-            selected_buffering = 'n'
+        selected_buffering = system.get_option('smania_buffering', 'n')
         # Language
-        if system.isOptSet('smania_language'):
-            selected_language = system.config['smania_language']
-        else:
-            selected_language = '0'
+        selected_language = system.get_option('smania_language', '0')
 
         ## Create the Settings.ini file
         config = CaseSensitiveConfigParser()

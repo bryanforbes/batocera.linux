@@ -524,10 +524,7 @@ class DuckstationGenerator(Generator):
         write_sdl_controller_db(playersControllers, dbfile)
 
         # check if we're running wayland
-        if environ.get("WAYLAND_DISPLAY"):
-            qt_qpa_platform = "wayland"
-        else:
-            qt_qpa_platform = "xcb"
+        qt_qpa_platform = "wayland" if environ.get("WAYLAND_DISPLAY") else "xcb"
 
         # use their modified shaderc library
         return Command.Command(
@@ -578,10 +575,7 @@ def rewriteM3uFullPath(m3u: Path) -> Path:
     with m3u.open() as initialm3u, initialfirstdisc.open('a') as f1:
         for line in initialm3u:
             # handle both "/MGScd1.chd" and "MGScd1.chd"
-            if line[0] == "/":
-                newpath = fulldirname / line[1:]
-            else:
-                newpath = fulldirname / line
+            newpath = fulldirname / (line[1:] if line[0] == "/" else line)
             f1.write(str(newpath))
 
     return initialfirstdisc  # Return the tempm3u pathfile written with valid fullpath

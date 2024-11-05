@@ -59,10 +59,7 @@ class GZDoomGenerator(Generator):
         mkdir_if_not_exists(_SOUND_FONTS_DIR)
         mkdir_if_not_exists(_FM_BANKS_DIR)
 
-        if system.isOptSet("gz_api"):
-            gzdoom_api = system.config["gz_api"]
-        else:
-            gzdoom_api = "0"
+        gzdoom_api = system.get_option("gz_api", "0")
 
         # RPi4 workaround which has both ligl & libgles
         # For arm systems, we want to force OpenGL ES - 3
@@ -140,11 +137,8 @@ class GZDoomGenerator(Generator):
         with _INI_FILE.open("w") as file:
             file.writelines(lines)
 
-        if system.isOptSet("gz_joystick"):
-            # Enable the joystick for configuration in GZDoom by the user currently
-            set_gz_joystick = system.config["gz_joystick"]
-        else:
-            set_gz_joystick = "false"
+        # Enable the joystick for configuration in GZDoom by the user currently
+        set_gz_joystick = system.get_option("gz_joystick", "false")
 
         set_joystick_setting(_INI_FILE, set_gz_joystick)
 

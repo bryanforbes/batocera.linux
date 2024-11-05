@@ -144,11 +144,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
             #Laser 310 Memory Expansion & joystick
             if system.name == "laser310":
                 commandLine += ['-io', 'joystick']
-                if not system.isOptSet('memslot'):
-                    laser310mem = 'laser_64k'
-                else:
-                    laser310mem = system.config['memslot']
-                commandLine += ["-mem", laser310mem]
+                commandLine += ["-mem", system.get_option('memslot', 'laser_64k')]
 
             # BBC Joystick
             if system.name == "bbc":
@@ -361,10 +357,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 if autoRunCmd == "":
                     if (system.isOptSet('altromtype') and system.config["altromtype"] == "cass") or (softList != "" and softList.endswith("cass")) or rom.suffix.casefold() == ".cas":
                         romType = 'cass'
-                        if romDrivername.casefold().endswith(".bas"):
-                            autoRunCmd = 'CLOAD:RUN\\n'
-                        else:
-                            autoRunCmd = 'CLOADM:EXEC\\n'
+                        autoRunCmd = "CLOAD:RUN\\n" if romDrivername.casefold().endswith(".bas") else "CLOADM:EXEC\\n"
                     if (system.isOptSet('altromtype') and system.config["altromtype"] == "flop1") or (softList != "" and softList.endswith("flop")) or rom.suffix.casefold() == ".dsk":
                         romType = 'flop'
                         if romDrivername.casefold().endswith(".bas"):
@@ -502,10 +495,7 @@ def getMameControlScheme(system: Emulator, rom: Path) -> str:
     mameRotatedstick = mame_data_dir / 'mameRotatedstick.txt'
 
     # Controls for games with 5-6 buttons or other unusual controls
-    if system.isOptSet("altlayout"):
-        controllerType = system.config["altlayout"] # Option was manually selected
-    else:
-        controllerType = "auto"
+    controllerType = system.get_option("altlayout", "auto")
 
     if controllerType in [ "default", "neomini", "neocd", "twinstick", "qbert" ]:
         return controllerType
@@ -569,15 +559,9 @@ def generateMAMEPadConfig(
         except Exception:
             pass # reinit the file
 
-    if system.isOptSet('customcfg'):
-        customCfg = system.getOptBoolean('customcfg')
-    else:
-        customCfg = False
+    customCfg = system.get_option_bool('customcfg')
     # Don't overwrite if using custom configs
-    if configFile.exists() and customCfg:
-        overwriteMAME = False
-    else:
-        overwriteMAME = True
+    overwriteMAME = not (configFile.exists() and customCfg)
 
     # Get controller scheme
     altButtons = getMameControlScheme(system, rom)
@@ -588,18 +572,18 @@ def generateMAMEPadConfig(
     with controlFile.open() as openFile:
         controlList = csv.reader(openFile)
         for row in controlList:
-            if row[0] not in controlDict.keys():
+            if row[0] not in controlDict:
                 controlDict[row[0]] = {}
             controlDict[row[0]][row[1]] = row[2]
 
     # Common controls
     mappings: dict[str, str] = {}
-    for controlDef in controlDict['default'].keys():
+    for controlDef in controlDict['default']:
         mappings[controlDef] = controlDict['default'][controlDef]
 
     # Buttons that change based on game/setting
     if altButtons in controlDict:
-        for controlDef in controlDict[altButtons].keys():
+        for controlDef in controlDict[altButtons]:
             mappings.update({controlDef: controlDict[altButtons][controlDef]})
 
     xml_mameconfig = getRoot(config, "mameconfig")
@@ -613,15 +597,9 @@ def generateMAMEPadConfig(
 
     messControlDict = {}
     if messSysName in [ "bbcb", "bbcm", "bbcm512", "bbcmc" ]:
-        if specialController == 'none':
-            useControls = "bbc"
-        else:
-            useControls = f"bbc-{specialController}"
+        useControls = "bbc" if specialController == "none" else f"bbc-{specialController}"
     elif messSysName in [ "apple2p", "apple2e", "apple2ee" ]:
-        if specialController == 'none':
-            useControls = "apple2"
-        else:
-            useControls = f"apple2-{specialController}"
+        useControls = "apple2" if specialController == "none" else f"apple2-{specialController}"
     else:
         useControls = messSysName
 
@@ -635,7 +613,7 @@ def generateMAMEPadConfig(
         with messControlFile.open() as openMessFile:
             controlList = csv.reader(openMessFile, delimiter=';')
             for row in controlList:
-                if row[0] not in messControlDict.keys():
+                if row[0] not in messControlDict:
                     messControlDict[row[0]] = {}
                 messControlDict[row[0]][row[1]] = {}
                 currentEntry = messControlDict[row[0]][row[1]]
@@ -680,10 +658,7 @@ def generateMAMEPadConfig(
                 pass # reinit the file
 
         perGameCfg = system.getOptBoolean('pergamecfg')
-        if configFile_alt.exists() and (customCfg or perGameCfg):
-            overwriteSystem = False
-        else:
-            overwriteSystem = True
+        overwriteSystem = not (configFile_alt.exists() and (customCfg or perGameCfg))
 
         xml_mameconfig_alt = getRoot(config_alt, "mameconfig")
         xml_mameconfig_alt.setAttribute("version", "10")
@@ -746,8 +721,8 @@ def generateMAMEPadConfig(
             xml_input.appendChild(generateComboPortElement(pad, config, 'standard', pad.index, "UI_RIGHT", "RIGHT", mappings_use["JOYSTICK_RIGHT"], retroPad[mappings_use["JOYSTICK_RIGHT"]], False, "", "")) # Right
             xml_input.appendChild(generateComboPortElement(pad, config, 'standard', pad.index, "UI_SELECT", "ENTER", 'a', retroPad['a'], False, "", ""))                                                     # Select
 
-        if useControls in messControlDict.keys():
-            for controlDef in messControlDict[useControls].keys():
+        if useControls in messControlDict:
+            for controlDef in messControlDict[useControls]:
                 thisControl = messControlDict[useControls][controlDef]
                 if nplayer == thisControl['player']:
                     if thisControl['type'] == 'special':
@@ -854,10 +829,7 @@ def generateAnalogPortElement(pad: Controller, config: minidom.Document, tag: st
     xml_newseq_std = config.createElement("newseq")
     xml_port.appendChild(xml_newseq_std)
     xml_newseq_std.setAttribute("type", "standard")
-    if axis == '':
-        stdvalue = config.createTextNode("NONE")
-    else:
-        stdvalue = config.createTextNode(f"JOYCODE_{padindex + 1}_{axis}")
+    stdvalue = config.createTextNode("NONE" if axis == '' else f"JOYCODE_{padindex + 1}_{axis}")
     xml_newseq_std.appendChild(stdvalue)
     return xml_port
 

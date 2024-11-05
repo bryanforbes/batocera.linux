@@ -518,10 +518,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                 nc = nc + 1
 
             ### find a keyboard key to simulate the action of the player (always like button 2) ; search in batocera.conf, else default config
-            if "controllers.pedals1" in system.config:
-                pedalkey = system.config["controllers.pedals1"]
-            else:
-                pedalkey = pedalsKeys[1]
+            pedalkey = system.get_option("controllers.pedals1", pedalsKeys[1])
             pcsx2INIConfig.set("USB1", "guncon2_C", "Keyboard/"+pedalkey.upper())
             ###
         if len(guns) >= 2 or gun1onport2:
@@ -535,10 +532,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                         pcsx2INIConfig.set("USB2", "guncon2_Start", f"SDL-{pad.index}/Start")
                 nc = nc + 1
             ### find a keyboard key to simulate the action of the player (always like button 2) ; search in batocera.conf, else default config
-            if "controllers.pedals2" in system.config:
-                pedalkey = system.config["controllers.pedals2"]
-            else:
-                pedalkey = pedalsKeys[2]
+            pedalkey = system.get_option("controllers.pedals2", pedalsKeys[2])
             pcsx2INIConfig.set("USB2", "guncon2_C", "Keyboard/"+pedalkey.upper())
             ###
             if gun1onport2:

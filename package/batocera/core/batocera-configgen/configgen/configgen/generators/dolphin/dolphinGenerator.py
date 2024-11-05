@@ -454,10 +454,7 @@ class DolphinGenerator(Generator):
 
         dolphin_aspect_ratio = dolphinGFXSettings.get("Settings", "AspectRatio")
         # What if we're playing a GameCube game with the widescreen patch or not?
-        if 'widescreen_hack' in config and config["widescreen_hack"] == "1":
-            wii_tv_mode = 1
-        else:
-            wii_tv_mode = 0
+        wii_tv_mode = 1 if "widescreen_hack" in config and config["widescreen_hack"] == "1" else 0
 
         try:
             wii_tv_mode = dolphinSYSCONF.getRatioFromConfig(config, gameResolution)
