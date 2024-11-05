@@ -210,10 +210,7 @@ class RyujinxGenerator(Generator):
                         break
             nplayer += 1
 
-        if rom == "config":
-            commandArray = [ryujinxExec]
-        else:
-            commandArray = [ryujinxExec, rom]
+        commandArray = [ryujinxExec] if rom == "config" else [ryujinxExec, rom]
 
         return Command.Command(
             array=commandArray,
