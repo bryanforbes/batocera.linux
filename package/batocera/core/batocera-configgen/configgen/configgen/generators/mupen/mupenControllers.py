@@ -70,10 +70,7 @@ def setControllersConfig(iniConfig: CaseSensitiveConfigParser, controllers: Cont
 
 def getJoystickPeak(start_value: str, config_value: str, system: Emulator) -> str:
     default_value = int(start_value.split(',')[0])
-    if config_value in system.config:
-        multiplier = float(system.config[config_value])
-    else:
-        multiplier = 1
+    multiplier = float(system.get_option(config_value, 1))
 
     # This is needed because higher peak value lowers sensitivity and vice versa
     if multiplier != 1.0:
@@ -92,10 +89,7 @@ def getJoystickPeak(start_value: str, config_value: str, system: Emulator) -> st
 
 def getJoystickDeadzone(default_peak: str, config_value: str, system: Emulator) -> str:
     default_value = int(default_peak.split(',')[0])
-    if config_value in system.config:
-        deadzone_multiplier = float(system.config[config_value])
-    else:
-        deadzone_multiplier = 0.01
+    deadzone_multiplier = float(system.get_option(config_value, 0.01))
 
     deadzone = int(round(default_value * deadzone_multiplier))
 
@@ -198,10 +192,7 @@ def setControllerLine(mupenmapping: Mapping[str, str], input: Input, mupenSettin
                             else:
                                 value = f"axis({input.id}+,{input.id}-)"
                 else:
-                        if input.value == "1":
-                                value = f"axis({input.id}+)"
-                        else:
-                                value = f"axis({input.id}-)"
+                        value = f'axis({input.id}+)' if input.value == '1' else f'axis({input.id}-)'
         return value
 
 def fillIniPlayer(nplayer: int, iniConfig: CaseSensitiveConfigParser, controller: Controller, config: dict[str, str]) -> None:

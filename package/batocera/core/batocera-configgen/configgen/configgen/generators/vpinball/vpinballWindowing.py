@@ -76,12 +76,7 @@ def configureWindowing(vpinballSettings: CaseSensitiveConfigParser, system: Emul
         configureB2s(vpinballSettings, flexdmd_config, pinmame_config, b2s_config, b2sdmd_config, b2sgrill_config, screens, backglassScreen, Rscreen, gameResolution, dmdsize)
 
 def getFlexDmdConfiguration(system: Emulator, screens, hasDmd):
-    val = system.get_option("vpinball_flexdmd", "disabled" if hasDmd else "")
-    if val == "":
-        if len(screens) > 2:
-            val = "screen3"
-        else:
-            val = "disabled"
+    val = system.get_option("vpinball_flexdmd", "disabled" if hasDmd else ("screen3" if len(screens) > 2 else "disabled"))
     if len(screens) <= 1 and val == "screen2":
         val = "disabled"
     if len(screens) <= 2 and val == "screen3":
@@ -90,13 +85,8 @@ def getFlexDmdConfiguration(system: Emulator, screens, hasDmd):
 
 def getPinmameConfiguration(system: Emulator, screens):
     # pinmame : same as flexdmd (and both should never be displayed at the same time)
-    val = system.get_option("vpinball_pinmame", "")
+    val = system.get_option("vpinball_pinmame", "screen3" if len(screens) > 2 else "disabled")
 
-    if val == "":
-        if len(screens) > 2:
-            val = "screen3"
-        else:
-            val = "disabled"
     if len(screens) <= 1 and val == "screen2":
         val = "disabled"
     if len(screens) <= 2 and val == "screen3":
@@ -104,13 +94,8 @@ def getPinmameConfiguration(system: Emulator, screens):
     return val
 
 def getB2sConfiguration(system: Emulator, screens):
-    val = system.get_option("vpinball_b2s", "")
+    val = system.get_option("vpinball_b2s", "screen2" if len(screens) > 1 else "disabled")
 
-    if val == "":
-        if len(screens) > 1:
-            val = "screen2"
-        else:
-            val = "disabled"
     if len(screens) <= 1 and val == "screen2":
         val = "disabled"
     return val
@@ -118,14 +103,10 @@ def getB2sConfiguration(system: Emulator, screens):
 def getB2sdmdConfiguration(system: Emulator, screens, hasDmd):
     if system.has_option("vpinball_b2sdmd") and not system.get_option_bool("vpinball_b2sdmd"): # switchon
         return False
-    if hasDmd:
-        return False
-    return True
+    return not hasDmd
 
 def getB2sgrillConfiguration(system: Emulator, screens):
-    if system.has_option("vpinball_b2sgrill") and not system.get_option_bool("vpinball_b2sgrill"): # switchon
-        return False
-    return True
+    return not (system.has_option("vpinball_b2sgrill") and not system.get_option_bool("vpinball_b2sgrill")) # switchon
 
 def configurePlayfield(vpinballSettings, screens, playFieldScreen):
     vpinballSettings.set("Player", "WindowPosX", str(screens[playFieldScreen]["x"]))

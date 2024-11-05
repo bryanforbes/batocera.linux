@@ -141,10 +141,7 @@ class CemuGenerator(Generator):
         CemuGenerator.setSectionConfig(config, xml_root, "Graphic", "")
         graphic_root = CemuGenerator.getRoot(config, "Graphic")
         # Graphical backend
-        if system.isOptSet("cemu_gfxbackend"):
-            api_value = system.config["cemu_gfxbackend"]
-        else:
-            api_value = "1"  # Vulkan
+        api_value = system.get_option("cemu_gfxbackend", "1")  # "1" == Vulkan
         CemuGenerator.setSectionConfig(config, graphic_root, "api", api_value)
         # Only set the graphics `device` if Vulkan
         if api_value == "1":
@@ -271,10 +268,7 @@ class CemuGenerator(Generator):
 
     # Show mouse for touchscreen actions
     def getMouseMode(self, config, rom):
-        if "cemu_touchpad" in config and config["cemu_touchpad"] == "1":
-            return True
-        else:
-            return False
+        return "cemu_touchpad" in config and config["cemu_touchpad"] == "1"
 
     @staticmethod
     def getRoot(config: minidom.Document, name: str) -> minidom.Element:
