@@ -536,10 +536,7 @@ def rewriteM3uFullPath(m3u: Path) -> Path:
     with m3u.open() as initialm3u, initialfirstdisc.open('a') as f1:
         for line in initialm3u:
             # handle both "/MGScd1.chd" and "MGScd1.chd"
-            if line[0] == "/":
-                newpath = fulldirname / line[1:]
-            else:
-                newpath = fulldirname / line
+            newpath = fulldirname / (line[1:] if line[0] == "/" else line)
             f1.write(str(newpath))
 
     return initialfirstdisc  # Return the tempm3u pathfile written with valid fullpath

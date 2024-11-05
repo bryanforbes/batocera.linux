@@ -78,10 +78,7 @@ class SupermodelGenerator(Generator):
             commandArray.append(f"-upscalemode={system.config['upscale_mode']}")
 
         #driving controls
-        if system.isOptSet("pedalSwap") and system.getOptBoolean("pedalSwap"):
-            drivingGame = 1
-        else:
-            drivingGame = 0
+        drivingGame = 1 if system.isOptSet('pedalSwap') and system.getOptBoolean('pedalSwap') else 0
 
         #driving sensitivity
         if system.isOptSet("joystickSensitivity"):
@@ -260,24 +257,15 @@ def configPadsIni(system: Emulator, rom: Path, playersControllers: ControllerMap
                         targetConfig.set(section, key, "MOUSE1_RIGHT_BUTTON")
                     elif key == "InputStart1":
                         val = transformElement("JOY1_BUTTON9", playersControllers, mapping, mapping_fallback)
-                        if val is not None:
-                            val = "," + val
-                        else:
-                            val = ""
+                        val = f',{val}' if val is not None else ''
                         targetConfig.set(section, key, "MOUSE1_BUTTONX1" + val)
                     elif key == "InputCoin1":
                         val = transformElement("JOY1_BUTTON10", playersControllers, mapping, mapping_fallback)
-                        if val is not None:
-                            val = "," + val
-                        else:
-                            val = ""
+                        val = f',{val}' if val is not None else ''
                         targetConfig.set(section, key, "MOUSE1_BUTTONX2" + val)
                     elif key == "InputAnalogJoyEvent":
                         val = transformElement("JOY1_BUTTON2", playersControllers, mapping, mapping_fallback)
-                        if val is not None:
-                            val = "," + val
-                        else:
-                            val = ""
+                        val = f',{val}' if val is not None else ''
                         targetConfig.set(section, key, "KEY_S,MOUSE1_MIDDLE_BUTTON" + val)
                     elif len(guns) >= 2:
                         if key == "InputAnalogJoyX2":
@@ -361,38 +349,26 @@ def transformElement(elt, playersControllers: ControllerMapping, mapping, mappin
     if matches:
         # check joystick type if it's hat or axis
         joy_type = hatOrAxis(playersControllers, matches.group(1))
-        if joy_type == "hat":
-            key_up = "up"
-        else:
-            key_up = "axisY"
+        key_up = 'up' if joy_type == 'hat' else 'axisY'
         mp = getMappingKeyIncludingFallback(playersControllers, matches.group(1), key_up, mapping, mapping_fallback)
         print(mp)
         return input2input(playersControllers, matches.group(1), joy2realjoyid(playersControllers, matches.group(1)), mp, -1)
     matches = re.search("^JOY([12])_DOWN$", elt)
     if matches:
         joy_type = hatOrAxis(playersControllers, matches.group(1))
-        if joy_type == "hat":
-            key_down = "down"
-        else:
-            key_down = "axisY"
+        key_down = 'down' if joy_type == 'hat' else 'axisY'
         mp = getMappingKeyIncludingFallback(playersControllers, matches.group(1), key_down, mapping, mapping_fallback)
         return input2input(playersControllers, matches.group(1), joy2realjoyid(playersControllers, matches.group(1)), mp, 1)
     matches = re.search("^JOY([12])_LEFT$", elt)
     if matches:
         joy_type = hatOrAxis(playersControllers, matches.group(1))
-        if joy_type == "hat":
-            key_left = "left"
-        else:
-            key_left = "axisX"
+        key_left = 'left' if joy_type == 'hat' else 'axisX'
         mp = getMappingKeyIncludingFallback(playersControllers, matches.group(1), key_left, mapping, mapping_fallback)
         return input2input(playersControllers, matches.group(1), joy2realjoyid(playersControllers, matches.group(1)), mp, -1)
     matches = re.search("^JOY([12])_RIGHT$", elt)
     if matches:
         joy_type = hatOrAxis(playersControllers, matches.group(1))
-        if joy_type == "hat":
-            key_right = "right"
-        else:
-            key_right = "axisX"
+        key_right = 'right' if joy_type == 'hat' else 'axisX'
         mp = getMappingKeyIncludingFallback(playersControllers, matches.group(1), key_right, mapping, mapping_fallback)
         return input2input(playersControllers, matches.group(1), joy2realjoyid(playersControllers, matches.group(1)), mp, 1)
 
@@ -458,15 +434,9 @@ def input2input(playersControllers: ControllerMapping, player: str, joynum, butt
                 sidestr = ""
                 if axisside is not None:
                     if axisside == 1:
-                        if input.value == "1":
-                            sidestr = "_NEG"
-                        else:
-                            sidestr = "_POS"
+                        sidestr = '_NEG' if input.value == "1" else '_POS'
                     else:
-                        if input.value == "1":
-                            sidestr = "_POS"
-                        else:
-                            sidestr = "_NEG"
+                        sidestr = '_POS' if input.value == "1" else '_NEG'
 
                 if button == "joystick1left" or button == "left":
                     return f"JOY{joynum+1}_XAXIS{sidestr}"

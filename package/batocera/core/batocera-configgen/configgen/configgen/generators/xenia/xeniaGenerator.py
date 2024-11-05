@@ -149,10 +149,7 @@ class XeniaGenerator(Generator):
 
         # adjust the config toml file accordingly
         config = {}
-        if core == 'xenia-canary':
-            toml_file = canarypath / 'xenia-canary.config.toml'
-        else:
-            toml_file = emupath / 'xenia.config.toml'
+        toml_file = canarypath / "xenia-canary.config.toml" if core == "xenia-canary" else emupath / "xenia.config.toml"
         if toml_file.is_file():
             with toml_file.open() as f:
                 config = toml.load(f)

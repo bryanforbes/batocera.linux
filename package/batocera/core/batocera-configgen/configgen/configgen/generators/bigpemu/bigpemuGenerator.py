@@ -289,10 +289,7 @@ class BigPEmuGenerator(Generator):
                         config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["Bindings"] = []
 
                     # Loop through BINDINGS_SEQUENCE to maintain the specific order of bindings
-                    if nplayer == 0:
-                        BINDINGS_SEQUENCE = P1_BINDINGS_SEQUENCE
-                    else:
-                        BINDINGS_SEQUENCE = P2_BINDINGS_SEQUENCE
+                    BINDINGS_SEQUENCE = P1_BINDINGS_SEQUENCE if nplayer == 0 else P2_BINDINGS_SEQUENCE
 
                     for binding_key, binding_info in BINDINGS_SEQUENCE.items():
                         # _logger.debug(f"Binding sequence input: %s", binding_key)

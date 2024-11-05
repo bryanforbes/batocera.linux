@@ -170,12 +170,9 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
 
     for playercontroller, pad in sorted(playersControllers.items()):
         # Handle x pads having the same name
-        if pad.real_name.strip() in double_pads:
-            nsamepad = double_pads[pad.real_name.strip()]
-        else:
-            nsamepad = 0
-
+        nsamepad = double_pads.get(pad.real_name.strip(), 0)
         double_pads[pad.real_name.strip()] = nsamepad+1
+
         f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
         f.write("Device = SDL/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
 
