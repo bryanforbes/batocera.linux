@@ -206,10 +206,7 @@ def generateControllerConfig(controller: Controller):
     return configFileName
 
 def axisToCode(axisId, direction) :
-    if direction < 0:
-        direction = 1
-    else:
-        direction = 0
+    direction = 1 if direction < 0 else 0
     return AXIS_BIND_NKCODE_START + axisId * 2 + direction
 
 # determine if the option already exists or not

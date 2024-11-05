@@ -134,10 +134,7 @@ class Vita3kGenerator(Generator):
 
     # Show mouse for touchscreen actions
     def getMouseMode(self, config, rom):
-        if "vita3k_show_pointer" in config and config["vita3k_show_pointer"] == "0":
-             return False
-        else:
-             return True
+        return not ('vita3k_show_pointer' in config and config['vita3k_show_pointer'] == '0')
 
     def getInGameRatio(self, config, gameResolution, rom):
         return 16/9

@@ -33,10 +33,7 @@ class CitraGenerator(Generator):
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
         CitraGenerator.writeCITRAConfig(CONFIGS / "citra-emu" / "qt-config.ini", system, playersControllers)
 
-        if Path('/usr/bin/citra-qt').exists():
-            commandArray = ['/usr/bin/citra-qt', rom]
-        else:
-            commandArray = ['/usr/bin/citra', rom]
+        commandArray = ["/usr/bin/citra-qt" if Path("/usr/bin/citra-qt").exists() else "/usr/bin/citra", rom]
         return Command.Command(array=commandArray, env={
             "XDG_CONFIG_HOME":CONFIGS,
             "XDG_DATA_HOME":SAVES / "3ds",
@@ -50,10 +47,7 @@ class CitraGenerator(Generator):
 
     # Show mouse on screen
     def getMouseMode(self, config, rom):
-        if "citra_screen_layout" in config and config["citra_screen_layout"] == "1-false":
-            return False
-        else:
-            return True
+        return not ("citra_screen_layout" in config and config["citra_screen_layout"] == "1-false")
 
     @staticmethod
     def writeCITRAConfig(

@@ -41,10 +41,7 @@ class LemonadeGenerator(Generator):
 
     # Show mouse on screen
     def getMouseMode(self, config, rom):
-        if "lemonade_screen_layout" in config and config["lemonade_screen_layout"] == "1-false":
-            return False
-        else:
-            return True
+        return not ("lemonade_screen_layout" in config and config["lemonade_screen_layout"] == "1-false")
 
     @staticmethod
     def writeLEMONADEConfig(lemonadeConfigFile: Path, system: Emulator, playersControllers: ControllerMapping):
