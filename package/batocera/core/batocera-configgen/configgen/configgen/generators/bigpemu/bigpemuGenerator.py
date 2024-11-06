@@ -112,9 +112,11 @@ P2_BINDINGS_SEQUENCE = {
     "Extra-D": {"blank": None}
 }
 
-def generate_keyb_button_bindings(device_id, keyb_id, button_id, button_value):
+type _Trigger = dict[str, bool | float | str]
+
+def generate_keyb_button_bindings(device_id: str, keyb_id: str, button_id: str, button_value: str):
     device_id = device_id.upper()
-    bindings = []
+    bindings: list[dict[str, list[_Trigger]]] = []
     binding = {
         "Triggers": [
             {
@@ -133,9 +135,9 @@ def generate_keyb_button_bindings(device_id, keyb_id, button_id, button_value):
     bindings.append(binding)
     return bindings
 
-def generate_button_bindings(device_id, button_id, button_value):
+def generate_button_bindings(device_id: str, button_id: str, button_value: str):
     device_id = device_id.upper()
-    bindings = []
+    bindings: list[dict[str, list[_Trigger]]] = []
     binding = {
         "Triggers": [
             {
@@ -149,9 +151,9 @@ def generate_button_bindings(device_id, button_id, button_value):
     bindings.append(binding)
     return bindings
 
-def generate_keyb_combo_bindings(device_id, keyb_id, button_id, button_value, analog_id, analog_value):
+def generate_keyb_combo_bindings(device_id: str, keyb_id: str, button_id: str, button_value: str, analog_id: str, analog_value: str):
     device_id = device_id.upper()
-    bindings = []
+    bindings: list[dict[str, list[_Trigger]]] = []
     binding = {
         "Triggers": [
             {
@@ -174,9 +176,9 @@ def generate_keyb_combo_bindings(device_id, keyb_id, button_id, button_value, an
     bindings.append(binding)
     return bindings
 
-def generate_combo_bindings(device_id, button_id, button_value, analog_id, analog_value):
+def generate_combo_bindings(device_id: str, button_id: str, button_value: str, analog_id: str, analog_value: str):
     device_id = device_id.upper()
-    bindings = []
+    bindings: list[dict[str, list[_Trigger]]] = []
     binding = {
         "Triggers": [
             {
@@ -195,15 +197,15 @@ def generate_combo_bindings(device_id, button_id, button_value, analog_id, analo
     return bindings
 
 def generate_blank_bindings():
-    bindings = []
+    bindings: list[dict[str, list[_Trigger]]] = []
     binding = {
         "Triggers": []
     }
     bindings.append(binding)
     return bindings
 
-def generate_keyb_bindings(keyb_id):
-    bindings = []
+def generate_keyb_bindings(keyb_id: str):
+    bindings: list[dict[str, list[_Trigger]]] = []
     binding = {
         "Triggers": [
             {
@@ -331,7 +333,7 @@ class BigPEmuGenerator(Generator):
                                     # Handle combo bindings
                                     if "buttons" in binding_info:
                                         button_combos = binding_info["buttons"]
-                                        button_bindings = []
+                                        button_bindings: list[str] = []
                                         for button_name in button_combos:
                                             for y in pad.inputs:
                                                 button_input = pad.inputs[y]

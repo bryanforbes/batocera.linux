@@ -90,10 +90,10 @@ class EasyRPGGenerator(Generator):
             for playercontroller, pad in sorted(playersControllers.items()):
                 if nplayer == 1:
                     f.write(f"number={pad.index}\n" )
-                    for key in keymapping:
+                    for key, value in keymapping.items():
                         button = -1
-                        if keymapping[key] is not None:
-                            if pad.inputs[keymapping[key]].type == "button":
-                                button = pad.inputs[keymapping[key]].id
+                        if value is not None:
+                            if pad.inputs[value].type == "button":
+                                button = pad.inputs[value].id
                         f.write(f"{key}={button}\n")
                 nplayer += 1

@@ -5,7 +5,7 @@ import logging
 import subprocess
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, cast
+from typing import TYPE_CHECKING, Any, NotRequired, TypedDict, cast
 
 from ... import controllersConfig
 from ...batoceraPaths import DEFAULTS_DIR, ES_SETTINGS, SAVES, mkdir_if_not_exists
@@ -26,9 +26,18 @@ if TYPE_CHECKING:
     from ...controller import ControllerMapping
     from ...Emulator import Emulator
     from ...generators.Generator import Generator
-    from ...types import DeviceInfoMapping, Resolution
+    from ...types import BezelInfo, DeviceInfoMapping, Resolution
 
 _logger = logging.getLogger(__name__)
+
+
+class _GunMappingItem(TypedDict):
+    device: NotRequired[int]
+    p1: NotRequired[int]
+    p2: NotRequired[int]
+    p3: NotRequired[int]
+    p4: NotRequired[int]
+    gameDependant: NotRequired[list[dict[str, Any]]]
 
 
 # Return value for es invertedbuttons
@@ -412,7 +421,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         "Retro Bit Bluetooth Controller",
         ]
 
-        def update_megadrive_controller_config(controller_number):
+        def update_megadrive_controller_config(controller_number: int):
             # Remaps for Megadrive style controllers
             remap_values = {
                 'btn_a': '0', 'btn_b': '1', 'btn_x': '9', 'btn_y': '10',
@@ -554,7 +563,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
             "8BitDo N64 Modkit",
         ]
 
-        def update_n64_controller_config(controller_number):
+        def update_n64_controller_config(controller_number: int):
             # Remaps for N64 style controllers
             remap_values = {
                 'btn_a': '1', 'btn_b': '0', 'btn_x': '23', 'btn_y': '21',
@@ -881,7 +890,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         for g in range(0, len(guns)):
             clearGunInputsForPlayer(g+1, retroarchConfig)
 
-    gun_mapping = {
+    gun_mapping: dict[str, dict[str, _GunMappingItem]] = {
         "bsnes"         : { "default" : { "device": 260,          "p2": 0,
                                           "gameDependant": [ { "key": "type", "value": "justifier", "mapkey": "device", "mapvalue": "516" },
                                                              { "key": "reversedbuttons", "value": "true", "mapcorekey": "bsnes_touchscreen_lightgun_superscope_reverse", "mapcorevalue": "ON" } ] } },
@@ -924,7 +933,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
                 ragunconf = gun_mapping[system.config['core']][system.name]
             else:
                 ragunconf = gun_mapping[system.config['core']]["default"]
-            raguncoreconf = {}
+            raguncoreconf: dict[str, str] = {}
 
             # overwrite configuration by gungames.xml
             if "gameDependant" in ragunconf:
@@ -979,7 +988,7 @@ def clearGunInputsForPlayer(n: int, retroarchConfig: dict[str, object]) -> None:
         for type in ["btn", "mbtn"]:
             retroarchConfig[f'input_player{n}_{key}_{type}'] = ''
 
-def configureGunInputsForPlayer(n, gun: Gun, controllers, retroarchConfig, core, metadata, system):
+def configureGunInputsForPlayer(n: int, gun: Gun, controllers: ControllerMapping, retroarchConfig: dict[str, object], core: str, metadata: Mapping[str, str], system: Emulator):
 
     # find a keyboard key to simulate the action of the player (always like button 2) ; search in batocera.conf, else default config
     pedalsKeys = {1: "c", 2: "v", 3: "b", 4: "n"}
@@ -990,7 +999,6 @@ def configureGunInputsForPlayer(n, gun: Gun, controllers, retroarchConfig, core,
     else:
         if n in pedalsKeys:
             pedalkey = pedalsKeys[n]
-    pedalconfig = None
 
     # gun mapping
     retroarchConfig[f'input_player{n}_mouse_index'            ] = gun.mouse_index
@@ -1088,7 +1096,7 @@ def configureGunInputsForPlayer(n, gun: Gun, controllers, retroarchConfig, core,
         retroarchConfig[f'input_player{n}_gun_aux_b_mbtn'         ] = 3
 
     # pedal
-    if pedalconfig is not None and pedalkey is not None:
+    if pedalkey is not None:
         retroarchConfig[pedalconfig] = pedalkey
 
     # mapping
@@ -1180,13 +1188,13 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
 
     overlay_info_file: Path = cast(Path, bz_infos["info"])
     overlay_png_file: Path  = cast(Path, bz_infos["png"])
-    bezel_game: bool  = bz_infos["specific_to_game"]
+    bezel_game: bool  = cast(bool, bz_infos["specific_to_game"])
 
     # only the png file is mandatory
     if overlay_info_file.exists():
         try:
             with overlay_info_file.open() as f:
-                infos = json.load(f)
+                infos = cast('BezelInfo', json.load(f))
         except Exception:
             infos = {}
     else:
@@ -1220,11 +1228,15 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
             # No info on the bezel, let's get the bezel image width and height and apply the
             # ratios from usual 16:9 1920x1080 bezels (example: theBezelProject)
             try:
-                infos["width"], infos["height"] = bezelsUtil.fast_image_size(overlay_png_file)
-                infos["top"]    = int(infos["height"] * 2 / 1080)
-                infos["left"]   = int(infos["width"] * 241 / 1920) # 241 = (1920 - (1920 / (4:3))) / 2 + 1 pixel = where viewport start
-                infos["bottom"] = int(infos["height"] * 2 / 1080)
-                infos["right"]  = int(infos["width"] * 241 / 1920)
+                infos_width, infos_height = bezelsUtil.fast_image_size(overlay_png_file)
+                infos = cast('BezelInfo', {
+                    'width': infos_width,
+                    'height': infos_height,
+                    'top': int(infos_height * 2 / 1080),
+                    "left": int(infos_width * 241 / 1920), # 241 = (1920 - (1920 / (4:3))) / 2 + 1 pixel = where viewport start
+                    "bottom": int(infos_height * 2 / 1080),
+                    "right": int(infos_width * 241 / 1920),
+                })
                 bezelNeedAdaptation = True
             except Exception:
                 pass # outch, no ratio will be applied.

@@ -70,7 +70,7 @@ class shadPS4Generator(Generator):
             with toml_file.open() as f:
                 config = toml.load(f)
         else:
-            config = {
+            config: dict[str, dict[str, object]] = {
                 "Settings": {"consoleLanguage": 1},
                 "GUI": {
                     "mw_width": 1920,

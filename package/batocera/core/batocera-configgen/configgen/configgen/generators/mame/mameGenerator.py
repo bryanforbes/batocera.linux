@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import csv
+import json
 import logging
 import os
 import shutil
 import subprocess
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, cast
 from xml.dom import minidom
 
 from PIL import Image
@@ -32,7 +33,7 @@ from .mamePaths import MAME_BIOS, MAME_CHEATS, MAME_CONFIG, MAME_DEFAULT_DATA, M
 
 if TYPE_CHECKING:
     from ...Emulator import Emulator
-    from ...types import HotkeysContext, Resolution
+    from ...types import BezelInfo, HotkeysContext, Resolution
 
 _logger = logging.getLogger(__name__)
 
@@ -241,7 +242,7 @@ class MameGenerator(Generator):
             commandArray += [ "-ui_active" ]
 
         # Load selected plugins
-        pluginsToLoad = []
+        pluginsToLoad: list[str] = []
         if not (system.isOptSet("hiscoreplugin") and not system.getOptBoolean("hiscoreplugin")):
             pluginsToLoad += [ "hiscore" ]
         if system.isOptSet("coindropplugin") and system.getOptBoolean("coindropplugin"):
@@ -499,7 +500,7 @@ class MameGenerator(Generator):
                                 if software.get('name') == romName:
                                     for info in software.iter('info'):
                                         if info.get('name') == 'usage':
-                                            autoRunCmd = info.get('value') + '\\n'
+                                            autoRunCmd = cast(str, info.get('value')) + '\\n'
 
                 # if still undefined, default autoRunCmd based on media type
                 if autoRunCmd == "":
@@ -562,38 +563,6 @@ class MameGenerator(Generator):
         return Command.Command(array=commandArray, env={"PWD":"/usr/bin/mame/","XDG_CONFIG_HOME":CONFIGS, "XDG_CACHE_HOME":SAVES})
 
     @staticmethod
-    def getRoot(config, name):
-        xml_section = config.getElementsByTagName(name)
-
-        if len(xml_section) == 0:
-            xml_section = config.createElement(name)
-            config.appendChild(xml_section)
-        else:
-            xml_section = xml_section[0]
-
-        return xml_section
-
-    @staticmethod
-    def getSection(config, xml_root, name):
-        xml_section = xml_root.getElementsByTagName(name)
-
-        if len(xml_section) == 0:
-            xml_section = config.createElement(name)
-            xml_root.appendChild(xml_section)
-        else:
-            xml_section = xml_section[0]
-
-        return xml_section
-
-    @staticmethod
-    def removeSection(config, xml_root, name):
-        xml_section = xml_root.getElementsByTagName(name)
-
-        for i in range(0, len(xml_section)):
-            old = xml_root.removeChild(xml_section[i])
-            old.unlink()
-
-    @staticmethod
     def writeBezelConfig(bezelSet: str | None, system: Emulator, rom: Path, messSys: str, gameResolution: Resolution, gunsBordersSize: str | None, gunsBordersRatio: str | None) -> None:
         if messSys == "":
             tmpZipDir = Path("/var/run/mame_artwork") / rom.stem # ok, no need to zip, a folder is taken too
@@ -648,28 +617,16 @@ class MameGenerator(Generator):
             pngFile = tmpZipDir / "default.png"
             pngFile.symlink_to(bz_infos["png"])
             if "info" in bz_infos and bz_infos["info"].exists():
-                bzInfoFile = bz_infos["info"].open("r")
-                bzInfoText = bzInfoFile.readlines()
-                bz_alpha = 1.0 # Just in case it's not set in the info file
-                for infoLine in bzInfoText:
-                    if len(infoLine) > 7:
-                        infoLineClean = (infoLine.replace('"', '')).rstrip(",\n").lstrip()
-                        infoLineData = infoLineClean.split(":")
-                        if infoLineData[0].lower() == "width":
-                            img_width = int(infoLineData[1])
-                        elif infoLineData[0].lower() == "height":
-                            img_height = int(infoLineData[1])
-                        elif infoLineData[0].lower() == "top":
-                            bz_y = int(infoLineData[1])
-                        elif infoLineData[0].lower() == "left":
-                            bz_x = int(infoLineData[1])
-                        elif infoLineData[0].lower() == "bottom":
-                            bz_bottom = int(infoLineData[1])
-                        elif infoLineData[0].lower() == "right":
-                            bz_right = int(infoLineData[1])
-                        elif infoLineData[0].lower() == "opacity":
-                            bz_alpha = float(infoLineData[1])
-                bzInfoFile.close()
+                with bz_infos["info"].open() as bzInfoFile:
+                    infos = cast('BezelInfo', json.load(bzInfoFile))
+
+                img_width = infos['width']
+                img_height = infos['height']
+                bz_y = infos['top']
+                bz_x = infos['left']
+                bz_bottom = infos['bottom']
+                bz_right = infos['right']
+                bz_alpha = infos.get('opacity', 1.0)
                 bz_width = img_width - bz_x - bz_right
                 bz_height = img_height - bz_y - bz_bottom
             else:
