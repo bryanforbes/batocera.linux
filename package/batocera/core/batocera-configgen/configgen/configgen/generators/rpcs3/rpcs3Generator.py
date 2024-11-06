@@ -4,7 +4,7 @@ import logging
 import re
 import shutil
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, cast
 
 import ruamel.yaml as yaml
 
@@ -18,7 +18,7 @@ from . import rpcs3Controllers
 from .rpcs3Paths import RPCS3_BIN, RPCS3_CONFIG, RPCS3_CONFIG_DIR, RPCS3_CURRENT_CONFIG
 
 if TYPE_CHECKING:
-    from ...types import HotkeysContext
+    from ...types import HotkeysContext, Resolution
 
 _logger = logging.getLogger(__name__)
 
@@ -57,10 +57,10 @@ class Rpcs3Generator(Generator):
         mkdir_if_not_exists(RPCS3_CONFIG.parent)
 
         # Generate a default config if it doesn't exist otherwise just open the existing
-        rpcs3ymlconfig = {}
+        rpcs3ymlconfig: dict[str, dict[str, Any]] | None = {}
         if RPCS3_CONFIG.is_file():
             with RPCS3_CONFIG.open("r") as stream:
-                rpcs3ymlconfig = yaml.safe_load(stream)
+                rpcs3ymlconfig = cast(dict[str, dict[str, Any]] | None, yaml.safe_load(stream))
 
         if rpcs3ymlconfig is None: # in case the file is empty
             rpcs3ymlconfig = {}
@@ -360,7 +360,7 @@ class Rpcs3Generator(Generator):
         )
 
     @staticmethod
-    def getClosestRatio(gameResolution):
+    def getClosestRatio(gameResolution: Resolution):
         screenRatio = gameResolution["width"] / gameResolution["height"]
         if screenRatio < 1.6:
             return (4,3)

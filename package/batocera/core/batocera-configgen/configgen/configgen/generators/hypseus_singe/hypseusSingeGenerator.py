@@ -5,7 +5,7 @@ import logging
 import os
 import shutil
 from pathlib import Path
-from typing import TYPE_CHECKING, Final, cast
+from typing import TYPE_CHECKING, Final, TypedDict, cast
 
 import ffmpeg
 
@@ -25,6 +25,17 @@ _CONFIG: Final = _DATA_DIR / 'hypinput.ini'
 _DAPHNE_ROM_DIR: Final = ROMS / 'daphne'
 _SINGE_ROM_DIR: Final = ROMS / 'singe'
 _SHARE_DIR: Final = Path("/usr/share/hypseus-singe")
+
+
+class _FFMpegStream(TypedDict):
+    codec_type: str
+    width: str
+    height: str
+    display_aspect_ratio: str
+
+
+class _FFMpegProbe(TypedDict):
+    streams: list[_FFMpegStream]
 
 class HypseusSingeGenerator(Generator):
 
@@ -60,8 +71,11 @@ class HypseusSingeGenerator(Generator):
 
     @staticmethod
     def get_resolution(video_path: Path) -> tuple[int, int]:
-        probe = ffmpeg.probe(video_path)
+        probe = cast(_FFMpegProbe, ffmpeg.probe(video_path))
         video_stream = next((stream for stream in probe['streams'] if stream['codec_type'] == 'video'), None)
+
+        assert video_stream is not None
+
         width = int(video_stream['width'])
         height = int(video_stream['height'])
         sar_num = video_stream['display_aspect_ratio'].split(':')[0]
