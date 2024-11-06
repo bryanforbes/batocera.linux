@@ -4,7 +4,7 @@ import codecs
 import csv
 import logging
 import os
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Literal, TypeAlias, TypedDict, cast
 from xml.dom import minidom
 
 from .mamePaths import MAME_CONFIG, MAME_DEFAULT_DATA
@@ -20,6 +20,42 @@ if TYPE_CHECKING:
     from ...types import DeviceInfoMapping
 
 _logger = logging.getLogger(__name__)
+
+
+class _MessControlBase(TypedDict):
+    player: int
+    tag: str
+    key: str
+    reversed: bool
+
+class _MessMainOrSpecialControl(_MessControlBase):
+    type: Literal['special', 'main']
+    mapping: str
+    useMapping: str
+    mask: str
+    default: str
+
+class _MessAnalogControl(_MessControlBase):
+    type: Literal['analog']
+    incMapping: str
+    decMapping: str
+    useMapping1: str
+    useMapping2: str
+    mask: str
+    default: str
+    delta: str
+    axis: str
+
+class _MessComboControl(_MessControlBase):
+    type: Literal['combo']
+    kbMapping: str
+    mapping: str
+    useMapping: str
+    mask: str
+    default: str
+
+
+_MessControl: TypeAlias = _MessMainOrSpecialControl | _MessAnalogControl | _MessComboControl
 
 def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sysName: str, altButtons: str | int, customCfg: bool, specialController: str, decorations: str | None, useGuns: bool, guns: GunMapping, useWheels: bool, wheels: DeviceInfoMapping, useMouse: bool, multiMouse: bool, system: Emulator) -> None:
     # config file
@@ -90,7 +126,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     xml_input = config.createElement("input")
     xml_system.appendChild(xml_input)
 
-    messControlDict = {}
+    messControlDict: dict[str, dict[str, _MessControl]] = {}
     if sysName in [ "bbcb", "bbcm", "bbcm512", "bbcmc" ]:
         useControls = "bbc" if specialController == "none" else f"bbc-{specialController}"
     elif sysName in [ "apple2p", "apple2e", "apple2ee" ]:
@@ -118,7 +154,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
                 currentEntry['player'] = int(row[3])
                 currentEntry['tag'] = row[4]
                 currentEntry['key'] = row[5]
-                if currentEntry['type'] in [ 'special', 'main' ]:
+                if currentEntry['type'] == 'special' or currentEntry['type'] == 'main':
                     currentEntry['mapping'] = row[6]
                     currentEntry['useMapping'] = row[7]
                     currentEntry['reversed'] = row[8]
@@ -535,7 +571,7 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
 def hasStick(pad: Controller) -> bool:
     return "joystick1up" in pad.inputs
 
-def getRoot(config, name):
+def getRoot(config: minidom.Document, name: str):
     xml_section = config.getElementsByTagName(name)
 
     if len(xml_section) == 0:
@@ -546,7 +582,7 @@ def getRoot(config, name):
 
     return xml_section
 
-def getSection(config, xml_root, name):
+def getSection(config: minidom.Document, xml_root: minidom.Element, name: str):
     xml_section = xml_root.getElementsByTagName(name)
 
     if len(xml_section) == 0:
@@ -557,14 +593,14 @@ def getSection(config, xml_root, name):
 
     return xml_section
 
-def removeSection(config, xml_root, name):
+def removeSection(config: minidom.Document, xml_root: minidom.Element, name: str):
     xml_section = xml_root.getElementsByTagName(name)
 
     for i in range(0, len(xml_section)):
-        old = xml_root.removeChild(xml_section[i])
+        old = cast(minidom.Element, xml_root.removeChild(xml_section[i]))
         old.unlink()
 
-def addCommonPlayerPorts(config, xml_input, nplayer):
+def addCommonPlayerPorts(config: minidom.Document, xml_input: minidom.Element, nplayer: int):
     # adstick for guns
     for axis in ["X", "Y"]:
         nanalog = 1 if axis == "X" else 2

@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import shutil
 from pathlib import Path, PureWindowsPath
-from typing import TYPE_CHECKING, Final
+from typing import TYPE_CHECKING, Any, Final
 
 from ... import Command
 from ...batoceraPaths import BIOS, CONFIGS, HOME, mkdir_if_not_exists
@@ -11,7 +11,7 @@ from ...utils import wine
 from ..Generator import Generator
 
 if TYPE_CHECKING:
-    from ...types import HotkeysContext
+    from ...types import HotkeysContext, Resolution
 
 _FPINBALL_CONFIG: Final = CONFIGS / "fpinball"
 _FPINBALL_CONFIG_REG: Final = _FPINBALL_CONFIG / "batocera.confg.reg"
@@ -176,7 +176,7 @@ class FpinballGenerator(Generator):
         )
 
     @staticmethod
-    def getGfxRatioFromConfig(config, gameResolution):
+    def getGfxRatioFromConfig(config: dict[str, Any], gameResolution: Resolution):
         # 2: 4:3 ; 1: 16:9  ; 0: auto
         if "ratio" in config:
             if config["ratio"] == "4/3":

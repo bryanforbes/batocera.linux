@@ -15,6 +15,7 @@ from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from collections.abc import Mapping
     from pathlib import Path
 
     from ...types import HotkeysContext
@@ -220,7 +221,7 @@ class RyujinxGenerator(Generator):
             "QT_QPA_PLATFORM":"xcb", \
             "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers)})
 
-def writeControllerIntoJson(new_controller, filename: Path = ryujinxConfFile):
+def writeControllerIntoJson(new_controller: Mapping[str, object], filename: Path = ryujinxConfFile):
     with filename.open('r+') as file:
         file_data = json.load(file)
         file_data["input_config"].append(new_controller)

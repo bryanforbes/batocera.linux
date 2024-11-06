@@ -10,6 +10,8 @@ from ...utils.configparser import CaseSensitiveConfigParser
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from ...controller import ControllerMapping
+    from ...Emulator import Emulator
     from ...types import HotkeysContext
 
 _logger = logging.getLogger(__name__)
@@ -105,7 +107,7 @@ class HatariGenerator(Generator):
         return Command.Command(array=commandArray)
 
     @staticmethod
-    def generateConfig(system, playersControllers):
+    def generateConfig(system: Emulator, playersControllers: ControllerMapping):
         config = CaseSensitiveConfigParser(interpolation=None)
 
         padMapping = {
@@ -167,7 +169,7 @@ class HatariGenerator(Generator):
             config.write(configfile)
 
     @staticmethod
-    def findBestTos(biosdir: Path, machine, tos_version, language) -> str:
+    def findBestTos(biosdir: Path, machine: str, tos_version: str, language: str) -> str:
         # all languages by preference, when value is "auto"
         all_languages = ["us", "uk", "de", "es", "fr", "it", "nl", "ru", "se", ""]
 
