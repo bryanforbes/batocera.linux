@@ -15,6 +15,7 @@ from ..Generator import Generator
 if TYPE_CHECKING:
     from ...controller import ControllerMapping
     from ...Emulator import Emulator
+    from ...input import InputMapping
 
 _logger = logging.getLogger(__name__)
 
@@ -246,7 +247,7 @@ class LemonadeGenerator(Generator):
             lemonadeConfig.write(configfile)
 
     @staticmethod
-    def setButton(key, padGuid, padInputs):
+    def setButton(key: str, padGuid: str, padInputs: InputMapping):
         # It would be better to pass the joystick num instead of the guid because 2 joysticks may have the same guid
         if key in padInputs:
             input = padInputs[key]
@@ -260,7 +261,7 @@ class LemonadeGenerator(Generator):
                 return f"engine:sdl,guid:{padGuid},axis:{input.id},direction:+,threshold:0.5"
 
     @staticmethod
-    def setAxis(key, padGuid, padInputs):
+    def setAxis(key: str, padGuid: str, padInputs: InputMapping):
         inputx = None
         inputy = None
 
@@ -280,7 +281,7 @@ class LemonadeGenerator(Generator):
         return f"axis_x:{inputx.id},guid:{padGuid},axis_y:{inputy.id},engine:sdl"
 
     @staticmethod
-    def hatdirectionvalue(value):
+    def hatdirectionvalue(value: str):
         if int(value) == 1:
             return "up"
         if int(value) == 4:

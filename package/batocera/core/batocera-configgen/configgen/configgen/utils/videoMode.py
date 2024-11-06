@@ -38,17 +38,21 @@ def changeMode(videomode: str) -> None:
                     raise
                 time.sleep(1)
 
-def getCurrentMode() -> str | None:
+def getCurrentMode() -> str:
     proc = subprocess.Popen(["batocera-resolution currentMode"], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
     for val in out.decode().splitlines():
         return val # return the first line
+    if TYPE_CHECKING:
+        assert False, "unreachable"
 
-def getRefreshRate() -> str | None:
+def getRefreshRate() -> str:
     proc = subprocess.Popen(["batocera-resolution refreshRate"], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
     for val in out.decode().splitlines():
         return val # return the first line
+    if TYPE_CHECKING:
+        assert False, "unreachable"
 
 def getScreensInfos(config: Mapping[str, object]) -> list[ScreenInfo]:
     outputs = getScreens()

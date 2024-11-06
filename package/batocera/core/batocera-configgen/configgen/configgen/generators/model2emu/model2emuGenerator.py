@@ -231,7 +231,7 @@ def modify_lua_widescreen(file_path: Path, condition: str) -> None:
     with file_path.open('r') as lua_file:
         lines = lua_file.readlines()
 
-    modified_lines = []
+    modified_lines: list[str] = []
     for line in lines:
         if condition == "True":
             modified_line = line.replace("wide=false", "wide=true") if "wide=false" in line else line
@@ -247,7 +247,7 @@ def modify_lua_scanlines(file_path: Path, condition: str) -> None:
     with file_path.open('r') as lua_file:
         original_lines = lua_file.readlines()
 
-    modified_lines = []
+    modified_lines: list[str] = []
     found_test_surface_line = False
     scanlines_line_added = False
 
@@ -273,7 +273,7 @@ def modify_lua_sinden(file_path: Path, condition: str, thickness: str) -> None:
     with file_path.open('r') as lua_file:
         original_lines = lua_file.readlines()
 
-    modified_lines = []
+    modified_lines: list[str] = []
     found_test_surface_line = False
     sinden_line_added = False
 

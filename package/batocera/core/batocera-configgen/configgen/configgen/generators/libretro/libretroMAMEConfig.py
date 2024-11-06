@@ -8,7 +8,7 @@ import shutil
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Literal, TypeAlias, TypedDict, cast
 from xml.dom import minidom
 
 from ...batoceraPaths import BIOS, CONFIGS, DEFAULTS_DIR, ROMS, SAVES, USER_DECORATIONS, mkdir_if_not_exists
@@ -50,6 +50,42 @@ retroPad = {
     "start":            "START"
 }
 
+
+class _MessControlBase(TypedDict):
+    player: int
+    tag: str
+    key: str
+    reversed: bool
+
+class _MessMainOrSpecialControl(_MessControlBase):
+    type: Literal['special', 'main']
+    mapping: str
+    useMapping: str
+    mask: str
+    default: str
+
+class _MessAnalogControl(_MessControlBase):
+    type: Literal['analog']
+    incMapping: str
+    decMapping: str
+    useMapping1: str
+    useMapping2: str
+    mask: str
+    default: str
+    delta: str
+    axis: str
+
+class _MessComboControl(_MessControlBase):
+    type: Literal['combo']
+    kbMapping: str
+    mapping: str
+    useMapping: str
+    mask: str
+    default: str
+
+
+_MessControl: TypeAlias = _MessMainOrSpecialControl | _MessAnalogControl | _MessComboControl
+
 def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator, rom: Path, guns: GunMapping) -> None:
     # Generate command line for MAME/MESS/MAMEVirtual
     commandLine: list[str | Path] = []
@@ -75,7 +111,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
             commandLine += [ romDrivername ]
         commandLine += [ '-cfg_directory', f'"{cfgPath}"' ]
         commandLine += [ '-rompath', f'"{rom.parent};/userdata/bios/mame/;/userdata/bios/"' ]
-        pluginsToLoad = []
+        pluginsToLoad: list[str] = []
         if not (system.isOptSet("hiscoreplugin") and not system.getOptBoolean("hiscoreplugin")):
             pluginsToLoad += [ "hiscore" ]
         if system.isOptSet("coindropplugin") and system.getOptBoolean("coindropplugin"):
@@ -351,7 +387,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                                 if software.get('name') == romDrivername:
                                     for info in software.iter('info'):
                                         if info.get('name') == 'usage':
-                                            autoRunCmd = info.get('value') + '\\n'
+                                            autoRunCmd = cast(str, info.get('value')) + '\\n'
 
                 # if still undefined, default autoRunCmd based on media type
                 if autoRunCmd == "":
@@ -595,7 +631,7 @@ def generateMAMEPadConfig(
     xml_input = config.createElement("input")
     xml_system.appendChild(xml_input)
 
-    messControlDict = {}
+    messControlDict: dict[str, dict[str, _MessControl]] = {}
     if messSysName in [ "bbcb", "bbcm", "bbcm512", "bbcmc" ]:
         useControls = "bbc" if specialController == "none" else f"bbc-{specialController}"
     elif messSysName in [ "apple2p", "apple2e", "apple2ee" ]:
@@ -621,7 +657,7 @@ def generateMAMEPadConfig(
                 currentEntry['player'] = int(row[3])
                 currentEntry['tag'] = row[4]
                 currentEntry['key'] = row[5]
-                if currentEntry['type'] in [ 'special', 'main' ]:
+                if currentEntry['type'] == 'special' or currentEntry['type'] == 'main':
                     currentEntry['mapping'] = row[6]
                     currentEntry['useMapping'] = row[7]
                     currentEntry['reversed'] = row[8]
@@ -883,7 +919,7 @@ def input2definition(pad: Controller, key: str, input: str, joycode: int, revers
                 return f"JOYCODE_{joycode}_{input}"
     return "unknown"
 
-def getRoot(config, name):
+def getRoot(config: minidom.Document, name: str):
     xml_section = config.getElementsByTagName(name)
 
     if len(xml_section) == 0:
@@ -894,7 +930,7 @@ def getRoot(config, name):
 
     return xml_section
 
-def getSection(config, xml_root, name):
+def getSection(config: minidom.Document, xml_root: minidom.Element, name: str):
     xml_section = xml_root.getElementsByTagName(name)
 
     if len(xml_section) == 0:
@@ -905,9 +941,9 @@ def getSection(config, xml_root, name):
 
     return xml_section
 
-def removeSection(config, xml_root, name):
+def removeSection(config: minidom.Document, xml_root: minidom.Element, name: str):
     xml_section = xml_root.getElementsByTagName(name)
 
     for i in range(0, len(xml_section)):
-        old = xml_root.removeChild(xml_section[i])
+        old = cast(minidom.Element, xml_root.removeChild(xml_section[i]))
         old.unlink()

@@ -44,6 +44,7 @@ from .utils.squashfs import squashfs_rom
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Iterator, Mapping
+    from types import FrameType
 
     from .Command import Command
     from .generators.Generator import Generator
@@ -520,7 +521,7 @@ def runCommand(command: Command) -> int:
 
     return exitcode
 
-def signal_handler(signal, frame):
+def signal_handler(signal: int, frame: FrameType | None):
     global proc
     _logger.debug('Exiting')
     if proc:

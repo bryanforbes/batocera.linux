@@ -65,7 +65,7 @@ def writeControllersConfig(retroconfig: UnixSettings, system: Emulator, controll
             deviceList = getDevicesInformation()
             mouseIndex = getAssociatedMouse(deviceList, controllers[controller].device_path)
         if mouseIndex is None:
-            mouseIndex = 0
+            mouseIndex = '0'
         writeControllerConfig(retroconfig, controllers[controller], controller, system, retroarchspecials, lightgun, mouseIndex)
     writeHotKeyConfig(retroconfig, controllers)
 
@@ -90,7 +90,7 @@ def writeHotKeyConfig(retroconfig: UnixSettings, controllers: ControllerMapping)
             retroconfig.save('input_enable_hotkey_btn', controller.inputs['hotkey'].id)
 
 # Write a configuration for a specified controller
-def writeControllerConfig(retroconfig: UnixSettings, controller: Controller, playerIndex: int, system: Emulator, retroarchspecials: Mapping[str, str], lightgun: bool, mouseIndex: int | None = 0):
+def writeControllerConfig(retroconfig: UnixSettings, controller: Controller, playerIndex: int, system: Emulator, retroarchspecials: Mapping[str, str], lightgun: bool, mouseIndex: str | None = '0'):
     generatedConfig = generateControllerConfig(controller, retroarchspecials, system, lightgun, mouseIndex)
     for key in generatedConfig:
         retroconfig.save(key, generatedConfig[key])
@@ -99,7 +99,7 @@ def writeControllerConfig(retroconfig: UnixSettings, controller: Controller, pla
     retroconfig.save(f'input_player{playerIndex}_analog_dpad_mode', getAnalogMode(controller, system))
 
 # Create a configuration for a given controller
-def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[str, str], system: Emulator, lightgun: bool, mouseIndex: int | None = 0):
+def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[str, str], system: Emulator, lightgun: bool, mouseIndex: str | None = '0'):
 # Map an emulationstation button name to the corresponding retroarch name
     retroarchbtns = {'a': 'a', 'b': 'b', 'x': 'x', 'y': 'y', \
                      'pageup': 'l', 'pagedown': 'r', 'l2': 'l2', 'r2': 'r2', \
@@ -121,7 +121,7 @@ def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[
         retroarchbtns["pageup"] = "r"
         retroarchbtns["pagedown"] = "l"
 
-    config = dict()
+    config: dict[str, str | None] = dict()
     # config['input_device'] = f'"{controller.real_name}"'
     for btnkey in retroarchbtns:
         btnvalue = retroarchbtns[btnkey]

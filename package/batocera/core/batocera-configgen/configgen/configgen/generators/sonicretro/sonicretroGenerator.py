@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+from functools import cache
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -12,6 +13,14 @@ from ..Generator import Generator
 
 if TYPE_CHECKING:
     from ...types import HotkeysContext
+
+@cache
+def _get_resolved_path_md5(path: Path):
+    return hashlib.md5(path.read_bytes()).hexdigest()
+
+def _get_path_md5(path: Path):
+    return _get_resolved_path_md5(path.resolve())
+
 
 class SonicRetroGenerator(Generator):
 
@@ -123,7 +132,7 @@ class SonicRetroGenerator(Generator):
             "e723aab26026e4e6d4522c4356ef5a98",
         ]
         game_config_bin = rom_path / "Data" / "Game" / "GameConfig.bin"
-        if game_config_bin.is_file() and self.__getMD5(game_config_bin) in originsGameConfig:
+        if game_config_bin.is_file() and _get_path_md5(game_config_bin) in originsGameConfig:
             sonicConfig.set("Game", "GameType", "1")
 
         if system.isOptSet('language'):
@@ -200,20 +209,6 @@ class SonicRetroGenerator(Generator):
 
         enableMouse = False
         data_file = rom_path / 'Data.rsdk'
-        enableMouse = self.__getMD5(data_file) in mouseRoms if emu == "soniccd" and data_file.is_file() else False
+        enableMouse = _get_path_md5(data_file) in mouseRoms if emu == "soniccd" and data_file.is_file() else False
 
         return enableMouse
-
-    def __getMD5(self, filename: Path) -> str:
-        rp = filename.resolve()
-
-        try:
-            self.__getMD5.__func__.md5
-        except AttributeError:
-            self.__getMD5.__func__.md5 = dict()
-
-        try:
-            return self.__getMD5.__func__.md5[str(rp)]
-        except KeyError:
-            self.__getMD5.__func__.md5[str(rp)] = hashlib.md5(rp.read_bytes()).hexdigest()
-            return self.__getMD5.__func__.md5[str(rp)]

@@ -42,7 +42,7 @@ class RazeGenerator(Generator):
     ]
     # Options for config file that has more sensible controls and defaults, but only on first boot so overrides persist
     # Raze does not support global bindings; set defaults for each game series
-    config_defaults = {}
+    config_defaults: dict[str, dict[str, str | float]] = {}
     for name in game_names:
         config_defaults[f"{name}.ConsoleVariables"] = {
             "hud_size": 8,  # fullscreen / minimal HUD
@@ -102,10 +102,8 @@ class RazeGenerator(Generator):
                         config.write(f"{key}={value}\n")
                     config.write("\n")
 
-        config_backup = None
-        if self.config_file.exists():
-            with self.config_file.open("r") as original_file:
-                config_backup = original_file.readlines()
+        with self.config_file.open("r") as original_file:
+            config_backup = original_file.readlines()
 
         with self.config_file.open("w") as config_file:
             global_settings_found = False

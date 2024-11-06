@@ -5,12 +5,13 @@ from __future__ import annotations
 import logging
 from os import environ
 from struct import pack, unpack
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, BinaryIO, Literal
 
 from ...utils.logger import setup_logging
 from .dolphinPaths import DOLPHIN_SAVES
 
 if TYPE_CHECKING:
+    from collections.abc import Mapping
     from pathlib import Path
 
     from ...types import Resolution
@@ -18,39 +19,39 @@ if TYPE_CHECKING:
 
 _logger = logging.getLogger(__name__)
 
-def readBEInt16(f):
-    bytes = f.read(2)
-    unpacked = unpack(">H", bytes)
+def readBEInt16(f: BinaryIO) -> int:
+    data = f.read(2)
+    unpacked = unpack(">H", data)
     return unpacked[0]
 
-def readBEInt32(f):
-    bytes = f.read(4)
-    unpacked = unpack(">L", bytes)
+def readBEInt32(f: BinaryIO) -> int:
+    data = f.read(4)
+    unpacked = unpack(">L", data)
     return unpacked[0]
 
-def readBEInt64(f):
-    bytes = f.read(8)
-    unpacked = unpack(">Q", bytes)
+def readBEInt64(f: BinaryIO) -> int:
+    data = f.read(8)
+    unpacked = unpack(">Q", data)
     return unpacked[0]
 
-def readBytes(f, x):
+def readBytes(f: BinaryIO, x: int) -> bytes:
     return f.read(x)
 
-def readString(f, x):
-    bytes = f.read(x)
-    decodedbytes = bytes.decode('utf-8')
+def readString(f: BinaryIO, x: int) -> str:
+    data = f.read(x)
+    decodedbytes = data.decode('utf-8')
     return str(decodedbytes)
 
-def readInt8(f):
-    bytes = f.read(1)
-    unpacked = unpack("B", bytes)
+def readInt8(f: BinaryIO) -> int:
+    data = f.read(1)
+    unpacked = unpack("B", data)
     return unpacked[0]
 
-def writeInt8(f, x):
-    bytes = pack("B", x)
-    f.write(bytes)
+def writeInt8(f: BinaryIO, x: int) -> None:
+    data = pack("B", x)
+    f.write(data)
 
-def readWriteEntry(f, setval):
+def readWriteEntry(f: BinaryIO, setval: Mapping[str, int]) -> None:
     itemHeader     = readInt8(f)
     itemType       = (itemHeader & 0xe0) >> 5
     itemNameLength = (itemHeader & 0x1f) + 1
@@ -87,22 +88,18 @@ def readWriteEntry(f, setval):
     if not setval or itemName in setval:
         _logger.debug('%12s = %s', itemName, itemValue)
 
-def readWriteFile(filepath: Path, setval):
+def readWriteFile(filepath: Path, setval: Mapping[str, int]) -> None:
     # open in read read/write depending of the action
-    f = filepath.open("rb" if not setval else "r+b")
-
-    try:
-        version    = readString(f, 4) # read SCv0
+    with filepath.open("r+b" if setval else "rb") as f:
+        _ = readString(f, 4) # read SCv0
         numEntries = readBEInt16(f)   # num entries
         offsetSize = (numEntries+1)*2 # offsets
         readBytes(f, offsetSize)
 
-        for i in range(0, numEntries): # entries
+        for _ in range(0, numEntries): # entries
             readWriteEntry(f, setval)
-    finally:
-        f.close()
 
-def getWiiLangFromEnvironment():
+def getWiiLangFromEnvironment() -> int:
     lang = environ['LANG'][:5]
     availableLanguages = { "jp_JP": 0, "en_US": 1, "de_DE": 2,
                            "fr_FR": 3, "es_ES": 4, "it_IT": 5,
@@ -112,7 +109,7 @@ def getWiiLangFromEnvironment():
     else:
         return availableLanguages["en_US"]
 
-def getRatioFromConfig(config, gameResolution):
+def getRatioFromConfig(config: dict[str, object], gameResolution: Resolution) -> Literal[0, 1]:
     # Sets the setting available to the Wii's internal NAND. Only has two values:
     # 0: 4:3 ; 1: 16:9
     if "tv_mode" in config:
@@ -123,7 +120,7 @@ def getRatioFromConfig(config, gameResolution):
     else:
         return 0
 
-def getSensorBarPosition(config):
+def getSensorBarPosition(config: dict[str, object]) -> Literal[0, 1]:
     # Sets the setting available to the Wii's internal NAND. Only has two values:
     # 0: BOTTOM ; 1: TOP
     if "sensorbar_position" in config:

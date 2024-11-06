@@ -15,6 +15,7 @@ if TYPE_CHECKING:
 
     from ...controller import ControllerMapping
     from ...Emulator import Emulator
+    from ...input import InputMapping
     from ...types import HotkeysContext
 
 _logger = logging.getLogger(__name__)
@@ -357,7 +358,7 @@ class SuyuGenerator(Generator):
             suyuConfig.write(configfile)
 
     @staticmethod
-    def setButton(key, padGuid, padInputs, port):
+    def setButton(key: str, padGuid: str, padInputs: InputMapping, port: int):
         # it would be better to pass the joystick num instead of the guid because 2 joysticks may have the same guid
         if key in padInputs:
             input = padInputs[key]
@@ -371,7 +372,7 @@ class SuyuGenerator(Generator):
         return ""
 
     @staticmethod
-    def setAxis(key, padGuid, padInputs, port):
+    def setAxis(key: str, padGuid: str, padInputs: InputMapping, port: int):
         inputx = "0"
         inputy = "0"
 
@@ -387,7 +388,7 @@ class SuyuGenerator(Generator):
         return f"engine:sdl,range:1.000000,deadzone:0.100000,invert_y:+,invert_x:+,offset_y:-0.000000,axis_y:{inputy},offset_x:-0.000000,axis_x:{inputx},guid:{padGuid},port:{port}"
 
     @staticmethod
-    def hatdirectionvalue(value):
+    def hatdirectionvalue(value: str):
         if int(value) == 1:
             return "up"
         if int(value) == 4:

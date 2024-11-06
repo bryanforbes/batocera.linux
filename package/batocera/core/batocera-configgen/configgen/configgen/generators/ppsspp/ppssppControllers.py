@@ -205,12 +205,12 @@ def generateControllerConfig(controller: Controller):
         Config.write(cfgfile)
     return configFileName
 
-def axisToCode(axisId, direction) :
+def axisToCode(axisId: int, direction: int) -> int:
     direction = 1 if direction < 0 else 0
     return AXIS_BIND_NKCODE_START + axisId * 2 + direction
 
 # determine if the option already exists or not
-def optionValue(config, section, option, value):
+def optionValue(config: CaseSensitiveConfigParser, section: str, option: str, value: str) -> str:
     if config.has_option(section, option):
         return f"{config.get(section, option)},{value}"
     else:
