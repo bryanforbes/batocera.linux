@@ -3,7 +3,6 @@ from __future__ import annotations
 import logging
 import os
 import struct
-from pathlib import Path
 from typing import TYPE_CHECKING, Final
 
 from ... import Command
@@ -79,19 +78,19 @@ class OpenJazzGenerator(Generator):
             "keys": { "exit": ["KEY_LEFTALT", "KEY_F4"] }
         }
 
-    def load(self, filename=_CONFIG):
-        if not Path(filename).exists():
+    def load(self):
+        if not _CONFIG.exists():
             _logger.info("No config file found, creating default configuration")
-            self.create_default_config(filename)
+            self.create_default_config()
             return
 
         try:
-            with filename.open("rb") as file:
+            with _CONFIG.open("rb") as file:
                 # Read version
                 data = file.read(1)
                 if not data:
                     _logger.warning("Empty config file, creating default configuration")
-                    self.create_default_config(filename)
+                    self.create_default_config()
                     return
 
                 self.version = struct.unpack("B", data)[0]
@@ -152,14 +151,14 @@ class OpenJazzGenerator(Generator):
         except Exception as e:
             _logger.error("Error loading configuration: %s", e)
             _logger.info("Creating new default configuration")
-            self.create_default_config(filename)
+            self.create_default_config()
 
-    def create_default_config(self, filename: Path):
+    def create_default_config(self):
         _logger.info("Creating default configuration file")
-        mkdir_if_not_exists(filename.parent)
+        mkdir_if_not_exists(_CONFIG.parent)
 
         try:
-            with filename.open("wb") as file:
+            with _CONFIG.open("wb") as file:
                 # Version
                 file.write(struct.pack("B", self.version))
 
@@ -208,10 +207,10 @@ class OpenJazzGenerator(Generator):
         except Exception as e:
             _logger.error("Error creating default configuration: %s", e)
 
-    def save(self, filename=_CONFIG):
+    def save(self):
         _logger.info("Saving configuration")
         try:
-            with filename.open("wb") as file:
+            with _CONFIG.open("wb") as file:
                 # Version
                 file.write(struct.pack("B", self.version))
 
