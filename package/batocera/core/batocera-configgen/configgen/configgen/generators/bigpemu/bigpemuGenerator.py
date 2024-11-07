@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, NotRequired, TypedDict
 
 from ... import Command
 from ...batoceraPaths import CONFIGS, mkdir_if_not_exists
-from ...controller import generate_sdl_game_controller_config
+from ...controller import Controller, generate_sdl_game_controller_config
 from ...utils import videoMode
 from ..Generator import Generator
 
@@ -15,9 +15,27 @@ if TYPE_CHECKING:
 
 bigPemuConfig = CONFIGS / "bigpemu" / "BigPEmuConfig.bigpcfg"
 
+
+class _ButtonControllerSequence(TypedDict):
+    button: str
+    keyboard: NotRequired[str]
+
+class _ButtonComboControllerSequence(TypedDict):
+    buttons: list[str]
+    keyboard: NotRequired[str]
+
+class _KeyboardControllerSequence(TypedDict):
+    keyboard: str
+
+class _BlankControllerSequence(TypedDict):
+    blank: None
+
+
+type _ControllerSequence = _ButtonControllerSequence | _ButtonComboControllerSequence | _KeyboardControllerSequence | _BlankControllerSequence
+
 # BigPEmu controller sequence, P1 only requires keyboard inputs
 # default standard bindings
-P1_BINDINGS_SEQUENCE = {
+P1_BINDINGS_SEQUENCE: dict[str, _ControllerSequence] = {
     "C": {"button": "y", "keyboard": "4"},
     "B": {"button": "b", "keyboard": "22"},
     "A": {"button": "a", "keyboard": "7"},
@@ -72,7 +90,7 @@ P1_BINDINGS_SEQUENCE = {
 
 # BigPEmu controller sequence, P2+
 # default standard bindings
-P2_BINDINGS_SEQUENCE = {
+P2_BINDINGS_SEQUENCE: dict[str, _ControllerSequence] = {
     "C": {"button": "y"},
     "B": {"button": "b"},
     "A": {"button": "a"},
@@ -113,110 +131,131 @@ P2_BINDINGS_SEQUENCE = {
 }
 
 type _Trigger = dict[str, bool | float | str]
+type _Bindings = list[dict[str, list[_Trigger]]]
 
-def generate_keyb_button_bindings(device_id: str, keyb_id: str, button_id: str, button_value: str):
-    device_id = device_id.upper()
-    bindings: list[dict[str, list[_Trigger]]] = []
-    binding = {
-        "Triggers": [
-            {
-                "B_KB": True,
-                "B_ID": int(keyb_id),
-                "B_AH": 0.0
-            },
-            {
-                "B_KB": False,
-                "B_ID": int(button_id),
-                "B_AH": float(button_value),
-                "B_DevID": device_id
-            }
-        ]
-    }
-    bindings.append(binding)
+def _generate_bindings(pad: Controller, binding_info: _ButtonControllerSequence | _ButtonComboControllerSequence, /) -> _Bindings:
+    bindings: _Bindings = []
+
+    for input in pad.inputs.values():
+        # workaround values for SDL2
+        input_value = '0' if input.type == 'button' else input.value
+        input_id = input.id
+
+        if input.type == 'hat':
+            input_id = '134'
+
+        if input.name == 'joystick1left':
+            input_id = '128'
+        elif input.name == 'joystick1up':
+            input_id = '129'
+        elif input.name == 'joystick2left':
+            input_id = '131'
+        elif input.name == 'joystick2up':
+            input_id = '132'
+
+        if 'button' in binding_info and input.name == binding_info['button']:
+            if 'keyboard' in binding_info:
+                bindings += _generate_keyb_button_bindings(pad.guid, binding_info['keyboard'], input_id, input_value)
+            else:
+                bindings += _generate_button_bindings(pad.guid, input_id, input_value)
+
+            if input.name.startswith('joystick1') or input.name.startswith('joystick2'):
+                # For joysticks, generate two bindings with positive and then negative values
+                if "keyboard" in binding_info:
+                    bindings += _generate_keyb_button_bindings(pad.guid, binding_info['keyboard'], input_id, -float(input_value))
+                else:
+                    bindings += _generate_button_bindings(pad.guid, input_id, -float(input_value))
+
+        elif 'buttons' in binding_info and input.name in binding_info['buttons']:
+            # Handle combo bindings
+            button_bindings: list[str] = []
+
+            for button_name in binding_info['buttons']:
+                if (button_input := pad.inputs.get(button_name)) is not None:
+                    # workaround values for SDL2 here as well
+                    button_input_value = '0' if button_input.type == 'button' else button_input.value
+                    button_input_id = button_input.id
+
+                    if button_input.name == "l2":
+                        button_input_id = "130"
+                    elif button_input.name == "r2":
+                        button_input_id = "133"
+
+                    button_bindings += [button_input_id, button_input_value]
+
+            if len(button_bindings) >= 4:
+                device_id = pad.guid.upper()
+
+                if 'keyboard' in binding_info:
+                    bindings.append({
+                        "Triggers": [
+                            {
+                                "B_KB": True,
+                                "B_ID": int(binding_info['keyboard']),
+                                "B_AH": 0.0
+                            },
+                            {
+                                "B_KB": False,
+                                "B_ID": int(button_bindings[0]),
+                                "B_AH": float(button_bindings[1]),
+                                "B_DevID": device_id,
+                                "M_KB": False,
+                                "M_ID": int(button_bindings[2]),
+                                "M_AH": float(button_bindings[3]),
+                                "M_DevID": device_id
+                            }
+                        ]
+                    })
+                else:
+                    bindings.append({
+                        "Triggers": [
+                            {
+                                "B_KB": False,
+                                "B_ID": int(button_bindings[0]),
+                                "B_AH": float(button_bindings[1]),
+                                "B_DevID": device_id,
+                                "M_KB": False,
+                                "M_ID": int(button_bindings[2]),
+                                "M_AH": float(button_bindings[3]),
+                                "M_DevID": device_id
+                            }
+                        ]
+                    })
+
     return bindings
 
-def generate_button_bindings(device_id: str, button_id: str, button_value: str):
-    device_id = device_id.upper()
-    bindings: list[dict[str, list[_Trigger]]] = []
-    binding = {
-        "Triggers": [
-            {
-                "B_KB": False,
-                "B_ID": int(button_id),
-                "B_AH": float(button_value),
-                "B_DevID": device_id
-            }
-        ]
-    }
-    bindings.append(binding)
-    return bindings
+def _generate_keyb_button_bindings(device_id: str, keyb_id: str, button_id: str, button_value: str | float) -> _Bindings:
+    return [
+        {
+            "Triggers": [
+                {
+                    "B_KB": True,
+                    "B_ID": int(keyb_id),
+                    "B_AH": 0.0
+                },
+                {
+                    "B_KB": False,
+                    "B_ID": int(button_id),
+                    "B_AH": float(button_value),
+                    "B_DevID": device_id.upper()
+                }
+            ]
+        }
+    ]
 
-def generate_keyb_combo_bindings(device_id: str, keyb_id: str, button_id: str, button_value: str, analog_id: str, analog_value: str):
-    device_id = device_id.upper()
-    bindings: list[dict[str, list[_Trigger]]] = []
-    binding = {
-        "Triggers": [
-            {
-                "B_KB": True,
-                "B_ID": int(keyb_id),
-                "B_AH": 0.0
-            },
-            {
-                "B_KB": False,
-                "B_ID": int(button_id),
-                "B_AH": float(button_value),
-                "B_DevID": device_id,
-                "M_KB": False,
-                "M_ID": int(analog_id),
-                "M_AH": float(analog_value),
-                "M_DevID": device_id
-            }
-        ]
-    }
-    bindings.append(binding)
-    return bindings
-
-def generate_combo_bindings(device_id: str, button_id: str, button_value: str, analog_id: str, analog_value: str):
-    device_id = device_id.upper()
-    bindings: list[dict[str, list[_Trigger]]] = []
-    binding = {
-        "Triggers": [
-            {
-                "B_KB": False,
-                "B_ID": int(button_id),
-                "B_AH": float(button_value),
-                "B_DevID": device_id,
-                "M_KB": False,
-                "M_ID": int(analog_id),
-                "M_AH": float(analog_value),
-                "M_DevID": device_id
-            }
-        ]
-    }
-    bindings.append(binding)
-    return bindings
-
-def generate_blank_bindings():
-    bindings: list[dict[str, list[_Trigger]]] = []
-    binding = {
-        "Triggers": []
-    }
-    bindings.append(binding)
-    return bindings
-
-def generate_keyb_bindings(keyb_id: str):
-    bindings: list[dict[str, list[_Trigger]]] = []
-    binding = {
-        "Triggers": [
-            {
-                "B_KB": True,
-                "B_ID": int(keyb_id),
-                "B_AH": 0.0
-            }
-        ]
-    }
-    bindings.append(binding)
-    return bindings
+def _generate_button_bindings(device_id: str, button_id: str, button_value: str | float) -> _Bindings:
+    return [
+        {
+            "Triggers": [
+                {
+                    "B_KB": False,
+                    "B_ID": int(button_id),
+                    "B_AH": float(button_value),
+                    "B_DevID": device_id.upper()
+                }
+            ]
+        }
+    ]
 
 class BigPEmuGenerator(Generator):
 
@@ -250,14 +289,8 @@ class BigPEmuGenerator(Generator):
         config["BigPEmuConfig"]["Video"]["DisplayFrequency"] = int(round(float(videoMode.getRefreshRate())))
 
         # User selections
-        if system.isOptSet("bigpemu_vsync"):
-            config["BigPEmuConfig"]["Video"]["VSync"] = system.config["bigpemu_vsync"]
-        else:
-            config["BigPEmuConfig"]["Video"]["VSync"] = 1
-        if system.isOptSet("bigpemu_ratio"):
-            config["BigPEmuConfig"]["Video"]["ScreenAspect"] = int(system.config["bigpemu_ratio"])
-        else:
-            config["BigPEmuConfig"]["Video"]["ScreenAspect"] = 2
+        config["BigPEmuConfig"]["Video"]["VSync"] = system.get_option("bigpemu_vsync", 1)
+        config["BigPEmuConfig"]["Video"]["ScreenAspect"] = system.get_option_int("bigpemu_ratio", 2)
         config["BigPEmuConfig"]["Video"]["LockAspect"] = 1
 
         # Controller config
@@ -277,107 +310,40 @@ class BigPEmuGenerator(Generator):
         config["BigPEmuConfig"]["Input"]["MouseThresh"] = 0.5
 
         # per controller settings (standard controller only currently)
-        nplayer = 0
-        for controller, pad in sorted(playersControllers.items()):
-            if nplayer <= 7:
-                if f"Device{nplayer}" not in config["BigPEmuConfig"]["Input"]:
-                    config["BigPEmuConfig"]["Input"][f"Device{nplayer}"] = {}
-                    config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["DeviceType"] = 0 # standard controller
-                    config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["InvertAnally"] = 0
-                    config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["RotaryScale"] = 0.5
-                    config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["HeadTrackerScale"] = 8.0
-                    config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["HeadTrackerSpring"] = 0
-                    if "Bindings" not in config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]:
-                        config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["Bindings"] = []
+        for nplayer, pad in enumerate(sorted(playersControllers.values(), key=lambda c: c.player_number)):
+            if nplayer <= 7 and (player_key := f"Device{nplayer}") not in config["BigPEmuConfig"]["Input"]:
+                player_input_config: dict[str, Any] = {}
+                player_input_bindings: _Bindings = []
+                config["BigPEmuConfig"]["Input"][player_key] = player_input_config
 
-                    # Loop through BINDINGS_SEQUENCE to maintain the specific order of bindings
-                    BINDINGS_SEQUENCE = P1_BINDINGS_SEQUENCE if nplayer == 0 else P2_BINDINGS_SEQUENCE
+                player_input_config["DeviceType"] = 0 # standard controller
+                player_input_config["InvertAnally"] = 0
+                player_input_config["RotaryScale"] = 0.5
+                player_input_config["HeadTrackerScale"] = 8.0
+                player_input_config["HeadTrackerSpring"] = 0
+                player_input_config["Bindings"] = player_input_bindings
 
-                    for binding_key, binding_info in BINDINGS_SEQUENCE.items():
-                        # _logger.debug(f"Binding sequence input: %s", binding_key)
-                        if "button" in binding_info:
-                            if "keyboard" in binding_info:
-                                generate_func = generate_keyb_button_bindings
-                            else:
-                                generate_func = generate_button_bindings
-                        elif "buttons" in binding_info:
-                            if "keyboard" in binding_info:
-                                generate_func = generate_keyb_combo_bindings
-                            else:
-                                generate_func = generate_combo_bindings
-                        else:
-                            if "keyboard" in binding_info:
-                                generate_func = generate_keyb_bindings
-                            else:
-                                generate_func = generate_blank_bindings
+                # Loop through BINDINGS_SEQUENCE to maintain the specific order of bindings
+                BINDINGS_SEQUENCE = P1_BINDINGS_SEQUENCE if nplayer == 0 else P2_BINDINGS_SEQUENCE
 
-                        if "blank" not in binding_info and generate_func != generate_keyb_bindings:
-                            for x in pad.inputs:
-                                input = pad.inputs[x]
-                                # workaround values for SDL2
-                                if input.type == "button":
-                                    input.value = "0"
-                                if input.type == "hat":
-                                    input.id = "134"
-                                if input.name == "joystick1left":
-                                    input.id = "128"
-                                if input.name == "joystick1up":
-                                    input.id = "129"
-                                if input.name == "joystick2left":
-                                    input.id = "131"
-                                if input.name == "joystick2up":
-                                    input.id = "132"
-
-                                # Generate the bindings if input name matches the button in sequence
-                                if input.name == binding_info.get("button") or input.name in binding_info.get("buttons", []):
-                                    # Handle combo bindings
-                                    if "buttons" in binding_info:
-                                        button_combos = binding_info["buttons"]
-                                        button_bindings: list[str] = []
-                                        for button_name in button_combos:
-                                            for y in pad.inputs:
-                                                button_input = pad.inputs[y]
-                                                # workaround values here too
-                                                if button_input.type == "button":
-                                                    button_input.value = "0"
-                                                if button_input.name == "l2":
-                                                    button_input.id = "130"
-                                                if button_input.name == "r2":
-                                                    button_input.id = "133"
-                                                if button_input.name == button_name:
-                                                    button_bindings.extend([button_input.id, button_input.value])
-                                        if len(button_bindings) == len(button_combos) * 2:
-                                            if "keyboard" in binding_info:
-                                                bindings = generate_func(pad.guid, binding_info["keyboard"], *button_bindings)
-                                            else:
-                                                bindings = generate_func(pad.guid, *button_bindings)
-                                    # Handle single button bindings
-                                    elif "button" in binding_info:
-                                        if input.name.startswith("joystick1") or input.name.startswith("joystick2"):
-                                            # For joysticks, generate two bindings with positive and then negative values
-                                            if "keyboard" in binding_info:
-                                                bindings = generate_func(pad.guid, binding_info["keyboard"], input.id, input.value)
-                                                bindings.extend(generate_func(pad.guid, binding_info["keyboard"], input.id, -float(input.value)))
-                                            else:
-                                                bindings = generate_func(pad.guid, input.id, input.value)
-                                                bindings.extend(generate_func(pad.guid, input.id, -float(input.value)))
-                                        else:
-                                            if "keyboard" in binding_info:
-                                                bindings = generate_func(pad.guid, binding_info["keyboard"], input.id, input.value)
-                                            else:
-                                                bindings = generate_func(pad.guid, input.id, input.value)
-                                    config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["Bindings"].extend(bindings)
-                                    break
-                        else:
-                            if generate_func == generate_keyb_bindings:
-                                bindings = generate_func(binding_info["keyboard"])
-                                config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["Bindings"].extend(bindings)
-                            else:
-                                bindings = generate_func()
-                                config["BigPEmuConfig"]["Input"][f"Device{nplayer}"]["Bindings"].extend(bindings)
-
-            # Onto the next controller as necessary
-            nplayer += 1
+                for binding_info in BINDINGS_SEQUENCE.values():
+                    # _logger.debug(f"Binding sequence input: %s", binding_key)
+                    if "blank" in binding_info:
+                        player_input_bindings.append({
+                            "Triggers": []
+                        })
+                    elif "keyboard" in binding_info and "button" not in binding_info and "buttons" not in binding_info:
+                        player_input_bindings.append({
+                            "Triggers": [
+                                {
+                                    "B_KB": True,
+                                    "B_ID": int(binding_info["keyboard"]),
+                                    "B_AH": 0.0
+                                }
+                            ]
+                        })
+                    else:
+                        player_input_bindings += _generate_bindings(pad, binding_info)
 
         # Scripts config
         config["BigPEmuConfig"]["ScriptsEnabled"] = []
@@ -397,8 +363,7 @@ class BigPEmuGenerator(Generator):
         ]
 
         config["BigPEmuConfig"]["ScriptsEnabled"] += [
-            script_name for script_name, script_option in scripts
-            if system.isOptSet(script_option) and system.config[script_option] == "1"
+            script_name for script_name, script_option in scripts if system.get_option(script_option) == "1"
         ]
 
         # Remove duplicates just in case (as a precaution)
@@ -413,10 +378,7 @@ class BigPEmuGenerator(Generator):
             config["BigPEmuConfig"]["ScriptSettings"]["DOOM-Music"] = 0
 
         # Screen filter
-        if system.isOptSet("bigpemu_screenfilter"):
-            config["BigPEmuConfig"]["Video"]["ScreenFilter"] = system.config["bigpemu_screenfilter"]
-        else:
-            config["BigPEmuConfig"]["Video"]["ScreenFilter"] = 0
+        config["BigPEmuConfig"]["Video"]["ScreenFilter"] = system.get_option("bigpemu_screenfilter", 0)
 
         # Close off input
         config["BigPEmuConfig"]["Input"]["InputVer"] = 2
