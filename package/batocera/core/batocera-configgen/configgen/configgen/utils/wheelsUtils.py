@@ -6,7 +6,7 @@ import os
 import re
 import signal
 import subprocess
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Final, cast
 
 import evdev
 
@@ -14,15 +14,14 @@ from .. import controllersConfig
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
-    from pathlib import Path
 
-    from ..controller import ControllerDict, ControllerMapping
+    from ..controller import Controller, ControllerDict, ControllerMapping
     from ..Emulator import Emulator
     from ..types import DeviceInfoDict, DeviceInfoMapping
 
 _logger = logging.getLogger(__name__)
 
-wheelMapping = {
+_WHEEL_MAPPING: Final = {
     "wheel":      "joystick1left",
     "accelerate": "r2",
     "brake":      "l2",
@@ -31,7 +30,7 @@ wheelMapping = {
 }
 
 # partial mapping between real pads buttons and batocera pads
-emulatorMapping = {
+_EMULATOR_MAPPING: Final = {
     "dreamcast": {
         "lt":   "l2",
         "rt":   "r2",
@@ -104,57 +103,58 @@ emulatorMapping = {
     },
 }
 
-def reconfigureControllers(playersControllers: ControllerMapping, system: Emulator, rom: str | Path, metadata: dict[str, str], deviceList: DeviceInfoDict) -> tuple[list[subprocess.Popen[bytes]], ControllerDict, DeviceInfoDict]:
+def configure_wheels(
+    controllers: ControllerMapping, system: Emulator, metadata: dict[str, str], /,
+) -> tuple[list[subprocess.Popen[bytes]], ControllerDict, DeviceInfoDict]:
+    devices = controllersConfig.getDevicesInformation()
+
     _logger.info("wheels reconfiguration")
-    wheelsmetadata = None
 
     _logger.info("before wheel reconfiguration :")
-    for playercontroller, pad in sorted(playersControllers.items()):
-        _logger.info("  %s. index:%s dev:%s name:%s", playercontroller, pad.index, pad.device_path, pad.real_name)
+    for player_number, pad in sorted(controllers.items()):
+        _logger.info("  %s. index:%s dev:%s name:%s", player_number, pad.index, pad.device_path, pad.real_name)
 
     # reconfigure wheel buttons
     # no need to sort, but i like keeping the same loop (sorted by players)
-    nplayer = 1
-    for playercontroller, pad in sorted(playersControllers.items()):
-        if pad.device_path in deviceList:
-            if deviceList[pad.device_path]["isWheel"]:
-                _logger.info("Wheel reconfiguration for pad %s", pad.real_name)
-                originalInputs = pad.inputs.copy()
+    for _, pad in sorted(controllers.items()):
+        if pad.device_path in devices and devices[pad.device_path]["isWheel"]:
+            _logger.info("Wheel reconfiguration for pad %s", pad.real_name)
+            original_inputs = pad.inputs.copy()
 
-                # erase target keys
-                for md in metadata:
-                    if md[:6] == "wheel_":
-                        shortmd = md[6:]
-                        if shortmd in wheelMapping:
-                            if system.name in emulatorMapping and metadata[md] in emulatorMapping[system.name]:
-                                wheelkey  = wheelMapping[shortmd]
-                                if wheelkey in playersControllers[playercontroller].inputs:
-                                    del playersControllers[playercontroller].inputs[wheelkey]
-                                    _logger.info("wheel: erase the key %s", wheelkey)
+            # erase target keys
+            for md_key, md_value in metadata.items():
+                if md_key.startswith("wheel_"):
+                    short_md_key = md_key[6:]
+                    if (
+                        (wheel_key := _WHEEL_MAPPING.get(short_md_key)) is not None and
+                        md_value in _EMULATOR_MAPPING.get(system.name, {}) and
+                        wheel_key in pad.inputs
+                    ):
+                        del pad.inputs[wheel_key]
+                        _logger.info("wheel: erase the key %s", wheel_key)
 
-                # fill with the wanted keys
-                for md in metadata:
-                    if md[:6] == "wheel_":
-                        shortmd = md[6:]
-                        if shortmd in wheelMapping:
-                            if system.name in emulatorMapping and metadata[md] in emulatorMapping[system.name]:
-                                wheelkey  = wheelMapping[shortmd]
-                                wantedkey = emulatorMapping[system.name][metadata[md]]
-
-                                if wheelkey in originalInputs:
-                                    playersControllers[playercontroller].inputs[wantedkey] = originalInputs[wheelkey]
-                                    playersControllers[playercontroller].inputs[wantedkey].name = wantedkey
-                                    _logger.info("wheel: fill key %s with %s", wantedkey, wheelkey)
-                                else:
-                                    _logger.info("wheel: unable to replace %s with %s", wantedkey, wheelkey)
-        nplayer += 1
+            # fill with the wanted keys
+            for md_key, md_value in metadata.items():
+                if md_key.startswith("wheel_"):
+                    short_md_key = md_key[6:]
+                    if (
+                        (wheel_key := _WHEEL_MAPPING.get(short_md_key)) is not None and
+                        (wanted_key := _EMULATOR_MAPPING.get(system.name, {}).get(md_value)) is not None
+                    ):
+                        if wheel_key in original_inputs:
+                            pad.inputs[wanted_key] = original_inputs[wheel_key]
+                            pad.inputs[wanted_key].name = wanted_key
+                            _logger.info("wheel: fill key %s with %s", wanted_key, wheel_key)
+                        else:
+                            _logger.info("wheel: unable to replace %s with %s", wanted_key, wheel_key)
 
     # reconfigure wheel min/max/deadzone
     procs: list[subprocess.Popen[bytes]] = []
-    recomputeSdlIds = False
-    newPads: list[str] = []
-    for playercontroller, pad in sorted(playersControllers.items()):
-        if (device := deviceList.get(pad.device_path)) is not None and device["isWheel"] and "wheel_rotation" in device:
+    recompute_sdl_ids = False
+    new_pads: set[str] = set()
+
+    for player_number, pad in sorted(controllers.items()):
+        if (device := devices.get(pad.device_path)) is not None and device["isWheel"] and "wheel_rotation" in device:
             ra = int(device["wheel_rotation"])
             wanted_ra = ra
             wanted_deadzone = 0
@@ -177,119 +177,140 @@ def reconfigureControllers(playersControllers: ControllerMapping, system: Emulat
                 wanted_midzone = int(system.config["wheel_midzone"])
 
             _logger.info("wheel rotation angle is %s ; wanted wheel rotation angle is %s ; wanted deadzone is %s ; wanted midzone is %s", ra, wanted_ra, wanted_deadzone, wanted_midzone)
+
             # no need new device in some cases
             if wanted_ra < ra or wanted_deadzone > 0:
-                (newdev, p) = reconfigureAngleRotation(pad.device_path, int(pad.inputs["joystick1left"].id), ra, wanted_ra, wanted_deadzone, wanted_midzone)
+                newdev, p = _reconfigure_angle_rotation(pad, ra, wanted_ra, wanted_deadzone, wanted_midzone)
                 if newdev is not None:
-                    _logger.info("replacing device %s by device %s for player %s", pad.device_path, newdev, playercontroller)
-                    deviceList[newdev] = device.copy()
-                    deviceList[newdev]["eventId"] = controllersConfig.dev2int(newdev)
+                    _logger.info("replacing device %s by device %s for player %s", pad.device_path, newdev, player_number)
+                    devices[newdev] = device.copy()
+                    devices[newdev]["eventId"] = cast(int, controllersConfig.dev2int(newdev))
                     pad.physical_device_path = pad.device_path # save the physical device for ffb
                     pad.device_path = newdev # needs to recompute sdl ids
-                    recomputeSdlIds = True
-                    newPads.append(newdev)
-                    procs.append(p)
+                    recompute_sdl_ids = True
+                    new_pads.add(newdev)
+                    procs.append(cast(subprocess.Popen[bytes], p))
 
     # recompute sdl ids
-    if recomputeSdlIds:
+    if recompute_sdl_ids:
         # build the new joystick list
-        joysticks: dict[int, dict[str, str]] = {}
-        for node in deviceList:
-            if deviceList[node]["isJoystick"]:
-                joysticks[deviceList[node]["eventId"]] = { "node": node }
+        joysticks: dict[int, str] = {}
+
+        for node, device in devices.items():
+            if device["isJoystick"]:
+                joysticks[device["eventId"]] = node
+
         # add the new devices
-        for p in newPads:
-            matches = re.match(r"^/dev/input/event([0-9]*)$", str(p))
+        for pad_device_path in new_pads:
+            matches = re.match(r"^/dev/input/event([0-9]*)$", pad_device_path)
             if matches is not None:
-                joysticks[int(matches.group(1))] = { "node": p }
+                joysticks[int(matches.group(1))] = pad_device_path
+
         # find new sdl numeration
-        joysticksByDev: dict[str, int] = {}
-        for currentId, (_, x) in enumerate(sorted(joysticks.items())):
-            joysticksByDev[x["node"]] = currentId
+        joysticks_by_dev: dict[str, int] = {}
+        for current_id, (_, x) in enumerate(sorted(joysticks.items())):
+            joysticks_by_dev[x] = current_id
+
         # renumeration
-        for playercontroller, pad in sorted(playersControllers.items()):
-            joystick_index = joysticksByDev.get(pad.device_path)
+        for _, pad in sorted(controllers.items()):
+            joystick_index = joysticks_by_dev.get(pad.device_path)
             if joystick_index is not None:
-                playersControllers[playercontroller].index = joystick_index
-                deviceList[pad.device_path]["joystick_index"] = joystick_index
+                pad.index = joystick_index
+                devices[pad.device_path]["joystick_index"] = joystick_index
+
         # fill physical_index
-        for _, pad in sorted(playersControllers.items()):
-            if pad.physical_device_path is not None and pad.physical_device_path in deviceList and deviceList[pad.physical_device_path]["joystick_index"] is not None:
-                pad.physical_index = deviceList[pad.physical_device_path]["joystick_index"] # save the physical device for ffb
+        for _, pad in sorted(controllers.items()):
+            if pad.physical_device_path is not None and (device := devices.get(pad.physical_device_path)) is not None and "joystick_index" in device:
+                pad.physical_index = device["joystick_index"] # save the physical device for ffb
 
     # reorder players to priorize wheel pads
-    playersControllersNew: ControllerDict = {}
+    controllers_new: ControllerDict = {}
     nplayer = 1
-    for _, pad in sorted(playersControllers.items()):
-        if (pad.device_path in deviceList and deviceList[pad.device_path]["isWheel"]) or pad.device_path in newPads:
-            playersControllersNew[nplayer] = pad.replace(player_number=nplayer)
+    for _, pad in sorted(controllers.items()):
+        if (pad.device_path in devices and devices[pad.device_path]["isWheel"]) or pad.device_path in new_pads:
+            controllers_new[nplayer] = pad.replace(player_number=nplayer)
             nplayer += 1
-    for _, pad in sorted(playersControllers.items()):
-        if not ((pad.device_path in deviceList and deviceList[pad.device_path]["isWheel"]) or pad.device_path in newPads):
-            playersControllersNew[nplayer] = pad.replace(player_number=nplayer)
+
+    for _, pad in sorted(controllers.items()):
+        if not ((pad.device_path in devices and devices[pad.device_path]["isWheel"]) or pad.device_path in new_pads):
+            controllers_new[nplayer] = pad.replace(player_number=nplayer)
             nplayer += 1
 
     _logger.info("after wheel reconfiguration :")
-    for playercontroller, pad in sorted(playersControllersNew.items()):
-        _logger.info("  %s. index:%s dev:%s name:%s", playercontroller, pad.index, pad.device_path, pad.real_name)
+    for player_number, pad in sorted(controllers_new.items()):
+        _logger.info("  %s. index:%s dev:%s name:%s", player_number, pad.index, pad.device_path, pad.real_name)
 
-    return (procs, playersControllersNew, deviceList)
+    return procs, controllers_new, _get_wheels_from_device_infos(devices)
 
-def getWheelsFromDevicesInfos(deviceInfos: DeviceInfoMapping) -> DeviceInfoDict:
-    return { key: deviceInfo for key, deviceInfo in deviceInfos.items() if deviceInfo['isWheel']}
+def _get_wheels_from_device_infos(device_infos: DeviceInfoMapping, /) -> DeviceInfoDict:
+    return { key: deviceInfo for key, deviceInfo in device_infos.items() if deviceInfo['isWheel']}
 
-def reconfigureAngleRotation(dev: str, wheelAxis: int, rotationAngle: int, wantedRotationAngle: int, wantedDeadzone: int, wantedMidzone: int) -> tuple[str, subprocess.Popen[bytes]] | tuple[None, None]:
-    devInfos = evdev.InputDevice(dev)
-    caps = devInfos.capabilities()
+def _reconfigure_angle_rotation(controller: Controller, rotation_angle: int, wanted_rotation_angle: int, wanted_deadzone: int, wanted_midzone: int, /) -> tuple[str, subprocess.Popen[bytes]] | tuple[None, None]:
+    wheel_axis = int(controller.inputs["joystick1left"].id)
+    dev_infos = evdev.InputDevice(controller.device_path)
+    caps = dev_infos.capabilities()
 
-    absmin = None
-    absmax = None
+    abs_min = None
+    abs_max = None
     for v, absinfo in caps[evdev.ecodes.EV_ABS]:
-        if v == wheelAxis:
-            absmin = absinfo.min
-            absmax = absinfo.max
+        if v == wheel_axis:
+            abs_min = absinfo.min
+            abs_max = absinfo.max
 
-    if absmin is None or absmax is None:
-        _logger.warning("unable to get min/max of %s", dev)
+    if abs_min is None or abs_max is None:
+        _logger.warning("unable to get min/max of %s", controller.device_path)
         return (None, None)
 
-    totalRange = absmax - absmin
-    newmin = absmin
-    newmax = absmax
-    if wantedRotationAngle < rotationAngle:
-        newRange = math.floor(totalRange * wantedRotationAngle / rotationAngle)
-        newmin = absmin + math.ceil((totalRange - newRange) / 2)
-        newmax = absmax - math.floor((totalRange - newRange) / 2)
+    total_range = abs_max - abs_min
+    new_min = abs_min
+    new_max = abs_max
 
-    newdz = 0
-    if wantedDeadzone > 0 and wantedDeadzone > wantedMidzone:
-        newdz = math.floor(totalRange * wantedDeadzone / rotationAngle)
-        newmin -= newdz // 2
-        newmax += newdz // 2
+    if wanted_rotation_angle < rotation_angle:
+        new_range = math.floor(total_range * wanted_rotation_angle / rotation_angle)
+        new_min = abs_min + math.ceil((total_range - new_range) / 2)
+        new_max = abs_max - math.floor((total_range - new_range) / 2)
 
-    newmz = 0
-    if wantedMidzone > 0:
-        newmz = math.floor(totalRange * wantedMidzone / rotationAngle)
-        newmin += newmz // 2
-        newmax -= newmz // 2
+    new_deadzone = 0
 
-    pipeout, pipein = os.pipe()
-    cmd = ["batocera-wheel-calibrator", "-d", dev, "-a", str(wheelAxis), "-m", str(newmin), "-M", str(newmax), "-z", str(newdz), "-c", str(newmz)]
+    if wanted_deadzone > 0 and wanted_deadzone > wanted_midzone:
+        new_deadzone = math.floor(total_range * wanted_deadzone / rotation_angle)
+        new_min -= new_deadzone // 2
+        new_max += new_deadzone // 2
+
+    new_midzone = 0
+
+    if wanted_midzone > 0:
+        new_midzone = math.floor(total_range * wanted_midzone / rotation_angle)
+        new_min += new_midzone // 2
+        new_max -= new_midzone // 2
+
+    pipe_out, pipe_in = os.pipe()
+    cmd: list[str] = [
+        "batocera-wheel-calibrator",
+        "-d", controller.device_path,
+        "-a", f"{wheel_axis}",
+        "-m", f"{new_min}",
+        "-M", f"{new_max}",
+        "-z", f"{new_deadzone}",
+        "-c", f"{new_midzone}"
+    ]
+
     _logger.info(cmd)
-    proc = subprocess.Popen(cmd, stdout=pipein, stderr=subprocess.PIPE)
+
+    proc = subprocess.Popen(cmd, stdout=pipe_in, stderr=subprocess.PIPE)
+
     try:
-        fd = os.fdopen(pipeout)
-        newdev = fd.readline().rstrip('\n')
-        fd.close()
+        with os.fdopen(pipe_out) as fd:
+            new_dev = fd.readline().rstrip('\n')
     except:
         os.kill(proc.pid, signal.SIGTERM)
-        out, err = proc.communicate()
+        proc.communicate()
         raise
 
-    return (newdev, proc)
+    return new_dev, proc
 
-def resetControllers(wheelProcesses: Iterable[subprocess.Popen[bytes]]) -> None:
-    for p in wheelProcesses:
+def reset_wheels(processes: Iterable[subprocess.Popen[bytes]], /) -> None:
+    for p in processes:
         _logger.info("killing wheel process %s", p.pid)
         os.kill(p.pid, signal.SIGTERM)
-        out, err = p.communicate()
+        p.communicate()

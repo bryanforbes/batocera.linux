@@ -104,9 +104,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: str, romConfigur
     if not system.has_option('use_wheels') and args.wheel:
         system.config["use_wheels"] = True
     if system.get_option_bool('use_wheels'):
-        deviceInfos = controllers.getDevicesInformation()
-        (wheelProcesses, player_controllers, deviceInfos) = wheelsUtils.reconfigureControllers(player_controllers, system, rom, metadata, deviceInfos)
-        wheels = wheelsUtils.getWheelsFromDevicesInfos(deviceInfos)
+        wheelProcesses, player_controllers, wheels = wheelsUtils.configure_wheels(player_controllers, system, metadata)
     else:
         _logger.info("wheels disabled.")
         wheels: DeviceInfoDict = {}
@@ -249,7 +247,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: str, romConfigur
 
         if wheelProcesses is not None and len(wheelProcesses) > 0:
             try:
-                wheelsUtils.resetControllers(wheelProcesses)
+                wheelsUtils.reset_wheels(wheelProcesses)
             except Exception:
                 _logger.error("hum, unable to reset wheel controllers !")
                 pass # don't fail
