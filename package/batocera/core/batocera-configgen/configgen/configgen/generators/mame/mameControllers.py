@@ -4,7 +4,7 @@ import codecs
 import csv
 import logging
 import os
-from typing import TYPE_CHECKING, Literal, TypeAlias, TypedDict, cast
+from typing import TYPE_CHECKING, Final, Literal, TypeAlias, TypedDict, cast
 from xml.dom import minidom
 
 from .mamePaths import MAME_CONFIG, MAME_DEFAULT_DATA
@@ -56,6 +56,65 @@ class _MessComboControl(_MessControlBase):
 
 
 _MessControl: TypeAlias = _MessMainOrSpecialControl | _MessAnalogControl | _MessComboControl
+
+_SPECIAL_SYSTEMS: Final = {
+    "cdimono1", "apfm1000", "astrocde", "adam", "arcadia", "gamecom", "tutor", "crvision", "bbcb", "bbcm", "bbcm512", "bbcmc", "xegs",
+    "socrates", "vgmplay", "pdp1", "vc4000", "fmtmarty", "gp32", "apple2p", "apple2e", "apple2ee"
+}
+
+def parse_mess_controls(system_name: str, /) -> dict[str, dict[str, _MessControl]]:
+    mess_controls: dict[str, dict[str, _MessControl]] = {}
+
+    if system_name in _SPECIAL_SYSTEMS:
+        # Load mess controls from csv
+        with (MAME_DEFAULT_DATA / 'messControls.csv').open() as mess_controls_csv:
+            for row_system, row_control, row_type, row_player, row_tag, row_key, *row in csv.reader(mess_controls_csv, delimiter=';'):
+                if row_system not in mess_controls:
+                    mess_controls[row_system] = {}
+
+                if row_type == 'special' or row_type == 'main':
+                    mess_controls[row_system][row_control] = {
+                        'type': cast(Literal['special', 'main'], row_type),
+                        'player': int(row_player),
+                        'tag': row_tag,
+                        'key': row_key,
+                        'mapping': row[0],
+                        'useMapping': row[1],
+                        'reversed': row[2] == 'False',
+                        'mask': row[3],
+                        'default': row[4],
+                    }
+                elif row_type == 'analog':
+                    mess_controls[row_system][row_control] = {
+                        'type': cast(Literal['analog'], row_type),
+                        'player': int(row_player),
+                        'tag': row_tag,
+                        'key': row_key,
+                        'incMapping': row[0],
+                        'decMapping': row[1],
+                        'useMapping1': row[2],
+                        'useMapping2': row[3],
+                        'reversed': row[4] == 'False',
+                        'mask': row[5],
+                        'default': row[6],
+                        'delta': row[7],
+                        'axis': row[8],
+                    }
+                else:
+                    mess_controls[row_system][row_control] = {
+                        'type': cast(Literal['combo'], row_type),
+                        'player': int(row_player),
+                        'tag': row_tag,
+                        'key': row_key,
+                        'kbMapping': row[0],
+                        'mapping': row[1],
+                        'useMapping': row[2],
+                        'reversed': row[3] == 'False',
+                        'mask': row[4],
+                        'default': row[5],
+                    }
+
+    return mess_controls
 
 def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sysName: str, altButtons: str | int, customCfg: bool, specialController: str, decorations: str | None, useGuns: bool, guns: GunMapping, useWheels: bool, wheels: DeviceInfoMapping, useMouse: bool, multiMouse: bool, system: Emulator) -> None:
     # config file
@@ -126,7 +185,6 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     xml_input = config.createElement("input")
     xml_system.appendChild(xml_input)
 
-    messControlDict: dict[str, dict[str, _MessControl]] = {}
     if sysName in [ "bbcb", "bbcm", "bbcm512", "bbcmc" ]:
         useControls = "bbc" if specialController == "none" else f"bbc-{specialController}"
     elif sysName in [ "apple2p", "apple2e", "apple2ee" ]:
@@ -137,51 +195,9 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
 
     # Open or create alternate config file for systems with special controllers/settings
     # If the system/game is set to per game config, don't try to open/reset an existing file, only write if it's blank or going to the shared cfg folder
-    specialControlList = [ "cdimono1", "apfm1000", "astrocde", "adam", "arcadia", "gamecom", "tutor", "crvision", "bbcb", "bbcm", "bbcm512", "bbcmc", "xegs", \
-        "socrates", "vgmplay", "pdp1", "vc4000", "fmtmarty", "gp32", "apple2p", "apple2e", "apple2ee" ]
-    if sysName in specialControlList:
-        # Load mess controls from csv
-        messControlFile = MAME_DEFAULT_DATA / 'messControls.csv'
-        openMessFile = messControlFile.open('r')
-        with openMessFile:
-            controlList = csv.reader(openMessFile, delimiter=';')
-            for row in controlList:
-                if row[0] not in messControlDict:
-                    messControlDict[row[0]] = {}
-                messControlDict[row[0]][row[1]] = {}
-                currentEntry = messControlDict[row[0]][row[1]]
-                currentEntry['type'] = row[2]
-                currentEntry['player'] = int(row[3])
-                currentEntry['tag'] = row[4]
-                currentEntry['key'] = row[5]
-                if currentEntry['type'] == 'special' or currentEntry['type'] == 'main':
-                    currentEntry['mapping'] = row[6]
-                    currentEntry['useMapping'] = row[7]
-                    currentEntry['reversed'] = row[8]
-                    currentEntry['mask'] = row[9]
-                    currentEntry['default'] = row[10]
-                elif currentEntry['type'] == 'analog':
-                    currentEntry['incMapping'] = row[6]
-                    currentEntry['decMapping'] = row[7]
-                    currentEntry['useMapping1'] = row[8]
-                    currentEntry['useMapping2'] = row[9]
-                    currentEntry['reversed'] = row[10]
-                    currentEntry['mask'] = row[11]
-                    currentEntry['default'] = row[12]
-                    currentEntry['delta'] = row[13]
-                    currentEntry['axis'] = row[14]
-                if currentEntry['type'] == 'combo':
-                    currentEntry['kbMapping'] = row[6]
-                    currentEntry['mapping'] = row[7]
-                    currentEntry['useMapping'] = row[8]
-                    currentEntry['reversed'] = row[9]
-                    currentEntry['mask'] = row[10]
-                    currentEntry['default'] = row[11]
-                if currentEntry['reversed'] == 'False':
-                    currentEntry['reversed'] = False
-                else:
-                    currentEntry['reversed'] = True
+    messControlDict = parse_mess_controls(sysName)
 
+    if messControlDict:
         config_alt = minidom.Document()
         configFile_alt = cfgPath / f"{sysName}.cfg"
         if configFile_alt.exists() and cfgPath == (MAME_CONFIG / sysName):
@@ -332,7 +348,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             mameXml.write(dom_string)
 
     # Write alt config (if used, custom config is turned off or file doesn't exist yet)
-    if sysName in specialControlList and overwriteSystem:
+    if messControlDict and overwriteSystem:
         _logger.debug("Saving %s", configFile_alt)
         with codecs.open(str(configFile_alt), "w", "utf-8") as mameXml_alt:
             dom_string_alt = os.linesep.join([s for s in config_alt.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
