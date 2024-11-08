@@ -68,15 +68,34 @@ def _key_to_sdl_game_controller_config(keyname: str, input: Input, /) -> str | N
         raise ValueError(f'unknown key type: {input.type!r}')
 
 
+def _find_in_roots(
+    roots: Iterable[ET.Element], *, name: str | None = None, guid: str | None = None,
+) -> ET.Element | None:
+    path = "./inputConfig"
+
+    if guid is not None:
+        path = f"{path}[@deviceGUID='{guid}']"
+
+    if name is not None:
+        path = f"{path}[@deviceName='{name}']"
+
+    for root in roots:
+        element = root.find(path)
+        if element is not None:
+            return element
+
+    return None
+
+
 class _ControllerChanges(TypedDict, total=False):
     guid: str
     player_number: int
     index: int
     real_name: str
     device_path: str
-    button_count: int | None
-    hat_count: int | None
-    axis_count: int | None
+    button_count: int
+    hat_count: int
+    axis_count: int
     physical_device_path: str | None
     physical_index: int | None
 
@@ -86,13 +105,13 @@ class Controller:
     name: str
     type: Literal['keyboard', 'joystick']
     guid: str
-    player_number: int = 0  # when this is filled out, it will start at 1
-    index: int = -1
-    real_name: str = ""
-    device_path: str = ""
-    button_count: int | None = None
-    hat_count: int | None = None
-    axis_count: int | None = None
+    player_number: int  # when this is filled out, it will start at 1
+    index: int
+    real_name: str
+    device_path: str
+    button_count: int
+    hat_count: int
+    axis_count: int
     physical_device_path: str | None = None
     physical_index: int | None = None
 
@@ -142,39 +161,23 @@ class Controller:
 
         return ','.join(config)
 
-    @classmethod
-    def from_element(cls, element: ET.Element, /) -> Self:
-        return cls(
-            name=cast(str, element.get("deviceName")),
-            type=cast(Literal['keyboard', 'joystick'], element.get("type")),
-            guid=cast(str, element.get("deviceGUID")),
-            inputs_=Input.from_parent_element(element)
-        )
-
-    # Load all controllers from the es_input.cfg
-    @classmethod
-    def load_all(cls) -> list[Self]:
-        return [
-            cls.from_element(controller)
-            # Parse the user's es_input.cfg first so those items are found before the system items when iterating
-            for conffile in [USER_ES_DIR / 'es_input.cfg', BATOCERA_ES_DIR / "es_input.cfg"] if conffile.exists()
-            for controller in ET.parse(conffile).getroot().findall(".//inputConfig")
-        ]
-
-    # Create a controller array with the player id as a key
+    # Create a controller map with the player number as a key
     @classmethod
     def load_for_players(cls, max_players: int, args: Namespace, /) -> ControllerDict:
-        all_controllers = cls.load_all()
+        cfg_roots = [
+            ET.parse(conffile).getroot()
+            for conffile in (USER_ES_DIR / 'es_input.cfg', BATOCERA_ES_DIR / 'es_input.cfg')
+        ]
 
         return {
             controller.player_number: controller
             for player_number in range(1, max_players + 1)
-            if (controller := cls.find_best_controller_config(all_controllers, args, player_number)) is not None
+            if (controller := cls._find_best_controller(cfg_roots, args, player_number)) is not None
         }
 
     @classmethod
-    def find_best_controller_config(
-        cls, all_controllers: Iterable[Self], args: Namespace, player_number: int, /,
+    def _find_best_controller(
+        cls, cfg_roots: Iterable[ET.Element], args: Namespace, player_number: int, /,
     ) -> Controller | None:
         index: int | None = getattr(args, f'p{player_number}index')
 
@@ -183,50 +186,25 @@ class Controller:
 
         guid: str = getattr(args, f'p{player_number}guid')
         real_name: str = getattr(args, f'p{player_number}name')
-        device_path: str = getattr(args, f'p{player_number}devicepath')
-        button_count: int = getattr(args, f'p{player_number}nbbuttons')
-        hat_count: int = getattr(args, f'p{player_number}nbhats')
-        axis_count: int = getattr(args, f'p{player_number}nbaxes')
 
-        # when there will have more joysticks, use hash tables
-        for controller in all_controllers:
-            if controller.guid == guid and controller.name == real_name:
-                return controller.replace(
-                    guid=guid,
-                    player_number=player_number,
-                    index=index,
-                    real_name=real_name,
-                    device_path=device_path,
-                    button_count=button_count,
-                    hat_count=hat_count,
-                    axis_count=axis_count,
-                )
-
-        for controller in all_controllers:
-            if controller.guid == guid:
-                return controller.replace(
-                    guid=guid,
-                    player_number=player_number,
-                    index=index,
-                    real_name=real_name,
-                    device_path=device_path,
-                    button_count=button_count,
-                    hat_count=hat_count,
-                    axis_count=axis_count,
-                )
-
-        for controller in all_controllers:
-            if controller.name == real_name:
-                return controller.replace(
-                    guid=guid,
-                    player_number=player_number,
-                    index=index,
-                    real_name=real_name,
-                    device_path=device_path,
-                    button_count=button_count,
-                    hat_count=hat_count,
-                    axis_count=axis_count,
-                )
+        if (
+            (input_config := _find_in_roots(cfg_roots, name=real_name, guid=guid)) is not None or
+            (input_config := _find_in_roots(cfg_roots, guid=guid)) is not None or
+            (input_config := _find_in_roots(cfg_roots, name=real_name)) is not None
+        ):
+            return cls(
+                name=cast(str, input_config.get("deviceName")),
+                type=cast(Literal['keyboard', 'joystick'], input_config.get("type")),
+                guid=cast(str, input_config.get("deviceGUID")),
+                inputs_=Input.from_parent_element(input_config),
+                player_number=player_number,
+                index=index,
+                real_name=real_name,
+                device_path=getattr(args, f'p{player_number}devicepath'),
+                button_count=getattr(args, f'p{player_number}nbbuttons'),
+                hat_count=getattr(args, f'p{player_number}nbhats'),
+                axis_count=getattr(args, f'p{player_number}nbaxes'),
+            )
 
         return None
 

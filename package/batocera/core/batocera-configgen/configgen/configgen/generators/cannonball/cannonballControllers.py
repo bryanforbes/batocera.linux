@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
 import xml.etree.ElementTree as ET
+from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from xml.etree.ElementTree import Element
     from ...controller import ControllerMapping
 
 cannonballJoystick = {
@@ -25,7 +24,7 @@ cannonballJoystick = {
 }
 
 # Create the controller configuration file
-def generateControllerConfig(xml_controls: Element, playersControllers: ControllerMapping):
+def generateControllerConfig(xml_controls: ET.Element, playersControllers: ControllerMapping):
     nplayer = 1
     for _, pad in sorted(playersControllers.items()):
         if nplayer == 1:
