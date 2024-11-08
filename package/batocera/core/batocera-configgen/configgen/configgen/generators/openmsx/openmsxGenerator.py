@@ -3,7 +3,6 @@ from __future__ import annotations
 import logging
 import re
 import shutil
-import xml.dom.minidom as minidom
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
@@ -59,6 +58,7 @@ class OpenmsxGenerator(Generator):
         root = tree.getroot()
 
         settings_elem = cast(ET.Element, root.find("settings"))
+
         if system.isOptSet("openmsx_loading"):
             fullspeed_elem = ET.Element("setting", {"id": "fullspeedwhenloading"})
             fullspeed_elem.text = system.config["openmsx_loading"]
@@ -81,7 +81,8 @@ class OpenmsxGenerator(Generator):
         with settings_xml.open("w") as f:
             f.write("<!DOCTYPE settings SYSTEM 'settings.dtd'>\n")
             # purdify the XML
-            xml_string = minidom.parseString(ET.tostring(root)).toprettyxml(indent="  ")
+            ET.indent(root)
+            xml_string = ET.tostring(root, encoding='unicode')
             formatted_xml = "\n".join([line for line in xml_string.split("\n") if line.strip()])
             f.write(formatted_xml)
 
