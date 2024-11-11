@@ -54,7 +54,7 @@ def generateControllerConfig(system: Emulator, viceConfigFile: Path, playersCont
 
     mkdir_if_not_exists(viceFile.parent)
 
-    listVice: list[str] = [];
+    listVice: list[str] = []
     listVice.append("# Batocera configured controllers")
     listVice.append("")
     listVice.append("!CLEAR")
