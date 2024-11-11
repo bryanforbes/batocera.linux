@@ -1181,6 +1181,8 @@ def _mupen64plus_next_options(
 
     if auto_rumble_pak:
         metadata = controllersConfig.getGamesMetaData(system.name, rom)
+    else:
+        metadata: dict[str, str] = {}
 
     # Controller Pak 1
     if system.isOptSet('mupen64plus-pak1'):
@@ -1314,6 +1316,8 @@ def _parallel_n64_options(
 
     if auto_rumble_pak:
         metadata = controllersConfig.getGamesMetaData(system.name, rom)
+    else:
+        metadata: dict[str, str] = {}
 
     # Controller Pak 1
     if system.isOptSet('parallel-n64-pak1'):
