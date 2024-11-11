@@ -7,7 +7,6 @@ from typing import TYPE_CHECKING
 
 from ... import Command
 from ...batoceraPaths import mkdir_if_not_exists
-from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -21,8 +20,6 @@ class MugenGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
-        rom_path = Path(rom)
-
         # Define the key mappings for evmapy
         p1_keys = {
             "Jump": "273",
@@ -52,7 +49,7 @@ class MugenGenerator(Generator):
             "Start": "117"
         }
 
-        settings_path = rom_path / "data" / "mugen.cfg"
+        settings_path = rom / "data" / "mugen.cfg"
         mkdir_if_not_exists(settings_path.parent)
 
         if not settings_path.exists():
@@ -162,7 +159,7 @@ class MugenGenerator(Generator):
         # Save the configuration
         with settings_path.open("w", encoding="utf-8-sig") as f:
             f.writelines(new_config)
-        
+
         # Don't use of virtual desktop - fixes handhelds with rotated displays
         subprocess.run(['/usr/bin/batocera-settings-set', 'mugen.virtual_desktop', '0'], check=True)
 
@@ -180,8 +177,8 @@ class MugenGenerator(Generator):
                 "VK_LAYER_PATH": "/usr/share/vulkan/explicit_layer.d"
             })
 
-        commandArray = ["batocera-wine", "mugen", "play", str(rom_path)]
-        
+        commandArray = ["batocera-wine", "mugen", "play", rom]
+
         return Command.Command(
             array=commandArray,
             env=environment

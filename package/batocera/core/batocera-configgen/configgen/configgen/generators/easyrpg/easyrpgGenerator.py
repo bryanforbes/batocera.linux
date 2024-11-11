@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import codecs
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -9,6 +8,8 @@ from ...batoceraPaths import CONFIGS, SAVES, mkdir_if_not_exists
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from ...controller import ControllerMapping
     from ...types import HotkeysContext
 
@@ -22,8 +23,6 @@ class EasyRPGGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
-        rom_path = Path(rom)
-
         commandArray: list[str | Path] = ["easyrpg-player"]
 
         # FPS
@@ -41,7 +40,7 @@ class EasyRPGGenerator(Generator):
             commandArray.extend(["--encoding", "auto"])
 
         # Save directory
-        savePath = SAVES / "easyrpg" / rom_path.name
+        savePath = SAVES / "easyrpg" / rom.name
         mkdir_if_not_exists(savePath)
         commandArray.extend(["--save-path", savePath])
 

@@ -8,12 +8,14 @@ from ...utils.missing import MISSING
 from .xemuPaths import XEMU_CONFIG
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from ...controller import ControllerMapping
     from ...Emulator import Emulator
     from ...types import Resolution
 
 
-def writeIniFile(system: Emulator, rom: str, playersControllers: ControllerMapping, gameResolution: Resolution) -> None:
+def writeIniFile(system: Emulator, rom: Path, playersControllers: ControllerMapping, gameResolution: Resolution) -> None:
     iniConfig = CaseSensitiveConfigParser(interpolation=None)
 
     if XEMU_CONFIG.exists():
@@ -27,7 +29,7 @@ def writeIniFile(system: Emulator, rom: str, playersControllers: ControllerMappi
     with ensure_parents_and_open(XEMU_CONFIG, 'w') as configfile:
         iniConfig.write(configfile)
 
-def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom: str, playersControllers: ControllerMapping, gameResolution: Resolution) -> None:
+def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom: Path, playersControllers: ControllerMapping, gameResolution: Resolution) -> None:
     # Create INI sections
     if not iniConfig.has_section("general"):
         iniConfig.add_section("general")
@@ -74,7 +76,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
     iniConfig.set("sys.files", "bootrom_path", '"/userdata/bios/mcpx_1.0.bin"')
     iniConfig.set("sys.files", "hdd_path", '"/userdata/saves/xbox/xbox_hdd.qcow2"')
     iniConfig.set("sys.files", "eeprom_path", '"/userdata/saves/xbox/xemu_eeprom.bin"')
-    iniConfig.set("sys.files", "dvd_path", '"' + rom + '"')
+    iniConfig.set("sys.files", "dvd_path", f'"{rom}"')
 
     # Audio quality
     iniConfig.set("audio", "use_dsp", system.get_option("xemu_use_dsp", "false"))

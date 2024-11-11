@@ -42,10 +42,7 @@ class SolarusGenerator(Generator):
         # player pad
         SolarusGenerator.padConfig(system, playersControllers)
 
-        # rom
-        commandArray.append(rom)
-
-        return Command.Command(array=commandArray, env={
+        return Command.Command(array=[*commandArray, rom], env={
             'SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS': '0' ,
             "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers),
             "SDL_JOYSTICK_HIDAPI": "0"

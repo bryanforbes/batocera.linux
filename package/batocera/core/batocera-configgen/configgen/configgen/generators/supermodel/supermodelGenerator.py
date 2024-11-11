@@ -92,7 +92,7 @@ class SupermodelGenerator(Generator):
         commandArray.append(f"-res={gameResolution['width']},{gameResolution['height']}")
 
         # logs
-        commandArray.extend(["-log-output=/userdata/system/logs/Supermodel.log", rom])
+        commandArray.append("-log-output=/userdata/system/logs/Supermodel.log")
 
         # copy nvram files
         copy_nvram_files()
@@ -104,10 +104,10 @@ class SupermodelGenerator(Generator):
         copy_xml()
 
         # controller config
-        configPadsIni(system, Path(rom), playersControllers, guns, system.get_option_bool('pedalSwap'), sensitivity)
+        configPadsIni(system, rom, playersControllers, guns, system.get_option_bool('pedalSwap'), sensitivity)
 
         return Command.Command(
-            array=commandArray,
+            array=[*commandArray, rom],
             env={
                 "SDL_VIDEODRIVER": "x11",
                 "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers),

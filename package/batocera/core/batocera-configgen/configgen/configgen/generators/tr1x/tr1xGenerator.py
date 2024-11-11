@@ -42,7 +42,7 @@ class TR1XGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
-        tr1xRomPath = Path(rom).parent
+        tr1xRomPath = rom.parent
         tr1xSourcePath = Path("/usr/bin/tr1x")
         musicZipPath = tr1xRomPath / "music.zip"
         musicDir = tr1xRomPath / "music"

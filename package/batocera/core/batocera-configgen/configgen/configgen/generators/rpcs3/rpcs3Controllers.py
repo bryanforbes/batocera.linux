@@ -20,7 +20,7 @@ class _InputMapping(TypedDict):
     event_variations: list[tuple[str, str]]
 
 
-def generateControllerConfig(system: Emulator, controllers: ControllerMapping, rom: str):
+def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
 
     mkdir_if_not_exists(_RPCS3_INPUT_DIR)
 

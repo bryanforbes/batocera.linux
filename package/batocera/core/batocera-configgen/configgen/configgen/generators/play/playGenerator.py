@@ -2,16 +2,17 @@ from __future__ import annotations
 
 import re
 import xml.etree.ElementTree as ET
-from pathlib import Path
 from typing import TYPE_CHECKING, Final, cast
 
 from evdev import InputDevice
 
 from ... import Command
-from ...batoceraPaths import CACHE, CONFIGS, SAVES, mkdir_if_not_exists
+from ...batoceraPaths import CACHE, CONFIG_ROM, CONFIGS, SAVES, mkdir_if_not_exists
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from ...types import HotkeysContext
 
 playConfig: Final = CONFIGS / 'play'
@@ -227,13 +228,13 @@ class PlayGenerator(Generator):
         input_tree.write(playInputFile)
 
         ## Prepare the command to run the emulator
-        commandArray = ["/usr/bin/Play", "--fullscreen"]
+        commandArray: list[str | Path] = ["/usr/bin/Play", "--fullscreen"]
 
-        if rom != "config":
+        if rom != CONFIG_ROM:
             # if zip, it's a namco arcade game
-            if rom.lower().endswith("zip"):
+            if rom.suffix.lower() == ".zip":
                 # strip path & extension
-                commandArray.extend(["--arcade", Path(rom).stem])
+                commandArray.extend(["--arcade", rom.stem])
             else:
                 commandArray.extend(["--disc", rom])
 
