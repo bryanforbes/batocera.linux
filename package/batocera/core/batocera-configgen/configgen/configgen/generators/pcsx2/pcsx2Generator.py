@@ -279,10 +279,11 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
         leaderbd  = system.config.get('retroachievements.leaderboards', "")
         login_cmd = f"dorequest.php?r=login&u={username}&p={password}"
         try:
-                cnx = httplib2.Http()
+            cnx = httplib2.Http()
         except Exception:
-                _logger.error("ERROR: Unable to connect to %s", login_url)
-        try:
+            _logger.error("ERROR: Unable to connect to %s", login_url)
+        else:
+            try:
                 res, rout = cast(tuple[httplib2.Response, bytes], cnx.request(login_url + login_cmd, method="GET", body=None, headers=headers))
                 if (res.status != 200):
                     _logger.warning("ERROR: RetroAchievements.org responded with #%s [%s] %s", res.status, res.reason, rout)
@@ -312,7 +313,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                         pcsx2INIConfig.set("Achievements", "Leaderboards", "true")
                     else:
                         pcsx2INIConfig.set("Achievements", "Leaderboards", "false")
-        except Exception:
+            except Exception:
                 _logger.error("ERROR: setting RetroAchievements parameters")
     # set other settings
     pcsx2INIConfig.set("Achievements", "TestMode", "false")
