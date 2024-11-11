@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from ...controller import Controller, ControllerMapping
     from ...utils.configparser import CaseSensitiveConfigParser
 
@@ -55,7 +56,7 @@ fbaspecials = {
                 'hotkey': 'HOTKEY'
               }
 
-def updateControllersConfig(iniConfig: CaseSensitiveConfigParser, rom: str, controllers: ControllerMapping) -> None:
+def updateControllersConfig(iniConfig: CaseSensitiveConfigParser, rom: Path, controllers: ControllerMapping) -> None:
     # remove any previous section to remove all configured keys
     if iniConfig.has_section("Joystick"):
         iniConfig.remove_section("Joystick")
@@ -102,11 +103,10 @@ def updateControllerConfig(iniConfig: CaseSensitiveConfigParser, player: int, co
                 input = controller.inputs[btnkey]
                 iniConfig.set("Joystick", f'{btnvalue}', input.id)
 
-def is6btn(rom: str) -> bool:
+def is6btn(rom: Path) -> bool:
     sixBtnGames = ['sfa', 'sfz', 'sf2', 'dstlk', 'hsf2', 'msh', 'mshvsf', 'mvsc', 'nwarr', 'ssf2', 'vsav', 'vhunt', 'xmvsf', 'xmcota']
 
-    rom_name = Path(rom).name
     for game in sixBtnGames:
-        if game in rom_name:
+        if game in rom.name:
             return True
     return False

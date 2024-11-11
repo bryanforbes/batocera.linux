@@ -3,7 +3,6 @@ from __future__ import annotations
 import hashlib
 import os
 from functools import cache
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -12,6 +11,8 @@ from ...utils.configparser import CaseSensitiveRawConfigParser
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from ...types import HotkeysContext
 
 @cache
@@ -32,12 +33,10 @@ class SonicRetroGenerator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
 
-        rom_path = Path(rom)
-
         # Determine the emulator to use
-        emu = "sonic2013" if rom_path.name.lower().endswith("son") else "soniccd"
+        emu = "sonic2013" if rom.name.lower().endswith("son") else "soniccd"
 
-        iniFile = rom_path / "settings.ini"
+        iniFile = rom / "settings.ini"
 
         # Some code copied from Citra's generator and adapted.
 
@@ -131,7 +130,7 @@ class SonicRetroGenerator(Generator):
             # Sonic CD
             "e723aab26026e4e6d4522c4356ef5a98",
         ]
-        game_config_bin = rom_path / "Data" / "Game" / "GameConfig.bin"
+        game_config_bin = rom / "Data" / "Game" / "GameConfig.bin"
         if game_config_bin.is_file() and _get_path_md5(game_config_bin) in originsGameConfig:
             sonicConfig.set("Game", "GameType", "1")
 
@@ -198,17 +197,15 @@ class SonicRetroGenerator(Generator):
             })
 
     def getMouseMode(self, config, rom):
-        rom_path = Path(rom)
-
         # Determine the emulator to use
-        emu = "sonic2013" if rom_path.name.lower().endswith("son") else "soniccd"
+        emu = "sonic2013" if rom.name.lower().endswith("son") else "soniccd"
 
         mouseRoms = [
             "1bd5ad366df1765c98d20b53c092a528", # iOS version of SonicCD
         ]
 
         enableMouse = False
-        data_file = rom_path / 'Data.rsdk'
+        data_file = rom / 'Data.rsdk'
         enableMouse = _get_path_md5(data_file) in mouseRoms if emu == "soniccd" and data_file.is_file() else False
 
         return enableMouse
