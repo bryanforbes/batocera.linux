@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -14,7 +13,7 @@ if TYPE_CHECKING:
 class PyxelGenerator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
-        cmd = 'play' if Path(rom).suffix == '.pyxapp' else 'run'
+        cmd = 'play' if rom.suffix == '.pyxapp' else 'run'
 
         commandArray = ["/usr/bin/pyxel", cmd, rom]
         return Command.Command(

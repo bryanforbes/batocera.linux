@@ -3,7 +3,6 @@ from __future__ import annotations
 import logging
 import re
 import shutil
-from pathlib import Path
 from typing import TYPE_CHECKING, Any, cast
 
 from ruamel.yaml import YAML
@@ -32,7 +31,7 @@ class Rpcs3Generator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
 
-        rpcs3Controllers.generateControllerConfig(system, playersControllers, rom)
+        rpcs3Controllers.generateControllerConfig(system, playersControllers)
 
         # Taking care of the CurrentSettings.ini file
         mkdir_if_not_exists(RPCS3_CURRENT_CONFIG.parent)
@@ -316,16 +315,14 @@ class Rpcs3Generator(Generator):
         mkdir_if_not_exists(icon_target)
         shutil.copytree('/usr/share/rpcs3/Icons/', icon_target, dirs_exist_ok=True, copy_function=shutil.copy2)
 
-        rom_path = Path(rom)
-
         # determine the rom name
-        if rom_path.suffix == ".psn":
-            with rom_path.open() as fp:
+        if rom.suffix == ".psn":
+            with rom.open() as fp:
                 for line in fp:
                     if len(line) >= 9:
                         romName = RPCS3_CONFIG_DIR / "dev_hdd0" / "game" / line.strip().upper() / "USRDIR" / "EBOOT.BIN"
         else:
-            romName = rom_path / "PS3_GAME" / "USRDIR" / "EBOOT.BIN"
+            romName = rom / "PS3_GAME" / "USRDIR" / "EBOOT.BIN"
 
         # write our own gamecontrollerdb.txt file before launching the game
         dbfile = RPCS3_CONFIG_DIR / "input_configs" / "gamecontrollerdb.txt"

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-from pathlib import Path
 from typing import TYPE_CHECKING, Final
 
 from ... import Command
@@ -10,6 +9,8 @@ from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from ...types import HotkeysContext
 
 PICO8_BIN_PATH: Final = BIOS / "pico-8" / "pico8"
@@ -30,8 +31,6 @@ class LexaloffleGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
-        rom_path = Path(rom)
-
         if (system.name == "pico8"):
             BIN_PATH=PICO8_BIN_PATH
             CONTROLLERS=PICO8_CONTROLLERS
@@ -59,15 +58,15 @@ class LexaloffleGenerator(Generator):
         else:
                 commandArray.extend(["-show_fps", "0"])
 
-        rombase = rom_path.stem
+        rombase = rom.stem
 
         # .m3u support for multi-cart pico-8
-        if rom_path.suffix.lower() == ".m3u":
-            with rom_path.open() as fpin:
+        if rom.suffix.lower() == ".m3u":
+            with rom.open() as fpin:
                 lines = fpin.readlines()
-            fullpath = rom_path.absolute().parent / lines[0].strip()
+            fullpath = rom.absolute().parent / lines[0].strip()
             commandArray.extend(["-root_path", fullpath.parent])
-            rom_path = fullpath
+            rom = fullpath
         else:
             commandArray.extend(["-root_path", ROOT_PATH]) # store carts from splore
 

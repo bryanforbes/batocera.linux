@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -22,11 +21,9 @@ class DXX_RebirthGenerator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
 
-        rom_path = Path(rom)
-
-        if rom_path.suffix == ".d1x":
+        if rom.suffix == ".d1x":
             dxx_rebirth = "d1x-rebirth"
-        elif rom_path.suffix == ".d2x":
+        elif rom.suffix == ".d2x":
             dxx_rebirth = "d2x-rebirth"
 
         ## Configuration
@@ -89,7 +86,7 @@ class DXX_RebirthGenerator(Generator):
                 file.write('TexAnisotropy=0\n')
                 file.write('Multisample=0\n')
 
-        commandArray = [dxx_rebirth, "-hogdir", rom_path.parent]
+        commandArray = [dxx_rebirth, "-hogdir", rom.parent]
 
         return Command.Command(
             array=commandArray,

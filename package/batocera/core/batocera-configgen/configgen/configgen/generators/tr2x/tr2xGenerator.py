@@ -37,7 +37,7 @@ class TR2XGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
-        tr2xRomPath = Path(rom).parent
+        tr2xRomPath = rom.parent
         tr2xSoucePath = Path("/usr/bin/tr2x")
 
         # Copy files & folders if they don’t exist

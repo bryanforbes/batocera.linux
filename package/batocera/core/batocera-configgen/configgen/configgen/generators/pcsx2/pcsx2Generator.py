@@ -8,7 +8,16 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, Final
 
 from ... import Command
-from ...batoceraPaths import BIOS, CACHE, CONFIGS, DATAINIT_DIR, ROMS, ensure_parents_and_open, mkdir_if_not_exists
+from ...batoceraPaths import (
+    BIOS,
+    CACHE,
+    CONFIG_ROM,
+    CONFIGS,
+    DATAINIT_DIR,
+    ROMS,
+    ensure_parents_and_open,
+    mkdir_if_not_exists,
+)
 from ...controller import ControllerMapping, generate_sdl_game_controller_config, write_sdl_controller_db
 from ...utils import vulkan
 from ...utils.configparser import CaseSensitiveConfigParser
@@ -100,7 +109,7 @@ class Pcsx2Generator(Generator):
         dbfile = _PCSX2_CONFIG / "game_controller_db.txt"
         write_sdl_controller_db(playersControllers, dbfile)
 
-        commandArray = ["/usr/pcsx2/bin/pcsx2-qt"] if rom == "config" else \
+        commandArray = ["/usr/pcsx2/bin/pcsx2-qt"] if rom == CONFIG_ROM else \
               ["/usr/pcsx2/bin/pcsx2-qt", "-nogui", rom]
 
         with Path("/proc/cpuinfo").open() as cpuinfo:
@@ -175,7 +184,7 @@ def configureAudio(config_directory: Path) -> None:
     f.write("HostApi=alsa\n")
     f.close()
 
-def configureINI(config_directory: Path, bios_directory: Path, system: Emulator, rom: str, controllers: ControllerMapping, metadata: Mapping[str, str], guns: GunMapping, wheels: DeviceInfoMapping, playingWithWheel: bool) -> None:
+def configureINI(config_directory: Path, bios_directory: Path, system: Emulator, rom: Path, controllers: ControllerMapping, metadata: Mapping[str, str], guns: GunMapping, wheels: DeviceInfoMapping, playingWithWheel: bool) -> None:
     configFileName = config_directory / 'inis' / "PCSX2.ini"
 
     mkdir_if_not_exists(configFileName.parent)

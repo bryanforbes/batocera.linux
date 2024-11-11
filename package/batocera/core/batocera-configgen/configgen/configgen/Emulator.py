@@ -4,7 +4,6 @@ import collections.abc
 import logging
 import xml.etree.ElementTree as ET
 from dataclasses import InitVar, dataclass, field
-from pathlib import Path
 from typing import TYPE_CHECKING, Any, ClassVar, Literal, TypeVar, overload
 
 import yaml
@@ -14,6 +13,7 @@ from .settings.unixSettings import UnixSettings
 from .utils.missing import MISSING, MissingType
 
 if TYPE_CHECKING:
+    from pathlib import Path
     from typing_extensions import deprecated
 
 _logger = logging.getLogger(__name__)
@@ -45,14 +45,12 @@ class Emulator:
     MISSING: ClassVar = MISSING
 
     name: str
-    rom: InitVar[str]
+    rom: InitVar[Path]
 
     config: dict[str, Any] = field(init=False)
     renderconfig: dict[str, Any] = field(init=False)
 
-    def __post_init__(self, rom: str, /) -> None:
-        rom_path = Path(rom)
-
+    def __post_init__(self, rom: Path, /) -> None:
         # read the configuration from the system name
         self.config = self.__get_system_config(
             DEFAULTS_DIR / "configgen-defaults.yml",
@@ -62,14 +60,14 @@ class Emulator:
             _logger.error("no emulator defined. exiting.")
             raise Exception("No emulator found")
 
-        gsname = self.game_settings_name(rom_path)
+        gsname = self.game_settings_name(rom)
 
         # load configuration from batocera.conf
         batoceraSettings = UnixSettings(BATOCERA_CONF)
         globalSettings = batoceraSettings.load_all('global')
         controllersSettings = batoceraSettings.load_all('controllers', includeName=True)
         systemSettings = batoceraSettings.load_all(self.name)
-        folderSettings = batoceraSettings.load_all(f'{self.name}.folder["{rom_path.parent}"]')
+        folderSettings = batoceraSettings.load_all(f'{self.name}.folder["{rom.parent}"]')
         gameSettings = batoceraSettings.load_all(f'{self.name}["{gsname}"]')
 
         # add some other options
