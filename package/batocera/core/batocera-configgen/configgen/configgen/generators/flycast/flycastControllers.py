@@ -96,7 +96,7 @@ def generateControllerConfig(controller: Controller, type: Literal['dreamcast', 
                 _logger.debug("Input type: %s / %s - not in mapping", input.type, input.name)
                 continue
             var = flycastMapping[input.name][input.type]
-        if type == 'arcade':
+        elif type == 'arcade':
             if input.name not in flycastArcadeMapping:
                 continue
             if input.type not in flycastArcadeMapping[input.name]:
