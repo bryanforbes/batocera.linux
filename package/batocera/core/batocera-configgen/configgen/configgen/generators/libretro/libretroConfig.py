@@ -433,7 +433,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
 
         if system.config['core'] == 'genesisplusgx':
             option = 'gx'
-        if system.config['core'] == 'picodrive':
+        else:  # picodrive
             option = 'pd'
 
         controller_list = sorted(controllers.items())
@@ -576,7 +576,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
 
         if system.config['core'] == 'mupen64plus-next':
             option = 'mupen64plus'
-        elif system.config['core'] == 'parallel_n64':
+        else:  # parallel_n64
             option = 'parallel-n64'
 
         controller_list = sorted(controllers.items())

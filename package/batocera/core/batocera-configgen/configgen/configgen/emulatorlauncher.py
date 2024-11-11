@@ -558,8 +558,8 @@ def launch() -> None:
         parser.add_argument("-spinner",        help="configure spinner",           action="store_true")
 
         args = parser.parse_args()
+        exitcode = -1
         try:
-            exitcode = -1
             exitcode = main(args, maxnbplayers)
         except Exception as e:
             _logger.exception("configgen exception: ")

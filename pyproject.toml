@@ -9,7 +9,6 @@ strictListInference = true
 strictDictionaryInference = true
 strictSetInference = true
 reportMissingModuleSource = "none"
-reportPossiblyUnboundVariable = "none"
 reportUnnecessaryComparison = "error"
 
 [tool.ruff]

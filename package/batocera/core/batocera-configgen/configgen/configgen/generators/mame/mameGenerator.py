@@ -651,15 +651,14 @@ class MameGenerator(Generator):
 
         if system.isOptSet('bezel.tattoo') and system.config['bezel.tattoo'] != "0":
             if system.config['bezel.tattoo'] == 'system':
+                tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / f'{system.name}.png'
+                if not tattoo_file.exists():
+                    tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
                 try:
-                    tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / f'{system.name}.png'
-                    if not tattoo_file.exists():
-                        tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
                     tattoo = Image.open(tattoo_file)
                 except Exception as e:
                     _logger.error("Error opening controller overlay: %s", tattoo_file)
-            elif system.config['bezel.tattoo'] == 'custom' and Path(system.config['bezel.tattoo_file']).exists():
-                tattoo_file = Path(system.config['bezel.tattoo_file'])
+            elif system.config['bezel.tattoo'] == 'custom' and (tattoo_file := Path(system.config['bezel.tattoo_file'])).exists():
                 try:
                     tattoo = Image.open(tattoo_file)
                 except Exception:
