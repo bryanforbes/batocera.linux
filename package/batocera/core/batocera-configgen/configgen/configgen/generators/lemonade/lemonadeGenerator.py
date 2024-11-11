@@ -276,7 +276,7 @@ class LemonadeGenerator(Generator):
             inputy = padInputs["joystick2up"]
 
         if inputx is None or inputy is None:
-            return "";
+            return ""
 
         return f"axis_x:{inputx.id},guid:{padGuid},axis_y:{inputy.id},engine:sdl"
 
