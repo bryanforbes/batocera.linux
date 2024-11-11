@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import logging
 import platform
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -12,6 +11,8 @@ from ...utils.buildargs import parse_args
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from pathlib import Path
+
     from ...types import HotkeysContext
 
 _logger = logging.getLogger(__name__)
@@ -163,7 +164,7 @@ class RazeGenerator(Generator):
 
         # Launch arguments
         launch_args: list[str | Path] = ["raze"]
-        result = parse_args(launch_args, Path(rom))
+        result = parse_args(launch_args, rom)
         if not result.okay:
             raise Exception(result.message)
 

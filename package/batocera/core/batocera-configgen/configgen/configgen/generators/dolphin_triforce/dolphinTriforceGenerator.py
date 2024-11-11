@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from os import environ
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -35,7 +34,7 @@ class DolphinTriforceGenerator(Generator):
         # Dir required for saves
         mkdir_if_not_exists(DOLPHIN_TRIFORCE_SAVES / "StateSaves")
 
-        dolphinTriforceControllers.generateControllerConfig(system, playersControllers, Path(rom))
+        dolphinTriforceControllers.generateControllerConfig(system, playersControllers, rom)
 
         ## dolphin.ini ##
 
@@ -126,14 +125,14 @@ class DolphinTriforceGenerator(Generator):
         # Serial Port 1 to AM-Baseband
         # F-Zero GX exception, it needs to not be using the AM-Baseband to function.
         # This cannot be set in the game's INI for some reason.
-        if rom == "F-Zero GX (USA).iso":
+        if rom.name == "F-Zero GX (USA).iso":
             dolphinTriforceSettings.set("Core", "SerialPort1", "255")
         else:
             dolphinTriforceSettings.set("Core", "SerialPort1", "6")
 
         # Gamecube pads forced as AM-Baseband
         # F-Zero GX exception, it needs it to be a regular pad instead.
-        if rom == "F-Zero GX (USA).iso":
+        if rom.name == "F-Zero GX (USA).iso":
             dolphinTriforceSettings.set("Core", "SIDevice0", "6")
         else:
             dolphinTriforceSettings.set("Core", "SIDevice0", "11")
