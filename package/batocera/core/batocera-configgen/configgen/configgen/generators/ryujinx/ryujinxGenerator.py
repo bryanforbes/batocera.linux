@@ -10,7 +10,7 @@ import evdev
 from evdev import InputDevice
 
 from ... import Command
-from ...batoceraPaths import BIOS, CACHE, CONFIGS, ROMS, SAVES, mkdir_if_not_exists
+from ...batoceraPaths import BIOS, CACHE, CONFIG_ROM, CONFIGS, ROMS, SAVES, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
@@ -211,7 +211,7 @@ class RyujinxGenerator(Generator):
                         break
             nplayer += 1
 
-        commandArray = [ryujinxExec] if rom == "config" else [ryujinxExec, rom]
+        commandArray = [ryujinxExec] if rom == CONFIG_ROM else [ryujinxExec, rom]
 
         return Command.Command(
             array=commandArray,
