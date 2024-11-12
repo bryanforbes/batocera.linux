@@ -1400,9 +1400,8 @@ def isLowResolution(gameResolution: Resolution) -> bool:
     return gameResolution["width"] < 480 or gameResolution["height"] < 480
 
 def writeBezelCfgConfig(cfgFile: Path, overlay_png_file: Path) -> None:
-    fd = cfgFile.open("w")
-    fd.write("overlays = 1\n")
-    fd.write(f'overlay0_overlay = "{overlay_png_file}"\n')
-    fd.write("overlay0_full_screen = true\n")
-    fd.write("overlay0_descs = 0\n")
-    fd.close()
+    with cfgFile.open("w") as fd:
+        fd.write("overlays = 1\n")
+        fd.write(f'overlay0_overlay = "{overlay_png_file}"\n')
+        fd.write("overlay0_full_screen = true\n")
+        fd.write("overlay0_descs = 0\n")

@@ -101,12 +101,11 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 softList = 'fmtowns_cd'
 
         # Determine MESS system name (if needed)
-        openFile = (DEFAULTS_DIR / "data" / "mame" / "messSystems.csv").open()
         messSystems: list[str] = []
         messSysName: list[str] = []
         messRomType: list[str] = []
         messAutoRun: list[str] = []
-        with openFile:
+        with (DEFAULTS_DIR / "data" / "mame" / "messSystems.csv").open() as openFile:
             messDataList = csv.reader(openFile, delimiter=';', quotechar="'")
             for row in messDataList:
                 messSystems.append(row[0])
@@ -392,10 +391,9 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
             if autoRunCmd != "":
                 if autoRunCmd.startswith("'"):
                     autoRunCmd.replace("'", "")
-                iniFile = (SAVES / 'mame' / 'mame' / 'ini' / 'batocera.ini').open("w")
-                iniFile.write('autoboot_command          ' + autoRunCmd + "\n")
-                iniFile.write('autoboot_delay            ' + str(autoRunDelay))
-                iniFile.close()
+                with (SAVES / 'mame' / 'mame' / 'ini' / 'batocera.ini').open("w") as iniFile:
+                    iniFile.write('autoboot_command          ' + autoRunCmd + "\n")
+                    iniFile.write('autoboot_delay            ' + str(autoRunDelay))
             # Create & add a blank disk if needed, insert into drive 2
             # or drive 1 if drive 2 is selected manually.
             if system.isOptSet('addblankdisk') and system.getOptBoolean('addblankdisk'):
@@ -453,9 +451,8 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
         shutil.copyfile(defaultCustomCmdFilepath, cmdFilename)
     else:
         # User did not provide a custom .cmd file. Use the logic above to create a new .cmd file
-        cmdFile = cmdFilename.open("w")
-        cmdFile.write(' '.join(str(item) for item in commandLine))
-        cmdFile.close()
+        with cmdFilename.open("w") as cmdFile:
+            cmdFile.write(' '.join(str(item) for item in commandLine))
 
     # Call Controller Config
     if messMode == -1:
@@ -704,15 +701,15 @@ def generateMAMEPadConfig(
         #mameXml = open(configFile, "w")
         # TODO: python 3 - workawround to encode files in utf-8
         if overwriteMAME:
-            mameXml = codecs.open(str(configFile), "w", "utf-8")
-            dom_string = os.linesep.join([s for s in config.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
-            mameXml.write(dom_string)
+            with codecs.open(str(configFile), "w", "utf-8") as mameXml:
+                dom_string = os.linesep.join([s for s in config.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
+                mameXml.write(dom_string)
 
         # Write alt config (if used, custom config is turned off or file doesn't exist yet)
         if messControlDict and overwriteSystem:
-            mameXml_alt = codecs.open(str(configFile_alt), "w", "utf-8")
-            dom_string_alt = os.linesep.join([s for s in config_alt.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
-            mameXml_alt.write(dom_string_alt)
+            with codecs.open(str(configFile_alt), "w", "utf-8") as mameXml_alt:
+                dom_string_alt = os.linesep.join([s for s in config_alt.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
+                mameXml_alt.write(dom_string_alt)
 
 def reverseMapping(key: str) -> str | None:
     if key == "joystick1down":

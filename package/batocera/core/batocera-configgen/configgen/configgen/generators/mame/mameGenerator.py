@@ -639,15 +639,14 @@ class MameGenerator(Generator):
                 bz_y = 0
                 bz_alpha = 1.0
 
-            f = (tmpZipDir / "default.lay").open('w')
-            f.write("<mamelayout version=\"2\">\n")
-            f.write("<element name=\"bezel\"><image file=\"default.png\" /></element>\n")
-            f.write("<view name=\"bezel\">\n")
-            f.write("<screen index=\"0\"><bounds x=\"" + str(bz_x) + "\" y=\"" + str(bz_y) + "\" width=\"" + str(bz_width) + "\" height=\"" + str(bz_height) + "\" /></screen>\n")
-            f.write("<element ref=\"bezel\"><bounds x=\"0\" y=\"0\" width=\"" + str(img_width) + "\" height=\"" + str(img_height) + "\" alpha=\"" + str(bz_alpha) + "\" /></element>\n")
-            f.write("</view>\n")
-            f.write("</mamelayout>\n")
-            f.close()
+            with (tmpZipDir / "default.lay").open('w') as f:
+                f.write("<mamelayout version=\"2\">\n")
+                f.write("<element name=\"bezel\"><image file=\"default.png\" /></element>\n")
+                f.write("<view name=\"bezel\">\n")
+                f.write("<screen index=\"0\"><bounds x=\"" + str(bz_x) + "\" y=\"" + str(bz_y) + "\" width=\"" + str(bz_width) + "\" height=\"" + str(bz_height) + "\" /></screen>\n")
+                f.write("<element ref=\"bezel\"><bounds x=\"0\" y=\"0\" width=\"" + str(img_width) + "\" height=\"" + str(img_height) + "\" alpha=\"" + str(bz_alpha) + "\" /></element>\n")
+                f.write("</view>\n")
+                f.write("</mamelayout>\n")
 
         if system.isOptSet('bezel.tattoo') and system.config['bezel.tattoo'] != "0":
             if system.config['bezel.tattoo'] == 'system':
@@ -721,9 +720,8 @@ class MameGenerator(Generator):
             raise Exception("mame -listxml " + machine + " failed")
 
         infofile = tmpdir / "infos.xml"
-        f = infofile.open("w")
-        f.write(out.decode())
-        f.close()
+        with infofile.open("w") as f:
+            f.write(out.decode())
 
         infos = minidom.parse(str(infofile))
         display = infos.getElementsByTagName('display')

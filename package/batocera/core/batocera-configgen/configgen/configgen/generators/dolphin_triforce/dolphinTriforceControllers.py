@@ -111,7 +111,6 @@ def generateControllerConfig_arcade(system: Emulator, playersControllers: Contro
 
 def generateHotkeys(playersControllers: ControllerMapping) -> None:
     configFileName = DOLPHIN_TRIFORCE_CONFIG / "Config" / "Hotkeys.ini"
-    f = codecs.open(str(configFileName), "w", encoding="utf_8")
 
     hotkeysMapping = {
         'a':             'Keys/Reset',
@@ -132,64 +131,62 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
         'joystick2left': None
     }
 
-    nplayer = 1
-    for playercontroller, pad in sorted(playersControllers.items()):
-        if nplayer == 1:
-            f.write("[Hotkeys1]" + "\n")
-            f.write("Device = SDL/0/" + pad.real_name.strip() + "\n")
-            # Search the hotkey button
-            hotkey = None
-            if "hotkey" not in pad.inputs:
-                return
-            hotkey = pad.inputs["hotkey"]
-            if hotkey.type != "button":
-                return
+    with codecs.open(str(configFileName), "w", encoding="utf_8") as f:
+        nplayer = 1
+        for playercontroller, pad in sorted(playersControllers.items()):
+            if nplayer == 1:
+                f.write("[Hotkeys1]" + "\n")
+                f.write("Device = SDL/0/" + pad.real_name.strip() + "\n")
+                # Search the hotkey button
+                hotkey = None
+                if "hotkey" not in pad.inputs:
+                    return
+                hotkey = pad.inputs["hotkey"]
+                if hotkey.type != "button":
+                    return
 
-            for x in pad.inputs:
-                print
-                input = pad.inputs[x]
-                keyname = None
-                if input.name in hotkeysMapping:
-                    keyname = hotkeysMapping[input.name]
-                # Write the configuration for this key
-                if keyname is not None:
-                    write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, hotkey.id)
+                for x in pad.inputs:
+                    print
+                    input = pad.inputs[x]
+                    keyname = None
+                    if input.name in hotkeysMapping:
+                        keyname = hotkeysMapping[input.name]
+                    # Write the configuration for this key
+                    if keyname is not None:
+                        write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, hotkey.id)
 
-        nplayer += 1
-
-    f.write
-    f.close()
+            nplayer += 1
 
 def generateControllerConfig_any(system: Emulator, playersControllers: ControllerMapping, filename: str, anyDefKey: str, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str] = {}) -> None:
     configFileName = DOLPHIN_TRIFORCE_CONFIG / filename
-    f = codecs.open(str(configFileName), "w", encoding="utf_8")
     nplayer = 1
     nsamepad = 0
     # In case of two pads having the same name, dolphin wants a number to handle this
     double_pads: dict[str, int] = dict()
 
-    for playercontroller, pad in sorted(playersControllers.items()):
-        # Handle x pads having the same name
-        nsamepad = double_pads.get(pad.real_name.strip(), 0)
-        double_pads[pad.real_name.strip()] = nsamepad+1
+    with codecs.open(str(configFileName), "w", encoding="utf_8") as f:
+        for playercontroller, pad in sorted(playersControllers.items()):
+            # Handle x pads having the same name
+            if pad.real_name.strip() in double_pads:
+                nsamepad = double_pads[pad.real_name.strip()]
+            else:
+                nsamepad = 0
 
-        f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
-        f.write("Device = SDL/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
+            double_pads[pad.real_name.strip()] = nsamepad+1
+            f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
+            f.write("Device = SDL/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
 
-        if system.isOptSet("triforce_pad_profiles") and system.getOptBoolean("triforce_pad_profiles"):
-            if not generateControllerConfig_any_from_profiles(f, pad):
+            if system.isOptSet("triforce_pad_profiles") and system.getOptBoolean("triforce_pad_profiles") == True:
+                if not generateControllerConfig_any_from_profiles(f, pad):
+                    generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
+            else:
                 generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
-        else:
-            generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
-        # Rumble option
-        if system.isOptSet("triforce_rumble"):
-            f.write(f"Rumble/Motor = {system.config['triforce_rumble']}\n")
-        else:
-            f.write("Rumble/Motor = \n")
-        nplayer += 1
-
-    f.write
-    f.close()
+            # Rumble option
+            if system.isOptSet("triforce_rumble"):
+                f.write(f"Rumble/Motor = {system.config['triforce_rumble']}\n")
+            else:
+                f.write("Rumble/Motor = \n")
+            nplayer += 1
 
 def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Controller, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str], system: Emulator) -> None:
     for opt in extraOptions:

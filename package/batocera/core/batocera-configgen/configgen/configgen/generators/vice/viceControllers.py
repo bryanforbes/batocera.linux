@@ -70,7 +70,6 @@ def generateControllerConfig(system: Emulator, viceConfigFile: Path, playersCont
         listVice.append("")
         nplayer += 1
 
-    f = viceFile.open('w')
-    for i in range(len(listVice)):
-        f.write(str(listVice[i]) + "\n")
-    f.close()
+    with viceFile.open('w') as f:
+        for i in range(len(listVice)):
+            f.write(str(listVice[i]) + "\n")

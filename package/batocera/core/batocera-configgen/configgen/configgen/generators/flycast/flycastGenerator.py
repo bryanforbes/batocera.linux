@@ -159,7 +159,6 @@ class FlycastGenerator(Generator):
         ### update the configuration file
         with ensure_parents_and_open(FLYCAST_CONFIG, 'w+') as cfgfile:
             Config.write(cfgfile)
-            cfgfile.close()
 
         # internal config
         mkdir_if_not_exists(FLYCAST_SAVES)
