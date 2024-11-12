@@ -176,8 +176,8 @@ def _commodore_64_options(
             'turbo_fire_toggle': "RETROK_RCTRL",
             'x': "RETROK_RCTRL",
             'y': "RETROK_SPACE" }
-    for key in c64_mapping:
-        coreSettings.save('vice_mapper_' + key, c64_mapping[key])
+    for key, mapped_key in c64_mapping.items():
+        coreSettings.save('vice_mapper_' + key, mapped_key)
 
     # Model type
     if system.isOptSet('c64_model'):
@@ -522,8 +522,8 @@ def _commodore_amiga_options(
             'ru': "---",
             'select': "TOGGLE_VKBD",
             'start': "RETROK_RETURN",}
-        for key in uae_mapping:
-            coreSettings.save('puae_mapper_' + key, uae_mapping[key])
+        for key, mapped_key in uae_mapping.items():
+            coreSettings.save('puae_mapper_' + key, mapped_key)
     else:
         # Controller mapping for CD32
         uae_mapping = { 'aspect_ratio_toggle': "---",
@@ -553,8 +553,8 @@ def _commodore_amiga_options(
             'ru': "---",
             'select': "---",
             'start': "---",}
-        for key in uae_mapping:
-            coreSettings.save('puae_mapper_' + key, uae_mapping[key])
+        for key, value in uae_mapping.items():
+            coreSettings.save('puae_mapper_' + key, value)
     # Show Video Options
     coreSettings.save('puae_video_options_display', '"enabled"')
     # Amiga Model

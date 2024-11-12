@@ -121,6 +121,12 @@ class Controller:
     def __post_init__(self, inputs_: InputMapping | Iterable[tuple[str, Input]] | None, /) -> None:
         self.inputs = dict(inputs_) if inputs_ is not None else {}
 
+    def __lt__(self, other: Self, /) -> bool:
+        return self.player_number < other.player_number
+
+    def __gt__(self, other: Self, /) -> bool:
+        return self.player_number > other.player_number
+
     def replace(self, /, **changes: Unpack[_ControllerChanges]) -> Self:
         return replace(self, **changes, inputs_={name: input.replace() for name, input in self.inputs.items()})
 

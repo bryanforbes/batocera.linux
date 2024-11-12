@@ -177,7 +177,7 @@ class RyujinxGenerator(Generator):
 
         # Now add Controllers
         nplayer = 1
-        for controller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             if nplayer <= 8:
                 ctrlConf = ryujinxCtrl
                 # we need to get the uuid for ryujinx controllers

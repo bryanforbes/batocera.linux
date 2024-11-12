@@ -171,7 +171,7 @@ def createPPSSPPConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator):
     iniConfig.set("Upgrade", "DismissedVersion", "")
 
     # Custom : allow the user to configure directly PPSSPP via batocera.conf via lines like : ppsspp.section.option=value
-    for user_config in system.config:
+    for user_config, user_config_value in system.config.items():
         if user_config[:7] == "ppsspp.":
             section_option = user_config[7:]
             section_option_splitter = section_option.find(".")
@@ -179,4 +179,4 @@ def createPPSSPPConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator):
             custom_option = section_option[section_option_splitter+1:]
             if not iniConfig.has_section(custom_section):
                 iniConfig.add_section(custom_section)
-            iniConfig.set(custom_section, custom_option, str(system.config[user_config]))
+            iniConfig.set(custom_section, custom_option, str(user_config_value))

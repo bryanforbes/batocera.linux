@@ -86,7 +86,7 @@ class EasyRPGGenerator(Generator):
         with codecs.open(str(configdir / "config.ini"), "w", encoding="ascii") as f:
             f.write("[Joypad]\n")
             nplayer = 1
-            for playercontroller, pad in sorted(playersControllers.items()):
+            for pad in sorted(playersControllers.values()):
                 if nplayer == 1:
                     f.write(f"number={pad.index}\n" )
                     for key, value in keymapping.items():

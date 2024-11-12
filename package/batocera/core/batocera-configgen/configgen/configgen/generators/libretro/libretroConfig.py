@@ -354,7 +354,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         if system.isOptSet('use_wheels') and system.getOptBoolean('use_wheels'):
             deviceInfos = controllersConfig.getDevicesInformation()
             nplayer = 1
-            for controller, pad in sorted(controllers.items()):
+            for pad in sorted(controllers.values()):
                 if pad.device_path in deviceInfos:
                     if deviceInfos[pad.device_path]["isWheel"]:
                         retroarchConfig['input_player' + str(nplayer) + '_analog_dpad_mode'] = '1'
@@ -955,8 +955,8 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
                     configureGunInputsForPlayer(nplayer, guns[ragunconf["p"+str(nplayer)]], controllers, retroarchConfig, system.config['core'], metadata, system)
 
             # override core settings
-            for key in raguncoreconf:
-                coreSettings.save(key, '"' + raguncoreconf[key] + '"')
+            for key, value in raguncoreconf.items():
+                coreSettings.save(key, f'"{value}"')
 
             # hide the mouse pointer with gun games
             retroarchConfig['input_overlay_show_mouse_cursor'] = "false"
@@ -975,9 +975,9 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         _logger.error("Error with bezel %s: %s", bezel, e, exc_info=e, stack_info=True)
 
     # custom : allow the user to configure directly retroarch.cfg via batocera.conf via lines like : snes.retroarch.menu_driver=rgui
-    for user_config in systemConfig:
-        if user_config[:10] == "retroarch.":
-            retroarchConfig[user_config[10:]] = systemConfig[user_config]
+    for user_config_key, user_config_value in systemConfig.items():
+        if user_config_key[:10] == "retroarch.":
+            retroarchConfig[user_config_key[10:]] = user_config_value
 
     return retroarchConfig
 
@@ -1117,24 +1117,24 @@ def configureGunInputsForPlayer(n: int, gun: Gun, controllers: ControllerMapping
     # controller mapping
     hatstoname = {'1': 'up', '2': 'right', '4': 'down', '8': 'left'}
     nplayer = 1
-    for controller, pad in sorted(controllers.items()):
+    for pad in sorted(controllers.values()):
         if nplayer == n:
-            for m in mapping:
-                if mapping[m] in pad.inputs:
-                    if pad.inputs[mapping[m]].type == "button":
-                        retroarchConfig[f'input_player{n}_{m}_btn'] = pad.inputs[mapping[m]].id
-                    elif pad.inputs[mapping[m]].type == "hat":
-                        retroarchConfig[f'input_player{n}_{m}_btn'] = "h0" + hatstoname[pad.inputs[mapping[m]].value]
-                    elif pad.inputs[mapping[m]].type == "axis":
+            for m, mapped in mapping.items():
+                if (mapped_input := pad.inputs.get(mapped)) is not None:
+                    if mapped_input.type == "button":
+                        retroarchConfig[f'input_player{n}_{m}_btn'] = mapped_input.id
+                    elif mapped_input.type == "hat":
+                        retroarchConfig[f'input_player{n}_{m}_btn'] = "h0" + hatstoname[mapped_input.value]
+                    elif mapped_input.type == "axis":
                         aval = "+"
-                        if int(pad.inputs[mapping[m]].value) < 0:
+                        if int(mapped_input.value) < 0:
                             aval = "-"
-                        retroarchConfig[f'input_player{n}_{m}_axis'] = aval + pad.inputs[mapping[m]].id
+                        retroarchConfig[f'input_player{n}_{m}_axis'] = aval + mapped_input.id
         nplayer += 1
 
 def writeLibretroConfigToFile(retroconfig: UnixSettings, config: Mapping[str, object]) -> None:
-    for setting in config:
-        retroconfig.save(setting, config[setting])
+    for setting, value in config.items():
+        retroconfig.save(setting, value)
 
 def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool, retroarchConfig: dict[str, object], rom: Path, gameResolution: Resolution, system: Emulator, gunsBordersSize: str | None, gunsBordersRatio: str | None) -> None:
     # disable the overlay

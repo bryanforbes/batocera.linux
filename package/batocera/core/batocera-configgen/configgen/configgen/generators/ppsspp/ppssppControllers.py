@@ -139,8 +139,7 @@ def generateControllerConfig(controller: Controller):
         Config.add_section(section)
 
     # Parse controller inputs
-    for index in controller.inputs:
-        input = controller.inputs[index]
+    for input in controller.inputs.values():
         if input.name not in ppssppMapping or input.type not in ppssppMapping[input.name]:
             continue
 

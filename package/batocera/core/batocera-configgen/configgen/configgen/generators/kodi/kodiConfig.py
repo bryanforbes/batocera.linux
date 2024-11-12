@@ -41,13 +41,11 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
 
     controllersDone = {}
 
-    for controller in currentControllers:
-        cur = currentControllers[controller]
-
+    for controller in currentControllers.values():
         # skip duplicates
-        if cur.real_name in controllersDone:
+        if controller.real_name in controllersDone:
             continue
-        controllersDone[cur.real_name] = True
+        controllersDone[controller.real_name] = True
 
         # initialized the file
         config = minidom.Document()
@@ -55,14 +53,14 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
         config.appendChild(xmlbuttonmap)
 
         xmldevice = config.createElement('device')
-        xmldevice.attributes["name"] = cur.real_name
+        xmldevice.attributes["name"] = controller.real_name
         xmldevice.attributes["provider"] = provider
 
         if provider == "udev":
-            xmldevice.attributes["vid"], xmldevice.attributes["pid"] = vidpid(cur.guid)
+            xmldevice.attributes["vid"], xmldevice.attributes["pid"] = vidpid(controller.guid)
 
-        xmldevice.attributes["buttoncount"] = str(cur.button_count)
-        xmldevice.attributes["axiscount"] = str(2*cur.hat_count + cur.axis_count)
+        xmldevice.attributes["buttoncount"] = str(controller.button_count)
+        xmldevice.attributes["axiscount"] = str(2*controller.hat_count + controller.axis_count)
         xmlbuttonmap.appendChild(xmldevice)
         xmlcontroller = config.createElement('controller')
         xmlcontroller.attributes["id"] = "game.controller.default"
@@ -70,7 +68,7 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
         sticksNode: dict[str, minidom.Element] = {}
 
         alreadyset = {}
-        for input in cur.inputs.values():
+        for input in controller.inputs.values():
             if input.type == 'axis' and input.name in kodiaxismapping:
                 if kodiaxismapping[input.name]["name"] not in sticksNode:
                     sticksNode[kodiaxismapping[input.name]["name"]] = config.createElement('feature')
@@ -96,9 +94,9 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
                 elif input.type == 'hat' and int(input.value) in kodihatspositions:
                     xmlhat = config.createElement('feature')
                     if kodihatspositions[int(input.value)] == "left" or kodihatspositions[int(input.value)] == "right":
-                        val = str(cur.axis_count)
+                        val = str(controller.axis_count)
                     else:
-                        val = str(cur.axis_count+1)
+                        val = str(controller.axis_count+1)
                     if kodihatspositions[int(input.value)] == "down" or kodihatspositions[int(input.value)] == "right":
                         xmlhat.attributes["axis"] = "+" + val
                     else:
@@ -113,10 +111,11 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
                     xmlaxis.attributes["name"] = kodimapping[input.name]
                     xmlcontroller.appendChild(xmlaxis)
 
-        for node in sticksNode:
-            xmlcontroller.appendChild(sticksNode[node])
+        for node in sticksNode.values():
+            xmlcontroller.appendChild(node)
+
         xmldevice.appendChild(xmlcontroller)
-        with kodiJoystick.with_name(kodiJoystick.name.format(cur.guid+"_"+hashlib.md5(cur.real_name.encode('utf-8')).hexdigest())).open("w") as kodiJoy: # because 2 pads with a different name have sometimes the same vid/pid...
+        with kodiJoystick.with_name(kodiJoystick.name.format(controller.guid+"_"+hashlib.md5(controller.real_name.encode('utf-8')).hexdigest())).open("w") as kodiJoy: # because 2 pads with a different name have sometimes the same vid/pid...
             kodiJoy.write(config.toprettyxml())
 
 def writeKodiConfig(controllersFromES: ControllerMapping) -> None:

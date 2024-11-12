@@ -54,7 +54,7 @@ def getMupenMapping(use_n64_inputs: bool) -> dict[str, str]:
 def setControllersConfig(iniConfig: CaseSensitiveConfigParser, controllers: ControllerMapping, system: Emulator, wheels: DeviceInfoMapping) -> None:
     nplayer = 1
 
-    for playercontroller, pad in sorted(controllers.items()):
+    for pad in sorted(controllers.values()):
         isWheel = False
         if pad.device_path in wheels and wheels[pad.device_path]["isWheel"]:
             isWheel = True
@@ -139,8 +139,7 @@ def defineControllerKeys(nplayer: int, controller: Controller, system: Emulator,
                             value=str(-int(controller.inputs[realStick].value))
                         )
 
-        for inputIdx in controller.inputs:
-                input = controller.inputs[inputIdx]
+        for input in controller.inputs.values():
                 if input.name in mupenmapping and mupenmapping[input.name] != "":
                         value=setControllerLine(mupenmapping, input, mupenmapping[input.name], controller.inputs)
                         # Handle multiple inputs for a single N64 Pad input
@@ -236,8 +235,8 @@ def fillIniPlayer(nplayer: int, iniConfig: CaseSensitiveConfigParser, controller
         iniConfig.set(section, "C Button D", "")
         iniConfig.set(section, "C Button L", "")
         iniConfig.set(section, "C Button R", "")
-        for inputName in sorted(config):
-                iniConfig.set(section, inputName, config[inputName])
+        for inputName, inputValue in sorted(config.items()):
+                iniConfig.set(section, inputName, inputValue)
 
 def cleanPlayer(nplayer: int, iniConfig: CaseSensitiveConfigParser) -> None:
         section = "Input-SDL-Control"+str(nplayer)

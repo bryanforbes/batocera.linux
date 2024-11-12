@@ -35,7 +35,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
     confDirectory = FSUAE_CONFIG_DIR / "Controllers"
     mkdir_if_not_exists(confDirectory)
 
-    for playercontroller, pad in sorted(playersControllers.items()):
+    for pad in sorted(playersControllers.values()):
         configFileName = confDirectory / f"{pad.guid}_linux.conf"
         with configFileName.open("w") as f:
 
@@ -49,8 +49,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
             f.write("[default]\n")
             f.write("include = universal_gamepad\n")
 
-            for x in pad.inputs:
-                input = pad.inputs[x]
+            for input in pad.inputs.values():
                 #f.write("# undefined key: name="+input.name+", type="+input.type+", id="+str(input.id)+", value="+str(input.value)+"\n")
 
                 if input.name in fsuaeMapping:

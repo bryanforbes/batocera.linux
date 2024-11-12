@@ -133,7 +133,7 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
 
     with codecs.open(str(configFileName), "w", encoding="utf_8") as f:
         nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             if nplayer == 1:
                 f.write("[Hotkeys1]" + "\n")
                 f.write("Device = SDL/0/" + pad.real_name.strip() + "\n")
@@ -145,9 +145,7 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
                 if hotkey.type != "button":
                     return
 
-                for x in pad.inputs:
-                    print
-                    input = pad.inputs[x]
+                for input in pad.inputs.values():
                     keyname = None
                     if input.name in hotkeysMapping:
                         keyname = hotkeysMapping[input.name]
@@ -165,7 +163,7 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
     double_pads: dict[str, int] = dict()
 
     with codecs.open(str(configFileName), "w", encoding="utf_8") as f:
-        for playercontroller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             # Handle x pads having the same name
             if pad.real_name.strip() in double_pads:
                 nsamepad = double_pads[pad.real_name.strip()]
@@ -189,26 +187,26 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
             nplayer += 1
 
 def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Controller, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str], system: Emulator) -> None:
-    for opt in extraOptions:
-        f.write(opt + " = " + extraOptions[opt] + "\n")
+    for opt, value in extraOptions.items():
+        f.write(opt + " = " + value + "\n")
+
     # Recompute the mapping according to available buttons on the pads and the available replacements
     currentMapping = anyMapping
     # Apply replacements
     if anyReplacements is not None:
-        for x in anyReplacements:
-            if x not in pad.inputs and x in currentMapping:
-                currentMapping[anyReplacements[x]] = currentMapping[x]
-                if x == "joystick1up":
+        for replacement_key, replacement_value in anyReplacements.items():
+            if replacement_key not in pad.inputs and replacement_key in currentMapping:
+                currentMapping[replacement_value] = currentMapping[replacement_key]
+                if replacement_key == "joystick1up":
                     currentMapping[anyReplacements["joystick1down"]] = anyReverseAxes[currentMapping["joystick1up"]]
-                if x == "joystick1left":
+                if replacement_key == "joystick1left":
                     currentMapping[anyReplacements["joystick1right"]] = anyReverseAxes[currentMapping["joystick1left"]]
-                if x == "joystick2up":
+                if replacement_key == "joystick2up":
                     currentMapping[anyReplacements["joystick2down"]] = anyReverseAxes[currentMapping["joystick2up"]]
-                if x == "joystick2left":
+                if replacement_key == "joystick2left":
                     currentMapping[anyReplacements["joystick2right"]] = anyReverseAxes[currentMapping["joystick2left"]]
 
-    for x in pad.inputs:
-        input = pad.inputs[x]
+    for input in pad.inputs.values():
         keyname = None
         if input.name in currentMapping:
             keyname = currentMapping[input.name]

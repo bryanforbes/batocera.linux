@@ -315,17 +315,17 @@ class SuyuGenerator(Generator):
 
         # controllers
         nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             if system.isOptSet(f'p{nplayer-1}_pad'):
                 suyuConfig.set("Controls", f"player_{nplayer-1}_type", system.config[f"p{nplayer}_pad"])
             else:
                 suyuConfig.set("Controls", f"player_{nplayer-1}_type", 0)
             suyuConfig.set("Controls", f"player_{nplayer-1}_type\\default", "false")
 
-            for x in suyuButtonsMapping:
-                suyuConfig.set("Controls", "player_" + str(nplayer-1) + "_" + x, f'"{SuyuGenerator.setButton(suyuButtonsMapping[x], pad.guid, pad.inputs, nplayer-1)}"')
-            for x in suyuAxisMapping:
-                suyuConfig.set("Controls", "player_" + str(nplayer-1) + "_" + x, f'"{SuyuGenerator.setAxis(suyuAxisMapping[x], pad.guid, pad.inputs, nplayer-1)}"')
+            for x, button in suyuButtonsMapping.items():
+                suyuConfig.set("Controls", "player_" + str(nplayer-1) + "_" + x, f'"{SuyuGenerator.setButton(button, pad.guid, pad.inputs, nplayer-1)}"')
+            for x, axis in suyuAxisMapping.items():
+                suyuConfig.set("Controls", "player_" + str(nplayer-1) + "_" + x, f'"{SuyuGenerator.setAxis(axis, pad.guid, pad.inputs, nplayer-1)}"')
             suyuConfig.set("Controls", "player_" + str(nplayer-1) + "_motionleft", '"[empty]"')
             suyuConfig.set("Controls", "player_" + str(nplayer-1) + "_motionright", '"[empty]"')
             suyuConfig.set("Controls", "player_" + str(nplayer-1) + "_connected", "true")

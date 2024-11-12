@@ -59,7 +59,7 @@ def JoystickValue(key: str, pad: Controller, joy_max_inputs: int, new_axis_vals:
 
 def setupControllers(config: UnixSettings, playersControllers: ControllerMapping, joy_max_inputs: int, new_axis_vals: bool) -> None:
     idx = 0
-    for playercontroller, pad in sorted(playersControllers.items()):
+    for pad in sorted(playersControllers.values()):
         config.save("keys." + str(idx) + ".0" , JoystickValue("up",       pad, joy_max_inputs, new_axis_vals)) # MOVEUP
         config.save("keys." + str(idx) + ".1" , JoystickValue("down",     pad, joy_max_inputs, new_axis_vals)) # MOVEDOWN
         config.save("keys." + str(idx) + ".2" , JoystickValue("left",     pad, joy_max_inputs, new_axis_vals)) # MOVELEFT

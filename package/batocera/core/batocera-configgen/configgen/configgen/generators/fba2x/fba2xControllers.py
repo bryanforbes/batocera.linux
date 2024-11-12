@@ -68,8 +68,8 @@ def updateControllersConfig(iniConfig: CaseSensitiveConfigParser, rom: Path, con
     for player in controllers:
         iniConfig.set("Joystick", f"SDLID_{player}", str(controllers[player].index))
 
-    for controller in controllers:
-        updateControllerConfig(iniConfig, controller, controllers[controller], is6btn(rom))
+    for player_number, controller in controllers.items():
+        updateControllerConfig(iniConfig, player_number, controller, is6btn(rom))
 
 # Create a configuration file for a given controller
 def updateControllerConfig(iniConfig: CaseSensitiveConfigParser, player: int, controller: Controller, special6: bool = False) -> None:
@@ -77,28 +77,24 @@ def updateControllerConfig(iniConfig: CaseSensitiveConfigParser, player: int, co
     if special6:
         fbaBtns = fba6bnts
 
-    for dirkey in fbadirs:
-        dirvalue = fbadirs[dirkey]
+    for dirkey, dirvalue in fbadirs.items():
         if dirkey in controller.inputs:
             input = controller.inputs[dirkey]
             if input.type == 'button':
                 iniConfig.set("Joystick", f'{dirvalue}_{player}', input.id)
 
-    for axis in fbaaxis:
-        axisvalue = fbaaxis[axis]
+    for axis, axisvalue in fbaaxis.items():
         if axis in controller.inputs:
             input = controller.inputs[axis]
             iniConfig.set("Joystick", f'{axisvalue}_{player}', input.id)
 
-    for btnkey in fbaBtns:
-        btnvalue = fbaBtns[btnkey]
+    for btnkey, btnvalue in fbaBtns.items():
         if btnkey in controller.inputs:
             input = controller.inputs[btnkey]
             iniConfig.set("Joystick", f'{btnvalue}_{player}', input.id)
 
     if player == 1:
-        for btnkey in fbaspecials:
-            btnvalue = fbaspecials[btnkey]
+        for btnkey, btnvalue in fbaspecials.items():
             if btnkey in controller.inputs:
                 input = controller.inputs[btnkey]
                 iniConfig.set("Joystick", f'{btnvalue}', input.id)

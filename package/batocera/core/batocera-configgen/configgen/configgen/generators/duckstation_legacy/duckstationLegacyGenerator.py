@@ -381,7 +381,7 @@ class DuckstationLegacyGenerator(Generator):
         settings.set("ControllerPorts", "MultitapMode", "Disabled")
         # Now add the controller config based on the ES type & number connected
         nplayer = 1
-        for controller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.items()):
             if nplayer <= 8:
                 # automatically add the multi-tap
                 if nplayer > 2:

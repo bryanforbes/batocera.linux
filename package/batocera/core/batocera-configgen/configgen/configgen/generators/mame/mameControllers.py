@@ -139,26 +139,26 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
 
     # Common controls
     mappings: dict[str, str] = {}
-    for controlDef in controlDict['default']:
-        mappings[controlDef] = controlDict['default'][controlDef]
+    for controlDefKey, controlDefValue in controlDict['default'].items():
+        mappings[controlDefKey] = controlDefValue
 
     # Only use gun buttons if lightguns are enabled to prevent conflicts with mouse
     gunmappings: dict[str, str] = {}
     if useGuns:
-        for controlDef in controlDict['gunbuttons']:
-            gunmappings[controlDef] = controlDict['gunbuttons'][controlDef]
+        for controlDefKey, controlDefValue in controlDict['gunbuttons'].items():
+            gunmappings[controlDefKey] = controlDefValue
 
     # Only define mouse buttons if mouse is enabled, to prevent unwanted inputs
     # For a standard mouse, left, right, scroll wheel should be mapped to action buttons, and if side buttons are available, they will be coin & start
     mousemappings: dict[str, str] = {}
     if useMouse:
-        for controlDef in controlDict['mousebuttons']:
-            mousemappings[controlDef] = controlDict['mousebuttons'][controlDef]
+        for controlDefKey, controlDefValue in controlDict['mousebuttons'].items():
+            mousemappings[controlDefKey] = controlDefValue
 
     # Buttons that change based on game/setting
     if altButtons in controlDict:
-        for controlDef in controlDict[altButtons]:
-            mappings.update({controlDef: controlDict[altButtons][controlDef]})
+        for controlDefKey, controlDefValue in controlDict[altButtons].items():
+            mappings.update({controlDefKey: controlDefValue})
 
     xml_mameconfig = getRoot(config, "mameconfig")
     xml_mameconfig.setAttribute("version", "10") # otherwise, config of pad won't work at first run (batocera v33)
@@ -245,8 +245,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     # Fill in controls on cfg files
     nplayer = 1
     maxplayers = len(playersControllers)
-    for playercontroller, pad in sorted(playersControllers.items()):
-        mappings_use = mappings
+    for pad in sorted(playersControllers.values()):
+        mappings_use = mappings.copy()
         if not hasStick(pad):
             mappings_use["JOYSTICK_UP"] = "up"
             mappings_use["JOYSTICK_DOWN"] = "down"
@@ -256,14 +256,12 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
         # wheel mappings
         isWheel = False
         if useWheels:
-            for w in wheels:
-                if wheels[w]["joystick_index"] == pad.index:
+            for w in wheels.values():
+                if w["joystick_index"] == pad.index:
                     isWheel = True
                     _logger.debug("player %s has a wheel", nplayer)
             if isWheel:
-                for x in mappings_use.copy():
-                    if mappings_use[x] == "l2" or mappings_use[x] == "r2" or mappings_use[x] == "joystick1left":
-                        del mappings_use[x]
+                mappings_use = {key: value for key, value in mappings_use.items() if value != "l2" and value != "r2" and value != "joystick1lef"}
                 mappings_use["PEDAL"] = "r2"
                 mappings_use["PEDAL2"] = "l2"
                 mappings_use["PADDLE"] = "joystick1left"
@@ -281,16 +279,16 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
                 pedalkey = pedalsKeys[nplayer]
         ###
 
-        for mapping in mappings_use:
-            if mappings_use[mapping] in pad.inputs:
+        for mapping, mapping_key in mappings_use.items():
+            if mapping_key in pad.inputs:
                 if mapping in [ 'START', 'COIN' ]:
-                    xml_input.appendChild(generateSpecialPortElementPlayer(pad, config, 'standard', nplayer, pad.index, mapping, mappings_use[mapping], pad.inputs[mappings_use[mapping]], False, "", "", gunmappings, mousemappings, multiMouse, pedalkey))
+                    xml_input.appendChild(generateSpecialPortElementPlayer(pad, config, 'standard', nplayer, pad.index, mapping, mapping_key, pad.inputs[mapping_key], False, "", "", gunmappings, mousemappings, multiMouse, pedalkey))
                 else:
-                    xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mappings_use[mapping], pad.inputs[mappings_use[mapping]], False, altButtons, gunmappings, isWheel, mousemappings, multiMouse, pedalkey))
+                    xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mapping_key, pad.inputs[mapping_key], False, altButtons, gunmappings, isWheel, mousemappings, multiMouse, pedalkey))
             else:
-                rmapping = reverseMapping(mappings_use[mapping])
+                rmapping = reverseMapping(mapping_key)
                 if rmapping in pad.inputs:
-                        xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mappings_use[mapping], pad.inputs[rmapping], True, altButtons, gunmappings, isWheel, mousemappings, multiMouse, pedalkey))
+                        xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mapping_key, pad.inputs[rmapping], True, altButtons, gunmappings, isWheel, mousemappings, multiMouse, pedalkey))
 
         #UI Mappings
         if nplayer == 1:
@@ -301,8 +299,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             xml_input.appendChild(generateComboPortElement(pad, config, 'standard', pad.index, "UI_SELECT", "ENTER", 'b', pad.inputs['b'], False, "", ""))                                                     # Select
 
         if useControls in messControlDict:
-            for controlDef in messControlDict[useControls]:
-                thisControl = messControlDict[useControls][controlDef]
+            for thisControl in messControlDict[useControls].values():
                 if nplayer == thisControl['player']:
                     if thisControl['type'] == 'special':
                         xml_input_alt.appendChild(generateSpecialPortElement(pad, config_alt, thisControl['tag'], nplayer, pad.index, thisControl['key'], thisControl['mapping'], \

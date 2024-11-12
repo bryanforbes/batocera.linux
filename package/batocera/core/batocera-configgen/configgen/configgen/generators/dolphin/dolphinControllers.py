@@ -367,7 +367,7 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
                                 _logger.info("setting %s to %s", mval, btn)
 
                 # write buttons
-                for btn in dolphinMappingNames:
+                for btn, btnDolphinName in dolphinMappingNames.items():
                     val = ""
                     if btn in gunMapping and gunMapping[btn] != "":
                         if gunMapping[btn] in gunButtons:
@@ -377,7 +377,7 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
                                 _logger.debug("gun has not the button %s", gunButtons[gunMapping[btn]]["button"])
                         else:
                             _logger.debug("cannot map the button %s", gunMapping[btn])
-                    f.write(dolphinMappingNames[btn]+" = `"+val+"`\n")
+                    f.write(btnDolphinName+" = `"+val+"`\n")
 
                 # map ir
                 if "gun_"+"ir_up" not in metadata:
@@ -399,9 +399,9 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
                     "ir_left":         "IR/Left",
                     "ir_right":        "IR/Right",
                 }
-                for spe in specifics:
-                    if "gun_"+spe in metadata:
-                        f.write(f"{specifics[spe]} = {metadata['gun_'+spe]}\n")
+                for specific_key, specific_value in specifics.items():
+                    if "gun_"+specific_key in metadata:
+                        f.write(f"{specific_value} = {metadata['gun_'+specific_key]}\n")
             nplayer += 1
         f.write
 
@@ -433,7 +433,7 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
     double_pads: dict[str, int] = {}
 
     with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
-        for playercontroller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             # Handle x pads having the same name
             nsamepad = double_pads.get(pad.real_name.strip(), 0)
             double_pads[pad.real_name.strip()] = nsamepad+1
@@ -479,8 +479,7 @@ def generateControllerConfig_wheel(f: codecs.StreamReaderWriter, pad: Controller
     f.write("Rumble/Motor/Range = -100.\n") # value must be negative, otherwise the center is located in extremes (left/right)
     f.write("Main Stick/Dead Zone = 0.\n") # not really needed while this is the default
 
-    for x in pad.inputs:
-        input = pad.inputs[x]
+    for input in pad.inputs.values():
         if input.name in wheelMapping:
             write_key(f, wheelMapping[input.name], input.type, input.id, input.value, pad.axis_count, False, None, None)
             if input.name == "joystick1left" and "joystick1right" in wheelMapping:
@@ -488,28 +487,26 @@ def generateControllerConfig_wheel(f: codecs.StreamReaderWriter, pad: Controller
 
 
 def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Controller, anyMapping: Mapping[str, str | None], anyReverseAxes: Mapping[str | None, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str], system: Emulator, nplayer: int, nsamepad: int) -> None:
-    for opt in extraOptions:
-        f.write(opt + " = " + extraOptions[opt] + "\n")
+    for opt, value in extraOptions.items():
+        f.write(opt + " = " + value + "\n")
 
     # Check for alt input mappings
     currentMapping = get_AltMapping(system, nplayer, anyMapping)
     # Apply replacements
     if anyReplacements is not None:
-        for x in anyReplacements:
-            if x not in pad.inputs and x in currentMapping:
-                currentMapping[anyReplacements[x]] = currentMapping[x]
-                if x == "joystick1up":
+        for replacement_key, replacement_value in anyReplacements.items():
+            if replacement_key not in pad.inputs and replacement_key in currentMapping:
+                currentMapping[replacement_value] = currentMapping[replacement_key]
+                if replacement_key == "joystick1up":
                     currentMapping[anyReplacements["joystick1down"]] = anyReverseAxes[currentMapping["joystick1up"]]
-                if x == "joystick1left":
+                if replacement_key == "joystick1left":
                     currentMapping[anyReplacements["joystick1right"]] = anyReverseAxes[currentMapping["joystick1left"]]
-                if x == "joystick2up":
+                if replacement_key == "joystick2up":
                     currentMapping[anyReplacements["joystick2down"]] = anyReverseAxes[currentMapping["joystick2up"]]
-                if x == "joystick2left":
+                if replacement_key == "joystick2left":
                     currentMapping[anyReplacements["joystick2right"]] = anyReverseAxes[currentMapping["joystick2left"]]
 
-    for x in pad.inputs:
-        input = pad.inputs[x]
-
+    for input in pad.inputs.values():
         keyname = None
         if input.name in currentMapping:
             keyname = currentMapping[input.name]

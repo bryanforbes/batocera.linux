@@ -125,22 +125,21 @@ def getDevicesInformation() -> DeviceInfoDict:
     mouses.sort()
     joysticks.sort()
     res: DeviceInfoDict = {}
-    for device in devices:
-        d = devices[device]
+    for event_id, device in devices.items():
         dgroup = None
-        if d["group"] is not None:
-            dgroup = groups[d["group"]].copy()
-            dgroup.remove(d["node"])
+        if device["group"] is not None:
+            dgroup = groups[device["group"]].copy()
+            dgroup.remove(device["node"])
         nmouse    = None
         njoystick = None
-        if d["isJoystick"]:
-            njoystick = joysticks.index(device)
+        if device["isJoystick"]:
+            njoystick = joysticks.index(event_id)
         nmouse = None
-        if d["isMouse"]:
-            nmouse = mouses.index(device)
-        res[d["node"]] = { "eventId": device, "isJoystick": d["isJoystick"], "isWheel": d["isWheel"], "isMouse": d["isMouse"], "associatedDevices": dgroup, "joystick_index": njoystick, "mouse_index": nmouse }
-        if "wheel_rotation" in d:
-            res[d["node"]]["wheel_rotation"] = d["wheel_rotation"]
+        if device["isMouse"]:
+            nmouse = mouses.index(event_id)
+        res[device["node"]] = { "eventId": event_id, "isJoystick": device["isJoystick"], "isWheel": device["isWheel"], "isMouse": device["isMouse"], "associatedDevices": dgroup, "joystick_index": njoystick, "mouse_index": nmouse }
+        if "wheel_rotation" in device:
+            res[device["node"]]["wheel_rotation"] = device["wheel_rotation"]
     return res
 
 def getAssociatedMouse(devicesInformation: DeviceInfoMapping, dev: str) -> str | None:

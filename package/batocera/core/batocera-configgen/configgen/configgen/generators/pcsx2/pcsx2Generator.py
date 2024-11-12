@@ -519,7 +519,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                 pcsx2INIConfig.add_section("USB1")
             pcsx2INIConfig.set("USB1", "Type", "guncon2")
             nc = 1
-            for controller, pad in sorted(controllers.items()):
+            for pad in sorted(controllers.values()):
                 if nc == 1 and not gun1onport2:
                     if "start" in pad.inputs:
                         pcsx2INIConfig.set("USB1", "guncon2_Start", f"SDL-{pad.index}/Start")
@@ -534,7 +534,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                 pcsx2INIConfig.add_section("USB2")
             pcsx2INIConfig.set("USB2", "Type", "guncon2")
             nc = 1
-            for controller, pad in sorted(controllers.items()):
+            for pad in sorted(controllers.values()):
                 if nc == 2 or gun1onport2:
                     if "start" in pad.inputs:
                         pcsx2INIConfig.set("USB2", "guncon2_Start", f"SDL-{pad.index}/Start")
@@ -630,7 +630,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
             }
 
             usbx = 1
-            for controller, pad in sorted(controllers.items()):
+            for pad in sorted(controllers.values()):
                 if pad.device_path in wheels:
                     if not pcsx2INIConfig.has_section(f"USB{usbx}"):
                         pcsx2INIConfig.add_section(f"USB{usbx}")
@@ -644,9 +644,9 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                     else:
                         pcsx2INIConfig.set(f"USB{usbx}", "Pad_FFDevice", f"SDL-{pad.index}")
 
-                    for i in pad.inputs:
+                    for i, input in pad.inputs.items():
                         if i in wheelMapping[wheel_type]:
-                            pcsx2INIConfig.set(f"USB{usbx}", wheelMapping[wheel_type][i], f"SDL-{pad.index}/{input2wheel(pad.inputs[i])}")
+                            pcsx2INIConfig.set(f"USB{usbx}", wheelMapping[wheel_type][i], f"SDL-{pad.index}/{input2wheel(input)}")
                     # wheel
                     if "joystick1left" in pad.inputs:
                         pcsx2INIConfig.set(f"USB{usbx}", "Pad_SteeringLeft",  f"SDL-{pad.index}/{input2wheel(pad.inputs['joystick1left'])}")
@@ -703,7 +703,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
 
     # Now add Controllers
     nplayer = 1
-    for controller, pad in sorted(controllers.items()):
+    for pad in sorted(controllers.values()):
         # only configure the number of controllers set
         if nplayer <= multiTap:
             pad_index = nplayer

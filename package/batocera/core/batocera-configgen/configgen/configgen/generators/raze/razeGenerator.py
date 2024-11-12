@@ -97,9 +97,9 @@ class RazeGenerator(Generator):
 
         if not self.config_file.exists():
             with self.config_file.open("w") as config:
-                for section in self.config_defaults:
+                for section, section_value in self.config_defaults.items():
                     config.write(f"[{section}]\n")
-                    for key, value in self.config_defaults[section].items():
+                    for key, value in section_value.items():
                         config.write(f"{key}={value}\n")
                     config.write("\n")
 

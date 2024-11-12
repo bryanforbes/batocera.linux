@@ -50,7 +50,7 @@ class SdlPopGenerator(Generator):
 
         # pad number
         nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             if nplayer == 1:
                 commandArray.append(f"joynum={pad.index}")
             nplayer += 1

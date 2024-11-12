@@ -216,15 +216,14 @@ class CitraGenerator(Generator):
             citraConfig.set("Controls", r"profiles\1\name", "default")
             citraConfig.set("Controls", r"profiles\size", "1")
 
-        for index in playersControllers :
-            controller = playersControllers[index]
+        for controller in playersControllers.values():
             # We only care about player 1
             if controller.player_number != 1:
                 continue
-            for x in citraButtons:
-                citraConfig.set("Controls", f"profiles\\1\\{x}", f'"{CitraGenerator.setButton(citraButtons[x], controller.guid, controller.inputs)}"')
-            for x in citraAxis:
-                citraConfig.set("Controls", f"profiles\\1\\{x}", f'"{CitraGenerator.setAxis(citraAxis[x], controller.guid, controller.inputs)}"')
+            for x, button in citraButtons.items():
+                citraConfig.set("Controls", f"profiles\\1\\{x}", f'"{CitraGenerator.setButton(button, controller.guid, controller.inputs)}"')
+            for x, axis in citraAxis.items():
+                citraConfig.set("Controls", f"profiles\\1\\{x}", f'"{CitraGenerator.setAxis(axis, controller.guid, controller.inputs)}"')
             break
 
         ## Update the configuration file

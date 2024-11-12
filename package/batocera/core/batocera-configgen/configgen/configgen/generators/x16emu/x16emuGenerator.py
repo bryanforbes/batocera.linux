@@ -61,7 +61,7 @@ class X16emuGenerator(Generator):
 
         # Now add Controllers
         nplayer = 1
-        for controller, pad in sorted(playersControllers.items()):
+        for _ in sorted(playersControllers.values()):
             if nplayer <= 4:
                 commandArray.extend([f"-joy{nplayer}"])
             nplayer += 1
