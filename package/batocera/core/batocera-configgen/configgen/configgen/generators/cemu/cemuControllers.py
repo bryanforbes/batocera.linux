@@ -219,7 +219,6 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
             configFileName.unlink()
 
     ## CONTROLLER: Create the config xml files
-    nplayer = 0
 
     # cemu assign pads by uuid then by index with the same uuid
     # so, if 2 pads have the same uuid, the index is not 0 but 1 for the 2nd one
@@ -236,7 +235,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         guid_n[pad.index] = guid_count[pad.guid]
     ###
 
-    for pad in sorted(playersControllers.values()):
+    for nplayer, pad in enumerate(sorted(playersControllers.values())):
         root = ET.Element("emulated_controller")
 
         # Set type from controller combination
@@ -284,5 +283,3 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
             tree = ET.ElementTree(root)
             ET.indent(tree, space="  ", level=0)
             tree.write(handle, encoding='UTF-8', xml_declaration=True)
-
-        nplayer+=1

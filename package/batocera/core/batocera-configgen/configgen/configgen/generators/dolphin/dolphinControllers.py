@@ -6,6 +6,7 @@ import re
 from typing import TYPE_CHECKING
 
 from ...utils.configparser import CaseSensitiveConfigParser
+from ...utils.iterable import first
 from ...utils.missing import MISSING
 from .dolphinPaths import DOLPHIN_CONFIG
 
@@ -253,11 +254,9 @@ def removeControllerConfig_gamecube() -> None:
 def generateControllerConfig_realwiimotes(filename: str, anyDefKey: str) -> None:
     configFileName = DOLPHIN_CONFIG / filename
     with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
-        nplayer = 1
-        while nplayer <= 4:
+        for nplayer in range(1, 5):
             f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
             f.write("Source = 2\n")
-            nplayer += 1
         f.write("[BalanceBoard]\nSource = 2\n")
         f.write
 
@@ -268,8 +267,7 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
     double_pads: dict[str, int] = {}
 
     with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
-        nplayer = 1
-        while nplayer <= 4:
+        for nplayer in range(1, 5):
             if len(guns) >= nplayer:
                 f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
                 f.write("Source = 1\n")
@@ -403,7 +401,6 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
                 for specific_key, specific_value in specifics.items():
                     if "gun_"+specific_key in metadata:
                         f.write(f"{specific_value} = {metadata['gun_'+specific_key]}\n")
-            nplayer += 1
         f.write
 
 def generateHotkeys(playersControllers: ControllerMapping) -> None:
@@ -429,33 +426,29 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
     }
 
     with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
-        nplayer = 1
-        for pad in sorted(playersControllers.values()):
-            if nplayer == 1:
-                f.write("[Hotkeys1]" + "\n")
-                f.write("Device = evdev/0/" + pad.real_name.strip() + "\n")
+        if pad := first(sorted(playersControllers.values())):
+            f.write("[Hotkeys1]" + "\n")
+            f.write("Device = evdev/0/" + pad.real_name.strip() + "\n")
 
-                # Search the hotkey button
-                hotkey = None
-                if "hotkey" not in pad.inputs:
-                    return
-                hotkey = pad.inputs["hotkey"]
-                if hotkey.type != "button":
-                    return
+            # Search the hotkey button
+            hotkey = None
+            if "hotkey" not in pad.inputs:
+                return
+            hotkey = pad.inputs["hotkey"]
+            if hotkey.type != "button":
+                return
 
-                for input in pad.inputs.values():
-                    keyname = None
-                    if input.name in hotkeysMapping:
-                        keyname = hotkeysMapping[input.name]
+            for input in pad.inputs.values():
+                keyname = None
+                if input.name in hotkeysMapping:
+                    keyname = hotkeysMapping[input.name]
 
-                    # Write the configuration for this key
-                    if keyname is not None:
-                        write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, hotkey.id, None)
+                # Write the configuration for this key
+                if keyname is not None:
+                    write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, hotkey.id, None)
 
-                    #else:
-                    #    f.write("# undefined key: name="+input.name+", type="+input.type+", id="+str(input.id)+", value="+str(input.value)+"\n")
-
-            nplayer += 1
+                #else:
+                #    f.write("# undefined key: name="+input.name+", type="+input.type+", id="+str(input.id)+", value="+str(input.value)+"\n")
 
         f.write
 
@@ -480,14 +473,13 @@ def get_AltMapping(system: Emulator, nplayer: int, anyMapping: Mapping[str, str 
 
 def generateControllerConfig_any(system: Emulator, playersControllers: ControllerMapping, wheels: DeviceInfoMapping, filename: str, anyDefKey: str, anyMapping: Mapping[str, str | None], anyReverseAxes: Mapping[str | None, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str] = {}) -> None:
     configFileName = DOLPHIN_CONFIG / filename
-    nplayer = 1
     nsamepad = 0
 
     # In case of two pads having the same name, dolphin wants a number to handle this
     double_pads: dict[str, int] = {}
 
     with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
-        for pad in sorted(playersControllers.values()):
+        for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
             # Handle x pads having the same name
             nsamepad = double_pads.get(pad.real_name.strip(), 0)
             double_pads[pad.real_name.strip()] = nsamepad+1
@@ -503,8 +495,6 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
                     generateControllerConfig_wheel(f, pad, nplayer)
                 else:
                     generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system, nplayer, nsamepad)
-
-            nplayer += 1
         f.write
 
 def generateControllerConfig_wheel(f: codecs.StreamReaderWriter, pad: Controller, nplayer: int) -> None:
