@@ -20,7 +20,8 @@ def generateMoonlightConfig(system: Emulator):
         shutil.copy(MOONLIGHT_CONFIG, MOONLIGHT_STAGING_CONFIG)
     else:
         # truncate existing config and create new one
-        MOONLIGHT_STAGING_CONFIG.open("w").close()
+        with MOONLIGHT_STAGING_CONFIG.open("w"):
+            pass
 
         moonlightConfig = UnixSettings(MOONLIGHT_STAGING_CONFIG, separator=' ')
 

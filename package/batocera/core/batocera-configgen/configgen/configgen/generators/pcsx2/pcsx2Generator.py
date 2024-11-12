@@ -171,18 +171,17 @@ def configureAudio(config_directory: Path) -> None:
     if configFileName.exists():
         return
 
-    f = configFileName.open("w")
-    f.write("[MIXING]\n")
-    f.write("Interpolation=1\n")
-    f.write("Disable_Effects=0\n")
-    f.write("[OUTPUT]\n")
-    f.write("Output_Module=SDLAudio\n")
-    f.write("[PORTAUDIO]\n")
-    f.write("HostApi=ALSA\n")
-    f.write("Device=default\n")
-    f.write("[SDL]\n")
-    f.write("HostApi=alsa\n")
-    f.close()
+    with configFileName.open("w") as f:
+        f.write("[MIXING]\n")
+        f.write("Interpolation=1\n")
+        f.write("Disable_Effects=0\n")
+        f.write("[OUTPUT]\n")
+        f.write("Output_Module=SDLAudio\n")
+        f.write("[PORTAUDIO]\n")
+        f.write("HostApi=ALSA\n")
+        f.write("Device=default\n")
+        f.write("[SDL]\n")
+        f.write("HostApi=alsa\n")
 
 def configureINI(config_directory: Path, bios_directory: Path, system: Emulator, rom: Path, controllers: ControllerMapping, metadata: Mapping[str, str], guns: GunMapping, wheels: DeviceInfoMapping, playingWithWheel: bool) -> None:
     configFileName = config_directory / 'inis' / "PCSX2.ini"

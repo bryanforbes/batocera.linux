@@ -80,18 +80,17 @@ class SolarusGenerator(Generator):
                 keymapping["right"] = "joystick2right"
 
         mkdir_if_not_exists(_CONFIG_DIR)
-        f = codecs.open(str(_CONFIG_DIR / "pads.ini"), "w", encoding="ascii")
+        with codecs.open(str(_CONFIG_DIR / "pads.ini"), "w", encoding="ascii") as f:
+            nplayer = 1
+            for playercontroller, pad in sorted(playersControllers.items()):
+                if nplayer == 1:
+                    for key in keymapping:
+                        if keymapping[key] in pad.inputs:
+                            f.write(f"{key}={SolarusGenerator.key2val(pad.inputs[keymapping[key]], False)}\n")
+                        if key in reverseAxis and pad.inputs[keymapping[key]].type == "axis":
+                            f.write(f"{reverseAxis[key]}={SolarusGenerator.key2val(pad.inputs[keymapping[key]], True)}\n")
 
-        nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
-            if nplayer == 1:
-                for key in keymapping:
-                    if keymapping[key] in pad.inputs:
-                        f.write(f"{key}={SolarusGenerator.key2val(pad.inputs[keymapping[key]], False)}\n")
-                    if key in reverseAxis and pad.inputs[keymapping[key]].type == "axis":
-                        f.write(f"{reverseAxis[key]}={SolarusGenerator.key2val(pad.inputs[keymapping[key]], True)}\n")
-
-            nplayer += 1
+                nplayer += 1
 
         f.close()
 

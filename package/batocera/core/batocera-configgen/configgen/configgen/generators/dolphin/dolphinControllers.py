@@ -251,161 +251,159 @@ def removeControllerConfig_gamecube() -> None:
 
 def generateControllerConfig_realwiimotes(filename: str, anyDefKey: str) -> None:
     configFileName = DOLPHIN_CONFIG / filename
-    f = codecs.open(str(configFileName), "w", encoding="utf_8_sig")
-    nplayer = 1
-    while nplayer <= 4:
-        f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
-        f.write("Source = 2\n")
-        nplayer += 1
-    f.write("[BalanceBoard]\nSource = 2\n")
-    f.write
-    f.close()
+    with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
+        nplayer = 1
+        while nplayer <= 4:
+            f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
+            f.write("Source = 2\n")
+            nplayer += 1
+        f.write("[BalanceBoard]\nSource = 2\n")
+        f.write
 
 def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mapping[str, str], guns: GunMapping) -> None:
     configFileName = DOLPHIN_CONFIG / filename
-    f = codecs.open(str(configFileName), "w", encoding="utf_8_sig")
 
     # In case of two pads having the same name, dolphin wants a number to handle this
     double_pads: dict[str, int] = {}
 
-    nplayer = 1
-    while nplayer <= 4:
-        if len(guns) >= nplayer:
-            f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
-            f.write("Source = 1\n")
-            f.write("Extension = Nunchuk\n")
+    with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
+        nplayer = 1
+        while nplayer <= 4:
+            if len(guns) >= nplayer:
+                f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
+                f.write("Source = 1\n")
+                f.write("Extension = Nunchuk\n")
 
-            dolphinMappingNames = {
-                "a":             "Buttons/A",
-                "b":             "Buttons/B",
-                "home":          "Buttons/Home",
-                "-":             "Buttons/-",
-                "1":             "Buttons/1",
-                "2":             "Buttons/2",
-                "+":             "Buttons/+",
-                "up":            "D-Pad/Up",
-                "down":          "D-Pad/Down",
-                "left":          "D-Pad/Left",
-                "right":         "D-Pad/Right",
-                "tiltforward":   "Tilt/Forward",
-                "tiltbackward":  "Tilt/Backward",
-                "tiltleft":      "Tilt/Left",
-                "tiltright":     "Tilt/Right",
-                "shake":         "Shake/Z",
-                "c":             "Nunchuk/Buttons/C",
-                "z":             "Nunchuk/Buttons/Z"
-            }
+                dolphinMappingNames = {
+                    "a":             "Buttons/A",
+                    "b":             "Buttons/B",
+                    "home":          "Buttons/Home",
+                    "-":             "Buttons/-",
+                    "1":             "Buttons/1",
+                    "2":             "Buttons/2",
+                    "+":             "Buttons/+",
+                    "up":            "D-Pad/Up",
+                    "down":          "D-Pad/Down",
+                    "left":          "D-Pad/Left",
+                    "right":         "D-Pad/Right",
+                    "tiltforward":   "Tilt/Forward",
+                    "tiltbackward":  "Tilt/Backward",
+                    "tiltleft":      "Tilt/Left",
+                    "tiltright":     "Tilt/Right",
+                    "shake":         "Shake/Z",
+                    "c":             "Nunchuk/Buttons/C",
+                    "z":             "Nunchuk/Buttons/Z"
+                }
 
-            gunMapping = {
-                "a":            "action",
-                "b":            "trigger",
-                "home":         "sub3",
-                "-":            "select",
-                "1":            "sub1",
-                "2":            "sub2",
-                "+":            "start",
-                "up":           "up",
-                "down":         "down",
-                "left":         "left",
-                "right":        "right",
-                "tiltforward":  "",
-                "tiltbackward": "",
-                "tiltleft":     "",
-                "tiltright":    "",
-                "shake":        "",
-                "c":            "",
-                "z":            ""
-            }
+                gunMapping = {
+                    "a":            "action",
+                    "b":            "trigger",
+                    "home":         "sub3",
+                    "-":            "select",
+                    "1":            "sub1",
+                    "2":            "sub2",
+                    "+":            "start",
+                    "up":           "up",
+                    "down":         "down",
+                    "left":         "left",
+                    "right":        "right",
+                    "tiltforward":  "",
+                    "tiltbackward": "",
+                    "tiltleft":     "",
+                    "tiltright":    "",
+                    "shake":        "",
+                    "c":            "",
+                    "z":            ""
+                }
 
-            gunButtons = {
-                "trigger": { "code": "BTN_LEFT",   "button": "left"   },
-                "action":  { "code": "BTN_RIGHT",  "button": "right"  },
-                "start":   { "code": "BTN_MIDDLE", "button": "middle" },
-                "select":  { "code": "BTN_1",      "button": "1"      },
-                "sub1":    { "code": "BTN_2",      "button": "2"      },
-                "sub2":    { "code": "BTN_3",      "button": "3"      },
-                "sub3":    { "code": "BTN_4",      "button": "4"      },
-                "up":      { "code": "BTN_5",      "button": "5"      },
-                "down":    { "code": "BTN_6",      "button": "6"      },
-                "left":    { "code": "BTN_7",      "button": "7"      },
-                "right":   { "code": "BTN_8",      "button": "8"      }
-            }
+                gunButtons = {
+                    "trigger": { "code": "BTN_LEFT",   "button": "left"   },
+                    "action":  { "code": "BTN_RIGHT",  "button": "right"  },
+                    "start":   { "code": "BTN_MIDDLE", "button": "middle" },
+                    "select":  { "code": "BTN_1",      "button": "1"      },
+                    "sub1":    { "code": "BTN_2",      "button": "2"      },
+                    "sub2":    { "code": "BTN_3",      "button": "3"      },
+                    "sub3":    { "code": "BTN_4",      "button": "4"      },
+                    "up":      { "code": "BTN_5",      "button": "5"      },
+                    "down":    { "code": "BTN_6",      "button": "6"      },
+                    "left":    { "code": "BTN_7",      "button": "7"      },
+                    "right":   { "code": "BTN_8",      "button": "8"      }
+                }
 
-            gundevname = guns[nplayer-1].name
+                gundevname = guns[nplayer-1].name
 
-            # Handle x pads having the same name
-            nsamepad = 0
-            if gundevname.strip() in double_pads:
-                nsamepad = double_pads[gundevname.strip()]
-            else:
+                # Handle x pads having the same name
                 nsamepad = 0
-                double_pads[gundevname.strip()] = nsamepad+1
+                if gundevname.strip() in double_pads:
+                    nsamepad = double_pads[gundevname.strip()]
+                else:
+                    nsamepad = 0
+                    double_pads[gundevname.strip()] = nsamepad+1
 
-            f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
-            f.write("Device = evdev/" + str(nsamepad).strip() + "/" + gundevname.strip() + "\n")
+                f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
+                f.write("Device = evdev/" + str(nsamepad).strip() + "/" + gundevname.strip() + "\n")
 
-            buttons = guns[nplayer-1].buttons
-            _logger.debug("Gun : %s", buttons)
+                buttons = guns[nplayer-1].buttons
+                _logger.debug("Gun : %s", buttons)
 
-            # custom remapping
-            # erase values
-            for btn in gunButtons:
-                if "gun_"+btn in metadata:
-                    for mval in metadata["gun_"+btn].split(","):
-                        if mval in gunMapping:
-                            for x in gunMapping:
-                                if gunMapping[x] == btn:
-                                    _logger.info("erasing %s", x)
-                                    gunMapping[x] = ""
+                # custom remapping
+                # erase values
+                for btn in gunButtons:
+                    if "gun_"+btn in metadata:
+                        for mval in metadata["gun_"+btn].split(","):
+                            if mval in gunMapping:
+                                for x in gunMapping:
+                                    if gunMapping[x] == btn:
+                                        _logger.info("erasing %s", x)
+                                        gunMapping[x] = ""
+                            else:
+                                _logger.info("custom gun mapping ignored for %s => %s (invalid value)", btn, mval)
+                # setting values
+                for btn in gunButtons:
+                    if "gun_"+btn in metadata:
+                        for mval in metadata["gun_"+btn].split(","):
+                            if mval in gunMapping:
+                                gunMapping[mval] = btn
+                                _logger.info("setting %s to %s", mval, btn)
+
+                # write buttons
+                for btn in dolphinMappingNames:
+                    val = ""
+                    if btn in gunMapping and gunMapping[btn] != "":
+                        if gunMapping[btn] in gunButtons:
+                            if gunButtons[gunMapping[btn]]["button"] in buttons:
+                                val = gunButtons[gunMapping[btn]]["code"]
+                            else:
+                                _logger.debug("gun has not the button %s", gunButtons[gunMapping[btn]]["button"])
                         else:
-                            _logger.info("custom gun mapping ignored for %s => %s (invalid value)", btn, mval)
-            # setting values
-            for btn in gunButtons:
-                if "gun_"+btn in metadata:
-                    for mval in metadata["gun_"+btn].split(","):
-                        if mval in gunMapping:
-                            gunMapping[mval] = btn
-                            _logger.info("setting %s to %s", mval, btn)
+                            _logger.debug("cannot map the button %s", gunMapping[btn])
+                    f.write(dolphinMappingNames[btn]+" = `"+val+"`\n")
 
-            # write buttons
-            for btn in dolphinMappingNames:
-                val = ""
-                if btn in gunMapping and gunMapping[btn] != "":
-                    if gunMapping[btn] in gunButtons:
-                        if gunButtons[gunMapping[btn]]["button"] in buttons:
-                            val = gunButtons[gunMapping[btn]]["code"]
-                        else:
-                            _logger.debug("gun has not the button %s", gunButtons[gunMapping[btn]]["button"])
-                    else:
-                        _logger.debug("cannot map the button %s", gunMapping[btn])
-                f.write(dolphinMappingNames[btn]+" = `"+val+"`\n")
+                # map ir
+                if "gun_"+"ir_up" not in metadata:
+                    f.write("IR/Up = `Axis 1-`\n")
+                if "gun_"+"ir_down" not in metadata:
+                    f.write("IR/Down = `Axis 1+`\n")
+                if "gun_"+"ir_left" not in metadata:
+                    f.write("IR/Left = `Axis 0-`\n")
+                if "gun_"+"ir_right" not in metadata:
+                    f.write("IR/Right = `Axis 0+`\n")
 
-            # map ir
-            if "gun_"+"ir_up" not in metadata:
-                f.write("IR/Up = `Axis 1-`\n")
-            if "gun_"+"ir_down" not in metadata:
-                f.write("IR/Down = `Axis 1+`\n")
-            if "gun_"+"ir_left" not in metadata:
-                f.write("IR/Left = `Axis 0-`\n")
-            if "gun_"+"ir_right" not in metadata:
-                f.write("IR/Right = `Axis 0+`\n")
-
-            # specific games configurations
-            specifics = {
-                "vertical_offset": "IR/Vertical Offset",
-                "yaw":             "IR/Total Yaw",
-                "pitch":           "IR/Total Pitch",
-                "ir_up":           "IR/Up",
-                "ir_down":         "IR/Down",
-                "ir_left":         "IR/Left",
-                "ir_right":        "IR/Right",
-            }
-            for spe in specifics:
-                if "gun_"+spe in metadata:
-                    f.write(f"{specifics[spe]} = {metadata['gun_'+spe]}\n")
-        nplayer += 1
-    f.write
-    f.close()
+                # specific games configurations
+                specifics = {
+                    "vertical_offset": "IR/Vertical Offset",
+                    "yaw":             "IR/Total Yaw",
+                    "pitch":           "IR/Total Pitch",
+                    "ir_up":           "IR/Up",
+                    "ir_down":         "IR/Down",
+                    "ir_left":         "IR/Left",
+                    "ir_right":        "IR/Right",
+                }
+                for spe in specifics:
+                    if "gun_"+spe in metadata:
+                        f.write(f"{specifics[spe]} = {metadata['gun_'+spe]}\n")
+            nplayer += 1
+        f.write
 
 def get_AltMapping(system: Emulator, nplayer: int, anyMapping: Mapping[str, str | None]) -> dict[str, str | None]:
     mapping = dict(anyMapping)
@@ -428,33 +426,32 @@ def get_AltMapping(system: Emulator, nplayer: int, anyMapping: Mapping[str, str 
 
 def generateControllerConfig_any(system: Emulator, playersControllers: ControllerMapping, wheels: DeviceInfoMapping, filename: str, anyDefKey: str, anyMapping: Mapping[str, str | None], anyReverseAxes: Mapping[str | None, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str] = {}) -> None:
     configFileName = DOLPHIN_CONFIG / filename
-    f = codecs.open(str(configFileName), "w", encoding="utf_8_sig")
     nplayer = 1
     nsamepad = 0
 
     # In case of two pads having the same name, dolphin wants a number to handle this
     double_pads: dict[str, int] = {}
 
-    for playercontroller, pad in sorted(playersControllers.items()):
-        # Handle x pads having the same name
-        nsamepad = double_pads.get(pad.real_name.strip(), 0)
-        double_pads[pad.real_name.strip()] = nsamepad+1
+    with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
+        for playercontroller, pad in sorted(playersControllers.items()):
+            # Handle x pads having the same name
+            nsamepad = double_pads.get(pad.real_name.strip(), 0)
+            double_pads[pad.real_name.strip()] = nsamepad+1
 
-        f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
-        f.write("Device = evdev/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
+            f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
+            f.write("Device = evdev/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
 
-        if system.get_option_bool("use_pad_profiles"):
-            if not generateControllerConfig_any_from_profiles(f, pad, system):
-                generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system, nplayer, nsamepad)
-        else:
-            if pad.device_path in wheels:
-                generateControllerConfig_wheel(f, pad, nplayer)
+            if system.get_option_bool("use_pad_profiles"):
+                if not generateControllerConfig_any_from_profiles(f, pad, system):
+                    generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system, nplayer, nsamepad)
             else:
-                generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system, nplayer, nsamepad)
+                if pad.device_path in wheels:
+                    generateControllerConfig_wheel(f, pad, nplayer)
+                else:
+                    generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system, nplayer, nsamepad)
 
-        nplayer += 1
-    f.write
-    f.close()
+            nplayer += 1
+        f.write
 
 def generateControllerConfig_wheel(f: codecs.StreamReaderWriter, pad: Controller, nplayer: int) -> None:
     wheelMapping = {

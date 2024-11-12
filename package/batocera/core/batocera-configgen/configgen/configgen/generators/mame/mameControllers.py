@@ -129,9 +129,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
 
     # Load standard controls from csv
     controlFile = MAME_DEFAULT_DATA / 'mameControls.csv'
-    openFile = controlFile.open('r')
     controlDict: dict[str, dict[str, str]] = {}
-    with openFile:
+    with controlFile.open('r') as openFile:
         controlList = csv.reader(openFile)
         for row in controlList:
             if row[0] not in controlDict:

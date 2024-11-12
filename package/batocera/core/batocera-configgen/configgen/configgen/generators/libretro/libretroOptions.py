@@ -1122,9 +1122,8 @@ def _citra_options(
     # Set OpenGL rendering
     n3ds_config = RETROARCH_CONFIG / "3ds.cfg"
     if not n3ds_config.exists():
-        f = n3ds_config.open("w")
-        f.write("video_driver = \"glcore\"\n")
-        f.close()
+        with n3ds_config.open("w") as f:
+            f.write("video_driver = \"glcore\"\n")
 
 
 def _mupen64plus_next_options(
@@ -2533,10 +2532,9 @@ def _px68k_options(
     for f in [ keropi_config, keropi_sram ]:
         if f.exists():
             f.unlink()
-    fd = keropi_config.open("w")
-    fd.write("[WinX68k]\n")
-    fd.write(f"StartDir={ROMS / 'x68000'}\n")
-    fd.close()
+    with keropi_config.open("w") as fd:
+        fd.write("[WinX68k]\n")
+        fd.write(f"StartDir={ROMS / 'x68000'}\n")
 
     # To auto launch HDD games
     coreSettings.save('px68k_disk_path', '"disabled"')

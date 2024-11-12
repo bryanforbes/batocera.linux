@@ -199,26 +199,25 @@ class LibretroGenerator(Generator):
                 scriptFile = HOME / "scripts" / "gb2savesync" / "exitsync.sh"
                 if scriptFile.exists():
                     scriptFile.unlink()
-                GBMultiScript = scriptFile.open("w")
-                GBMultiScript.write("#!/bin/bash\n")
-                GBMultiScript.write("#This script is created by the Game Boy link cable system to sync save files.\n")
-                GBMultiScript.write("#\n")
-                GBMultiScript.write("\n")
-                GBMultiScript.write("case $1 in\n")
-                GBMultiScript.write("   gameStop)\n")
-                # The only event is gameStop, checks to make sure it was called by the right system
-                GBMultiScript.write("       if [ $2 = 'gb2players' ] || [ $2 = 'gbc2players' ]\n")
-                GBMultiScript.write("       then\n")
-                for x in range(len(GBMultiSave)):
-                    saveFile = "/userdata/saves/" + GBMultiSys[x] + "/" + GBMultiSave[x]
-                    newSaveFile = "/userdata/saves/" + system.name + "/" + GBMultiSave[x]
-                    GBMultiScript.write('           cp "' + newSaveFile + '" "' + saveFile + '"\n')
-                GBMultiScript.write("       fi\n")
-                # Deletes itself after running
-                GBMultiScript.write(f"       rm {scriptFile}\n")
-                GBMultiScript.write("   ;;\n")
-                GBMultiScript.write("esac\n")
-                GBMultiScript.close()
+                with scriptFile.open("w") as GBMultiScript:
+                    GBMultiScript.write("#!/bin/bash\n")
+                    GBMultiScript.write("#This script is created by the Game Boy link cable system to sync save files.\n")
+                    GBMultiScript.write("#\n")
+                    GBMultiScript.write("\n")
+                    GBMultiScript.write("case $1 in\n")
+                    GBMultiScript.write("   gameStop)\n")
+                    # The only event is gameStop, checks to make sure it was called by the right system
+                    GBMultiScript.write("       if [ $2 = 'gb2players' ] || [ $2 = 'gbc2players' ]\n")
+                    GBMultiScript.write("       then\n")
+                    for x in range(len(GBMultiSave)):
+                        saveFile = "/userdata/saves/" + GBMultiSys[x] + "/" + GBMultiSave[x]
+                        newSaveFile = "/userdata/saves/" + system.name + "/" + GBMultiSave[x]
+                        GBMultiScript.write('           cp "' + newSaveFile + '" "' + saveFile + '"\n')
+                    GBMultiScript.write("       fi\n")
+                    # Deletes itself after running
+                    GBMultiScript.write(f"       rm {scriptFile}\n")
+                    GBMultiScript.write("   ;;\n")
+                    GBMultiScript.write("esac\n")
                 # Make it executable
                 scriptFile.chmod(scriptFile.stat().st_mode | 0o111)
         # PURE zip games uses the same commandarray of all cores. .pc and .rom  uses owns
