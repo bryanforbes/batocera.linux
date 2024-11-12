@@ -284,6 +284,5 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
             tree = ET.ElementTree(root)
             ET.indent(tree, space="  ", level=0)
             tree.write(handle, encoding='UTF-8', xml_declaration=True)
-            handle.close()
 
         nplayer+=1

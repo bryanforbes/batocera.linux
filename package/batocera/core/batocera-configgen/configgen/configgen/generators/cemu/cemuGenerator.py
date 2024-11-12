@@ -258,12 +258,10 @@ class CemuGenerator(Generator):
             CemuGenerator.setSectionConfig(config, audio_root, "TVDevice", cemuAudioDevice)
 
         # Save the config file
-        xml = configFile.open("w")
-
         # TODO: python 3 - workaround to encode files in utf-8
-        xml = codecs.open(str(configFile), "w", "utf-8")
-        dom_string = os.linesep.join([s for s in config.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
-        xml.write(dom_string)
+        with codecs.open(str(configFile), "w", "utf-8") as xml:
+            dom_string = os.linesep.join([s for s in config.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
+            xml.write(dom_string)
 
     # Show mouse for touchscreen actions
     def getMouseMode(self, config, rom):

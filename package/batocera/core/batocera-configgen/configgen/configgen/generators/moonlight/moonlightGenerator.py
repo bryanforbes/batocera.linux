@@ -50,20 +50,19 @@ class MoonlightGenerator(Generator):
 
     def getRealGameNameAndConfigFile(self, rom: Path) -> tuple[str | None, Path]:
         # find the real game name
-        f = MOONLIGHT_GAME_LIST.open()
-        gfeGame = None
-        for line in f:
-            try:
-                gfeRom, gfeGame, confFileString = line.rstrip().split(';')
-                confFile = Path(confFileString)
-                #confFile = confFile.rstrip()
-            except Exception:
-                gfeRom, gfeGame = line.rstrip().split(';')
-                confFile = MOONLIGHT_STAGING_CONFIG
-            #If found
-            if gfeRom == rom.stem:
-                # return it
-                f.close()
-                return gfeGame, confFile
+        with MOONLIGHT_GAME_LIST.open() as f:
+            gfeGame = None
+            for line in f:
+                try:
+                    gfeRom, gfeGame, confFileString = line.rstrip().split(';')
+                    confFile = Path(confFileString)
+                    #confFile = confFile.rstrip()
+                except Exception:
+                    gfeRom, gfeGame = line.rstrip().split(';')
+                    confFile = MOONLIGHT_STAGING_CONFIG
+                #If found
+                if gfeRom == rom.stem:
+                    # return it
+                    return gfeGame, confFile
         # If nothing is found (old gamelist file format ?)
         return gfeGame, MOONLIGHT_STAGING_CONFIG
