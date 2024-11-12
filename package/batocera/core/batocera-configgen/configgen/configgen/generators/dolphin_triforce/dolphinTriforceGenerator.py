@@ -268,8 +268,8 @@ class DolphinTriforceGenerator(Generator):
         # GFZE01 F-Zero GX (convert to F-Zero AX)
         GFZE01_ini = DOLPHIN_TRIFORCE_GAME_SETTINGS / "GFZE01.ini"
         if not GFZE01_ini.exists():
-            dolphinTriforceGameSettingsGFZE01 = GFZE01_ini.open("w")
-            dolphinTriforceGameSettingsGFZE01.write("""[Gecko]
+            with GFZE01_ini.open("w") as dolphinTriforceGameSettingsGFZE01:
+                dolphinTriforceGameSettingsGFZE01.write("""[Gecko]
 $AX
 06003F30 00000284
 818D831C 280C0000
@@ -357,13 +357,12 @@ B0030D06 3C6C0009
 [Gecko_Enabled]
 $AX
 """)
-            dolphinTriforceGameSettingsGFZE01.close()
 
         # GVSJ8P Virtua Striker 2002
         GVSJ8P_ini = DOLPHIN_TRIFORCE_GAME_SETTINGS / "GVSJ8P.ini"
         if not GVSJ8P_ini.exists():
-            dolphinTriforceGameSettingsGVSJ8P = GVSJ8P_ini.open("w")
-            dolphinTriforceGameSettingsGVSJ8P.write("""[OnFrame]
+            with GVSJ8P_ini.open("w") as dolphinTriforceGameSettingsGVSJ8P:
+                dolphinTriforceGameSettingsGVSJ8P.write("""[OnFrame]
 $DI Seed Blanker
 0x80000000:dword:0x00000000
 0x80000004:dword:0x00000000
@@ -371,14 +370,13 @@ $DI Seed Blanker
 [OnFrame_Enabled]
 $DI Seed Blanker
 """)
-            dolphinTriforceGameSettingsGVSJ8P.close()
 
         # GGPE01 Mario Kart GP 1
 
         GGPE01_ini = DOLPHIN_TRIFORCE_GAME_SETTINGS / "GGPE01.ini"
         if not GGPE01_ini.exists():
-            dolphinTriforceGameSettingsGGPE01 = GGPE01_ini.open("w")
-            dolphinTriforceGameSettingsGGPE01.write("""[OnFrame]
+            with GGPE01_ini.open("w") as dolphinTriforceGameSettingsGGPE01:
+                dolphinTriforceGameSettingsGGPE01.write("""[OnFrame]
 $Disable crypto
 0x8023D828:dword:0x93A30008
 0x8023D82C:dword:0x93C3000C
@@ -398,14 +396,13 @@ $Loop fix
 [EmuState]
 EmulationIssues = AM-Baseboard
 """)
-            dolphinTriforceGameSettingsGGPE01.close()
 
         # GGPE02 Mario Kart GP 2
 
         GGPE02_ini = DOLPHIN_TRIFORCE_GAME_SETTINGS / "GGPE02.ini"
         if not GGPE02_ini.exists():
-            dolphinTriforceGameSettingsGGPE02 = GGPE02_ini.open("w")
-            dolphinTriforceGameSettingsGGPE02.write("""[Display]
+            with GGPE02_ini.open("w") as dolphinTriforceGameSettingsGGPE02:
+                dolphinTriforceGameSettingsGGPE02.write("""[Display]
 ProgressiveScan = 0
 [Wii]
 Widescreen = False
@@ -458,7 +455,6 @@ $GameTestMode Patch
 $SeatLoopPatch
 99 credits
 """)
-            dolphinTriforceGameSettingsGGPE02.close()
 
         # # Cheats aren't in key = value format, so the allow_no_value option is needed.
         # dolphinTriforceGameSettingsGGPE01 = CaseSensitiveConfigParser(interpolation=None, allow_no_value=True,delimiters=';')

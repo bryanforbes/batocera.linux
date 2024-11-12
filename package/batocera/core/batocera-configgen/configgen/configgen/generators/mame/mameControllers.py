@@ -129,9 +129,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
 
     # Load standard controls from csv
     controlFile = MAME_DEFAULT_DATA / 'mameControls.csv'
-    openFile = controlFile.open('r')
     controlDict: dict[str, dict[str, str]] = {}
-    with openFile:
+    with controlFile.open('r') as openFile:
         controlList = csv.reader(openFile)
         for row in controlList:
             if row[0] not in controlDict:
@@ -343,16 +342,16 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     # TODO: python 3 - workawround to encode files in utf-8
     if overwriteMAME:
         _logger.debug("Saving %s", configFile)
-        mameXml = codecs.open(str(configFile), "w", "utf-8")
-        dom_string = os.linesep.join([s for s in config.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
-        mameXml.write(dom_string)
+        with codecs.open(str(configFile), "w", "utf-8") as mameXml:
+            dom_string = os.linesep.join([s for s in config.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
+            mameXml.write(dom_string)
 
     # Write alt config (if used, custom config is turned off or file doesn't exist yet)
     if messControlDict and overwriteSystem:
         _logger.debug("Saving %s", configFile_alt)
-        mameXml_alt = codecs.open(str(configFile_alt), "w", "utf-8")
-        dom_string_alt = os.linesep.join([s for s in config_alt.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
-        mameXml_alt.write(dom_string_alt)
+        with codecs.open(str(configFile_alt), "w", "utf-8") as mameXml_alt:
+            dom_string_alt = os.linesep.join([s for s in config_alt.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
+            mameXml_alt.write(dom_string_alt)
 
 def reverseMapping(key: str) -> str | None:
     if key == "joystick1down":

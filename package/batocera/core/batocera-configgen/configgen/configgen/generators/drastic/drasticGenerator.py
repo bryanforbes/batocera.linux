@@ -39,7 +39,6 @@ class DrasticGenerator(Generator):
             drastic_bin.chmod(0o0775)
 
         # Settings, Language and ConfirmPowerOff
-        f = drastic_conf.open("w", encoding="ascii")
 
         #Getting Values from ES
         esvaluedrastichires = 1 if system.get_option("drastic_hires") == "1" else 0
@@ -93,10 +92,10 @@ class DrasticGenerator(Generator):
         ]
 
         # Write the cfg file
-        for line in textList:
-            f.write(line)
-            f.write("\n")
-        f.close()
+        with drastic_conf.open("w", encoding="ascii") as f:
+            for line in textList:
+                f.write(line)
+                f.write("\n")
 
         #Configuring Pad in the cfg
         configurePads(drastic_conf)

@@ -112,7 +112,8 @@ class RyujinxGenerator(Generator):
         # [Configuration]
         mkdir_if_not_exists(ryujinxConfFile.parent)
         try:
-            conf = json.load(ryujinxConfFile.open("r"))
+            with ryujinxConfFile.open("r") as f:
+                conf = json.load(f)
         except Exception:
             conf = {}
 
