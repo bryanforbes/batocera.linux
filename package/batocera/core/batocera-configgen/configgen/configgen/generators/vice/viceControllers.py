@@ -58,7 +58,6 @@ def generateControllerConfig(system: Emulator, viceConfigFile: Path, playersCont
     listVice.append("# Batocera configured controllers")
     listVice.append("")
     listVice.append("!CLEAR")
-    nplayer = 1
     for pad in sorted(playersControllers.values()):
         listVice.append("")
         listVice.append("# " + pad.real_name)
@@ -67,7 +66,6 @@ def generateControllerConfig(system: Emulator, viceConfigFile: Path, playersCont
                 if indexName == input.name:
                     listVice.append(indexValue.replace('#', str(pad.index)).replace('?', str(input.id)).replace('/', joy_port))
         listVice.append("")
-        nplayer += 1
 
     with viceFile.open('w') as f:
         for i in range(len(listVice)):

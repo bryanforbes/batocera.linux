@@ -6,6 +6,7 @@ import re
 from typing import TYPE_CHECKING
 
 from ...utils.configparser import CaseSensitiveConfigParser
+from ...utils.iterable import first
 from .dolphinTriforcePaths import DOLPHIN_TRIFORCE_CONFIG
 
 if TYPE_CHECKING:
@@ -84,46 +85,41 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
     }
 
     with codecs.open(str(configFileName), "w", encoding="utf_8") as f:
-        nplayer = 1
-        for pad in sorted(playersControllers.values()):
-            if nplayer == 1:
-                f.write("[Hotkeys1]" + "\n")
-                f.write("Device = SDL/0/" + pad.real_name.strip() + "\n")
+        if pad := first(sorted(playersControllers.values())):
+            f.write("[Hotkeys1]" + "\n")
+            f.write("Device = SDL/0/" + pad.real_name.strip() + "\n")
 
-                # Search the hotkey button
-                hotkey = None
-                if "hotkey" not in pad.inputs:
-                    return
-                hotkey = pad.inputs["hotkey"]
-                if hotkey.type != "button":
-                    return
+            # Search the hotkey button
+            hotkey = None
+            if "hotkey" not in pad.inputs:
+                return
+            hotkey = pad.inputs["hotkey"]
+            if hotkey.type != "button":
+                return
 
-                for input in pad.inputs.values():
-                    keyname = None
-                    if input.name in hotkeysMapping:
-                        keyname = hotkeysMapping[input.name]
+            for input in pad.inputs.values():
+                keyname = None
+                if input.name in hotkeysMapping:
+                    keyname = hotkeysMapping[input.name]
 
-                    # Write the configuration for this key
-                    if keyname is not None:
-                        write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, hotkey.id)
+                # Write the configuration for this key
+                if keyname is not None:
+                    write_key(f, keyname, input.type, input.id, input.value, pad.axis_count, False, hotkey.id)
 
-                    #else:
-                    #    f.write("# undefined key: name="+input.name+", type="+input.type+", id="+str(input.id)+", value="+str(input.value)+"\n")
-
-            nplayer += 1
+                #else:
+                #    f.write("# undefined key: name="+input.name+", type="+input.type+", id="+str(input.id)+", value="+str(input.value)+"\n")
 
         f.write
 
 def generateControllerConfig_any(system: Emulator, playersControllers: ControllerMapping, filename: str, anyDefKey: str, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str] = {}) -> None:
     configFileName = DOLPHIN_TRIFORCE_CONFIG / filename
-    nplayer = 1
     nsamepad = 0
 
     # In case of two pads having the same name, dolphin wants a number to handle this
     double_pads: dict[str, int] = dict()
 
     with codecs.open(str(configFileName), "w", encoding="utf_8") as f:
-        for pad in sorted(playersControllers.values()):
+        for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
             # Handle x pads having the same name
             nsamepad = double_pads.get(pad.real_name.strip(), 0)
             double_pads[pad.real_name.strip()] = nsamepad+1
@@ -137,7 +133,6 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
             else:
                 generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
 
-            nplayer += 1
         f.write
 
 def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Controller, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str], system: Emulator) -> None:
