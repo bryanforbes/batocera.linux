@@ -26,7 +26,7 @@ cannonballJoystick = {
 # Create the controller configuration file
 def generateControllerConfig(xml_controls: ET.Element, playersControllers: ControllerMapping):
     nplayer = 1
-    for _, pad in sorted(playersControllers.items()):
+    for pad in sorted(playersControllers.values()):
         if nplayer == 1:
             # Set up controller-specific configurations
             ET.SubElement(xml_controls, "gear").text = "3"  # auto

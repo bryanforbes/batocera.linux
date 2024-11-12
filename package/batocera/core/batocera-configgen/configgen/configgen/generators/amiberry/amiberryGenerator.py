@@ -89,7 +89,7 @@ class AmiberryGenerator(Generator):
             mkdir_if_not_exists(_RETROARCH_INPUTS_DIR)
 
             nplayer = 1
-            for playercontroller, pad in sorted(playersControllers.items()):
+            for pad in sorted(playersControllers.values()):
                 replacements = {'_player' + str(nplayer) + '_':'_'}
                 # amiberry remove / included in pads names like "USB Downlo01.80 PS3/USB Corded Gamepad"
                 padfilename = pad.real_name.replace("/", "")

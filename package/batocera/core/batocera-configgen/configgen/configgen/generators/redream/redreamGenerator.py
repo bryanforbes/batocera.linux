@@ -67,15 +67,13 @@ class RedreamGenerator(Generator):
             }
             nplayer = 1
             written_guids: set[str] = set()
-            for index in playersControllers:
-                controller = playersControllers[index]
+            for controller in playersControllers.values():
                 if nplayer <= 4:
                     ctrlport = f"port{controller.index}=dev:{4 + controller.index},desc:{controller.guid},type:controller"
                     f.write((ctrlport)+ "\n")
                     ctrlprofile = f"profile{controller.index}=name:{controller.guid},type:controller,deadzone:12,crosshair:1,"
                     fullprofile = ctrlprofile
-                    for index in controller.inputs:
-                        input = controller.inputs[index]
+                    for input in controller.inputs.values():
                         # [buttons]
                         if input.type == "button" and input.name in ButtonMap:
                             buttonname = ButtonMap[input.name]

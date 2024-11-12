@@ -116,7 +116,7 @@ def configure_wheels(
 
     # reconfigure wheel buttons
     # no need to sort, but i like keeping the same loop (sorted by players)
-    for _, pad in sorted(controllers.items()):
+    for pad in sorted(controllers.values()):
         if pad.device_path in devices and devices[pad.device_path]["isWheel"]:
             _logger.info("Wheel reconfiguration for pad %s", pad.real_name)
             original_inputs = pad.inputs.copy()
@@ -212,26 +212,26 @@ def configure_wheels(
             joysticks_by_dev[x] = current_id
 
         # renumeration
-        for _, pad in sorted(controllers.items()):
+        for pad in sorted(controllers.values()):
             joystick_index = joysticks_by_dev.get(pad.device_path)
             if joystick_index is not None:
                 pad.index = joystick_index
                 devices[pad.device_path]["joystick_index"] = joystick_index
 
         # fill physical_index
-        for _, pad in sorted(controllers.items()):
+        for pad in sorted(controllers.values()):
             if pad.physical_device_path is not None and (device := devices.get(pad.physical_device_path)) is not None and "joystick_index" in device:
                 pad.physical_index = device["joystick_index"] # save the physical device for ffb
 
     # reorder players to priorize wheel pads
     controllers_new: ControllerDict = {}
     nplayer = 1
-    for _, pad in sorted(controllers.items()):
+    for pad in sorted(controllers.values()):
         if (pad.device_path in devices and devices[pad.device_path]["isWheel"]) or pad.device_path in new_pads:
             controllers_new[nplayer] = pad.replace(player_number=nplayer)
             nplayer += 1
 
-    for _, pad in sorted(controllers.items()):
+    for pad in sorted(controllers.values()):
         if not ((pad.device_path in devices and devices[pad.device_path]["isWheel"]) or pad.device_path in new_pads):
             controllers_new[nplayer] = pad.replace(player_number=nplayer)
             nplayer += 1

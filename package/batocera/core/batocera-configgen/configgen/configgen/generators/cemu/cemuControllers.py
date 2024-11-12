@@ -228,7 +228,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
     dict(sorted(pads_by_index.items(), key=lambda kv: kv[1].index))
     guid_n: dict[int, int] = {}
     guid_count: dict[str, int] = {}
-    for _, pad in pads_by_index.items():
+    for pad in pads_by_index.values():
         if pad.guid in guid_count:
             guid_count[pad.guid] += 1
         else:
@@ -236,7 +236,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         guid_n[pad.index] = guid_count[pad.guid]
     ###
 
-    for playercontroller, pad in sorted(playersControllers.items()):
+    for pad in sorted(playersControllers.values()):
         root = ET.Element("emulated_controller")
 
         # Set type from controller combination

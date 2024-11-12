@@ -61,7 +61,7 @@ class HypseusSingeGenerator(Generator):
         if (start_path / filename).exists():
             return start_path / filename
 
-        for root, dirs, files in os.walk(start_path):
+        for root, _, files in os.walk(start_path):
             if filename in files:
                 full_path = Path(root) / filename
                 _logger.debug("Found m2v file in path - %s", full_path)

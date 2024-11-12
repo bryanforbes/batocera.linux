@@ -111,8 +111,8 @@ class Model2EmuGenerator(Generator):
         known_gun_roms = ["bel", "gunblade", "hotd", "rchase2", "vcop", "vcop2", "vcopa"]
         if rom.stem in known_gun_roms:
             if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
-                for gun in guns:
-                    if guns[gun].need_borders:
+                for gun in guns.values():
+                    if gun.need_borders:
                         if lua_file_path.exists():
                             bordersSize = guns_borders_size_name(guns, system.config)
                             # add more intelligence for lower resolution screens to avoid massive borders
@@ -172,8 +172,8 @@ class Model2EmuGenerator(Generator):
         if system.isOptSet("model2_crossHairs"):
             Config.set("Renderer","DrawCross", format(system.config["model2_crossHairs"]))
         else:
-            for gun in guns:
-                if guns[gun].need_cross:
+            for gun in guns.values():
+                if gun.need_cross:
                     Config.set("Renderer","DrawCross", "1")
                 else:
                     Config.set("Renderer","DrawCross", "0")
