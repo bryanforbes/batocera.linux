@@ -103,19 +103,16 @@ class CGeniusGenerator(Generator):
 
         # -= Controllers =-
         # Configure the first four controllers
-        nplayer = 1
-        for pad in sorted(playersControllers.values()):
-            if nplayer <= 4:
-                input_num = "input" + str(pad.index)
-                if input_num not in config:
-                    config[input_num] = {}
-                for input in pad.inputs.values():
-                    if input.name in cgeniusCtrl:
-                        if input.type == "hat":
-                            config[input_num][cgeniusCtrl[input.name]] = "Joy" + str(pad.index) + "-" + input.type[0].upper() + str(input.value)
-                        else:
-                            config[input_num][cgeniusCtrl[input.name]] = "Joy" + str(pad.index) + "-" + input.type[0].upper() + str(input.id)
-                nplayer += 1
+        for pad in sorted(playersControllers.values())[0:4]:
+            input_num = "input" + str(pad.index)
+            if input_num not in config:
+                config[input_num] = {}
+            for input in pad.inputs.values():
+                if input.name in cgeniusCtrl:
+                    if input.type == "hat":
+                        config[input_num][cgeniusCtrl[input.name]] = "Joy" + str(pad.index) + "-" + input.type[0].upper() + str(input.value)
+                    else:
+                        config[input_num][cgeniusCtrl[input.name]] = "Joy" + str(pad.index) + "-" + input.type[0].upper() + str(input.id)
 
         # Write the config file
         config.write()

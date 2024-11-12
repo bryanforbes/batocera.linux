@@ -90,26 +90,19 @@ class FsuaeGenerator(Generator):
             shutil.rmtree(TEMP_DIR, ignore_errors=True) # cleanup
             zf.extractall(TEMP_DIR)
 
-            n = 0
-            for disk in diskNames:
+            for n, disk in enumerate(diskNames):
                 commandArray.append(f"--{device_type}_image_{n}={TEMP_DIR / disk}")
                 if (n <= 1 and device_type == "floppy") or (n == 0 and device_type == "cdrom"):
                     commandArray.append(f"--{device_type}_drive_{n}={TEMP_DIR / disk}")
-                n += 1
 
         else:
-            n = 0
-            for img in self.floppiesFromRom(rom):
+            for n, img in enumerate(self.floppiesFromRom(rom)):
                 commandArray.append(f"--{device_type}_image_{n}={img}")
                 if (n <= 1 and device_type == "floppy") or (n == 0 and device_type == "cdrom"):
                     commandArray.append(f"--{device_type}_drive_{n}={img}")
-                n += 1
 
         # controllers
-        n = 0
-        for pad in sorted(playersControllers.values()):
-            if n <= 3:
-                commandArray.append("--joystick_port_" + str(n) + "=" + pad.real_name + "")
-                n += 1
+        for n, pad in enumerate(sorted(playersControllers.values())[0:4]):
+            commandArray.append("--joystick_port_" + str(n) + "=" + pad.real_name + "")
 
         return Command.Command(array=commandArray)

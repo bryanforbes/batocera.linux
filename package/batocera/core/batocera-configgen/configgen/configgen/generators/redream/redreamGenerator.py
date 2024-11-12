@@ -65,9 +65,8 @@ class RedreamGenerator(Generator):
                 "l2":            2,
                 "r2":            3
             }
-            nplayer = 1
             written_guids: set[str] = set()
-            for controller in playersControllers.values():
+            for nplayer, controller in enumerate(playersControllers.values(), start=1):
                 if nplayer <= 4:
                     ctrlport = f"port{controller.index}=dev:{4 + controller.index},desc:{controller.guid},type:controller"
                     f.write((ctrlport)+ "\n")
@@ -116,7 +115,6 @@ class RedreamGenerator(Generator):
                     if controller.guid not in written_guids:
                         written_guids.add(controller.guid)
                         f.write((fullprofile)+ "\n")
-                    nplayer = nplayer + 1
 
             # change settings as per users options
             # [video]

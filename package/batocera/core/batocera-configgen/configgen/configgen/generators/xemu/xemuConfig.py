@@ -114,9 +114,8 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
     for i in range(1,5):
         iniConfig.remove_option("input.bindings", f"port{i}")
 
-    for nplayer, pad in enumerate(sorted(playersControllers.values())):
-        if nplayer <= 4:
-            iniConfig.set("input.bindings", f"port{nplayer}", f'"{pad.guid}"')
+    for nplayer, pad in enumerate(sorted(playersControllers.values())[0:4], start=1):
+        iniConfig.set("input.bindings", f"port{nplayer}", f'"{pad.guid}"')
 
     # Network
     # Documentation: https://github.com/xemu-project/xemu/blob/master/config_spec.yml

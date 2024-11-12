@@ -353,8 +353,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         # wheel
         if system.isOptSet('use_wheels') and system.getOptBoolean('use_wheels'):
             deviceInfos = controllersConfig.getDevicesInformation()
-            nplayer = 1
-            for pad in sorted(controllers.values()):
+            for nplayer, pad in enumerate(sorted(controllers.values()), start=1):
                 if pad.device_path in deviceInfos:
                     if deviceInfos[pad.device_path]["isWheel"]:
                         retroarchConfig['input_player' + str(nplayer) + '_analog_dpad_mode'] = '1'
@@ -362,7 +361,6 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
                             retroarchConfig['input_libretro_device_p' + str(nplayer)] = 773 # Negcon
                         else:
                             retroarchConfig['input_libretro_device_p' + str(nplayer)] = 517 # DualShock Controller
-                nplayer += 1
 
     ## Sega Dreamcast controller
     if system.config['core'] == 'flycast':
@@ -943,7 +941,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
                     if "gun_"+gd["key"] in metadata and metadata["gun_"+gd["key"]] == gd["value"] and "mapcorekey" in gd and "mapcorevalue" in gd:
                         raguncoreconf[gd["mapcorekey"]] = gd["mapcorevalue"]
 
-            for nplayer in range(1, 3+1):
+            for nplayer in range(1, 4):
                 if "p"+str(nplayer) in ragunconf and len(guns)-1 >= ragunconf["p"+str(nplayer)]:
                     if "device_p"+str(nplayer) in ragunconf:
                         retroarchConfig['input_libretro_device_p'+str(nplayer)] = ragunconf["device_p"+str(nplayer)]
@@ -1116,21 +1114,20 @@ def configureGunInputsForPlayer(n: int, gun: Gun, controllers: ControllerMapping
 
     # controller mapping
     hatstoname = {'1': 'up', '2': 'right', '4': 'down', '8': 'left'}
-    nplayer = 1
-    for pad in sorted(controllers.values()):
-        if nplayer == n:
-            for m, mapped in mapping.items():
-                if (mapped_input := pad.inputs.get(mapped)) is not None:
-                    if mapped_input.type == "button":
-                        retroarchConfig[f'input_player{n}_{m}_btn'] = mapped_input.id
-                    elif mapped_input.type == "hat":
-                        retroarchConfig[f'input_player{n}_{m}_btn'] = "h0" + hatstoname[mapped_input.value]
-                    elif mapped_input.type == "axis":
-                        aval = "+"
-                        if int(mapped_input.value) < 0:
-                            aval = "-"
-                        retroarchConfig[f'input_player{n}_{m}_axis'] = aval + mapped_input.id
-        nplayer += 1
+    sorted_controllers = sorted(controllers.values())
+    if n - 1 < len(sorted_controllers):
+        pad = sorted_controllers[n - 1]
+        for m, mapped in mapping.items():
+            if (mapped_input := pad.inputs.get(mapped)) is not None:
+                if mapped_input.type == "button":
+                    retroarchConfig[f'input_player{n}_{m}_btn'] = mapped_input.id
+                elif mapped_input.type == "hat":
+                    retroarchConfig[f'input_player{n}_{m}_btn'] = "h0" + hatstoname[mapped_input.value]
+                elif mapped_input.type == "axis":
+                    aval = "+"
+                    if int(mapped_input.value) < 0:
+                        aval = "-"
+                    retroarchConfig[f'input_player{n}_{m}_axis'] = aval + mapped_input.id
 
 def writeLibretroConfigToFile(retroconfig: UnixSettings, config: Mapping[str, object]) -> None:
     for setting, value in config.items():

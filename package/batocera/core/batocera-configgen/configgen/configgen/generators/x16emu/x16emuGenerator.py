@@ -60,11 +60,8 @@ class X16emuGenerator(Generator):
             commandArray.extend(["-widescreen"])
 
         # Now add Controllers
-        nplayer = 1
-        for _ in sorted(playersControllers.values()):
-            if nplayer <= 4:
-                commandArray.extend([f"-joy{nplayer}"])
-            nplayer += 1
+        for nplayer, _ in enumerate(sorted(playersControllers.values())[0:4], start=1):
+            commandArray.extend([f"-joy{nplayer}"])
 
         return Command.Command(
             array=commandArray,

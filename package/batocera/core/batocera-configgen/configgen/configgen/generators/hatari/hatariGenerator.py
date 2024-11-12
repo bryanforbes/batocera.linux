@@ -128,28 +128,25 @@ class HatariGenerator(Generator):
                 config.set(section, "nJoyId", "-1")
                 config.set(section, "nJoystickMode", "0")
 
-        nplayer = 1
-        for pad in sorted(playersControllers.values()):
-            if nplayer <= 5:
-                section = "Joystick" + str(nplayer)
-                if not config.has_section(section):
-                    config.add_section(section)
-                config.set(section, "nJoyId", str(pad.index))
-                config.set(section, "nJoystickMode", "1")
+        for nplayer, pad in enumerate(sorted(playersControllers.values())[0:5], start=1):
+            section = "Joystick" + str(nplayer)
+            if not config.has_section(section):
+                config.add_section(section)
+            config.set(section, "nJoyId", str(pad.index))
+            config.set(section, "nJoystickMode", "1")
 
-                if padMapping[1] in pad.inputs:
-                    config.set(section, "nButton1", str(pad.inputs[padMapping[1]].id))
-                else:
-                    config.set(section, "nButton1", "0")
-                if padMapping[2] in pad.inputs:
-                    config.set(section, "nButton2", str(pad.inputs[padMapping[2]].id))
-                else:
-                    config.set(section, "nButton2", "1")
-                if padMapping[3] in pad.inputs:
-                    config.set(section, "nButton3", str(pad.inputs[padMapping[3]].id))
-                else:
-                    config.set(section, "nButton3", "2")
-            nplayer += 1
+            if padMapping[1] in pad.inputs:
+                config.set(section, "nButton1", str(pad.inputs[padMapping[1]].id))
+            else:
+                config.set(section, "nButton1", "0")
+            if padMapping[2] in pad.inputs:
+                config.set(section, "nButton2", str(pad.inputs[padMapping[2]].id))
+            else:
+                config.set(section, "nButton2", "1")
+            if padMapping[3] in pad.inputs:
+                config.set(section, "nButton3", str(pad.inputs[padMapping[3]].id))
+            else:
+                config.set(section, "nButton3", "2")
 
         # Log
         if not config.has_section("Log"):
