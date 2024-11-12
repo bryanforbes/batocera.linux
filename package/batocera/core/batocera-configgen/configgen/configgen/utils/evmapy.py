@@ -536,9 +536,9 @@ class evmapy(AbstractContextManager[None, None]):
         device = evdev.InputDevice(device_path)
         capabilities = device.capabilities(False)
 
-        for event_type in capabilities:
+        for event_type, event_capability in capabilities.items():
             if event_type == 3: # "EV_ABS"
-                for abs_code, val in cast(list[tuple[int, evdev.AbsInfo]], capabilities[event_type]):
+                for abs_code, val in cast(list[tuple[int, evdev.AbsInfo]], event_capability):
                     if abs_code == axis_code:
                         return val.min, val.max
         return 0, 0  # not found

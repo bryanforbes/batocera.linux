@@ -14,7 +14,7 @@ from typing import TYPE_CHECKING, Any, Final
 import requests
 from evdev import ecodes
 
-from configgen.gun import guns_borders_size_name
+from configgen.gun import GunMapping, guns_borders_size_name
 
 from ... import Command
 from ...batoceraPaths import SAVES, mkdir_if_not_exists
@@ -23,6 +23,8 @@ from ...utils import bezels as bezelsUtil, hotkeygen
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from collections.abc import Mapping
+
     from ...types import HotkeysContext
 
 _logger = logging.getLogger(__name__)
@@ -238,13 +240,13 @@ class LindberghGenerator(Generator):
             conf["keys"][key]["modified"]  = True
             conf["keys"][key]["commented"] = True
 
-    def saveConf(self, conf, targetFile):
+    def saveConf(self, conf: Mapping[str, Any], targetFile):
         # update with modified lines
-        for key in conf["keys"]:
-            if conf["keys"][key]["modified"]:
-                nline = conf["keys"][key]["line"]
-                line = key + " " + conf["keys"][key]["value"] + "\n"
-                if conf["keys"][key]["commented"]:
+        for key, value in conf["keys"].items():
+            if value["modified"]:
+                nline = value["line"]
+                line = key + " " + value["value"] + "\n"
+                if value["commented"]:
                     line = "# " + line
                 conf["raw"][nline] = line
 
@@ -255,7 +257,7 @@ class LindberghGenerator(Generator):
         except Exception as e:
             _logger.debug("Error updating configuration file: %s", e)
 
-    def buildConfFile(self, conf, system, gameResolution, guns, wheels, playersControllers, romName):
+    def buildConfFile(self, conf, system, gameResolution, guns: GunMapping, wheels, playersControllers, romName):
         self.setConf(conf, "WIDTH",                     gameResolution['width'])
         self.setConf(conf, "HEIGHT",                    gameResolution['height'])
         self.setConf(conf, "FULLSCREEN",                1)
@@ -303,8 +305,8 @@ class LindberghGenerator(Generator):
         ## Guns
         if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
             need_guns_border = False
-            for gun in guns:
-                if guns[gun]["need_borders"]:
+            for gun in guns.values():
+                if gun.need_borders:
                     need_guns_border = True
             if need_guns_border:
                 bordersSize = guns_borders_size_name(guns, system.config)

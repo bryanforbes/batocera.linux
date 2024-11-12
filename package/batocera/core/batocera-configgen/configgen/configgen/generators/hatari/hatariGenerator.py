@@ -129,7 +129,7 @@ class HatariGenerator(Generator):
                 config.set(section, "nJoystickMode", "0")
 
         nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             if nplayer <= 5:
                 section = "Joystick" + str(nplayer)
                 if not config.has_section(section):

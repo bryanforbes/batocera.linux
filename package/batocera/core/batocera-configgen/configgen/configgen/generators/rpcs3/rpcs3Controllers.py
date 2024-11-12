@@ -76,7 +76,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
 
     configFileName = _RPCS3_INPUT_DIR / "Default.yml"
     with codecs.open(str(configFileName), "w", encoding="utf_8_sig") as f:
-        for controller, pad in sorted(controllers.items()):
+        for pad in sorted(controllers.values()):
             if nplayer <= 7:
                 _logger.debug("Controller #%s - %s", nplayer, pad.guid)
                 # check for DualShock / DualSense
@@ -190,8 +190,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
                     f.write('    Start: Start\n')
                     f.write('    Select: Select\n')
                     f.write('    PS Button: Mode\n')
-                    for inputIdx in pad.inputs:
-                        input = pad.inputs[inputIdx]
+                    for input in pad.inputs.values():
                         if input.name in mapping_dict:
                             config_name = mapping_dict[input.name]["config_name"]
                             event_variations = mapping_dict[input.name]["event_variations"]

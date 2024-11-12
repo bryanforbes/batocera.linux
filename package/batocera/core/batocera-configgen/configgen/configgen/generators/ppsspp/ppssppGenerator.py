@@ -32,8 +32,7 @@ class PPSSPPGenerator(Generator):
             dbpath.unlink()
 
         # Generate the controls.ini
-        for index in playersControllers :
-            controller = playersControllers[index]
+        for controller in playersControllers.values():
             # We only care about player 1
             if controller.player_number != 1:
                 continue

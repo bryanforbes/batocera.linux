@@ -109,7 +109,7 @@ class OpenmsxGenerator(Generator):
             file.write("\n")
             file.write("# -= Controller config =-\n")
             nplayer = 1
-            for playercontroller, pad in sorted(playersControllers.items()):
+            for pad in sorted(playersControllers.values()):
                 if nplayer <= 2:
                     if nplayer == 1:
                         file.write("plug joyporta joystick1\n")
@@ -123,8 +123,7 @@ class OpenmsxGenerator(Generator):
                         file.write('dict set joystick2_config RIGHT {+axis0 R_hat0}\n')
                         file.write('dict set joystick2_config UP {-axis1 U_hat0}\n')
                         file.write('dict set joystick2_config DOWN {+axis1 D_hat0}\n')
-                    for x in pad.inputs:
-                        input = pad.inputs[x]
+                    for input in pad.inputs.values():
                         if input.name == "y":
                             file.write(f'bind "joy{nplayer} button{input.id} down" "keymatrixdown 6 0x40"\n')
                         if input.name == "x":

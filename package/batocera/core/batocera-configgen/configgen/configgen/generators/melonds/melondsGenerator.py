@@ -192,12 +192,11 @@ class MelonDSGenerator(Generator):
         }
 
         val = -1
-        for controller, pad in sorted(playersControllers.items()):
+        for pad in sorted(playersControllers.values()):
             # Only use Player 1 controls
             if pad.player_number != 1:
                 continue
-            for index in pad.inputs:
-                input = pad.inputs[index]
+            for input in pad.inputs.values():
                 if input.name not in melonDSMapping:
                     continue
                 option = melonDSMapping[input.name]

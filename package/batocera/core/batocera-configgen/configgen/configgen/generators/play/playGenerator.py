@@ -175,9 +175,8 @@ class PlayGenerator(Generator):
 
         # Iterate over connected controllers with a limit of 2 players
         nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
-            controller = playersControllers[playercontroller]
-            dev = InputDevice(pad.device_path)
+        for controller in sorted(playersControllers.values()):
+            dev = InputDevice(controller.device_path)
             pad_guid = get_device_id(dev)
             provider_id = 1702257782
 
@@ -192,8 +191,7 @@ class PlayGenerator(Generator):
                 )
 
                 # Handle joystick inputs
-                for index in controller.inputs:
-                    input = controller.inputs[index]
+                for input in controller.inputs.values():
                     if input.name not in playMapping:
                         continue
 

@@ -310,7 +310,7 @@ class BigPEmuGenerator(Generator):
         config["BigPEmuConfig"]["Input"]["MouseThresh"] = 0.5
 
         # per controller settings (standard controller only currently)
-        for nplayer, pad in enumerate(sorted(playersControllers.values(), key=lambda c: c.player_number)):
+        for nplayer, pad in enumerate(sorted(playersControllers.values())):
             if nplayer <= 7 and (player_key := f"Device{nplayer}") not in config["BigPEmuConfig"]["Input"]:
                 player_input_config: dict[str, Any] = {}
                 player_input_bindings: _Bindings = []

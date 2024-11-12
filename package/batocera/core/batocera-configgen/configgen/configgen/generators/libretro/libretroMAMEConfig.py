@@ -576,13 +576,13 @@ def generateMAMEPadConfig(
 
     # Common controls
     mappings: dict[str, str] = {}
-    for controlDef in controlDict['default']:
-        mappings[controlDef] = controlDict['default'][controlDef]
+    for controlDefKey, controlDefValue in controlDict['default'].items():
+        mappings[controlDefKey] = controlDefValue
 
     # Buttons that change based on game/setting
     if altButtons in controlDict:
-        for controlDef in controlDict[altButtons]:
-            mappings.update({controlDef: controlDict[altButtons][controlDef]})
+        for controlDefKey, controlDefValue in controlDict[altButtons].items():
+            mappings.update({controlDefKey: controlDefValue})
 
     xml_mameconfig = getRoot(config, "mameconfig")
     xml_mameconfig.setAttribute("version", "10") # otherwise, config of pad won't work at first run (batocera v33)
@@ -650,24 +650,24 @@ def generateMAMEPadConfig(
     # Fill in controls on cfg files
     nplayer = 1
     maxplayers = len(playersControllers)
-    for playercontroller, pad in sorted(playersControllers.items()):
-        mappings_use = mappings
+    for pad in sorted(playersControllers.values()):
+        mappings_use = mappings.copy()
         if "joystick1up" not in pad.inputs:
             mappings_use["JOYSTICK_UP"] = "up"
             mappings_use["JOYSTICK_DOWN"] = "down"
             mappings_use["JOYSTICK_LEFT"] = "left"
             mappings_use["JOYSTICK_RIGHT"] = "right"
 
-        for mapping in mappings_use:
-            if mappings_use[mapping] in pad.inputs:
+        for mapping, mapping_key in mappings_use.items():
+            if mapping_key in pad.inputs:
                 if mapping in [ 'START', 'COIN' ]:
-                    xml_input.appendChild(generateSpecialPortElement(pad, config, 'standard', nplayer, pad.index, mapping + str(nplayer), mappings_use[mapping], retroPad[mappings_use[mapping]], False, "", ""))
+                    xml_input.appendChild(generateSpecialPortElement(pad, config, 'standard', nplayer, pad.index, mapping + str(nplayer), mapping_key, retroPad[mapping_key], False, "", ""))
                 else:
-                    xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mappings_use[mapping], retroPad[mappings_use[mapping]], False, altButtons))
+                    xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mapping_key, retroPad[mapping_key], False, altButtons))
             else:
-                rmapping = reverseMapping(mappings_use[mapping])
+                rmapping = reverseMapping(mapping_key)
                 if rmapping in retroPad:
-                        xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mappings_use[mapping], retroPad[rmapping], True, altButtons))
+                        xml_input.appendChild(generatePortElement(pad, config, nplayer, pad.index, mapping, mapping_key, retroPad[rmapping], True, altButtons))
 
         #UI Mappings
         if nplayer == 1:
@@ -678,8 +678,7 @@ def generateMAMEPadConfig(
             xml_input.appendChild(generateComboPortElement(pad, config, 'standard', pad.index, "UI_SELECT", "ENTER", 'a', retroPad['a'], False, "", ""))                                                     # Select
 
         if useControls in messControlDict:
-            for controlDef in messControlDict[useControls]:
-                thisControl = messControlDict[useControls][controlDef]
+            for thisControl in messControlDict[useControls].values():
                 if nplayer == thisControl['player']:
                     if thisControl['type'] == 'special':
                         xml_input_alt.appendChild(generateSpecialPortElement(pad, config_alt, thisControl['tag'], nplayer, pad.index, thisControl['key'], thisControl['mapping'], \
