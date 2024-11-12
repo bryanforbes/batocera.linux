@@ -78,22 +78,22 @@ def writeControllersConfig(retroconfig: UnixSettings, system: Emulator, controll
         if option in system.config and system.config[option] == 'n64limited':
             retroarchspecials = {'start': 'exit_emulator'}
 
-    for controller in controllers:
+    for player_number, controller in controllers.items():
         mouseIndex = None
         if system.name in ['nds', '3ds']:
             deviceList = getDevicesInformation()
-            mouseIndex = getAssociatedMouse(deviceList, controllers[controller].device_path)
+            mouseIndex = getAssociatedMouse(deviceList, controller.device_path)
         if mouseIndex is None:
             mouseIndex = '0'
-        writeControllerConfig(retroconfig, controllers[controller], controller, system, retroarchspecials, lightgun, mouseIndex)
+        writeControllerConfig(retroconfig, controller, player_number, system, retroarchspecials, lightgun, mouseIndex)
 
     writeHotKeyConfig(retroconfig, controllers)
 
 # Remove all controller configurations
 def cleanControllerConfig(retroconfig: UnixSettings, controllers: ControllerMapping, retroarchspecials: Mapping[str, str]):
     retroconfig.disable_all('input_player')
-    for specialkey in retroarchspecials:
-        retroconfig.disable_all(f'input_{retroarchspecials[specialkey]}')
+    for specialkey in retroarchspecials.values():
+        retroconfig.disable_all(f'input_{specialkey}')
 
 
 # Write the hotkey for player 1
@@ -106,8 +106,8 @@ def writeHotKeyConfig(retroconfig: UnixSettings, controllers: ControllerMapping)
 # Write a configuration for a specified controller
 def writeControllerConfig(retroconfig: UnixSettings, controller: Controller, playerIndex: int, system: Emulator, retroarchspecials: Mapping[str, str], lightgun: bool, mouseIndex: str | None = '0'):
     generatedConfig = generateControllerConfig(controller, retroarchspecials, system, lightgun, mouseIndex)
-    for key in generatedConfig:
-        retroconfig.save(key, generatedConfig[key])
+    for key, value in generatedConfig.items():
+        retroconfig.save(key, value)
 
     retroconfig.save(f'input_player{playerIndex}_joypad_index', controller.index)
     retroconfig.save(f'input_player{playerIndex}_analog_dpad_mode', getAnalogMode(controller, system))
@@ -138,21 +138,18 @@ def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[
 
     config: dict[str, str | None] = dict()
     # config['input_device'] = f'"{controller.real_name}"'
-    for btnkey in retroarchbtns:
-        btnvalue = retroarchbtns[btnkey]
+    for btnkey, btnvalue in retroarchbtns.items():
         if btnkey in controller.inputs:
             input = controller.inputs[btnkey]
             config[f'input_player{controller.player_number}_{btnvalue}_{typetoname[input.type]}'] = getConfigValue(
                 input)
     if lightgun:
-        for btnkey in retroarchGunbtns: # Gun Mapping
-            btnvalue = retroarchGunbtns[btnkey]
+        for btnkey, btnvalue in retroarchGunbtns.items(): # Gun Mapping
             if btnkey in controller.inputs:
                 input = controller.inputs[btnkey]
                 config[f'input_player{controller.player_number}_gun_{btnvalue}_{typetoname[input.type]}'] = getConfigValue(
                     input)
-    for dirkey in retroarchdirs:
-        dirvalue = retroarchdirs[dirkey]
+    for dirkey, dirvalue in retroarchdirs.items():
         if dirkey in controller.inputs:
             input = controller.inputs[dirkey]
             config[f'input_player{controller.player_number}_{dirvalue}_{typetoname[input.type]}'] = getConfigValue(
@@ -161,8 +158,7 @@ def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[
                 # Gun Mapping
                 config[f'input_player{controller.player_number}_gun_dpad_{dirvalue}_{typetoname[input.type]}'] = getConfigValue(
                     input)
-    for jskey in retroarchjoysticks:
-        jsvalue = retroarchjoysticks[jskey]
+    for jskey, jsvalue in retroarchjoysticks.items():
         if jskey in controller.inputs:
             input = controller.inputs[jskey]
             if input.value == '-1':

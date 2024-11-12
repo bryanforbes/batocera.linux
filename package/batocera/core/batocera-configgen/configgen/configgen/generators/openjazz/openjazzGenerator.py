@@ -296,11 +296,9 @@ class OpenJazzGenerator(Generator):
         }
 
         nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
-            controller = playersControllers[playercontroller]
+        for controller in sorted(playersControllers.values()):
             if nplayer == 1:
-                for index in controller.inputs:
-                    input = controller.inputs[index]
+                for input in controller.inputs.values():
                     # We only need to write button layouts as hats & axis are already configured by default correctly
                     if input.type == 'button':
                         # Write buttons in order to the appropriate slots of controls_buttons
