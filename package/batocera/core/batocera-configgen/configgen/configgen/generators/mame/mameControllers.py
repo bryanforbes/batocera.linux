@@ -243,9 +243,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             xml_input_alt.appendChild(xml_kbenable_alt)
 
     # Fill in controls on cfg files
-    nplayer = 1
     maxplayers = len(playersControllers)
-    for pad in sorted(playersControllers.values()):
+    for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
         mappings_use = mappings.copy()
         if not hasStick(pad):
             mappings_use["JOYSTICK_UP"] = "up"
@@ -314,8 +313,6 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
                     elif thisControl['type'] == 'combo':
                         xml_input_alt.appendChild(generateComboPortElement(pad, config_alt, thisControl['tag'], pad.index, thisControl['key'], thisControl['kbMapping'], thisControl['mapping'], \
                             pad.inputs[mappings_use[thisControl['useMapping']]], thisControl['reversed'], thisControl['mask'], thisControl['default']))
-
-        nplayer = nplayer + 1
 
     # in case there are more guns than pads, configure them
     if useGuns and len(guns) > len(playersControllers):

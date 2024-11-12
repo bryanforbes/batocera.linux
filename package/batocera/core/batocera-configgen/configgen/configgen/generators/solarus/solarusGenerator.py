@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Final
 from ... import Command
 from ...batoceraPaths import CONFIGS, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
+from ...utils.iterable import first
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -31,13 +32,11 @@ class SolarusGenerator(Generator):
         commandArray = ["solarus-run", "-fullscreen=yes", "-cursor-visible=no", "-lua-console=no"]
 
         # hotkey to exit
-        nplayer = 1
-        for pad in sorted(playersControllers.values()):
+        for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
             if nplayer == 1:
                 if "hotkey" in pad.inputs and "start" in pad.inputs:
                     commandArray.append(f"-quit-combo={pad.inputs['hotkey'].id}+{pad.inputs['start'].id}")
             commandArray.append(f"-joypad-num{nplayer}={pad.index}")
-            nplayer += 1
 
         # player pad
         SolarusGenerator.padConfig(system, playersControllers)
@@ -81,16 +80,12 @@ class SolarusGenerator(Generator):
 
         mkdir_if_not_exists(_CONFIG_DIR)
         with codecs.open(str(_CONFIG_DIR / "pads.ini"), "w", encoding="ascii") as f:
-            nplayer = 1
-            for pad in sorted(playersControllers.values()):
-                if nplayer == 1:
-                    for key, mapped_key in keymapping.items():
-                        if mapped_key in pad.inputs:
-                            f.write(f"{key}={SolarusGenerator.key2val(pad.inputs[mapped_key], False)}\n")
-                        if key in reverseAxis and pad.inputs[mapped_key].type == "axis":
-                            f.write(f"{reverseAxis[key]}={SolarusGenerator.key2val(pad.inputs[mapped_key], True)}\n")
-
-                nplayer += 1
+            if pad := first(sorted(playersControllers.values())):
+                for key, mapped_key in keymapping.items():
+                    if mapped_key in pad.inputs:
+                        f.write(f"{key}={SolarusGenerator.key2val(pad.inputs[mapped_key], False)}\n")
+                    if key in reverseAxis and pad.inputs[mapped_key].type == "axis":
+                        f.write(f"{reverseAxis[key]}={SolarusGenerator.key2val(pad.inputs[mapped_key], True)}\n")
 
         f.close()
 

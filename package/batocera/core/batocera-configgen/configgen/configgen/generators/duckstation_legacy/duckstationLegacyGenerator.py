@@ -380,79 +380,75 @@ class DuckstationLegacyGenerator(Generator):
         # Start with mutitap disabled
         settings.set("ControllerPorts", "MultitapMode", "Disabled")
         # Now add the controller config based on the ES type & number connected
-        nplayer = 1
-        for pad in sorted(playersControllers.items()):
-            if nplayer <= 8:
-                # automatically add the multi-tap
-                if nplayer > 2:
-                    settings.set("ControllerPorts", "MultitapMode", "Port1Only")
-                    if nplayer > 4:
-                        settings.set("ControllerPorts", "MultitapMode", "BothPorts")
-                pad_num = f"Pad{nplayer}"
-                sdl_num = f"SDL-{pad.index}"
-                ctrl_num = "Controller" + str(nplayer)
-                # SDL2 configs are always the same for controllers
-                if system.isOptSet("duckstation_" + ctrl_num):
-                    settings.set(pad_num, "Type", system.config["duckstation_" + ctrl_num])
-                else:
-                    settings.set(pad_num, "Type", "DigitalController")
-                settings.set(pad_num, "Up", sdl_num+"/DPadUp")
-                settings.set(pad_num, "Right", sdl_num+"/DPadRight")
-                settings.set(pad_num, "Down", sdl_num+"/DPadDown")
-                settings.set(pad_num, "Left", sdl_num+"/DPadLeft")
-                settings.set(pad_num, "Triangle", sdl_num+"/Y")
-                settings.set(pad_num, "Circle", sdl_num+"/B")
-                settings.set(pad_num, "Cross", sdl_num+"/A")
-                settings.set(pad_num, "Square", sdl_num+"/X")
-                settings.set(pad_num, "Select", sdl_num+"/Back")
-                settings.set(pad_num, "Start", sdl_num+"/Start")
-                settings.set(pad_num, "L1", sdl_num+"/LeftShoulder")
-                settings.set(pad_num, "R1", sdl_num+"/RightShoulder")
-                settings.set(pad_num, "L2", sdl_num+"/+LeftTrigger")
-                settings.set(pad_num, "R2", sdl_num+"/+RightTrigger")
-                settings.set(pad_num, "L3", sdl_num+"/LeftStick")
-                settings.set(pad_num, "R3", sdl_num+"/RightStick")
-                settings.set(pad_num, "LLeft", sdl_num+"/-LeftX")
-                settings.set(pad_num, "LRight", sdl_num+"/+LeftX")
-                settings.set(pad_num, "LDown", sdl_num+"/+LeftY")
-                settings.set(pad_num, "LUp", sdl_num+"/-LeftY")
-                settings.set(pad_num, "RLeft", sdl_num+"/-RightX")
-                settings.set(pad_num, "RRight", sdl_num+"/+RightX")
-                settings.set(pad_num, "RDown", sdl_num+"/+RightY")
-                settings.set(pad_num, "RUp", sdl_num+"/-RightY")
-                settings.set(pad_num, "SmallMotor", sdl_num+"/SmallMotor")
-                settings.set(pad_num, "LargeMotor", sdl_num+"/LargeMotor")
-                settings.set(pad_num, "VibrationBias", "8")
-                # D-Pad to Joystick
-                if system.isOptSet("duckstation_digitalmode"):
-                    settings.set(pad_num, "AnalogDPadInDigitalMode", system.config["duckstation_digitalmode"])
-                    if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "AnalogController":
-                        settings.set(pad_num, "Analog", sdl_num+"/Guide & "+sdl_num+"/+LeftTrigger")
-                else:
-                    settings.set(pad_num, "AnalogDPadInDigitalMode", "false")
-                # NeGcon ?
-                if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "NeGcon":
-                    settings.set(pad_num, "A", sdl_num+"/B")
-                    settings.set(pad_num, "B", sdl_num+"/Y")
-                    settings.set(pad_num, "I", sdl_num+"/+RightTrigger")
-                    settings.set(pad_num, "II", sdl_num+"/+LeftTrigger")
-                    settings.set(pad_num, "L", sdl_num+"/LeftShoulder")
-                    settings.set(pad_num, "R", sdl_num+"/RightShoulder")
-                    settings.set(pad_num, "SteeringLeft", sdl_num+"/-LeftX")
-                    settings.set(pad_num, "SteeringRight", sdl_num+"/+LeftX")
-                # Guns - GunCon
-                if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "GunCon":
-                    settings.set(pad_num, "Trigger", sdl_num+"/+RightTrigger")
-                    settings.set(pad_num, "ShootOffscreen", sdl_num+"/+LeftTrigger")
-                    settings.set(pad_num, "A", sdl_num+"/A")
-                    settings.set(pad_num, "B", sdl_num+"/B")
-                # Mouse
-                if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "PlayStationMouse":
-                    settings.set(pad_num, "Right", sdl_num+"/B")
-                    settings.set(pad_num, "Left", sdl_num+"/A")
-                    settings.set(pad_num, "RelativeMouseMode", sdl_num+"true")
-            # Next controller
-            nplayer += 1
+        for nplayer, pad in enumerate(sorted(playersControllers.items())[0:8], start=1):
+            # automatically add the multi-tap
+            if nplayer > 2:
+                settings.set("ControllerPorts", "MultitapMode", "Port1Only")
+                if nplayer > 4:
+                    settings.set("ControllerPorts", "MultitapMode", "BothPorts")
+            pad_num = f"Pad{nplayer}"
+            sdl_num = f"SDL-{pad.index}"
+            ctrl_num = "Controller" + str(nplayer)
+            # SDL2 configs are always the same for controllers
+            if system.isOptSet("duckstation_" + ctrl_num):
+                settings.set(pad_num, "Type", system.config["duckstation_" + ctrl_num])
+            else:
+                settings.set(pad_num, "Type", "DigitalController")
+            settings.set(pad_num, "Up", sdl_num+"/DPadUp")
+            settings.set(pad_num, "Right", sdl_num+"/DPadRight")
+            settings.set(pad_num, "Down", sdl_num+"/DPadDown")
+            settings.set(pad_num, "Left", sdl_num+"/DPadLeft")
+            settings.set(pad_num, "Triangle", sdl_num+"/Y")
+            settings.set(pad_num, "Circle", sdl_num+"/B")
+            settings.set(pad_num, "Cross", sdl_num+"/A")
+            settings.set(pad_num, "Square", sdl_num+"/X")
+            settings.set(pad_num, "Select", sdl_num+"/Back")
+            settings.set(pad_num, "Start", sdl_num+"/Start")
+            settings.set(pad_num, "L1", sdl_num+"/LeftShoulder")
+            settings.set(pad_num, "R1", sdl_num+"/RightShoulder")
+            settings.set(pad_num, "L2", sdl_num+"/+LeftTrigger")
+            settings.set(pad_num, "R2", sdl_num+"/+RightTrigger")
+            settings.set(pad_num, "L3", sdl_num+"/LeftStick")
+            settings.set(pad_num, "R3", sdl_num+"/RightStick")
+            settings.set(pad_num, "LLeft", sdl_num+"/-LeftX")
+            settings.set(pad_num, "LRight", sdl_num+"/+LeftX")
+            settings.set(pad_num, "LDown", sdl_num+"/+LeftY")
+            settings.set(pad_num, "LUp", sdl_num+"/-LeftY")
+            settings.set(pad_num, "RLeft", sdl_num+"/-RightX")
+            settings.set(pad_num, "RRight", sdl_num+"/+RightX")
+            settings.set(pad_num, "RDown", sdl_num+"/+RightY")
+            settings.set(pad_num, "RUp", sdl_num+"/-RightY")
+            settings.set(pad_num, "SmallMotor", sdl_num+"/SmallMotor")
+            settings.set(pad_num, "LargeMotor", sdl_num+"/LargeMotor")
+            settings.set(pad_num, "VibrationBias", "8")
+            # D-Pad to Joystick
+            if system.isOptSet("duckstation_digitalmode"):
+                settings.set(pad_num, "AnalogDPadInDigitalMode", system.config["duckstation_digitalmode"])
+                if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "AnalogController":
+                    settings.set(pad_num, "Analog", sdl_num+"/Guide & "+sdl_num+"/+LeftTrigger")
+            else:
+                settings.set(pad_num, "AnalogDPadInDigitalMode", "false")
+            # NeGcon ?
+            if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "NeGcon":
+                settings.set(pad_num, "A", sdl_num+"/B")
+                settings.set(pad_num, "B", sdl_num+"/Y")
+                settings.set(pad_num, "I", sdl_num+"/+RightTrigger")
+                settings.set(pad_num, "II", sdl_num+"/+LeftTrigger")
+                settings.set(pad_num, "L", sdl_num+"/LeftShoulder")
+                settings.set(pad_num, "R", sdl_num+"/RightShoulder")
+                settings.set(pad_num, "SteeringLeft", sdl_num+"/-LeftX")
+                settings.set(pad_num, "SteeringRight", sdl_num+"/+LeftX")
+            # Guns - GunCon
+            if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "GunCon":
+                settings.set(pad_num, "Trigger", sdl_num+"/+RightTrigger")
+                settings.set(pad_num, "ShootOffscreen", sdl_num+"/+LeftTrigger")
+                settings.set(pad_num, "A", sdl_num+"/A")
+                settings.set(pad_num, "B", sdl_num+"/B")
+            # Mouse
+            if system.isOptSet("duckstation_" + ctrl_num) and system.config["duckstation_" + ctrl_num] == "PlayStationMouse":
+                settings.set(pad_num, "Right", sdl_num+"/B")
+                settings.set(pad_num, "Left", sdl_num+"/A")
+                settings.set(pad_num, "RelativeMouseMode", sdl_num+"true")
 
         ## [Hotkeys]
         if not settings.has_section("Hotkeys"):

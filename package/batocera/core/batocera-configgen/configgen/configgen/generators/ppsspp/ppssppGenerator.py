@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 from ... import Command
 from ...batoceraPaths import CONFIGS, SAVES
 from ...controller import generate_sdl_game_controller_config
+from ...utils.iterable import first
 from ..Generator import Generator
 from . import ppssppConfig, ppssppControllers
 from .ppssppPaths import PPSSPP_CONFIG_DIR
@@ -55,11 +56,8 @@ class PPSSPPGenerator(Generator):
         #commandArray = ['/usr/bin/PPSSPP'], rom, "--escape-exit"]
 
         # select the correct pad
-        nplayer = 1
-        for playercontroller, pad in sorted(playersControllers.items()):
-            if nplayer == 1:
-                commandArray.extend(["--njoy", str(pad.index)])
-            nplayer = nplayer +1
+        if pad := first(sorted(playersControllers.values())):
+            commandArray.extend(["--njoy", str(pad.index)])
 
         return Command.Command(
             array=commandArray,

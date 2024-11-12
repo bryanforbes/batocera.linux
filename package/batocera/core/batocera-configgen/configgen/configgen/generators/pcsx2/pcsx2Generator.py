@@ -702,60 +702,56 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
             pcsx2INIConfig.remove_section(section_name)
 
     # Now add Controllers
-    nplayer = 1
-    for pad in sorted(controllers.values()):
-        # only configure the number of controllers set
-        if nplayer <= multiTap:
-            pad_index = nplayer
-            if multiTap == 4 and pad.index != 0:
-                # Skip Pad2 in the ini file when MultitapPort1 only
-                pad_index = nplayer + 1
-            pad_num = f"Pad{pad_index}"
-            sdl_num = f"SDL-{pad.index}"
+    # only configure the number of controllers set
+    for nplayer, pad in enumerate(sorted(controllers.values())[0:multiTap], start=1):
+        pad_index = nplayer
+        if multiTap == 4 and pad.index != 0:
+            # Skip Pad2 in the ini file when MultitapPort1 only
+            pad_index = nplayer + 1
+        pad_num = f"Pad{pad_index}"
+        sdl_num = f"SDL-{pad.index}"
 
-            if not pcsx2INIConfig.has_section(pad_num):
-                pcsx2INIConfig.add_section(pad_num)
+        if not pcsx2INIConfig.has_section(pad_num):
+            pcsx2INIConfig.add_section(pad_num)
 
-            pcsx2INIConfig.set(pad_num, "Type", "DualShock2")
-            pcsx2INIConfig.set(pad_num, "InvertL", "0")
-            pcsx2INIConfig.set(pad_num, "InvertR", "0")
-            pcsx2INIConfig.set(pad_num, "Deadzone", "0")
-            pcsx2INIConfig.set(pad_num, "AxisScale", "1.33")
-            pcsx2INIConfig.set(pad_num, "TriggerDeadzone", "0")
-            pcsx2INIConfig.set(pad_num, "TriggerScale", "1")
-            pcsx2INIConfig.set(pad_num, "LargeMotorScale", "1")
-            pcsx2INIConfig.set(pad_num, "SmallMotorScale", "1")
-            pcsx2INIConfig.set(pad_num, "ButtonDeadzone", "0")
-            pcsx2INIConfig.set(pad_num, "PressureModifier", "0.5")
-            pcsx2INIConfig.set(pad_num, "Up", sdl_num + "/DPadUp")
-            pcsx2INIConfig.set(pad_num, "Right", sdl_num + "/DPadRight")
-            pcsx2INIConfig.set(pad_num, "Down", sdl_num + "/DPadDown")
-            pcsx2INIConfig.set(pad_num, "Left", sdl_num + "/DPadLeft")
-            pcsx2INIConfig.set(pad_num, "Triangle", sdl_num + "/Y")
-            pcsx2INIConfig.set(pad_num, "Circle", sdl_num + "/B")
-            pcsx2INIConfig.set(pad_num, "Cross", sdl_num + "/A")
-            pcsx2INIConfig.set(pad_num, "Square", sdl_num + "/X")
-            pcsx2INIConfig.set(pad_num, "Select", sdl_num + "/Back")
-            pcsx2INIConfig.set(pad_num, "Start", sdl_num + "/Start")
-            pcsx2INIConfig.set(pad_num, "L1", sdl_num + "/LeftShoulder")
-            pcsx2INIConfig.set(pad_num, "L2", sdl_num + "/+LeftTrigger")
-            pcsx2INIConfig.set(pad_num, "R1", sdl_num + "/RightShoulder")
-            pcsx2INIConfig.set(pad_num, "R2", sdl_num + "/+RightTrigger")
-            pcsx2INIConfig.set(pad_num, "L3", sdl_num + "/LeftStick")
-            pcsx2INIConfig.set(pad_num, "R3", sdl_num + "/RightStick")
-            pcsx2INIConfig.set(pad_num, "LUp", sdl_num + "/-LeftY")
-            pcsx2INIConfig.set(pad_num, "LRight", sdl_num + "/+LeftX")
-            pcsx2INIConfig.set(pad_num, "LDown", sdl_num + "/+LeftY")
-            pcsx2INIConfig.set(pad_num, "LLeft", sdl_num + "/-LeftX")
-            pcsx2INIConfig.set(pad_num, "RUp", sdl_num + "/-RightY")
-            pcsx2INIConfig.set(pad_num, "RRight", sdl_num + "/+RightX")
-            pcsx2INIConfig.set(pad_num, "RDown", sdl_num + "/+RightY")
-            pcsx2INIConfig.set(pad_num, "RLeft", sdl_num + "/-RightX")
-            pcsx2INIConfig.set(pad_num, "Analog", sdl_num + "/Guide")
-            pcsx2INIConfig.set(pad_num, "LargeMotor", sdl_num + "/LargeMotor")
-            pcsx2INIConfig.set(pad_num, "SmallMotor", sdl_num + "/SmallMotor")
-
-        nplayer += 1
+        pcsx2INIConfig.set(pad_num, "Type", "DualShock2")
+        pcsx2INIConfig.set(pad_num, "InvertL", "0")
+        pcsx2INIConfig.set(pad_num, "InvertR", "0")
+        pcsx2INIConfig.set(pad_num, "Deadzone", "0")
+        pcsx2INIConfig.set(pad_num, "AxisScale", "1.33")
+        pcsx2INIConfig.set(pad_num, "TriggerDeadzone", "0")
+        pcsx2INIConfig.set(pad_num, "TriggerScale", "1")
+        pcsx2INIConfig.set(pad_num, "LargeMotorScale", "1")
+        pcsx2INIConfig.set(pad_num, "SmallMotorScale", "1")
+        pcsx2INIConfig.set(pad_num, "ButtonDeadzone", "0")
+        pcsx2INIConfig.set(pad_num, "PressureModifier", "0.5")
+        pcsx2INIConfig.set(pad_num, "Up", sdl_num + "/DPadUp")
+        pcsx2INIConfig.set(pad_num, "Right", sdl_num + "/DPadRight")
+        pcsx2INIConfig.set(pad_num, "Down", sdl_num + "/DPadDown")
+        pcsx2INIConfig.set(pad_num, "Left", sdl_num + "/DPadLeft")
+        pcsx2INIConfig.set(pad_num, "Triangle", sdl_num + "/Y")
+        pcsx2INIConfig.set(pad_num, "Circle", sdl_num + "/B")
+        pcsx2INIConfig.set(pad_num, "Cross", sdl_num + "/A")
+        pcsx2INIConfig.set(pad_num, "Square", sdl_num + "/X")
+        pcsx2INIConfig.set(pad_num, "Select", sdl_num + "/Back")
+        pcsx2INIConfig.set(pad_num, "Start", sdl_num + "/Start")
+        pcsx2INIConfig.set(pad_num, "L1", sdl_num + "/LeftShoulder")
+        pcsx2INIConfig.set(pad_num, "L2", sdl_num + "/+LeftTrigger")
+        pcsx2INIConfig.set(pad_num, "R1", sdl_num + "/RightShoulder")
+        pcsx2INIConfig.set(pad_num, "R2", sdl_num + "/+RightTrigger")
+        pcsx2INIConfig.set(pad_num, "L3", sdl_num + "/LeftStick")
+        pcsx2INIConfig.set(pad_num, "R3", sdl_num + "/RightStick")
+        pcsx2INIConfig.set(pad_num, "LUp", sdl_num + "/-LeftY")
+        pcsx2INIConfig.set(pad_num, "LRight", sdl_num + "/+LeftX")
+        pcsx2INIConfig.set(pad_num, "LDown", sdl_num + "/+LeftY")
+        pcsx2INIConfig.set(pad_num, "LLeft", sdl_num + "/-LeftX")
+        pcsx2INIConfig.set(pad_num, "RUp", sdl_num + "/-RightY")
+        pcsx2INIConfig.set(pad_num, "RRight", sdl_num + "/+RightX")
+        pcsx2INIConfig.set(pad_num, "RDown", sdl_num + "/+RightY")
+        pcsx2INIConfig.set(pad_num, "RLeft", sdl_num + "/-RightX")
+        pcsx2INIConfig.set(pad_num, "Analog", sdl_num + "/Guide")
+        pcsx2INIConfig.set(pad_num, "LargeMotor", sdl_num + "/LargeMotor")
+        pcsx2INIConfig.set(pad_num, "SmallMotor", sdl_num + "/SmallMotor")
 
     ## [GameList]
     if not pcsx2INIConfig.has_section("GameList"):

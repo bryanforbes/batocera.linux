@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Any, Final
 from ... import Command
 from ...batoceraPaths import BIOS, CONFIGS, HOME, mkdir_if_not_exists
 from ...utils import wine
+from ...utils.iterable import first
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -85,72 +86,69 @@ class FpinballGenerator(Generator):
                     "r3":       "JoypadToggleHud"
                 }
 
-                nplayer = 1
-                for pad in sorted(playersControllers.values()):
-                    #only take controller 1
-                    if nplayer <= 1:
-                        joystickname = pad.real_name
-                        unassigned_value = int("ffffffff", 16)
-                        assigns = {
-                            "JoypadBackbox":        unassigned_value,
-                            "JoypadDigitalPlunger": unassigned_value,
-                            "JoypadInsertCoin":     unassigned_value,
-                            "JoypadNextCamera":     unassigned_value,
-                            "JoypadLeftFlipper":    unassigned_value,
-                            "JoypadRightFlipper":   unassigned_value,
-                            "JoypadPause":          unassigned_value,
-                            "JoypadStartGame":      unassigned_value,
-                            "JoypadToggleHud":      unassigned_value
-                        }
-                        for x, input in pad.inputs.items():
-                            if x in mapping:
-                                if mapping[x] in assigns:
-                                    if input.type == "button":
-                                        assigns[mapping[x]] = int(input.id)
+                # only take controller 1
+                if pad := first(sorted(playersControllers.values())):
+                    joystickname = pad.real_name
+                    unassigned_value = int("ffffffff", 16)
+                    assigns = {
+                        "JoypadBackbox":        unassigned_value,
+                        "JoypadDigitalPlunger": unassigned_value,
+                        "JoypadInsertCoin":     unassigned_value,
+                        "JoypadNextCamera":     unassigned_value,
+                        "JoypadLeftFlipper":    unassigned_value,
+                        "JoypadRightFlipper":   unassigned_value,
+                        "JoypadPause":          unassigned_value,
+                        "JoypadStartGame":      unassigned_value,
+                        "JoypadToggleHud":      unassigned_value
+                    }
+                    for x, input in pad.inputs.items():
+                        if x in mapping:
+                            if mapping[x] in assigns:
+                                if input.type == "button":
+                                    assigns[mapping[x]] = int(input.id)
 
-                        f.write(f"[HKEY_CURRENT_USER\\Software\\Future Pinball\\GamePlayer\\Joypads\\{joystickname}]\r\n")
-                        f.write(f"\"JoypadBackbox\"=dword:{assigns['JoypadBackbox']:08x}\r\n")
-                        f.write("\"JoypadDeadZone\"=dword:00000064\r\n")
-                        f.write(f"\"JoypadDigitalPlunger\"=dword:{assigns['JoypadDigitalPlunger']:08x}\r\n")
-                        f.write("\"JoypadExit\"=dword:ffffffff\r\n")
-                        f.write(f"\"JoypadInsertCoin\"=dword:{assigns['JoypadInsertCoin']:08x}\r\n")
-                        f.write("\"JoypadInsertCoin2\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadInsertCoin3\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadLeft2ndFlipper\"=dword:ffffffff\r\n")
-                        f.write(f"\"JoypadLeftFlipper\"=dword:{assigns['JoypadLeftFlipper']:08x}\r\n")
-                        f.write("\"JoypadMusicDown\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadMusicUp\"=dword:ffffffff\r\n")
-                        f.write(f"\"JoypadNextCamera\"=dword:{assigns['JoypadNextCamera']:08x}\r\n")
-                        f.write("\"JoypadNudgeAxisX\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadNudgeAxisY\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadNudgeGainX\"=dword:000003e8\r\n")
-                        f.write("\"JoypadNudgeGainXMax\"=dword:00000002\r\n")
-                        f.write("\"JoypadNudgeGainY\"=dword:000003e8\r\n")
-                        f.write("\"JoypadNudgeGainYMax\"=dword:00000002\r\n")
-                        f.write(f"\"JoypadPause\"=dword:{assigns['JoypadPause']:08x}\r\n")
-                        f.write("\"JoypadPinballRoller\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadPinballRollerAxisX\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadPinballRollerAxisY\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadPinballRollerGainX\"=dword:000003e8\r\n")
-                        f.write("\"JoypadPinballRollerGainXMax\"=dword:00000002\r\n")
-                        f.write("\"JoypadPinballRollerGainY\"=dword:000003e8\r\n")
-                        f.write("\"JoypadPinballRollerGainYMax\"=dword:00000002\r\n")
-                        f.write("\"JoypadPlungerAxis\"=dword:00000001\r\n")
-                        f.write("\"JoypadPlungerGain\"=dword:000003e8\r\n")
-                        f.write("\"JoypadPlungerGainMax\"=dword:00000002\r\n")
-                        f.write("\"JoypadRight2ndFlipper\"=dword:ffffffff\r\n")
-                        f.write(f"\"JoypadRightFlipper\"=dword:{assigns['JoypadRightFlipper']:08x}\r\n")
-                        f.write("\"JoypadService\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadSpecial1\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadSpecial2\"=dword:ffffffff\r\n")
-                        f.write(f"\"JoypadStartGame\"=dword:{assigns['JoypadStartGame']:08x}\r\n")
-                        f.write("\"JoypadSupport\"=dword:00000001\r\n") # enable joystick
-                        f.write("\"JoypadTest\"=dword:ffffffff\r\n")
-                        f.write(f"\"JoypadToggleHud\"=dword:{assigns['JoypadToggleHud']:08x}\r\n")
-                        f.write("\"JoypadVolumeDown\"=dword:ffffffff\r\n")
-                        f.write("\"JoypadVolumeUp\"=dword:ffffffff\r\n")
-                        f.write("\r\n")
-                    nplayer += 1
+                    f.write(f"[HKEY_CURRENT_USER\\Software\\Future Pinball\\GamePlayer\\Joypads\\{joystickname}]\r\n")
+                    f.write(f"\"JoypadBackbox\"=dword:{assigns['JoypadBackbox']:08x}\r\n")
+                    f.write("\"JoypadDeadZone\"=dword:00000064\r\n")
+                    f.write(f"\"JoypadDigitalPlunger\"=dword:{assigns['JoypadDigitalPlunger']:08x}\r\n")
+                    f.write("\"JoypadExit\"=dword:ffffffff\r\n")
+                    f.write(f"\"JoypadInsertCoin\"=dword:{assigns['JoypadInsertCoin']:08x}\r\n")
+                    f.write("\"JoypadInsertCoin2\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadInsertCoin3\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadLeft2ndFlipper\"=dword:ffffffff\r\n")
+                    f.write(f"\"JoypadLeftFlipper\"=dword:{assigns['JoypadLeftFlipper']:08x}\r\n")
+                    f.write("\"JoypadMusicDown\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadMusicUp\"=dword:ffffffff\r\n")
+                    f.write(f"\"JoypadNextCamera\"=dword:{assigns['JoypadNextCamera']:08x}\r\n")
+                    f.write("\"JoypadNudgeAxisX\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadNudgeAxisY\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadNudgeGainX\"=dword:000003e8\r\n")
+                    f.write("\"JoypadNudgeGainXMax\"=dword:00000002\r\n")
+                    f.write("\"JoypadNudgeGainY\"=dword:000003e8\r\n")
+                    f.write("\"JoypadNudgeGainYMax\"=dword:00000002\r\n")
+                    f.write(f"\"JoypadPause\"=dword:{assigns['JoypadPause']:08x}\r\n")
+                    f.write("\"JoypadPinballRoller\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadPinballRollerAxisX\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadPinballRollerAxisY\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadPinballRollerGainX\"=dword:000003e8\r\n")
+                    f.write("\"JoypadPinballRollerGainXMax\"=dword:00000002\r\n")
+                    f.write("\"JoypadPinballRollerGainY\"=dword:000003e8\r\n")
+                    f.write("\"JoypadPinballRollerGainYMax\"=dword:00000002\r\n")
+                    f.write("\"JoypadPlungerAxis\"=dword:00000001\r\n")
+                    f.write("\"JoypadPlungerGain\"=dword:000003e8\r\n")
+                    f.write("\"JoypadPlungerGainMax\"=dword:00000002\r\n")
+                    f.write("\"JoypadRight2ndFlipper\"=dword:ffffffff\r\n")
+                    f.write(f"\"JoypadRightFlipper\"=dword:{assigns['JoypadRightFlipper']:08x}\r\n")
+                    f.write("\"JoypadService\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadSpecial1\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadSpecial2\"=dword:ffffffff\r\n")
+                    f.write(f"\"JoypadStartGame\"=dword:{assigns['JoypadStartGame']:08x}\r\n")
+                    f.write("\"JoypadSupport\"=dword:00000001\r\n") # enable joystick
+                    f.write("\"JoypadTest\"=dword:ffffffff\r\n")
+                    f.write(f"\"JoypadToggleHud\"=dword:{assigns['JoypadToggleHud']:08x}\r\n")
+                    f.write("\"JoypadVolumeDown\"=dword:ffffffff\r\n")
+                    f.write("\"JoypadVolumeUp\"=dword:ffffffff\r\n")
+                    f.write("\r\n")
 
         wine.regedit(wineprefix, _FPINBALL_CONFIG_REG)
 

@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Final
 from ... import Command
 from ...batoceraPaths import CACHE, CONFIGS, ROMS, SAVES, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
+from ...utils.iterable import first
 from ..Generator import Generator
 
 _logger = logging.getLogger(__name__)
@@ -295,28 +296,24 @@ class OpenJazzGenerator(Generator):
             'right': 'right',
         }
 
-        nplayer = 1
-        for controller in sorted(playersControllers.values()):
-            if nplayer == 1:
-                for input in controller.inputs.values():
-                    # We only need to write button layouts as hats & axis are already configured by default correctly
-                    if input.type == 'button':
-                        # Write buttons in order to the appropriate slots of controls_buttons
-                        if input.name == 'a':
-                            self.controls_buttons[7] = int(input.id)
-                        elif input.name == 'b':
-                            self.controls_buttons[9] = int(input.id)
-                        elif input.name== 'x':
-                            self.controls_buttons[8] = int(input.id)
-                        elif input.name == 'y':
-                            self.controls_buttons[10] = int(input.id)
-                        elif input.name == 'select':
-                            self.controls_buttons[12] = int(input.id)
-                        elif input.name == 'start':
-                            self.controls_buttons[11] = int(input.id)
-                _logger.info("Configured Controls - Buttons: %s", self.controls_buttons)
-
-            nplayer += 1
+        if controller := first(sorted(playersControllers.values())):
+            for input in controller.inputs.values():
+                # We only need to write button layouts as hats & axis are already configured by default correctly
+                if input.type == 'button':
+                    # Write buttons in order to the appropriate slots of controls_buttons
+                    if input.name == 'a':
+                        self.controls_buttons[7] = int(input.id)
+                    elif input.name == 'b':
+                        self.controls_buttons[9] = int(input.id)
+                    elif input.name== 'x':
+                        self.controls_buttons[8] = int(input.id)
+                    elif input.name == 'y':
+                        self.controls_buttons[10] = int(input.id)
+                    elif input.name == 'select':
+                        self.controls_buttons[12] = int(input.id)
+                    elif input.name == 'start':
+                        self.controls_buttons[11] = int(input.id)
+            _logger.info("Configured Controls - Buttons: %s", self.controls_buttons)
 
         # User configuration
         if system.isOptSet("jazz_resolution"):

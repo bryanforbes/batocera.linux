@@ -71,12 +71,10 @@ class AmiberryGenerator(Generator):
                 commandArray.append(rom)
             elif romType == 'DISK':
                 # floppies
-                n = 0
-                for img in self.floppiesFromRom(rom):
+                for n, img in enumerate(self.floppiesFromRom(rom)):
                     if n < 4:
                         commandArray.append("-" + str(n))
                         commandArray.append(img)
-                    n += 1
                 # floppy path
                 commandArray.append("-s")
                 # Use disk folder as floppy path
@@ -88,8 +86,7 @@ class AmiberryGenerator(Generator):
 
             mkdir_if_not_exists(_RETROARCH_INPUTS_DIR)
 
-            nplayer = 1
-            for pad in sorted(playersControllers.values()):
+            for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
                 replacements = {'_player' + str(nplayer) + '_':'_'}
                 # amiberry remove / included in pads names like "USB Downlo01.80 PS3/USB Corded Gamepad"
                 padfilename = pad.real_name.replace("/", "")
@@ -109,7 +106,6 @@ class AmiberryGenerator(Generator):
                 if nplayer == 2: # 0 = mouse for the player 2
                     commandArray.append("-s")
                     commandArray.append("joyport0_friendlyname=" + padfilename)
-                nplayer += 1
 
             # fps
             if system.config['showFPS'] == 'true':

@@ -648,9 +648,8 @@ def generateMAMEPadConfig(
         return
 
     # Fill in controls on cfg files
-    nplayer = 1
     maxplayers = len(playersControllers)
-    for pad in sorted(playersControllers.values()):
+    for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
         mappings_use = mappings.copy()
         if "joystick1up" not in pad.inputs:
             mappings_use["JOYSTICK_UP"] = "up"
@@ -693,8 +692,6 @@ def generateMAMEPadConfig(
                     elif thisControl['type'] == 'combo':
                         xml_input_alt.appendChild(generateComboPortElement(pad, config_alt, thisControl['tag'], pad.index, thisControl['key'], thisControl['kbMapping'], thisControl['mapping'], \
                             retroPad[mappings_use[thisControl['useMapping']]], thisControl['reversed'], thisControl['mask'], thisControl['default']))
-
-        nplayer = nplayer + 1
 
         # save the config file
         #mameXml = open(configFile, "w")

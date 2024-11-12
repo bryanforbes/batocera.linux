@@ -174,50 +174,46 @@ class PlayGenerator(Generator):
         input_config = ET.Element("Config")
 
         # Iterate over connected controllers with a limit of 2 players
-        nplayer = 1
-        for controller in sorted(playersControllers.values()):
+        for nplayer, controller in enumerate(sorted(playersControllers.values())[0:2], start=1):
             dev = InputDevice(controller.device_path)
             pad_guid = get_device_id(dev)
             provider_id = 1702257782
 
-            if nplayer <= 2:
-                # Write this per pad
-                ET.SubElement(
-                    input_config,
-                    "Preference",
-                    Name=f"input.pad{nplayer}.analog.sensitivity",
-                    Type="float",
-                    Value=str(1.000000)
-                )
+            # Write this per pad
+            ET.SubElement(
+                input_config,
+                "Preference",
+                Name=f"input.pad{nplayer}.analog.sensitivity",
+                Type="float",
+                Value=str(1.000000)
+            )
 
-                # Handle joystick inputs
-                for input in controller.inputs.values():
-                    if input.name not in playMapping:
-                        continue
+            # Handle joystick inputs
+            for input in controller.inputs.values():
+                if input.name not in playMapping:
+                    continue
 
-                    if input.type == 'axis':
-                        key_type = 1
-                        binding_type = 1
-                        key_id = input.id
-                        hat_value = -1
+                if input.type == 'axis':
+                    key_type = 1
+                    binding_type = 1
+                    key_id = input.id
+                    hat_value = -1
+                    create_input_preferences(input_config, pad_guid, key_id, key_type, provider_id, nplayer, input.name, binding_type, hat_value)
+
+                elif input.type == 'hat':
+                    key_type = 2
+                    binding_type = 3
+                    key_id = 17 if input.name in ['up', 'down'] else 16
+                    hat_value = 4 if input.name in ['up', 'left'] else 0
+                    if input.name in ['up', 'down', 'left', 'right']:
                         create_input_preferences(input_config, pad_guid, key_id, key_type, provider_id, nplayer, input.name, binding_type, hat_value)
 
-                    elif input.type == 'hat':
-                        key_type = 2
-                        binding_type = 3
-                        key_id = 17 if input.name in ['up', 'down'] else 16
-                        hat_value = 4 if input.name in ['up', 'left'] else 0
-                        if input.name in ['up', 'down', 'left', 'right']:
-                            create_input_preferences(input_config, pad_guid, key_id, key_type, provider_id, nplayer, input.name, binding_type, hat_value)
-
-                    elif input.type == 'button':
-                        key_type = 0
-                        binding_type = input.value
-                        key_id = input.code
-                        hat_value = -1
-                        create_input_preferences(input_config, pad_guid, cast(str, key_id), key_type, provider_id, nplayer, input.name, binding_type, hat_value)
-
-                nplayer += 1
+                elif input.type == 'button':
+                    key_type = 0
+                    binding_type = input.value
+                    key_id = input.code
+                    hat_value = -1
+                    create_input_preferences(input_config, pad_guid, cast(str, key_id), key_type, provider_id, nplayer, input.name, binding_type, hat_value)
 
         # Save the controller settings to the specified input file
         input_tree = ET.ElementTree(input_config)

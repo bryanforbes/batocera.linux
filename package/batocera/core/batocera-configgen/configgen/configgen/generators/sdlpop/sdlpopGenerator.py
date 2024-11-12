@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING, Final
 from ... import Command
 from ...batoceraPaths import CONFIGS, SCREENSHOTS, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
+from ...utils.iterable import first
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -49,11 +50,8 @@ class SdlPopGenerator(Generator):
             (SYSTEM_DIR / 'screenshots').symlink_to(SCREENSHOTS_DIR, target_is_directory=True)
 
         # pad number
-        nplayer = 1
-        for pad in sorted(playersControllers.values()):
-            if nplayer == 1:
-                commandArray.append(f"joynum={pad.index}")
-            nplayer += 1
+        if pad := first(sorted(playersControllers.values())):
+            commandArray.append(f"joynum={pad.index}")
 
         return Command.Command(array=commandArray,env={
             "SDL_GAMECONTROLLERCONFIG": generate_sdl_game_controller_config(playersControllers)

@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 
 from ... import Command
 from ...batoceraPaths import CONFIGS, SAVES, mkdir_if_not_exists
+from ...utils.iterable import first
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -85,14 +86,11 @@ class EasyRPGGenerator(Generator):
 
         with codecs.open(str(configdir / "config.ini"), "w", encoding="ascii") as f:
             f.write("[Joypad]\n")
-            nplayer = 1
-            for pad in sorted(playersControllers.values()):
-                if nplayer == 1:
-                    f.write(f"number={pad.index}\n" )
-                    for key, value in keymapping.items():
-                        button = -1
-                        if value is not None:
-                            if pad.inputs[value].type == "button":
-                                button = pad.inputs[value].id
-                        f.write(f"{key}={button}\n")
-                nplayer += 1
+            if pad := first(sorted(playersControllers.values())):
+                f.write(f"number={pad.index}\n" )
+                for key, value in keymapping.items():
+                    button = -1
+                    if value is not None:
+                        if pad.inputs[value].type == "button":
+                            button = pad.inputs[value].id
+                    f.write(f"{key}={button}\n")

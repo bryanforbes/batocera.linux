@@ -52,21 +52,18 @@ def getMupenMapping(use_n64_inputs: bool) -> dict[str, str]:
     return map
 
 def setControllersConfig(iniConfig: CaseSensitiveConfigParser, controllers: ControllerMapping, system: Emulator, wheels: DeviceInfoMapping) -> None:
-    nplayer = 1
-
-    for pad in sorted(controllers.values()):
+    for nplayer, pad in enumerate(sorted(controllers.values()), start=1):
         isWheel = False
         if pad.device_path in wheels and wheels[pad.device_path]["isWheel"]:
             isWheel = True
         config = defineControllerKeys(nplayer, pad, system, isWheel)
         fillIniPlayer(nplayer, iniConfig, pad, config)
-        nplayer += 1
 
     # remove section with no player
-    for x in range(nplayer, 4):
+    for x in range(len(controllers), 4):
         section = "Input-SDL-Control"+str(x)
         if iniConfig.has_section(section):
-            cleanPlayer(nplayer, iniConfig)
+            cleanPlayer(len(controllers), iniConfig)
 
 def getJoystickPeak(start_value: str, config_value: str, system: Emulator) -> str:
     default_value = int(start_value.split(',')[0])
