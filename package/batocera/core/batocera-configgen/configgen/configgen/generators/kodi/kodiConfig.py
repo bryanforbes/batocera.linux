@@ -50,7 +50,6 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
         controllersDone[cur.real_name] = True
 
         # initialized the file
-        kodiJoy = kodiJoystick.with_name(kodiJoystick.name.format(cur.guid+"_"+hashlib.md5(cur.real_name.encode('utf-8')).hexdigest())).open("w") # because 2 pads with a different name have sometimes the same vid/pid...
         config = minidom.Document()
         xmlbuttonmap = config.createElement('buttonmap')
         config.appendChild(xmlbuttonmap)
@@ -117,8 +116,8 @@ def writeKodiConfigs(kodiJoystick: Path, currentControllers: ControllerMapping, 
         for node in sticksNode:
             xmlcontroller.appendChild(sticksNode[node])
         xmldevice.appendChild(xmlcontroller)
-        kodiJoy.write(config.toprettyxml())
-        kodiJoy.close()
+        with kodiJoystick.with_name(kodiJoystick.name.format(cur.guid+"_"+hashlib.md5(cur.real_name.encode('utf-8')).hexdigest())).open("w") as kodiJoy: # because 2 pads with a different name have sometimes the same vid/pid...
+            kodiJoy.write(config.toprettyxml())
 
 def writeKodiConfig(controllersFromES: ControllerMapping) -> None:
     # if there is no controller, don't remove the current generated one
