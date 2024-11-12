@@ -86,7 +86,7 @@ class FpinballGenerator(Generator):
                 }
 
                 nplayer = 1
-                for playercontroller, pad in sorted(playersControllers.items()):
+                for pad in sorted(playersControllers.values()):
                     #only take controller 1
                     if nplayer <= 1:
                         joystickname = pad.real_name
@@ -102,11 +102,11 @@ class FpinballGenerator(Generator):
                             "JoypadStartGame":      unassigned_value,
                             "JoypadToggleHud":      unassigned_value
                         }
-                        for x in pad.inputs:
+                        for x, input in pad.inputs.items():
                             if x in mapping:
                                 if mapping[x] in assigns:
-                                    if pad.inputs[x].type == "button":
-                                        assigns[mapping[x]] = int(pad.inputs[x].id)
+                                    if input.type == "button":
+                                        assigns[mapping[x]] = int(input.id)
 
                         f.write(f"[HKEY_CURRENT_USER\\Software\\Future Pinball\\GamePlayer\\Joypads\\{joystickname}]\r\n")
                         f.write(f"\"JoypadBackbox\"=dword:{assigns['JoypadBackbox']:08x}\r\n")
