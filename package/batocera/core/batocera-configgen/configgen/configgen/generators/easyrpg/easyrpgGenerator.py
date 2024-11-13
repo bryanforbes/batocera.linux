@@ -27,16 +27,16 @@ class EasyRPGGenerator(Generator):
         commandArray: list[str | Path] = ["easyrpg-player"]
 
         # FPS
-        if system.isOptSet("showFPS") and system.getOptBoolean("showFPS"):
+        if system.show_fps:
             commandArray.append("--show-fps")
 
         # Test Play (Debug Mode)
-        if system.isOptSet('testplay') and system.getOptBoolean("testplay"):
+        if system.get_option_bool('testplay'):
             commandArray.append("--test-play")
 
         # Game Region (Encoding)
-        if system.isOptSet('encoding') and system.config["encoding"] != 'autodetect':
-            commandArray.extend(["--encoding", system.config["encoding"]])
+        if (encoding := system.get_option('encoding')) is not system.MISSING and encoding != 'autodetect':
+            commandArray.extend(["--encoding", encoding])
         else:
             commandArray.extend(["--encoding", "auto"])
 
