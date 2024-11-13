@@ -127,7 +127,7 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
             f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
             f.write("Device = SDL/" + str(nsamepad).strip() + "/" + pad.real_name.strip() + "\n")
 
-            if system.isOptSet("use_pad_profiles") and system.getOptBoolean("use_pad_profiles"):
+            if system.get_option_bool("use_pad_profiles"):
                 if not generateControllerConfig_any_from_profiles(f, pad):
                     generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
             else:
@@ -170,7 +170,7 @@ def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Control
         if input.name in { "joystick1up", "joystick1left", "joystick2up", "joystick2left"} and keyname is not None:
             write_key(f, anyReverseAxes[keyname], input.type, input.id, input.value, pad.axis_count, True, None)
         # Rumble option
-        if system.isOptSet("rumble") and system.getOptBoolean("rumble"):
+        if system.get_option_bool("rumble"):
             f.write("Rumble/Motor = Weak\n")
 
 def generateControllerConfig_any_from_profiles(f: codecs.StreamReaderWriter, pad: Controller) -> bool:

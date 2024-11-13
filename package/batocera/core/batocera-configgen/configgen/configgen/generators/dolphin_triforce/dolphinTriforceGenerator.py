@@ -68,7 +68,7 @@ class DolphinTriforceGenerator(Generator):
             dolphinTriforceSettings.set("Core", "MemcardBPath", "/userdata/saves/dolphin-triforce/GC/MemoryCardB.USA.raw")
 
         # Draw or not FPS
-        if system.isOptSet("showFPS") and system.getOptBoolean("showFPS"):
+        if system.show_fps:
             dolphinTriforceSettings.set("General", "ShowLag",        "True")
             dolphinTriforceSettings.set("General", "ShowFrameCount", "True")
         else:
@@ -82,10 +82,7 @@ class DolphinTriforceGenerator(Generator):
         dolphinTriforceSettings.set("Interface", "UsePanicHandlers",        "False")
 
         # Disable OSD Messages
-        if system.isOptSet("disable_osd_messages") and system.getOptBoolean("disable_osd_messages"):
-            dolphinTriforceSettings.set("Interface", "OnScreenDisplayMessages", "False")
-        else:
-            dolphinTriforceSettings.set("Interface", "OnScreenDisplayMessages", "True")
+        dolphinTriforceSettings.set("Interface", "OnScreenDisplayMessages", str(not system.get_option_bool("disable_osd_messages")))
 
         # Don't confirm at stop
         dolphinTriforceSettings.set("Interface", "ConfirmStop", "False")
@@ -98,26 +95,17 @@ class DolphinTriforceGenerator(Generator):
         dolphinTriforceSettings.set("Core", "EnableCheats", "True")
 
         # Dual Core
-        if system.isOptSet("dual_core") and system.getOptBoolean("dual_core"):
-            dolphinTriforceSettings.set("Core", "CPUThread", "True")
-        else:
-            dolphinTriforceSettings.set("Core", "CPUThread", "False")
+        dolphinTriforceSettings.set("Core", "CPUThread", str(system.get_option_bool("dual_core")))
 
         # Gpu Sync
-        if system.isOptSet("gpu_sync") and system.getOptBoolean("gpu_sync"):
-            dolphinTriforceSettings.set("Core", "SyncGPU", "True")
-        else:
-            dolphinTriforceSettings.set("Core", "SyncGPU", "False")
+        dolphinTriforceSettings.set("Core", "SyncGPU", str(system.get_option_bool("gpu_sync")))
 
         # Language
         dolphinTriforceSettings.set("Core", "SelectedLanguage", str(getGameCubeLangFromEnvironment())) # Wii
         dolphinTriforceSettings.set("Core", "GameCubeLanguage", str(getGameCubeLangFromEnvironment())) # GC
 
         # Enable MMU
-        if system.isOptSet("enable_mmu") and system.getOptBoolean("enable_mmu"):
-            dolphinTriforceSettings.set("Core", "MMU", "True")
-        else:
-            dolphinTriforceSettings.set("Core", "MMU", "False")
+        dolphinTriforceSettings.set("Core", "MMU", str(system.get_option_bool("enable_mmu")))
 
         # Backend - Default OpenGL
         dolphinTriforceSettings.set("Core", "GFXBackend", "OGL")
@@ -157,20 +145,13 @@ class DolphinTriforceGenerator(Generator):
             dolphinTriforceGFXSettings.add_section("Hardware")
 
         # Graphics setting Aspect Ratio
-        if system.isOptSet('dolphin_aspect_ratio'):
-            dolphinTriforceGFXSettings.set("Settings", "AspectRatio", system.config["dolphin_aspect_ratio"])
-        else:
-            # set to zero, which is 'Auto' in Dolphin & Batocera
-            dolphinTriforceGFXSettings.set("Settings", "AspectRatio", "0")
+        dolphinTriforceGFXSettings.set("Settings", "AspectRatio", system.get_option_str("dolphin_aspect_ratio", "0")) # set to zero, which is 'Auto' in Dolphin & Batocera
 
         # Show fps
-        if system.isOptSet("showFPS") and system.getOptBoolean("showFPS"):
-            dolphinTriforceGFXSettings.set("Settings", "ShowFPS", "True")
-        else:
-            dolphinTriforceGFXSettings.set("Settings", "ShowFPS", "False")
+        dolphinTriforceGFXSettings.set("Settings", "ShowFPS", str(system.show_fps))
 
         # HiResTextures
-        if system.isOptSet('hires_textures') and system.getOptBoolean('hires_textures'):
+        if system.get_option_bool('hires_textures'):
             dolphinTriforceGFXSettings.set("Settings", "HiresTextures",      "True")
             dolphinTriforceGFXSettings.set("Settings", "CacheHiresTextures", "True")
         else:
@@ -178,17 +159,14 @@ class DolphinTriforceGenerator(Generator):
             dolphinTriforceGFXSettings.set("Settings", "CacheHiresTextures", "False")
 
         # Widescreen Hack
-        if system.isOptSet('widescreen_hack') and system.getOptBoolean('widescreen_hack'):
-            # Prefer Cheats than Hack
-            if system.isOptSet('enable_cheats') and system.getOptBoolean('enable_cheats'):
-                dolphinTriforceGFXSettings.set("Settings", "wideScreenHack", "False")
-            else:
-                dolphinTriforceGFXSettings.set("Settings", "wideScreenHack", "True")
+        if system.get_option_bool('widescreen_hack') and not system.get_option_bool('enable_cheats'):
+            dolphinTriforceGFXSettings.set("Settings", "wideScreenHack", "True")
         else:
+            # Prefer Cheats than Hack
             dolphinTriforceGFXSettings.set("Settings", "wideScreenHack", "False")
 
         # Various performance hacks - Default Off
-        if system.isOptSet('perf_hacks') and system.getOptBoolean('perf_hacks'):
+        if system.get_option_bool('perf_hacks'):
             dolphinTriforceGFXSettings.set("Hacks", "BBoxEnable", "False")
             dolphinTriforceGFXSettings.set("Hacks", "DeferEFBCopies", "True")
             dolphinTriforceGFXSettings.set("Hacks", "EFBEmulateFormatChanges", "False")
@@ -216,28 +194,16 @@ class DolphinTriforceGenerator(Generator):
                 dolphinTriforceGFXSettings.remove_option("Enhancements", "ForceTrueColor")
 
         # Internal resolution settings
-        if system.isOptSet('internal_resolution'):
-            dolphinTriforceGFXSettings.set("Settings", "EFBScale", system.config["internal_resolution"])
-        else:
-            dolphinTriforceGFXSettings.set("Settings", "EFBScale", "2")
+        dolphinTriforceGFXSettings.set("Settings", "EFBScale", system.get_option_str("internal_resolution", "2"))
 
         # VSync
-        if system.isOptSet('vsync'):
-            dolphinTriforceGFXSettings.set("Hardware", "VSync", str(system.getOptBoolean('vsync')))
-        else:
-            dolphinTriforceGFXSettings.set("Hardware", "VSync", "True")
+        dolphinTriforceGFXSettings.set("Hardware", "VSync", str(system.get_option_bool('vsync', True)))
 
         # Anisotropic filtering
-        if system.isOptSet('anisotropic_filtering'):
-            dolphinTriforceGFXSettings.set("Enhancements", "MaxAnisotropy", system.config["anisotropic_filtering"])
-        else:
-            dolphinTriforceGFXSettings.set("Enhancements", "MaxAnisotropy", "0")
+        dolphinTriforceGFXSettings.set("Enhancements", "MaxAnisotropy", system.get_option_str("anisotropic_filtering", "0"))
 
         # Anti aliasing
-        if system.isOptSet('antialiasing'):
-            dolphinTriforceGFXSettings.set("Settings", "MSAA", system.config["antialiasing"])
-        else:
-            dolphinTriforceGFXSettings.set("Settings", "MSAA", "0")
+        dolphinTriforceGFXSettings.set("Settings", "MSAA", system.get_option_str("antialiasing", "0"))
 
         # Save gfx.ini
         with DOLPHIN_TRIFORCE_GFX_INI.open('w') as configfile:
@@ -483,8 +449,8 @@ $SeatLoopPatch
             # dolphinTriforceGameSettingsGGPE01.write(configfile)
 
         commandArray = ["dolphin-triforce", "-b", "-U", "/userdata/system/configs/dolphin-triforce", "-e", rom]
-        if system.isOptSet('platform'):
-            commandArray = ["dolphin-triforce-nogui", "-b", "-U", "/userdata/system/configs/dolphin-triforce", "-p", system.config["platform"], "-e", rom]
+        if (platform := system.get_option_str('platform')) is not system.MISSING:
+            commandArray = ["dolphin-triforce-nogui", "-b", "-U", "/userdata/system/configs/dolphin-triforce", "-p", platform, "-e", rom]
 
         # No environment variables work for now, paths are coded in above.
         return Command.Command(array=commandArray, env={"XDG_CONFIG_HOME":CONFIGS, "XDG_DATA_HOME":SAVES, "QT_QPA_PLATFORM":"xcb"})
