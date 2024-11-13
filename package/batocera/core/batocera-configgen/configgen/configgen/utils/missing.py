@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Final, Literal, TypeAlias
+from typing import TYPE_CHECKING, Final, Literal, TypeAlias, overload
 
 if TYPE_CHECKING:
     import enum
@@ -8,7 +8,15 @@ if TYPE_CHECKING:
     class _MISSING_TYPE(enum.Enum):
         MISSING = enum.auto()
 
+        @overload
+        def __eq__(self, other: _MISSING_TYPE) -> Literal[True]:  # pyright: ignore[reportOverlappingOverload]
+            ...
+
+        @overload
         def __eq__(self, other: object) -> Literal[False]:
+            ...
+
+        def __eq__(self, other: object) -> bool:
             ...
 
         def __bool__(self) -> Literal[False]:
@@ -27,7 +35,7 @@ else:
         __slots__ = ()
 
         def __eq__(self, other: object) -> Literal[False]:
-            return False
+            return other is self
 
         def __bool__(self) -> Literal[False]:
             return False
