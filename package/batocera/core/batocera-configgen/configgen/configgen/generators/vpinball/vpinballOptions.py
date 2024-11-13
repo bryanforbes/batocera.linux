@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ...utils.missing import MISSING
-
 if TYPE_CHECKING:
     from ...Emulator import Emulator
     from ...utils.configparser import CaseSensitiveConfigParser
@@ -18,7 +16,7 @@ def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulat
         vpinballSettings.set("Standalone", "PinMAMEPath", "./")
 
     # Ball trail
-    if (balltrail := system.get_option("vpinball_balltrail")) is not MISSING:
+    if (balltrail := system.get_option("vpinball_balltrail")) is not system.MISSING:
         vpinballSettings.set("Player", "BallTrail", "1")
         vpinballSettings.set("Player", "BallTrailStrength", balltrail)
     else:

@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from ...utils import videoMode
-from ...utils.missing import MISSING
 
 if TYPE_CHECKING:
     from ...Emulator import Emulator
@@ -54,7 +53,7 @@ def configureWindowing(vpinballSettings: CaseSensitiveConfigParser, system: Emul
         configurePlayfield(vpinballSettings, screens, playFieldScreen)
 
     # playfiled mode
-    if (playfieldmode := system.get_option("vpinball_playfieldmode")) is not MISSING:
+    if (playfieldmode := system.get_option("vpinball_playfieldmode")) is not system.MISSING:
         vpinballSettings.set("Player", "BGSet", playfieldmode)
     else:
         if screens[playFieldScreen]["width"] < screens[playFieldScreen]["height"]:

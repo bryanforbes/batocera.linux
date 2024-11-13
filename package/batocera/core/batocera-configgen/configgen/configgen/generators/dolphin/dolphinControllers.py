@@ -6,7 +6,6 @@ import re
 from typing import TYPE_CHECKING
 
 from ...utils.configparser import CaseSensitiveConfigParser
-from ...utils.missing import MISSING
 from .dolphinPaths import DOLPHIN_CONFIG
 
 if TYPE_CHECKING:
@@ -96,7 +95,7 @@ def generateControllerConfig_emulatedwiimotes(system: Emulator, playersControlle
     # Side wiimote
     # l2 for shaking actions
     controller_mode = system.get_option_str('controller_mode')
-    if (".side." in rom.name) or (controller_mode is not MISSING and controller_mode != 'disabled' and controller_mode != 'cc'):
+    if (".side." in rom.name) or (controller_mode is not system.MISSING and controller_mode != 'disabled' and controller_mode != 'cc'):
         extraOptions["Options/Sideways Wiimote"] = "1"
         wiiMapping['x']  = 'Buttons/B'
         wiiMapping['y']  = 'Buttons/A'
@@ -110,10 +109,10 @@ def generateControllerConfig_emulatedwiimotes(system: Emulator, playersControlle
     # 12 possible combinations : is si / it ti / in ni / st ts / sn ns / tn nt
 
     # i
-    if (".is." in rom.name or ".it." in rom.name or ".in." in rom.name) or (controller_mode is not MISSING and controller_mode != 'disabled' and controller_mode != 'in' and controller_mode != 'cc'):
+    if (".is." in rom.name or ".it." in rom.name or ".in." in rom.name) or (controller_mode is not system.MISSING and controller_mode != 'disabled' and controller_mode != 'in' and controller_mode != 'cc'):
         wiiMapping['joystick1up']   = 'IR/Up'
         wiiMapping['joystick1left'] = 'IR/Left'
-    if (".si." in rom.name or ".ti." in rom.name or ".ni." in rom.name) or (controller_mode is not MISSING and controller_mode == 'in' and controller_mode != 'cc'):
+    if (".si." in rom.name or ".ti." in rom.name or ".ni." in rom.name) or (controller_mode is not system.MISSING and controller_mode == 'in' and controller_mode != 'cc'):
         wiiMapping['joystick2up']   = 'IR/Up'
         wiiMapping['joystick2left'] = 'IR/Left'
 
@@ -121,7 +120,7 @@ def generateControllerConfig_emulatedwiimotes(system: Emulator, playersControlle
     if ".si." in rom.name or ".st." in rom.name or ".sn." in rom.name:
         wiiMapping['joystick1up']   = 'Swing/Up'
         wiiMapping['joystick1left'] = 'Swing/Left'
-    if (".is." in rom.name or ".ts." in rom.name or ".ns." in rom.name) or (controller_mode is not MISSING and controller_mode == 'is'):
+    if (".is." in rom.name or ".ts." in rom.name or ".ns." in rom.name) or (controller_mode is not system.MISSING and controller_mode == 'is'):
         wiiMapping['joystick2up']   = 'Swing/Up'
         wiiMapping['joystick2left'] = 'Swing/Left'
 
@@ -129,12 +128,12 @@ def generateControllerConfig_emulatedwiimotes(system: Emulator, playersControlle
     if ".ti." in rom.name or ".ts." in rom.name or ".tn." in rom.name:
         wiiMapping['joystick1up']   = 'Tilt/Forward'
         wiiMapping['joystick1left'] = 'Tilt/Left'
-    if (".it." in rom.name or ".st." in rom.name or ".nt." in rom.name) or (controller_mode is not MISSING and controller_mode == 'it'):
+    if (".it." in rom.name or ".st." in rom.name or ".nt." in rom.name) or (controller_mode is not system.MISSING and controller_mode == 'it'):
         wiiMapping['joystick2up']   = 'Tilt/Forward'
         wiiMapping['joystick2left'] = 'Tilt/Left'
 
     # n
-    if (".ni." in rom.name or ".ns." in rom.name or ".nt." in rom.name) or (controller_mode is not MISSING and controller_mode == 'in') or system.get_option_bool("dsmotion"):
+    if (".ni." in rom.name or ".ns." in rom.name or ".nt." in rom.name) or (controller_mode is not system.MISSING and controller_mode == 'in') or system.get_option_bool("dsmotion"):
         extraOptions['Extension']   = 'Nunchuk'
         wiiMapping['l2'] = 'Nunchuk/Buttons/C'
         wiiMapping['r2'] = 'Nunchuk/Buttons/Z'
@@ -149,7 +148,7 @@ def generateControllerConfig_emulatedwiimotes(system: Emulator, playersControlle
 
     # cc : Classic Controller Settings / pro : Classic Controller Pro Settings
     # Swap shoulder with triggers and vice versa if cc
-    if (".cc." in rom.name or ".pro." in rom.name) or (controller_mode is not MISSING and controller_mode in ('cc', 'pro')):
+    if (".cc." in rom.name or ".pro." in rom.name) or (controller_mode is not system.MISSING and controller_mode in ('cc', 'pro')):
         extraOptions['Extension']   = 'Classic'
         wiiMapping['x'] = 'Classic/Buttons/X'
         wiiMapping['y'] = 'Classic/Buttons/Y'
@@ -544,7 +543,7 @@ def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Control
         if system.get_option_bool("rumble"):
             f.write("Rumble/Motor = Weak\n")
         # Deadzone setting
-        if (deadzone := system.get_option(f"deadzone_{nplayer}")) is not MISSING:
+        if (deadzone := system.get_option(f"deadzone_{nplayer}")) is not system.MISSING:
             f.write(f"Main Stick/Dead Zone = {deadzone}\n")
             f.write(f"C-Stick/Dead Zone = {deadzone}\n")
         else:
