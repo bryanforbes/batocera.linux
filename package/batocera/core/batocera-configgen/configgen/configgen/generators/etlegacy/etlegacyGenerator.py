@@ -47,9 +47,9 @@ class ETLegacyGenerator(Generator):
         }
 
         # Set language
-        if system.isOptSet("etlegacy_language"):
-            options_to_set["seta cl_lang"] = system.config["etlegacy_language"]
-            options_to_set["seta ui_cl_lang"] = system.config["etlegacy_language"]
+        if (lang := system.get_option("etlegacy_language")) is not system.MISSING:
+            options_to_set["seta cl_lang"] = lang
+            options_to_set["seta ui_cl_lang"] = lang
         else:
             options_to_set["seta cl_lang"] = "en"
             options_to_set["seta ui_cl_lang"] = "en"
