@@ -81,10 +81,7 @@ class DolphinGenerator(Generator):
             dolphinSettings.set("General", "ISOPaths", "2")
 
         # increment savestates
-        if system.has_option('incrementalsavestates') and not system.get_option_bool('incrementalsavestates'):
-            dolphinSettings.set("General", "AutoIncrementSlot", "False")
-        else:
-            dolphinSettings.set("General", "AutoIncrementSlot", "True")
+        dolphinSettings.set("General", "AutoIncrementSlot", f"{system.get_option_bool('incrementalsavestates', True)}")
 
         # Don't ask about statistics
         dolphinSettings.set("Analytics", "PermissionAsked", "True")
@@ -93,10 +90,7 @@ class DolphinGenerator(Generator):
         dolphinSettings.set("Interface", "UsePanicHandlers", "False")
 
         # Display message in game (Memory card save and many more...)
-        if system.get_option_bool("ShowDpMsg"):
-            dolphinSettings.set("Interface", "OnScreenDisplayMessages", "True")
-        else:
-            dolphinSettings.set("Interface", "OnScreenDisplayMessages", "False")
+        dolphinSettings.set("Interface", "OnScreenDisplayMessages", f"{system.get_option_bool('ShowDpMsg')}")
 
         # Don't confirm at stop
         dolphinSettings.set("Interface", "ConfirmStop", "False")
@@ -106,37 +100,22 @@ class DolphinGenerator(Generator):
         dolphinSettings.remove_option("Display", "Fullscreen")
 
         # Enable Cheats
-        if system.get_option_bool("enable_cheats"):
-            dolphinSettings.set("Core", "EnableCheats", "True")
-        else:
-            dolphinSettings.set("Core", "EnableCheats", "False")
+        dolphinSettings.set("Core", "EnableCheats", f"{system.get_option_bool('enable_cheats')}")
 
         # Speed up disc transfer rate
-        if system.get_option_bool("enable_fastdisc"):
-            dolphinSettings.set("Core", "FastDiscSpeed", "True")
-        else:
-            dolphinSettings.set("Core", "FastDiscSpeed", "False")
+        dolphinSettings.set("Core", "FastDiscSpeed", f"{system.get_option_bool('enable_fastdisc')}")
 
         # Dual Core
-        if system.get_option_bool("dual_core"):
-            dolphinSettings.set("Core", "CPUThread", "True")
-        else:
-            dolphinSettings.set("Core", "CPUThread", "False")
+        dolphinSettings.set("Core", "CPUThread", f"{system.get_option_bool('dual_core')}")
 
         # Gpu Sync
-        if system.get_option_bool("gpu_sync"):
-            dolphinSettings.set("Core", "SyncGPU", "True")
-        else:
-            dolphinSettings.set("Core", "SyncGPU", "False")
+        dolphinSettings.set("Core", "SyncGPU", f"{system.get_option_bool('gpu_sync')}")
 
         # Gamecube Language
-        dolphinSettings.set("Core", "SelectedLanguage", system.get_option_str("gamecube_language") or str(getGameCubeLangFromEnvironment()))
+        dolphinSettings.set("Core", "SelectedLanguage", system.get_option_str('gamecube_language') or str(getGameCubeLangFromEnvironment()))
 
         # Enable MMU
-        if system.get_option_bool("enable_mmu"):
-            dolphinSettings.set("Core", "MMU", "True")
-        else:
-            dolphinSettings.set("Core", "MMU", "False")
+        dolphinSettings.set("Core", "MMU", f"{system.get_option_bool('enable_mmu')}")
 
         # Backend - Default OpenGL
         if system.get_option("gfxbackend") == "Vulkan":
@@ -240,7 +219,7 @@ class DolphinGenerator(Generator):
         dolphinGFXSettings.set("Settings", "AspectRatio", system.get_option('dolphin_aspect_ratio', '0'))  # zero is 'Auto' in Dolphin & Batocera
 
         # Show fps
-        dolphinGFXSettings.set("Settings", "ShowFPS", f"{system.get_option_bool('showFPS')}")
+        dolphinGFXSettings.set("Settings", "ShowFPS", f"{system.show_fps}")
 
         # HiResTextures
         if system.get_option_bool('hires_textures'):
@@ -257,14 +236,14 @@ class DolphinGenerator(Generator):
             dolphinGFXSettings.set("Settings", "CacheHiresTextures", "True")
 
         # Widescreen Hack
-        if system.get_option_bool('widescreen_hack'):
-            # Prefer Cheats than Hack
-            dolphinGFXSettings.set("Settings", "wideScreenHack", f"{not system.get_option_bool('enable_cheats')}")
+        if system.get_option_bool('widescreen_hack') and not system.get_option_bool('enable_cheats'):
+            dolphinGFXSettings.set("Settings", "wideScreenHack", "True")
         else:
+            # Prefer Cheats than Hack
             dolphinGFXSettings.set("Settings", "wideScreenHack", "False")
 
         # Ubershaders (synchronous_ubershader by default)
-        if (value := system.get_option('ubershaders')) and value != "no_ubershader":
+        if (value := system.get_option_str('ubershaders')) and value != "no_ubershader":
             dolphinGFXSettings.set("Settings", "ShaderCompilationMode", value)
         else:
             dolphinGFXSettings.set("Settings", "ShaderCompilationMode", "0")
@@ -303,13 +282,10 @@ class DolphinGenerator(Generator):
                 dolphinGFXSettings.remove_option("Enhancements", "DisableCopyFilter")
                 dolphinGFXSettings.remove_option("Enhancements", "ForceTrueColor")
 
-        if system.get_option_bool('vbi_hack'):
-            dolphinGFXSettings.set("Hacks", "VISkip", "True")
-        else:
-            dolphinGFXSettings.set("Hacks", "VISkip", "False")
+        dolphinGFXSettings.set("Hacks", "VISkip", f"{system.get_option_bool('vbi_hack')}")
 
         # Internal resolution settings
-        dolphinGFXSettings.set("Settings", "InternalResolution", system.get_option("internal_resolution", "1"))
+        dolphinGFXSettings.set("Settings", "InternalResolution", system.get_option_str("internal_resolution", "1"))
 
         # VSync
         dolphinGFXSettings.set("Hardware", "VSync", f"{system.get_option_bool('vsync', True)}")
@@ -419,7 +395,7 @@ class DolphinGenerator(Generator):
 
         # Update SYSCONF
         try:
-            dolphinSYSCONF.update(system.config, DOLPHIN_SYSCONF, gameResolution)
+            dolphinSYSCONF.update(system, DOLPHIN_SYSCONF, gameResolution)
         except Exception:
             pass # don't fail in case of SYSCONF update
 

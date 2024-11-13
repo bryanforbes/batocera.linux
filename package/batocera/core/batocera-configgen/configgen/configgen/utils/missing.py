@@ -9,7 +9,7 @@ if TYPE_CHECKING:
         MISSING = enum.auto()
 
         @overload
-        def __eq__(self, other: _MISSING_TYPE) -> Literal[True]:  # pyright: ignore[reportOverlappingOverload]
+        def __eq__(self, other: MissingType) -> Literal[True]:  # pyright: ignore[reportOverlappingOverload]
             ...
 
         @overload

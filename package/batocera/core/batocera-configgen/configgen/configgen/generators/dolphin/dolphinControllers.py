@@ -26,7 +26,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         if system.get_option_bool('use_guns') and guns:
             generateControllerConfig_guns("WiimoteNew.ini", "Wiimote", metadata, guns)
             generateControllerConfig_gamecube(system, playersControllers, {}, rom)           # You can use the gamecube pads on the wii together with wiimotes
-        elif system.has_option('emulatedwiimotes') and not system.get_option_bool('emulatedwiimotes'):
+        elif not system.get_option_bool('emulatedwiimotes', True):
             # Generate if hardcoded
             generateControllerConfig_realwiimotes("WiimoteNew.ini", "Wiimote")
             generateControllerConfig_gamecube(system, playersControllers, {}, rom)           # You can use the gamecube pads on the wii together with wiimotes
@@ -408,7 +408,7 @@ def get_AltMapping(system: Emulator, nplayer: int, anyMapping: Mapping[str, str 
         mapping['b'] = 'Buttons/A'
 
     # Only rotate inputs for standard controller type so it doesn't effect other controller types.
-    if not system.has_option(f"dolphin_port_{nplayer}_type") or system.get_option_str(f"dolphin_port_{nplayer}_type") == '6a':
+    if system.get_option_str(f"dolphin_port_{nplayer}_type", '6a') == '6a':
         # Check for rotate mappings settings and adjust
         if system.get_option_bool(f"alt_mappings_{nplayer}"):
 

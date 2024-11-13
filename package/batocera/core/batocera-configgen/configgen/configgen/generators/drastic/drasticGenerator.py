@@ -57,29 +57,15 @@ class DrasticGenerator(Generator):
                 Path("drastic.txt").unlink()
 
         esvaluedrastichires = 1 if system.get_option("drastic_hires") == "1" else 0
-
-        if system.isOptSet("drastic_threaded") and system.config["drastic_threaded"] == '1':
-            esvaluedrasticthreaded = 1
-        else:
-            esvaluedrasticthreaded = 0
-
+        esvaluedrasticthreaded = 1 if system.get_option("drastic_threaded") == "1" else 0
         esvaluedrasticfix2d = 1 if system.get_option("drastic_fix2d") == "1" else 0
 
-        if system.isOptSet("drastic_screen_orientation"):
-            esvaluedrasticscreenorientation = system.config["drastic_screen_orientation"]
-        else:
-            esvaluedrasticscreenorientation = 0
+        esvaluedrasticscreenorientation = system.get_option_int("drastic_screen_orientation", 0)
 
         # Default to none as auto seems to be bugged (just reduces framerate by half, even when the system is otherwise capable of running at 60fps, even the rpi3 can do this).
-        if system.isOptSet("drastic_frameskip_type"):
-            esvaluedrasticframeskiptype = system.config["drastic_frameskip_type"]
-        else:
-            esvaluedrasticframeskiptype = 0
+        esvaluedrasticframeskiptype = system.get_option_int("drastic_frameskip_type", 0)
 
-        if system.isOptSet("drastic_frameskip_value"):
-            esvaluedrasticframeskipvalue = system.config["drastic_frameskip_value"]
-        else:
-            esvaluedrasticframeskipvalue = 1
+        esvaluedrasticframeskipvalue = system.get_option_int("drastic_frameskip_value", 1)
 
         textList = [                             # 0,1,2,3 ...
         "enable_sound"                 + " = 1",

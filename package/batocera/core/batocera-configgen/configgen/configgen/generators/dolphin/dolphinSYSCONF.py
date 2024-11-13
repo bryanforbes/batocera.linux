@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 from os import environ
 from struct import pack, unpack
-from typing import TYPE_CHECKING, Any, BinaryIO, Literal
+from typing import TYPE_CHECKING, BinaryIO, Literal
 
 from ...utils.logger import setup_logging
 from .dolphinPaths import DOLPHIN_SAVES
@@ -14,6 +14,7 @@ if TYPE_CHECKING:
     from collections.abc import Mapping
     from pathlib import Path
 
+    from ...Emulator import Emulator
     from ...types import Resolution
 
 
@@ -120,22 +121,19 @@ def getRatioFromConfig(config: dict[str, object], gameResolution: Resolution) ->
     else:
         return 0
 
-def getSensorBarPosition(config: dict[str, object]) -> Literal[0, 1]:
+def getSensorBarPosition(system: Emulator) -> Literal[0, 1]:
     # Sets the setting available to the Wii's internal NAND. Only has two values:
     # 0: BOTTOM ; 1: TOP
-    if "sensorbar_position" in config:
-        if config["sensorbar_position"] == "1":
-            return 1
-        else:
-            return 0
+    if system.get_option("sensorbar_position") == "1":
+        return 1
     else:
         return 0
 
-def update(config: dict[str, Any], filepath: Path, gameResolution: Resolution) -> None:
+def update(system: Emulator, filepath: Path, gameResolution: Resolution) -> None:
     arg_setval = {
         "IPL.LNG": getWiiLangFromEnvironment(),
-        "IPL.AR": getRatioFromConfig(config, gameResolution),
-        "BT.BAR": getSensorBarPosition(config)
+        "IPL.AR": getRatioFromConfig(system.config, gameResolution),
+        "BT.BAR": getSensorBarPosition(system)
     }
     readWriteFile(filepath, arg_setval)
 
