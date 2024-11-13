@@ -61,45 +61,33 @@ class CGeniusGenerator(Generator):
         if "Video" not in config:
             config["Video"] = {}
         # aspect
-        if system.isOptSet("cgenius_aspect"):
-            config["Video"]["aspect"] = system.config["cgenius_aspect"]
-        else:
-            config["Video"]["aspect"] = "4:3"
+        config["Video"]["aspect"] = system.get_option_str("cgenius_aspect", "4:3")
         # set false as we want the correct ratio
         config["Video"]["fullscreen"] = "false"
         config["Video"]["integerScaling"] = "false"
         # filter
-        if system.isOptSet("cgenius_filter"):
-            config["Video"]["filter"] = system.config["cgenius_filter"]
-        else:
-            config["Video"]["filter"] = "none"
+        config["Video"]["filter"] = system.get_option_str("cgenius_filter", "none")
         # quality
-        if system.isOptSet("cgenius_quality"):
-            config["Video"]["OGLfilter"] = system.config["cgenius_quality"]
-        else:
-            config["Video"]["OGLfilter"] = "nearest"
+        config["Video"]["OGLfilter"] = system.get_option_str("cgenius_quality", "nearest")
         # render resolution
-        if system.isOptSet("cgenius_render"):
-            if system.config["cgenius_render"] == "200":
+        match system.get_option_str("cgenius_render"):
+            case "200":
                 config["Video"]["gameHeight"] = "200"
                 config["Video"]["gameWidth"] = "320"
-            if system.config["cgenius_render"] == "240":
+            case "240":
                 config["Video"]["gameHeight"] = "240"
                 config["Video"]["gameWidth"] = "320"
-            if system.config["cgenius_render"] == "360":
+            case "360":
                 config["Video"]["gameHeight"] = "360"
                 config["Video"]["gameWidth"] = "640"
-            if system.config["cgenius_render"] == "480":
+            case "480":
                 config["Video"]["gameHeight"] = "480"
                 config["Video"]["gameWidth"] = "640"
-        else:
-            config["Video"]["gameHeight"] = "200"
-            config["Video"]["gameWidth"] = "320"
+            case _:
+                config["Video"]["gameHeight"] = "200"
+                config["Video"]["gameWidth"] = "320"
         # mouse
-        if system.isOptSet("cgenius_cursor"):
-            config["Video"]["ShowCursor"] = system.config["cgenius_cursor"]
-        else:
-            config["Video"]["ShowCursor"] = "false"
+        config["Video"]["ShowCursor"] = system.get_option_str("cgenius_cursor", "false")
 
         # -= Controllers =-
         # Configure the first four controllers
