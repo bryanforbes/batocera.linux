@@ -5,7 +5,6 @@ from typing import TYPE_CHECKING
 from ... import Command
 from ...batoceraPaths import CONFIGS
 from ...controller import generate_sdl_game_controller_config
-from ...utils.missing import MISSING
 from ..Generator import Generator
 
 if TYPE_CHECKING:
@@ -53,7 +52,7 @@ class X16emuGenerator(Generator):
 
         commandArray.extend(["-scale", system.get_option_str("x16emu_scale", "2")])  # "2" == 1280 x 960
 
-        if (quality := system.get_option_str("x16emu_quality")) is not MISSING:
+        if (quality := system.get_option_str("x16emu_quality")) is not system.MISSING:
             commandArray.extend(["-quality", quality])
 
         if system.get_option("x16emu_ratio") == "16:9":
