@@ -202,22 +202,19 @@ class HypseusSingeGenerator(Generator):
                             "-romdir", _DAPHNE_ROM_DIR, "-homedir", _DATA_DIR]
 
         # controller config file
-        if system.isOptSet('hypseus_joy')  and system.getOptBoolean('hypseus_joy'):
-            commandArray.extend(['-keymapfile', 'custom.ini'])
-        else:
-            commandArray.extend(["-keymapfile", _CONFIG.name])
+        commandArray.extend(['-keymapfile', 'custom.ini' if system.get_option_bool('hypseus_joy') else _CONFIG.name])
 
         # Default -fullscreen behaviour respects game aspect ratio
         bezelRequired = False
         xratio = None
         # stretch
-        if system.isOptSet('hypseus_ratio') and system.config['hypseus_ratio'] == "stretch":
+        if system.get_option('hypseus_ratio') == "stretch":
             commandArray.extend(["-x", str(gameResolution["width"]), "-y", str(gameResolution["height"])])
             bezelRequired = False
             if abs(gameResolution["width"] / gameResolution["height"] - 4/3) < 0.01:
                 xratio = 4/3
         # 4:3
-        elif system.isOptSet('hypseus_ratio') and system.config['hypseus_ratio'] == "force_ratio":
+        elif system.get_option('hypseus_ratio') == "force_ratio":
             commandArray.extend(["-x", str(gameResolution["width"]), "-y", str(gameResolution["height"])])
             commandArray.extend(["-force_aspect_ratio"])
             xratio = 4/3
@@ -245,35 +242,31 @@ class HypseusSingeGenerator(Generator):
             bezelRequired = False
 
         # Backend - Default OpenGL
-        if system.isOptSet("hypseus_api") and system.config["hypseus_api"] == 'Vulkan':
-            commandArray.append("-vulkan")
-        else:
-            commandArray.append("-opengl")
+        commandArray.append("-vulkan" if system.get_option("hypseus_api") == 'Vulkan' else '-opengl')
 
         # Enable Bilinear Filtering
-        if system.isOptSet('hypseus_filter') and system.getOptBoolean("hypseus_filter"):
+        if system.get_option_bool('hypseus_filter'):
             commandArray.append("-linear_scale")
 
         #The following options should only be set when system is singe.
         #-blend_sprites, -nocrosshair, -sinden or -manymouse
         if system.name == "singe":
             # Blend Sprites (Singe)
-            if system.isOptSet('singe_sprites') and system.getOptBoolean("singe_sprites"):
+            if system.get_option_bool('singe_sprites'):
                 commandArray.append("-blend_sprites")
 
             bordersSize = guns_borders_size_name(guns, system.config)
             if bordersSize is not None:
 
                 borderColor = "w"
-                if "controllers.guns.borderscolor" in system.config:
-                    borderColorOpt = system.config["controllers.guns.borderscolor"]
-                    if borderColorOpt == "white":
+                match system.get_option("controllers.guns.borderscolor"):
+                    case "white":
                         borderColor = "w"
-                    elif borderColorOpt == "red":
+                    case "red":
                         borderColor = "r"
-                    elif borderColorOpt == "green":
+                    case "green":
                         borderColor = "g"
-                    elif borderColorOpt == "blue":
+                    case "blue":
                         borderColor = "b"
 
                 if bordersSize == "thin":
@@ -288,11 +281,11 @@ class HypseusSingeGenerator(Generator):
                     if xratio is not None:
                         commandArray.extend(["-xratio", str(xratio)]) # accuracy correction based on ratio
                 else:
-                    if system.isOptSet('singe_abs') and system.getOptBoolean("singe_abs"):
+                    if system.get_option_bool('singe_abs'):
                         commandArray.extend(["-manymouse"]) # this is causing issues on some "non-gun" games
 
         # bezels
-        if system.isOptSet('hypseus_bezels') and not system.getOptBoolean("hypseus_bezels"):
+        if system.get_option_bool('hypseus_bezels'):
             bezelRequired = False
 
         if bezelRequired:
@@ -302,30 +295,28 @@ class HypseusSingeGenerator(Generator):
                 commandArray.extend(["-bezel", bezelFile])
 
         # Invert HAT Axis
-        if system.isOptSet('hypseus_axis') and system.getOptBoolean("hypseus_axis"):
+        if system.get_option_bool('hypseus_axis'):
             commandArray.append("-tiphat")
 
         # Game rotation options for vertical screens, default is 0.
-        if system.isOptSet('hypseus_rotate') and system.config['hypseus_rotate'] == "90":
-            commandArray.extend(["-rotate", "90"])
-        elif system.isOptSet('hypseus_rotate') and system.config['hypseus_rotate'] == "270":
-            commandArray.extend(["-rotate", "270"])
+        if (rotate := system.get_option_str('hypseus_rotate')) and (rotate == '90' or rotate == '270'):
+            commandArray.extend(["-rotate", rotate])
 
         # Singe joystick sensitivity, default is 5.
-        if system.name == "singe" and system.isOptSet('singe_joystick_range'):
-            commandArray.extend(["-js_range", system.config['singe_joystick_range']])
+        if system.name == "singe" and (joystick_range := system.get_option_str('singe_joystick_range')) is not system.MISSING:
+            commandArray.extend(["-js_range", joystick_range])
 
         # Scanlines
-        if system.isOptSet('hypseus_scanlines') and system.config['hypseus_scanlines'] > "0":
-            commandArray.extend(["-scanlines", "-scanline_shunt", system.config['hypseus_scanlines']])
+        if (scanlines := system.get_option_str('hypseus_scanlines')) and scanlines > "0":
+            commandArray.extend(["-scanlines", "-scanline_shunt", scanlines])
 
         # Hide crosshair in supported games (e.g. ActionMax, ALG)
         # needCrosshair
-        if len(guns) > 0 and (not system.isOptSet('singe_crosshair') or ((system.isOptSet('singe_crosshair') and not system.getOptBoolean("singe_crosshair")))):
+        if guns and not system.get_option_bool('singe_crosshair'):
             commandArray.append("-nocrosshair")
 
         # Enable SDL_TEXTUREACCESS_STREAMING, can aid SBC's with SDL2 => 2.0.16
-        if system.isOptSet('hypseus_texturestream') and system.getOptBoolean("hypseus_texturestream"):
+        if system.get_option_bool('hypseus_texturestream'):
             commandArray.append("-texturestream")
 
         # The folder may have a file with the game name and .commands with extra arguments to run the game.

@@ -59,15 +59,15 @@ class FsuaeGenerator(Generator):
         fsuaeControllers.generateControllerConfig(system, playersControllers)
 
         commandArray = ['/usr/bin/fs-uae', "--fullscreen",
-                                           "--amiga-model="     + system.config['core'],
+                                           "--amiga-model="     + system.core,
                                            f"--base_dir={FSUAE_CONFIG_DIR!s}",
                                            f"--kickstarts_dir={FSUAE_BIOS_DIR!s}",
-                                           f"--save_states_dir={FSUAE_SAVES / system.config['core'] / self.filePrefix(rom)}",
+                                           f"--save_states_dir={FSUAE_SAVES / system.core / self.filePrefix(rom)}",
                                            "--zoom=auto"
                        ]
 
         device_type = "floppy"
-        if system.config['core'] in ["CD32", "CDTV"]:
+        if system.core in ["CD32", "CDTV"]:
             device_type = "cdrom"
 
         # extract zip here

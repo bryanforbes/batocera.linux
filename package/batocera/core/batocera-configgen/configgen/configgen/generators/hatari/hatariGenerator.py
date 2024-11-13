@@ -65,26 +65,21 @@ class HatariGenerator(Generator):
 
         machine = "st"
         tosversion = "auto"
-        if system.isOptSet("model") and system.config["model"] in model_mapping:
-            machine   = model_mapping[system.config["model"]]["machine"]
-            tosversion = model_mapping[system.config["model"]]["tos"]
-        toslang = "us"
-        if system.isOptSet("language"):
-            toslang = system.config["language"]
+        if (model_option := system.get_option_str("model")) and model_option in model_mapping:
+            machine   = model_mapping[model_option]["machine"]
+            tosversion = model_mapping[model_option]["tos"]
+        toslang = system.get_option("language", "us")
 
         commandArray += ["--machine", machine]
         tos = HatariGenerator.findBestTos(BIOS, machine, tosversion, toslang)
         commandArray += [ "--tos", tos]
 
         # RAM (ST Ram) options (0 for 512k, 1 for 1MB)
-        memorysize = 0
-        if system.isOptSet("ram"):
-            memorysize = system.config["ram"]
-        commandArray += ["--memsize", str(memorysize)]
+        commandArray += ["--memsize", system.get_option_str("ram", "0")]
 
         rom_extension = rom.suffix.lower()
         if rom_extension == ".hd":
-            if system.isOptSet("hatari_drive") and system.config["hatari_drive"] == "ACSI":
+            if system.get_option("hatari_drive") == "ACSI":
                 commandArray += ["--acsi", rom]
             else:
                 commandArray += ["--ide-master", rom]
@@ -156,10 +151,8 @@ class HatariGenerator(Generator):
         # Screen
         if not config.has_section("Screen"):
             config.add_section("Screen")
-        if system.isOptSet("showFPS") and system.getOptBoolean("showFPS"):
-            config.set("Screen", "bShowStatusbar", "TRUE")
-        else:
-            config.set("Screen", "bShowStatusbar", "FALSE")
+
+        config.set("Screen", "bShowStatusbar", "TRUE" if system.show_fps else "FALSE")
 
         with configFileName.open('w') as configfile:
             config.write(configfile)

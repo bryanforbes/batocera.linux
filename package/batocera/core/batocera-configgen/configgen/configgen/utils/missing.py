@@ -19,6 +19,12 @@ if TYPE_CHECKING:
         def __eq__(self, other: object) -> bool:
             ...
 
+        def __lt__(self, other: object) -> Literal[False]:
+            ...
+
+        def __gt__(self, other: object) -> Literal[False]:
+            ...
+
         def __bool__(self) -> Literal[False]:
             ...
 
@@ -36,6 +42,12 @@ else:
 
         def __eq__(self, other: object) -> Literal[False]:
             return other is self
+
+        def __lt__(self, other: object) -> Literal[False]:
+            return False
+
+        def __gt__(self, other: object) -> Literal[False]:
+            return False
 
         def __bool__(self) -> Literal[False]:
             return False
