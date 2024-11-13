@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import shutil
 from pathlib import Path, PureWindowsPath
-from typing import TYPE_CHECKING, Any, Final
+from typing import TYPE_CHECKING, Final
 
 from ... import Command
 from ...batoceraPaths import BIOS, CONFIGS, HOME, mkdir_if_not_exists
@@ -12,6 +12,7 @@ from ...utils.iterable import first
 from ..Generator import Generator
 
 if TYPE_CHECKING:
+    from ...Emulator import Emulator
     from ...types import HotkeysContext, Resolution
 
 _FPINBALL_CONFIG: Final = CONFIGS / "fpinball"
@@ -66,14 +67,14 @@ class FpinballGenerator(Generator):
         with _FPINBALL_CONFIG_REG.open("w") as f:
             f.write("Windows Registry Editor Version 5.00\r\n\r\n")
             f.write("[HKEY_CURRENT_USER\\Software\\Future Pinball\\GamePlayer]\r\n")
-            f.write(f"\"AspectRatio\"=dword:{FpinballGenerator.getGfxRatioFromConfig(system.config, gameResolution):08x}\r\n")
+            f.write(f"\"AspectRatio\"=dword:{FpinballGenerator.getGfxRatioFromConfig(system, gameResolution):08x}\r\n")
             f.write("\"FullScreen\"=dword:00000001\r\n")
             f.write(f"\"Width\"=dword:{gameResolution['width']:08x}\r\n")
             f.write(f"\"Height\"=dword:{gameResolution['height']:08x}\r\n")
             f.write("\"JoypadNameNum\"=dword:00000001\r\n")
             f.write("\r\n")
 
-            if system.isOptSet("fpcontroller") and system.config["fpcontroller"] == "True":
+            if system.get_option_str("fpcontroller") == "True":
                 mapping = {
                     "a":        "JoypadBackbox",
                     "b":        "JoypadDigitalPlunger",
@@ -174,11 +175,9 @@ class FpinballGenerator(Generator):
         )
 
     @staticmethod
-    def getGfxRatioFromConfig(config: dict[str, Any], gameResolution: Resolution):
+    def getGfxRatioFromConfig(system: Emulator, gameResolution: Resolution):
         # 2: 4:3 ; 1: 16:9  ; 0: auto
-        if "ratio" in config:
-            if config["ratio"] == "4/3":
-                return 43
-            if config["ratio"] == "16/9":
-                return 169
-        return 43
+        if system.get_option("ratio") == "16/9":
+            return 169
+        else:
+            return 43
