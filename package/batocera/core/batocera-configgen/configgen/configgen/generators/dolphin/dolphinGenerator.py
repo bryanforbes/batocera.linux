@@ -10,7 +10,6 @@ from ...batoceraPaths import CACHE, CONFIGS, SAVES, mkdir_if_not_exists
 from ...gun import guns_need_crosses
 from ...utils import vulkan
 from ...utils.configparser import CaseSensitiveConfigParser
-from ...utils.missing import MISSING
 from ..Generator import Generator
 from . import dolphinControllers, dolphinSYSCONF
 from .dolphinPaths import (
@@ -432,7 +431,7 @@ class DolphinGenerator(Generator):
             commandArray = ["dolphin-emu-nogui", "-e", rom]
 
         # state_slot option
-        if (state_filename := system.get_option_str('state_filename')) is not MISSING:
+        if (state_filename := system.get_option_str('state_filename')) is not system.MISSING:
             commandArray.extend(["--save_state", state_filename])
 
         return Command.Command(

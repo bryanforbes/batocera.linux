@@ -4,7 +4,6 @@ from typing import TYPE_CHECKING
 
 from ...batoceraPaths import ensure_parents_and_open
 from ...utils.configparser import CaseSensitiveConfigParser
-from ...utils.missing import MISSING
 from .xemuPaths import XEMU_CONFIG
 
 if TYPE_CHECKING:
@@ -125,7 +124,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
     else:
         iniConfig.set("net", "enable", "false")
     # Additionnal settings for udp: if nothing is entered in these fields, the xemu.toml is untouched
-    if (remote_addr := system.get_option("xemu_udpremote")) is not MISSING:
+    if (remote_addr := system.get_option("xemu_udpremote")) is not system.MISSING:
         iniConfig.set("net.udp", "remote_addr", f'"{remote_addr}"')
-    if (bind_addr := system.get_option("xemu_udpbind")) is not MISSING:
+    if (bind_addr := system.get_option("xemu_udpbind")) is not system.MISSING:
         iniConfig.set("net.udp", "bind_addr", f'"{bind_addr}"')

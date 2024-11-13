@@ -97,10 +97,9 @@ class CemuGenerator(Generator):
         CemuGenerator.setSectionConfig(config, xml_root, "vk_warning", "false")
         CemuGenerator.setSectionConfig(config, xml_root, "fullscreen", "true")
         # Language
-        if not system.isOptSet("cemu_console_language") or system.config["cemu_console_language"] == "ui":
+        lang = system.get_option_str("cemu_console_language", "ui")
+        if lang == "ui":
             lang = getLangFromEnvironment()
-        else:
-            lang = system.config["cemu_console_language"]
         CemuGenerator.setSectionConfig(config, xml_root, "console_language", str(getCemuLang(lang)))
 
         ## [WINDOWS]
@@ -116,10 +115,7 @@ class CemuGenerator(Generator):
         CemuGenerator.setSectionConfig(config, window_size, "y", "480")
 
         ## [GAMEPAD]
-        if system.isOptSet("cemu_gamepad") and system.config["cemu_gamepad"] == "True":
-            CemuGenerator.setSectionConfig(config, xml_root, "open_pad", "true")
-        else:
-            CemuGenerator.setSectionConfig(config, xml_root, "open_pad", "false")
+        CemuGenerator.setSectionConfig(config, xml_root, "open_pad", "true" if system.get_option_bool("cemu_gamepad") else "false")
         CemuGenerator.setSectionConfig(config, xml_root, "pad_position", "")
         pad_position = CemuGenerator.getRoot(config, "pad_position")
         CemuGenerator.setSectionConfig(config, pad_position, "x", "0")
@@ -162,37 +158,22 @@ class CemuGenerator(Generator):
                 CemuGenerator.setSectionConfig(config, graphic_root, "api", "0")
 
         # Async VULKAN Shader compilation
-        if system.isOptSet("cemu_async") and system.config["cemu_async"] == "False":
-            CemuGenerator.setSectionConfig(config, graphic_root, "AsyncCompile", "false")
-        else:
-            CemuGenerator.setSectionConfig(config, graphic_root, "AsyncCompile", "true")
+        CemuGenerator.setSectionConfig(config, graphic_root, "AsyncCompile", "false" if not system.get_option_bool("cemu_async", True) else "true")
         # Vsync
-        if system.isOptSet("cemu_vsync"):
-            CemuGenerator.setSectionConfig(config, graphic_root, "VSync", system.config["cemu_vsync"])
-        else:
-            CemuGenerator.setSectionConfig(config, graphic_root, "VSync", "0") # Off
+        CemuGenerator.setSectionConfig(config, graphic_root, "VSync", system.get_option_str("cemu_vsync", "0")) # 0 = Off
         # Upscale Filter
-        if system.isOptSet("cemu_upscale"):
-            CemuGenerator.setSectionConfig(config, graphic_root, "UpscaleFilter", system.config["cemu_upscale"])
-        else:
-            CemuGenerator.setSectionConfig(config, graphic_root, "UpscaleFilter", "2") # Hermite
+        CemuGenerator.setSectionConfig(config, graphic_root, "UpscaleFilter", system.get_option_str("cemu_upscale", "2")) # 2 = Hermite
         # Downscale Filter
-        if system.isOptSet("cemu_downscale"):
-            CemuGenerator.setSectionConfig(config, graphic_root, "DownscaleFilter", system.config["cemu_downscale"])
-        else:
-            CemuGenerator.setSectionConfig(config, graphic_root, "DownscaleFilter", "0") # Bilinear
+        CemuGenerator.setSectionConfig(config, graphic_root, "DownscaleFilter", system.get_option_str("cemu_downscale", "0")) # 0 = Bilinear
         # Aspect Ratio
-        if system.isOptSet("cemu_aspect"):
-            CemuGenerator.setSectionConfig(config, graphic_root, "FullscreenScaling", system.config["cemu_aspect"])
-        else:
-            CemuGenerator.setSectionConfig(config, graphic_root, "FullscreenScaling", "0") # Bilinear
+        CemuGenerator.setSectionConfig(config, graphic_root, "FullscreenScaling", system.get_option_str("cemu_aspect", "0")) # 0 = Bilinear
 
         ## [GRAPHICS OVERLAYS] - Currently disbaled! Causes crash
         # Performance - alternative to MongHud
         CemuGenerator.setSectionConfig(config, graphic_root, "Overlay", "")
         overlay_root = CemuGenerator.getRoot(config, "Overlay")
         # Display FPS / CPU / GPU / RAM
-        if system.isOptSet("cemu_overlay") and system.config["cemu_overlay"] == "True":
+        if system.get_option_bool("cemu_overlay"):
             CemuGenerator.setSectionConfig(config, overlay_root, "Position",        "3")
             CemuGenerator.setSectionConfig(config, overlay_root, "TextColor",       "4294967295")
             CemuGenerator.setSectionConfig(config, overlay_root, "TextScale",       "100")
@@ -215,7 +196,7 @@ class CemuGenerator(Generator):
         # Notifications
         CemuGenerator.setSectionConfig(config, graphic_root, "Notification", "")
         notification_root = CemuGenerator.getRoot(config, "Notification")
-        if system.isOptSet("cemu_notifications") and system.config["cemu_notifications"] == "True":
+        if system.get_option_bool("cemu_notifications"):
             CemuGenerator.setSectionConfig(config, notification_root, "Position", "1")
             CemuGenerator.setSectionConfig(config, notification_root, "TextColor", "4294967295")
             CemuGenerator.setSectionConfig(config, notification_root, "TextScale", "100")
@@ -238,10 +219,7 @@ class CemuGenerator(Generator):
         # Use cubeb (curently the only option for linux)
         CemuGenerator.setSectionConfig(config, audio_root, "api", "3")
         # Turn audio ONLY on TV
-        if system.isOptSet("cemu_audio_channels"):
-            CemuGenerator.setSectionConfig(config, audio_root, "TVChannels", system.config["cemu_audio_channels"])
-        else:
-            CemuGenerator.setSectionConfig(config, audio_root, "TVChannels", "1") # Stereo
+        CemuGenerator.setSectionConfig(config, audio_root, "TVChannels", system.get_option_str("cemu_audio_channels", "1")) # 1 = Stereo
         # Set volume to the max
         CemuGenerator.setSectionConfig(config, audio_root, "TVVolume", "100")
         # Set the audio device - we choose the 1st device as this is more likely the answer
@@ -249,13 +227,11 @@ class CemuGenerator(Generator):
         proc = subprocess.run(["/usr/bin/cemu/get-audio-device"], stdout=subprocess.PIPE)
         cemuAudioDevice = proc.stdout.decode('utf-8')
         _logger.debug("*** audio device = %s ***", cemuAudioDevice)
-        if system.isOptSet("cemu_audio_config") and system.getOptBoolean("cemu_audio_config"):
+        if system.get_option_bool("cemu_audio_config", True):
             CemuGenerator.setSectionConfig(config, audio_root, "TVDevice", cemuAudioDevice)
-        elif system.isOptSet("cemu_audio_config") and not system.getOptBoolean("cemu_audio_config"):
+        else:
             # don't change the config setting
             _logger.debug("*** use config audio device ***")
-        else:
-            CemuGenerator.setSectionConfig(config, audio_root, "TVDevice", cemuAudioDevice)
 
         # Save the config file
         # TODO: python 3 - workaround to encode files in utf-8
