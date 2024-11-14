@@ -32,8 +32,8 @@ def configureWindowing(vpinballSettings: CaseSensitiveConfigParser, system: Emul
 
     # determine playField and backglass screens numbers
     reverse_playfield_and_b2s = False
-    if system.isOptSet("vpinball_inverseplayfieldandb2s"):
-        if system.getOptBoolean("vpinball_inverseplayfieldandb2s"):
+    if system.has_option("vpinball_inverseplayfieldandb2s"):
+        if system.get_option_bool("vpinball_inverseplayfieldandb2s"):
             reverse_playfield_and_b2s = True
     else:
         # auto : if the screen 2 is vertical while the first screen is not, inverse
@@ -53,7 +53,7 @@ def configureWindowing(vpinballSettings: CaseSensitiveConfigParser, system: Emul
         configurePlayfield(vpinballSettings, screens, playFieldScreen)
 
     # playfiled mode
-    if (playfieldmode := system.get_option("vpinball_playfieldmode")) is not system.MISSING:
+    if (playfieldmode := system.get_option("vpinball_playfieldmode")):
         vpinballSettings.set("Player", "BGSet", playfieldmode)
     else:
         if screens[playFieldScreen]["width"] < screens[playFieldScreen]["height"]:
@@ -104,7 +104,7 @@ def getB2sdmdConfiguration(system: Emulator, screens: list[ScreenInfo], hasDmd: 
     return not hasDmd
 
 def getB2sgrillConfiguration(system: Emulator, screens: list[ScreenInfo]):
-    return not (system.has_option("vpinball_b2sgrill") and not system.get_option_bool("vpinball_b2sgrill")) # switchon
+    return system.get_option_bool("vpinball_b2sgrill", True)  # switchon
 
 def configurePlayfield(vpinballSettings: CaseSensitiveConfigParser, screens: list[ScreenInfo], playFieldScreen: int):
     vpinballSettings.set("Player", "WindowPosX", str(screens[playFieldScreen]["x"]))
@@ -239,7 +239,7 @@ def configureFlexdmd(vpinballSettings: CaseSensitiveConfigParser, flexdmd_config
         vpinballSettings.set("Standalone", WindowName+"Width",  ConvertToPixel(gameResolution["width"],  width))
         vpinballSettings.set("Standalone", WindowName+"Height", ConvertToPixel(gameResolution["height"], height))
 
-def configureB2s(vpinballSettings: CaseSensitiveConfigParser, flexdmd_config: str, pinmame_config: str, b2s_config: str, b2sdmd_config: str, b2sgrill_config: str, screens: list[ScreenInfo], backglassScreen: int, Rscreen: float, gameResolution: Resolution, dmdsize: list[int]):
+def configureB2s(vpinballSettings: CaseSensitiveConfigParser, flexdmd_config: str, pinmame_config: str, b2s_config: str, b2sdmd_config: bool, b2sgrill_config: bool, screens: list[ScreenInfo], backglassScreen: int, Rscreen: float, gameResolution: Resolution, dmdsize: list[int]):
     WindowName = "B2SBackglass"
     Rwindow    = 4/3 # Usual Ratio for this window
     small,medium,large=20,25,30
