@@ -89,10 +89,10 @@ class CitraGenerator(Generator):
             citraConfig.add_section("Layout")
         # Screen Layout
         citraConfig.set("Layout", "custom_layout", "false")
-        if (tab := system.get_option_str('citra_screen_layout')) is not system.MISSING:
-            split_tab = tab.split('-')
-            citraConfig.set("Layout", "swap_screen",   split_tab[1])
-            citraConfig.set("Layout", "layout_option", split_tab[0])
+        if layout := system.get_option_str('citra_screen_layout'):
+            tab = layout.split('-')
+            citraConfig.set("Layout", "swap_screen",   tab[1])
+            citraConfig.set("Layout", "layout_option", tab[0])
         else:
             citraConfig.set("Layout", "swap_screen", "false")
             citraConfig.set("Layout", "layout_option", "0")
@@ -172,8 +172,8 @@ class CitraGenerator(Generator):
         # Disk Shader Cache
         citraConfig.set("Utility", "use_disk_shader_cache", "true" if system.get_option('citra_use_disk_shader_cache') == '1' else "false")
         # Custom Textures
-        if system.get_option('citra_custom_textures', '0') != '0':
-            tab = system.config["citra_custom_textures"].split('-')
+        if (custom_textures := system.get_option('citra_custom_textures', '0')) != '0':
+            tab = custom_textures.split('-')
             citraConfig.set("Utility", "custom_textures",  "true")
             if tab[1] == 'normal':
                 citraConfig.set("Utility", "async_custom_loading", "true")

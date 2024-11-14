@@ -86,31 +86,19 @@ class Model2EmuGenerator(Generator):
         # set ini to use chosen resolution and automatically start in fullscreen
         Config.set("Renderer","FullScreenWidth", str(gameResolution["width"]))
         Config.set("Renderer","FullScreenHeight", str(gameResolution["height"]))
-        if system.isOptSet("model2_renderRes"):
-            Config.set("Renderer","FullMode", format(system.config["model2_renderRes"]))
-        else:
-            Config.set("Renderer","FullMode", "4")
+        Config.set("Renderer","FullMode", system.get_option_str("model2_renderRes", "4"))
         Config.set("Renderer","AutoFull", "1")
         Config.set("Renderer","ForceSync", "1")
-        # widescreen
         lua_file_path = emupath / "scripts" / f"{rom.stem}.lua"
-        if system.isOptSet("model2_ratio"):
-            if lua_file_path.exists():
-                modify_lua_widescreen(lua_file_path, system.config["model2_ratio"])
-        else:
-            if lua_file_path.exists():
-                modify_lua_widescreen(lua_file_path, "False")
-        # scanlines
-        if system.isOptSet("model2_scanlines"):
-            if lua_file_path.exists():
-                modify_lua_scanlines(lua_file_path, system.config["model2_scanlines"])
-        else:
-            if lua_file_path.exists():
-                modify_lua_scanlines(lua_file_path, "False")
+        if lua_file_path.exists():
+            # widescreen
+            modify_lua_widescreen(lua_file_path, system.get_option("model2_ratio", "False"))
+            # scanlines
+            modify_lua_scanlines(lua_file_path, system.get_option("model2_scanlines", "False"))
         # sinden - check if rom is a gun game
         known_gun_roms = ["bel", "gunblade", "hotd", "rchase2", "vcop", "vcop2", "vcopa"]
         if rom.stem in known_gun_roms:
-            if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
+            if system.get_option_bool('use_guns') and guns:
                 for gun in guns.values():
                     if gun.need_borders:
                         if lua_file_path.exists():
@@ -133,44 +121,17 @@ class Model2EmuGenerator(Generator):
                         modify_lua_sinden(lua_file_path, "false", "0")
 
         # now set the other emulator features
-        if system.isOptSet("model2_fakeGouraud"):
-            Config.set("Renderer","FakeGouraud", format(system.config["model2_fakeGouraud"]))
-        else:
-            Config.set("Renderer","FakeGouraud", "0")
-        if system.isOptSet("model2_bilinearFiltering"):
-            Config.set("Renderer","Bilinear", format(system.config["model2_bilinearFiltering"]))
-        else:
-            Config.set("Renderer","Bilinear", "1")
-        if system.isOptSet("model2_trilinearFiltering"):
-            Config.set("Renderer","Trilinear", format(system.config["model2_trilinearFiltering"]))
-        else:
-            Config.set("Renderer","Trilinear", "0")
-        if system.isOptSet("model2_filterTilemaps"):
-            Config.set("Renderer","FilterTilemaps", format(system.config["model2_filterTilemaps"]))
-        else:
-            Config.set("Renderer","FilterTilemaps", "0")
-        if system.isOptSet("model2_forceManaged"):
-            Config.set("Renderer","ForceManaged", format(system.config["model2_forceManaged"]))
-        else:
-            Config.set("Renderer","ForceManaged", "0")
-        if system.isOptSet("model2_enableMIP"):
-            Config.set("Renderer","AutoMip", format(system.config["model2_enableMIP"]))
-        else:
-            Config.set("Renderer","AutoMip", "0")
-        if system.isOptSet("model2_meshTransparency"):
-            Config.set("Renderer","MeshTransparency", format(system.config["model2_meshTransparency"]))
-        else:
-            Config.set("Renderer","MeshTransparency", "0")
-        if system.isOptSet("model2_fullscreenAA"):
-            Config.set("Renderer","FSAA", format(system.config["model2_fullscreenAA"]))
-        else:
-            Config.set("Renderer","FSAA", "0")
-        if system.isOptSet("model2_useRawInput"):
-            Config.set("Input","UseRawInput", format(system.config["model2_useRawInput"]))
-        else:
-            Config.set("Input","UseRawInput", "0")
-        if system.isOptSet("model2_crossHairs"):
-            Config.set("Renderer","DrawCross", format(system.config["model2_crossHairs"]))
+        Config.set("Renderer","FakeGouraud", system.get_option_str("model2_fakeGouraud", "0"))
+        Config.set("Renderer","Bilinear", system.get_option_str("model2_bilinearFiltering", "1"))
+        Config.set("Renderer","Trilinear", system.get_option_str("model2_trilinearFiltering", "0"))
+        Config.set("Renderer","FilterTilemaps", system.get_option_str("model2_filterTilemaps", "0"))
+        Config.set("Renderer","ForceManaged", system.get_option_str("model2_forceManaged", "0"))
+        Config.set("Renderer","AutoMip", system.get_option_str("model2_enableMIP", "0"))
+        Config.set("Renderer","MeshTransparency", system.get_option_str("model2_meshTransparency", "0"))
+        Config.set("Renderer","FSAA", system.get_option_str("model2_fullscreenAA", "0"))
+        Config.set("Input","UseRawInput", system.get_option_str("model2_useRawInput", "0"))
+        if (crosshairs := system.get_option_str("model2_crossHairs")) is not system.MISSING:
+            Config.set("Renderer","DrawCross", crosshairs)
         else:
             for gun in guns.values():
                 if gun.need_cross:
@@ -179,16 +140,10 @@ class Model2EmuGenerator(Generator):
                     Config.set("Renderer","DrawCross", "0")
 
         # xinput
-        if system.isOptSet("model2_xinput") and system.getOptBoolean("model2_xinput"):
-            Config.set("Input","XInput", "1")
-        else:
-            Config.set("Input","XInput", "0")
+        Config.set("Input","XInput", "1" if system.get_option_bool("model2_xinput") else "0")
 
         # force feedback
-        if system.isOptSet("model2_forceFeedback") and system.getOptBoolean("model2_forceFeedback"):
-            Config.set("Input","EnableFF", "1")
-        else:
-            Config.set("Input","EnableFF", "0")
+        Config.set("Input","EnableFF", "1" if system.get_option_bool("model2_forceFeedback") else "0")
 
         with configFileName.open('w') as configfile:
             Config.write(configfile)
@@ -201,7 +156,7 @@ class Model2EmuGenerator(Generator):
         })
 
         # check if software render option is chosen
-        if system.isOptSet("model2_Software") and system.config["model2_Software"] == "1":
+        if system.get_option("model2_Software") == "1":
             environment.update({
                 "__GLX_VENDOR_LIBRARY_NAME": "mesa",
                 "MESA_LOADER_DRIVER_OVERRIDE": "llvmpipe",
