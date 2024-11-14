@@ -40,7 +40,7 @@ else:
     class _MissingSentinel:
         __slots__ = ()
 
-        def __eq__(self, other: object) -> Literal[False]:
+        def __eq__(self, other: object) -> bool:
             return other is self
 
         def __lt__(self, other: object) -> Literal[False]:

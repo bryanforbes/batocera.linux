@@ -41,11 +41,11 @@ class MupenGenerator(Generator):
             iniConfig.write(configfile)
 
         # Command
-        commandArray: list[str | Path] = ['/usr/bin/mupen64plus', "--corelib", "/usr/lib/libmupen64plus.so.2.0.0", "--gfx", f"/usr/lib/mupen64plus/mupen64plus-video-{system.config['core']}.so", "--configdir", MUPEN_CONFIG_DIR, "--datadir", MUPEN_CONFIG_DIR]
+        commandArray: list[str | Path] = ['/usr/bin/mupen64plus', "--corelib", "/usr/lib/libmupen64plus.so.2.0.0", "--gfx", f"/usr/lib/mupen64plus/mupen64plus-video-{system.core}.so", "--configdir", MUPEN_CONFIG_DIR, "--datadir", MUPEN_CONFIG_DIR]
 
         # state_filename option
-        if system.isOptSet('state_filename'):
-            commandArray.extend(["--savestate", system.config['state_filename']])
+        if state_filename := system.get_option('state_filename'):
+            commandArray.extend(["--savestate", state_filename])
 
         commandArray.append(rom)
 
