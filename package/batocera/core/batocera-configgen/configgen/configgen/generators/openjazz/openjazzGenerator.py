@@ -316,8 +316,7 @@ class OpenJazzGenerator(Generator):
             _logger.info("Configured Controls - Buttons: %s", self.controls_buttons)
 
         # User configuration
-        if system.isOptSet("jazz_resolution"):
-            resolution = system.config["jazz_resolution"]
+        if resolution := system.get_option_str("jazz_resolution"):
             width_str, height_str = resolution.split('x')
             self.video_width = int(width_str)
             self.video_height = int(height_str)

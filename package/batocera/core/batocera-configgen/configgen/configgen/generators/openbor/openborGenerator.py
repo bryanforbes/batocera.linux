@@ -33,8 +33,8 @@ class OpenborGenerator(Generator):
         mkdir_if_not_exists(SAVES / 'openbor')
 
         # guess the version to run
-        core: str = system.config['core']
-        if not system.config["core-forced"]:
+        core = system.core
+        if not system.core_forced:
             core = OpenborGenerator.guessCore(rom)
         _logger.debug("core taken is %s", core)
 
@@ -57,40 +57,20 @@ class OpenborGenerator(Generator):
         config.save("usejoy", "1")
 
         # options
-        if system.isOptSet("openbor_ratio"):
-            config.save("stretch", system.config["openbor_ratio"])
-        else:
-            config.save("stretch", "0")
-
-        if system.isOptSet("openbor_filter"):
-            config.save("swfilter", system.config["openbor_filter"])
-        else:
-            config.save("swfilter", "0")
-
-        if system.isOptSet("openbor_vsync"):
-            config.save("vsync", system.config["openbor_vsync"])
-        else:
-            config.save("vsync", "1")
-
-        if system.isOptSet("openbor_limit"):
-            config.save("fpslimit", system.config["openbor_limit"])
-        else:
-            config.save("fpslimit", "0")
+        config.save("stretch", system.get_option_str("openbor_ratio", "0"))
+        config.save("swfilter", system.get_option_str("openbor_filter", "0"))
+        config.save("vsync", system.get_option_str("openbor_vsync", "1"))
+        config.save("fpslimit", system.get_option_str("openbor_limit", "0"))
 
         # controllers
         openborControllers.generateControllerConfig(config, playersControllers, core)
 
         # rumble
-        if system.isOptSet("openbor_rumble"):
-            config.save("joyrumble.0", system.config["openbor_rumble"])
-            config.save("joyrumble.1", system.config["openbor_rumble"])
-            config.save("joyrumble.2", system.config["openbor_rumble"])
-            config.save("joyrumble.3", system.config["openbor_rumble"])
-        else:
-            config.save("joyrumble.0", "0")
-            config.save("joyrumble.1", "0")
-            config.save("joyrumble.2", "0")
-            config.save("joyrumble.3", "0")
+        rumble = system.get_option_str("openbor_rumble", "0")
+        config.save("joyrumble.0", rumble)
+        config.save("joyrumble.1", rumble)
+        config.save("joyrumble.2", rumble)
+        config.save("joyrumble.3", rumble)
 
         config.write()
 

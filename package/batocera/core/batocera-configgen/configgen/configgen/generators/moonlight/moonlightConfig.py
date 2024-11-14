@@ -26,14 +26,14 @@ def generateMoonlightConfig(system: Emulator):
         moonlightConfig = UnixSettings(MOONLIGHT_STAGING_CONFIG, separator=' ')
 
         # resolution
-        if system.isOptSet('moonlight_resolution'):
-            if system.config["moonlight_resolution"] == "0":
+        if resolution := system.get_option('moonlight_resolution'):
+            if resolution == "0":
                 moonlightConfig.save('width', '1280')
                 moonlightConfig.save('height', '720')
-            elif system.config["moonlight_resolution"] == "1":
+            elif resolution == "1":
                 moonlightConfig.save('width', '1920')
                 moonlightConfig.save('height', '1080')
-            elif system.config["moonlight_resolution"] == "2":
+            elif resolution == "2":
                 moonlightConfig.save('width', '3840')
                 moonlightConfig.save('height', '2160')
         else:
@@ -41,58 +41,43 @@ def generateMoonlightConfig(system: Emulator):
             moonlightConfig.save('height', '720')
 
         # rotate
-        if system.isOptSet('moonlight_rotate'):
-            moonlightConfig.save('rotate', system.config["moonlight_rotate"])
-        else:
-            moonlightConfig.save('rotate', '0')
+        moonlightConfig.save('rotate', system.get_option('moonlight_rotate', '0'))
 
         # framerate
-        if system.isOptSet('moonlight_framerate'):
-            if system.config["moonlight_framerate"] == "0":
+        if framerate := system.get_option('moonlight_framerate'):
+            if framerate == "0":
                 moonlightConfig.save('fps', '30')
-            elif system.config["moonlight_framerate"] == "1":
+            elif framerate == "1":
                 moonlightConfig.save('fps', '60')
-            elif system.config["moonlight_framerate"] == "2":
+            elif framerate == "2":
                 moonlightConfig.save('fps', '120')
         else:
             moonlightConfig.save('fps', '60')
 
         # bitrate
-        if system.isOptSet('moonlight_bitrate'):
-            if system.config["moonlight_bitrate"] == "0":
+        if bitrate := system.get_option('moonlight_bitrate'):
+            if bitrate == "0":
                 moonlightConfig.save('bitrate', '5000')
-            elif system.config["moonlight_bitrate"] == "1":
+            elif bitrate == "1":
                 moonlightConfig.save('bitrate', '10000')
-            elif system.config["moonlight_bitrate"] == "2":
+            elif bitrate == "2":
                 moonlightConfig.save('bitrate', '20000')
-            elif system.config["moonlight_bitrate"] == "3":
+            elif bitrate == "3":
                 moonlightConfig.save('bitrate', '50000')
         else:
             moonlightConfig.save('bitrate', '-1') #-1 sets Moonlight default
 
         # codec
-        if system.isOptSet('moonlight_codec'):
-            moonlightConfig.save('codec',system.config["moonlight_codec"])
-        else:
-            moonlightConfig.save('codec', 'auto')
+        moonlightConfig.save('codec', system.get_option('moonlight_codec', 'auto'))
 
         # sops (Streaming Optimal Playable Settings)
-        if system.isOptSet('moonlight_sops'):
-            moonlightConfig.save('sops', system.config["moonlight_sops"].lower())
-        else:
-            moonlightConfig.save('sops', 'true')
+        moonlightConfig.save('sops', system.get_option_str('moonlight_sops', 'true').lower())
 
         # quit remote app on exit
-        if system.isOptSet('moonlight_quitapp'):
-            moonlightConfig.save('quitappafter', system.config["moonlight_quitapp"].lower())
-        else:
-            moonlightConfig.save('quitappafter', 'false')
+        moonlightConfig.save('quitappafter', system.get_option_str('moonlight_quitapp', 'false').lower())
 
         # view only
-        if system.isOptSet('moonlight_viewonly'):
-            moonlightConfig.save('viewonly', system.config["moonlight_viewonly"].lower())
-        else:
-            moonlightConfig.save('viewonly', 'false')
+        moonlightConfig.save('viewonly', system.get_option_str('moonlight_viewonly', 'false').lower())
 
         # platform - we only select sdl (best compatibility)
         # required for controllers to work
@@ -102,15 +87,9 @@ def generateMoonlightConfig(system: Emulator):
         moonlightConfig.save('keydir', MOONLIGHT_CONFIG_DIR / 'keydir')
 
         # lan or wan streaming - ideally lan
-        if system.isOptSet('moonlight_remote'):
-            moonlightConfig.save('remote', system.config["moonlight_remote"])
-        else:
-            moonlightConfig.save('remote', 'no')
+        moonlightConfig.save('remote', system.get_option('moonlight_remote', 'no'))
 
         ## Enable 5.1/7.1 surround sound
-        if system.isOptSet('moonlight_surround'):
-            moonlightConfig.save('surround', system.config["moonlight_surround"])
-        else:
-            moonlightConfig.save('#surround', '5.1')
+        moonlightConfig.save('surround', system.get_option('moonlight_surround', '5.1'))
 
         moonlightConfig.write()

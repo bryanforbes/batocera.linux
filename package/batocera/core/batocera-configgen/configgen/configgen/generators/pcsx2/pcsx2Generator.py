@@ -64,8 +64,8 @@ class Pcsx2Generator(Generator):
         return 4/3
 
     @staticmethod
-    def isPlayingWithWheel(system: Emulator, wheels: DeviceInfoMapping):
-        return system.isOptSet('use_wheels') and system.getOptBoolean('use_wheels') and len(wheels) > 0
+    def isPlayingWithWheel(system: Emulator, wheels: DeviceInfoMapping) -> bool:
+        return bool(system.get_option_bool('use_wheels') and wheels)
 
     @staticmethod
     def useEmulatorWheels(playingWithWheel: bool, wheel_type: str):
@@ -75,14 +75,14 @@ class Pcsx2Generator(Generator):
         return wheel_type != "Virtual"
 
     @staticmethod
-    def getWheelType(metadata: Mapping[str, str], playingWithWheel: bool, config: Mapping[str, Any]):
+    def getWheelType(metadata: Mapping[str, str], playingWithWheel: bool, system: Emulator):
         wheel_type = "Virtual"
         if playingWithWheel is False:
             return wheel_type
         if "wheel_type" in metadata:
             wheel_type = metadata["wheel_type"]
-        if "pcsx2_wheel_type" in config:
-            wheel_type = config["pcsx2_wheel_type"]
+        if config_wheel_type := system.get_option_str("pcsx2_wheel_type"):
+            wheel_type = config_wheel_type
         if wheel_type not in Pcsx2Generator.wheelTypeMapping:
             wheel_type = "Virtual"
         return wheel_type
@@ -125,7 +125,7 @@ class Pcsx2Generator(Generator):
 
         # wheels won't work correctly when SDL_GAMECONTROLLERCONFIG is set. excluding wheels from SDL_GAMECONTROLLERCONFIG doesn't fix too.
         # wheel metadata
-        if not Pcsx2Generator.useEmulatorWheels(playingWithWheel, Pcsx2Generator.getWheelType(metadata, playingWithWheel, system.config)):
+        if not Pcsx2Generator.useEmulatorWheels(playingWithWheel, Pcsx2Generator.getWheelType(metadata, playingWithWheel, system)):
             envcmd["SDL_GAMECONTROLLERCONFIG"] = generate_sdl_game_controller_config(playersControllers)
 
         # ensure we have the patches.zip file to avoid message.
@@ -134,11 +134,11 @@ class Pcsx2Generator(Generator):
             shutil.copy(DATAINIT_DIR / "bios" / "ps2" / "patches.zip", pcsx2Patches)
 
         # state_slot option
-        if system.isOptSet('state_filename'):
-            commandArray.extend(["-statefile", system.config['state_filename']])
+        if state_filename := system.get_option('state_filename'):
+            commandArray.extend(["-statefile", state_filename])
 
-        if system.isOptSet('state_slot'):
-            commandArray.extend(["-stateindex", str(system.config['state_slot'])])
+        if state_slot := system.get_option_str('state_slot'):
+            commandArray.extend(["-stateindex", state_slot])
 
         return Command.Command(
             array=commandArray,
@@ -245,37 +245,25 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
     pcsx2INIConfig.set("EmuCore", "EnableDiscordPresence", "false")
 
     # Fastboot
-    if system.isOptSet('pcsx2_fastboot') and system.config['pcsx2_fastboot'] == '0':
-        pcsx2INIConfig.set("EmuCore", "EnableFastBoot", "true")
-    else:
-        pcsx2INIConfig.set("EmuCore", "EnableFastBoot", "false")
+    pcsx2INIConfig.set("EmuCore", "EnableFastBoot", "true" if system.get_option('pcsx2_fastboot') else "false")
     # Cheats
-    if system.isOptSet('pcsx2_cheats'):
-        pcsx2INIConfig.set("EmuCore", "EnableCheats", system.config['pcsx2_cheats'])
-    else:
-        pcsx2INIConfig.set("EmuCore", "EnableCheats", "false")
+    pcsx2INIConfig.set("EmuCore", "EnableCheats", system.get_option('pcsx2_cheats', "false"))
     # Widescreen Patches
-    if system.isOptSet('pcsx2_EnableWideScreenPatches'):
-        pcsx2INIConfig.set("EmuCore", "EnableWideScreenPatches", system.config["pcsx2_EnableWideScreenPatches"])
-    else:
-        pcsx2INIConfig.set("EmuCore", "EnableWideScreenPatches", "false")
+    pcsx2INIConfig.set("EmuCore", "EnableWideScreenPatches", system.get_option("pcsx2_EnableWideScreenPatches", "false"))
     # No-interlacing Patches
-    if system.isOptSet('pcsx2_interlacing_patches'):
-        pcsx2INIConfig.set("EmuCore", "EnableNoInterlacingPatches", system.config["pcsx2_interlacing_patches"])
-    else:
-        pcsx2INIConfig.set("EmuCore", "EnableNoInterlacingPatches", "false")
+    pcsx2INIConfig.set("EmuCore", "EnableNoInterlacingPatches", system.get_option("pcsx2_interlacing_patches", "false"))
 
     ## [Achievements]
     if not pcsx2INIConfig.has_section("Achievements"):
         pcsx2INIConfig.add_section("Achievements")
     pcsx2INIConfig.set("Achievements", "Enabled", "false")
-    if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements'):
-        username  = system.config.get('retroachievements.username', "")
-        token     = system.config.get('retroachievements.token', "")
-        hardcore  = system.config.get('retroachievements.hardcore', "")
-        indicator = system.config.get('retroachievements.challenge_indicators', "")
-        presence  = system.config.get('retroachievements.richpresence', "")
-        leaderbd  = system.config.get('retroachievements.leaderboards', "")
+    if system.get_option_bool('retroachievements'):
+        username  = system.get_option_str('retroachievements.username', "")
+        token     = system.get_option_str('retroachievements.token', "")
+        hardcore  = system.get_option_str('retroachievements.hardcore', "")
+        indicator = system.get_option_str('retroachievements.challenge_indicators', "")
+        presence  = system.get_option_str('retroachievements.richpresence', "")
+        leaderbd  = system.get_option_str('retroachievements.leaderboards', "")
         pcsx2INIConfig.set("Achievements", "Enabled", "true")
         pcsx2INIConfig.set("Achievements", "Username", username)
         pcsx2INIConfig.set("Achievements", "Token", token)
@@ -316,11 +304,11 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
         _logger.debug("Vulkan driver is available on the system.")
         renderer = "12"  # Default to OpenGL
 
-        if system.isOptSet("pcsx2_gfxbackend"):
-            if system.config["pcsx2_gfxbackend"] == "13":
+        if (gfxbackend := system.get_option("pcsx2_gfxbackend")) is not system.MISSING:
+            if gfxbackend == "13":
                 _logger.debug("User selected Software! Man you must have a fast CPU!")
                 renderer = "13"
-            elif system.config["pcsx2_gfxbackend"] == "14":
+            elif gfxbackend == "14":
                 _logger.debug("User selected Vulkan")
                 renderer = "14"
                 if vulkan.has_discrete_gpu():
@@ -344,110 +332,47 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
         pcsx2INIConfig.set("EmuCore/GS", "Renderer", "12")
 
     # Ratio
-    if system.isOptSet('pcsx2_ratio'):
-        pcsx2INIConfig.set("EmuCore/GS", "AspectRatio", system.config["pcsx2_ratio"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "AspectRatio", "Auto 4:3/3:2")
+    pcsx2INIConfig.set("EmuCore/GS", "AspectRatio", system.get_option("pcsx2_ratio", "Auto 4:3/3:2"))
     # Vsync
-    if system.isOptSet('pcsx2_vsync'):
-        pcsx2INIConfig.set("EmuCore/GS","VsyncEnable", system.config["pcsx2_vsync"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS","VsyncEnable", "0")
+    pcsx2INIConfig.set("EmuCore/GS","VsyncEnable", system.get_option("pcsx2_vsync", "0"))
     # Resolution
-    if system.isOptSet('pcsx2_resolution'):
-        pcsx2INIConfig.set("EmuCore/GS", "upscale_multiplier", system.config["pcsx2_resolution"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "upscale_multiplier", "1")
+    pcsx2INIConfig.set("EmuCore/GS", "upscale_multiplier", system.get_option("pcsx2_resolution", "1"))
     # FXAA
-    if system.isOptSet('pcsx2_fxaa'):
-        pcsx2INIConfig.set("EmuCore/GS", "fxaa", system.config["pcsx2_fxaa"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "fxaa", "false")
+    pcsx2INIConfig.set("EmuCore/GS", "fxaa", system.get_option("pcsx2_fxaa", "false"))
     # FMV Ratio
-    if system.isOptSet('pcsx2_fmv_ratio'):
-        pcsx2INIConfig.set("EmuCore/GS", "FMVAspectRatioSwitch", system.config["pcsx2_fmv_ratio"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "FMVAspectRatioSwitch", "Auto 4:3/3:2")
+    pcsx2INIConfig.set("EmuCore/GS", "FMVAspectRatioSwitch", system.get_option("pcsx2_fmv_ratio", "Auto 4:3/3:2"))
     # Mipmapping
-    if system.isOptSet('pcsx2_mipmapping'):
-        pcsx2INIConfig.set("EmuCore/GS", "mipmap_hw", system.config["pcsx2_mipmapping"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "mipmap_hw", "-1")
+    pcsx2INIConfig.set("EmuCore/GS", "mipmap_hw", system.get_option("pcsx2_mipmapping", "-1"))
     # Trilinear Filtering
-    if system.isOptSet('pcsx2_trilinear_filtering'):
-        pcsx2INIConfig.set("EmuCore/GS", "TriFilter", system.config["pcsx2_trilinear_filtering"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "TriFilter", "-1")
+    pcsx2INIConfig.set("EmuCore/GS", "TriFilter", system.get_option("pcsx2_trilinear_filtering", "-1"))
     # Anisotropic Filtering
-    if system.isOptSet('pcsx2_anisotropic_filtering'):
-        pcsx2INIConfig.set("EmuCore/GS", "MaxAnisotropy", system.config["pcsx2_anisotropic_filtering"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "MaxAnisotropy", "0")
+    pcsx2INIConfig.set("EmuCore/GS", "MaxAnisotropy", system.get_option("pcsx2_anisotropic_filtering", "0"))
     # Dithering
-    if system.isOptSet('pcsx2_dithering'):
-        pcsx2INIConfig.set("EmuCore/GS", "dithering_ps2", system.config["pcsx2_dithering"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "dithering_ps2", "2")
+    pcsx2INIConfig.set("EmuCore/GS", "dithering_ps2", system.get_option("pcsx2_dithering", "2"))
     # Texture Preloading
-    if system.isOptSet('pcsx2_texture_loading'):
-        pcsx2INIConfig.set("EmuCore/GS", "texture_preloading", system.config["pcsx2_texture_loading"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "texture_preloading", "2")
+    pcsx2INIConfig.set("EmuCore/GS", "texture_preloading", system.get_option("pcsx2_texture_loading", "2"))
     # Deinterlacing
-    if system.isOptSet('pcsx2_deinterlacing'):
-        pcsx2INIConfig.set("EmuCore/GS", "deinterlace_mode", system.config["pcsx2_deinterlacing"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "deinterlace_mode", "0")
+    pcsx2INIConfig.set("EmuCore/GS", "deinterlace_mode", system.get_option("pcsx2_deinterlacing", "0"))
     # Anti-Blur
-    if system.isOptSet('pcsx2_blur'):
-        pcsx2INIConfig.set("EmuCore/GS", "pcrtc_antiblur", system.config["pcsx2_blur"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "pcrtc_antiblur", "true")
+    pcsx2INIConfig.set("EmuCore/GS", "pcrtc_antiblur", system.get_option("pcsx2_blur", "true"))
     # Integer Scaling
-    if system.isOptSet('pcsx2_scaling'):
-        pcsx2INIConfig.set("EmuCore/GS", "IntegerScaling", system.config["pcsx2_scaling"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "IntegerScaling", "false")
+    pcsx2INIConfig.set("EmuCore/GS", "IntegerScaling", system.get_option("pcsx2_scaling", "false"))
     # Blending Accuracy
-    if system.isOptSet('pcsx2_blending'):
-        pcsx2INIConfig.set("EmuCore/GS", "accurate_blending_unit", system.config["pcsx2_blending"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "accurate_blending_unit", "1")
+    pcsx2INIConfig.set("EmuCore/GS", "accurate_blending_unit", system.get_option("pcsx2_blending", "1"))
     # Texture Filtering
-    if system.isOptSet('pcsx2_texture_filtering'):
-        pcsx2INIConfig.set("EmuCore/GS", "filter", system.config["pcsx2_texture_filtering"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "filter", "2")
+    pcsx2INIConfig.set("EmuCore/GS", "filter", system.get_option("pcsx2_texture_filtering", "2"))
     # Bilinear Filtering
-    if system.isOptSet('pcsx2_bilinear_filtering'):
-        pcsx2INIConfig.set("EmuCore/GS", "linear_present_mode", system.config["pcsx2_bilinear_filtering"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "linear_present_mode", "1")
+    pcsx2INIConfig.set("EmuCore/GS", "linear_present_mode", system.get_option("pcsx2_bilinear_filtering", "1"))
     # Load Texture Replacements
-    if system.isOptSet('pcsx2_texture_replacements'):
-        pcsx2INIConfig.set("EmuCore/GS", "LoadTextureReplacements", system.config["pcsx2_texture_replacements"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "LoadTextureReplacements", "false")
+    pcsx2INIConfig.set("EmuCore/GS", "LoadTextureReplacements", system.get_option("pcsx2_texture_replacements", "false"))
     # OSD messages
-    if system.isOptSet('pcsx2_osd_messages'):
-        pcsx2INIConfig.set("EmuCore/GS", "OsdShowMessages", system.config["pcsx2_osd_messages"])
-    else:
-        pcsx2INIConfig.set("EmuCore/GS", "OsdShowMessages", "true")
+    pcsx2INIConfig.set("EmuCore/GS", "OsdShowMessages", system.get_option("pcsx2_osd_messages", "true"))
     # TV Shader
-    if system.isOptSet('pcsx2_shaderset'):
-        pcsx2INIConfig.set("EmuCore", "TVShader", system.config["pcsx2_shaderset"])
-    else:
-        pcsx2INIConfig.set("EmuCore", "TVShader", "0")
+    pcsx2INIConfig.set("EmuCore", "TVShader", system.get_option("pcsx2_shaderset", "0"))
 
-    if system.isOptSet('incrementalsavestates') and not system.getOptBoolean('incrementalsavestates'):
-        pcsx2INIConfig.set("EmuCore", "AutoIncrementSlot", "false")
-    else:
-        pcsx2INIConfig.set("EmuCore", "AutoIncrementSlot", "true")
+    pcsx2INIConfig.set("EmuCore", "AutoIncrementSlot", system.get_option_bool('incrementalsavestates', True, return_values=("true", "false")))
 
-    if system.isOptSet('autosave') and system.getOptBoolean('autosave'):
-        pcsx2INIConfig.set("EmuCore", "SaveStateOnShutdown", "true")
-    else:
-        pcsx2INIConfig.set("EmuCore", "SaveStateOnShutdown", "false")
+    pcsx2INIConfig.set("EmuCore", "SaveStateOnShutdown", system.get_option_bool('autosave', return_values=("true", "false")))
 
     ## [InputSources]
     if not pcsx2INIConfig.has_section("InputSources"):
@@ -510,7 +435,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
     ###
 
     # guns
-    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and guns:
+    if system.get_option_bool('use_guns') and guns:
         gun1onport2 = len(guns) == 1 and "gun_gun1port" in metadata and metadata["gun_gun1port"] == "2"
         pedalsKeys = {1: "c", 2: "v", 3: "b", 4: "n"}
 
@@ -547,15 +472,9 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                 pcsx2INIConfig.set("USB2", "guncon2_numdevice", "0")
     # Gun crosshairs - one player only, PCSX2 can't distinguish both crosshair for some reason
     if pcsx2INIConfig.has_section("USB1"):
-        if system.isOptSet('pcsx2_crosshairs') and system.config["pcsx2_crosshairs"] == "1":
-            pcsx2INIConfig.set("USB1", "guncon2_cursor_path", str(_PCSX2_RESOURCES_DIR / "crosshairs" / "Blue.png"))
-        else:
-            pcsx2INIConfig.set("USB1", "guncon2_cursor_path", "")
+        pcsx2INIConfig.set("USB1", "guncon2_cursor_path", str(config_directory / "crosshairs" / "Blue.png") if system.get_option_bool("pcsx2_crosshairs") else "")
     if pcsx2INIConfig.has_section("USB2"):
-        if system.isOptSet('pcsx2_crosshairs') and system.config["pcsx2_crosshairs"] == "1":
-            pcsx2INIConfig.set("USB2", "guncon2_cursor_path", str(_PCSX2_RESOURCES_DIR / "crosshairs" / "Red.png"))
-        else:
-            pcsx2INIConfig.set("USB2", "guncon2_cursor_path", "")
+        pcsx2INIConfig.set("USB2", "guncon2_cursor_path", str(config_directory / "crosshairs" / "Red.png") if system.get_option_bool("pcsx2_crosshairs") else "")
     # hack for the fog bug for guns (time crisis - crisis zone)
     fog_files = [
         _PCSX2_RESOURCES_DIR / "textures" / "SCES-52530" / "replacements" / "c321d53987f3986d-eadd4df7c9d76527-00005dd4.png",
@@ -563,7 +482,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
     ]
     texture_dir = config_directory / "textures"
     # copy textures if necessary to PCSX2 config folder
-    if system.isOptSet("pcsx2_crisis_fog") and system.config["pcsx2_crisis_fog"] == "true":
+    if system.get_option("pcsx2_crisis_fog") == "true":
         for file_path in fog_files:
             parent_directory_name = file_path.parent.parent.name
             file_name = file_path.name
@@ -586,7 +505,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                 target_file_path.unlink()
 
     # wheels
-    wtype = Pcsx2Generator.getWheelType(metadata, playingWithWheel, system.config)
+    wtype = Pcsx2Generator.getWheelType(metadata, playingWithWheel, system)
     _logger.info("PS2 wheel type is %s", wtype)
     if Pcsx2Generator.useEmulatorWheels(playingWithWheel, wtype):
         if len(wheels) >= 1:
@@ -636,7 +555,7 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
                         pcsx2INIConfig.add_section(f"USB{usbx}")
                     pcsx2INIConfig.set(f"USB{usbx}", "Type", "Pad")
 
-                    wheel_type = Pcsx2Generator.getWheelType(metadata, playingWithWheel, system.config)
+                    wheel_type = Pcsx2Generator.getWheelType(metadata, playingWithWheel, system)
                     pcsx2INIConfig.set(f"USB{usbx}", "Pad_subtype", Pcsx2Generator.wheelTypeMapping[wheel_type])
 
                     if pad.physical_device_path is not None: # ffb on the real wheel
@@ -669,10 +588,10 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
     multiTap = 2
     joystick_count = len(controllers)
     _logger.debug("Number of Controllers = %s", joystick_count)
-    if system.isOptSet("pcsx2_multitap") and system.config["pcsx2_multitap"] == "4":
+    if (config_multitap := system.get_option_str("pcsx2_multitap")) is not system.MISSING and config_multitap == "4":
         if joystick_count > 2 and joystick_count < 5:
             pcsx2INIConfig.set("Pad", "MultitapPort1", "true")
-            multiTap = int(system.config["pcsx2_multitap"])
+            multiTap = int(config_multitap)
         elif joystick_count > 4:
             pcsx2INIConfig.set("Pad", "MultitapPort1", "true")
             multiTap = 4
@@ -680,11 +599,11 @@ def configureINI(config_directory: Path, bios_directory: Path, system: Emulator,
         else:
             multiTap = 2
             _logger.debug("*** You have the wrong number of connected controllers for this option ***")
-    elif system.isOptSet("pcsx2_multitap") and system.config["pcsx2_multitap"] == "8":
+    elif config_multitap is not system.MISSING and config_multitap == "8":
         if joystick_count > 4:
             pcsx2INIConfig.set("Pad", "MultitapPort1", "true")
             pcsx2INIConfig.set("Pad", "MultitapPort2", "true")
-            multiTap = int(system.config["pcsx2_multitap"])
+            multiTap = int(config_multitap)
         elif joystick_count > 2 and joystick_count < 5:
             pcsx2INIConfig.set("Pad", "MultitapPort1", "true")
             multiTap = 4

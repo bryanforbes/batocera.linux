@@ -53,10 +53,7 @@ class LexaloffleGenerator(Generator):
         commandArray.extend(["-desktop", SCREENSHOTS])  # screenshots
         commandArray.extend(["-windowed", "0"])                     # full screen
         # Display FPS
-        if system.config['showFPS'] == 'true':
-                commandArray.extend(["-show_fps", "1"])
-        else:
-                commandArray.extend(["-show_fps", "0"])
+        commandArray.extend(["-show_fps", "1" if system.show_fps else "0"])
 
         rombase = rom.stem
 

@@ -81,8 +81,8 @@ class LemonadeGenerator(Generator):
         # Screen Layout
         lemonadeConfig.set("Layout", "custom_layout", "false")
         lemonadeConfig.set("Layout", r"custom_layout\default", "true")
-        if system.isOptSet('lemonade_screen_layout'):
-            tab = system.config["lemonade_screen_layout"].split('-')
+        if layout := system.get_option_str('lemonade_screen_layout'):
+            tab = layout.split('-')
             lemonadeConfig.set("Layout", "swap_screen",   tab[1])
             lemonadeConfig.set("Layout", "layout_option", tab[0])
         else:
@@ -95,10 +95,7 @@ class LemonadeGenerator(Generator):
         if not lemonadeConfig.has_section("System"):
             lemonadeConfig.add_section("System")
         # New 3DS Version
-        if system.isOptSet('lemonade_is_new_3ds') and system.config["lemonade_is_new_3ds"] == '1':
-            lemonadeConfig.set("System", "is_new_3ds", "true")
-        else:
-            lemonadeConfig.set("System", "is_new_3ds", "false")
+        lemonadeConfig.set("System", "is_new_3ds", "true" if system.get_option('lemonade_is_new_3ds') == '1' else "false")
         lemonadeConfig.set("System", r"is_new_3ds\default", "false")
         # Language
         lemonadeConfig.set("System", "region_value", str(getLemonadeLangFromEnvironment()))
@@ -146,12 +143,9 @@ class LemonadeGenerator(Generator):
         lemonadeConfig.set("Renderer", "use_hw_shader",   "true")
         lemonadeConfig.set("Renderer", "use_shader_jit",  "true")
         # Software, OpenGL (default) or Vulkan
-        if system.isOptSet('lemonade_graphics_api'):
-            lemonadeConfig.set("Renderer", "graphics_api", system.config["lemonade_graphics_api"])
-        else:
-            lemonadeConfig.set("Renderer", "graphics_api", "1")
+        lemonadeConfig.set("Renderer", "graphics_api", system.get_option_str("lemonade_graphics_api", "1"))
         # Set Vulkan as necessary
-        if system.isOptSet("lemonade_graphics_api") and system.config["lemonade_graphics_api"] == "2":
+        if system.get_option("lemonade_graphics_api") == "2":
             if vulkan.is_available():
                 _logger.debug("Vulkan driver is available on the system.")
                 if vulkan.has_discrete_gpu():
@@ -165,28 +159,16 @@ class LemonadeGenerator(Generator):
                 else:
                     _logger.debug("Discrete GPU is not available on the system. Using default.")
         # Use VSYNC
-        if system.isOptSet('lemonade_use_vsync_new') and system.config["lemonade_use_vsync_new"] == '0':
-            lemonadeConfig.set("Renderer", "use_vsync_new", "false")
-        else:
-            lemonadeConfig.set("Renderer", "use_vsync_new", "true")
+        lemonadeConfig.set("Renderer", "use_vsync_new", "false" if system.get_option('lemonade_use_vsync_new') == '0' else "true")
         lemonadeConfig.set("Renderer", r"use_vsync_new\default", "true")
         # Resolution Factor
-        if system.isOptSet('lemonade_resolution_factor'):
-            lemonadeConfig.set("Renderer", "resolution_factor", system.config["lemonade_resolution_factor"])
-        else:
-            lemonadeConfig.set("Renderer", "resolution_factor", "1")
+        lemonadeConfig.set("Renderer", "resolution_factor", system.get_option_str("lemonade_resolution_factor", "1"))
         lemonadeConfig.set("Renderer", r"resolution_factor\default", "false")
         # Async Shader Compilation
-        if system.isOptSet('lemonade_async_shader_compilation') and system.config["lemonade_async_shader_compilation"] == '1':
-            lemonadeConfig.set("Renderer", "async_shader_compilation", "true")
-        else:
-            lemonadeConfig.set("Renderer", "async_shader_compilation", "false")
+        lemonadeConfig.set("Renderer", "async_shader_compilation", "true" if system.get_option('lemonade_async_shader_compilation') == '1' else "false")
         lemonadeConfig.set("Renderer", r"async_shader_compilation\default", "false")
         # Use Frame Limit
-        if system.isOptSet('lemonade_use_frame_limit') and system.config["lemonade_use_frame_limit"] == '0':
-            lemonadeConfig.set("Renderer", "use_frame_limit", "false")
-        else:
-            lemonadeConfig.set("Renderer", "use_frame_limit", "true")
+        lemonadeConfig.set("Renderer", "use_frame_limit", "false" if system.get_option('lemonade_use_frame_limit') == '0' else "true")
 
         ## [WEB SERVICE]
         if not lemonadeConfig.has_section("WebService"):
@@ -197,14 +179,11 @@ class LemonadeGenerator(Generator):
         if not lemonadeConfig.has_section("Utility"):
             lemonadeConfig.add_section("Utility")
         # Disk Shader Cache
-        if system.isOptSet('lemonade_use_disk_shader_cache') and system.config["lemonade_use_disk_shader_cache"] == '1':
-            lemonadeConfig.set("Utility", "use_disk_shader_cache", "true")
-        else:
-            lemonadeConfig.set("Utility", "use_disk_shader_cache", "false")
+        lemonadeConfig.set("Utility", "use_disk_shader_cache", "true" if system.get_option('lemonade_use_disk_shader_cache') == '1' else "false")
         lemonadeConfig.set("Utility", r"use_disk_shader_cache\default", "false")
         # Custom Textures
-        if system.isOptSet('lemonade_custom_textures') and system.config["lemonade_custom_textures"] != '0':
-            tab = system.config["lemonade_custom_textures"].split('-')
+        if (custom_textures := system.get_option('lemonade_custom_textures', '0')) != '0':
+            tab = custom_textures.split('-')
             lemonadeConfig.set("Utility", "custom_textures",  "true")
             if tab[1] == 'normal':
                 lemonadeConfig.set("Utility", "async_custom_loading", "true")
