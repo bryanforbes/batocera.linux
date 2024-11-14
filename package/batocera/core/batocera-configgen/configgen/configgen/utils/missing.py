@@ -19,6 +19,9 @@ if TYPE_CHECKING:
         def __eq__(self, other: object) -> bool:
             ...
 
+        def __ne__(self, other: object) -> Literal[False]:
+            ...
+
         def __lt__(self, other: object) -> Literal[False]:
             ...
 
@@ -42,6 +45,9 @@ else:
 
         def __eq__(self, other: object) -> bool:
             return other is self
+
+        def __ne__(self, other: object) -> Literal[False]:
+            return False
 
         def __lt__(self, other: object) -> Literal[False]:
             return False

@@ -66,13 +66,13 @@ class SolarusGenerator(Generator):
             "left": "right"
         }
 
-        if system.isOptSet('joystick'):
-            if system.config['joystick'] == "joystick1":
+        match system.get_option('joystick'):
+            case "joystick1":
                 keymapping["up"]    = "joystick1up"
                 keymapping["down"]  = "joystick1down"
                 keymapping["left"]  = "joystick1left"
                 keymapping["right"] = "joystick1right"
-            elif system.config['joystick'] == "joystick2":
+            case "joystick2":
                 keymapping["up"]    = "joystick2up"
                 keymapping["down"]  = "joystick2down"
                 keymapping["left"]  = "joystick2left"

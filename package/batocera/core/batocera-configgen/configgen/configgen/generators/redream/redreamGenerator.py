@@ -122,43 +122,16 @@ class RedreamGenerator(Generator):
             f.write(f"height={gameResolution['height']}\n")
             f.write(f"fullwidth={gameResolution['width']}\n")
             f.write(f"fullheight={gameResolution['height']}\n")
-            if system.isOptSet("redreamResolution"):
-                f.write(f"res={system.config['redreamResolution']}\n")
-            else:
-                f.write("res=2\n")
-            if system.isOptSet("redreamRatio"):
-                f.write(f"aspect={system.config['redreamRatio']}\n")
-            else:
-                f.write("aspect=4:3\n")
-            if system.isOptSet("redreamFrameSkip"):
-                f.write(f"frameskip={system.config['redreamFrameSkip']}\n")
-            else:
-                f.write("frameskip=0\n")
-            if system.isOptSet("redreamVsync"):
-                f.write(f"vysnc={system.config['redreamVsync']}\n")
-            else:
-                f.write("vsync=0\n")
-            if system.isOptSet("redreamRender"):
-                f.write(f"renderer={system.config['redreamRender']}\n")
-            else:
-                f.write("renderer=hle_perstrip\n")
+            f.write(f"res={system.get_option('redreamResolution', 2)}\n")
+            f.write(f"aspect={system.get_option('redreamRatio', '4:3')}\n")
+            f.write(f"frameskip={system.get_option('redreamFrameSkip', 0)}\n")
+            f.write(f"vysnc={system.get_option('redreamVsync', 0)}\n")
+            f.write(f"renderer={system.get_option('redreamRender', 'hle_perstrip')}\n")
             # [system]
-            if system.isOptSet("redreamRegion"):
-                f.write(f"region={system.config['redreamRegion']}\n")
-            else:
-                f.write("region=usa\n")
-            if system.isOptSet("redreamLanguage"):
-                f.write(f"language={system.config['redreamLanguage']}\n")
-            else:
-                f.write("language=english\n")
-            if system.isOptSet("redreamBroadcast"):
-                f.write(f"broadcast={system.config['redreamBroadcast']}\n")
-            else:
-                f.write("broadcast=ntsc\n")
-            if system.isOptSet("redreamCable"):
-                f.write(f"cable={system.config['redreamCable']}\n")
-            else:
-                f.write("cable=vga\n")
+            f.write(f"region={system.get_option('redreamRegion', 'usa')}\n")
+            f.write(f"language={system.get_option('redreamLanguage', 'english')}\n")
+            f.write(f"broadcast={system.get_option('redreamBroadcast', 'ntsc')}\n")
+            f.write(f"cable={system.get_option('redreamCable', 'vga')}\n")
 
             f.write
 

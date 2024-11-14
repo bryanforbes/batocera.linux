@@ -83,10 +83,7 @@ class SonicRetroGenerator(Generator):
         # [Dev]
         if not sonicConfig.has_section("Dev"):
             sonicConfig.add_section("Dev")
-        if system.isOptSet('devmenu') and system.config["devmenu"] == '1':
-            sonicConfig.set("Dev", "DevMenu", "true")
-        else:
-            sonicConfig.set("Dev", "DevMenu", "false")
+        sonicConfig.set("Dev", "DevMenu", "true" if system.get_option('devmenu') == '1' else "false")
         sonicConfig.set("Dev", "EngineDebugMode", "false")
         if (emu == "sonic2013"):
             sonicConfig.set("Dev", "StartingCategory", "255")
@@ -98,10 +95,7 @@ class SonicRetroGenerator(Generator):
             sonicConfig.set("Dev", "StartingScene", "0")
             sonicConfig.set("Dev", "UseSteamDir", "false")
         sonicConfig.set("Dev", "FastForwardSpeed", "8")
-        if system.isOptSet('hqmode') and system.config["hqmode"] == '0':
-            sonicConfig.set("Dev", "UseHQModes", "false")
-        else:
-            sonicConfig.set("Dev", "UseHQModes", "true")
+        sonicConfig.set("Dev", "UseHQModes", "false" if system.get_option('hqmode') == '0' else "true")
         sonicConfig.set("Dev", "DataFile", "Data.rsdk")
 
         # [Game]
@@ -109,15 +103,9 @@ class SonicRetroGenerator(Generator):
             sonicConfig.add_section("Game")
 
         if (emu == "sonic2013"):
-            if system.isOptSet('skipstart') and system.config["skipstart"] == '1':
-                sonicConfig.set("Game", "SkipStartMenu", "true")
-            else:
-                sonicConfig.set("Game", "SkipStartMenu", "false")
+            sonicConfig.set("Game", "SkipStartMenu", "true" if system.get_option('skipstart') == '1' else "false")
         else:
-            if system.isOptSet('spindash'):
-                sonicConfig.set("Game", "OriginalControls", system.config["spindash"])
-            else:
-                sonicConfig.set("Game", "OriginalControls", "-1")
+            sonicConfig.set("Game", "OriginalControls", system.get_option("spindash", "-1"))
             sonicConfig.set("Game", "DisableTouchControls", "true")
 
         originsGameConfig = [
@@ -134,10 +122,7 @@ class SonicRetroGenerator(Generator):
         if game_config_bin.is_file() and _get_path_md5(game_config_bin) in originsGameConfig:
             sonicConfig.set("Game", "GameType", "1")
 
-        if system.isOptSet('language'):
-            sonicConfig.set("Game", "Language", system.config["language"])
-        else:
-            sonicConfig.set("Game", "Language", "0")
+        sonicConfig.set("Game", "Language", system.get_option("language", "0"))
 
         # [Window]
         if not sonicConfig.has_section("Window"):
@@ -145,14 +130,8 @@ class SonicRetroGenerator(Generator):
 
         sonicConfig.set("Window", "FullScreen", "true")
         sonicConfig.set("Window", "Borderless", "true")
-        if system.isOptSet('vsync') and system.config["vsync"] == "0":
-            sonicConfig.set("Window", "VSync", "false")
-        else:
-            sonicConfig.set("Window", "VSync", "true")
-        if system.isOptSet('scalingmode'):
-            sonicConfig.set("Window", "ScalingMode", system.config["scalingmode"])
-        else:
-            sonicConfig.set("Window", "ScalingMode", "2")
+        sonicConfig.set("Window", "VSync", "false" if system.get_option('vsync') == "0" else "true")
+        sonicConfig.set("Window", "ScalingMode", system.get_option("scalingmode", "2"))
         sonicConfig.set("Window", "WindowScale", "2")
         sonicConfig.set("Window", "ScreenWidth", "424")
         sonicConfig.set("Window", "RefreshRate", "60")

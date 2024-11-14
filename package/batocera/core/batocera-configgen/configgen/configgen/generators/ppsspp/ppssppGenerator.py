@@ -49,8 +49,8 @@ class PPSSPPGenerator(Generator):
             commandArray.extend(["--dpi", "0.5"])
 
         # state_slot option
-        if system.isOptSet('state_filename'):
-            commandArray.append(f"--state={system.config['state_filename']}")
+        if state_filename := system.get_option('state_filename'):
+            commandArray.append(f"--state={state_filename}")
 
         # The next line is a reminder on how to quit PPSSPP with just the HK
         #commandArray = ['/usr/bin/PPSSPP'], rom, "--escape-exit"]
