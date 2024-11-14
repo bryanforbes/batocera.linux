@@ -104,10 +104,7 @@ class MameGenerator(Generator):
         except ValueError:
             messMode = -1
 
-        if system.isOptSet("softList") and system.config["softList"] != "none":
-            softList = system.config["softList"]
-        else:
-            softList = ""
+        softList = config_soft_list if (config_soft_list := system.get_option("softList", "none")) != "none" else ""
 
         # Auto softlist for FM Towns if there is a zip that matches the folder name
         # Used for games that require a CD and floppy to both be inserted
@@ -161,7 +158,7 @@ class MameGenerator(Generator):
 
         # MAME will create custom configs per game for MAME ROMs and MESS ROMs with no system attached (LCD games, TV games, etc.)
         # This will allow an alternate config path per game for MESS console/computer ROMs that may need additional config.
-        if system.isOptSet("pergamecfg") and system.getOptBoolean("pergamecfg"):
+        if system.get_option_bool("pergamecfg"):
             if messMode != -1:
                 if messSysName[messMode] != "":
                     base_path = MAME_CONFIG / messSysName[messMode]
@@ -186,29 +183,26 @@ class MameGenerator(Generator):
         # TODO -swpath              path to loose software - might use if we want software list MESS support
 
         # BGFX video engine : https://docs.mamedev.org/advanced/bgfx.html
-        if system.isOptSet("video") and system.config["video"] == "bgfx":
+        if system.get_option("video") == "bgfx":
             commandArray += [ "-video", "bgfx" ]
 
             # BGFX backend
-            if system.isOptSet("bgfxbackend") and system.config['bgfxbackend'] != 'automatic':
-                commandArray += [ "-bgfx_backend", system.config['bgfxbackend'] ]
+            if (bgfxbackend := system.get_option("bgfxbackend", "automatic")) != 'automatic':
+                commandArray += [ "-bgfx_backend", bgfxbackend ]
             else:
                 commandArray += [ "-bgfx_backend", "auto" ]
 
             # BGFX shaders effects
-            if system.isOptSet("bgfxshaders") and system.config['bgfxshaders'] != 'default':
-                commandArray += [ "-bgfx_screen_chains", system.config['bgfxshaders'] ]
-            else:
-                commandArray += [ "-bgfx_screen_chains", "default" ]
+            commandArray += [ "-bgfx_screen_chains", system.get_option('bgfxshaders', 'default') ]
 
         # Other video modes
-        elif system.isOptSet("video") and system.config["video"] == "accel":
+        elif system.get_option("video") == "accel":
             commandArray += ["-video", "accel" ]
         else:
             commandArray += [ "-video", "auto" ]
 
         # CRT / SwitchRes support
-        if system.isOptSet("switchres") and system.getOptBoolean("switchres"):
+        if system.get_option_bool("switchres"):
             commandArray += [ "-modeline_generation" ]
             commandArray += [ "-changeres" ]
             commandArray += [ "-modesetting" ]
@@ -219,41 +213,39 @@ class MameGenerator(Generator):
         # Refresh rate options to help with screen tearing
         # syncrefresh is unlisted, it requires specific display timings and 99.9% of users will get unplayable games.
         # Leaving it so it can be set manually, for CRT or other arcade-specific display users.
-        if system.isOptSet("vsync") and system.getOptBoolean("vsync"):
+        if system.get_option_bool("vsync"):
             commandArray += [ "-waitvsync" ]
-        if system.isOptSet("syncrefresh") and system.getOptBoolean("syncrefresh"):
+        if system.get_option_bool("syncrefresh"):
             commandArray += [ "-syncrefresh" ]
 
         # Rotation / TATE options
-        if system.isOptSet("rotation") and system.config["rotation"] == "autoror":
-            commandArray += [ "-autoror" ]
-        if system.isOptSet("rotation") and system.config["rotation"] == "autorol":
-            commandArray += [ "-autorol" ]
+        if (rotation := system.get_option("rotation")) in ("autoror", "autorol"):
+            commandArray += [ f"-{rotation}" ]
 
         # Artwork crop
-        if system.isOptSet("artworkcrop") and system.getOptBoolean("artworkcrop"):
+        if system.get_option_bool("artworkcrop"):
             commandArray += [ "-artwork_crop" ]
 
         # UI enable - for computer systems, the default sends all keys to the emulated system.
         # This will enable hotkeys, but some keys may pass through to MAME and not be usable in the emulated system.
         # Hotkey + D-Pad Up will toggle this when in use (scroll lock key)
-        if not (system.isOptSet("enableui") and not system.getOptBoolean("enableui")):
+        if system.get_option_bool("enableui", True):
             commandArray += [ "-ui_active" ]
 
         # Load selected plugins
         pluginsToLoad: list[str] = []
-        if not (system.isOptSet("hiscoreplugin") and not system.getOptBoolean("hiscoreplugin")):
+        if system.get_option_bool("hiscoreplugin", True):
             pluginsToLoad += [ "hiscore" ]
-        if system.isOptSet("coindropplugin") and system.getOptBoolean("coindropplugin"):
+        if system.get_option_bool("coindropplugin"):
             pluginsToLoad += [ "coindrop" ]
-        if system.isOptSet("dataplugin") and system.getOptBoolean("dataplugin"):
+        if system.get_option_bool("dataplugin"):
             pluginsToLoad += [ "data" ]
-        if len(pluginsToLoad) > 0:
+        if pluginsToLoad:
             commandArray += [ "-plugins", "-plugin", ",".join(pluginsToLoad) ]
 
         # Mouse
         useMouse = False
-        if (system.isOptSet('use_mouse') and system.getOptBoolean('use_mouse')) or not (messSysName[messMode] == "" or messMode == -1):
+        if system.get_option_bool('use_mouse') or not (messSysName[messMode] == "" or messMode == -1):
             useMouse = True
             commandArray += [ "-dial_device", "mouse" ]
             commandArray += [ "-trackball_device", "mouse" ]
@@ -261,7 +253,7 @@ class MameGenerator(Generator):
             commandArray += [ "-positional_device", "mouse" ]
             commandArray += [ "-mouse_device", "mouse" ]
             commandArray += [ "-ui_mouse" ]
-            if not (system.isOptSet('use_guns') and system.getOptBoolean('use_guns')):
+            if not system.get_option_bool('use_guns'):
                 commandArray += [ "-lightgun_device", "mouse" ]
                 commandArray += [ "-adstick_device", "mouse" ]
         else:
@@ -270,32 +262,32 @@ class MameGenerator(Generator):
             commandArray += [ "-paddle_device", "joystick" ]
             commandArray += [ "-positional_device", "joystick" ]
             commandArray += [ "-mouse_device", "joystick" ]
-            if not (system.isOptSet('use_guns') and system.getOptBoolean('use_guns')):
+            if not system.get_option_bool('use_guns'):
                 commandArray += [ "-lightgun_device", "joystick" ]
                 commandArray += [ "-adstick_device", "joystick" ]
         # Multimouse option currently hidden in ES, SDL only detects one mouse.
         # Leaving code intact for testing & possible ManyMouse integration
         multiMouse = False
-        if system.isOptSet('multimouse') and system.getOptBoolean('multimouse'):
+        if system.get_option_bool('multimouse'):
             multiMouse = True
             commandArray += [ "-multimouse" ]
 
         # guns
         useGuns = False
-        if system.isOptSet('use_guns') and system.getOptBoolean('use_guns'):
+        if system.get_option_bool('use_guns'):
             useGuns = True
             commandArray += [ "-lightgunprovider", "udev" ]
             commandArray += [ "-lightgun_device", "lightgun" ]
             commandArray += [ "-adstick_device", "lightgun" ]
-        if system.isOptSet('offscreenreload') and system.getOptBoolean('offscreenreload'):
+        if system.get_option_bool('offscreenreload'):
             commandArray += [ "-offscreen_reload" ]
 
         # wheels
         useWheels = False
-        if system.isOptSet('use_wheels') and system.getOptBoolean('use_wheels'):
+        if system.get_option_bool('use_wheels'):
             useWheels = True
 
-        if system.isOptSet('multiscreens') and system.getOptBoolean('multiscreens'):
+        if system.get_option_bool('multiscreens'):
             screens = videoMode.getScreensInfos(system.config)
             if len(screens) > 1:
                 commandArray += [ "-numscreens", str(len(screens)) ]
@@ -305,18 +297,16 @@ class MameGenerator(Generator):
         if messSysName[messMode] == "" or messMode == -1:
             commandArray += [ romBasename ]
         else:
-            messModel = messSysName[messMode]
+            messModel = system.get_option_str("altmodel", messSysName[messMode])
             # Alternate system for machines that have different configs (ie computers with different hardware)
-            if system.isOptSet("altmodel"):
-                messModel = system.config["altmodel"]
             commandArray += [ messModel ]
 
             #TI-99 32k RAM expansion & speech modules - enabled by default
             if system.name == "ti99":
                 commandArray += [ "-ioport", "peb" ]
-                if not system.isOptSet("ti99_32kram") or (system.isOptSet("ti99_32kram") and system.getOptBoolean("ti99_32kram")):
+                if system.get_option_bool("ti99_32kram", True):
                     commandArray += ["-ioport:peb:slot2", "32kmem"]
-                if not system.isOptSet("ti99_speech") or (system.isOptSet("ti99_speech") and system.getOptBoolean("ti99_speech")):
+                if system.get_option_bool("ti99_speech", True):
                     commandArray += ["-ioport:peb:slot3", "speech"]
 
             #Laser 310 Memory Expansion & Joystick
@@ -327,28 +317,27 @@ class MameGenerator(Generator):
 
             # BBC Joystick
             if system.name == "bbc":
-                if system.isOptSet('sticktype') and system.config['sticktype'] != 'none':
-                    commandArray += ["-analogue", system.config['sticktype']]
-                    specialController = system.config['sticktype']
+                if (stick_type := system.get_option('sticktype')) and stick_type != 'none':
+                    commandArray += ["-analogue", stick_type]
+                    specialController = stick_type
 
             # Apple II
             if system.name == "apple2":
                 commandArray += ["-sl7", "cffa202"]
-                if system.isOptSet('gameio') and system.config['gameio'] != 'none':
-                    if system.config['gameio'] == 'joyport' and messModel != 'apple2p':
+                if (gameio := system.get_option('gameio')) and gameio != 'none':
+                    if gameio == 'joyport' and messModel != 'apple2p':
                         _logger.debug("Joyport joystick is only compatible with Apple II Plus")
                     else:
-                        commandArray += ["-gameio", system.config['gameio']]
-                        specialController = system.config['gameio']
+                        commandArray += ["-gameio", gameio]
+                        specialController = gameio
 
             # RAM size (Mac excluded, special handling below)
-            if system.name != "macintosh" and system.isOptSet("ramsize"):
-                commandArray += [ '-ramsize', str(system.config["ramsize"]) + 'M' ]
+            if system.name != "macintosh" and (ram_size := system.get_option_str("ramsize")):
+                commandArray += [ '-ramsize', ram_size + 'M' ]
 
             # Mac RAM & Image Reader (if applicable)
             if system.name == "macintosh":
-                if system.isOptSet("ramsize"):
-                    ramSize = int(system.config["ramsize"])
+                if (ramSize := system.get_option_int("ramsize")) is not system.MISSING:
                     if messModel in [ 'maciix', 'maclc3' ]:
                         if messModel == 'maclc3' and ramSize == 2:
                             ramSize = 4
@@ -358,38 +347,32 @@ class MameGenerator(Generator):
                             ramSize = 32
                         if messModel == 'maciix' and ramSize == 48:
                             ramSize = 64
-                        commandArray += [ '-ramsize', str(ramSize) + 'M' ]
+                        commandArray += [ '-ramsize', f'{ramSize}M' ]
                     if messModel == 'maciix':
-                        imageSlot = 'nba'
-                        if system.isOptSet('imagereader'):
-                            if system.config["imagereader"] == "disabled":
-                                imageSlot = ''
-                            else:
-                                imageSlot = system.config["imagereader"]
-                        if imageSlot != "":
+                        if (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
                             commandArray += [ "-" + imageSlot, 'image' ]
 
             if softList == "":
                 # Boot disk for Macintosh
                 # Will use Floppy 1 or Hard Drive, depending on the disk.
-                if system.name == "macintosh" and system.isOptSet("bootdisk"):
-                    if system.config["bootdisk"] in [ "macos30", "macos608", "macos701", "macos75" ]:
+                if system.name == "macintosh" and (bootdisk := system.get_option("bootdisk")) is not system.MISSING:
+                    if bootdisk in [ "macos30", "macos608", "macos701", "macos75" ]:
                         bootType = "-flop1"
-                        bootDisk = "/userdata/bios/" + system.config["bootdisk"] + ".img"
+                        bootDisk = "/userdata/bios/" + bootdisk + ".img"
                     else:
                         bootType = "-hard"
-                        bootDisk = "/userdata/bios/" + system.config["bootdisk"] + ".chd"
+                        bootDisk = "/userdata/bios/" + bootdisk + ".chd"
                     commandArray += [ bootType, bootDisk ]
 
                 # Alternate ROM type for systems with mutiple media (ie cassette & floppy)
                 # Mac will auto change floppy 1 to 2 if a boot disk is enabled
                 # Only one drive on FMTMarty
                 if system.name != "macintosh":
-                    if system.isOptSet("altromtype"):
-                        if messModel == "fmtmarty" and system.config["altromtype"] == "flop1":
+                    if (altromtype := system.get_option("altromtype")) is not system.MISSING:
+                        if messModel == "fmtmarty" and altromtype == "flop1":
                             commandArray += [ "-flop" ]
                         else:
-                            commandArray += [ "-" + system.config["altromtype"] ]
+                            commandArray += [ "-" + altromtype ]
                     elif system.name == "adam":
                         # add some logic based on the rom extension
                         rom_extension = rom.suffix
@@ -409,18 +392,16 @@ class MameGenerator(Generator):
                     else:
                         commandArray += [ "-" + messRomType[messMode] ]
                 else:
-                    if system.isOptSet("bootdisk"):
-                        if ((system.isOptSet("altromtype") and system.config["altromtype"] == "flop1") or not system.isOptSet("altromtype")) and system.config["bootdisk"] in [ "macos30", "macos608", "macos701", "macos75" ]:
+                    if (bootdisk := system.get_option("bootdisk")) is not system.MISSING:
+                        altromtype = system.get_option("altromtype")
+                        if (altromtype == "flop1" or altromtype is system.MISSING) and bootdisk in [ "macos30", "macos608", "macos701", "macos75" ]:
                             commandArray += [ "-flop2" ]
-                        elif system.isOptSet("altromtype"):
-                            commandArray += [ "-" + system.config["altromtype"] ]
+                        elif altromtype is not system.MISSING:
+                            commandArray += [ "-" + altromtype ]
                         else:
                             commandArray += [ "-" + messRomType[messMode] ]
                     else:
-                        if system.isOptSet("altromtype"):
-                            commandArray += [ "-" + system.config["altromtype"] ]
-                        else:
-                            commandArray += [ "-" + messRomType[messMode] ]
+                        commandArray += [ "-" + system.get_option("altromtype", messRomType[messMode]) ]
                 # Use the full filename for MESS ROMs
                 commandArray += [ rom ]
             else:
@@ -447,7 +428,7 @@ class MameGenerator(Generator):
 
             # Create & add a blank disk if needed, insert into drive 2
             # or drive 1 if drive 2 is selected manually or FM Towns Marty.
-            if system.isOptSet('addblankdisk') and system.getOptBoolean('addblankdisk'):
+            if system.get_option_bool('addblankdisk'):
                 if system.name == 'fmtowns':
                     blankDisk = Path('/usr/share/mame/blank.fmtowns')
                     targetFolder = MAME_SAVES / system.name
@@ -459,7 +440,7 @@ class MameGenerator(Generator):
                 # Add other single floppy systems to this if statement
                 if messModel == "fmtmarty":
                     commandArray += [ '-flop', targetDisk ]
-                elif (system.isOptSet('altromtype') and system.config['altromtype'] == 'flop2'):
+                elif system.get_option('altromtype') == 'flop2':
                     commandArray += [ '-flop1', targetDisk ]
                 else:
                     commandArray += [ '-flop2', targetDisk ]
@@ -469,11 +450,11 @@ class MameGenerator(Generator):
             # Autostart computer games where applicable
             # bbc has different boots for floppy & cassette, no special boot for carts
             if system.name == "bbc":
-                if system.isOptSet("altromtype") or softList != "":
-                    if (system.isOptSet('altromtype') and system.config["altromtype"] == "cass") or softList.endswith("cass"):
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                    if altromtype == "cass" or softList.endswith("cass"):
                         autoRunCmd = '*tape\\nchain""\\n'
                         autoRunDelay = 2
-                    elif (system.isOptSet('altromtype') and system.config["altromtype"].startswith("flop")) or softList.endswith("flop"):
+                    elif (altromtype is not system.MISSING and altromtype.startswith("flop")) or softList.endswith("flop"):
                         autoRunCmd = '*cat\\n\\n\\n\\n*exec !boot\\n'
                         autoRunDelay = 3
                 else:
@@ -481,8 +462,8 @@ class MameGenerator(Generator):
                     autoRunDelay = 3
             # fm7 boots floppies, needs cassette loading
             elif system.name == "fm7":
-                if system.isOptSet("altromtype") or softList != "":
-                    if (system.isOptSet('altromtype') and system.config["altromtype"] == "cass") or softList.endswith("cass"):
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                    if altromtype == "cass" or softList.endswith("cass"):
                         autoRunCmd = 'LOADM”“,,R\\n'
                         autoRunDelay = 5
             elif system.name == "coco":
@@ -503,10 +484,11 @@ class MameGenerator(Generator):
 
                 # if still undefined, default autoRunCmd based on media type
                 if autoRunCmd == "":
-                    if (system.isOptSet('altromtype') and system.config["altromtype"] == "cass") or (softList != "" and softList.endswith("cass")) or romExt.casefold() == ".cas":
+                    altromtype = system.get_option('altromtype')
+                    if altromtype == "cass" or (softList != "" and softList.endswith("cass")) or romExt.casefold() == ".cas":
                         romType = 'cass'
                         autoRunCmd = "CLOAD:RUN\\n" if romName.casefold().endswith(".bas") else "CLOADM:EXEC\\n"
-                    if (system.isOptSet('altromtype') and system.config["altromtype"] == "flop1") or (softList != "" and softList.endswith("flop")) or romExt.casefold() == ".dsk":
+                    if altromtype == "flop1" or (softList != "" and softList.endswith("flop")) or romExt.casefold() == ".dsk":
                         romType = 'flop'
                         if romName.casefold().endswith(".bas"):
                             autoRunCmd = f'RUN "{romName}"\\n'
@@ -540,8 +522,11 @@ class MameGenerator(Generator):
 
         # bezels
         bezelSet = None if (bezel_option := system.get_option('bezel', '')) == '' else bezel_option
-        if system.isOptSet('forceNoBezel') and system.getOptBoolean('forceNoBezel'):
+        if system.get_option_bool('forceNoBezel'):
             bezelSet = None
+        else:
+            bezelSet = None if (bezel_option := system.get_option('bezel', '')) == '' else bezel_option
+
         try:
             if messMode != -1:
                 MameGenerator.writeBezelConfig(bezelSet, system, rom, messSysName[messMode], gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
@@ -648,8 +633,8 @@ class MameGenerator(Generator):
                 f.write("</view>\n")
                 f.write("</mamelayout>\n")
 
-        if system.isOptSet('bezel.tattoo') and system.config['bezel.tattoo'] != "0":
-            if system.config['bezel.tattoo'] == 'system':
+        if (bezel_tattoo := system.get_option('bezel.tattoo', '0')) != "0":
+            if bezel_tattoo == 'system':
                 tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / f'{system.name}.png'
                 if not tattoo_file.exists():
                     tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
@@ -657,7 +642,7 @@ class MameGenerator(Generator):
                     tattoo = Image.open(tattoo_file)
                 except Exception as e:
                     _logger.error("Error opening controller overlay: %s", tattoo_file)
-            elif system.config['bezel.tattoo'] == 'custom' and (tattoo_file := Path(system.config['bezel.tattoo_file'])).exists():
+            elif bezel_tattoo == 'custom' and (tattoo_file := Path(system.get_option('bezel.tattoo_file'))).exists():
                 try:
                     tattoo = Image.open(tattoo_file)
                 except Exception:

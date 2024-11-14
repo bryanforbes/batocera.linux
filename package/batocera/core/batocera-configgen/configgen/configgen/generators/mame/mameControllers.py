@@ -171,9 +171,9 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     for p in range(0, 4):
         xml_crosshair = config.createElement("crosshair")
         xml_crosshair.setAttribute("player", str(p))
-        if system.isOptSet("mame_crosshair") and system.config["mame_crosshair"] == "enabled":
+        if (mame_crosshair := system.get_option("mame_crosshair")) == "enabled":
             xml_crosshair.setAttribute("mode", "1")
-        elif system.isOptSet("mame_crosshair") and system.config["mame_crosshair"] == "onmove":
+        elif mame_crosshair == "onmove":
             continue # keep no line
         else:
             xml_crosshair.setAttribute("mode", "0")
@@ -271,8 +271,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
         pedalsKeys = {1: "c", 2: "v", 3: "b", 4: "n"}
         pedalkey: str | None = None
         pedalcname = f"controllers.pedals{nplayer}"
-        if pedalcname in system.config:
-            pedalkey = system.config[pedalcname]
+        if (config_pedalkey := system.get_option_str(pedalcname)) is not system.MISSING:
+            pedalkey = config_pedalkey
         else:
             if nplayer in pedalsKeys:
                 pedalkey = pedalsKeys[nplayer]
@@ -321,8 +321,8 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             pedalsKeys = {1: "c", 2: "v", 3: "b", 4: "n"}
             pedalkey = None
             pedalcname = f"controllers.pedals{gunnum}"
-            if pedalcname in system.config:
-                pedalkey = system.config[pedalcname]
+            if (config_pedalkey := system.get_option_str(pedalcname)) is not system.MISSING:
+                pedalkey = config_pedalkey
             else:
                 if gunnum in pedalsKeys:
                     pedalkey = pedalsKeys[gunnum]
