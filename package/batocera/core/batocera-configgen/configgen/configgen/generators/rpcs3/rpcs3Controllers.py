@@ -79,7 +79,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
         for nplayer, pad in enumerate(sorted(controllers.values())[0:7], start=1):
             _logger.debug("Controller #%s - %s", nplayer, pad.guid)
             # check for DualShock / DualSense
-            if pad.guid in valid_sony_guids and f"rpcs3_controller{nplayer}" in system.config and system.config[f"rpcs3_controller{nplayer}"] == "Sony":
+            if pad.guid in valid_sony_guids and system.get_option(f"rpcs3_controller{nplayer}") == "Sony":
                 _logger.debug("*** Using DualShock / DualSense configuration ***")
                 # dualshock 3
                 if pad.guid in valid_sony_guids[:4]:
@@ -159,7 +159,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
                 f.write('    Use LED as a battery indicator: false\n')
                 f.write('    LED battery indicator brightness: 10\n')
                 f.write('    Player LED enabled: true\n')
-                if system.isOptSet(f"rpcs3_rumble{nplayer}") and not system.getOptBoolean(f"rpcs3_rumble{nplayer}"):
+                if not system.get_option_bool(f"rpcs3_rumble{nplayer}", True):
                     f.write('    Enable Large Vibration Motor: false\n')
                     f.write('    Enable Small Vibration Motor: false\n')
                 else:
@@ -179,7 +179,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
                 f.write('    Vendor ID: 1356\n')
                 f.write('    Product ID: 616\n')
                 f.write('  Buddy Device: ""\n')
-            elif f"rpcs3_controller{nplayer}" in system.config and system.config[f"rpcs3_controller{nplayer}"] == "Evdev":
+            elif system.get_option(f"rpcs3_controller{nplayer}") == "Evdev":
                 _logger.debug("*** Using EVDEV configuration ***")
                 # evdev
                 f.write(f'Player {nplayer} Input:\n')
@@ -258,7 +258,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
                 f.write('    Use LED as a battery indicator: false\n')
                 f.write('    LED battery indicator brightness: 50\n')
                 f.write('    Player LED enabled: true\n')
-                if system.isOptSet(f"rpcs3_rumble{nplayer}") and not system.getOptBoolean(f"rpcs3_rumble{nplayer}"):
+                if not system.get_option_bool(f"rpcs3_rumble{nplayer}", True):
                     f.write('    Enable Large Vibration Motor: false\n')
                     f.write('    Enable Small Vibration Motor: false\n')
                 else:
@@ -357,7 +357,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
                 f.write('    Use LED as a battery indicator: false\n')
                 f.write('    LED battery indicator brightness: 10\n')
                 f.write('    Player LED enabled: true\n')
-                if system.isOptSet(f"rpcs3_rumble{nplayer}") and not system.getOptBoolean(f"rpcs3_rumble{nplayer}"):
+                if not system.get_option_bool(f"rpcs3_rumble{nplayer}", True):
                     f.write('    Enable Large Vibration Motor: false\n')
                     f.write('    Enable Small Vibration Motor: false\n')
                 else:
