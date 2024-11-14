@@ -49,7 +49,7 @@ class XeniaGenerator(Generator):
         emupath = wineprefix / 'xenia'
         canarypath = wineprefix / 'xenia-canary'
 
-        core = system.config['core']
+        core = system.core
 
         # check Vulkan first before doing anything
         if vulkan.is_available():

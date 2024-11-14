@@ -22,11 +22,11 @@ class TsugaruGenerator(Generator):
         commandArray += ["-PAUSEKEY", "F10"]
 
         # CD Speed
-        if system.isOptSet('cdrom_speed') and system.config['cdrom_speed'] != 'auto':
-            commandArray += ["-CDSPEED", system.config["cdrom_speed"]]
+        if (cdrom_speed := system.get_option('cdrom_speed')) and cdrom_speed != 'auto':
+            commandArray += ["-CDSPEED", cdrom_speed]
 
         # CPU Emulation
-        if system.isOptSet('386dx') and system.config['386dx'] == '1':
+        if system.get_option('386dx') == '1':
             commandArray += ["-PRETEND386DX"]
 
         if rom.suffix.lower() in ['.iso', '.cue', '.bin']:

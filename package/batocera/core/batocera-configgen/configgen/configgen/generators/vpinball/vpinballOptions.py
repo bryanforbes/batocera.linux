@@ -10,10 +10,7 @@ if TYPE_CHECKING:
 def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulator) -> None:
     # Tables are organised by folders containing the vpx file, and sub-folders with the roms, altcolor, altsound,...
     # We keep a switch to allow users with the old unique pinmame to be able to continue using vpinball (switchon)
-    if system.has_option("vpinball_folders") and not system.get_option_bool("vpinball_folders"):
-        vpinballSettings.set("Standalone", "PinMAMEPath", "")
-    else:
-        vpinballSettings.set("Standalone", "PinMAMEPath", "./")
+    vpinballSettings.set("Standalone", "PinMAMEPath", system.get_option_bool("vpinball_folders", True, return_values=("./", "")))
 
     # Ball trail
     if (balltrail := system.get_option("vpinball_balltrail")) is not system.MISSING:
@@ -24,26 +21,17 @@ def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulat
         vpinballSettings.set("Player", "BallTrailStrength", "0")
 
     # Visual Nugde Strength
-    if system.isOptSet("vpinball_nudgestrength"):
-        vpinballSettings.set("Player", "NudgeStrength", system.config["vpinball_nudgestrength"])
-    else:
-        vpinballSettings.set("Player", "NudgeStrength", "")
+    vpinballSettings.set("Player", "NudgeStrength", system.get_option("vpinball_nudgestrength", ""))
 
     # Performance settings
-    if system.isOptSet("vpinball_maxframerate"):
-        vpinballSettings.set("Player", "MaxFramerate", system.config["vpinball_maxframerate"])
-    else:
-        vpinballSettings.set("Player", "MaxFramerate", "")
+    vpinballSettings.set("Player", "MaxFramerate", system.get_option("vpinball_maxframerate", ""))
 
     # vsync
-    if system.isOptSet("vpinball_vsync"):
-        vpinballSettings.set("Player", "SyncMode", system.config["vpinball_vsync"])
-    else:
-        vpinballSettings.set("Player", "SyncMode", "2")
+    vpinballSettings.set("Player", "SyncMode", system.get_option("vpinball_vsync", "2"))
 
     # presets
-    if system.isOptSet("vpinball_presets"):
-        if system.config["vpinball_presets"]=="defaults":
+    match system.get_option("vpinball_presets"):
+        case "defaults":
             vpinballSettings.set("Player", "FXAA", "")
             vpinballSettings.set("Player", "Sharpen", "")
             vpinballSettings.set("Player", "DisableAO", "")
@@ -52,7 +40,7 @@ def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulat
             vpinballSettings.set("Player", "PFReflection", "")
             vpinballSettings.set("Player", "ForceAnisotropicFiltering", "")
             vpinballSettings.set("Player", "AlphaRampAccuracy", "")
-        elif system.config["vpinball_presets"]=="highend":
+        case "highend":
             vpinballSettings.set("Player", "FXAA", "3")
             vpinballSettings.set("Player", "Sharpen", "2")
             vpinballSettings.set("Player", "DisableAO", "0")
@@ -61,7 +49,7 @@ def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulat
             vpinballSettings.set("Player", "PFReflection", "5")
             vpinballSettings.set("Player", "ForceAnisotropicFiltering", "1")
             vpinballSettings.set("Player", "AlphaRampAccuracy", "10")
-        elif system.config["vpinball_presets"]=="lowend":
+        case "lowend":
             vpinballSettings.set("Player", "FXAA", "0")
             vpinballSettings.set("Player", "Sharpen", "0")
             vpinballSettings.set("Player", "DisableAO", "1")
@@ -70,45 +58,30 @@ def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulat
             vpinballSettings.set("Player", "PFReflection", "3")
             vpinballSettings.set("Player", "ForceAnisotropicFiltering", "0")
             vpinballSettings.set("Player", "AlphaRampAccuracy", "5")
-        elif system.config["vpinball_presets"]=="manual":
+        case "manual":
             pass
-    else: # like defaults
-        vpinballSettings.set("Player", "FXAA", "")
-        vpinballSettings.set("Player", "Sharpen", "")
-        vpinballSettings.set("Player", "DisableAO", "")
-        vpinballSettings.set("Player", "DynamicAO", "")
-        vpinballSettings.set("Player", "SSRefl", "")
-        vpinballSettings.set("Player", "PFReflection", "")
-        vpinballSettings.set("Player", "ForceAnisotropicFiltering", "")
-        vpinballSettings.set("Player", "AlphaRampAccuracy", "")
+        case system.MISSING: # like defaults
+            vpinballSettings.set("Player", "FXAA", "")
+            vpinballSettings.set("Player", "Sharpen", "")
+            vpinballSettings.set("Player", "DisableAO", "")
+            vpinballSettings.set("Player", "DynamicAO", "")
+            vpinballSettings.set("Player", "SSRefl", "")
+            vpinballSettings.set("Player", "PFReflection", "")
+            vpinballSettings.set("Player", "ForceAnisotropicFiltering", "")
+            vpinballSettings.set("Player", "AlphaRampAccuracy", "")
 
     # custom display physical setup
-    if system.isOptSet("vpinball_customphysicalsetup") and system.getOptBoolean("vpinball_customphysicalsetup"):
+    if system.get_option_bool("vpinball_customphysicalsetup"):
         # Width
-        if system.isOptSet("vpinball_screenwidth"):
-            vpinballSettings.set("Player", "ScreenWidth", system.config["vpinball_screenwidth"])
-        else:
-            vpinballSettings.set("Player", "ScreenWidth", "")
+        vpinballSettings.set("Player", "ScreenWidth", system.get_option("vpinball_screenwidth", ""))
         # Height
-        if system.isOptSet("vpinball_screenheight"):
-            vpinballSettings.set("Player", "ScreenHeight", system.config["vpinball_screenheight"])
-        else:
-            vpinballSettings.set("Player", "ScreenHeight", "")
+        vpinballSettings.set("Player", "ScreenHeight", system.get_option("vpinball_screenheight", ""))
         # Inclination
-        if system.isOptSet("vpinball_screeninclination"):
-            vpinballSettings.set("Player", "ScreenInclination", system.config["vpinball_screeninclination"])
-        else:
-            vpinballSettings.set("Player", "ScreenInclination", "")
+        vpinballSettings.set("Player", "ScreenInclination", system.get_option("vpinball_screeninclination", ""))
         # Y
-        if system.isOptSet("vpinball_screenplayery"):
-            vpinballSettings.set("Player", "ScreenPlayerY", system.config["vpinball_screenplayery"])
-        else:
-            vpinballSettings.set("Player", "ScreenPlayerY", "")
+        vpinballSettings.set("Player", "ScreenPlayerY", system.get_option("vpinball_screenplayery", ""))
         # Z
-        if system.isOptSet("vpinball_screenplayerz"):
-            vpinballSettings.set("Player", "ScreenPlayerZ", system.config["vpinball_screenplayerz"])
-        else:
-            vpinballSettings.set("Player", "ScreenPlayerZ", "")
+        vpinballSettings.set("Player", "ScreenPlayerZ", system.get_option("vpinball_screenplayerz", ""))
     else:
         vpinballSettings.set("Player", "ScreenWidth",       "")
         vpinballSettings.set("Player", "ScreenHeight",      "")
@@ -117,41 +90,19 @@ def configureOptions(vpinballSettings: CaseSensitiveConfigParser, system: Emulat
         vpinballSettings.set("Player", "ScreenPlayerZ",     "")
 
     # Altcolor (switchon)
-    if system.isOptSet("vpinball_altcolor") and not system.getOptBoolean("vpinball_altcolor"):
-        vpinballSettings.set("Standalone", "AltColor", "0")
-    else:
-        vpinballSettings.set("Standalone", "AltColor","1")
+    vpinballSettings.set("Standalone", "AltColor", system.get_option_bool("vpinball_altcolor", True, return_values=("1", "0")))
 
     # Sound balance
-    if system.isOptSet("vpinball_musicvolume"):
-        vpinballSettings.set("Player", "MusicVolume", system.config["vpinball_musicvolume"])
-    else:
-        vpinballSettings.set("Player", "MusicVolume", "")
-
-    if system.isOptSet("vpinball_soundvolume"):
-        vpinballSettings.set("Player", "SoundVolume", system.config["vpinball_soundvolume"])
-    else:
-        vpinballSettings.set("Player", "SoundVolume", "")
+    vpinballSettings.set("Player", "MusicVolume", system.get_option("vpinball_musicvolume", ""))
+    vpinballSettings.set("Player", "SoundVolume", system.get_option("vpinball_soundvolume", ""))
 
     # Altsound
-    if system.isOptSet("vpinball_altsound") and not system.getOptBoolean("vpinball_altsound"):
-        vpinballSettings.set("Standalone", "AltSound", "0")
-    else:
-        vpinballSettings.set("Standalone", "AltSound","1")
+    vpinballSettings.set("Standalone", "AltSound", system.get_option_bool("vpinball_altsound", True, return_values=("1", "0")))
 
     # select which ID for sounddevices by running:
     # /usr/bin/vpinball/VPinballX_GL -listsnd
-    if system.isOptSet("vpinball_sounddevice"):
-        vpinballSettings.set("Player", "SoundDevice", system.config["vpinball_sounddevice"])
-    else:
-        vpinballSettings.set("Player", "SoundDevice", "")
-    if system.isOptSet("vpinball_sounddevicebg"):
-        vpinballSettings.set("Player", "SoundDeviceBG", system.config["vpinball_sounddevicebg"])
-    else:
-        vpinballSettings.set("Player", "SoundDeviceBG", "")
+    vpinballSettings.set("Player", "SoundDevice", system.get_option("vpinball_sounddevice", ""))
+    vpinballSettings.set("Player", "SoundDeviceBG", system.get_option("vpinball_sounddevicebg", ""))
 
     # Don't use SDL "Add credit" with the South button/plunger and pad2key default mapping
-    if system.isOptSet("vpinball_pad_add_credit") and system.getOptBoolean("vpinball_pad_add_credit"):
-        vpinballSettings.set("Player", "JoyAddCreditKey", "")
-    else:
-        vpinballSettings.set("Player", "JoyAddCreditKey", "0")
+    vpinballSettings.set("Player", "JoyAddCreditKey", system.get_option_bool("vpinball_pad_add_credit", return_values=("", "0")))

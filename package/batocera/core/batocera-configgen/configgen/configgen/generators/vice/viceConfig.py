@@ -28,17 +28,17 @@ def setViceConfig(vice_config_dir: Path, system: Emulator, metadata: Mapping[str
     if viceConfigRC.exists():
         viceConfig.read(viceConfigRC)
 
-    if(system.config['core'] == 'x64'):
+    if system.core == 'x64':
         systemCore = "C64"
-    elif(system.config['core'] == 'x64dtv'):
+    elif system.core == 'x64dtv':
         systemCore = "C64DTV"
-    elif(system.config['core'] == 'xplus4'):
+    elif system.core == 'xplus4':
         systemCore = "PLUS4"
-    elif(system.config['core'] == 'xscpu64'):
+    elif system.core == 'xscpu64':
         systemCore = "SCPU64"
-    elif(system.config['core'] == 'xvic'):
+    elif system.core == 'xvic':
        systemCore = "VIC20"
-    elif(system.config['core'] == 'xpet'):
+    elif system.core == 'xpet':
        systemCore = "PET"
     else:
         systemCore = "C128"
@@ -49,14 +49,14 @@ def setViceConfig(vice_config_dir: Path, system: Emulator, metadata: Mapping[str
     viceConfig.set(systemCore, "SaveResourcesOnExit",    "0")
     viceConfig.set(systemCore, "SoundDeviceName",        "alsa")
 
-    if system.isOptSet('noborder') and system.getOptBoolean('noborder'):
+    if system.get_option_bool('noborder'):
         viceConfig.set(systemCore, "SDLGLAspectMode",        "0")
         viceConfig.set(systemCore, "VICBorderMode",        "3")
     else:
         viceConfig.set(systemCore, "SDLGLAspectMode",        "2")
         viceConfig.set(systemCore, "VICBorderMode",        "0")
     viceConfig.set(systemCore, "VICFullscreen",        "1")
-    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and guns:
+    if system.get_option_bool('use_guns') and guns:
         if "gun_type" in metadata and metadata["gun_type"] == "stack_light_rifle":
             viceConfig.set(systemCore, "JoyPort1Device",             "15")
         else:
@@ -69,15 +69,13 @@ def setViceConfig(vice_config_dir: Path, system: Emulator, metadata: Mapping[str
     viceConfig.set(systemCore, "JoyMapFile",  str(viceController))
 
     # custom : allow the user to configure directly sdl-vicerc via batocera.conf via lines like : vice.section.option=value
-    for user_config, user_config_value in system.config.items():
-        if user_config[:5] == "vice.":
-            section_option = user_config[5:]
-            section_option_splitter = section_option.find(".")
-            custom_section = section_option[:section_option_splitter]
-            custom_option = section_option[section_option_splitter+1:]
-            if not viceConfig.has_section(custom_section):
-                viceConfig.add_section(custom_section)
-            viceConfig.set(custom_section, custom_option, user_config_value)
+    for section_option, user_config_value in system.option_items(starts_with="vice."):
+        section_option_splitter = section_option.find(".")
+        custom_section = section_option[:section_option_splitter]
+        custom_option = section_option[section_option_splitter+1:]
+        if not viceConfig.has_section(custom_section):
+            viceConfig.add_section(custom_section)
+        viceConfig.set(custom_section, custom_option, user_config_value)
 
     # update the configuration file
     with viceConfigRC.open('w') as configfile:
