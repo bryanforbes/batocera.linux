@@ -326,7 +326,7 @@ def transformValue(value: str, playersControllers: ControllerMapping, mapping: M
         for elt in cleanValue[1:-1].split(","):
             newelt = transformElement(elt, playersControllers, mapping, mapping_fallback)
             if newelt is not None:
-                if newvalue != "":
+                if newvalue:
                     newvalue = newvalue + ","
                 newvalue = newvalue + newelt
         return '"' + newvalue + '"'

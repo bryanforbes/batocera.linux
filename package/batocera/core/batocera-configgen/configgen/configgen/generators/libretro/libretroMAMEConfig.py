@@ -93,7 +93,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
 
         # Auto softlist for FM Towns if there is a zip that matches the folder name
         # Used for games that require a CD and floppy to both be inserted
-        if system.name == 'fmtowns' and softList == '':
+        if system.name == 'fmtowns' and not softList:
             if (ROMS / 'fmtowns' / f'{rom.parent.name}.zip').exists():
                 softList = 'fmtowns_cd'
 
@@ -115,7 +115,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
         messModel = system.get_option_str("altmodel", messSysName[messMode])
         commandLine += [ messModel ]
 
-        if messSysName[messMode] == "":
+        if not messSysName[messMode]:
             # Command line for non-arcade, non-system ROMs (lcdgames, plugnplay)
             if system.get_option_bool("customcfg"):
                 cfgPath = CONFIGS / corePath / "custom"
@@ -181,7 +181,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                         if (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
                             commandLine += [ "-" + imageSlot, 'image' ]
 
-            if softList != "":
+            if softList:
                 # Software list ROM commands
                 prepSoftwareList(subdirSoftList, softList, softDir, BIOS / "mame" / "hash", rom.parent)
                 if softList in subdirSoftList:
@@ -307,7 +307,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 (mameIniDir / "batocera.ini").unlink()
             # bbc has different boots for floppy & cassette, no special boot for carts
             if system.name == "bbc":
-                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList:
                     if altromtype == "cass" or softList[-4:] == "cass":
                         autoRunCmd = '*tape\\nchain""\\n'
                         autoRunDelay = 2
@@ -319,7 +319,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     autoRunDelay = 3
             # fm7 boots floppies, needs cassette loading
             elif system.name == "fm7":
-                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList:
                     if altromtype == "cass" or softList[-4:] == "cass":
                         autoRunCmd = 'LOADM”“,,R\\n'
                         autoRunDelay = 5
@@ -328,7 +328,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 autoRunDelay = 2
 
                 # if using software list, use "usage" for autoRunCmd (if provided)
-                if softList != "":
+                if softList:
                     softListFile = Path(f'/usr/bin/mame/hash/{softList}.xml')
                     if softListFile.exists():
                         softwarelist = ET.parse(softListFile)
@@ -340,12 +340,12 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                                             autoRunCmd = cast(str, info.get('value')) + '\\n'
 
                 # if still undefined, default autoRunCmd based on media type
-                if autoRunCmd == "":
+                if not autoRunCmd:
                     altromtype = system.get_option('altromtype')
-                    if altromtype == "cass" or (softList != "" and softList.endswith("cass")) or rom.suffix.casefold() == ".cas":
+                    if altromtype == "cass" or (softList and softList.endswith("cass")) or rom.suffix.casefold() == ".cas":
                         romType = 'cass'
                         autoRunCmd = "CLOAD:RUN\\n" if romDrivername.casefold().endswith(".bas") else "CLOADM:EXEC\\n"
-                    if altromtype == "flop1" or (softList != "" and softList.endswith("flop")) or rom.suffix.casefold() == ".dsk":
+                    if altromtype == "flop1" or (softList and softList.endswith("flop")) or rom.suffix.casefold() == ".dsk":
                         romType = 'flop'
                         if romDrivername.casefold().endswith(".bas"):
                             autoRunCmd = f'RUN \"{romDrivername}\"\\n'
@@ -375,7 +375,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
 
             inipath = SAVES / 'mame' / 'mame' / 'ini'
             commandLine += [ '-inipath', f'"{inipath}"' ]
-            if autoRunCmd != "":
+            if autoRunCmd:
                 if autoRunCmd.startswith("'"):
                     autoRunCmd.replace("'", "")
                 with (SAVES / 'mame' / 'mame' / 'ini' / 'batocera.ini').open("w") as iniFile:
@@ -764,7 +764,7 @@ def generateAnalogPortElement(pad: Controller, config: minidom.Document, tag: st
     xml_newseq_std = config.createElement("newseq")
     xml_port.appendChild(xml_newseq_std)
     xml_newseq_std.setAttribute("type", "standard")
-    stdvalue = config.createTextNode("NONE" if axis == '' else f"JOYCODE_{padindex + 1}_{axis}")
+    stdvalue = config.createTextNode("NONE" if not axis else f"JOYCODE_{padindex + 1}_{axis}")
     xml_newseq_std.appendChild(stdvalue)
     return xml_port
 

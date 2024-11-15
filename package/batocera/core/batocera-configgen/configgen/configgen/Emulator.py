@@ -358,7 +358,7 @@ class Emulator:
 
         config.update({
             key: value for key, value in settings.items()
-            if value != '' and value != 'default' and value != 'auto'
+            if value and value != 'default' and value != 'auto'
         })
 
     # fps value is from es
