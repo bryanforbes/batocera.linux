@@ -41,7 +41,7 @@ class DrasticGenerator(Generator):
         # Settings, Language and ConfirmPowerOff
 
         #Getting Values from ES
-        if system.isOptSet("drastic_scaling") and system.config["drastic_scaling"] == 'nearest':
+        if system.get_option("drastic_scaling") == 'nearest':
             subprocess.run(f"xxd {drastic_bin} > drastic.txt", shell=True)
             if subprocess.run("grep -q '6c69 6e65 6172' drastic.txt", shell=True).returncode == 0:
                 # Swap to nearest neighbor

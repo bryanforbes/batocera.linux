@@ -21,14 +21,14 @@ def set_hotkeygen_context(generator: Generator, system: Emulator, /) -> Iterator
 
     # limit hotkeys
     # there is an option to disable all hotkeys but exit in case the player 1 is a pad with not hotkey specific button
-    if system.isOptSet("exithotkeyonly") and system.getOptBoolean("exithotkeyonly"):
+    if system.get_option_bool("exithotkeyonly"):
         if "exit" in hkc["keys"]:
             hkc["keys"] = { "exit": hkc["keys"]["exit"] }
         else:
             # should not happen while exit should always be there
             hkc["keys"] = {}
     # if uimod is not full (aka kiosk or children mode), remove the menu action
-    if system.isOptSet("uimode") and system.config["uimode"] != "Full":
+    if system.get_option("uimode", "Full") != "Full":
         if "menu" in hkc["keys"]:
             del hkc["keys"]["menu"]
 

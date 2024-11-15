@@ -25,7 +25,6 @@ from ...batoceraPaths import (
     USER_DECORATIONS,
     mkdir_if_not_exists,
 )
-from ...gun import guns_border_ratio_type, guns_borders_size_name
 from ...utils import bezels as bezelsUtil, videoMode
 from ..Generator import Generator
 from . import mameControllers
@@ -33,6 +32,7 @@ from .mamePaths import MAME_BIOS, MAME_CHEATS, MAME_CONFIG, MAME_DEFAULT_DATA, M
 
 if TYPE_CHECKING:
     from ...Emulator import Emulator
+    from ...gun import GunMapping
     from ...types import BezelInfo, HotkeysContext, Resolution
 
 _logger = logging.getLogger(__name__)
@@ -529,11 +529,11 @@ class MameGenerator(Generator):
 
         try:
             if messMode != -1:
-                MameGenerator.writeBezelConfig(bezelSet, system, rom, messSysName[messMode], gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
+                MameGenerator.writeBezelConfig(bezelSet, system, rom, messSysName[messMode], gameResolution, guns)
             else:
-                MameGenerator.writeBezelConfig(bezelSet, system, rom, "", gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
+                MameGenerator.writeBezelConfig(bezelSet, system, rom, "", gameResolution, guns)
         except Exception:
-            MameGenerator.writeBezelConfig(None, system, rom, "", gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
+            MameGenerator.writeBezelConfig(None, system, rom, "", gameResolution, guns)
 
         buttonLayout = getMameControlScheme(system, rom)
 
@@ -547,7 +547,7 @@ class MameGenerator(Generator):
         return Command.Command(array=commandArray, env={"PWD":"/usr/bin/mame/","XDG_CONFIG_HOME":CONFIGS, "XDG_CACHE_HOME":SAVES})
 
     @staticmethod
-    def writeBezelConfig(bezelSet: str | None, system: Emulator, rom: Path, messSys: str, gameResolution: Resolution, gunsBordersSize: str | None, gunsBordersRatio: str | None) -> None:
+    def writeBezelConfig(bezelSet: str | None, system: Emulator, rom: Path, messSys: str, gameResolution: Resolution, guns: GunMapping) -> None:
         if messSys == "":
             tmpZipDir = Path("/var/run/mame_artwork") / rom.stem # ok, no need to zip, a folder is taken too
         else:
@@ -555,6 +555,9 @@ class MameGenerator(Generator):
         # clean, in case no bezel is set, and in case we want to recreate it
         if tmpZipDir.exists():
             shutil.rmtree(tmpZipDir)
+
+        gunsBordersSize = system.get_guns_borders_size(guns)
+        gunsBordersRatio = system.get_guns_borders_ratio(guns)
 
         if bezelSet is None and gunsBordersSize is None:
             return

@@ -102,7 +102,7 @@ class GSplusGenerator(Generator):
             config.save("bram3[f0]", '00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00')
             config.save("g_limit_speed", "2")
 
-        gsplus_bios_filename = system.config["gsplus_bios_filename"] if system.isOptSet("gsplus_bios_filename") else "ROM.03"
+        gsplus_bios_filename = system.get_option("gsplus_bios_filename", "ROM.03")
         config.save("g_cfg_rom_path", f"""{BIOS}/{gsplus_bios_filename}""")
 
         config.write()

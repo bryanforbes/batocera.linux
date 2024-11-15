@@ -10,6 +10,7 @@ strictDictionaryInference = true
 strictSetInference = true
 reportMissingModuleSource = "none"
 reportUnnecessaryComparison = "error"
+reportDeprecated = "warning"
 
 [tool.ruff]
 extend-exclude = [".venv*", "buildroot*", "output", "dl"]

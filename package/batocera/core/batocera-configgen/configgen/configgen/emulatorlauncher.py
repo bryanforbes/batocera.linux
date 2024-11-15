@@ -36,7 +36,7 @@ from .batoceraPaths import SAVES, SYSTEM_SCRIPTS, USER_SCRIPTS
 from .controller import Controller
 from .Emulator import Emulator
 from .generators import get_generator
-from .gun import Gun, guns_border_ratio_type, guns_borders_size_name
+from .gun import Gun, GunMapping
 from .utils import bezels as bezelsUtil, videoMode, wheelsUtils
 from .utils.hotkeygen import set_hotkeygen_context
 from .utils.logger import setup_logging
@@ -110,7 +110,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
         wheels: DeviceInfoDict = {}
 
     # find the generator
-    generator = get_generator(system.config['emulator'])
+    generator = get_generator(system.emulator)
 
     # the resolution must be changed before configuration while the configuration may depend on it (ie bezels)
     wantedGameMode = generator.getResolutionMode(system.config)
@@ -153,7 +153,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
         # core
         effectiveCore = ""
         if "core" in system.config and system.config["core"] is not None:
-            effectiveCore = system.config["core"]
+            effectiveCore = cast('str', system.config["core"])
 
         # network options
         if args.netplaymode is not None:
@@ -187,13 +187,13 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
         os.environ.update({'SDL_RENDER_VSYNC': system.config["sdlvsync"]})
 
         # run a script before emulator starts
-        callExternalScripts(SYSTEM_SCRIPTS, "gameStart", [systemName, system.config['emulator'], effectiveCore, rom])
-        callExternalScripts(USER_SCRIPTS, "gameStart", [systemName, system.config['emulator'], effectiveCore, rom])
+        callExternalScripts(SYSTEM_SCRIPTS, "gameStart", [systemName, system.emulator, effectiveCore, rom])
+        callExternalScripts(USER_SCRIPTS, "gameStart", [systemName, system.emulator, effectiveCore, rom])
 
         # run the emulator
         from .utils.evmapy import evmapy
         with (
-            evmapy(systemName, system.config['emulator'], effectiveCore, original_rom, player_controllers, guns),
+            evmapy(systemName, system.emulator, effectiveCore, original_rom, player_controllers, guns),
             set_hotkeygen_context(generator, system)
         ):
             # change directory if wanted
@@ -204,11 +204,11 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
             cmd = generator.generate(system, rom, player_controllers, metadata, guns, wheels, gameResolution)
 
             if system.get_option_bool('hud_support'):
-                hud_bezel = getHudBezel(system, generator, rom, gameResolution, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
+                hud_bezel = getHudBezel(system, generator, rom, gameResolution, guns)
                 if (system.has_option('hud') and system.get_option('hud') != "" and system.get_option('hud') != "none") or hud_bezel is not None:
                     gameinfos = extractGameInfosFromXml(args.gameinfoxml)
                     cmd.env["MANGOHUD_DLSYM"] = "1"
-                    hudconfig = getHudConfig(system, args.systemname, system.config['emulator'], effectiveCore, rom, gameinfos, hud_bezel)
+                    hudconfig = getHudConfig(system, args.systemname, system.emulator, effectiveCore, rom, gameinfos, hud_bezel)
                     hud_config_file = Path('/var/run/hud.config')
                     with hud_config_file.open('w') as f:
                         f.write(hudconfig)
@@ -223,8 +223,8 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
                 _profiler.enable()
 
         # run a script after emulator shuts down
-        callExternalScripts(USER_SCRIPTS, "gameStop", [systemName, system.config['emulator'], effectiveCore, rom])
-        callExternalScripts(SYSTEM_SCRIPTS, "gameStop", [systemName, system.config['emulator'], effectiveCore, rom])
+        callExternalScripts(USER_SCRIPTS, "gameStop", [systemName, system.emulator, effectiveCore, rom])
+        callExternalScripts(SYSTEM_SCRIPTS, "gameStop", [systemName, system.emulator, effectiveCore, rom])
 
     finally:
         # always restore the resolution
@@ -249,15 +249,22 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
     # exit
     return exitCode
 
-def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolution: Resolution, bordersSize: str | None, bordersRatio: str | None):
+def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolution: Resolution, guns: GunMapping):
     if generator.supportsInternalBezels():
-        _logger.debug("skipping bezels for emulator %s", system.config['emulator'])
+        _logger.debug("skipping bezels for emulator %s", system.emulator)
         return None
+
+    bezel = system.get_option('bezel')
+    bezel_tattoo = system.get_option('bezel.tattoo', '0')
+    bordersSize = system.get_guns_borders_size(guns)
+    bordersRatio = system.get_guns_borders_ratio(guns)
+
     # no good reason for a bezel
-    if ('bezel' not in system.config or system.config['bezel'] == "" or system.config['bezel'] == "none") and not (system.isOptSet('bezel.tattoo') and system.config['bezel.tattoo'] != "0") and bordersSize is None:
+    if (not bezel or bezel == "none") and bezel_tattoo == '0' and bordersSize is None:
         return None
+
     # no bezel, generate a transparent one for the tatoo/gun borders ... and so on
-    if ('bezel' not in system.config or system.config['bezel'] == "" or system.config['bezel'] == "none"):
+    if not bezel or bezel == "none":
         overlay_png_file  = Path("/tmp/bezel_transhud_black.png")
         overlay_info_file = Path("/tmp/bezel_transhud_black.info")
         bezelsUtil.createTransparentBezel(overlay_png_file, gameResolution["width"], gameResolution["height"])
@@ -269,8 +276,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
     else:
         _logger.debug("hud enabled. trying to apply the bezel %s", system.config['bezel'])
 
-        bezel = system.config['bezel']
-        bz_infos = bezelsUtil.getBezelInfos(rom, bezel, system.name, system.config['emulator'])
+        bz_infos = bezelsUtil.getBezelInfos(rom, bezel, system.name, system.emulator)
         if bz_infos is None:
             _logger.debug("no bezel info file found")
             return None
@@ -375,7 +381,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
             return None
         overlay_png_file = output_png_file
 
-    if system.get_option('bezel.tattoo', '0') != "0":
+    if bezel_tattoo != "0":
         output_png_file = Path("/tmp/bezel_tattooed.png")
         bezelsUtil.tatooImage(overlay_png_file, output_png_file, system)
         overlay_png_file = output_png_file
@@ -431,21 +437,22 @@ def hudConfig_protectStr(string: str | Path | None) -> str:
 def getHudConfig(system: Emulator, systemName: str, emulator: str, core: str, rom: Path, gameinfos: Mapping[str, str], bezel: Path | None) -> str:
     configstr = ""
 
-    if bezel != "" and bezel != "none" and bezel is not None:
+    if bezel is not None:
         configstr = f"background_image={hudConfig_protectStr(bezel)}\nlegacy_layout=false\n"
 
-    if not system.has_option('hud') or system.get_option('hud') == "none":
+    mode = system.get_option('hud')
+    if mode is system.MISSING or mode == "none":
         return configstr + "background_alpha=0\n" # hide the background
 
-    mode = system.config["hud"]
-    hud_position = "bottom-left"
-    if system.has_option('hud_corner') and system.get_option("hud_corner") != "" :
-        if system.config["hud_corner"] == "NW":
+    match system.get_option('hud_corner'):
+        case "NW":
             hud_position = "top-left"
-        elif system.config["hud_corner"] == "NE":
+        case "NE":
             hud_position = "top-right"
-        elif system.config["hud_corner"] == "SE":
+        case "SE":
             hud_position = "bottom-right"
+        case _:
+            hud_position = "bottom-left"
 
     emulatorstr = emulator
     if emulator != core and core:

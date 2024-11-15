@@ -372,10 +372,7 @@ class BigPEmuGenerator(Generator):
         # ScriptSettings
         config["BigPEmuConfig"]["ScriptSettings"] = {}
 
-        if system.isOptSet("bigpemu_doom"):
-            config["BigPEmuConfig"]["ScriptSettings"]["DOOM-Music"] = system.config["bigpemu_doom"]
-        else:
-            config["BigPEmuConfig"]["ScriptSettings"]["DOOM-Music"] = 0
+        config["BigPEmuConfig"]["ScriptSettings"]["DOOM-Music"] = system.get_option("bigpemu_doom", 0)
 
         # Screen filter
         config["BigPEmuConfig"]["Video"]["ScreenFilter"] = system.get_option("bigpemu_screenfilter", 0)

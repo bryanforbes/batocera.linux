@@ -117,8 +117,8 @@ class Gun:
         dir = _PRECALIBRATION_DIR / system_name
 
         if dir.exists():
-            emulator = cast('str', system.config['emulator'])
-            core = cast('str | None', system.config.get('core'))
+            emulator = system.emulator
+            core = system.core
             rom = Path(rom)
 
             if system_name == "atomiswave":
@@ -179,35 +179,6 @@ def guns_need_crosses(guns: GunMapping) -> bool:
         return True
 
     return any(gun.need_cross for gun in guns.values())
-
-def guns_borders_size_name(guns: GunMapping, config: Mapping[str, object]) -> str | None:
-    borders_size: str = cast(str, config.get("controllers.guns.borderssize", "medium"))
-
-    # overriden by specific options
-    borders_mode = "normal"
-    if (config_borders_mode := cast(str, config.get("controllers.guns.bordersmode", "auto"))) != "auto":
-        borders_mode = config_borders_mode
-    if (config_borders_mode := cast(str, config.get("bordersmode", "auto"))) != "auto":
-        borders_mode = config_borders_mode
-
-    # others are gameonly and normal
-    if borders_mode == "hidden":
-        return None
-
-    if borders_mode == "force":
-        return borders_size
-
-    for gun in guns.values():
-        if gun.need_borders:
-            return borders_size
-
-    return None
-
-# returns None to follow the bezel overlay size by default
-def guns_border_ratio_type(guns: GunMapping, config: dict[str, str]) -> str | None:
-    if "controllers.guns.bordersratio" in config:
-        return config["controllers.guns.bordersratio"] # "4:3"
-    return None
 
 
 type GunMapping = Mapping[int, Gun]
