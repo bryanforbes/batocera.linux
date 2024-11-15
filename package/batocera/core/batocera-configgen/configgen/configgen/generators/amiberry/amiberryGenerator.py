@@ -202,8 +202,8 @@ class AmiberryGenerator(Generator):
                     floppies.append(floppy)
                     n += 1
         else:
-           #Single ADF
-           return [rom]
+            #Single ADF
+            return [rom]
 
         return floppies
 

@@ -148,4 +148,4 @@ def writeKodiConfig(controllersFromES: ControllerMapping) -> None:
             f.write("<advancedsettings><splash>false</splash></advancedsettings>")
 
 def vidpid(guid: str) -> tuple[str, str]:
-  return guid[10:12]+guid[8:10], guid[18:20]+guid[16:18]
+    return guid[10:12]+guid[8:10], guid[18:20]+guid[16:18]

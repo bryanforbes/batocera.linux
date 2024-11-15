@@ -148,15 +148,15 @@ class DuckstationGenerator(Generator):
         settings.set("GPU", "TextureFilter", system.get_option_str("duckstation_texture_filtering", "Nearest"))
         # PGXP - enabled by default
         if pgxp := system.get_option_str("duckstation_pgxp"):
-           settings.set("GPU", "PGXPEnable", pgxp)
-           settings.set("GPU", "PGXPCulling", pgxp)
-           settings.set("GPU", "PGXPTextureCorrection", pgxp)
-           settings.set("GPU", "PGXPPreserveProjFP", pgxp)
+            settings.set("GPU", "PGXPEnable", pgxp)
+            settings.set("GPU", "PGXPCulling", pgxp)
+            settings.set("GPU", "PGXPTextureCorrection", pgxp)
+            settings.set("GPU", "PGXPPreserveProjFP", pgxp)
         else:
-           settings.set("GPU", "PGXPEnable", "true")
-           settings.set("GPU", "PGXPCulling", "true")
-           settings.set("GPU", "PGXPTextureCorrection", "true")
-           settings.set("GPU", "PGXPPreserveProjFP", "true")
+            settings.set("GPU", "PGXPEnable", "true")
+            settings.set("GPU", "PGXPCulling", "true")
+            settings.set("GPU", "PGXPTextureCorrection", "true")
+            settings.set("GPU", "PGXPPreserveProjFP", "true")
         # True Color
         settings.set("GPU", "TrueColor", system.get_option_str("duckstation_truecolour", "false"))
         # Scaled Dithering
