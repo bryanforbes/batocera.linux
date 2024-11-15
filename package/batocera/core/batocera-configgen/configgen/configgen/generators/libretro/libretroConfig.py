@@ -548,14 +548,14 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
     retroarchConfig['run_ahead_frames'] = '0'
     retroarchConfig['run_ahead_secondary_instance'] = 'false'
     if (runahead := system.get_option_int('runahead', 0)) > 0:
-       if system.name not in systemNoRunahead:
-          if system.get_option_bool('preemptiveframes'):
-             retroarchConfig['preemptive_frames_enable'] = 'true'
-          else:
-             retroarchConfig['run_ahead_enabled'] = 'true'
-          retroarchConfig['run_ahead_frames'] = runahead
-          if system.get_option_bool('secondinstance'):
-              retroarchConfig['run_ahead_secondary_instance'] = 'true'
+        if system.name not in systemNoRunahead:
+            if system.get_option_bool('preemptiveframes'):
+                retroarchConfig['preemptive_frames_enable'] = 'true'
+            else:
+                retroarchConfig['run_ahead_enabled'] = 'true'
+            retroarchConfig['run_ahead_frames'] = runahead
+            if system.get_option_bool('secondinstance'):
+                retroarchConfig['run_ahead_secondary_instance'] = 'true'
 
     # Auto frame delay (input delay reduction via frame timing)
     retroarchConfig['video_frame_delay_auto'] = system.get_option_bool('video_frame_delay_auto', return_values=('true', 'false'))

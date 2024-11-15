@@ -255,8 +255,8 @@ class Rpcs3Generator(Generator):
 
         # firmware not installed and available : instead of starting the game, install it
         if Rpcs3Generator.getFirmwareVersion() is None:
-          if (BIOS / "PS3UPDAT.PUP").exists():
-            commandArray = [RPCS3_BIN, "--installfw", BIOS / "PS3UPDAT.PUP"]
+            if (BIOS / "PS3UPDAT.PUP").exists():
+                commandArray = [RPCS3_BIN, "--installfw", BIOS / "PS3UPDAT.PUP"]
 
         return Command.Command(
             array=commandArray,

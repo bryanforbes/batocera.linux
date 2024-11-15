@@ -74,7 +74,7 @@ class LexaloffleGenerator(Generator):
 
         controllersconfig = generate_sdl_game_controller_config(playersControllers)
         with ensure_parents_and_open(CONTROLLERS, "w") as file:
-               file.write(controllersconfig)
+            file.write(controllersconfig)
 
         return Command.Command(array=commandArray, env={})
 
