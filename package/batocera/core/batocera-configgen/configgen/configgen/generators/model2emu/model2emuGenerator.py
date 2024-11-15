@@ -11,7 +11,6 @@ from typing import TYPE_CHECKING, Final
 from ... import Command
 from ...batoceraPaths import CONFIG_ROM, HOME, ROMS, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
-from ...gun import guns_borders_size_name
 from ...utils import wine
 from ...utils.configparser import CaseSensitiveConfigParser
 from ..Generator import Generator
@@ -102,7 +101,7 @@ class Model2EmuGenerator(Generator):
                 for gun in guns.values():
                     if gun.need_borders:
                         if lua_file_path.exists():
-                            bordersSize = guns_borders_size_name(guns, system.config)
+                            bordersSize = system.get_guns_borders_size(guns)
                             # add more intelligence for lower resolution screens to avoid massive borders
                             if bordersSize == "thin":
                                 thickness = "1"
