@@ -9,23 +9,28 @@ import stat
 import subprocess
 import tarfile
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Final
+from typing import TYPE_CHECKING, Any, Final, Literal
 
 import requests
 from evdev import ecodes
 
-from configgen.gun import GunMapping, guns_borders_size_name
-
 from ... import Command
 from ...batoceraPaths import SAVES, mkdir_if_not_exists
-from ...controller import generate_sdl_game_controller_config, get_mapping_axis_relaxed_values
+from ...controller import (
+    Controller,
+    ControllerMapping,
+    generate_sdl_game_controller_config,
+    get_mapping_axis_relaxed_values,
+)
+from ...gun import GunMapping, guns_borders_size_name
 from ...utils import bezels as bezelsUtil, hotkeygen
 from ..Generator import Generator
 
 if TYPE_CHECKING:
     from collections.abc import Mapping
 
-    from ...types import HotkeysContext
+    from ...Emulator import Emulator
+    from ...types import DeviceInfoMapping, HotkeysContext, Resolution
 
 _logger = logging.getLogger(__name__)
 
@@ -115,7 +120,7 @@ class LindberghGenerator(Generator):
                     _logger.debug("Made %s executable", exe_file)
 
         # Run command
-        if system.isOptSet("lindbergh_test") and system.getOptBoolean("lindbergh_test"):
+        if system.get_option_bool("lindbergh_test"):
             commandArray: list[str | Path] = [str(romDir / "lindbergh"), "-t"]
         else:
             commandArray: list[str | Path] = [str(romDir / "lindbergh")]
@@ -219,7 +224,7 @@ class LindberghGenerator(Generator):
             n += 1
         return conf
 
-    def setConf(self, conf, key, value):
+    def setConf(self, conf: dict[str, Any], key: str, value: Any):
         if key not in self.CONF_KEYS:
             raise Exception(f"unknown conf key {key}")
 
@@ -232,7 +237,7 @@ class LindberghGenerator(Generator):
         conf["keys"][key]["modified"]  = True
         conf["keys"][key]["commented"] = False
 
-    def commentConf(self, conf, key):
+    def commentConf(self, conf: dict[str, Any], key: str):
         if key not in self.CONF_KEYS:
             raise Exception(f"unknown conf key {key}")
 
@@ -240,7 +245,7 @@ class LindberghGenerator(Generator):
             conf["keys"][key]["modified"]  = True
             conf["keys"][key]["commented"] = True
 
-    def saveConf(self, conf: Mapping[str, Any], targetFile):
+    def saveConf(self, conf: Mapping[str, Any], targetFile: Path):
         # update with modified lines
         for key, value in conf["keys"].items():
             if value["modified"]:
@@ -257,18 +262,18 @@ class LindberghGenerator(Generator):
         except Exception as e:
             _logger.debug("Error updating configuration file: %s", e)
 
-    def buildConfFile(self, conf, system, gameResolution, guns: GunMapping, wheels, playersControllers, romName):
+    def buildConfFile(self, conf: dict[str, Any], system: Emulator, gameResolution: Resolution, guns: GunMapping, wheels: DeviceInfoMapping, playersControllers: ControllerMapping, romName: str):
         self.setConf(conf, "WIDTH",                     gameResolution['width'])
         self.setConf(conf, "HEIGHT",                    gameResolution['height'])
         self.setConf(conf, "FULLSCREEN",                1)
-        self.setConf(conf, "REGION",                    system.config["lindbergh_region"] if system.isOptSet("lindbergh_region") else "EX")
-        self.setConf(conf, "FPS_TARGET",                system.config["lindbergh_fps"]    if system.isOptSet("lindbergh_fps")    else "60")
-        self.setConf(conf, "FPS_LIMITER_ENABLED",       1 if system.isOptSet("lindbergh_limit")    and system.getOptBoolean("lindbergh_limit")    else 0)
-        self.setConf(conf, "FREEPLAY",                  1 if system.isOptSet("lindbergh_freeplay") and system.getOptBoolean("lindbergh_freeplay") else 0)
-        self.setConf(conf, "KEEP_ASPECT_RATIO",         1 if system.isOptSet("lindbergh_aspect")   and system.getOptBoolean("lindbergh_aspect")   else 0)
-        self.setConf(conf, "DEBUG_MSGS",                1 if system.isOptSet("lindbergh_debug")    and system.getOptBoolean("lindbergh_debug")    else 0)
-        self.setConf(conf, "HUMMER_FLICKER_FIX",        1 if system.isOptSet("lindbergh_hummer")   and system.getOptBoolean("lindbergh_hummer")   else 0)
-        self.setConf(conf, "OUTRUN_LENS_GLARE_ENABLED", 1 if system.isOptSet("lindbergh_lens")     and system.getOptBoolean("lindbergh_lens")     else 0)
+        self.setConf(conf, "REGION",                    system.get_option("lindbergh_region", "EX"))
+        self.setConf(conf, "FPS_TARGET",                system.get_option("lindbergh_fps", "60"))
+        self.setConf(conf, "FPS_LIMITER_ENABLED",       system.get_option_bool("lindbergh_limit", return_values=(1, 0)))
+        self.setConf(conf, "FREEPLAY",                  system.get_option_bool("lindbergh_freeplay", return_values=(1, 0)))
+        self.setConf(conf, "KEEP_ASPECT_RATIO",         system.get_option_bool("lindbergh_aspect", return_values=(1, 0)))
+        self.setConf(conf, "DEBUG_MSGS",                system.get_option_bool("lindbergh_debug", return_values=(1, 0)))
+        self.setConf(conf, "HUMMER_FLICKER_FIX",        system.get_option_bool("lindbergh_hummer", return_values=(1, 0)))
+        self.setConf(conf, "OUTRUN_LENS_GLARE_ENABLED", system.get_option_bool("lindbergh_lens", return_values=(1, 0)))
         self.setConf(conf, "SKIP_OUTRUN_CABINET_CHECK", 1 if "outrun" in romName.lower() or "outr2sdx" in romName.lower() else 0)
         self.setConf(conf, "SRAM_PATH",   f"{self.LINDBERGH_SAVES}/sram.bin.{Path(romName).stem}")
         self.setConf(conf, "EEPROM_PATH", f"{self.LINDBERGH_SAVES}/eeprom.bin.{Path(romName).stem}")
@@ -276,7 +281,7 @@ class LindberghGenerator(Generator):
         ## Additional game specific options
 
         # Virtua Tennis - Card Reader
-        if "tennis" in romName.lower() and system.isOptSet("lindbergh_card") and system.getOptBoolean("lindbergh_card"):
+        if "tennis" in romName.lower() and system.get_option_bool("lindbergh_card"):
             self.setConf(conf, "EMULATE_CARDREADER", 1)
             self.setConf(conf, "CARDFILE_01", f"{self.LINDBERGH_SAVES}/VT3_Card_01.crd")
             self.setConf(conf, "CARDFILE_02", f"{self.LINDBERGH_SAVES}/VT3_Card_02.crd")
@@ -287,7 +292,7 @@ class LindberghGenerator(Generator):
         cpu_speed = self.get_cpu_speed()
         if cpu_speed is not None:
             _logger.debug("Current CPU Speed: %.2f GHz", cpu_speed)
-            if "hotd" in romName.lower() and system.isOptSet("lindbergh_speed") and system.getOptBoolean("lindbergh_speed"):
+            if "hotd" in romName.lower() and system.get_option_bool("lindbergh_speed"):
                 self.setConf(conf, "CPU_FREQ_GHZ", cpu_speed)
 
         # OutRun 2 - Network
@@ -297,13 +302,13 @@ class LindberghGenerator(Generator):
             ip = self.get_ip_address(destination="8.8.8.8")
         if ip:
             _logger.debug("Current IP Address: %s", ip)
-            if "outr2sdx" in romName.lower() and system.isOptSet("lindbergh_ip") and system.getOptBoolean("lindbergh_ip"):
+            if "outr2sdx" in romName.lower() and system.get_option_bool("lindbergh_ip"):
                 self.setConf(conf, "OR2_IP", ip)
         else:
             _logger.debug("Unable to retrieve IP address.")
 
         ## Guns
-        if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0:
+        if system.get_option_bool('use_guns') and guns:
             need_guns_border = False
             for gun in guns.values():
                 if gun.need_borders:
@@ -319,9 +324,9 @@ class LindberghGenerator(Generator):
 
         self.setup_controllers(conf, system, romName, playersControllers, guns, wheels)
 
-    def setup_controllers(self, conf, system, romName, playersControllers, guns, wheels):
+    def setup_controllers(self, conf: dict[str, Any], system: Emulator, romName: str, playersControllers: ControllerMapping, guns: GunMapping, wheels: DeviceInfoMapping):
         # 0: SDL, 1: EVDEV, 2: RAW EVDEV
-        if system.isOptSet("lindbergh_controller") and system.config["lindbergh_controller"] == "1":
+        if system.get_option("lindbergh_controller") == "1":
             input_mode = 0
         else:
             input_mode = 2
@@ -351,14 +356,14 @@ class LindberghGenerator(Generator):
 
         # configure guns
         if input_mode == 2:
-            if system.isOptSet('use_guns') and system.getOptBoolean('use_guns'):
+            if system.get_option_bool('use_guns'):
                 self.setup_guns_evdev(conf, guns, shortRomName)
 
         # joysticks
         if input_mode == 2:
             self.setup_joysticks_evdev(conf, system, shortRomName, guns, wheels, playersControllers)
 
-    def setup_joysticks_evdev(self, conf, system, shortRomName, guns, wheels, playersControllers):
+    def setup_joysticks_evdev(self, conf: dict[str, Any], system: Emulator, shortRomName: str, guns: GunMapping, wheels: DeviceInfoMapping, playersControllers: ControllerMapping):
         # button that are common to all players
         noPlayerButton = {
             "TEST_BUTTON": True,
@@ -379,11 +384,11 @@ class LindberghGenerator(Generator):
             # Handle two players / controllers only, don't do if already configured for guns
             maxplayers = 2
 
-            if nplayer <= 2 and continuePlayers and not (system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) >= nplayer):
+            if nplayer <= 2 and continuePlayers and not (system.get_option_bool('use_guns') and len(guns) >= nplayer):
                 relaxValues = get_mapping_axis_relaxed_values(pad)
 
                 ### choose the adapted mapping
-                if system.isOptSet('use_wheels') and system.getOptBoolean('use_wheels'):
+                if system.get_option_bool('use_wheels'):
                     lindberghCtrl = self.getMappingForJoystickOrWheel(
                         shortRomName,
                         "wheel",
@@ -393,7 +398,7 @@ class LindberghGenerator(Generator):
                         len(wheels) >= nplayer
                     )
                     _logger.debug("lindbergh wheel mapping for player %s", nplayer)
-                elif system.isOptSet('use_guns') and system.getOptBoolean('use_guns'):
+                elif system.get_option_bool('use_guns'):
                     lindberghCtrl = self.getMappingForJoystickOrWheel(shortRomName, "gun", nplayer, pad, False)
                     _logger.debug("lindbergh gun mapping for player %s", nplayer)
                 else:
@@ -484,7 +489,7 @@ class LindberghGenerator(Generator):
                             raise Exception("invalid input type")
                 nplayer += 1
 
-    def getMappingForJoystickOrWheel(self, shortRomName, deviceType, nplayer, pad, isRealWheel):
+    def getMappingForJoystickOrWheel(self, shortRomName: str, deviceType: Literal['wheel', 'gun', 'pad'], nplayer: int, pad: Controller, isRealWheel: bool):
         lindberghCtrl_pad = {
             "a":              "BUTTON_2",
             "b":              "BUTTON_1",
@@ -659,7 +664,7 @@ class LindberghGenerator(Generator):
         if deviceType == "pad":
             return lindberghCtrl_pad
 
-    def setup_guns_evdev(self, conf, guns, shortRomName):
+    def setup_guns_evdev(self, conf: dict[str, Any], guns: GunMapping, shortRomName: str):
         nplayer = 1
 
         # common batocera mapping
@@ -716,7 +721,7 @@ class LindberghGenerator(Generator):
                 _logger.debug("lindbergh gun for player %s", nplayer)
                 xplayer = 1+(nplayer-1)*2
                 yplayer = 1+(nplayer-1)*2+1
-                evplayer = guns[gun]["node"]
+                evplayer = guns[gun].node
                 self.setConf(conf, f"ANALOGUE_{xplayer}", f"{evplayer}:ABS:0")
                 self.setConf(conf, f"ANALOGUE_{yplayer}", f"{evplayer}:ABS:1")
 
@@ -733,7 +738,7 @@ class LindberghGenerator(Generator):
                     self.setConf(conf, f"ANALOGUE_{yplayerp4}", f"{evplayer}:ABS:1:SHAKE")
 
                 for mapping in mappings_actions:
-                    if mapping in guns[gun]["buttons"] and mapping in mappings_codes:
+                    if mapping in guns[gun].buttons and mapping in mappings_codes:
                         code = mappings_codes[mapping]
                         action = mappings_actions[mapping]
 
@@ -810,7 +815,7 @@ class LindberghGenerator(Generator):
             Path(romDir, "libsegaapi.so").unlink()
             _logger.debug("Removed: %s/libsegaapi.so", romDir)
 
-    def setup_config(self, source_dir, system, gameResolution, guns, wheels, playersControllers, romDir, romName):
+    def setup_config(self, source_dir: Path, system: Emulator, gameResolution: Resolution, guns: GunMapping, wheels: DeviceInfoMapping, playersControllers: ControllerMapping, romDir: Path, romName: str):
         LINDBERGH_CONFIG_FILE = Path("/userdata/system/configs/lindbergh/lindbergh.conf")
         mkdir_if_not_exists(LINDBERGH_CONFIG_FILE.parent)
 
@@ -855,7 +860,7 @@ class LindberghGenerator(Generator):
             _logger.debug("Error running dmidecode: %s", e)
             return None
 
-    def get_ip_address(self, destination="1.1.1.1", port=80):
+    def get_ip_address(self, destination: str = "1.1.1.1", port: int = 80):
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
                 s.connect((destination, port))

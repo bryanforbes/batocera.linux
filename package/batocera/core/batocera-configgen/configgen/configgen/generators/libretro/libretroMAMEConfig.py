@@ -57,15 +57,15 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
     romDrivername = rom.stem
     specialController = 'none'
 
-    if system.config['core'] in [ 'mame', 'mess', 'mamevirtual' ]:
-        corePath = f"lr-{system.config['core']}"
+    if system.core in [ 'mame', 'mess', 'mamevirtual' ]:
+        corePath = f"lr-{system.core}"
     else:
-        corePath = str(system.config['core'])
+        corePath = str(system.core)
 
     if system.name in [ 'mame', 'neogeo', 'lcdgames', 'plugnplay', 'vis' ]:
         # Set up command line for basic systems
         # ie. no media, softlists, etc.
-        if system.getOptBoolean("customcfg"):
+        if system.get_option_bool("customcfg"):
             cfgPath = CONFIGS / corePath / "custom"
         else:
             cfgPath = SAVES / "mame" / "mame" / "cfg"
@@ -77,9 +77,9 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
         commandLine += [ '-cfg_directory', f'"{cfgPath}"' ]
         commandLine += [ '-rompath', f'"{rom.parent};/userdata/bios/mame/;/userdata/bios/"' ]
         pluginsToLoad: list[str] = []
-        if not (system.isOptSet("hiscoreplugin") and not system.getOptBoolean("hiscoreplugin")):
+        if system.get_option_bool("hiscoreplugin", True):
             pluginsToLoad += [ "hiscore" ]
-        if system.isOptSet("coindropplugin") and system.getOptBoolean("coindropplugin"):
+        if system.get_option_bool("coindropplugin"):
             pluginsToLoad += [ "coindrop" ]
         if len(pluginsToLoad) > 0:
             commandLine += [ "-plugins", "-plugin", ",".join(pluginsToLoad) ]
@@ -89,10 +89,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
         # Set up command line for MESS or MAMEVirtual
         softDir = Path("/var/run/mame_software")
         subdirSoftList = [ "mac_hdd", "bbc_hdd", "cdi", "archimedes_hdd", "fmtowns_cd" ]
-        if system.isOptSet("softList") and system.config["softList"] != "none":
-            softList = system.config["softList"]
-        else:
-            softList = ""
+        softList = config_soft_list if (config_soft_list := system.get_option("softList", "none")) != "none" else ""
 
         # Auto softlist for FM Towns if there is a zip that matches the folder name
         # Used for games that require a CD and floppy to both be inserted
@@ -115,14 +112,12 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
         messMode = messSystems.index(system.name)
 
         # Alternate system for machines that have different configs (ie computers with different hardware)
-        messModel = messSysName[messMode]
-        if system.isOptSet("altmodel"):
-            messModel = system.config["altmodel"]
+        messModel = system.get_option_str("altmodel", messSysName[messMode])
         commandLine += [ messModel ]
 
         if messSysName[messMode] == "":
             # Command line for non-arcade, non-system ROMs (lcdgames, plugnplay)
-            if system.getOptBoolean("customcfg"):
+            if system.get_option_bool("customcfg"):
                 cfgPath = CONFIGS / corePath / "custom"
             else:
                 cfgPath = SAVES / "mame" / "mame" / "cfg"
@@ -136,9 +131,9 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
             # Don't enable 32k by default
             if system.name == "ti99":
                 commandLine += [ "-ioport", "peb" ]
-                if system.isOptSet("ti99_32kram") and system.getOptBoolean("ti99_32kram"):
+                if system.get_option_bool("ti99_32kram"):
                     commandLine += ["-ioport:peb:slot2", "32kmem"]
-                if not system.isOptSet("ti99_speech") or (system.isOptSet("ti99_speech") and system.getOptBoolean("ti99_speech")):
+                if system.get_option_bool("ti99_speech", True):
                     commandLine += ["-ioport:peb:slot3", "speech"]
 
             #Laser 310 Memory Expansion & joystick
@@ -148,9 +143,9 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
 
             # BBC Joystick
             if system.name == "bbc":
-                if system.isOptSet('sticktype') and system.config['sticktype'] != 'none':
-                    commandLine += ["-analogue", system.config['sticktype']]
-                    specialController = system.config['sticktype']
+                if (stick_type := system.get_option('sticktype')) and stick_type != 'none':
+                    commandLine += ["-analogue", stick_type]
+                    specialController = stick_type
 
             # Apple II
             if system.name == "apple2":
@@ -158,21 +153,20 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 # only add SD/IDE control if provided a hard drive image
                 if rom_extension in {".hdv", ".2mg", ".chd", ".iso", ".bin", ".cue"}:
                     commandLine += ["-sl7", "cffa202"]
-                if system.isOptSet('gameio') and system.config['gameio'] != 'none':
-                    if system.config['gameio'] == 'joyport' and messModel != 'apple2p':
+                if (gameio := system.get_option('gameio', 'none')) != 'none':
+                    if gameio == 'joyport' and messModel != 'apple2p':
                         _logger.debug("Joyport is only compatible with Apple II +")
                     else:
-                        commandLine += ["-gameio", system.config['gameio']]
-                        specialController = system.config['gameio']
+                        commandLine += ["-gameio", gameio]
+                        specialController = gameio
 
             # RAM size (Mac excluded, special handling below)
-            if system.name != "macintosh" and system.isOptSet("ramsize"):
-                commandLine += [ '-ramsize', str(system.config["ramsize"]) + 'M' ]
+            if system.name != "macintosh" and (ram_size := system.get_option_str("ramsize")):
+                commandLine += [ '-ramsize', ram_size + 'M' ]
 
             # Mac RAM & Image Reader (if applicable)
             if system.name == "macintosh":
-                if system.isOptSet("ramsize"):
-                    ramSize = int(system.config["ramsize"])
+                if (ramSize := system.get_option_int("ramsize")) is not system.MISSING:
                     if messModel in [ 'maciix', 'maclc3' ]:
                         if messModel == 'maclc3' and ramSize == 2:
                             ramSize = 4
@@ -182,15 +176,9 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                             ramSize = 32
                         if messModel == 'maciix' and ramSize == 48:
                             ramSize = 64
-                        commandLine += [ '-ramsize', str(ramSize) + 'M' ]
+                        commandLine += [ '-ramsize', f'{ramSize}M' ]
                     if messModel == 'maciix':
-                        imageSlot = 'nba'
-                        if system.isOptSet('imagereader'):
-                            if system.config["imagereader"] == "disabled":
-                                imageSlot = ''
-                            else:
-                                imageSlot = system.config["imagereader"]
-                        if imageSlot != "":
+                        if (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
                             commandLine += [ "-" + imageSlot, 'image' ]
 
             if softList != "":
@@ -207,11 +195,11 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 # Alternate ROM type for systems with mutiple media (ie cassette & floppy)
                 # Mac will auto change floppy 1 to 2 if a boot disk is enabled
                 if system.name != "macintosh":
-                    if system.isOptSet("altromtype"):
-                        if system.config["altromtype"] == "flop1" and messModel == "fmtmarty":
+                    if (altromtype := system.get_option("altromtype")) is not system.MISSING:
+                        if altromtype == "flop1" and messModel == "fmtmarty":
                             commandLine += [ "-flop" ]
                         else:
-                            commandLine += [ "-" + system.config["altromtype"] ]
+                            commandLine += [ "-" + altromtype ]
                     elif system.name == "adam":
                         # add some logic based on the extension
                         rom_extension = rom.suffix.lower()
@@ -245,36 +233,34 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     else:
                         commandLine += [ "-" + messRomType[messMode] ]
                 else:
-                    if system.isOptSet("bootdisk"):
-                        if ((system.isOptSet("altromtype") and system.config["altromtype"] == "flop1") or not system.isOptSet("altromtype")) and system.config["bootdisk"] in [ "macos30", "macos608", "macos701", "macos75" ]:
+                    if (bootdisk := system.get_option("bootdisk")) is not system.MISSING:
+                        altromtype = system.get_option("altromtype")
+                        if (altromtype == "flop1" or altromtype is system.MISSING) and bootdisk in [ "macos30", "macos608", "macos701", "macos75" ]:
                             commandLine += [ "-flop2" ]
-                        elif system.isOptSet("altromtype"):
-                            commandLine += [ "-" + system.config["altromtype"] ]
+                        elif altromtype is not system.MISSING:
+                            commandLine += [ "-" + altromtype ]
                         else:
                             commandLine += [ "-" + messRomType[messMode] ]
                     else:
-                        if system.isOptSet("altromtype"):
-                            commandLine += [ "-" + system.config["altromtype"] ]
-                        else:
-                            commandLine += [ "-" + messRomType[messMode] ]
+                        commandLine += [ "-" + system.get_option("altromtype", messRomType[messMode]) ]
                 # Use the full filename for MESS non-softlist ROMs
                 commandLine += [ f'"{rom}"' ]
                 commandLine += [ "-rompath", f'"{rom.parent};/userdata/bios/"' ]
 
                 # Boot disk for Macintosh
                 # Will use Floppy 1 or Hard Drive, depending on the disk.
-                if system.name == "macintosh" and system.isOptSet("bootdisk"):
-                    if system.config["bootdisk"] in [ "macos30", "macos608", "macos701", "macos75" ]:
+                if system.name == "macintosh" and (bootdisk := system.get_option("bootdisk")) is not system.MISSING:
+                    if bootdisk in [ "macos30", "macos608", "macos701", "macos75" ]:
                         bootType = "-flop1"
-                        bootDisk = '"/userdata/bios/' + system.config["bootdisk"] + '.img"'
+                        bootDisk = '"/userdata/bios/' + bootdisk + '.img"'
                     else:
                         bootType = "-hard"
-                        bootDisk = '"/userdata/bios/' + system.config["bootdisk"] + '.chd"'
+                        bootDisk = '"/userdata/bios/' + bootdisk + '.chd"'
                     commandLine += [ bootType, bootDisk ]
 
                 # Create & add a blank disk if needed, insert into drive 2
                 # or drive 1 if drive 2 is selected manually or FM Towns Marty.
-                if system.isOptSet('addblankdisk') and system.getOptBoolean('addblankdisk'):
+                if system.get_option_bool('addblankdisk'):
                     if system.name == 'fmtowns':
                         blankDisk = Path('/usr/share/mame/blank.fmtowns')
                         targetFolder = SAVES / 'mame' / system.name
@@ -290,22 +276,22 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     # Add other single floppy systems to this if statement
                     if messModel == "fmtmarty":
                         commandLine += [ '-flop', f'"{targetDisk}"' ]
-                    elif (system.isOptSet('altromtype') and system.config['altromtype'] == 'flop2'):
+                    elif system.get_option('altromtype') == 'flop2':
                         commandLine += [ '-flop1', f'"{targetDisk}"' ]
                     else:
                         commandLine += [ '-flop2', f'"{targetDisk}"' ]
 
             # UI enable - for computer systems, the default sends all keys to the emulated system.
             # This will enable hotkeys, but some keys may pass through to MAME and not be usable in the emulated system.
-            if not (system.isOptSet("enableui") and not system.getOptBoolean("enableui")):
+            if system.get_option_bool("enableui", True):
                 commandLine += [ "-ui_active" ]
 
             # MESS config folder
-            if system.getOptBoolean("customcfg"):
+            if system.get_option_bool("customcfg"):
                 cfgPath = CONFIGS / corePath / messSysName[messMode] / "custom"
             else:
                 cfgPath = SAVES / "mame" / "cfg" / messSysName[messMode]
-            if system.getOptBoolean("pergamecfg"):
+            if system.get_option_bool("pergamecfg"):
                 cfgPath = CONFIGS / corePath / messSysName[messMode] / rom.name
             mkdir_if_not_exists(cfgPath)
             commandLine += [ '-cfg_directory', f'"{cfgPath}"' ]
@@ -321,11 +307,11 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 (mameIniDir / "batocera.ini").unlink()
             # bbc has different boots for floppy & cassette, no special boot for carts
             if system.name == "bbc":
-                if system.isOptSet("altromtype") or softList != "":
-                    if (system.isOptSet("altromtype") and system.config["altromtype"] == "cass") or softList[-4:] == "cass":
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                    if altromtype == "cass" or softList[-4:] == "cass":
                         autoRunCmd = '*tape\\nchain""\\n'
                         autoRunDelay = 2
-                    elif (system.isOptSet("altromtype") and system.config["altromtype"].startswith("flop")) or "flop" in softList:
+                    elif (altromtype is not system.MISSING and altromtype.startswith("flop")) or "flop" in softList:
                         autoRunCmd = '*cat\\n\\n\\n\\n*exec !boot\\n'
                         autoRunDelay = 3
                 else:
@@ -333,8 +319,8 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     autoRunDelay = 3
             # fm7 boots floppies, needs cassette loading
             elif system.name == "fm7":
-                if system.isOptSet("altromtype") or softList != "":
-                    if (system.isOptSet("altromtype") and system.config["altromtype"] == "cass") or softList[-4:] == "cass":
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                    if altromtype == "cass" or softList[-4:] == "cass":
                         autoRunCmd = 'LOADM”“,,R\\n'
                         autoRunDelay = 5
             elif system.name == "coco":
@@ -355,10 +341,11 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
 
                 # if still undefined, default autoRunCmd based on media type
                 if autoRunCmd == "":
-                    if (system.isOptSet('altromtype') and system.config["altromtype"] == "cass") or (softList != "" and softList.endswith("cass")) or rom.suffix.casefold() == ".cas":
+                    altromtype = system.get_option('altromtype')
+                    if altromtype == "cass" or (softList != "" and softList.endswith("cass")) or rom.suffix.casefold() == ".cas":
                         romType = 'cass'
                         autoRunCmd = "CLOAD:RUN\\n" if romDrivername.casefold().endswith(".bas") else "CLOADM:EXEC\\n"
-                    if (system.isOptSet('altromtype') and system.config["altromtype"] == "flop1") or (softList != "" and softList.endswith("flop")) or rom.suffix.casefold() == ".dsk":
+                    if altromtype == "flop1" or (softList != "" and softList.endswith("flop")) or rom.suffix.casefold() == ".dsk":
                         romType = 'flop'
                         if romDrivername.casefold().endswith(".bas"):
                             autoRunCmd = f'RUN \"{romDrivername}\"\\n'
@@ -396,24 +383,24 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     iniFile.write('autoboot_delay            ' + str(autoRunDelay))
             # Create & add a blank disk if needed, insert into drive 2
             # or drive 1 if drive 2 is selected manually.
-            if system.isOptSet('addblankdisk') and system.getOptBoolean('addblankdisk'):
+            if system.get_option_bool('addblankdisk'):
                 lr_mess_dsk = SAVES / 'lr-mess' / system.name / rom.stem
                 if not lr_mess_dsk.exists():
                     lr_mess_dsk.parent.mkdir(parents=True)
                     shutil.copy2('/usr/share/mame/blank.dsk', lr_mess_dsk)
-                if system.isOptSet('altromtype') and system.config['altromtype'] == 'flop2':
+                elif system.get_option('altromtype') == 'flop2':
                     commandLine += [ '-flop1', f'"{lr_mess_dsk}"' ]
                 else:
                     commandLine += [ '-flop2', f'"{lr_mess_dsk}"' ]
 
     # Lightgun reload option
-    if system.isOptSet('offscreenreload') and system.getOptBoolean('offscreenreload'):
+    if system.get_option_bool('offscreenreload'):
         commandLine += [ "-offscreen_reload" ]
 
     # Art paths - lr-mame displays artwork in the game area and not in the bezel area, so using regular MAME artwork + shaders is not recommended.
     # By default, will ignore standalone MAME's art paths.
-    if system.config['core'] != 'same_cdi':
-        if not (system.isOptSet("sharemameart") and not system.getOptBoolean('sharemameart')):
+    if system.core != 'same_cdi':
+        if system.get_option_bool("sharemameart", True):
             artPath = f"/var/run/mame_artwork/;/usr/bin/mame/artwork/;{BIOS / 'lr-mame' / 'artwork'};{BIOS / 'mame' / 'artwork'};{USER_DECORATIONS}"
         else:
             artPath = f"/var/run/mame_artwork/;/usr/bin/mame/artwork/;{BIOS / 'lr-mame' / 'artwork'}"
@@ -422,12 +409,8 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
 
     # Artwork crop - default to On for lr-mame
     # Exceptions for PDP-1 (status lights) and VGM Player (indicators)
-    if not system.isOptSet("artworkcrop"):
-        if system.name not in [ 'pdp1', 'vgmplay', 'ti99' ]:
-            commandLine += [ "-artwork_crop" ]
-    else:
-        if system.getOptBoolean("artworkcrop"):
-            commandLine += [ "-artwork_crop" ]
+    if system.get_option_bool("artworkcrop") or not system.has_option("artworkcrop") and system.name not in [ 'pdp1', 'vgmplay', 'ti99' ]:
+        commandLine += [ "-artwork_crop" ]
 
     # Share plugins & samples with standalone MAME (except TI99)
     if system.name != "ti99":
@@ -613,7 +596,7 @@ def generateMAMEPadConfig(
             except Exception:
                 pass # reinit the file
 
-        perGameCfg = system.getOptBoolean('pergamecfg')
+        perGameCfg = system.get_option_bool('pergamecfg')
         overwriteSystem = not (configFile_alt.exists() and (customCfg or perGameCfg))
 
         xml_mameconfig_alt = getRoot(config_alt, "mameconfig")
@@ -644,7 +627,7 @@ def generateMAMEPadConfig(
             xml_input_alt.appendChild(xml_kbenable_alt)
 
     # Don't configure pads if guns are present and "use_guns" is on
-    if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and guns:
+    if system.get_option_bool('use_guns') and guns:
         return
 
     # Fill in controls on cfg files
