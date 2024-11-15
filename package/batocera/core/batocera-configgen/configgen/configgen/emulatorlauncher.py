@@ -122,7 +122,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
     try:
         # lower the resolution if mode is auto
         newsystemMode = systemMode # newsystemmode is the mode after minmax (ie in 1K if tv was in 4K), systemmode is the mode before (ie in es)
-        if system.config["videomode"] == "" or system.config["videomode"] == "default":
+        if not system.config["videomode"] or system.config["videomode"] == "default":
             _logger.debug("minTomaxResolution")
             _logger.debug("video mode before minmax: %s", systemMode)
             videoMode.minTomaxResolution()
@@ -205,7 +205,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
 
             if system.get_option_bool('hud_support'):
                 hud_bezel = getHudBezel(system, generator, rom, gameResolution, guns)
-                if (system.has_option('hud') and system.get_option('hud') != "" and system.get_option('hud') != "none") or hud_bezel is not None:
+                if ((hud := system.get_option('hud')) and hud != "none") or hud_bezel is not None:
                     gameinfos = extractGameInfosFromXml(args.gameinfoxml)
                     cmd.env["MANGOHUD_DLSYM"] = "1"
                     hudconfig = getHudConfig(system, args.systemname, system.emulator, effectiveCore, rom, gameinfos, hud_bezel)
