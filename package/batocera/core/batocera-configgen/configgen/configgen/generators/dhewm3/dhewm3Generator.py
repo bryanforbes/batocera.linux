@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 import logging
-import os
 from pathlib import Path
 from typing import TYPE_CHECKING, Final
 
 from ... import Command
-from ...batoceraPaths import CONFIGS, SAVES
+from ...batoceraPaths import CONFIGS, SAVES, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
 from ..Generator import Generator
 
@@ -35,7 +34,7 @@ class Dhewm3Generator(Generator):
         # Set the paths using Path objects
         romDir = Path("/userdata/roms/doom3")
         # Read the path within the .d3 rom file
-        with open(rom, "r") as file:
+        with rom.open() as file:
             directory = file.readline().strip().split("/")[0]
             _logger.debug("Using directory: %s", directory)
 
@@ -43,8 +42,8 @@ class Dhewm3Generator(Generator):
         _DHEWM3_CONFIG_DIR = _DHEWM3_CONFIG / directory
         _DHEWM3_CONFIG_BASE_FILE = _DHEWM3_CONFIG_BASE_DIR / "dhewm.cfg"
         _DHEWM3_CONFIG_FILE = _DHEWM3_CONFIG_DIR / "dhewm.cfg"
-        os.makedirs(_DHEWM3_CONFIG_BASE_DIR, exist_ok=True)
-        os.makedirs(_DHEWM3_CONFIG_DIR, exist_ok=True)
+        mkdir_if_not_exists(_DHEWM3_CONFIG_BASE_DIR)
+        mkdir_if_not_exists(_DHEWM3_CONFIG_DIR)
 
         options_to_set = {
             "seta r_mode": "-1",
