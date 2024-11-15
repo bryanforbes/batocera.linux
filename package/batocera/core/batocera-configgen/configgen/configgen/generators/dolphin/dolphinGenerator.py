@@ -230,7 +230,7 @@ class DolphinGenerator(Generator):
             dolphinGFXSettings.set("Settings", "CacheHiresTextures", "False")
 
         # HiResTextures for guns part 2/2 (see upper part1)
-        if system.isOptSet('use_guns') and system.getOptBoolean('use_guns') and len(guns) > 0 and (system.isOptSet('dolphin-lightgun-hide-crosshair') == False or system.getOptBoolean('dolphin-lightgun-hide-crosshair') == True):
+        if system.get_option_bool('use_guns') and guns and system.get_option_bool('dolphin-lightgun-hide-crosshair', True):
             # erase what can be set by the option hires_textures
             dolphinGFXSettings.set("Settings", "HiresTextures",      "True")
             dolphinGFXSettings.set("Settings", "CacheHiresTextures", "True")

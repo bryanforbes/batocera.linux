@@ -179,7 +179,7 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
                 generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
 
             # Rumble option
-            if system.isOptSet("triforce_rumble"):
+            if system.has_option("triforce_rumble"):
                 f.write(f"Rumble/Motor = {system.config['triforce_rumble']}\n")
             else:
                 f.write("Rumble/Motor = \n")

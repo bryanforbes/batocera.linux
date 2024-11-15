@@ -81,10 +81,7 @@ def createXemuConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, rom
     iniConfig.set("audio", "use_dsp", system.get_option("xemu_use_dsp", "false"))
 
     # API
-    if system.isOptSet("xemu_api"):
-        iniConfig.set("display", "renderer", '"' + system.config["xemu_api"] + '"')
-    else:
-        iniConfig.set("display", "renderer", '"OPENGL"')
+    iniConfig.set("display", "renderer", '"' + system.get_option("xemu_api", "OPENGL") + '"')
 
     # Rendering resolution
     iniConfig.set("display.quality", "surface_scale", system.get_option("xemu_render", "1")) #render scale by default

@@ -9,7 +9,6 @@ from typing import TYPE_CHECKING, Any, NotRequired, TypedDict, cast
 
 from ... import controllersConfig
 from ...batoceraPaths import DEFAULTS_DIR, ES_SETTINGS, SAVES, mkdir_if_not_exists
-from ...gun import Gun, GunMapping, guns_border_ratio_type, guns_borders_size_name
 from ...settings.unixSettings import UnixSettings
 from ...utils import bezels as bezelsUtil, videoMode, vulkan
 from ..hatari.hatariGenerator import HATARI_CONFIG
@@ -26,6 +25,7 @@ if TYPE_CHECKING:
     from ...controller import ControllerMapping
     from ...Emulator import Emulator
     from ...generators.Generator import Generator
+    from ...gun import Gun, GunMapping
     from ...types import BezelInfo, DeviceInfoMapping, Resolution
 
 _logger = logging.getLogger(__name__)
@@ -789,10 +789,10 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
 
     # Bezel option
     try:
-        writeBezelConfig(generator, bezel, shaderBezel, retroarchConfig, rom, gameResolution, system, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
+        writeBezelConfig(generator, bezel, shaderBezel, retroarchConfig, rom, gameResolution, system, guns)
     except Exception as e:
         # error with bezels, disabling them
-        writeBezelConfig(generator, None, shaderBezel, retroarchConfig, rom, gameResolution, system, guns_borders_size_name(guns, system.config), guns_border_ratio_type(guns, system.config))
+        writeBezelConfig(generator, None, shaderBezel, retroarchConfig, rom, gameResolution, system, guns)
         _logger.error("Error with bezel %s: %s", bezel, e, exc_info=e, stack_info=True)
 
     # custom : allow the user to configure directly retroarch.cfg via batocera.conf via lines like : snes.retroarch.menu_driver=rgui
@@ -955,7 +955,7 @@ def writeLibretroConfigToFile(retroconfig: UnixSettings, config: Mapping[str, ob
     for setting, value in config.items():
         retroconfig.save(setting, value)
 
-def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool, retroarchConfig: dict[str, object], rom: Path, gameResolution: Resolution, system: Emulator, gunsBordersSize: str | None, gunsBordersRatio: str | None) -> None:
+def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool, retroarchConfig: dict[str, object], rom: Path, gameResolution: Resolution, system: Emulator, guns: GunMapping) -> None:
     # disable the overlay
     # if all steps are passed, enable them
     retroarchConfig['input_overlay_hide_in_menu'] = "false"
@@ -969,6 +969,9 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
     # special text...
     if bezel == "none" or bezel == "":
         bezel = None
+
+    gunsBordersSize = system.get_guns_borders_size(guns)
+    gunsBordersRatio = system.get_guns_borders_ratio(guns)
 
     _logger.debug("libretro bezel: %s", bezel)
 

@@ -16,6 +16,8 @@ if TYPE_CHECKING:
     from pathlib import Path
     from typing_extensions import deprecated
 
+    from .gun import GunMapping
+
 _logger = logging.getLogger(__name__)
 _T = TypeVar('_T')
 _TV = TypeVar('_TV')
@@ -320,6 +322,33 @@ class Emulator:
                 if self.config[key]:
                     return self.config[key]
             return ""
+
+    def get_guns_borders_size(self, guns: GunMapping, /) -> str | None:
+        borders_size = self.get_option_str("controllers.guns.borderssize", "medium")
+
+        # overriden by specific options
+        borders_mode = "normal"
+        if (config_borders_mode := self.get_option_str("controllers.guns.bordersmode", "auto")) != "auto":
+            borders_mode = config_borders_mode
+        if (config_borders_mode := self.get_option_str("bordersmode", "auto")) != "auto":
+            borders_mode = config_borders_mode
+
+        # others are gameonly and normal
+        if borders_mode == "hidden":
+            return None
+
+        if borders_mode == "force":
+            return borders_size
+
+        for gun in guns.values():
+            if gun.need_borders:
+                return borders_size
+
+        return None
+
+    def get_guns_borders_ratio(self, guns: GunMapping, /) -> str | None:
+        # returns None to follow the bezel overlay size by default
+        return self.get_option("controllers.guns.bordersratio", None)
 
     @staticmethod
     def update_configuration(config: dict[str, Any], settings: dict[str, Any], /) -> None:

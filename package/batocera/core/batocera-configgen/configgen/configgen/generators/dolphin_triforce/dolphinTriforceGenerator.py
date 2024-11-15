@@ -115,10 +115,7 @@ class DolphinTriforceGenerator(Generator):
         dolphinTriforceSettings.set("Core", "MMU", str(system.get_option_bool("triforce_enable_mmu")))
 
         # Backend - Default OpenGL
-        if system.isOptSet("triforce_api"):
-            dolphinTriforceSettings.set("Core", "GFXBackend", system.config["triforce_api"])
-        else:
-            dolphinTriforceSettings.set("Core", "GFXBackend", "OGL")
+        dolphinTriforceSettings.set("Core", "GFXBackend", system.get_option("triforce_api", "OGL"))
 
         # Serial Port 1 to AM-Baseband
         dolphinTriforceSettings.set("Core", "SerialPort1", "6")

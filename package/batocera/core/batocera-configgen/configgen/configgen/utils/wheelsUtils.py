@@ -160,21 +160,10 @@ def configure_wheels(
             wanted_deadzone = 0
             wanted_midzone  = 0
 
-            # initialize values with games metadata
-            if "wheel_rotation" in metadata:
-                wanted_ra = int(metadata["wheel_rotation"])
-            if "wheel_deadzone" in metadata:
-                wanted_deadzone = int(metadata["wheel_deadzone"])
-            if "wheel_midzone" in metadata:
-                wanted_midzone = int(metadata["wheel_midzone"])
-
-            # override with user configs
-            if "wheel_rotation" in system.config:
-                wanted_ra = int(system.config["wheel_rotation"])
-            if "wheel_deadzone" in system.config:
-                wanted_deadzone = int(system.config["wheel_deadzone"])
-            if "wheel_midzone" in system.config:
-                wanted_midzone = int(system.config["wheel_midzone"])
+            # initialize values with games metadata overridden with user configs
+            wanted_ra = system.get_option_int("wheel_rotation", int(metadata.get("wheel_rotation", ra)))
+            wanted_deadzone = system.get_option_int("wheel_deadzone", int(metadata.get("wheel_deadzone", 0)))
+            wanted_midzone = system.get_option_int("wheel_midzone", int(metadata.get("wheel_midzone", 0)))
 
             _logger.info("wheel rotation angle is %s ; wanted wheel rotation angle is %s ; wanted deadzone is %s ; wanted midzone is %s", ra, wanted_ra, wanted_deadzone, wanted_midzone)
 

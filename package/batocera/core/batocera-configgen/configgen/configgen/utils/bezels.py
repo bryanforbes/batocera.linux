@@ -160,7 +160,7 @@ def padImage(input_png: str | Path, output_png: str | Path, screen_width: int, s
         imgout.save(output_png, mode="RGBA", format="PNG")
 
 def tatooImage(input_png: str | Path, output_png: str | Path, system: Emulator) -> None:
-    if system.config['bezel.tattoo'] == 'system':
+    if (bezel_tattoo := system.get_option('bezel.tattoo')) == 'system':
         tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / f'{system.name}.png'
         if not tattoo_file.exists():
             tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
@@ -168,7 +168,7 @@ def tatooImage(input_png: str | Path, output_png: str | Path, system: Emulator) 
             tattoo = Image.open(tattoo_file)
         except Exception:
             _logger.error("Error opening controller overlay: %s", tattoo_file)
-    elif system.config['bezel.tattoo'] == 'custom' and (tattoo_file := Path(system.config['bezel.tattoo_file'])).exists():
+    elif bezel_tattoo == 'custom' and (tattoo_file := Path(system.get_option_str('bezel.tattoo_file'))).exists():
         try:
             tattoo = Image.open(tattoo_file)
         except Exception:
@@ -187,7 +187,7 @@ def tatooImage(input_png: str | Path, output_png: str | Path, system: Emulator) 
     # Quickly grab the sizes.
     w,h = fast_image_size(input_png)
     tw,th = fast_image_size(tattoo_file)
-    if system.isOptSet("bezel.resize_tattoo") and not system.getOptBoolean('bezel.resize_tattoo'):
+    if not system.get_option_bool('bezel.resize_tattoo', True):
         # Maintain the image's original size.
         # Failsafe for if the image is too large.
         if tw > w or th > h:
