@@ -146,7 +146,7 @@ class Controller:
         mapped_button_ids: set[str] = set()
 
         for input in self.inputs.values():
-            if input.name is None:
+            if input.name is None:  # pyright: ignore[reportUnnecessaryComparison]
                 continue
             if input.name == 'hotkey':
                 hotkey_input = input
