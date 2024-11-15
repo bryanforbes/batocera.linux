@@ -365,14 +365,14 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
                 # write buttons
                 for btn, btnDolphinName in dolphinMappingNames.items():
                     val = ""
-                    if btn in gunMapping and gunMapping[btn] != "":
-                        if gunMapping[btn] in gunButtons:
-                            if gunButtons[gunMapping[btn]]["button"] in buttons:
-                                val = gunButtons[gunMapping[btn]]["code"]
+                    if mapped_button := gunMapping.get(btn):
+                        if mapped_button in gunButtons:
+                            if gunButtons[mapped_button]["button"] in buttons:
+                                val = gunButtons[mapped_button]["code"]
                             else:
-                                _logger.debug("gun has not the button %s", gunButtons[gunMapping[btn]]["button"])
+                                _logger.debug("gun has not the button %s", gunButtons[mapped_button]["button"])
                         else:
-                            _logger.debug("cannot map the button %s", gunMapping[btn])
+                            _logger.debug("cannot map the button %s", mapped_button)
                     f.write(btnDolphinName+" = `"+val+"`\n")
 
                 # map ir

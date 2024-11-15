@@ -475,7 +475,7 @@ def generateAnalogPortElement(pad: Controller, config: minidom.Document, tag: st
     xml_newseq_std = config.createElement("newseq")
     xml_port.appendChild(xml_newseq_std)
     xml_newseq_std.setAttribute("type", "standard")
-    stdvalue = config.createTextNode("NONE" if axis == "" else f"JOYCODE_{padindex + 1}_{axis}")
+    stdvalue = config.createTextNode("NONE" if not axis else f"JOYCODE_{padindex + 1}_{axis}")
     xml_newseq_std.appendChild(stdvalue)
     return xml_port
 
@@ -533,8 +533,7 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
                 if pad.inputs[direction].type == 'button':
                     buttonDirections[direction] = f'JOYCODE_{joycode}_BUTTON{int(pad.inputs[direction].id)+1}'
 
-        if ignoreAxis and dpadInputs['up'] != '' and dpadInputs['down'] != '' \
-            and dpadInputs['left'] != '' and dpadInputs['right'] != '':
+        if ignoreAxis and dpadInputs['up'] and dpadInputs['down'] and dpadInputs['left'] and dpadInputs['right']:
             if key == "joystick1up" or key == "up":
                 return dpadInputs['up']
             if key == "joystick1down" or key == "down":

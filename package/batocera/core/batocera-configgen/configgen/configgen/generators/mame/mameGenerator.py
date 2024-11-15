@@ -108,7 +108,7 @@ class MameGenerator(Generator):
 
         # Auto softlist for FM Towns if there is a zip that matches the folder name
         # Used for games that require a CD and floppy to both be inserted
-        if system.name == 'fmtowns' and softList == '':
+        if system.name == 'fmtowns' and not softList:
             if (ROMS / "fmtowns" / f"{romDirname.name}.zip").exists():
                 softList = 'fmtowns_cd'
 
@@ -160,7 +160,7 @@ class MameGenerator(Generator):
         # This will allow an alternate config path per game for MESS console/computer ROMs that may need additional config.
         if system.get_option_bool("pergamecfg"):
             if messMode != -1:
-                if messSysName[messMode] != "":
+                if messSysName[messMode]:
                     base_path = MAME_CONFIG / messSysName[messMode]
                     mkdir_if_not_exists(base_path)
                     cfgPath = base_path / romBasename
@@ -175,7 +175,7 @@ class MameGenerator(Generator):
         commandArray += [ "-ctrlrpath" ,          MAME_CONFIG / "ctrlr" ]
         commandArray += [ "-inipath" ,            f"{MAME_CONFIG};{MAME_CONFIG / 'ini'}" ]
         commandArray += [ "-crosshairpath" ,      MAME_BIOS / "artwork" / "crosshairs" ]
-        if softList != "":
+        if softList:
             commandArray += [ "-swpath" ,        softDir ]
             commandArray += [ "-hashpath" ,      softDir / "hash" ]
 
@@ -245,7 +245,7 @@ class MameGenerator(Generator):
 
         # Mouse
         useMouse = False
-        if system.get_option_bool('use_mouse') or not (messSysName[messMode] == "" or messMode == -1):
+        if system.get_option_bool('use_mouse') or not (not messSysName[messMode] or messMode == -1):
             useMouse = True
             commandArray += [ "-dial_device", "mouse" ]
             commandArray += [ "-trackball_device", "mouse" ]
@@ -294,7 +294,7 @@ class MameGenerator(Generator):
 
         # Finally we pass game name
         # MESS will use the full filename and pass the system & rom type parameters if needed.
-        if messSysName[messMode] == "" or messMode == -1:
+        if not messSysName[messMode] or messMode == -1:
             commandArray += [ romBasename ]
         else:
             messModel = system.get_option_str("altmodel", messSysName[messMode])
@@ -352,7 +352,7 @@ class MameGenerator(Generator):
                         if (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
                             commandArray += [ "-" + imageSlot, 'image' ]
 
-            if softList == "":
+            if not softList:
                 # Boot disk for Macintosh
                 # Will use Floppy 1 or Hard Drive, depending on the disk.
                 if system.name == "macintosh" and (bootdisk := system.get_option("bootdisk")) is not system.MISSING:
@@ -406,7 +406,7 @@ class MameGenerator(Generator):
                 commandArray += [ rom ]
             else:
                 # Prepare software lists
-                if softList != "":
+                if softList:
                     mkdir_if_not_exists(softDir)
                     for checkFile in softDir.iterdir():
                         if checkFile.is_symlink():
@@ -450,7 +450,7 @@ class MameGenerator(Generator):
             # Autostart computer games where applicable
             # bbc has different boots for floppy & cassette, no special boot for carts
             if system.name == "bbc":
-                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList:
                     if altromtype == "cass" or softList.endswith("cass"):
                         autoRunCmd = '*tape\\nchain""\\n'
                         autoRunDelay = 2
@@ -462,7 +462,7 @@ class MameGenerator(Generator):
                     autoRunDelay = 3
             # fm7 boots floppies, needs cassette loading
             elif system.name == "fm7":
-                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList != "":
+                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList:
                     if altromtype == "cass" or softList.endswith("cass"):
                         autoRunCmd = 'LOADM”“,,R\\n'
                         autoRunDelay = 5
@@ -471,7 +471,7 @@ class MameGenerator(Generator):
                 autoRunDelay = 2
 
                 # if using software list, use "usage" for autoRunCmd (if provided)
-                if softList != "":
+                if softList:
                     softListFile = Path('/usr/bin/mame/hash') / f'{softList}.xml'
                     if softListFile.exists():
                         softwarelist = ET.parse(softListFile)
@@ -483,12 +483,12 @@ class MameGenerator(Generator):
                                             autoRunCmd = cast(str, info.get('value')) + '\\n'
 
                 # if still undefined, default autoRunCmd based on media type
-                if autoRunCmd == "":
+                if not autoRunCmd:
                     altromtype = system.get_option('altromtype')
-                    if altromtype == "cass" or (softList != "" and softList.endswith("cass")) or romExt.casefold() == ".cas":
+                    if altromtype == "cass" or (softList and softList.endswith("cass")) or romExt.casefold() == ".cas":
                         romType = 'cass'
                         autoRunCmd = "CLOAD:RUN\\n" if romName.casefold().endswith(".bas") else "CLOADM:EXEC\\n"
-                    if altromtype == "flop1" or (softList != "" and softList.endswith("flop")) or romExt.casefold() == ".dsk":
+                    if altromtype == "flop1" or (softList and softList.endswith("flop")) or romExt.casefold() == ".dsk":
                         romType = 'flop'
                         if romName.casefold().endswith(".bas"):
                             autoRunCmd = f'RUN "{romName}"\\n'
@@ -515,17 +515,16 @@ class MameGenerator(Generator):
                             if row[0].casefold() == romName.casefold():
                                 autoRunCmd = row[1] + "\\n"
                                 autoRunDelay = 3
-            if autoRunCmd != "":
+            if autoRunCmd:
                 if autoRunCmd.startswith("'"):
                     autoRunCmd.replace("'", "")
                 commandArray += [ "-autoboot_delay", str(autoRunDelay), "-autoboot_command", autoRunCmd ]
 
         # bezels
-        bezelSet = None if (bezel_option := system.get_option('bezel', '')) == '' else bezel_option
         if system.get_option_bool('forceNoBezel'):
             bezelSet = None
         else:
-            bezelSet = None if (bezel_option := system.get_option('bezel', '')) == '' else bezel_option
+            bezelSet = bezel_option if (bezel_option := system.get_option('bezel', '')) else None
 
         try:
             if messMode != -1:
@@ -548,10 +547,7 @@ class MameGenerator(Generator):
 
     @staticmethod
     def writeBezelConfig(bezelSet: str | None, system: Emulator, rom: Path, messSys: str, gameResolution: Resolution, guns: GunMapping) -> None:
-        if messSys == "":
-            tmpZipDir = Path("/var/run/mame_artwork") / rom.stem # ok, no need to zip, a folder is taken too
-        else:
-            tmpZipDir = Path("/var/run/mame_artwork") / messSys # ok, no need to zip, a folder is taken too
+        tmpZipDir = Path("/var/run/mame_artwork") / (messSys or rom.stem) # ok, no need to zip, a folder is taken too
         # clean, in case no bezel is set, and in case we want to recreate it
         if tmpZipDir.exists():
             shutil.rmtree(tmpZipDir)
@@ -588,10 +584,7 @@ class MameGenerator(Generator):
 
         # copy the png inside
         if "mamezip" in bz_infos and bz_infos["mamezip"].exists():
-            if messSys == "":
-                artFile = Path("/var/run/mame_artwork") / f"{rom.stem}.zip"
-            else:
-                artFile = Path("/var/run/mame_artwork") / f"{messSys}.zip"
+            artFile = Path("/var/run/mame_artwork") / f"{messSys or rom.stem}.zip"
             if artFile.exists():
                 artFile.unlink()
             artFile.symlink_to(bz_infos["mamezip"])

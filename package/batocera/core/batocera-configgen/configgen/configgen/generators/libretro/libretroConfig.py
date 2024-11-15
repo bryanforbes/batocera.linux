@@ -967,7 +967,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
     retroarchConfig['video_message_pos_y']  = 0.05
 
     # special text...
-    if bezel == "none" or bezel == "":
+    if bezel == "none" or not bezel:
         bezel = None
 
     gunsBordersSize = system.get_guns_borders_size(guns)
