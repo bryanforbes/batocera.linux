@@ -37,9 +37,9 @@ def setViceConfig(vice_config_dir: Path, system: Emulator, metadata: Mapping[str
     elif system.core == 'xscpu64':
         systemCore = "SCPU64"
     elif system.core == 'xvic':
-       systemCore = "VIC20"
+        systemCore = "VIC20"
     elif system.core == 'xpet':
-       systemCore = "PET"
+        systemCore = "PET"
     else:
         systemCore = "C128"
 
