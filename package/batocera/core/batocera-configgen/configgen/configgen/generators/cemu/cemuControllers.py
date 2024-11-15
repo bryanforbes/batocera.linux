@@ -181,7 +181,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         return CEMU_CONTROLLER_PROFILES / f"controller{controller}.xml"
 
     def isWiimote(pad: Controller) -> bool:
-        return WIIMOTE_NAME == pad.real_name
+        return pad.real_name == WIIMOTE_NAME
 
     def findWiimoteType(pad: Controller) -> str:
         context = pyudev.Context()
@@ -207,7 +207,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
     mkdir_if_not_exists(CEMU_CONTROLLER_PROFILES)
 
     # Purge old controller files
-    for counter in range(0,8):
+    for counter in range(8):
         configFileName = getConfigFileName(counter)
         if configFileName.is_file():
             configFileName.unlink()

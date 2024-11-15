@@ -138,22 +138,18 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             controlDict[row[0]][row[1]] = row[2]
 
     # Common controls
-    mappings: dict[str, str] = {}
-    for controlDefKey, controlDefValue in controlDict['default'].items():
-        mappings[controlDefKey] = controlDefValue
+    mappings = dict(controlDict['default'].items())
 
     # Only use gun buttons if lightguns are enabled to prevent conflicts with mouse
     gunmappings: dict[str, str] = {}
     if useGuns:
-        for controlDefKey, controlDefValue in controlDict['gunbuttons'].items():
-            gunmappings[controlDefKey] = controlDefValue
+        gunmappings = dict(controlDict['gunbuttons'].items())
 
     # Only define mouse buttons if mouse is enabled, to prevent unwanted inputs
     # For a standard mouse, left, right, scroll wheel should be mapped to action buttons, and if side buttons are available, they will be coin & start
     mousemappings: dict[str, str] = {}
     if useMouse:
-        for controlDefKey, controlDefValue in controlDict['mousebuttons'].items():
-            mousemappings[controlDefKey] = controlDefValue
+        mousemappings = dict(controlDict['mousebuttons'].items())
 
     # Buttons that change based on game/setting
     if altButtons in controlDict:
@@ -168,7 +164,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     # crosshairs
     removeSection(config, xml_system, "crosshairs")
     xml_crosshairs = config.createElement("crosshairs")
-    for p in range(0, 4):
+    for p in range(4):
         xml_crosshair = config.createElement("crosshair")
         xml_crosshair.setAttribute("player", str(p))
         if (mame_crosshair := system.get_option("mame_crosshair")) == "enabled":
@@ -604,7 +600,7 @@ def getSection(config: minidom.Document, xml_root: minidom.Element, name: str):
 def removeSection(config: minidom.Document, xml_root: minidom.Element, name: str):
     xml_section = xml_root.getElementsByTagName(name)
 
-    for i in range(0, len(xml_section)):
+    for i in range(len(xml_section)):
         old = cast(minidom.Element, xml_root.removeChild(xml_section[i]))
         old.unlink()
 
