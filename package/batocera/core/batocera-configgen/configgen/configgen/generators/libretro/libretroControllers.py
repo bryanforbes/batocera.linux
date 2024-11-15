@@ -40,7 +40,7 @@ def writeControllersConfig(retroconfig: UnixSettings, system: Emulator, controll
     retroarchspecials["b"] = "menu_toggle"
 
     # Some input adaptations for some systems with swap Disc/CD
-    if (system.config['core'] in coreWithSwapSupport) and (system.name not in systemToSwapDisable):
+    if (system.core in coreWithSwapSupport) and (system.name not in systemToSwapDisable):
         retroarchspecials["pageup"] = "disk_eject_toggle"
         retroarchspecials["l2"] =     "disk_prev"
         retroarchspecials["r2"] =     "disk_next"
@@ -68,14 +68,14 @@ def writeControllersConfig(retroconfig: UnixSettings, system: Emulator, controll
     retroconfig.save('input_screenshot',          '"f12"')
 
     # No menu in non full uimode
-    if system.config["uimode"] != "Full":
+    if system.ui_mode != "Full":
         del retroarchspecials['b']
 
     # Check if hotkeys need to be removed/disabled (Needed for N64 controllers without a dedicated hotkey button)
-    if system.config['core'] in ['mupen64plus-next', 'parallel_n64']:
-        option = 'mupen64plus-controller1' if system.config['core'] == 'mupen64plus-next' else 'parallel-n64-controller1'
+    if system.core in ['mupen64plus-next', 'parallel_n64']:
+        option = 'mupen64plus-controller1' if system.core == 'mupen64plus-next' else 'parallel-n64-controller1'
 
-        if option in system.config and system.config[option] == 'n64limited':
+        if system.get_option(option) == 'n64limited':
             retroarchspecials = {'start': 'exit_emulator'}
 
     for player_number, controller in controllers.items():
@@ -132,7 +132,7 @@ def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[
             retroarchbtns["l2"] = "l"
 
     # Fix for reversed inputs in Yabasanshiro core which is unmaintained by retroarch
-    if (system.config['core'] == 'yabasanshiro'):
+    if (system.core == 'yabasanshiro'):
         retroarchbtns["pageup"] = "r"
         retroarchbtns["pagedown"] = "l"
 
