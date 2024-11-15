@@ -37,12 +37,12 @@ def writeControllersConfig(retroconfig: UnixSettings, system: Emulator, controll
     retroarchspecials = {'a': 'reset', 'left': 'rewind', 'right': 'hold_fast_forward', 'l3': 'ai_service', 'l2': 'shader_prev', 'r2': 'shader_next'}
 
     # Some input adaptations for some systems with swap Disc/CD
-    if (system.config['core'] in coreWithSwapSupport) and (system.name not in systemToSwapDisable):
+    if (system.core in coreWithSwapSupport) and (system.name not in systemToSwapDisable):
         retroarchspecials["l2"] = "disk_prev"
         retroarchspecials["r2"] = "disk_next"
         retroarchspecials["r3"] = "disk_eject_toggle"
 
-    if system.isOptSet("exithotkeyonly") and system.getOptBoolean("exithotkeyonly"):
+    if system.get_option_bool("exithotkeyonly"):
         retroarchspecials = {}
 
     cleanControllerConfig(retroconfig, controllers)
@@ -118,7 +118,7 @@ def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[
             retroarchbtns["l2"] = "l"
 
     # Fix for reversed inputs in Yabasanshiro core which is unmaintained by retroarch
-    if (system.config['core'] == 'yabasanshiro'):
+    if (system.core == 'yabasanshiro'):
         retroarchbtns["pageup"] = "r"
         retroarchbtns["pagedown"] = "l"
 

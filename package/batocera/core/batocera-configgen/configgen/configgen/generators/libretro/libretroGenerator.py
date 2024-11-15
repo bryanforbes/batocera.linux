@@ -4,6 +4,7 @@ import itertools
 import logging
 import os
 import shutil
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -31,8 +32,6 @@ from .libretroPaths import (
 )
 
 if TYPE_CHECKING:
-    from pathlib import Path
-
     from ...Emulator import Emulator
     from ...types import HotkeysContext
 
@@ -56,7 +55,7 @@ class LibretroGenerator(Generator):
     # Configure retroarch and return a command
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
         # Fix for the removed MESS/MAMEVirtual cores
-        if system.config['core'] in [ 'mess', 'mamevirtual' ]:
+        if system.core in [ 'mess', 'mamevirtual' ]:
             system.config['core'] = 'mame'
 
         # Get the graphics backend first
@@ -77,7 +76,7 @@ class LibretroGenerator(Generator):
             elif 'shader' in renderConfig:
                 gameShader = renderConfig['shader']
         if 'shader' in renderConfig and gameShader is not None:
-            if (gfxBackend == 'glcore' or gfxBackend == 'vulkan') or (system.config['core'] in libretroConfig.coreForceSlangShaders):
+            if (gfxBackend == 'glcore' or gfxBackend == 'vulkan') or (system.core in libretroConfig.coreForceSlangShaders):
                 shaderFilename = f"{gameShader}.slangp"
             else:
                 shaderFilename = f"{gameShader}.glslp"
@@ -93,30 +92,26 @@ class LibretroGenerator(Generator):
                 shaderBezel = True
 
         # Settings batocera default config file if no user defined one
-        if 'configfile' not in system.config:
+        configfile = system.get_option_str('configfile')
+        if configfile is system.MISSING:
             # Using batocera config file
-            system.config['configfile'] = str(RETROARCH_CUSTOM)
+            configfile = str(RETROARCH_CUSTOM)
+            system.config['configfile'] = configfile
             # Create retroarchcustom.cfg if does not exists
             if not RETROARCH_CUSTOM.is_file():
                 libretroRetroarchCustom.generateRetroarchCustom()
             #  Write controllers configuration files
             retroconfig = UnixSettings(RETROARCH_CUSTOM, separator=' ')
 
-            if system.isOptSet('lightgun_map'):
-                lightgun = system.getOptBoolean('lightgun_map')
-            else:
-                # Lightgun button mapping breaks lr-mame's inputs, disable if left on auto
-                if system.config['core'] in [ 'mess', 'mamevirtual', 'same_cdi', 'mame078plus' ]:
-                    lightgun = False
-                else:
-                    lightgun = True
+            # Lightgun button mapping breaks lr-mame's inputs, disable if left on auto
+            lightgun = system.get_option_bool('lightgun_map', system.core not in ["mess", "mamevirtual", "same_cdi", "mame078plus"])
             libretroControllers.writeControllersConfig(retroconfig, system, playersControllers, lightgun)
             # force pathes
             libretroRetroarchCustom.generateRetroarchCustomPathes(retroconfig)
             # Write configuration to retroarchcustom.cfg
             bezel = None if (bezel_option := system.get_option('bezel', '')) == '' else bezel_option
             # some systems (ie gw) won't bezels
-            if system.isOptSet('forceNoBezel') and system.getOptBoolean('forceNoBezel'):
+            if system.get_option_bool('forceNoBezel'):
                 bezel = None
 
             libretroConfig.writeLibretroConfig(self, retroconfig, system, playersControllers, metadata, guns, wheels, rom, bezel, shaderBezel, gameResolution, gfxBackend)
@@ -128,19 +123,19 @@ class LibretroGenerator(Generator):
             shutil.copyfile(RETROARCH_CUSTOM, remapconfigDir / "common.rmp")
 
         # Retroarch core on the filesystem
-        retroarchCore = RETROARCH_CORES / f"{system.config['core']}_libretro.so"
+        retroarchCore = RETROARCH_CORES / f"{system.core}_libretro.so"
 
         # for each core, a file /usr/lib/<core>.info must exit, otherwise, info such as rewinding/netplay will not work
         # to do a global check : cd /usr/lib/libretro && for i in *.so; do INF=$(echo $i | sed -e s+/usr/lib/libretro+/usr/share/libretro/info+ -e s+\.so+.info+); test -e "$INF" || echo $i; done
-        infoFile = RETROARCH_SHARE / "info" / f"{system.config['core']}_libretro.info"
+        infoFile = RETROARCH_SHARE / "info" / f"{system.core}_libretro.info"
         if not infoFile.exists():
             raise Exception(f"missing file {infoFile}")
 
         # The command to run
         dontAppendROM = False
         # For the NeoGeo CD (lr-fbneo) it is necessary to add the parameter: --subsystem neocd
-        if system.name == 'neogeocd' and system.config['core'] == "fbneo":
-            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--subsystem", "neocd", "--config", system.config['configfile']]
+        if system.name == 'neogeocd' and system.core == "fbneo":
+            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--subsystem", "neocd", "--config", configfile]
         # Set up GB/GBC Link games to use 2 different ROMs if needed
         if system.name == 'gb2players' or system.name == 'gbc2players':
             GBMultiROM: list[Path] = []
@@ -171,12 +166,12 @@ class LibretroGenerator(Generator):
                     GBMultiSys.append("gbc")
             # If there are at least 2 games in the list, use the alternate command line
             if len(GBMultiROM) >= 2:
-                commandArray = [RETROARCH_BIN, "-L", retroarchCore, GBMultiROM[0], "--subsystem", "gb_link_2p", GBMultiROM[1], "--config", system.config['configfile']]
+                commandArray = [RETROARCH_BIN, "-L", retroarchCore, GBMultiROM[0], "--subsystem", "gb_link_2p", GBMultiROM[1], "--config", configfile]
                 dontAppendROM = True
             else:
-                commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+                commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
             # Handling for the save copy
-            if (system.isOptSet('sync_saves') and system.config["sync_saves"] == '1'):
+            if system.get_option('sync_saves') == '1':
                 if len(GBMultiROM) >= 2:
                     GBMultiSave = [GBMultiROM[0].stem + ".srm", GBMultiROM[1].stem + ".srm"]
                 else:
@@ -229,17 +224,17 @@ class LibretroGenerator(Generator):
                     exe = rom / "dosbox.bat"
                 else:
                     exe = rom
-                commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile'], exe]
+                commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile, exe]
                 dontAppendROM = True
             else:
-                commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+                commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
         # Pico-8 multi-carts (might work only with official Lexaloffe engine right now)
         elif system.name == 'pico8':
             if (rom.suffix.lower() == ".m3u"):
                 with rom.open("r") as fpin:
                     lines = fpin.readlines()
                 rom = rom.absolute().parent / lines[0].strip()
-            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
         # tyrquake - set directory
         elif system.name == 'quake':
             if "scourge" in rom.name.lower():
@@ -248,7 +243,7 @@ class LibretroGenerator(Generator):
                 rom = Path('/userdata/roms/quake/rogue/pak0.pak')
             else:
                 rom = Path('/userdata/roms/quake/id1/pak0.pak')
-            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
         # vitaquake2 - choose core based on directory
         elif system.name == 'quake2':
             if "reckoning" in rom.name.lower():
@@ -263,8 +258,8 @@ class LibretroGenerator(Generator):
             else:
                 rom = Path('/userdata/roms/quake2/baseq2/pak0.pak')
             # set the updated core name
-            retroarchCore = RETROARCH_CORES / f"{system.config['core']}_libretro.so"
-            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+            retroarchCore = RETROARCH_CORES / f"{system.core}_libretro.so"
+            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
         # doom3
         elif system.name == 'doom3':
             with rom.open('r') as file:
@@ -276,8 +271,8 @@ class LibretroGenerator(Generator):
             directory_parts = rom.parent.parts
             if "d3xp" in directory_parts:
                 system.config['core'] = "boom3_xp"
-            retroarchCore = RETROARCH_CORES / f"{system.config['core']}_libretro.so"
-            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+            retroarchCore = RETROARCH_CORES / f"{system.core}_libretro.so"
+            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
         # super mario wars - verify assets from Content Downloader
         elif system.name == 'superbroswar':
             romdir = rom.absolute().parent
@@ -303,9 +298,9 @@ class LibretroGenerator(Generator):
                 _logger.error("ERROR: Game assets not installed. You can get them from the Batocera Content Downloader.")
                 raise
 
-            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
         else:
-            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", system.config['configfile']]
+            commandArray = [RETROARCH_BIN, "-L", retroarchCore, "--config", configfile]
 
         configToAppend: list[Path] = []
 
@@ -333,17 +328,17 @@ class LibretroGenerator(Generator):
             commandArray.extend(["--appendconfig", "|".join(str(config) for config in configToAppend)])
 
         # Netplay mode
-        if 'netplay.mode' in system.config:
-            if system.config['netplay.mode'] == 'host':
+        if (netplay_mode := system.get_option('netplay.mode')):
+            if netplay_mode == 'host':
                 commandArray.append("--host")
-            elif system.config['netplay.mode'] == 'client' or system.config['netplay.mode'] == 'spectator':
-                commandArray.extend(["--connect", system.config['netplay.server.ip']])
-            if 'netplay.server.port' in system.config:
-                commandArray.extend(["--port", system.config['netplay.server.port']])
-            if 'netplay.server.session' in system.config:
-                commandArray.extend(["--mitm-session", system.config['netplay.server.session']])
-            if 'netplay.nickname' in system.config:
-                commandArray.extend(["--nick", system.config['netplay.nickname']])
+            elif netplay_mode == 'client' or netplay_mode == 'spectator':
+                commandArray.extend(["--connect", system.get_option_str('netplay.server.ip', '')])
+            if netplay_server_port := system.get_option_str('netplay.server.port'):
+                commandArray.extend(["--port", netplay_server_port])
+            if netplay_server_session := system.get_option_str('netplay.server.session'):
+                commandArray.extend(["--mitm-session", netplay_server_session])
+            if netplay_nickname := system.get_option_str('netplay.nickname'):
+                commandArray.extend(["--nick", netplay_nickname])
 
         # Verbose logs
         commandArray.extend(['--verbose'])
@@ -370,15 +365,15 @@ class LibretroGenerator(Generator):
             rom = rom.parent / first_line
 
         # Use command line instead of ROM file for MAME variants
-        if system.config['core'] in [ 'mame', 'mess', 'mamevirtual', 'same_cdi' ]:
+        if system.core in [ 'mame', 'mess', 'mamevirtual', 'same_cdi' ]:
             dontAppendROM = True
-            if system.config['core'] in [ 'mame', 'mess', 'mamevirtual' ]:
-                corePath = 'lr-' + system.config['core']
+            if system.core in [ 'mame', 'mess', 'mamevirtual' ]:
+                corePath = 'lr-' + system.core
             else:
-                corePath = system.config['core']
+                corePath = system.core
             commandArray.append(f'/var/run/cmdfiles/{rom.stem}.cmd')
 
-        if system.config['core'] == 'hatarib':
+        if system.core == 'hatarib':
             biosdir = BIOS / "hatarib"
             if not biosdir.exists():
                 biosdir.mkdir()
@@ -394,19 +389,19 @@ class LibretroGenerator(Generator):
         if not dontAppendROM:
             commandArray.append(rom)
 
-        if system.isOptSet('state_slot') and system.isOptSet('state_filename') and system.config['state_filename'][-5:] != ".auto":
+        if (state_slot := system.get_option('state_slot')) and not system.get_option_str('state_filename', ".auto").endswith(".auto"):
             # if the file ends by .auto, this is the auto loading, else it is the states
             # retroarch need the file be named with .entry at the end to load the state
             # a link would work, but on fat32, we need to copy
-            commandArray.extend(["-e", system.config['state_slot']])
+            commandArray.extend(["-e", state_slot])
 
         return Command.Command(array=commandArray, env={"XDG_CONFIG_HOME":CONFIGS})
 
 def getGFXBackend(system: Emulator) -> str:
         # Start with the selected option
         # Pick glcore or gl based on drivers if not selected
-        if system.isOptSet("gfxbackend"):
-            backend = system.config["gfxbackend"]
+        if gfxbackend := system.get_option("gfxbackend"):
+            backend = gfxbackend
             setManually = True
         else:
             setManually = False
@@ -423,7 +418,7 @@ def getGFXBackend(system: Emulator) -> str:
         # Don't change based on core if manually selected.
         if not setManually:
             # If set to glcore or gl, override setting for certain cores that require one or the other
-            core = system.config['core']
+            core = system.core
             if backend == "gl" and core in [ 'kronos', 'citra', 'mupen64plus-next', 'melonds', 'beetle-psx-hw' ]:
                 backend = "glcore"
             if backend == "glcore" and core in [ 'parallel_n64', 'yabasanshiro', 'boom3' ]:
