@@ -115,13 +115,13 @@ def getDevicesInformation() -> DeviceInfoDict:
                     joysticks.append(eventId)
                 if isMouse:
                     mouses.append(eventId)
-                devices[eventId] = { "node": ev.device_node, "group": group, "isJoystick": isJoystick, "isWheel": isWheel, "isMouse": isMouse }
+                devices[eventId] = { "node": cast(str, ev.device_node), "group": group, "isJoystick": isJoystick, "isWheel": isWheel, "isMouse": isMouse }
                 if "ID_PATH" in ev.properties:
                     if isWheel and "WHEEL_ROTATION_ANGLE" in ev.properties:
                         devices[eventId]["wheel_rotation"] = int(ev.properties["WHEEL_ROTATION_ANGLE"])
                     if group not in groups:
                         groups[group] = []
-                    groups[group].append(ev.device_node)
+                    groups[group].append(cast(str, ev.device_node))
     mouses.sort()
     joysticks.sort()
     res: DeviceInfoDict = {}

@@ -168,17 +168,20 @@ def tatooImage(input_png: str | Path, output_png: str | Path, system: Emulator) 
             tattoo = Image.open(tattoo_file)
         except Exception:
             _logger.error("Error opening controller overlay: %s", tattoo_file)
-    elif bezel_tattoo == 'custom' and (tattoo_file := Path(system.get_option_str('bezel.tattoo_file'))).exists():
+            return
+    elif bezel_tattoo == 'custom' and (bezel_tattoo_file := system.get_option_str('bezel.tattoo_file')) and (tattoo_file := Path(bezel_tattoo_file)).exists():
         try:
             tattoo = Image.open(tattoo_file)
         except Exception:
             _logger.error("Error opening custom file: %s", tattoo_file)
+            return
     else:
         tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
         try:
             tattoo = Image.open(tattoo_file)
         except Exception:
             _logger.error("Error opening custom file: %s", tattoo_file)
+            return
     # Open the existing bezel...
     back = Image.open(input_png)
     # Convert it otherwise it implodes later on...
@@ -344,5 +347,5 @@ def gunsBordersColorFomConfig(config: Mapping[str, object]) -> str:
 def createTransparentBezel(output_png: Path, width: int, height: int) -> None:
     from PIL import ImageDraw
     imgnew = Image.new("RGBA", (width,height), (0,0,0,0))
-    imgnewdraw = ImageDraw.Draw(imgnew)
+    ImageDraw.Draw(imgnew)
     imgnew.save(output_png, mode="RGBA", format="PNG")

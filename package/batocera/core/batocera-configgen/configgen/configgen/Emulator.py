@@ -318,7 +318,7 @@ class Emulator:
             return value in self.TRUE_VALUES
 
         def getOptString(self, key: str) -> str:
-            if key in self.config:
+            if key in self.config:  # noqa: SIM102
                 if self.config[key]:
                     return self.config[key]
             return ""

@@ -148,7 +148,7 @@ class Controller:
         mapped_button_ids: set[str] = set()
 
         for input in self.inputs.values():
-            if input.name is None:  # pragma: no cover
+            if input.name is None:  # pragma: no cover  # pyright: ignore[reportUnnecessaryComparison]
                 continue
             if ignore_buttons is not None and input.name in ignore_buttons:
                 continue

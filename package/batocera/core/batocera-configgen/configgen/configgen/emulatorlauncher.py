@@ -48,7 +48,7 @@ if TYPE_CHECKING:
 
     from .Command import Command
     from .generators.Generator import Generator
-    from .types import DeviceInfoDict, Resolution
+    from .types import BezelInfo, DeviceInfoDict, Resolution
 
 _logger = logging.getLogger(__name__)
 
@@ -289,7 +289,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
     if overlay_info_file.exists():
         try:
             with overlay_info_file.open() as f:
-                infos = json.load(f)
+                infos = cast('BezelInfo', json.load(f))
         except Exception:
             _logger.warning("unable to read %s", overlay_info_file)
             infos = {}
@@ -297,8 +297,8 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
         infos = {}
 
     if "width" in infos and "height" in infos:
-        bezel_width  = infos["width"]
-        bezel_height = infos["height"]
+        bezel_width  = cast(int, infos["width"])
+        bezel_height = cast(int, infos["height"])
         _logger.info("bezel size read from %s", overlay_info_file)
     else:
         bezel_width, bezel_height = bezelsUtil.fast_image_size(overlay_png_file)
@@ -312,17 +312,16 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
     bezel_ratio  = bezel_width / bezel_height
 
     # the screen and bezel ratio must be approximatly the same
-    if bordersSize is None:
-        if abs(screen_ratio - bezel_ratio) > max_ratio_delta:
-            _logger.debug(
-                "screen ratio (%(screen_ratio)s) is too far from the bezel one (%(bezel_ratio)s) : %(screen_ratio)s - %(bezel_ratio)s > %(max_ratio_delta)s",
-                {
-                    'screen_ratio': screen_ratio,
-                    'bezel_ratio': bezel_ratio,
-                    'max_ratio_delta': max_ratio_delta
-                }
-            )
-            return None
+    if bordersSize is None and abs(screen_ratio - bezel_ratio) > max_ratio_delta:
+        _logger.debug(
+            "screen ratio (%(screen_ratio)s) is too far from the bezel one (%(bezel_ratio)s) : %(screen_ratio)s - %(bezel_ratio)s > %(max_ratio_delta)s",
+            {
+                'screen_ratio': screen_ratio,
+                'bezel_ratio': bezel_ratio,
+                'max_ratio_delta': max_ratio_delta
+            }
+        )
+        return None
 
     # the ingame image and the bezel free space must feet
     ## the bezel top and bottom cover must be minimum
@@ -346,19 +345,17 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
         _logger.debug("bezel has no left info in %s", overlay_info_file)
         # assume default is 4/3 over 16/9
         infos_left = (bezel_width - (bezel_height / 3 * 4)) / 2
-        if bordersSize is None:
-            if abs((infos_left  - ((bezel_width-img_width)/2.0)) / img_width) > max_cover:
-                _logger.debug("bezel left covers too much the game image : %s / %s > %s", infos_left  - ((bezel_width-img_width)/2.0), img_width, max_cover)
-                return None
+        if bordersSize is None and abs((infos_left  - ((bezel_width-img_width)/2.0)) / img_width) > max_cover:
+            _logger.debug("bezel left covers too much the game image : %s / %s > %s", infos_left  - ((bezel_width-img_width)/2.0), img_width, max_cover)
+            return None
 
     if "right" not in infos:
         _logger.debug("bezel has no right info in %s", overlay_info_file)
         # assume default is 4/3 over 16/9
         infos_right = (bezel_width - (bezel_height / 3 * 4)) / 2
-        if bordersSize is None:
-            if abs((infos_right - ((bezel_width-img_width)/2.0)) / img_width) > max_cover:
-                _logger.debug("bezel right covers too much the game image : %s / %s > %s", infos_right  - ((bezel_width-img_width)/2.0), img_width, max_cover)
-                return None
+        if bordersSize is None and abs((infos_right - ((bezel_width-img_width)/2.0)) / img_width) > max_cover:
+            _logger.debug("bezel right covers too much the game image : %s / %s > %s", infos_right  - ((bezel_width-img_width)/2.0), img_width, max_cover)
+            return None
 
     if bordersSize is None:
         if "left"  in infos and abs((infos["left"]  - ((bezel_width-img_width)/2.0)) / img_width) > max_cover:
@@ -392,7 +389,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
         output_png_file = Path("/tmp/bezel_gunborders.png")
         innerSize, outerSize = bezelsUtil.gunBordersSize(bordersSize)
         _logger.debug("Gun border ratio = %s", bordersRatio)
-        borderSize = bezelsUtil.gunBorderImage(overlay_png_file, output_png_file, bordersRatio, innerSize, outerSize, bezelsUtil.gunsBordersColorFomConfig(system.config))
+        bezelsUtil.gunBorderImage(overlay_png_file, output_png_file, bordersRatio, innerSize, outerSize, bezelsUtil.gunsBordersColorFomConfig(system.config))
         overlay_png_file = output_png_file
 
     _logger.debug("applying bezel %s", overlay_png_file)
@@ -568,7 +565,7 @@ def launch() -> None:
         exitcode = -1
         try:
             exitcode = main(args, maxnbplayers)
-        except Exception as e:
+        except Exception:
             _logger.exception("configgen exception: ")
 
         if _profiler:

@@ -40,19 +40,19 @@ def changeMode(videomode: str) -> None:
 
 def getCurrentMode() -> str:
     proc = subprocess.Popen(["batocera-resolution currentMode"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    (out, _) = proc.communicate()
     for val in out.decode().splitlines():
         return val # return the first line
     if TYPE_CHECKING:
-        assert False, "unreachable"
+        assert False, "unreachable"  # noqa: B011
 
 def getRefreshRate() -> str:
     proc = subprocess.Popen(["batocera-resolution refreshRate"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    (out, _) = proc.communicate()
     for val in out.decode().splitlines():
         return val # return the first line
     if TYPE_CHECKING:
-        assert False, "unreachable"
+        assert False, "unreachable"  # noqa: B011
 
 def getScreensInfos(config: Mapping[str, object]) -> list[ScreenInfo]:
     outputs = getScreens()
@@ -91,7 +91,12 @@ def getScreensInfos(config: Mapping[str, object]) -> list[ScreenInfo]:
     if vo3 is not None:
         try:
             resolution3 = getCurrentResolution(vo3)
-            res.append({"width": resolution3["width"], "height": resolution3["height"], "x": resolution1["width"]+resolution2["width"], "y": 0})
+            res.append({
+                "width": resolution3["width"],
+                "height": resolution3["height"],
+                "x": resolution1["width"] + resolution2["width"],  # pyright: ignore[reportPossiblyUnboundVariable]
+                "y": 0
+            })
         except Exception:
             pass # ignore bad information
 
@@ -101,12 +106,12 @@ def getScreensInfos(config: Mapping[str, object]) -> list[ScreenInfo]:
 
 def getScreens() -> list[str]:
     proc = subprocess.Popen(["batocera-resolution listOutputs"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    (out, _) = proc.communicate()
     return out.decode().splitlines()
 
 def minTomaxResolution() -> None:
     proc = subprocess.Popen(["batocera-resolution minTomaxResolution"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    proc.communicate()
 
 def getCurrentResolution(name: str | None = None) -> Resolution:
     if name is None:
@@ -114,18 +119,18 @@ def getCurrentResolution(name: str | None = None) -> Resolution:
     else:
         proc = subprocess.Popen([f"batocera-resolution --screen {name} currentResolution"], stdout=subprocess.PIPE, shell=True)
 
-    (out, err) = proc.communicate()
+    (out, _) = proc.communicate()
     vals = out.decode().split("x")
     return { "width": int(vals[0]), "height": int(vals[1]) }
 
 def getCurrentOutput() -> str:
     proc = subprocess.Popen(["batocera-resolution currentOutput"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    (out, _) = proc.communicate()
     return out.decode().strip()
 
 def supportSystemRotation() -> bool:
     proc = subprocess.Popen(["batocera-resolution supportSystemRotation"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    proc.communicate()
     return proc.returncode == 0
 
 def isResolutionReversed():
@@ -140,7 +145,7 @@ def checkModeExists(videomode: str) -> bool:
 
     # specific resolution given
     proc = subprocess.Popen(["batocera-resolution listModes"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    (out, _) = proc.communicate()
     for valmod in out.decode().splitlines():
         vals = valmod.split(":")
         if(videomode == vals[0]):
@@ -152,7 +157,7 @@ def checkModeExists(videomode: str) -> bool:
 def changeMouse(mode: bool) -> None:
     _logger.debug("changeMouseMode(%s)", mode)
     proc = subprocess.Popen([f"batocera-mouse {'show' if mode else 'hide'}"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    proc.communicate()
 
 def getGLVersion() -> float:
     try:
