@@ -475,15 +475,10 @@ class evmapy(AbstractContextManager[None, None]):
         /,
     ) -> str | list[str]:
         if isinstance(trigger, list):
-            new_trigger: list[str] = []
-            for x in trigger:
-                new_trigger.append(
-                    cast(
-                        str,
-                        self.__trigger_mapper_string(x, known_button_aliases, known_button_names, trigger_mapping)
-                    )
-                )
-            return new_trigger
+            return [
+                cast(str, self.__trigger_mapper_string(x, known_button_aliases, known_button_names, trigger_mapping))
+                for x in trigger
+            ]
 
         return self.__trigger_mapper_string(trigger, known_button_aliases, known_button_names, trigger_mapping)
 

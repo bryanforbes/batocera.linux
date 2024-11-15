@@ -558,9 +558,7 @@ def generateMAMEPadConfig(
             controlDict[row[0]][row[1]] = row[2]
 
     # Common controls
-    mappings: dict[str, str] = {}
-    for controlDefKey, controlDefValue in controlDict['default'].items():
-        mappings[controlDefKey] = controlDefValue
+    mappings: dict[str, str] = dict(controlDict['default'].items())
 
     # Buttons that change based on game/setting
     if altButtons in controlDict:
@@ -843,6 +841,6 @@ def getSection(config: minidom.Document, xml_root: minidom.Element, name: str):
 def removeSection(config: minidom.Document, xml_root: minidom.Element, name: str):
     xml_section = xml_root.getElementsByTagName(name)
 
-    for i in range(0, len(xml_section)):
+    for i in range(len(xml_section)):
         old = cast(minidom.Element, xml_root.removeChild(xml_section[i]))
         old.unlink()
