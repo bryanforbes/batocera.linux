@@ -8,7 +8,7 @@ if TYPE_CHECKING:
 
 
 class Command:
-    def __init__(self, array: Sequence[str | Path], env: Mapping[str, str | Path] = dict()):
+    def __init__(self, array: Sequence[str | Path], env: Mapping[str, str | Path] = {}):
         self.array = list(array)
         self.env = dict(env)
 
