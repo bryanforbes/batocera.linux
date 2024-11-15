@@ -58,7 +58,7 @@ class Emulator:
             DEFAULTS_DIR / "configgen-defaults.yml",
             DEFAULTS_DIR / "configgen-defaults-arch.yml"
         )
-        if "emulator" not in self.config or self.config["emulator"] == "":
+        if "emulator" not in self.config or not self.config["emulator"]:
             _logger.error("no emulator defined. exiting.")
             raise Exception("No emulator found")
 
@@ -358,7 +358,7 @@ class Emulator:
 
         config.update({
             key: value for key, value in settings.items()
-            if value != '' and value != 'default' and value != 'auto'
+            if value and value != 'default' and value != 'auto'
         })
 
     # fps value is from es

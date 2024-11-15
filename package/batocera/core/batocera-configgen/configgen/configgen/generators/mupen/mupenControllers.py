@@ -137,10 +137,10 @@ def defineControllerKeys(nplayer: int, controller: Controller, system: Emulator,
                         )
 
         for input in controller.inputs.values():
-                if input.name in mupenmapping and mupenmapping[input.name] != "":
+                if mupenmapping.get(input.name):
                         value=setControllerLine(mupenmapping, input, mupenmapping[input.name], controller.inputs)
                         # Handle multiple inputs for a single N64 Pad input
-                        if value != "":
+                        if value:
                             if mupenmapping[input.name] not in config :
                                 config[mupenmapping[input.name]] = value
                             else:
