@@ -13,12 +13,8 @@ class Command:
         self.env = dict(env)
 
     def __str__(self):
-        strings: list[str] = []
+        strings = [f"{varName}={varValue}" for varName, varValue in self.env.items()]
 
-        for varName, varValue in self.env.items():
-            strings.append(f"{varName}={varValue}")
-
-        for value in self.array:
-            strings.append(str(value))
+        strings.extend(str(value) for value in self.array)
 
         return " ".join(strings)

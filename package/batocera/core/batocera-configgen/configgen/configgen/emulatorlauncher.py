@@ -244,8 +244,8 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
             try:
                 wheelsUtils.reset_wheels(wheelProcesses)
             except Exception:
+                 # don't fail
                 _logger.error("hum, unable to reset wheel controllers !")
-                pass # don't fail
     # exit
     return exitCode
 

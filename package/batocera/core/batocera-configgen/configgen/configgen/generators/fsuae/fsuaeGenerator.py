@@ -79,7 +79,7 @@ class FsuaeGenerator(Generator):
             zf = zipfile.ZipFile(rom, 'r')
             for name in zf.namelist():
                 d = name.lower()
-                if (d.endswith("ipf") or d.endswith("adf") or d.endswith("dms") or d.endswith("adz")):
+                if d.endswith(("ipf", "adf", "dms", "adz")):
                     diskNames.append(name)
 
             _logger.debug("Amount of disks in zip %s", len(diskNames))

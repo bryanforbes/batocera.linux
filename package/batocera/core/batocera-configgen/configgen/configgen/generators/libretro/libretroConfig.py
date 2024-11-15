@@ -708,7 +708,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
     # Guns
     # clear premapping for each player gun to make new one. Useful for libretro-mame and flycast-dreamcast
     if system.get_option_bool('use_guns'):
-        for g in range(0, len(guns)):
+        for g in range(len(guns)):
             clearGunInputsForPlayer(g+1, retroarchConfig)
 
     gun_mapping: dict[str, dict[str, _GunMappingItem]] = {
@@ -796,8 +796,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         _logger.error("Error with bezel %s: %s", bezel, e, exc_info=e, stack_info=True)
 
     # custom : allow the user to configure directly retroarch.cfg via batocera.conf via lines like : snes.retroarch.menu_driver=rgui
-    for user_config_key, user_config_value in system.option_items(starts_with='retroarch.'):
-        retroarchConfig[user_config_key] = user_config_value
+    retroarchConfig.update(system.option_items(starts_with='retroarch.'))
 
     return retroarchConfig
 

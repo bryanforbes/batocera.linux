@@ -97,7 +97,7 @@ def readWriteFile(filepath: Path, setval: Mapping[str, int]) -> None:
         offsetSize = (numEntries+1)*2 # offsets
         readBytes(f, offsetSize)
 
-        for _ in range(0, numEntries): # entries
+        for _ in range(numEntries): # entries
             readWriteEntry(f, setval)
 
 def getWiiLangFromEnvironment() -> int:
