@@ -36,9 +36,8 @@ class Vita3kGenerator(Generator):
         if (vitaConfig / 'ux0').is_dir():
             # Move all folders from vitaConfig to vitaSaves except "data", "lang", and "shaders-builtin"
             for item in vitaConfig.iterdir():
-                if item.name not in ['data', 'lang', 'shaders-builtin']:
-                    if item.is_dir():
-                        shutil.move(item, vitaSaves)
+                if item.name not in ['data', 'lang', 'shaders-builtin'] and item.is_dir():
+                    shutil.move(item, vitaSaves)
 
         # Create the config.yml file if it doesn't exist
         mkdir_if_not_exists(vitaConfig)

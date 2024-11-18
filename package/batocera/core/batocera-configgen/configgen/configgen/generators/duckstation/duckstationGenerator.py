@@ -219,10 +219,10 @@ class DuckstationGenerator(Generator):
             settings.add_section("Cheevos")
         # RetroAchievements
         if system.get_option_bool('retroachievements'):
-            headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}
-            login_url = "https://retroachievements.org/"
+            headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}  # noqa: F841
+            login_url = "https://retroachievements.org/"  # noqa: F841
             username  = system.get_option_str('retroachievements.username', "")
-            password  = system.get_option_str('retroachievements.password', "")
+            password  = system.get_option_str('retroachievements.password', "")  # noqa: F841
             hardcore  = system.get_option_str('retroachievements.hardcore', "")
             presence  = system.get_option_str('retroachievements.richpresence', "")
             indicator = system.get_option_str('retroachievements.challenge_indicators', "")
@@ -495,8 +495,8 @@ def find_bios(bios_lists: Mapping[str, Sequence[str]]):
 
     try:
         files_lower = {f.name.lower(): f.name for f in BIOS.iterdir()}
-    except OSError:
-        raise Exception(f"Unable to read BIOS directory: {BIOS}")
+    except OSError as e:
+        raise Exception(f"Unable to read BIOS directory: {BIOS}") from e
 
     for region, bios_list in bios_lists.items():
         for bios in bios_list:

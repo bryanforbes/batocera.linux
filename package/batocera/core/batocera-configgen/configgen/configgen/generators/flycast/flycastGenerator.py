@@ -129,10 +129,10 @@ class FlycastGenerator(Generator):
             Config.add_section("achievements")
 
         if system.get_option_bool('retroachievements'):
-            headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}
-            login_url = "https://retroachievements.org/"
+            headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}  # noqa: F841
+            login_url = "https://retroachievements.org/"  # noqa: F841
             username  = system.get_option_str('retroachievements.username', "")
-            password  = system.get_option_str('retroachievements.password', "")
+            password  = system.get_option_str('retroachievements.password', "")  # noqa: F841
             hardcore  = system.get_option_str('retroachievements.hardcore', "")
             token     = system.get_option_str('retroachievements.token', "")
             # apply config

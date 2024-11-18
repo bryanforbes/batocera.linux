@@ -349,9 +349,8 @@ class LibretroGenerator(Generator):
         elif system.name == 'sgb-msu1':
             if "squashfs" in str(rom) and rom.is_dir():
                 rom = next(itertools.chain(rom.glob('*.gb'), rom.glob('*.gbc')))
-        elif system.name == 'msu-md':
-            if "squashfs" in str(rom) and rom.is_dir():
-                rom = next(rom.glob('*.md'))
+        elif system.name == 'msu-md' and "squashfs" in str(rom) and rom.is_dir():
+            rom = next(rom.glob('*.md'))
 
         if system.name == 'scummvm':
             rom = rom.parent / rom.name
@@ -367,10 +366,6 @@ class LibretroGenerator(Generator):
         # Use command line instead of ROM file for MAME variants
         if system.core in [ 'mame', 'mess', 'mamevirtual', 'same_cdi' ]:
             dontAppendROM = True
-            if system.core in [ 'mame', 'mess', 'mamevirtual' ]:
-                corePath = 'lr-' + system.core
-            else:
-                corePath = system.core
             commandArray.append(f'/var/run/cmdfiles/{rom.stem}.cmd')
 
         if system.core == 'hatarib':

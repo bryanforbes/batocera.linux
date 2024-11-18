@@ -57,10 +57,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
     romDrivername = rom.stem
     specialController = 'none'
 
-    if system.core in [ 'mame', 'mess', 'mamevirtual' ]:
-        corePath = f"lr-{system.core}"
-    else:
-        corePath = str(system.core)
+    corePath = f"lr-{system.core}" if system.core in ["mame", "mess", "mamevirtual"] else str(system.core)
 
     if system.name in [ 'mame', 'neogeo', 'lcdgames', 'plugnplay', 'vis' ]:
         # Set up command line for basic systems
@@ -93,9 +90,8 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
 
         # Auto softlist for FM Towns if there is a zip that matches the folder name
         # Used for games that require a CD and floppy to both be inserted
-        if system.name == 'fmtowns' and not softList:
-            if (ROMS / 'fmtowns' / f'{rom.parent.name}.zip').exists():
-                softList = 'fmtowns_cd'
+        if system.name == 'fmtowns' and not softList and (ROMS / 'fmtowns' / f'{rom.parent.name}.zip').exists():
+            softList = 'fmtowns_cd'
 
         # Determine MESS system name (if needed)
         messSystems: list[str] = []
@@ -142,10 +138,9 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 commandLine += ["-mem", system.get_option('memslot', 'laser_64k')]
 
             # BBC Joystick
-            if system.name == "bbc":
-                if (stick_type := system.get_option('sticktype')) and stick_type != 'none':
-                    commandLine += ["-analogue", stick_type]
-                    specialController = stick_type
+            if system.name == "bbc" and (stick_type := system.get_option('sticktype')) and stick_type != 'none':
+                commandLine += ["-analogue", stick_type]
+                specialController = stick_type
 
             # Apple II
             if system.name == "apple2":
@@ -165,21 +160,19 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                 commandLine += [ '-ramsize', ram_size + 'M' ]
 
             # Mac RAM & Image Reader (if applicable)
-            if system.name == "macintosh":
-                if (ramSize := system.get_option_int("ramsize")) is not system.MISSING:
-                    if messModel in [ 'maciix', 'maclc3' ]:
-                        if messModel == 'maclc3' and ramSize == 2:
-                            ramSize = 4
-                        if messModel == 'maclc3' and ramSize > 80:
-                            ramSize = 80
-                        if messModel == 'maciix' and ramSize == 16:
-                            ramSize = 32
-                        if messModel == 'maciix' and ramSize == 48:
-                            ramSize = 64
-                        commandLine += [ '-ramsize', f'{ramSize}M' ]
-                    if messModel == 'maciix':
-                        if (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
-                            commandLine += [ "-" + imageSlot, 'image' ]
+            if system.name == "macintosh" and (ramSize := system.get_option_int("ramsize")) is not system.MISSING:
+                if messModel in [ 'maciix', 'maclc3' ]:
+                    if messModel == 'maclc3' and ramSize == 2:
+                        ramSize = 4
+                    if messModel == 'maclc3' and ramSize > 80:
+                        ramSize = 80
+                    if messModel == 'maciix' and ramSize == 16:
+                        ramSize = 32
+                    if messModel == 'maciix' and ramSize == 48:
+                        ramSize = 64
+                    commandLine += [ '-ramsize', f'{ramSize}M' ]
+                if messModel == 'maciix' and (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
+                    commandLine += [ "-" + imageSlot, 'image' ]
 
             if softList:
                 # Software list ROM commands
@@ -319,10 +312,9 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     autoRunDelay = 3
             # fm7 boots floppies, needs cassette loading
             elif system.name == "fm7":
-                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList:
-                    if altromtype == "cass" or softList[-4:] == "cass":
-                        autoRunCmd = 'LOADM”“,,R\\n'
-                        autoRunDelay = 5
+                if ((altromtype := system.get_option("altromtype")) is not system.MISSING or softList) and (altromtype == "cass" or softList[-4:] == "cass"):
+                    autoRunCmd = 'LOADM”“,,R\\n'
+                    autoRunDelay = 5
             elif system.name == "coco":
                 romType = 'cart'
                 autoRunDelay = 2
@@ -333,11 +325,10 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     if softListFile.exists():
                         softwarelist = ET.parse(softListFile)
                         for software in softwarelist.findall('software'):
-                            if software.attrib:
-                                if software.get('name') == romDrivername:
-                                    for info in software.iter('info'):
-                                        if info.get('name') == 'usage':
-                                            autoRunCmd = cast(str, info.get('value')) + '\\n'
+                            if software.attrib and software.get('name') == romDrivername:
+                                for info in software.iter('info'):
+                                    if info.get('name') == 'usage':
+                                        autoRunCmd = cast(str, info.get('value')) + '\\n'
 
                 # if still undefined, default autoRunCmd based on media type
                 if not autoRunCmd:
@@ -358,9 +349,8 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
                     with autoRunFile.open() as openARFile:
                         autoRunList = csv.reader(openARFile, delimiter=';', quotechar="'")
                         for row in autoRunList:
-                            if row and not row[0].startswith('#'):
-                                if row[0].casefold() == romDrivername.casefold():
-                                    autoRunCmd = row[1] + "\\n"
+                            if row and not row[0].startswith('#') and row[0].casefold() == romDrivername.casefold():
+                                autoRunCmd = row[1] + "\\n"
             else:
                 # Check for an override file, otherwise use generic (if it exists)
                 autoRunCmd = messAutoRun[messMode]
@@ -629,7 +619,6 @@ def generateMAMEPadConfig(
         return
 
     # Fill in controls on cfg files
-    maxplayers = len(playersControllers)
     for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
         mappings_use = mappings.copy()
         if "joystick1up" not in pad.inputs:

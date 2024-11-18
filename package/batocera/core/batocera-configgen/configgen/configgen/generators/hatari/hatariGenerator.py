@@ -182,10 +182,7 @@ class HatariGenerator(Generator):
                     l_lang = [language]
                 l_lang.extend(all_languages)
                 for v_language in l_lang:
-                    if "etos" in v_tos_version:
-                        biosversion = v_tos_version
-                    else:
-                        biosversion = f"tos{v_tos_version}"
+                    biosversion = v_tos_version if "etos" in v_tos_version else f"tos{v_tos_version}"
                     tos_path = biosdir / f"{biosversion}{v_language}.img"
                     if tos_path.exists():
                         _logger.debug("tos filename: %s", tos_path.name)

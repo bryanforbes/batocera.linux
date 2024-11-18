@@ -153,19 +153,18 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
 
     retroarchConfig['video_driver'] = '"' + gfxBackend + '"'  # needed for the ozone menu
     # Set Vulkan
-    if system.get_option("gfxbackend") == "vulkan":
-        if vulkan.is_available():
-            _logger.debug("Vulkan driver is available on the system.")
-            if vulkan.has_discrete_gpu():
-                _logger.debug("A discrete GPU is available on the system. We will use that for performance")
-                discrete_index = vulkan.get_discrete_gpu_index()
-                if discrete_index:
-                    _logger.debug("Using Discrete GPU Index: %s for RetroArch", discrete_index)
-                    retroarchConfig["vulkan_gpu_index"] = f'"{discrete_index}"'
-                else:
-                    _logger.debug("Couldn't get discrete GPU index")
+    if system.get_option("gfxbackend") == "vulkan" and vulkan.is_available():
+        _logger.debug("Vulkan driver is available on the system.")
+        if vulkan.has_discrete_gpu():
+            _logger.debug("A discrete GPU is available on the system. We will use that for performance")
+            discrete_index = vulkan.get_discrete_gpu_index()
+            if discrete_index:
+                _logger.debug("Using Discrete GPU Index: %s for RetroArch", discrete_index)
+                retroarchConfig["vulkan_gpu_index"] = f'"{discrete_index}"'
             else:
-                _logger.debug("Discrete GPU is not available on the system. Using default.")
+                _logger.debug("Couldn't get discrete GPU index")
+        else:
+            _logger.debug("Discrete GPU is not available on the system. Using default.")
 
     retroarchConfig['audio_driver'] = system.get_option('audio_driver', '"pulse"')
     retroarchConfig['audio_latency'] = system.get_option('audio_latency', '64')  # best balance with audio perf
@@ -257,23 +256,18 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
             retroarchConfig['input_libretro_device_p1'] = '517'     # CD 32 Pad
 
     ## BlueMSX choices by System
-    if system.name in systemToBluemsx:
-        if system.core == 'bluemsx':
-            retroarchConfig['input_libretro_device_p1'] = systemToP1Device[system.name]
-            retroarchConfig['input_libretro_device_p2'] = systemToP2Device[system.name]
+    if system.name in systemToBluemsx and system.core == 'bluemsx':
+        retroarchConfig['input_libretro_device_p1'] = systemToP1Device[system.name]
+        retroarchConfig['input_libretro_device_p2'] = systemToP2Device[system.name]
 
     ## SNES9x and SNES9x_next (2010) controller
     if system.core == 'snes9x' or system.core == 'snes9x_next':
-        if controller1 := system.get_option('controller1_snes9x'):
-            retroarchConfig['input_libretro_device_p1'] = controller1
-        elif controller1 := system.get_option('controller1_snes9x_next'):
+        if (controller1 := system.get_option('controller1_snes9x')) or (controller1 := system.get_option('controller1_snes9x_next')):
             retroarchConfig['input_libretro_device_p1'] = controller1
         else:
             retroarchConfig['input_libretro_device_p1'] = '1'
         # Player 2
-        if controller2 := system.get_option('controller2_snes9x'):
-            retroarchConfig['input_libretro_device_p2'] = controller2
-        elif controller2 := system.get_option('controller2_snes9x_next'):
+        if (controller2 := system.get_option('controller2_snes9x')) or (controller2 := system.get_option('controller2_snes9x_next')):
             retroarchConfig['input_libretro_device_p2'] = controller2
         elif len(controllers) > 2:                              # More than 2 controller connected
             retroarchConfig['input_libretro_device_p2'] = '257'
@@ -307,13 +301,12 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
         if system.get_option_bool('use_wheels'):
             deviceInfos = controllersConfig.getDevicesInformation()
             for nplayer, pad in enumerate(sorted(controllers.values()), start=1):
-                if pad.device_path in deviceInfos:
-                    if deviceInfos[pad.device_path]["isWheel"]:
-                        retroarchConfig['input_player' + str(nplayer) + '_analog_dpad_mode'] = '1'
-                        if "wheel_type" in metadata and metadata["wheel_type"] == "negcon" :
-                            retroarchConfig['input_libretro_device_p' + str(nplayer)] = 773 # Negcon
-                        else:
-                            retroarchConfig['input_libretro_device_p' + str(nplayer)] = 517 # DualShock Controller
+                if pad.device_path in deviceInfos and deviceInfos[pad.device_path]["isWheel"]:
+                    retroarchConfig['input_player' + str(nplayer) + '_analog_dpad_mode'] = '1'
+                    if "wheel_type" in metadata and metadata["wheel_type"] == "negcon" :
+                        retroarchConfig['input_libretro_device_p' + str(nplayer)] = 773 # Negcon
+                    else:
+                        retroarchConfig['input_libretro_device_p' + str(nplayer)] = 517 # DualShock Controller
 
     ## Sega Dreamcast controller
     if system.core == 'flycast':
@@ -364,10 +357,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
             for btn, value in remap_values.items():
                 retroarchConfig[f'input_player{controller_number}_{btn}'] = value
 
-        if system.core == 'genesisplusgx':
-            option = 'gx'
-        else:  # picodrive
-            option = 'pd'
+        option = "gx" if system.core == "genesisplusgx" else "pd"
 
         controller_list = sorted(controllers.items())
         for i in range(1, min(5, len(controller_list) + 1)):
@@ -473,10 +463,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
                 retroarchConfig[f'input_player{controller_number}_{btn}'] = value
 
 
-        if system.core == 'mupen64plus-next':
-            option = 'mupen64plus'
-        else:  # parallel_n64
-            option = 'parallel-n64'
+        option = "mupen64plus" if system.core == "mupen64plus-next" else "parallel-n64"
 
         controller_list = sorted(controllers.values())
         for i in range(1, min(5, len(controller_list) + 1)):
@@ -547,15 +534,14 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
     retroarchConfig['preemptive_frames_enable'] = 'false'
     retroarchConfig['run_ahead_frames'] = '0'
     retroarchConfig['run_ahead_secondary_instance'] = 'false'
-    if (runahead := system.get_option_int('runahead', 0)) > 0:
-        if system.name not in systemNoRunahead:
-            if system.get_option_bool('preemptiveframes'):
-                retroarchConfig['preemptive_frames_enable'] = 'true'
-            else:
-                retroarchConfig['run_ahead_enabled'] = 'true'
-            retroarchConfig['run_ahead_frames'] = runahead
-            if system.get_option_bool('secondinstance'):
-                retroarchConfig['run_ahead_secondary_instance'] = 'true'
+    if (runahead := system.get_option_int('runahead', 0)) > 0 and system.name not in systemNoRunahead:
+        if system.get_option_bool('preemptiveframes'):
+            retroarchConfig['preemptive_frames_enable'] = 'true'
+        else:
+            retroarchConfig['run_ahead_enabled'] = 'true'
+        retroarchConfig['run_ahead_frames'] = runahead
+        if system.get_option_bool('secondinstance'):
+            retroarchConfig['run_ahead_secondary_instance'] = 'true'
 
     # Auto frame delay (input delay reduction via frame timing)
     retroarchConfig['video_frame_delay_auto'] = system.get_option_bool('video_frame_delay_auto', return_values=('true', 'false'))
@@ -769,10 +755,7 @@ def createLibretroConfig(generator: Generator, system: Emulator, controllers: Co
                     if "device_p"+str(nplayer) in ragunconf:
                         retroarchConfig['input_libretro_device_p'+str(nplayer)] = ragunconf["device_p"+str(nplayer)]
                     else:
-                        if "device" in ragunconf:
-                            retroarchConfig['input_libretro_device_p'+str(nplayer)] = ragunconf["device"]
-                        else:
-                            retroarchConfig['input_libretro_device_p'+str(nplayer)] = ""
+                        retroarchConfig["input_libretro_device_p" + str(nplayer)] = ragunconf.get("device", "")
                     configureGunInputsForPlayer(nplayer, guns[ragunconf["p"+str(nplayer)]], controllers, retroarchConfig, system.core, metadata, system)
 
             # override core settings
@@ -1036,10 +1019,9 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
             else:
                 bezelNeedAdaptation = True
         retroarchConfig['aspect_ratio_index'] = str(ratioIndexes.index("custom")) # overwritten from the beginning of this file
-        if ratio := system.get_option('ratio'):
-            if ratio in ratioIndexes:
-                retroarchConfig['aspect_ratio_index'] = ratioIndexes.index(ratio)
-                retroarchConfig['video_aspect_ratio_auto'] = 'false'
+        if (ratio := system.get_option('ratio')) and ratio in ratioIndexes:
+            retroarchConfig['aspect_ratio_index'] = ratioIndexes.index(ratio)
+            retroarchConfig['video_aspect_ratio_auto'] = 'false'
 
     else:
         # when there is no information about width and height in the .info, assume that the tv is HD 16/9 and infos are core provided
@@ -1065,10 +1047,9 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
             bezelNeedAdaptation = False
         if not shaderBezel:
             retroarchConfig['aspect_ratio_index'] = str(ratioIndexes.index("core"))
-            if ratio := system.get_option('ratio'):
-                if ratio in ratioIndexes:
-                    retroarchConfig['aspect_ratio_index'] = ratioIndexes.index(ratio)
-                    retroarchConfig['video_aspect_ratio_auto'] = 'false'
+            if (ratio := system.get_option('ratio')) and ratio in ratioIndexes:
+                retroarchConfig['aspect_ratio_index'] = ratioIndexes.index(ratio)
+                retroarchConfig['video_aspect_ratio_auto'] = 'false'
 
 
     if not shaderBezel:
@@ -1132,7 +1113,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
                 fadapted.sort(key=lambda x: x.stat().st_mtime)
                 # Keep only last 10 generated bezels to save space on tmpfs /tmp
                 if len(fadapted) >= 10:
-                    for i in range (10):
+                    for _ in range(10):
                         fadapted.pop()
                     _logger.debug("Removing unused bezel file: %s", fadapted)
                     for fr in fadapted:
@@ -1194,7 +1175,7 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
         _logger.debug("Draw gun borders")
         output_png_file = Path("/tmp/bezel_gunborders.png")
         innerSize, outerSize = bezelsUtil.gunBordersSize(gunsBordersSize)
-        borderSize = bezelsUtil.gunBorderImage(overlay_png_file, output_png_file, gunsBordersRatio, innerSize, outerSize, bezelsUtil.gunsBordersColorFomConfig(system.config))
+        bezelsUtil.gunBorderImage(overlay_png_file, output_png_file, gunsBordersRatio, innerSize, outerSize, bezelsUtil.gunsBordersColorFomConfig(system.config))
         overlay_png_file = output_png_file
 
     _logger.debug("Bezel file set to %s", overlay_png_file)
