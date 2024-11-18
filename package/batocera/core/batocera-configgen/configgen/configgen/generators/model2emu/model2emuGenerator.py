@@ -96,28 +96,27 @@ class Model2EmuGenerator(Generator):
             modify_lua_scanlines(lua_file_path, system.get_option("model2_scanlines", "False"))
         # sinden - check if rom is a gun game
         known_gun_roms = ["bel", "gunblade", "hotd", "rchase2", "vcop", "vcop2", "vcopa"]
-        if rom.stem in known_gun_roms:
-            if system.get_option_bool('use_guns') and guns:
-                for gun in guns.values():
-                    if gun.need_borders:
-                        if lua_file_path.exists():
-                            bordersSize = system.get_guns_borders_size(guns)
-                            # add more intelligence for lower resolution screens to avoid massive borders
-                            if bordersSize == "thin":
-                                thickness = "1"
-                            elif bordersSize == "medium":
-                                if gameResolution["width"] <= 640:
-                                    thickness = "1"  # thin
-                                elif 640 < gameResolution["width"] <= 1080:
-                                    thickness = "2"
-                                else:
-                                    thickness = "2"
+        if rom.stem in known_gun_roms and system.get_option_bool('use_guns') and guns:
+            for gun in guns.values():
+                if gun.need_borders:
+                    if lua_file_path.exists():
+                        bordersSize = system.get_guns_borders_size(guns)
+                        # add more intelligence for lower resolution screens to avoid massive borders
+                        if bordersSize == "thin":
+                            thickness = "1"
+                        elif bordersSize == "medium":
+                            if gameResolution["width"] <= 640:
+                                thickness = "1"  # thin
+                            elif 640 < gameResolution["width"] <= 1080:
+                                thickness = "2"
                             else:
-                                thickness = "2" if gameResolution["width"] << 1080 else "3"
+                                thickness = "2"
+                        else:
+                            thickness = "2" if gameResolution["width"] << 1080 else "3"
 
-                            modify_lua_sinden(lua_file_path, "true", thickness)
-                    else:
-                        modify_lua_sinden(lua_file_path, "false", "0")
+                        modify_lua_sinden(lua_file_path, "true", thickness)
+                else:
+                    modify_lua_sinden(lua_file_path, "false", "0")
 
         # now set the other emulator features
         Config.set("Renderer","FakeGouraud", system.get_option_str("model2_fakeGouraud", "0"))
@@ -201,12 +200,10 @@ def modify_lua_scanlines(file_path: Path, condition: str) -> None:
         original_lines = lua_file.readlines()
 
     modified_lines: list[str] = []
-    found_test_surface_line = False
     scanlines_line_added = False
 
     for line in original_lines:
         if "TestSurface = Video_CreateSurfaceFromFile" in line:
-            found_test_surface_line = True
             modified_lines.append(line)
             if "Options.scanlines.value=" not in line and not scanlines_line_added:
                 modified_lines.append(f'\tOptions.scanlines.value={"1" if condition == "True" else "0"}\r\n')
@@ -227,12 +224,10 @@ def modify_lua_sinden(file_path: Path, condition: str, thickness: str) -> None:
         original_lines = lua_file.readlines()
 
     modified_lines: list[str] = []
-    found_test_surface_line = False
     sinden_line_added = False
 
     for line in original_lines:
         if "TestSurface = Video_CreateSurfaceFromFile" in line:
-            found_test_surface_line = True
             modified_lines.append(line)
             if "Options.bezels.value=" not in line and not sinden_line_added:
                 modified_lines.append(f'\tOptions.bezels.value={"0" if condition == "False" else thickness}\r\n')

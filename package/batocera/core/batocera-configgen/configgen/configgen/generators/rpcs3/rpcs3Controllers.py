@@ -194,9 +194,7 @@ def generateControllerConfig(system: Emulator, controllers: ControllerMapping):
                         config_name = mapping_dict[input.name]["config_name"]
                         event_variations = mapping_dict[input.name]["event_variations"]
                         for event_type, value_name in event_variations:
-                            if "BTN" in event_type and input.type == "button":
-                                f.write(f"    {config_name}: {value_name}\n")
-                            elif "HAT" in event_type and input.type == "hat":
+                            if "BTN" in event_type and input.type == "button" or "HAT" in event_type and input.type == "hat":
                                 f.write(f"    {config_name}: {value_name}\n")
                             elif "ABS" in event_type and input.type == "axis":
                                 # handle axis for sticks
