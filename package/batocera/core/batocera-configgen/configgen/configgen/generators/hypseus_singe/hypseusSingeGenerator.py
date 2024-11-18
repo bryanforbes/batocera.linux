@@ -220,7 +220,6 @@ class HypseusSingeGenerator(Generator):
         else:
             if video_resolution[0] != "0":
                 scaling_factor = gameResolution["height"] / video_resolution[1]
-                screen_width = gameResolution["width"]
                 new_width = video_resolution[0] * scaling_factor
                 commandArray.extend(["-x", str(new_width), "-y", str(gameResolution["height"])])
                 # check if 4:3 for bezels

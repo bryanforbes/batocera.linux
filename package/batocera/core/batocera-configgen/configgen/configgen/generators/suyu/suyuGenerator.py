@@ -161,24 +161,23 @@ class SuyuGenerator(Generator):
         if (backend := system.get_option('suyu_backend')) is not system.MISSING:
             suyuConfig.set("Renderer", "backend", backend)
             # Add vulkan logic
-            if backend == "1":
-                if vulkan.is_available():
-                    _logger.debug("Vulkan driver is available on the system.")
-                    if vulkan.has_discrete_gpu():
-                        _logger.debug("A discrete GPU is available on the system. We will use that for performance")
-                        discrete_index = vulkan.get_discrete_gpu_index()
-                        if discrete_index:
-                            _logger.debug("Using Discrete GPU Index: %s for Suyu", discrete_index)
-                            suyuConfig.set("Renderer", "vulkan_device", discrete_index)
-                            suyuConfig.set("Renderer", "vulkan_device\\default", "true")
-                        else:
-                            _logger.debug("Couldn't get discrete GPU index, using default")
-                            suyuConfig.set("Renderer", "vulkan_device", "0")
-                            suyuConfig.set("Renderer", "vulkan_device\\default", "true")
+            if backend == "1" and vulkan.is_available():
+                _logger.debug("Vulkan driver is available on the system.")
+                if vulkan.has_discrete_gpu():
+                    _logger.debug("A discrete GPU is available on the system. We will use that for performance")
+                    discrete_index = vulkan.get_discrete_gpu_index()
+                    if discrete_index:
+                        _logger.debug("Using Discrete GPU Index: %s for Suyu", discrete_index)
+                        suyuConfig.set("Renderer", "vulkan_device", discrete_index)
+                        suyuConfig.set("Renderer", "vulkan_device\\default", "true")
                     else:
-                        _logger.debug("Discrete GPU is not available on the system. Using default.")
+                        _logger.debug("Couldn't get discrete GPU index, using default")
                         suyuConfig.set("Renderer", "vulkan_device", "0")
                         suyuConfig.set("Renderer", "vulkan_device\\default", "true")
+                else:
+                    _logger.debug("Discrete GPU is not available on the system. Using default.")
+                    suyuConfig.set("Renderer", "vulkan_device", "0")
+                    suyuConfig.set("Renderer", "vulkan_device\\default", "true")
         else:
             suyuConfig.set("Renderer", "backend", "0")
         suyuConfig.set("Renderer", "backend\\default", "false")

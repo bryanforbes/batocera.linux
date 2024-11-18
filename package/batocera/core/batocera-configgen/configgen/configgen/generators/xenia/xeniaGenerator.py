@@ -268,7 +268,6 @@ class XeniaGenerator(Generator):
         rom_name = re.sub(r'\(.*?\)', '', rom_name)
         if system.get_option_bool('xenia_patches'):
             # pattern to search for matching .patch.toml files
-            pattern = canarypath / 'patches' / f'*{rom_name}*.patch.toml'
             matching_files = [file_path for file_path in (canarypath / 'patches').glob(f'*{rom_name}*.patch.toml') if re.search(rom_name, file_path.name, re.IGNORECASE)]
             if matching_files:
                 for file_path in matching_files:
