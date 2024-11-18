@@ -110,17 +110,19 @@ class Xash3dFwgsGenerator(Generator):
         # By default, xash3d will use `dlls/hl.so` in the valve directory (via the `liblist.gam` config file).
         # However, that `so` is incompatible with xash3d (it's the x86-glibc version from Valve).
         # We instead point to the hlsdk-xash3d `so`.
-        commandArray.append('-clientlib')
-        commandArray.append(_find_client_lib(server_lib, arch_suffix))
+        commandArray.extend([
+            '-clientlib',
+            _find_client_lib(server_lib, arch_suffix),
 
-        commandArray.append('-dll')
-        commandArray.append(_find_server_lib(server_lib, arch_suffix))
+            '-dll',
+            _find_server_lib(server_lib, arch_suffix),
 
-        commandArray.append('-game')
-        commandArray.append(game)
+            '-game',
+            game,
 
-        commandArray.append('+showfps')
-        commandArray.append('1' if system.show_fps else '0')
+            '+showfps',
+            '1' if system.show_fps else '0',
+        ])
 
         self._maybeInitConfig(game)
         self._maybeInitSaveDir(game)

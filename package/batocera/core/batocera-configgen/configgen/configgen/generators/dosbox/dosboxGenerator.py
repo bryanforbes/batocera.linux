@@ -55,7 +55,8 @@ class DosBoxGenerator(Generator):
             "-userconf",
             "-exit",
             batFile,
-            "-c", f"""set ROOT={rom}"""
+            "-c", f"""set ROOT={rom}""",
+            gameConfFile if gameConfFile.is_file() else CONFIGS / 'dosbox' / 'dosbox.conf'
         ]
 
         if gameConfFile.exists():

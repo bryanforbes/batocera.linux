@@ -30,10 +30,13 @@ class MoonlightGenerator(Generator):
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
         moonlightConfig.generateMoonlightConfig(system)
         gameName, confFile = self.getRealGameNameAndConfigFile(rom)
-        commandArray = ['/usr/bin/moonlight', 'stream','-config',  confFile]
-        commandArray.append('-app')
-        commandArray.append(gameName)
-        commandArray.append('-debug')
+        commandArray = [
+            '/usr/bin/moonlight',
+            'stream',
+            '-config',  confFile,
+            '-app', gameName,
+            '-debug',
+        ]
 
         # write our own gamecontrollerdb.txt file before launching the game
         dbfile = "/usr/share/moonlight/gamecontrollerdb.txt"

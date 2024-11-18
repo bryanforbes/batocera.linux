@@ -58,42 +58,45 @@ class ScummVMGenerator(Generator):
         if pad := first(sorted(playersControllers.values())):
             id = pad.index
 
-        commandArray = ["/usr/bin/scummvm", "-f"]
+        commandArray = [
+            "/usr/bin/scummvm",
+            "-f",
 
-        # set the resolution
-        window_width = str(gameResolution["width"])
-        window_height = str(gameResolution["height"])
-        commandArray.append(f"--window-size={window_width},{window_height}")
+            # set the resolution
+            f"--window-size={gameResolution['width']},{gameResolution['height']}",
 
-        ## user options
+            ## user options
 
-        # scale factor
-        commandArray.append(f"--scale-factor={system.get_option('scumm_scale', 3)}")
+            # scale factor
+            f"--scale-factor={system.get_option('scumm_scale', 3)}",
 
-        # sclaer mode
-        commandArray.append(f"--scaler={system.get_option('scumm_scaler_mode', 'normal')}")
+            # sclaer mode
+            f"--scaler={system.get_option('scumm_scaler_mode', 'normal')}",
+        ]
 
         #  stretch mode
         if system.has_option("scumm_stretch"):
             commandArray.append(f"--stretch-mode={system.get_option('scumm_stretch')}")
 
-        # renderer
-        commandArray.append(f"--renderer={system.get_option('scumm_renderer', 'opengl')}")
+        commandArray.extend([
+            # renderer
+            f"--renderer={system.get_option('scumm_renderer', 'opengl')}",
+
+            # logging
+            "--logfile=/userdata/system/logs/scummvm.log",
+        ])
 
         # language
         if language := system.get_option_str("scumm_language"):
             commandArray.extend(["-q", language])
 
-        # logging
-        commandArray.append("--logfile=/userdata/system/logs/scummvm.log")
-
-        commandArray.extend(
-            [f"--joystick={id}",
+        commandArray.extend([
+            f"--joystick={id}",
             f"--screenshotspath={SCREENSHOTS}",
             f"--extrapath={scummExtra}",
             f"--path={romPath}",
-            f"{romName}"]
-        )
+            f"{romName}"
+        ])
 
         return Command.Command(
             array=commandArray,

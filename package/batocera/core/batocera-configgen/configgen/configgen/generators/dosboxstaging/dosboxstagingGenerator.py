@@ -25,14 +25,10 @@ class DosBoxStagingGenerator(Generator):
             "-userconf",
             "-exit",
             batFile,
-            "-c", f"""set ROOT={rom!s}"""
+            "-c", f"""set ROOT={rom!s}""",
+            "-conf",
+            gameConfFile if gameConfFile.is_file() else CONFIGS / 'dosbox' / 'dosbox.conf'
         ]
-        if gameConfFile.is_file():
-            commandArray.append("-conf")
-            commandArray.append(gameConfFile)
-        else:
-            commandArray.append("-conf")
-            commandArray.append(CONFIGS / 'dosbox' / 'dosbox.conf')
 
         return Command.Command(array=commandArray)
 
