@@ -105,29 +105,21 @@ def getWiiLangFromEnvironment() -> int:
     availableLanguages = { "jp_JP": 0, "en_US": 1, "de_DE": 2,
                            "fr_FR": 3, "es_ES": 4, "it_IT": 5,
                            "nl_NL": 6, "zh_CN": 7, "zh_TW": 8, "ko_KR": 9 }
+
     if lang in availableLanguages:
         return availableLanguages[lang]
-    else:
-        return availableLanguages["en_US"]
+
+    return availableLanguages["en_US"]
 
 def getRatioFromConfig(config: dict[str, object], gameResolution: Resolution) -> Literal[0, 1]:
     # Sets the setting available to the Wii's internal NAND. Only has two values:
     # 0: 4:3 ; 1: 16:9
-    if "tv_mode" in config:
-        if config["tv_mode"] == "1":
-            return 1
-        else:
-            return 0
-    else:
-        return 0
+    return 1 if config.get("tv_mode") == "1" else 0
 
 def getSensorBarPosition(system: Emulator) -> Literal[0, 1]:
     # Sets the setting available to the Wii's internal NAND. Only has two values:
     # 0: BOTTOM ; 1: TOP
-    if system.get_option("sensorbar_position") == "1":
-        return 1
-    else:
-        return 0
+    return 1 if system.get_option("sensorbar_position") == "1" else 0
 
 def update(system: Emulator, filepath: Path, gameResolution: Resolution) -> None:
     arg_setval = {

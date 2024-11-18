@@ -485,14 +485,15 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
 
     if input.type == "button":
         return f"JOYCODE_{joycode}_BUTTON{int(input.id)+1}"
-    elif input.type == "hat":
+
+    if input.type == "hat":
         if input.value == "1":
             return f"JOYCODE_{joycode}_HAT1UP"
-        elif input.value == "2":
+        if input.value == "2":
             return f"JOYCODE_{joycode}_HAT1RIGHT"
-        elif input.value == "4":
+        if input.value == "4":
             return f"JOYCODE_{joycode}_HAT1DOWN"
-        elif input.value == "8":
+        if input.value == "8":
             return f"JOYCODE_{joycode}_HAT1LEFT"
     elif input.type == "axis":
         # Determine alternate button for D-Pad and right stick as buttons

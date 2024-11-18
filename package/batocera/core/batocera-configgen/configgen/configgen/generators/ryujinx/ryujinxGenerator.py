@@ -206,5 +206,5 @@ def getLangFromEnvironment():
                            "nl_NL": 6, "zh_CN": 7, "zh_TW": 8, "ko_KR": 9 }
     if lang in availableLanguages:
         return availableLanguages[lang]
-    else:
-        return availableLanguages["en_US"]
+
+    return availableLanguages["en_US"]

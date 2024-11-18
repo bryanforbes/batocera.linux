@@ -305,9 +305,9 @@ class SuyuGenerator(Generator):
 
             if input.type == "button":
                 return f"engine:sdl,button:{input.id},guid:{padGuid},port:{port}"
-            elif input.type == "hat":
+            if input.type == "hat":
                 return f"engine:sdl,hat:{input.id},direction:{SuyuGenerator.hatdirectionvalue(input.value)},guid:{padGuid},port:{port}"
-            elif input.type == "axis":
+            if input.type == "axis":
                 return f"engine:sdl,threshold:0.5,axis:{input.id},guid:{padGuid},port:{port},invert:+"
         return ""
 
@@ -337,23 +337,24 @@ class SuyuGenerator(Generator):
             return "right"
         if int(value) == 8:
             return "left"
-        else:
-            return "unknown"
+        return "unknown"
 
     @staticmethod
     def getSuyuLangFromEnvironment():
         lang = environ['LANG'][:5]
         availableLanguages = { "en_US": 1, "fr_FR": 2, "de_DE": 3, "it_IT": 4, "es_ES": 5, "nl_NL": 8, "pt_PT": 9 }
+
         if lang in availableLanguages:
             return availableLanguages[lang]
-        else:
-            return availableLanguages["en_US"]
+
+        return availableLanguages["en_US"]
 
     @staticmethod
     def getSuyuRegionFromEnvironment():
         lang = environ['LANG'][:5]
         availableRegions = { "en_US": 1, "ja_JP": 0 }
+
         if lang in availableRegions:
             return availableRegions[lang]
-        else:
-            return 2 # europe
+
+        return 2 # europe

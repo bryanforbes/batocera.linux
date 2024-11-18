@@ -473,9 +473,8 @@ def getHudConfig(system: Emulator, systemName: str, emulator: str, core: str, ro
     configstr = configstr.replace("%SYSTEMNAME%", hudConfig_protectStr(systemName))
     configstr = configstr.replace("%GAMENAME%", hudConfig_protectStr(gameName))
     configstr = configstr.replace("%EMULATORCORE%", hudConfig_protectStr(emulatorstr))
-    configstr = configstr.replace("%THUMBNAIL%", hudConfig_protectStr(gameThumbnail))
+    return configstr.replace("%THUMBNAIL%", hudConfig_protectStr(gameThumbnail))
 
-    return configstr
 
 def runCommand(command: Command) -> int:
     global proc
