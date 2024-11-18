@@ -14,8 +14,7 @@ class SteamGenerator(Generator):
         gameId = None
         if rom.name != "Steam.steam":
             # read the id inside the file
-            with rom.open() as f:
-                gameId = str.strip(f.read())
+            gameId = rom.read_text().strip()
 
         commandArray = ["batocera-steam"] if gameId is None else ["batocera-steam", gameId]
         return Command.Command(array=commandArray)
