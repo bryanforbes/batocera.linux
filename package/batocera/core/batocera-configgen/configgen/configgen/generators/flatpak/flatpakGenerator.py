@@ -14,9 +14,7 @@ class FlatpakGenerator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
 
-        romId = None
-        with rom.open() as f:
-            romId = str.strip(f.read())
+        romId = rom.read_text().strip()
 
         # bad hack in a first time to get audio for user batocera
         os.system('chown -R root:audio /var/run/pulse')

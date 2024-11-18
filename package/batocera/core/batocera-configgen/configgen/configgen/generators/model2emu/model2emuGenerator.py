@@ -55,8 +55,7 @@ class Model2EmuGenerator(Generator):
         xinput_cfg_done = wineprefix / "xinput_cfg.done"
         if not xinput_cfg_done.exists():
             copy_updated_files(Path("/usr/model2emu/CFG"), emupath / "CFG")
-            with xinput_cfg_done.open("w") as f:
-                f.write("done")
+            xinput_cfg_done.write_text("done")
 
         # move to the emulator path to ensure configs are saved etc
         os.chdir(emupath)
@@ -181,61 +180,57 @@ class Model2EmuGenerator(Generator):
 
 def modify_lua_widescreen(file_path: Path, condition: str) -> None:
     with file_path.open('r') as lua_file:
-        lines = lua_file.readlines()
-
-    modified_lines: list[str] = []
-    for line in lines:
         if condition == "True":
-            modified_line = line.replace("wide=false", "wide=true") if "wide=false" in line else line
-            modified_lines.append(modified_line)
+            modified_lines = [
+                line.replace("wide=false", "wide=true") if "wide=false" in line else line
+                for line in lua_file
+            ]
         else:
-            modified_line = line.replace("wide=true", "wide=false") if "wide=true" in line else line
-            modified_lines.append(modified_line)
+            modified_lines = [
+                line.replace("wide=true", "wide=false") if "wide=true" in line else line
+                for line in lua_file
+            ]
 
     with file_path.open('w') as lua_file:
         lua_file.writelines(modified_lines)
 
 def modify_lua_scanlines(file_path: Path, condition: str) -> None:
-    with file_path.open('r') as lua_file:
-        original_lines = lua_file.readlines()
-
     modified_lines: list[str] = []
     scanlines_line_added = False
 
-    for line in original_lines:
-        if "TestSurface = Video_CreateSurfaceFromFile" in line:
-            modified_lines.append(line)
-            if "Options.scanlines.value=" not in line and not scanlines_line_added:
-                modified_lines.append(f'\tOptions.scanlines.value={"1" if condition == "True" else "0"}\r\n')
-                scanlines_line_added = True
-        elif "Options.scanlines.value=" in line:
-            if condition == "True":
-                modified_lines.append(line.replace("Options.scanlines.value=0", "Options.scanlines.value=1"))
-            elif condition == "False":
-                modified_lines.append(line.replace("Options.scanlines.value=1", "Options.scanlines.value=0"))
-        else:
-            modified_lines.append(line)
+    with file_path.open('r') as lua_file:
+        for line in lua_file:
+            if "TestSurface = Video_CreateSurfaceFromFile" in line:
+                modified_lines.append(line)
+                if "Options.scanlines.value=" not in line and not scanlines_line_added:
+                    modified_lines.append(f'\tOptions.scanlines.value={"1" if condition == "True" else "0"}\r\n')
+                    scanlines_line_added = True
+            elif "Options.scanlines.value=" in line:
+                if condition == "True":
+                    modified_lines.append(line.replace("Options.scanlines.value=0", "Options.scanlines.value=1"))
+                elif condition == "False":
+                    modified_lines.append(line.replace("Options.scanlines.value=1", "Options.scanlines.value=0"))
+            else:
+                modified_lines.append(line)
 
     with file_path.open('w') as lua_file:
         lua_file.writelines(modified_lines)
 
 def modify_lua_sinden(file_path: Path, condition: str, thickness: str) -> None:
-    with file_path.open('r') as lua_file:
-        original_lines = lua_file.readlines()
-
     modified_lines: list[str] = []
     sinden_line_added = False
 
-    for line in original_lines:
-        if "TestSurface = Video_CreateSurfaceFromFile" in line:
-            modified_lines.append(line)
-            if "Options.bezels.value=" not in line and not sinden_line_added:
-                modified_lines.append(f'\tOptions.bezels.value={"0" if condition == "False" else thickness}\r\n')
-                sinden_line_added = True
-        elif "Options.bezels.value=" in line and not sinden_line_added:
-            modified_lines.append(line.replace("Options.bezels.value=", f'Options.bezels.value={thickness}\r\n'))
-        else:
-            modified_lines.append(line)
+    with file_path.open('r') as lua_file:
+        for line in lua_file:
+            if "TestSurface = Video_CreateSurfaceFromFile" in line:
+                modified_lines.append(line)
+                if "Options.bezels.value=" not in line and not sinden_line_added:
+                    modified_lines.append(f'\tOptions.bezels.value={"0" if condition == "False" else thickness}\r\n')
+                    sinden_line_added = True
+            elif "Options.bezels.value=" in line and not sinden_line_added:
+                modified_lines.append(line.replace("Options.bezels.value=", f'Options.bezels.value={thickness}\r\n'))
+            else:
+                modified_lines.append(line)
 
     with file_path.open('w') as lua_file:
         lua_file.writelines(modified_lines)

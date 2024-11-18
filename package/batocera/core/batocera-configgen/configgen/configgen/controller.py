@@ -223,10 +223,7 @@ def write_sdl_controller_db(
     controllers: ControllerMapping, outputFile: str | Path = "/tmp/gamecontrollerdb.txt", /,
 ) -> Path:
     outputFile = Path(outputFile)
-
-    with outputFile.open("w") as text_file:
-        text_file.write(generate_sdl_game_controller_config(controllers))
-
+    outputFile.write_text(generate_sdl_game_controller_config(controllers))
     return outputFile
 
 

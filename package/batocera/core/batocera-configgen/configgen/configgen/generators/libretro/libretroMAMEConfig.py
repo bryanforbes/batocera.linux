@@ -424,8 +424,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
         shutil.copyfile(defaultCustomCmdFilepath, cmdFilename)
     else:
         # User did not provide a custom .cmd file. Use the logic above to create a new .cmd file
-        with cmdFilename.open("w") as cmdFile:
-            cmdFile.write(' '.join(str(item) for item in commandLine))
+        cmdFilename.write_text(' '.join(str(item) for item in commandLine))
 
     # Call Controller Config
     if messMode == -1:

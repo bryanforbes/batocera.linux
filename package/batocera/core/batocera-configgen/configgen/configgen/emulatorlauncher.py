@@ -210,8 +210,7 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
                     cmd.env["MANGOHUD_DLSYM"] = "1"
                     hudconfig = getHudConfig(system, args.systemname, system.emulator, effectiveCore, rom, gameinfos, hud_bezel)
                     hud_config_file = Path('/var/run/hud.config')
-                    with hud_config_file.open('w') as f:
-                        f.write(hudconfig)
+                    hud_config_file.write_text(hudconfig)
                     cmd.env["MANGOHUD_CONFIGFILE"] = hud_config_file
                     if not generator.hasInternalMangoHUDCall():
                         cmd.array.insert(0, "mangohud")
@@ -271,8 +270,7 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
 
         w = gameResolution["width"]
         h = gameResolution["height"]
-        with overlay_info_file.open("w") as fd:
-            fd.write(f'{{ "width":{w}, "height":{h}, "opacity":1.0000000, "messagex":0.220000, "messagey":0.120000 }}')
+        overlay_info_file.write_text(f'{{ "width":{w}, "height":{h}, "opacity":1.0000000, "messagex":0.220000, "messagey":0.120000 }}')
     else:
         _logger.debug("hud enabled. trying to apply the bezel %s", system.config['bezel'])
 

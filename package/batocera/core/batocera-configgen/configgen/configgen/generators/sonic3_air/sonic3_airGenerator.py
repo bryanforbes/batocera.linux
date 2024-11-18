@@ -47,8 +47,7 @@ class Sonic3AIRGenerator(Generator):
 
         # read the json file
         # can't use `import json` as the file is not compliant
-        with config_dest_file.open('r') as file:
-            json_text = file.read()
+        json_text = config_dest_file.read_text()
         # update the "SaveStatesDir"
         json_text = json_text.replace('"SaveStatesDir":  "saves/states"', f'"SaveStatesDir":  "{SAVES_DIR}"')
 
@@ -58,8 +57,7 @@ class Sonic3AIRGenerator(Generator):
         new_resolution = str(gameResolution["width"]) + " x " + str(gameResolution["height"])
         json_text = json_text.replace(f'"WindowSize": "{current_resolution}"', f'"WindowSize": "{new_resolution}"')
 
-        with config_dest_file.open('w') as file:
-            file.write(json_text)
+        config_dest_file.write_text(json_text)
 
         # settings json - compliant
         # ensure fullscreen

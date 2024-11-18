@@ -192,9 +192,8 @@ class IkemenGenerator(Generator):
         conf['JoystickConfig'] = _JOY_MAPPING
         conf['Fullscreen'] = True
 
-        js_out = json.dumps(conf, indent=2)
         with ensure_parents_and_open(config_path, 'w') as jout:
-            jout.write(js_out)
+            json.dump(conf, jout, indent=2)
 
         commandArray = ['/usr/bin/batocera-ikemen', rom]
 

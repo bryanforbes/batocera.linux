@@ -145,9 +145,8 @@ class RyujinxGenerator(Generator):
         conf["input_config"] = []
 
         # write / update the config file
-        js_out = json.dumps(conf, indent=2)
         with ryujinxConfFile.open("w") as jout:
-            jout.write(js_out)
+            json.dump(conf, jout, indent=2)
 
         # Now add Controllers
         for nplayer, pad in enumerate(sorted(playersControllers.values())[0:8], start=1):
