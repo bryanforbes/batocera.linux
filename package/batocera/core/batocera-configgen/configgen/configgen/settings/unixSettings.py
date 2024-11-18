@@ -36,10 +36,7 @@ class UnixSettings:
             # pretend where have a [DEFAULT] section
             file = io.StringIO()
             file.write('[DEFAULT]\n')
-
-            with self.settings_path.open(encoding='latin1') as f:
-                file.write(f.read())
-
+            file.write(self.settings_path.read_text(encoding='latin1'))
             file.seek(0)
 
             self.config.read_file(file)

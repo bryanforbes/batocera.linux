@@ -172,7 +172,7 @@ class evmapy(AbstractContextManager[None, None]):
         merged_file = Path("/var/run/evmapy_merged.keys")
 
         with merged_file.open("w") as fd:
-            fd.write(json.dumps(merged_values, indent=2))
+            json.dump(merged_values, fd, indent=2)
 
         return merged_file
 

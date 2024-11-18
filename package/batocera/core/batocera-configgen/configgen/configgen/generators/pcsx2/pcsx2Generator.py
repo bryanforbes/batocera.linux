@@ -112,9 +112,8 @@ class Pcsx2Generator(Generator):
         commandArray = ["/usr/pcsx2/bin/pcsx2-qt"] if rom == CONFIG_ROM else \
               ["/usr/pcsx2/bin/pcsx2-qt", "-nogui", rom]
 
-        with Path("/proc/cpuinfo").open() as cpuinfo:
-            if not re.search(r'^flags\s*:.*\ssse4_1\W', cpuinfo.read(), re.MULTILINE):
-                _logger.warning("CPU does not support SSE4.1 which is required by pcsx2.  The emulator will likely crash with SIGILL (illegal instruction).")
+        if not re.search(r'^flags\s*:.*\ssse4_1\W', Path("/proc/cpuinfo").read_text(), re.MULTILINE):
+            _logger.warning("CPU does not support SSE4.1 which is required by pcsx2.  The emulator will likely crash with SIGILL (illegal instruction).")
 
         # use their modified shaderc library
         envcmd = {

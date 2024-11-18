@@ -320,8 +320,7 @@ class HypseusSingeGenerator(Generator):
 
         # The folder may have a file with the game name and .commands with extra arguments to run the game.
         if commandsFile.is_file():
-            with commandsFile.open() as f:
-                commandArray.extend(f.read().split())
+            commandArray.extend(commandsFile.read_text().split())
 
         # We now use SDL controller config
         return Command.Command(

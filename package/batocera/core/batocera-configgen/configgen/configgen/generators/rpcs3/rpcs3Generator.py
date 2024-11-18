@@ -283,11 +283,10 @@ class Rpcs3Generator(Generator):
     def getFirmwareVersion():
         try:
             with (RPCS3_CONFIG_DIR / "dev_flash" / "vsh" / "etc" / "version.txt").open("r") as stream:
-                lines = stream.readlines()
-            for line in lines:
-                matches = re.match("^release:(.*):", line)
-                if matches:
-                    return matches[1]
+                for line in stream:
+                    matches = re.match("^release:(.*):", line)
+                    if matches:
+                        return matches[1]
         except Exception:
             return None
         return None
