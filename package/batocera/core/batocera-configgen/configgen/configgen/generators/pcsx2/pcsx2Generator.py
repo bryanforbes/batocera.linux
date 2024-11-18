@@ -149,7 +149,7 @@ def getGfxRatioFromConfig(config: dict[str, Any], gameResolution: Resolution):
     if "pcsx2_ratio" in config:
         if config["pcsx2_ratio"] == "16:9":
             return "16:9"
-        elif config["pcsx2_ratio"] == "full":
+        if config["pcsx2_ratio"] == "full":
             return "Stretch"
     return "4:3"
 
@@ -681,6 +681,7 @@ def input2wheel(input: Input, reversedAxis: bool | None = False) -> str | None:
     if input.type == "button":
         pcsx2_magic_button_offset = 21 # PCSX2/SDLInputSource.cpp : const u32 button = ev->button + std::size(s_sdl_button_names)
         return f"Button{int(input.id) + pcsx2_magic_button_offset}"
+
     if input.type == "hat":
         dir = "unknown"
         if input.value == '1':
@@ -692,6 +693,7 @@ def input2wheel(input: Input, reversedAxis: bool | None = False) -> str | None:
         elif input.value == '8':
             dir = "West"
         return f"Hat{input.id}{dir}"
+
     if input.type == "axis":
         pcsx2_magic_axis_offset = 6 # PCSX2/SDLInputSource.cpp : const u32 axis = ev->axis + std::size(s_sdl_axis_names);
         if reversedAxis is None:
@@ -700,3 +702,5 @@ def input2wheel(input: Input, reversedAxis: bool | None = False) -> str | None:
         if reversedAxis:
             dir = "+"
         return f"{dir}Axis{int(input.id)+pcsx2_magic_axis_offset}"
+
+    return None

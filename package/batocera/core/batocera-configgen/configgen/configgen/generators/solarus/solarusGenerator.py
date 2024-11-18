@@ -104,6 +104,6 @@ class SolarusGenerator(Generator):
         if input.type == "axis":
             if (reverse and input.value == "-1") or (not reverse and input.value == "1"):
                 return f"axis {input.id!s} +"
-            else:
-                return f"axis {input.id!s} -"
+
+            return f"axis {input.id!s} -"
         return None

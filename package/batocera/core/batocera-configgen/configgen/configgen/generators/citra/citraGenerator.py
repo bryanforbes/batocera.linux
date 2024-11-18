@@ -211,16 +211,16 @@ class CitraGenerator(Generator):
     @staticmethod
     def setButton(key: str, padGuid: str, padInputs: InputMapping) -> str | None:
         # It would be better to pass the joystick num instead of the guid because 2 joysticks may have the same guid
-        if key in padInputs:
-            input = padInputs[key]
-
+        if input := padInputs.get(key):
             if input.type == "button":
                 return (f"button:{input.id},guid:{padGuid},engine:sdl")
-            elif input.type == "hat":
+            if input.type == "hat":
                 return (f"engine:sdl,guid:{padGuid},hat:{input.id},direction:{CitraGenerator.hatdirectionvalue(input.value)}")
-            elif input.type == "axis":
+            if input.type == "axis":
                 # Untested, need to configure an axis as button / triggers buttons to be tested too
                 return (f"engine:sdl,guid:{padGuid},axis:{input.id},direction:+,threshold:0.5")
+
+        return None
 
     @staticmethod
     def setAxis(key: str, padGuid: str, padInputs: InputMapping) -> str:
@@ -273,7 +273,8 @@ def getCitraLangFromEnvironment():
         "zh_TW": "TWN"
     }
     lang = environ['LANG'][:5]
+
     if lang in availableLanguages:
         return region[availableLanguages[lang]]
-    else:
-        return region["AUTO"]
+
+    return region["AUTO"]

@@ -170,15 +170,20 @@ def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[
 def getConfigValue(input: Input):
     if input.type == 'button':
         return input.id
+
     if input.type == 'axis':
         if input.value == '-1':
             return f'-{input.id}'
-        else:
-            return f'+{input.id}'
+
+        return f'+{input.id}'
+
     if input.type == 'hat':
         return 'h' + input.id + hatstoname[input.value]
+
     if input.type == 'key':
         return input.id
+
+    return None
 
 # Return the retroarch analog_dpad_mode
 def getAnalogMode(controller: Controller, system: Emulator):
