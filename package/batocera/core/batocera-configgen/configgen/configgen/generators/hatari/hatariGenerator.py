@@ -187,7 +187,7 @@ class HatariGenerator(Generator):
                     if (biosdir / filename).exists():
                         _logger.debug("tos filename %s:", filename)
                         return filename
-                    else:
-                        _logger.warning("tos filename %s not found", filename)
+
+                    _logger.warning("tos filename %s not found", filename)
 
         raise Exception(f"no bios found for machine {machine}")

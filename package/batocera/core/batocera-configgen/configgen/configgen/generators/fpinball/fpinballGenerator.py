@@ -175,7 +175,4 @@ class FpinballGenerator(Generator):
     @staticmethod
     def getGfxRatioFromConfig(system: Emulator, gameResolution: Resolution):
         # 2: 4:3 ; 1: 16:9  ; 0: auto
-        if system.get_option("ratio") == "16/9":
-            return 169
-        else:
-            return 43
+        return 169 if system.get_option("ratio") == "16/9" else 43
