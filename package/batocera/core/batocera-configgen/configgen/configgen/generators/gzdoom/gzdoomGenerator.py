@@ -152,17 +152,17 @@ class GZDoomGenerator(Generator):
                     "-nologo" if system.get_option_bool("nologo") else "",
                 ]
             )
-        else:
-            return Command.Command(
-                array=[
-                    "gzdoom",
-                    "-iwad", rom.name,
-                    "-exec", script_file,
-                    "-width", str(gameResolution["width"]),
-                    "-height", str(gameResolution["height"]),
-                    "-nologo" if system.get_option_bool("nologo") else "",
-                ]
-            )
+
+        return Command.Command(
+            array=[
+                "gzdoom",
+                "-iwad", rom.name,
+                "-exec", script_file,
+                "-width", str(gameResolution["width"]),
+                "-height", str(gameResolution["height"]),
+                "-nologo" if system.get_option_bool("nologo") else "",
+            ]
+        )
 
     def getInGameRatio(self, config, gameResolution, rom):
         return 16/9

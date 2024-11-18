@@ -580,7 +580,8 @@ class MameGenerator(Generator):
             artFile.symlink_to(bz_infos["mamezip"])
             # hum, not nice if guns need borders
             return
-        elif "layout" in bz_infos and bz_infos["layout"].exists():
+
+        if "layout" in bz_infos and bz_infos["layout"].exists():
             (tmpZipDir / 'default.lay').symlink_to(bz_infos["layout"])
             (tmpZipDir / bz_infos["png"].name).symlink_to(bz_infos["png"])
         else:
@@ -718,46 +719,46 @@ def getMameControlScheme(system: Emulator, rom_path: Path) -> str:
 
     if controllerType in [ "default", "neomini", "neocd", "twinstick", "qbert" ]:
         return controllerType
-    else:
-        capcomList = set(mameCapcom.read_text().split())
-        mkList = set(mameMKombat.read_text().split())
-        kiList = set(mameKInstinct.read_text().split())
-        neogeoList = set(mameNeogeo.read_text().split())
-        twinstickList = set(mameTwinstick.read_text().split())
-        qbertList = set(mameRotatedstick.read_text().split())
 
-        romName = rom_path.stem
-        if romName in capcomList:
-            if controllerType in [ "auto", "snes" ]:
-                return "sfsnes"
-            elif controllerType == "megadrive":
-                return "megadrive"
-            elif controllerType == "fightstick":
-                return "sfstick"
-        elif romName in mkList:
-            if controllerType in [ "auto", "snes" ]:
-                return "mksnes"
-            elif controllerType == "megadrive":
-                return "mkmegadrive"
-            elif controllerType == "fightstick":
-                return "mkstick"
-        elif romName in kiList:
-            if controllerType in [ "auto", "snes" ]:
-                return "kisnes"
-            elif controllerType == "megadrive":
-                return "megadrive"
-            elif controllerType == "fightstick":
-                return "sfstick"
-        elif romName in  neogeoList:
-            return "neomini"
-        elif romName in  twinstickList:
-            return "twinstick"
-        elif romName in  qbertList:
-            return "qbert"
-        else:
-            if controllerType == "fightstick":
-                return "fightstick"
-            if controllerType == "megadrive":
-                return "mddefault"
+    capcomList = set(mameCapcom.read_text().split())
+    mkList = set(mameMKombat.read_text().split())
+    kiList = set(mameKInstinct.read_text().split())
+    neogeoList = set(mameNeogeo.read_text().split())
+    twinstickList = set(mameTwinstick.read_text().split())
+    qbertList = set(mameRotatedstick.read_text().split())
+
+    romName = rom_path.stem
+    if romName in capcomList:
+        if controllerType in [ "auto", "snes" ]:
+            return "sfsnes"
+        if controllerType == "megadrive":
+            return "megadrive"
+        if controllerType == "fightstick":
+            return "sfstick"
+    elif romName in mkList:
+        if controllerType in [ "auto", "snes" ]:
+            return "mksnes"
+        if controllerType == "megadrive":
+            return "mkmegadrive"
+        if controllerType == "fightstick":
+            return "mkstick"
+    elif romName in kiList:
+        if controllerType in [ "auto", "snes" ]:
+            return "kisnes"
+        if controllerType == "megadrive":
+            return "megadrive"
+        if controllerType == "fightstick":
+            return "sfstick"
+    elif romName in  neogeoList:
+        return "neomini"
+    elif romName in  twinstickList:
+        return "twinstick"
+    elif romName in  qbertList:
+        return "qbert"
+    else:
+        if controllerType == "fightstick":
+            return "fightstick"
+        if controllerType == "megadrive":
+            return "mddefault"
 
     return "default"

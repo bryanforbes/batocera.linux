@@ -273,12 +273,13 @@ class CemuGenerator(Generator):
 def getLangFromEnvironment() -> str:
     if 'LANG' in environ:
         return environ['LANG'][:5]
-    else:
-        return "en_US"
+
+    return "en_US"
 
 def getCemuLang(lang: str) -> int:
     availableLanguages = { "ja_JP": 0, "en_US": 1, "fr_FR": 2, "de_DE": 3, "it_IT": 4, "es_ES": 5, "zh_CN": 6, "ko_KR": 7, "nl_NL": 8, "pt_PT": 9, "ru_RU": 10, "zh_TW": 11 }
+
     if lang in availableLanguages:
         return availableLanguages[lang]
-    else:
-        return availableLanguages["en_US"]
+
+    return availableLanguages["en_US"]

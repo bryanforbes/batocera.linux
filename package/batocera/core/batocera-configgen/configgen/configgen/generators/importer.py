@@ -71,8 +71,8 @@ def get_generator(emulator: str) -> Generator:
     except ImportError as e:
         if e.name is not None and e.name.startswith(__name__.split('.')[0]):
             raise Exception(f'no generator found for emulator {emulator}') from e
-        else:
-            raise
+
+        raise
     except AttributeError as e:
         raise Exception(f'no generator found for emulator {emulator}') from e
 

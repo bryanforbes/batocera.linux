@@ -142,10 +142,6 @@ class RedreamGenerator(Generator):
         )
 
     def getInGameRatio(self, config, gameResolution, rom):
-        if 'redreamRatio' in config:
-            if config['redreamRatio'] == "16:9" or config['redreamRatio'] == "stretch":
-                return 16/9
-            else:
-                return 4/3
-        else:
-            return 4/3
+        if config.get('redreamRatio') in ["16:9", "stretch"]:
+            return 16/9
+        return 4/3

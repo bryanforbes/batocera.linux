@@ -43,7 +43,7 @@ def getCurrentMode() -> str:
     (out, _) = proc.communicate()
     for val in out.decode().splitlines():
         return val # return the first line
-    if TYPE_CHECKING:
+    if TYPE_CHECKING:  # noqa: RET503
         assert False, "unreachable"  # noqa: B011
 
 def getRefreshRate() -> str:
@@ -51,7 +51,7 @@ def getRefreshRate() -> str:
     (out, _) = proc.communicate()
     for val in out.decode().splitlines():
         return val # return the first line
-    if TYPE_CHECKING:
+    if TYPE_CHECKING:  # noqa: RET503
         assert False, "unreachable"  # noqa: B011
 
 def getScreensInfos(config: Mapping[str, object]) -> list[ScreenInfo]:
@@ -171,8 +171,7 @@ def getGLVersion() -> float:
         glVerTemp = glVerString[3].split(".")
         if len(glVerTemp) > 2:
             del glVerTemp[2:]
-        glVersion = float('.'.join(glVerTemp))
-        return glVersion
+        return float('.'.join(glVerTemp))
     except Exception:
         return 0
 
@@ -185,8 +184,7 @@ def getGLVendor() -> str:
         glxVendCmd = 'glxinfo | grep "OpenGL vendor string"'
         glVendOutput = subprocess.check_output(glxVendCmd, shell=True).decode(sys.stdout.encoding)
         glVendString = glVendOutput.split()
-        glVendor = glVendString[3].casefold()
-        return glVendor
+        return glVendString[3].casefold()
     except Exception:
         return "unknown"
 

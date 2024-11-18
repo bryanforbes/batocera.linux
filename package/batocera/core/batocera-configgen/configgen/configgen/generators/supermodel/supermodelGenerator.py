@@ -116,8 +116,8 @@ class SupermodelGenerator(Generator):
     def getInGameRatio(self, config, gameResolution, rom):
         if 'm3_wideScreen' in config and config["m3_wideScreen"] == "1":
             return 16 / 9
-        else:
-            return 4 / 3
+
+        return 4 / 3
 
 def copy_nvram_files():
     sourceDir = SUPERMODEL_SHARE / "NVRAM"
@@ -331,9 +331,9 @@ def transformValue(value: str, playersControllers: ControllerMapping, mapping: M
                     newvalue = newvalue + ","
                 newvalue = newvalue + newelt
         return '"' + newvalue + '"'
-    else:
-        # integers
-        return cleanValue
+
+    # integers
+    return cleanValue
 
 def transformElement(elt: str, playersControllers: ControllerMapping, mapping: Mapping[str, str | None], mapping_fallback: Mapping[str, str]):
     # Docs/README.txt
@@ -399,7 +399,7 @@ def joy2realjoyid(playersControllers: ControllerMapping, joy: str):
     if joy_number in playersControllers:
         return playersControllers[joy_number].index
 
-    if TYPE_CHECKING:
+    if TYPE_CHECKING:  # noqa: RET503
         raise Exception('unreachable')
 
 def hatOrAxis(playersControllers: ControllerMapping, player: str):
@@ -424,14 +424,14 @@ def input2input(playersControllers: ControllerMapping, player: str, joynum: int,
             input = pad.inputs[button]
             if input.type == "button":
                 return f"JOY{joynum+1}_BUTTON{int(input.id)+1}"
-            elif input.type == "hat":
+            if input.type == "hat":
                 if input.value == "1":
                     return f"JOY{joynum+1}_UP,JOY{joynum+1}_POV1_UP"
-                elif input.value == "2":
+                if input.value == "2":
                     return f"JOY{joynum+1}_RIGHT,JOY{joynum+1}_POV1_RIGHT"
-                elif input.value == "4":
+                if input.value == "4":
                     return f"JOY{joynum+1}_DOWN,JOY{joynum+1}_POV1_DOWN"
-                elif input.value == "8":
+                if input.value == "8":
                     return f"JOY{joynum+1}_LEFT,JOY{joynum+1}_POV1_LEFT"
             elif input.type == "axis":
                 sidestr = ""
@@ -443,15 +443,15 @@ def input2input(playersControllers: ControllerMapping, player: str, joynum: int,
 
                 if button == "joystick1left" or button == "left":
                     return f"JOY{joynum+1}_XAXIS{sidestr}"
-                elif button == "joystick1up" or button == "up":
+                if button == "joystick1up" or button == "up":
                     return f"JOY{joynum+1}_YAXIS{sidestr}"
-                elif button == "joystick2left":
+                if button == "joystick2left":
                     return f"JOY{joynum+1}_RXAXIS{sidestr}"
-                elif button == "joystick2up":
+                if button == "joystick2up":
                     return f"JOY{joynum+1}_RYAXIS{sidestr}"
-                elif button == "l2":
+                if button == "l2":
                     return f"JOY{joynum+1}_ZAXIS{sidestr}"
-                elif button == "r2":
+                if button == "r2":
                     return f"JOY{joynum+1}_RZAXIS{sidestr}"
 
     return None

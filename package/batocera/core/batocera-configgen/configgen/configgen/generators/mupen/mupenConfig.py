@@ -248,12 +248,16 @@ def setHotKeyConfig(iniConfig: CaseSensitiveConfigParser, controllers: Controlle
 
 
 def createButtonCode(button: Input):
-    if(button.type == 'axis'):
+    if button.type == 'axis':
         if button.value == '-1':
             return 'A'+button.id+'-'
-        else:
-            return 'A'+button.id+'+'
-    if(button.type == 'button'):
+
+        return 'A'+button.id+'+'
+
+    if button.type == 'button':
         return 'B'+button.id
-    if(button.type == 'hat'):
+
+    if button.type == 'hat':
         return 'H'+button.id+'V'+button.value
+
+    return None

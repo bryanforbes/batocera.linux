@@ -318,8 +318,7 @@ def configureB2s(vpinballSettings: CaseSensitiveConfigParser, flexdmd_config: st
 # necessary trick because people can plug their 1080p laptop on a 4k TV
 # (and because VPinballX.ini uses absolute pixel coordinates)
 def ConvertToPixel(total_size: int, percentage: int):
-    pixel_value = str(int(int(total_size)*float(percentage)*1e-2))
-    return pixel_value
+    return str(int(int(total_size)*float(percentage)*1e-2))
 
 # Calculates the relative height, depending on the screen ratio
 # (normaly 16/9), the element ratio (4/3 for the b2s) and the relative width

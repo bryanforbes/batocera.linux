@@ -182,8 +182,6 @@ class SonicRetroGenerator(Generator):
             "1bd5ad366df1765c98d20b53c092a528", # iOS version of SonicCD
         ]
 
-        enableMouse = False
         data_file = rom / 'Data.rsdk'
-        enableMouse = _get_path_md5(data_file) in mouseRoms if emu == "soniccd" and data_file.is_file() else False
+        return _get_path_md5(data_file) in mouseRoms if emu == "soniccd" and data_file.is_file() else False
 
-        return enableMouse

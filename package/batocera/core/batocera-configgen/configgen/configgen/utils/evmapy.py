@@ -520,11 +520,13 @@ class evmapy(AbstractContextManager[None, None]):
             for button in trigger:
                 if button not in gun.buttons:
                     return None
+
             return trigger
-        else:
-            if trigger not in gun.buttons:
-                return None
-            return trigger
+
+        if trigger not in gun.buttons:
+            return None
+
+        return trigger
 
     def __get_pad_min_max_axis(self, device_path: str, axis_code: int, /) -> tuple[int, int]:
         device = evdev.InputDevice(device_path)

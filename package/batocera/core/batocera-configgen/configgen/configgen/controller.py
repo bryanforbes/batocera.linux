@@ -51,21 +51,23 @@ def _key_to_sdl_game_controller_config(keyname: str, input: Input, /) -> str | N
     """
     if input.type == 'button':
         return f'{keyname}:b{input.id}'
-    elif input.type == 'hat':
+
+    if input.type == 'hat':
         return f'{keyname}:h{input.id}.{input.value}'
-    elif input.type == 'axis':
+
+    if input.type == 'axis':
         if 'joystick' in input.name:
             return f"{keyname}:a{input.id}{'~' if int(input.value) > 0 else ''}"
-        elif keyname in ('dpup', 'dpdown', 'dpleft', 'dpright'):
+        if keyname in ('dpup', 'dpdown', 'dpleft', 'dpright'):
             return f"{keyname}:{'-' if int(input.value) < 0 else '+'}a{input.id}"
         elif 'trigger' in keyname:
             return f"{keyname}:a{input.id}{'~' if int(input.value) < 0 else ''}"
-        else:
-            return f'{keyname}:a{input.id}'
-    elif input.type == 'key':
+        return f'{keyname}:a{input.id}'
+
+    if input.type == 'key':
         return None
-    else:
-        raise ValueError(f'unknown key type: {input.type!r}')
+
+    raise ValueError(f'unknown key type: {input.type!r}')
 
 
 def _find_in_roots(

@@ -96,20 +96,22 @@ def connected_to_internet() -> bool:
     cmd = ["timeout", "1", "ping", "-c", "1", "-t", "255", "one.one.one.one"]
     process = subprocess.Popen(cmd)
     process.wait()
+
     if process.returncode == 0:
         _logger.debug("Connected to the internet")
         return True
-    else:
-        # Try dns.google if one.one.one.one fails
-        cmd = ["timeout", "1", "ping", "-c", "1", "-t", "255", "dns.google"]
-        process = subprocess.Popen(cmd)
-        process.wait()
-        if process.returncode == 0:
-            _logger.debug("Connected to the internet")
-            return True
-        else:
-            _logger.error("Not connected to the internet")
-            return False
+
+    # Try dns.google if one.one.one.one fails
+    cmd = ["timeout", "1", "ping", "-c", "1", "-t", "255", "dns.google"]
+    process = subprocess.Popen(cmd)
+    process.wait()
+
+    if process.returncode == 0:
+        _logger.debug("Connected to the internet")
+        return True
+
+    _logger.error("Not connected to the internet")
+    return False
 
 def writeLibretroConfig(generator: Generator, retroconfig: UnixSettings, system: Emulator, controllers: ControllerMapping, metadata: Mapping[str, str], guns: GunMapping, wheels: DeviceInfoMapping, rom: Path, bezel: str | None, shaderBezel: bool, gameResolution: Resolution, gfxBackend: str) -> None:
     writeLibretroConfigToFile(retroconfig, createLibretroConfig(generator, system, controllers, metadata, guns, wheels, rom, bezel, shaderBezel, gameResolution, gfxBackend))
@@ -1015,8 +1017,8 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
         if gameResolution["width"] != infos["width"] or gameResolution["height"] != infos["height"]:
             if gameRatio < 1.6 and gunsBordersSize is None: # let's use bezels only for 16:10, 5:3, 16:9 and wider aspect ratios ; don't skip if gun borders are needed
                 return
-            else:
-                bezelNeedAdaptation = True
+
+            bezelNeedAdaptation = True
         retroarchConfig['aspect_ratio_index'] = str(ratioIndexes.index("custom")) # overwritten from the beginning of this file
         if (ratio := system.get_option('ratio')) and ratio in ratioIndexes:
             retroarchConfig['aspect_ratio_index'] = ratioIndexes.index(ratio)
@@ -1026,22 +1028,22 @@ def writeBezelConfig(generator: Generator, bezel: str | None, shaderBezel: bool,
         # when there is no information about width and height in the .info, assume that the tv is HD 16/9 and infos are core provided
         if gameRatio < 1.6 and gunsBordersSize is None: # let's use bezels only for 16:10, 5:3, 16:9 and wider aspect ratios ; don't skip if gun borders are needed
             return
-        else:
-            # No info on the bezel, let's get the bezel image width and height and apply the
-            # ratios from usual 16:9 1920x1080 bezels (example: theBezelProject)
-            try:
-                infos_width, infos_height = bezelsUtil.fast_image_size(overlay_png_file)
-                infos = cast('BezelInfo', {
-                    'width': infos_width,
-                    'height': infos_height,
-                    'top': int(infos_height * 2 / 1080),
-                    "left": int(infos_width * 241 / 1920), # 241 = (1920 - (1920 / (4:3))) / 2 + 1 pixel = where viewport start
-                    "bottom": int(infos_height * 2 / 1080),
-                    "right": int(infos_width * 241 / 1920),
-                })
-                bezelNeedAdaptation = True
-            except Exception:
-                pass # outch, no ratio will be applied.
+
+        # No info on the bezel, let's get the bezel image width and height and apply the
+        # ratios from usual 16:9 1920x1080 bezels (example: theBezelProject)
+        try:
+            infos_width, infos_height = bezelsUtil.fast_image_size(overlay_png_file)
+            infos = cast('BezelInfo', {
+                'width': infos_width,
+                'height': infos_height,
+                'top': int(infos_height * 2 / 1080),
+                "left": int(infos_width * 241 / 1920), # 241 = (1920 - (1920 / (4:3))) / 2 + 1 pixel = where viewport start
+                "bottom": int(infos_height * 2 / 1080),
+                "right": int(infos_width * 241 / 1920),
+            })
+            bezelNeedAdaptation = True
+        except Exception:
+            pass # outch, no ratio will be applied.
         if gameResolution["width"] == infos["width"] and gameResolution["height"] == infos["height"]:
             bezelNeedAdaptation = False
         if not shaderBezel:

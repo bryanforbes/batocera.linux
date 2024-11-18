@@ -467,7 +467,8 @@ class DolphinGenerator(Generator):
 def getGameCubeLangFromEnvironment():
     lang = environ['LANG'][:5]
     availableLanguages = { "en_US": 0, "de_DE": 1, "fr_FR": 2, "es_ES": 3, "it_IT": 4, "nl_NL": 5 }
+
     if lang in availableLanguages:
         return availableLanguages[lang]
-    else:
-        return availableLanguages["en_US"]
+
+    return availableLanguages["en_US"]
