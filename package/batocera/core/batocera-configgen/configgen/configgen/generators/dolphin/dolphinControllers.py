@@ -257,7 +257,6 @@ def generateControllerConfig_realwiimotes(filename: str, anyDefKey: str) -> None
             f.write("[" + anyDefKey + str(nplayer) + "]" + "\n")
             f.write("Source = 2\n")
         f.write("[BalanceBoard]\nSource = 2\n")
-        f.write
 
 def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mapping[str, str], guns: GunMapping) -> None:
     configFileName = DOLPHIN_CONFIG / filename
@@ -400,7 +399,6 @@ def generateControllerConfig_guns(filename: str, anyDefKey: str, metadata: Mappi
                 for specific_key, specific_value in specifics.items():
                     if "gun_"+specific_key in metadata:
                         f.write(f"{specific_value} = {metadata['gun_'+specific_key]}\n")
-        f.write
 
 def generateHotkeys(playersControllers: ControllerMapping) -> None:
     configFileName = DOLPHIN_CONFIG / "Hotkeys.ini"
@@ -449,8 +447,6 @@ def generateHotkeys(playersControllers: ControllerMapping) -> None:
                 #else:
                 #    f.write("# undefined key: name="+input.name+", type="+input.type+", id="+str(input.id)+", value="+str(input.value)+"\n")
 
-        f.write
-
 def get_AltMapping(system: Emulator, nplayer: int, anyMapping: Mapping[str, str | None]) -> dict[str, str | None]:
     mapping = dict(anyMapping)
     # Fixes default gamecube style controller mapping for ES from es_input (gc A confirm/gc B cancel)
@@ -459,14 +455,11 @@ def get_AltMapping(system: Emulator, nplayer: int, anyMapping: Mapping[str, str 
         mapping['b'] = 'Buttons/A'
 
     # Only rotate inputs for standard controller type so it doesn't effect other controller types.
-    if system.get_option_str(f"dolphin_port_{nplayer}_type", '6a') == '6a':
-        # Check for rotate mappings settings and adjust
-        if system.get_option_bool(f"alt_mappings_{nplayer}"):
-
-            mapping['a'] = 'Buttons/X'
-            mapping['b'] = 'Buttons/A'
-            mapping['y'] = 'Buttons/B'
-            mapping['x'] = 'Buttons/Y'
+    if system.get_option_str(f"dolphin_port_{nplayer}_type", '6a') == '6a' and system.get_option_bool(f"alt_mappings_{nplayer}"):
+        mapping['a'] = 'Buttons/X'
+        mapping['b'] = 'Buttons/A'
+        mapping['y'] = 'Buttons/B'
+        mapping['x'] = 'Buttons/Y'
 
     return mapping
 
@@ -494,7 +487,6 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
                     generateControllerConfig_wheel(f, pad, nplayer)
                 else:
                     generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system, nplayer, nsamepad)
-        f.write
 
 def generateControllerConfig_wheel(f: codecs.StreamReaderWriter, pad: Controller, nplayer: int) -> None:
     wheelMapping = {
@@ -628,13 +620,12 @@ def generateControllerConfig_any_from_profiles(f: codecs.StreamReaderWriter, pad
             _logger.debug("Profile device : %s", profileDevice)
 
             deviceVals = re.match("^([^/]*)/[0-9]*/(.*)$", profileDevice)
-            if deviceVals is not None:
-                if deviceVals.group(1) == "evdev" and deviceVals.group(2).strip() == pad.real_name.strip():
-                    _logger.debug("Eligible profile device found")
-                    for key, val in profileConfig.items("Profile"):
-                        if key != "Device":
-                            f.write(f"{key} = {val}\n")
-                    return True
+            if deviceVals is not None and deviceVals.group(1) == "evdev" and deviceVals.group(2).strip() == pad.real_name.strip():
+                _logger.debug("Eligible profile device found")
+                for key, val in profileConfig.items("Profile"):
+                    if key != "Device":
+                        f.write(f"{key} = {val}\n")
+                return True
         except Exception:
             _logger.error("profile %s : FAILED", profileFile)
 

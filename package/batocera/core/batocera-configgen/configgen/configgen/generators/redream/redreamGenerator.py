@@ -83,9 +83,8 @@ class RedreamGenerator(Generator):
                         if input.type == "button" and input.name == "r2":
                             fullprofile = fullprofile + f"rtrig:joy{input.id},"
                         # on occassions when dpad directions are buttons
-                        if input.type == "button":
-                            if input.name == "up" or input.name == "down" or input.name == "left" or input.name == "right":
-                                fullprofile = f"{fullprofile}dpad_{input.name}:joy{input.id},"
+                        if input.type == "button" and input.name in ["up", "down", "left", "right"]:
+                            fullprofile = f"{fullprofile}dpad_{input.name}:joy{input.id},"
                         # [hats]
                         if input.type == "hat" and input.name in HatMap:
                             hatid = HatMap[input.name]
@@ -132,8 +131,6 @@ class RedreamGenerator(Generator):
             f.write(f"language={system.get_option('redreamLanguage', 'english')}\n")
             f.write(f"broadcast={system.get_option('redreamBroadcast', 'ntsc')}\n")
             f.write(f"cable={system.get_option('redreamCable', 'vga')}\n")
-
-            f.write
 
         commandArray = [redream_exec, rom]
         return Command.Command(

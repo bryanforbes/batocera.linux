@@ -457,11 +457,8 @@ $SeatLoopPatch
         #return Command.Command(array=commandArray)
 
     def getInGameRatio(self, config, gameResolution, rom):
-        if 'dolphin_aspect_ratio' in config:
-            if config['dolphin_aspect_ratio'] == "1":
-                return 16/9
-            elif config['dolphin_aspect_ratio'] == "3" and (gameResolution["width"] / float(gameResolution["height"]) > ((16.0 / 9.0) - 0.1)):
-                return 16/9
+        if 'dolphin_aspect_ratio' in config and (config['dolphin_aspect_ratio'] == "1" or config['dolphin_aspect_ratio'] == "3" and (gameResolution["width"] / float(gameResolution["height"]) > ((16.0 / 9.0) - 0.1))):
+            return 16/9
         return 4/3
 
 # Seem to be only for the gamecube. However, while this is not in a gamecube section

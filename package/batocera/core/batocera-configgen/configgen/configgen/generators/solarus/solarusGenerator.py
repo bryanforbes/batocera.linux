@@ -33,9 +33,8 @@ class SolarusGenerator(Generator):
 
         # hotkey to exit
         for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
-            if nplayer == 1:
-                if "hotkey" in pad.inputs and "start" in pad.inputs:
-                    commandArray.append(f"-quit-combo={pad.inputs['hotkey'].id}+{pad.inputs['start'].id}")
+            if nplayer == 1 and "hotkey" in pad.inputs and "start" in pad.inputs:
+                commandArray.append(f"-quit-combo={pad.inputs['hotkey'].id}+{pad.inputs['start'].id}")
             commandArray.append(f"-joypad-num{nplayer}={pad.index}")
 
         # player pad
@@ -102,7 +101,7 @@ class SolarusGenerator(Generator):
                 return "hat 0 left"
         if input.type == "axis":
             if (reverse and input.value == "-1") or (not reverse and input.value == "1"):
-                return f"axis {str(input.id)} +"
+                return f"axis {input.id!s} +"
             else:
-                return f"axis {str(input.id)} -"
+                return f"axis {input.id!s} -"
         return None
