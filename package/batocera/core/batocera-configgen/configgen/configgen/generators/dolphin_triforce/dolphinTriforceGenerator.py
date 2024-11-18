@@ -249,11 +249,8 @@ class DolphinTriforceGenerator(Generator):
         )
 
     def getInGameRatio(self, config, gameResolution, rom):
-        if 'triforce_aspect_ratio' in config:
-            if config['triforce_aspect_ratio'] == "1":
-                return 16/9
-            elif config['triforce_aspect_ratio'] == "3" and (gameResolution["width"] / float(gameResolution["height"]) > ((16.0 / 9.0) - 0.1)):
-                return 16/9
+        if 'triforce_aspect_ratio' in config and (config['triforce_aspect_ratio'] == "1" or config['triforce_aspect_ratio'] == "3" and (gameResolution["width"] / float(gameResolution["height"]) > ((16.0 / 9.0) - 0.1))):
+            return 16/9
         return 4/3
 
 # Seem to be only for the gamecube. However, while this is not in a gamecube section

@@ -145,19 +145,18 @@ class LemonadeGenerator(Generator):
         # Software, OpenGL (default) or Vulkan
         lemonadeConfig.set("Renderer", "graphics_api", system.get_option_str("lemonade_graphics_api", "1"))
         # Set Vulkan as necessary
-        if system.get_option("lemonade_graphics_api") == "2":
-            if vulkan.is_available():
-                _logger.debug("Vulkan driver is available on the system.")
-                if vulkan.has_discrete_gpu():
-                    _logger.debug("A discrete GPU is available on the system. We will use that for performance")
-                    discrete_index = vulkan.get_discrete_gpu_index()
-                    if discrete_index:
-                        _logger.debug("Using Discrete GPU Index: %s for Lemonade", discrete_index)
-                        lemonadeConfig.set("Renderer", "physical_device", discrete_index)
-                    else:
-                        _logger.debug("Couldn't get discrete GPU index")
+        if system.get_option("lemonade_graphics_api") == "2" and vulkan.is_available():
+            _logger.debug("Vulkan driver is available on the system.")
+            if vulkan.has_discrete_gpu():
+                _logger.debug("A discrete GPU is available on the system. We will use that for performance")
+                discrete_index = vulkan.get_discrete_gpu_index()
+                if discrete_index:
+                    _logger.debug("Using Discrete GPU Index: %s for Lemonade", discrete_index)
+                    lemonadeConfig.set("Renderer", "physical_device", discrete_index)
                 else:
-                    _logger.debug("Discrete GPU is not available on the system. Using default.")
+                    _logger.debug("Couldn't get discrete GPU index")
+            else:
+                _logger.debug("Discrete GPU is not available on the system. Using default.")
         # Use VSYNC
         lemonadeConfig.set("Renderer", "use_vsync_new", "false" if system.get_option('lemonade_use_vsync_new') == '0' else "true")
         lemonadeConfig.set("Renderer", r"use_vsync_new\default", "true")

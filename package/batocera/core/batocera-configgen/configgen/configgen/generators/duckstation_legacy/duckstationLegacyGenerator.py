@@ -226,10 +226,10 @@ class DuckstationLegacyGenerator(Generator):
             settings.add_section("Cheevos")
         # RetroAchievements
         if system.get_option_bool('retroachievements'):
-            headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}
-            login_url = "https://retroachievements.org/"
+            headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}  # noqa: F841
+            login_url = "https://retroachievements.org/"  # noqa: F841
             username  = system.get_option_str('retroachievements.username', "")
-            password  = system.get_option_str('retroachievements.password', "")
+            password  = system.get_option_str('retroachievements.password', "")  # noqa: F841
             hardcore  = system.get_option_str('retroachievements.hardcore', "")
             presence  = system.get_option_str('retroachievements.richpresence', "")
             indicator = system.get_option_str('retroachievements.challenge_indicators', "")

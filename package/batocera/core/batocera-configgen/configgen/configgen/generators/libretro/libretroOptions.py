@@ -1171,20 +1171,14 @@ def _vba_m_options(
 
     if (system.name != 'gba'):
         # GB / GBC: Use Super Game Boy borders
-        if (showborders := system.get_option('showborders_gb')) and system.name == 'gb':
-            _set(coreSettings, 'vbam_showborders', showborders)
-            # Force SGB mode, "sgb2" is same
-            _set(coreSettings, 'vbam_gbHardware', 'sgb')
-        elif (showborders := system.get_option('showborders_gbc')) and system.name == 'gbc':
+        if (showborders := system.get_option('showborders_gb')) and system.name == 'gb' or (showborders := system.get_option('showborders_gbc')) and system.name == 'gbc':
             _set(coreSettings, 'vbam_showborders', showborders)
             # Force SGB mode, "sgb2" is same
             _set(coreSettings, 'vbam_gbHardware', 'sgb')
         else:
             _set(coreSettings, 'vbam_showborders', 'disabled')
         # GB / GBC: Color Correction
-        if (coloroption := system.get_option('gbcoloroption_gb')) and system.name == 'gb':
-            _set(coreSettings, 'vbam_gbcoloroption', coloroption)
-        elif (coloroption := system.get_option('gbcoloroption_gbc')) and system.name == 'gbc':
+        if (coloroption := system.get_option('gbcoloroption_gb')) and system.name == 'gb' or (coloroption := system.get_option('gbcoloroption_gbc')) and system.name == 'gbc':
             _set(coreSettings, 'vbam_gbcoloroption', coloroption)
         else:
             _set(coreSettings, 'vbam_gbcoloroption', 'disabled')
@@ -1559,9 +1553,7 @@ def _flycast_options(
     ## Atomiswave / Naomi
 
     # Screen Orientation
-    if (rotation := system.get_option('screen_rotation_atomiswave')) and system.name == 'atomiswave':
-        _set(coreSettings, 'reicast_screen_rotation', rotation)
-    elif (rotation := system.get_option('screen_rotation_naomi')) and system.name == 'naomi':
+    if (rotation := system.get_option('screen_rotation_atomiswave')) and system.name == 'atomiswave' or (rotation := system.get_option('screen_rotation_naomi')) and system.name == 'naomi':
         _set(coreSettings, 'reicast_screen_rotation', rotation)
     else:
         _set(coreSettings, 'reicast_screen_rotation', 'horizontal')
@@ -1583,16 +1575,12 @@ def _genesisplusgx_options(
     # Reduce sprite flickering
     _set_from_system(coreSettings, 'genesis_plus_gx_no_sprite_limit', system, 'gpgx_no_sprite_limit', default='disabled')
     # Blargg NTSC filter
-    if (ntsc_filter := system.get_option('gpgx_blargg_filter_md')) and system.name == 'megadrive':
-        _set(coreSettings, 'genesis_plus_gx_blargg_ntsc_filter', ntsc_filter)
-    elif (ntsc_filter := system.get_option('gpgx_blargg_filter_ms')) and system.name == 'mastersystem':
+    if (ntsc_filter := system.get_option('gpgx_blargg_filter_md')) and system.name == 'megadrive' or (ntsc_filter := system.get_option('gpgx_blargg_filter_ms')) and system.name == 'mastersystem':
         _set(coreSettings, 'genesis_plus_gx_blargg_ntsc_filter', ntsc_filter)
     else:
         _set(coreSettings, 'genesis_plus_gx_blargg_ntsc_filter', 'Off')
     # Show Lightgun Crosshair
-    if (cursor := system.get_option('gun_cursor_md')) and system.name == 'megadrive':
-        _set(coreSettings, 'genesis_plus_gx_gun_cursor', cursor)
-    elif (cursor := system.get_option('gun_cursor_ms')) and system.name == 'mastersystem':
+    if (cursor := system.get_option('gun_cursor_md')) and system.name == 'megadrive' or (cursor := system.get_option('gun_cursor_ms')) and system.name == 'mastersystem':
         _set(coreSettings, 'genesis_plus_gx_gun_cursor', cursor)
     else:
         _set(coreSettings, 'genesis_plus_gx_gun_cursor', 'enabled' if guns_need_crosses(guns) else 'disabled')

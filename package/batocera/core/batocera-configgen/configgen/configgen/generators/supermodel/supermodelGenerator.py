@@ -47,7 +47,7 @@ class SupermodelGenerator(Generator):
         if system.get_option_bool("m3_wideScreen"):
             commandArray.append("-wide-screen")
             commandArray.append("-wide-bg")
-            system.config["bezel"] == "none"
+            system.config["bezel"] = "none"
 
         # quad rendering
         if system.get_option_bool("quadRendering"):
@@ -79,8 +79,8 @@ class SupermodelGenerator(Generator):
         if (upscale_mode := system.get_option("upscale_mode")) is not system.MISSING:
             commandArray.append(f"-upscalemode={upscale_mode}")
 
-        #driving controls
-        drivingGame = int(system.get_option_bool('pedalSwap'))
+        # driving controls
+        # drivingGame = int(system.get_option_bool('pedalSwap'))
 
         #driving sensitivity
         sensitivity = system.get_option_str("joystickSensitivity", "100")
@@ -238,7 +238,7 @@ def configPadsIni(system: Emulator, rom: Path, playersControllers: ControllerMap
             # for an input sytem
             if section.strip() != "Global":
                 targetConfig.set(section, "InputSystem", "to be defined")
-            for key, value in targetConfig.items(section):
+            for key, _ in targetConfig.items(section):
                 if system.get_option_bool('use_guns') and guns:
                     if key == "InputSystem":
                         targetConfig.set(section, key, "evdev")
@@ -385,11 +385,12 @@ def transformElement(elt: str, playersControllers: ControllerMapping, mapping: M
     return elt
 
 def getMappingKeyIncludingFallback(playersControllers: ControllerMapping, padnum: str, key: str, mapping: Mapping[str, str | None], mapping_fallback: Mapping[str, str]):
-    pad_number = int(padnum)
-    if pad_number in playersControllers:
-        if key not in mapping or (key in mapping and mapping[key] not in playersControllers[pad_number].inputs):
-            if key in mapping_fallback and mapping_fallback[key] in playersControllers[pad_number].inputs:
-                return mapping_fallback[key]
+    if (
+        (controller := playersControllers.get(int(padnum))) is not None and
+        (key not in mapping or mapping[key] not in controller.inputs) and
+        key in mapping_fallback and mapping_fallback[key] in controller.inputs
+    ):
+        return mapping_fallback[key]
     return mapping[key]
 
 def joy2realjoyid(playersControllers: ControllerMapping, joy: str):
@@ -398,7 +399,7 @@ def joy2realjoyid(playersControllers: ControllerMapping, joy: str):
         return playersControllers[joy_number].index
 
     if TYPE_CHECKING:
-        assert False, "unreachable"
+        raise Exception('unreachable')
 
 def hatOrAxis(playersControllers: ControllerMapping, player: str):
     player_number = int(player)

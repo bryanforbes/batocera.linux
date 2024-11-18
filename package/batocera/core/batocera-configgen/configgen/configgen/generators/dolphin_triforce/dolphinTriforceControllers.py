@@ -158,7 +158,7 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
     configFileName = DOLPHIN_TRIFORCE_CONFIG / filename
     nsamepad = 0
     # In case of two pads having the same name, dolphin wants a number to handle this
-    double_pads: dict[str, int] = dict()
+    double_pads: dict[str, int] = {}
 
     with codecs.open(str(configFileName), "w", encoding="utf_8") as f:
         for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
@@ -179,10 +179,7 @@ def generateControllerConfig_any(system: Emulator, playersControllers: Controlle
                 generateControllerConfig_any_auto(f, pad, anyMapping, anyReverseAxes, anyReplacements, extraOptions, system)
 
             # Rumble option
-            if system.has_option("triforce_rumble"):
-                f.write(f"Rumble/Motor = {system.config['triforce_rumble']}\n")
-            else:
-                f.write("Rumble/Motor = \n")
+            f.write(f"Rumble/Motor = {system.get_option('triforce_rumble', '')}\n")
 
 def generateControllerConfig_any_auto(f: codecs.StreamReaderWriter, pad: Controller, anyMapping: dict[str, str], anyReverseAxes: Mapping[str, str], anyReplacements: Mapping[str, str] | None, extraOptions: Mapping[str, str], system: Emulator) -> None:
     for opt, value in extraOptions.items():
@@ -227,13 +224,12 @@ def generateControllerConfig_any_from_profiles(f: codecs.StreamReaderWriter, pad
             profileDevice = profileConfig.get("Profile","Device")
             _logger.debug("Profile device : %s", profileDevice)
             deviceVals = re.match("^([^/]*)/[0-9]*/(.*)$", profileDevice)
-            if deviceVals is not None:
-                if deviceVals.group(1) == "SDL" and deviceVals.group(2).strip() == pad.real_name.strip():
-                    _logger.debug("Eligible profile device found")
-                    for key, val in profileConfig.items("Profile"):
-                        if key != "Device":
-                            f.write(f"{key} = {val}\n")
-                    return True
+            if deviceVals is not None and deviceVals.group(1) == "SDL" and deviceVals.group(2).strip() == pad.real_name.strip():
+                _logger.debug("Eligible profile device found")
+                for key, val in profileConfig.items("Profile"):
+                    if key != "Device":
+                        f.write(f"{key} = {val}\n")
+                return True
         except Exception:
             _logger.error("profile %s : FAILED", profileFile)
 

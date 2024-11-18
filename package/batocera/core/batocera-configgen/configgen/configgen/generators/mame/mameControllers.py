@@ -195,12 +195,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
     if messControlDict:
         config_alt = minidom.Document()
         configFile_alt = cfgPath / f"{sysName}.cfg"
-        if configFile_alt.exists() and cfgPath == (MAME_CONFIG / sysName):
-            try:
-                config_alt = minidom.parse(str(configFile_alt))
-            except Exception:
-                pass # reinit the file
-        elif configFile_alt.exists():
+        if configFile_alt.exists() and cfgPath == (MAME_CONFIG / sysName) or configFile_alt.exists():
             try:
                 config_alt = minidom.parse(str(configFile_alt))
             except Exception:
@@ -239,7 +234,6 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
             xml_input_alt.appendChild(xml_kbenable_alt)
 
     # Fill in controls on cfg files
-    maxplayers = len(playersControllers)
     for nplayer, pad in enumerate(sorted(playersControllers.values()), start=1):
         mappings_use = mappings.copy()
         if not hasStick(pad):
@@ -479,16 +473,15 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
 
     mameAxisMappingNames = {0: "XAXIS", 1: "YAXIS", 2: "ZAXIS", 3: "RXAXIS", 4: "RYAXIS", 5: "RZAXIS"}
 
-    if isWheel:
-        if key == "joystick1left" or key == "l2" or key == "r2":
-            suffix = ""
-            if key == "r2":
-                suffix = "_NEG"
-            if key == "l2":
-                suffix = "_NEG"
-            if int(input.id) in mameAxisMappingNames:
-                idname = mameAxisMappingNames[int(input.id)]
-                return f"JOYCODE_{joycode}_{idname}{suffix}"
+    if isWheel and (key == "joystick1left" or key == "l2" or key == "r2"):
+        suffix = ""
+        if key == "r2":
+            suffix = "_NEG"
+        if key == "l2":
+            suffix = "_NEG"
+        if int(input.id) in mameAxisMappingNames:
+            idname = mameAxisMappingNames[int(input.id)]
+            return f"JOYCODE_{joycode}_{idname}{suffix}"
 
     if input.type == "button":
         return f"JOYCODE_{joycode}_BUTTON{int(input.id)+1}"
@@ -525,9 +518,8 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
         # Button assigment modified - blank "OR" gets removed by MAME if the button is undefined.
         for direction in ['a', 'b', 'x', 'y']:
             buttonDirections[direction] = ''
-            if direction in pad.inputs:
-                if pad.inputs[direction].type == 'button':
-                    buttonDirections[direction] = f'JOYCODE_{joycode}_BUTTON{int(pad.inputs[direction].id)+1}'
+            if direction in pad.inputs and pad.inputs[direction].type == 'button':
+                buttonDirections[direction] = f'JOYCODE_{joycode}_BUTTON{int(pad.inputs[direction].id)+1}'
 
         if ignoreAxis and dpadInputs['up'] and dpadInputs['down'] and dpadInputs['left'] and dpadInputs['right']:
             if key == "joystick1up" or key == "up":
@@ -557,7 +549,7 @@ def input2definition(pad: Controller, key: str, input: Input, joycode: int, reve
             if key == "joystick1right" or key == "right":
                 return f"JOYCODE_{joycode}_XAXIS_RIGHT_SWITCH OR {dpadInputs['right']}"
         # Fix for the workaround
-        for direction in pad.inputs:
+        for _ in pad.inputs:
             if(key == "joystick2up"):
                 return f"JOYCODE_{joycode}_RYAXIS_NEG_SWITCH OR {buttonDirections['x']}"
             if(key == "joystick2down"):

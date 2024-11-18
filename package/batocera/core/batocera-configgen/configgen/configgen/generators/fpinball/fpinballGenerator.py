@@ -103,10 +103,8 @@ class FpinballGenerator(Generator):
                         "JoypadToggleHud":      unassigned_value
                     }
                     for x, input in pad.inputs.items():
-                        if x in mapping:
-                            if mapping[x] in assigns:
-                                if input.type == "button":
-                                    assigns[mapping[x]] = int(input.id)
+                        if x in mapping and mapping[x] in assigns and input.type == "button":
+                            assigns[mapping[x]] = int(input.id)
 
                     f.write(f"[HKEY_CURRENT_USER\\Software\\Future Pinball\\GamePlayer\\Joypads\\{joystickname}]\r\n")
                     f.write(f"\"JoypadBackbox\"=dword:{assigns['JoypadBackbox']:08x}\r\n")

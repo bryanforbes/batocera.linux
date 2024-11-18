@@ -86,9 +86,8 @@ def cleanControllerConfig(retroconfig: UnixSettings, controllers: ControllerMapp
 
 # Write the hotkey for player 1
 def writeHotKeyConfig(retroconfig: UnixSettings, controllers: ControllerMapping):
-    if (controller := controllers.get(1)) is not None:
-        if 'hotkey' in controller.inputs and controller.inputs['hotkey'].type == 'button':
-            retroconfig.save('input_enable_hotkey_btn', controller.inputs['hotkey'].id)
+    if (controller := controllers.get(1)) is not None and 'hotkey' in controller.inputs and controller.inputs['hotkey'].type == 'button':
+        retroconfig.save('input_enable_hotkey_btn', controller.inputs['hotkey'].id)
 
 # Write a configuration for a specified controller
 def writeControllerConfig(retroconfig: UnixSettings, controller: Controller, playerIndex: int, system: Emulator, retroarchspecials: Mapping[str, str], lightgun: bool, mouseIndex: str | None = '0'):
@@ -112,17 +111,16 @@ def generateControllerConfig(controller: Controller, retroarchspecials: Mapping[
 
     # Some input adaptations for some cores...
     # Z is important, in case l2 (z) is not available for this pad, use l1
-    if system.name == "n64":
-        if 'r2' not in controller.inputs:
-            retroarchbtns["pageup"] = "l2"
-            retroarchbtns["l2"] = "l"
+    if system.name == "n64" and 'r2' not in controller.inputs:
+        retroarchbtns["pageup"] = "l2"
+        retroarchbtns["l2"] = "l"
 
     # Fix for reversed inputs in Yabasanshiro core which is unmaintained by retroarch
     if (system.core == 'yabasanshiro'):
         retroarchbtns["pageup"] = "r"
         retroarchbtns["pagedown"] = "l"
 
-    config: dict[str, str | None] = dict()
+    config: dict[str, str | None] = {}
     # config['input_device'] = f'"{controller.real_name}"'
     for btnkey, btnvalue in retroarchbtns.items():
         if btnkey in controller.inputs:
@@ -189,7 +187,6 @@ def getAnalogMode(controller: Controller, system: Emulator):
         return '0'
 
     for dirkey in retroarchdirs:
-        if dirkey in controller.inputs:
-            if (controller.inputs[dirkey].type == 'button') or (controller.inputs[dirkey].type == 'hat'):
-                return '1'
+        if (input := controller.inputs.get(dirkey)) is not None and input.type in ['button', 'hat']:
+            return '1'
     return '0'

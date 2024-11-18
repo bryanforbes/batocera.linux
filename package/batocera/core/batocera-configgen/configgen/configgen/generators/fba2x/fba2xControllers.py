@@ -102,7 +102,4 @@ def updateControllerConfig(iniConfig: CaseSensitiveConfigParser, player: int, co
 def is6btn(rom: Path) -> bool:
     sixBtnGames = ['sfa', 'sfz', 'sf2', 'dstlk', 'hsf2', 'msh', 'mshvsf', 'mvsc', 'nwarr', 'ssf2', 'vsav', 'vhunt', 'xmvsf', 'xmcota']
 
-    for game in sixBtnGames:
-        if game in rom.name:
-            return True
-    return False
+    return any(game in rom.name for game in sixBtnGames)

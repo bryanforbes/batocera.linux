@@ -108,9 +108,8 @@ class MameGenerator(Generator):
 
         # Auto softlist for FM Towns if there is a zip that matches the folder name
         # Used for games that require a CD and floppy to both be inserted
-        if system.name == 'fmtowns' and not softList:
-            if (ROMS / "fmtowns" / f"{romDirname.name}.zip").exists():
-                softList = 'fmtowns_cd'
+        if system.name == 'fmtowns' and not softList and (ROMS / "fmtowns" / f"{romDirname.name}.zip").exists():
+            softList = 'fmtowns_cd'
 
         commandArray: list[str | Path] =  [ "/usr/bin/mame/mame" ]
         # MAME options used here are explained as it's not always straightforward
@@ -158,13 +157,11 @@ class MameGenerator(Generator):
 
         # MAME will create custom configs per game for MAME ROMs and MESS ROMs with no system attached (LCD games, TV games, etc.)
         # This will allow an alternate config path per game for MESS console/computer ROMs that may need additional config.
-        if system.get_option_bool("pergamecfg"):
-            if messMode != -1:
-                if messSysName[messMode]:
-                    base_path = MAME_CONFIG / messSysName[messMode]
-                    mkdir_if_not_exists(base_path)
-                    cfgPath = base_path / romBasename
-                    mkdir_if_not_exists(cfgPath)
+        if system.get_option_bool("pergamecfg") and messMode != -1 and messSysName[messMode]:
+            base_path = MAME_CONFIG / messSysName[messMode]
+            mkdir_if_not_exists(base_path)
+            cfgPath = base_path / romBasename
+            mkdir_if_not_exists(cfgPath)
         commandArray += [ "-cfg_directory"   ,    cfgPath ]
         commandArray += [ "-input_directory" ,    MAME_SAVES / "input" ]
         commandArray += [ "-state_directory" ,    MAME_SAVES / "state" ]
@@ -316,10 +313,9 @@ class MameGenerator(Generator):
                 commandArray += ["-mem", laser310mem]
 
             # BBC Joystick
-            if system.name == "bbc":
-                if (stick_type := system.get_option('sticktype')) and stick_type != 'none':
-                    commandArray += ["-analogue", stick_type]
-                    specialController = stick_type
+            if system.name == "bbc" and (stick_type := system.get_option('sticktype')) and stick_type != 'none':
+                commandArray += ["-analogue", stick_type]
+                specialController = stick_type
 
             # Apple II
             if system.name == "apple2":
@@ -336,21 +332,19 @@ class MameGenerator(Generator):
                 commandArray += [ '-ramsize', ram_size + 'M' ]
 
             # Mac RAM & Image Reader (if applicable)
-            if system.name == "macintosh":
-                if (ramSize := system.get_option_int("ramsize")) is not system.MISSING:
-                    if messModel in [ 'maciix', 'maclc3' ]:
-                        if messModel == 'maclc3' and ramSize == 2:
-                            ramSize = 4
-                        if messModel == 'maclc3' and ramSize > 80:
-                            ramSize = 80
-                        if messModel == 'maciix' and ramSize == 16:
-                            ramSize = 32
-                        if messModel == 'maciix' and ramSize == 48:
-                            ramSize = 64
-                        commandArray += [ '-ramsize', f'{ramSize}M' ]
-                    if messModel == 'maciix':
-                        if (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
-                            commandArray += [ "-" + imageSlot, 'image' ]
+            if system.name == "macintosh" and (ramSize := system.get_option_int("ramsize")) is not system.MISSING:
+                if messModel in [ 'maciix', 'maclc3' ]:
+                    if messModel == 'maclc3' and ramSize == 2:
+                        ramSize = 4
+                    if messModel == 'maclc3' and ramSize > 80:
+                        ramSize = 80
+                    if messModel == 'maciix' and ramSize == 16:
+                        ramSize = 32
+                    if messModel == 'maciix' and ramSize == 48:
+                        ramSize = 64
+                    commandArray += [ '-ramsize', f'{ramSize}M' ]
+                if messModel == 'maciix' and (imageSlot := system.get_option_str('imagereader', 'nba')) != "disabled":
+                    commandArray += [ "-" + imageSlot, 'image' ]
 
             if not softList:
                 # Boot disk for Macintosh
@@ -462,10 +456,9 @@ class MameGenerator(Generator):
                     autoRunDelay = 3
             # fm7 boots floppies, needs cassette loading
             elif system.name == "fm7":
-                if (altromtype := system.get_option("altromtype")) is not system.MISSING or softList:
-                    if altromtype == "cass" or softList.endswith("cass"):
-                        autoRunCmd = 'LOADM”“,,R\\n'
-                        autoRunDelay = 5
+                if ((altromtype := system.get_option("altromtype")) is not system.MISSING or softList) and (altromtype == "cass" or softList.endswith("cass")):
+                    autoRunCmd = 'LOADM”“,,R\\n'
+                    autoRunDelay = 5
             elif system.name == "coco":
                 romType = 'cart'
                 autoRunDelay = 2
@@ -476,11 +469,10 @@ class MameGenerator(Generator):
                     if softListFile.exists():
                         softwarelist = ET.parse(softListFile)
                         for software in softwarelist.findall('software'):
-                            if software.attrib:
-                                if software.get('name') == romName:
-                                    for info in software.iter('info'):
-                                        if info.get('name') == 'usage':
-                                            autoRunCmd = cast(str, info.get('value')) + '\\n'
+                            if software.attrib and software.get('name') == romName:
+                                for info in software.iter('info'):
+                                    if info.get('name') == 'usage':
+                                        autoRunCmd = cast(str, info.get('value')) + '\\n'
 
                 # if still undefined, default autoRunCmd based on media type
                 if not autoRunCmd:
@@ -501,9 +493,8 @@ class MameGenerator(Generator):
                     with autoRunFile.open() as openARFile:
                         autoRunList = csv.reader(openARFile, delimiter=';', quotechar="'")
                         for row in autoRunList:
-                            if row and not row[0].startswith('#'):
-                                if row[0].casefold() == romName.casefold():
-                                    autoRunCmd = row[1] + "\\n"
+                            if row and not row[0].startswith('#') and row[0].casefold() == romName.casefold():
+                                autoRunCmd = row[1] + "\\n"
             else:
                 # Check for an override file, otherwise use generic (if it exists)
                 autoRunCmd = messAutoRun[messMode]
@@ -572,9 +563,8 @@ class MameGenerator(Generator):
                 return
         else:
             bz_infos = bezelsUtil.getBezelInfos(rom, bezelSet, system.name, 'mame')
-            if bz_infos is None:
-                if gunsBordersSize is None:
-                    return
+            if bz_infos is None and gunsBordersSize is None:
+                return
 
         # create an empty bezel
         if bz_infos is None:
@@ -636,7 +626,7 @@ class MameGenerator(Generator):
                     tattoo_file = BATOCERA_SHARE_DIR / 'controller-overlays' / 'generic.png'
                 try:
                     tattoo = Image.open(tattoo_file)
-                except Exception as e:
+                except Exception:
                     _logger.error("Error opening controller overlay: %s", tattoo_file)
             elif bezel_tattoo == 'custom' and (tattoo_file := Path(system.get_option('bezel.tattoo_file'))).exists():
                 try:
@@ -658,7 +648,6 @@ class MameGenerator(Generator):
             pcent = float(tatwidth / tw)
             tatheight = int(float(th) * pcent)
             tattoo = tattoo.resize((tatwidth,tatheight), Image.Resampling.LANCZOS)
-            alpha = back.split()[-1]
             alphatat = tattoo.split()[-1]
             corner = system.get_option('bezel.tattoo_corner', 'NW')
             if (corner.upper() == 'NE'):
@@ -684,7 +673,7 @@ class MameGenerator(Generator):
         if gunsBordersSize is not None:
             output_png_file = Path("/tmp/bezel_gunborders.png")
             innerSize, outerSize = bezelsUtil.gunBordersSize(gunsBordersSize)
-            borderSize = bezelsUtil.gunBorderImage(pngFile, output_png_file, gunsBordersRatio, innerSize, outerSize, bezelsUtil.gunsBordersColorFomConfig(system.config))
+            bezelsUtil.gunBorderImage(pngFile, output_png_file, gunsBordersRatio, innerSize, outerSize, bezelsUtil.gunsBordersColorFomConfig(system.config))
             try:
                 pngFile.unlink()
             except Exception:
