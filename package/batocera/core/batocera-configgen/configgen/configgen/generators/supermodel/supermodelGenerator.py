@@ -45,8 +45,7 @@ class SupermodelGenerator(Generator):
 
         # widescreen
         if system.get_option_bool("m3_wideScreen"):
-            commandArray.append("-wide-screen")
-            commandArray.append("-wide-bg")
+            commandArray.extend(["-wide-screen", "-wide-bg"])
             system.config["bezel"] = "none"
 
         # quad rendering
@@ -85,11 +84,13 @@ class SupermodelGenerator(Generator):
         #driving sensitivity
         sensitivity = system.get_option_str("joystickSensitivity", "100")
 
-        # resolution
-        commandArray.append(f"-res={gameResolution['width']},{gameResolution['height']}")
+        commandArray.extend([
+            # resolution
+            f"-res={gameResolution['width']},{gameResolution['height']}",
 
-        # logs
-        commandArray.append("-log-output=/userdata/system/logs/Supermodel.log")
+            # logs
+            "-log-output=/userdata/system/logs/Supermodel.log",
+        ])
 
         # copy nvram files
         copy_nvram_files()
