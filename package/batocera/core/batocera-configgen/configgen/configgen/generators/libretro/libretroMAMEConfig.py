@@ -409,9 +409,7 @@ def generateMAMEConfigs(playersControllers: ControllerMapping, system: Emulator,
             file.unlink()
 
     # Write command line file
-    cmdFilename = cmdPath / f"{romDrivername}.cmd"
-    with cmdFilename.open("w") as cmdFile:
-        cmdFile.write(' '.join(str(item) for item in commandLine))
+    (cmdPath / f"{romDrivername}.cmd").write_text(' '.join(str(item) for item in commandLine))
 
     # Call Controller Config
     if messMode == -1:
