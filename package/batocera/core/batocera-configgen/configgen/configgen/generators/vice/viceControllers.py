@@ -54,19 +54,22 @@ def generateControllerConfig(system: Emulator, viceConfigFile: Path, playersCont
 
     mkdir_if_not_exists(viceFile.parent)
 
-    listVice: list[str] = []
-    listVice.append("# Batocera configured controllers")
-    listVice.append("")
-    listVice.append("!CLEAR")
+    listVice = [
+        "# Batocera configured controllers",
+        "",
+        "!CLEAR",
+    ]
     for pad in sorted(playersControllers.values()):
-        listVice.append("")
-        listVice.append("# " + pad.real_name)
-        for input in pad.inputs.values():
-            for indexName, indexValue in viceJoystick.items():
-                if indexName == input.name:
-                    listVice.append(indexValue.replace('#', str(pad.index)).replace('?', str(input.id)).replace('/', joy_port))
+        listVice.extend([
+            "",
+            "# " + pad.real_name,
+        ])
+        listVice.extend(
+            indexValue.replace('#', str(pad.index)).replace('?', str(input.id)).replace('/', joy_port)
+            for input in pad.inputs.values()
+            for indexName, indexValue in viceJoystick.items()
+            if indexName == input.name
+        )
         listVice.append("")
 
-    with viceFile.open('w') as f:
-        for i in range(len(listVice)):
-            f.write(str(listVice[i]) + "\n")
+    viceFile.write_text("\n".join(listVice) + "\n")
