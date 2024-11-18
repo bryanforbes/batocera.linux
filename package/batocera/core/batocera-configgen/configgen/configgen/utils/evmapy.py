@@ -378,8 +378,7 @@ class evmapy(AbstractContextManager[None, None]):
 
             if "type" in evmapy_action and evmapy_action["type"] == "mouse":
                 if isinstance(evmapy_action["trigger"], list):
-                    for x in evmapy_action["trigger"]:
-                        axis_for_mouse.add(x)
+                    axis_for_mouse.update(evmapy_action["trigger"])
                 else:
                     axis_for_mouse.add(evmapy_action["trigger"])
 
