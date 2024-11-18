@@ -5,6 +5,7 @@ import re
 import shutil
 from collections.abc import Mapping
 from dataclasses import dataclass
+from operator import itemgetter
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, cast
 
@@ -84,7 +85,7 @@ class Gun:
         }
 
         gun_index = 0
-        for mouse_index, (_, mouse) in enumerate(sorted(mouses.items(), key=lambda item: item[0])):
+        for mouse_index, (_, mouse) in enumerate(sorted(mouses.items(), key=itemgetter(0))):
             _logger.info("found mouse %s at %s with mouse_index=%s", mouse_index, mouse.device_node, mouse_index)
             if "ID_INPUT_GUN" not in mouse.properties or mouse.properties["ID_INPUT_GUN"] != "1":
                 continue
