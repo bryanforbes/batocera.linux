@@ -232,8 +232,8 @@ class Emulator:
 
         if return_values is None:
             return value in self.TRUE_VALUES
-        else:
-            return return_values[value not in self.TRUE_VALUES]
+
+        return return_values[value not in self.TRUE_VALUES]
 
     @overload
     def get_option_str(self, key: str, default: MissingType = ..., /) -> str | MissingType:
