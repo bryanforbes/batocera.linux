@@ -115,59 +115,59 @@ class Gun:
             _logger.info("guns disabled.")
             return {}
 
-        dir = _PRECALIBRATION_DIR / system_name
-
-        if dir.exists():
-            emulator = system.emulator
-            core = system.core
-            rom = Path(rom)
-
-            if system_name == "atomiswave":
-                for suffix in ["nvmem", "nvmem2"]:
-                    src = dir / "reicast" / f"{rom.name}.{suffix}"
-                    dst = SAVES / "atomiswave" / "reicast" / f"{rom.name}.{suffix}"
-                    _copy_file(src, dst)
-
-            elif system_name == "mame":
-                target_dir: str | None = None
-                if emulator == "mame":
-                    target_dir = "mame"
-                elif emulator == "libretro":
-                    if core == "mame078plus":
-                        target_dir = "mame/mame2003-plus"
-                    elif core == "mame":
-                        target_dir = "mame/mame"
-
-                if target_dir is not None:
-                    src = dir / "nvram" / rom.stem
-                    dst = SAVES / target_dir / "nvram" / rom.stem
-                    _copy_dir(src, dst)
-                    srcdir = dir / "diff"
-                    dstdir = SAVES / target_dir / "diff"
-                    _copy_fils_in_dir(srcdir, dstdir, rom.stem + "_", ".dif")
-
-            elif system_name == "model2":
-                src = dir / "NVDATA" / f"{rom.name}.DAT"
-                dst = SAVES / "model2" / "NVDATA" / f"{rom.name}.DAT"
-                _copy_file(src, dst)
-
-            elif system_name == "naomi":
-                for suffix in ["nvmem", "eeprom"]:
-                    src = dir / "reicast" / f"{rom.name}.{suffix}"
-                    dst = SAVES / "naomi" / "reicast" / f"{rom.name}.{suffix}"
-                    _copy_file(src, dst)
-
-            elif system_name == "supermodel":
-                src = dir / "NVDATA" / f"{rom.stem}.nv"
-                dst = SAVES / "supermodel" / "NVDATA" / f"{rom.stem}.nv"
-                _copy_file(src, dst)
-
-            elif system_name == "namco2x6" and emulator == "play":
-                src = dir / "play" / rom.stem
-                dst = CONFIGS / "play" / "Play Data Files" / "arcadesaves" / f"{rom.stem}.backupram"
-                _copy_file(src, dst)
+        precalibrate_guns(system_name, system.emulator, system.core, Path(rom))
 
         return cls.get_all()
+
+
+def precalibrate_guns(system: str, emulator: str, core: str, rom: Path, /) -> None:
+    dir = _PRECALIBRATION_DIR / system
+
+    if dir.exists():
+        if system == "atomiswave":
+            for suffix in ["nvmem", "nvmem2"]:
+                src = dir / "reicast" / f"{rom.name}.{suffix}"
+                dst = SAVES / "atomiswave" / "reicast" / f"{rom.name}.{suffix}"
+                _copy_file(src, dst)
+
+        elif system == "mame":
+            target_dir: str | None = None
+            if emulator == "mame":
+                target_dir = "mame"
+            elif emulator == "libretro":
+                if core == "mame078plus":
+                    target_dir = "mame/mame2003-plus"
+                elif core == "mame":
+                    target_dir = "mame/mame"
+
+            if target_dir is not None:
+                src = dir / "nvram" / rom.stem
+                dst = SAVES / target_dir / "nvram" / rom.stem
+                _copy_dir(src, dst)
+                srcdir = dir / "diff"
+                dstdir = SAVES / target_dir / "diff"
+                _copy_fils_in_dir(srcdir, dstdir, rom.stem + "_", ".dif")
+
+        elif system == "model2":
+            src = dir / "NVDATA" / f"{rom.name}.DAT"
+            dst = SAVES / "model2" / "NVDATA" / f"{rom.name}.DAT"
+            _copy_file(src, dst)
+
+        elif system == "naomi":
+            for suffix in ["nvmem", "eeprom"]:
+                src = dir / "reicast" / f"{rom.name}.{suffix}"
+                dst = SAVES / "naomi" / "reicast" / f"{rom.name}.{suffix}"
+                _copy_file(src, dst)
+
+        elif system == "supermodel":
+            src = dir / "NVDATA" / f"{rom.stem}.nv"
+            dst = SAVES / "supermodel" / "NVDATA" / f"{rom.stem}.nv"
+            _copy_file(src, dst)
+
+        elif system == "namco2x6" and emulator == "play":
+            src = dir / "play" / rom.stem
+            dst = CONFIGS / "play" / "Play Data Files" / "arcadesaves" / f"{rom.stem}.backupram"
+            _copy_file(src, dst)
 
 
 def gun_button_to_code(button: str) -> int | None:
