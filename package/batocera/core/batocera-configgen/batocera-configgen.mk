@@ -18,7 +18,8 @@ BATOCERA_CONFIGGEN_DEPENDENCIES = \
 	python-httplib2 \
 	ffmpeg-python \
 	python-pillow \
-	python-ruamel-yaml
+	python-ruamel-yaml \
+	python-click
 BATOCERA_CONFIGGEN_INSTALL_STAGING = YES
 
 CONFIGGEN_DIR = $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-configgen
