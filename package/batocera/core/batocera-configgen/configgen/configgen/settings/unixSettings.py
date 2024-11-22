@@ -3,14 +3,16 @@ from __future__ import annotations
 import io
 import logging
 import re
-import typing
 from dataclasses import InitVar, dataclass, field
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from ..utils.configparser import CaseSensitiveConfigParser
 
-if typing.TYPE_CHECKING:
+if TYPE_CHECKING:
     from _typeshed import StrPath
+    from collections.abc import Iterator
+
 
 _logger = logging.getLogger(__name__)
 
@@ -84,3 +86,19 @@ class UnixSettings:
                     res[m.group(1)] = value
 
         return res
+
+    def get_all(self, name: str, /, *, keep_name: bool = False, keep_defaults: bool = True) -> dict[str, str]:
+        _logger.debug("Looking for %s.* in %s", name, self.settings_path)
+
+        return dict(self.get_all_iter(name, keep_name=keep_name, keep_defaults=keep_defaults))
+
+    def get_all_iter(self, name: str, /, *, keep_name: bool = False, keep_defaults: bool = False) -> Iterator[tuple[str, str]]:
+        _logger.debug("Looking for %s.* in %s", name, self.settings_path)
+
+        for key, value in self.config.items('DEFAULT'):
+            m = re.match(rf"^{_protect_string(name)}\.(.+)", _protect_string(key))
+            if m:
+                if not keep_defaults and value in ['', 'default', 'auto']:
+                    continue
+
+                yield f'{name}.{m.group(1)}' if keep_name else m.group(1), value

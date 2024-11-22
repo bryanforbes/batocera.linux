@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import xml.etree.ElementTree as ET
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import InitVar, dataclass, field, replace
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, Literal, Self, TypedDict, Unpack, cast
@@ -11,6 +11,8 @@ from .input import Input, InputDict, InputMapping
 
 if TYPE_CHECKING:
     from argparse import Namespace
+
+    from .cli import PlayerOptions
 
 
 """Default mapping of Batocera keys to SDL_GAMECONTROLLERCONFIG keys."""
@@ -169,6 +171,19 @@ class Controller:
 
         return ','.join(config)
 
+    @classmethod
+    def load_for_player_options(cls, players: Sequence[PlayerOptions], /) -> ControllerDict:
+        cfg_roots = [
+            ET.parse(conffile).getroot()
+            for conffile in (USER_ES_DIR / 'es_input.cfg', BATOCERA_ES_DIR / 'es_input.cfg')
+        ]
+
+        return {
+            controller.player_number: controller
+            for player in players
+            if (controller := cls._find_best(cfg_roots, player)) is not None
+        }
+
     # Create a controller map with the player number as a key
     @classmethod
     def load_for_players(cls, max_players: int, args: Namespace, /) -> ControllerDict:
@@ -182,6 +197,29 @@ class Controller:
             for player_number in range(1, max_players + 1)
             if (controller := cls._find_best_controller(cfg_roots, args, player_number)) is not None
         }
+
+    @classmethod
+    def _find_best(cls, cfg_roots: Iterable[ET.Element], options: PlayerOptions, /) -> Controller | None:
+        if (
+            (input_config := _find_in_roots(cfg_roots, name=options['real_name'], guid=options['guid'])) is not None or
+            (input_config := _find_in_roots(cfg_roots, guid=options['guid'])) is not None or
+            (input_config := _find_in_roots(cfg_roots, name=options['real_name'])) is not None
+        ):
+            return cls(
+                name=cast(str, input_config.get("deviceName")),
+                type=cast(Literal['keyboard', 'joystick'], input_config.get("type")),
+                guid=cast(str, input_config.get("deviceGUID")),
+                inputs_=Input.from_parent_element(input_config),
+                player_number=options['player_number'],
+                index=options['index'],
+                real_name=options['real_name'],
+                device_path=options['device_path'],
+                button_count=options['button_count'],
+                hat_count=options['hat_count'],
+                axis_count=options['axis_count'],
+            )
+
+        return None
 
     @classmethod
     def _find_best_controller(
