@@ -31,3 +31,5 @@ package/batocera/emulationstation/batocera-emulationstation/keys.txt
 batocera-mok.key
 .venv*
 typescript
+.coverage*
+htmlcov

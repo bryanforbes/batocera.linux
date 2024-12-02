@@ -1,0 +1,12 @@
+from __future__ import annotations
+
+import pytest
+
+from tests.generators.libretro.base import LibretroBaseCoreTest
+
+
+@pytest.mark.core('vecx')
+class TestLibretroGeneratorVecx(LibretroBaseCoreTest):
+    @pytest.mark.parametrize_core_configs([{'res_multi': '2'}])
+    def test_generate_core_config(self, generator, default_extension, fs, mock_system, snapshot) -> None:
+        return super().test_generate_core_config(generator, default_extension, fs, mock_system, snapshot)
