@@ -121,7 +121,7 @@ class Controller:
         mapped_button_ids: set[str] = set()
 
         for input in self.inputs.values():
-            if input.name is None:
+            if input.name is None:  # pragma: no cover
                 continue
             if input.name == 'hotkey':
                 hotkey_input = input

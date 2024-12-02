@@ -1,0 +1,211 @@
+# serializer version: 1
+# name: TestScummVMGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/scummvm',
+      '-f',
+      '--window-size=1920,1080',
+      '--scale-factor=3',
+      '--scaler=normal',
+      '--stretch-mode=center',
+      '--renderer=opengl',
+      '--logfile=/userdata/system/logs/scummvm.log',
+      '--joystick=0',
+      '--screenshotspath=/userdata/screenshots',
+      '--extrapath=/userdata/bios/scummvm/extra',
+      '--path=/userdata/roms/scummvm',
+      'rom',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '''
+        030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,real name 2,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+      ''',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestScummVMGenerator.test_generate[config]
+  '''
+  [scummvm]
+  gui_browser_native = false
+  
+  
+  '''
+# ---
+# name: TestScummVMGenerator.test_generate_config[{'scumm_language': 'en'}]
+  tuple(
+    list([
+      '/usr/bin/scummvm',
+      '-f',
+      '--window-size=1920,1080',
+      '--scale-factor=3',
+      '--scaler=normal',
+      '--stretch-mode=center',
+      '--renderer=opengl',
+      '-q',
+      'en',
+      '--logfile=/userdata/system/logs/scummvm.log',
+      '--joystick=0',
+      '--screenshotspath=/userdata/screenshots',
+      '--extrapath=/userdata/bios/scummvm/extra',
+      '--path=/userdata/roms/scummvm',
+      'rom',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestScummVMGenerator.test_generate_config[{'scumm_renderer': 'software'}]
+  tuple(
+    list([
+      '/usr/bin/scummvm',
+      '-f',
+      '--window-size=1920,1080',
+      '--scale-factor=3',
+      '--scaler=normal',
+      '--stretch-mode=center',
+      '--renderer=software',
+      '--logfile=/userdata/system/logs/scummvm.log',
+      '--joystick=0',
+      '--screenshotspath=/userdata/screenshots',
+      '--extrapath=/userdata/bios/scummvm/extra',
+      '--path=/userdata/roms/scummvm',
+      'rom',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestScummVMGenerator.test_generate_config[{'scumm_scale': '7'}]
+  tuple(
+    list([
+      '/usr/bin/scummvm',
+      '-f',
+      '--window-size=1920,1080',
+      '--scale-factor=7',
+      '--scaler=normal',
+      '--stretch-mode=center',
+      '--renderer=opengl',
+      '--logfile=/userdata/system/logs/scummvm.log',
+      '--joystick=0',
+      '--screenshotspath=/userdata/screenshots',
+      '--extrapath=/userdata/bios/scummvm/extra',
+      '--path=/userdata/roms/scummvm',
+      'rom',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestScummVMGenerator.test_generate_config[{'scumm_scaler_mode': 'hq'}]
+  tuple(
+    list([
+      '/usr/bin/scummvm',
+      '-f',
+      '--window-size=1920,1080',
+      '--scale-factor=3',
+      '--scaler=hq',
+      '--stretch-mode=center',
+      '--renderer=opengl',
+      '--logfile=/userdata/system/logs/scummvm.log',
+      '--joystick=0',
+      '--screenshotspath=/userdata/screenshots',
+      '--extrapath=/userdata/bios/scummvm/extra',
+      '--path=/userdata/roms/scummvm',
+      'rom',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestScummVMGenerator.test_generate_config[{'scumm_stretch': 'even-pixels'}]
+  tuple(
+    list([
+      '/usr/bin/scummvm',
+      '-f',
+      '--window-size=1920,1080',
+      '--scale-factor=3',
+      '--scaler=normal',
+      '--stretch-mode=even-pixels',
+      '--renderer=opengl',
+      '--logfile=/userdata/system/logs/scummvm.log',
+      '--joystick=0',
+      '--screenshotspath=/userdata/screenshots',
+      '--extrapath=/userdata/bios/scummvm/extra',
+      '--path=/userdata/roms/scummvm',
+      'rom',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestScummVMGenerator.test_generate_existing
+  '''
+  [scummvm]
+  gui_browser_native = false
+  
+  [foo]
+  bar = true
+  
+  
+  '''
+# ---
+# name: TestScummVMGenerator.test_generate_rom_dir
+  tuple(
+    list([
+      '/usr/bin/scummvm',
+      '-f',
+      '--window-size=1920,1080',
+      '--scale-factor=3',
+      '--scaler=normal',
+      '--stretch-mode=center',
+      '--renderer=opengl',
+      '--logfile=/userdata/system/logs/scummvm.log',
+      '--joystick=0',
+      '--screenshotspath=/userdata/screenshots',
+      '--extrapath=/userdata/bios/scummvm/extra',
+      '--path=/userdata/roms/scummvm/Day_of_the_Tentacle',
+      'tentacle',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestScummVMGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'scummvm',
+  })
+# ---

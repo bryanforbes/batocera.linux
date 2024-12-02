@@ -3,18 +3,30 @@ name = "batocera-configgen"
 requires-python = ">= 3.12"
 dynamic = ["version"]
 dependencies = [
-    "PyYAML==6.0.1",
+    "PyYAML==6.0.2",
 ]
 
 [project.scripts]
 emulatorlauncher = "configgen.emulatorlauncher:launch"
+
+[project.optional-dependencies]
+tests = [
+    "pytest==8.*",
+    "pytest-mock==3.*",
+    "pytest-cov==6.*",
+    "pytest-xdist==3.*",
+    "coverage[toml]==7.*",
+    "pyfakefs==5.7.*",
+    "syrupy==4.8.*",
+]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
-path = "configgen/__version__.py"
+path = "../batocera-configgen.mk"
+pattern = "BATOCERA_CONFIGGEN_VERSION\\s+=\\s+(?P<version>.*)"
 
 [tool.hatch.build.targets.wheel]
 include = [
@@ -26,3 +38,29 @@ extends = "../../../../../pyproject.toml"
 
 [tool.ruff]
 extend = "../../../../../pyproject.toml"
+
+[tool.pytest.ini_options]
+addopts = "--cov=configgen --cov-context=test --cov-report=term"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_also = [
+    "raise NotImplementedError",
+    "^\\s+pass$",
+    "^\\s*if (?:typing\\.)?TYPE_CHECKING:",
+    "^\\s*\\.\\.\\.\\s*$"
+]
+partial_branches = [
+    "^\\s*if not TYPE_CHECKING:"
+]
+omit = [
+    "configgen/types.py"
+]
+
+[tool.coverage.html]
+show_contexts = true
