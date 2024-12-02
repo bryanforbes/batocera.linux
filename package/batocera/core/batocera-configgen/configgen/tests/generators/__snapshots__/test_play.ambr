@@ -1,0 +1,333 @@
+# serializer version: 1
+# name: TestPlayGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/Play',
+      '--fullscreen',
+      '--arcade',
+      'rom',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs/play',
+      'XDG_DATA_HOME': '/userdata/system/configs/play',
+    }),
+  )
+# ---
+# name: TestPlayGenerator.test_generate[config]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_config[{'play_api': '1'}]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="1" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_config[{'play_filter': 'true'}]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="true" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_config[{'play_language': '0'}]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="0" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_config[{'play_mode': '0'}]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="0" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_config[{'play_scale': '2'}]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="2" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_config[{'play_vsync': 'false'}]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="false" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_config[{'play_widescreen': 'true'}]
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="true" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_controllers
+  '''
+  <Config>
+      <Preference Name="input.pad1.analog.sensitivity" Type="float" Value="1.0" />
+      <Preference Name="input.pad1.circle.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.circle.bindingtarget1.keyId" Type="integer" Value="304" />
+      <Preference Name="input.pad1.circle.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.circle.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.circle.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.circle.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.cross.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.cross.bindingtarget1.keyId" Type="integer" Value="305" />
+      <Preference Name="input.pad1.cross.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.cross.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.cross.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.cross.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.dpad_down.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.dpad_down.bindingtarget1.keyId" Type="integer" Value="17" />
+      <Preference Name="input.pad1.dpad_down.bindingtarget1.keyType" Type="integer" Value="2" />
+      <Preference Name="input.pad1.dpad_down.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.dpad_down.bindingtype" Type="integer" Value="3" />
+      <Preference Name="input.pad1.dpad_down.povhatbinding.refvalue" Type="integer" Value="0" />
+      <Preference Name="input.pad1.analog_left_x.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.analog_left_x.bindingtarget1.keyId" Type="integer" Value="0" />
+      <Preference Name="input.pad1.analog_left_x.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_left_x.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.analog_left_x.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_left_x.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.analog_left_y.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.analog_left_y.bindingtarget1.keyId" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_left_y.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_left_y.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.analog_left_y.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_left_y.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.analog_right_x.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.analog_right_x.bindingtarget1.keyId" Type="integer" Value="2" />
+      <Preference Name="input.pad1.analog_right_x.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_right_x.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.analog_right_x.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_right_x.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.analog_right_y.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.analog_right_y.bindingtarget1.keyId" Type="integer" Value="3" />
+      <Preference Name="input.pad1.analog_right_y.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_right_y.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.analog_right_y.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.analog_right_y.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.l2.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.l2.bindingtarget1.keyId" Type="integer" Value="312" />
+      <Preference Name="input.pad1.l2.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.l2.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.l2.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.l2.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.l3.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.l3.bindingtarget1.keyId" Type="integer" Value="317" />
+      <Preference Name="input.pad1.l3.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.l3.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.l3.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.l3.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.dpad_left.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.dpad_left.bindingtarget1.keyId" Type="integer" Value="16" />
+      <Preference Name="input.pad1.dpad_left.bindingtarget1.keyType" Type="integer" Value="2" />
+      <Preference Name="input.pad1.dpad_left.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.dpad_left.bindingtype" Type="integer" Value="3" />
+      <Preference Name="input.pad1.dpad_left.povhatbinding.refvalue" Type="integer" Value="4" />
+      <Preference Name="input.pad1.r1.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.r1.bindingtarget1.keyId" Type="integer" Value="311" />
+      <Preference Name="input.pad1.r1.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.r1.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.r1.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.r1.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.l1.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.l1.bindingtarget1.keyId" Type="integer" Value="310" />
+      <Preference Name="input.pad1.l1.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.l1.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.l1.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.l1.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.r2.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.r2.bindingtarget1.keyId" Type="integer" Value="313" />
+      <Preference Name="input.pad1.r2.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.r2.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.r2.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.r2.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.r3.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.r3.bindingtarget1.keyId" Type="integer" Value="318" />
+      <Preference Name="input.pad1.r3.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.r3.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.r3.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.r3.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.dpad_right.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.dpad_right.bindingtarget1.keyId" Type="integer" Value="16" />
+      <Preference Name="input.pad1.dpad_right.bindingtarget1.keyType" Type="integer" Value="2" />
+      <Preference Name="input.pad1.dpad_right.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.dpad_right.bindingtype" Type="integer" Value="3" />
+      <Preference Name="input.pad1.dpad_right.povhatbinding.refvalue" Type="integer" Value="0" />
+      <Preference Name="input.pad1.select.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.select.bindingtarget1.keyId" Type="integer" Value="314" />
+      <Preference Name="input.pad1.select.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.select.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.select.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.select.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.start.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.start.bindingtarget1.keyId" Type="integer" Value="315" />
+      <Preference Name="input.pad1.start.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.start.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.start.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.start.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.dpad_up.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.dpad_up.bindingtarget1.keyId" Type="integer" Value="17" />
+      <Preference Name="input.pad1.dpad_up.bindingtarget1.keyType" Type="integer" Value="2" />
+      <Preference Name="input.pad1.dpad_up.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.dpad_up.bindingtype" Type="integer" Value="3" />
+      <Preference Name="input.pad1.dpad_up.povhatbinding.refvalue" Type="integer" Value="4" />
+      <Preference Name="input.pad1.triangle.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.triangle.bindingtarget1.keyId" Type="integer" Value="307" />
+      <Preference Name="input.pad1.triangle.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.triangle.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.triangle.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.triangle.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad1.square.bindingtarget1.deviceId" Type="string" Value="aa:bb:cc:dd:ee:01" />
+      <Preference Name="input.pad1.square.bindingtarget1.keyId" Type="integer" Value="308" />
+      <Preference Name="input.pad1.square.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad1.square.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad1.square.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad1.square.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.analog.sensitivity" Type="float" Value="1.0" />
+      <Preference Name="input.pad2.circle.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.circle.bindingtarget1.keyId" Type="integer" Value="305" />
+      <Preference Name="input.pad2.circle.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.circle.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.circle.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.circle.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.cross.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.cross.bindingtarget1.keyId" Type="integer" Value="304" />
+      <Preference Name="input.pad2.cross.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.cross.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.cross.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.cross.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.dpad_down.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.dpad_down.bindingtarget1.keyId" Type="integer" Value="545" />
+      <Preference Name="input.pad2.dpad_down.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.dpad_down.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.dpad_down.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.dpad_down.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.analog_left_x.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.analog_left_x.bindingtarget1.keyId" Type="integer" Value="0" />
+      <Preference Name="input.pad2.analog_left_x.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_left_x.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.analog_left_x.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_left_x.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.analog_left_y.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.analog_left_y.bindingtarget1.keyId" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_left_y.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_left_y.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.analog_left_y.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_left_y.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.analog_right_x.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.analog_right_x.bindingtarget1.keyId" Type="integer" Value="3" />
+      <Preference Name="input.pad2.analog_right_x.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_right_x.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.analog_right_x.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_right_x.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.analog_right_y.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.analog_right_y.bindingtarget1.keyId" Type="integer" Value="4" />
+      <Preference Name="input.pad2.analog_right_y.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_right_y.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.analog_right_y.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.analog_right_y.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.l2.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.l2.bindingtarget1.keyId" Type="integer" Value="2" />
+      <Preference Name="input.pad2.l2.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad2.l2.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.l2.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.l2.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.l3.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.l3.bindingtarget1.keyId" Type="integer" Value="317" />
+      <Preference Name="input.pad2.l3.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.l3.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.l3.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.l3.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.dpad_left.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.dpad_left.bindingtarget1.keyId" Type="integer" Value="546" />
+      <Preference Name="input.pad2.dpad_left.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.dpad_left.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.dpad_left.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.dpad_left.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.r1.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.r1.bindingtarget1.keyId" Type="integer" Value="311" />
+      <Preference Name="input.pad2.r1.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.r1.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.r1.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.r1.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.l1.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.l1.bindingtarget1.keyId" Type="integer" Value="310" />
+      <Preference Name="input.pad2.l1.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.l1.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.l1.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.l1.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.r2.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.r2.bindingtarget1.keyId" Type="integer" Value="5" />
+      <Preference Name="input.pad2.r2.bindingtarget1.keyType" Type="integer" Value="1" />
+      <Preference Name="input.pad2.r2.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.r2.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.r2.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.r3.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.r3.bindingtarget1.keyId" Type="integer" Value="318" />
+      <Preference Name="input.pad2.r3.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.r3.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.r3.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.r3.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.dpad_right.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.dpad_right.bindingtarget1.keyId" Type="integer" Value="547" />
+      <Preference Name="input.pad2.dpad_right.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.dpad_right.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.dpad_right.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.dpad_right.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.select.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.select.bindingtarget1.keyId" Type="integer" Value="314" />
+      <Preference Name="input.pad2.select.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.select.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.select.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.select.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.start.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.start.bindingtarget1.keyId" Type="integer" Value="315" />
+      <Preference Name="input.pad2.start.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.start.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.start.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.start.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.dpad_up.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.dpad_up.bindingtarget1.keyId" Type="integer" Value="544" />
+      <Preference Name="input.pad2.dpad_up.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.dpad_up.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.dpad_up.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.dpad_up.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.triangle.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.triangle.bindingtarget1.keyId" Type="integer" Value="307" />
+      <Preference Name="input.pad2.triangle.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.triangle.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.triangle.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.triangle.povhatbinding.refvalue" Type="integer" Value="-1" />
+      <Preference Name="input.pad2.square.bindingtarget1.deviceId" Type="string" Value="11:0:22:0:33:0" />
+      <Preference Name="input.pad2.square.bindingtarget1.keyId" Type="integer" Value="308" />
+      <Preference Name="input.pad2.square.bindingtarget1.keyType" Type="integer" Value="0" />
+      <Preference Name="input.pad2.square.bindingtarget1.providerId" Type="integer" Value="1702257782" />
+      <Preference Name="input.pad2.square.bindingtype" Type="integer" Value="1" />
+      <Preference Name="input.pad2.square.povhatbinding.refvalue" Type="integer" Value="-1" />
+  </Config>
+  '''
+# ---
+# name: TestPlayGenerator.test_generate_existing
+  '<Config><Preference Name="ps2.arcaderoms.directory" Type="path" Value="/userdata/roms/namco2x6" /><Preference Name="foo" Type="boolean" Value="false" /><Preference Name="ui.showexitconfirmation" Type="boolean" Value="false" /><Preference Name="ui.pausewhenfocuslost" Type="boolean" Value="false" /><Preference Name="ui.showeecpuusage" Type="boolean" Value="false" /><Preference Name="ps2.limitframerate" Type="boolean" Value="true" /><Preference Name="renderer.widescreen" Type="boolean" Value="false" /><Preference Name="system.language" Type="integer" Value="1" /><Preference Name="video.gshandler" Type="integer" Value="0" /><Preference Name="renderer.opengl.resfactor" Type="integer" Value="1" /><Preference Name="renderer.presentationmode" Type="integer" Value="1" /><Preference Name="renderer.opengl.forcebilineartextures" Type="boolean" Value="false" /></Config>'
+# ---
+# name: TestPlayGenerator.test_generate_rom_chd
+  tuple(
+    list([
+      '/usr/bin/Play',
+      '--fullscreen',
+      '--disc',
+      '/userdata/roms/namco2x6/rom.chd',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs/play',
+      'XDG_DATA_HOME': '/userdata/system/configs/play',
+    }),
+  )
+# ---
+# name: TestPlayGenerator.test_generate_rom_config
+  tuple(
+    list([
+      '/usr/bin/Play',
+      '--fullscreen',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs/play',
+      'XDG_DATA_HOME': '/userdata/system/configs/play',
+    }),
+  )
+# ---
+# name: TestPlayGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'play',
+  })
+# ---
