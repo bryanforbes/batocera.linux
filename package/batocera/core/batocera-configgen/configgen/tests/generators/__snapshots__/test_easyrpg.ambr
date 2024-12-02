@@ -1,0 +1,156 @@
+# serializer version: 1
+# name: TestEasyRPGGenerator.test_generate
+  tuple(
+    list([
+      'easyrpg-player',
+      '--encoding',
+      'auto',
+      '--save-path',
+      '/userdata/saves/easyrpg/rom.easyrpg',
+      '--project-path',
+      '/userdata/roms/easyrpg/rom.easyrpg',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestEasyRPGGenerator.test_generate[config]
+  '''
+  [Joypad]
+  number=0
+  button_up=-1
+  button_down=-1
+  button_left=-1
+  button_right=-1
+  button_action=0
+  button_cancel=1
+  button_shift=4
+  button_n0=-1
+  button_n1=-1
+  button_n2=-1
+  button_n3=-1
+  button_n4=-1
+  button_n5=-1
+  button_n6=-1
+  button_n7=-1
+  button_n8=-1
+  button_n9=-1
+  button_plus=-1
+  button_minus=-1
+  button_multiply=-1
+  button_divide=-1
+  button_period=-1
+  button_debug_menu=-1
+  button_debug_through=-1
+  
+  '''
+# ---
+# name: TestEasyRPGGenerator.test_generate_config[{'encoding': '1252'}]
+  tuple(
+    list([
+      'easyrpg-player',
+      '--encoding',
+      '1252',
+      '--save-path',
+      '/userdata/saves/easyrpg/rom.easyrpg',
+      '--project-path',
+      '/userdata/roms/easyrpg/rom.easyrpg',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestEasyRPGGenerator.test_generate_config[{'encoding': 'autodetect'}]
+  tuple(
+    list([
+      'easyrpg-player',
+      '--encoding',
+      'auto',
+      '--save-path',
+      '/userdata/saves/easyrpg/rom.easyrpg',
+      '--project-path',
+      '/userdata/roms/easyrpg/rom.easyrpg',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestEasyRPGGenerator.test_generate_config[{'showFPS': 'true'}]
+  tuple(
+    list([
+      'easyrpg-player',
+      '--show-fps',
+      '--encoding',
+      'auto',
+      '--save-path',
+      '/userdata/saves/easyrpg/rom.easyrpg',
+      '--project-path',
+      '/userdata/roms/easyrpg/rom.easyrpg',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestEasyRPGGenerator.test_generate_config[{'testplay': '1'}]
+  tuple(
+    list([
+      'easyrpg-player',
+      '--test-play',
+      '--encoding',
+      'auto',
+      '--save-path',
+      '/userdata/saves/easyrpg/rom.easyrpg',
+      '--project-path',
+      '/userdata/roms/easyrpg/rom.easyrpg',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestEasyRPGGenerator.test_generate_two_controllers[config]
+  '''
+  [Joypad]
+  number=0
+  button_up=-1
+  button_down=-1
+  button_left=-1
+  button_right=-1
+  button_action=0
+  button_cancel=1
+  button_shift=4
+  button_n0=-1
+  button_n1=-1
+  button_n2=-1
+  button_n3=-1
+  button_n4=-1
+  button_n5=-1
+  button_n6=-1
+  button_n7=-1
+  button_n8=-1
+  button_n9=-1
+  button_plus=-1
+  button_minus=-1
+  button_multiply=-1
+  button_divide=-1
+  button_period=-1
+  button_debug_menu=-1
+  button_debug_through=-1
+  
+  '''
+# ---
+# name: TestEasyRPGGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_F9',
+      'pause': 'KEY_ESC',
+      'restore_state': 'KEY_F12',
+      'rewind': 'KEY_F',
+      'save_state': 'KEY_F11',
+    }),
+    'name': 'easyrpg',
+  })
+# ---

@@ -1,0 +1,31 @@
+# serializer version: 1
+# name: TestSteamGenerator.test_generate
+  tuple(
+    list([
+      'batocera-steam',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestSteamGenerator.test_generate_game_rom
+  tuple(
+    list([
+      'batocera-steam',
+      'GAMEID',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestSteamGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'steam',
+  })
+# ---

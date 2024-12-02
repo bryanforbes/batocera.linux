@@ -1,0 +1,116 @@
+# serializer version: 1
+# name: test_parse_args
+  list([
+    '-gamegrp',
+    Path('/userdata/roms/eduke32/duke/DUKE3D.GRP'),
+    '-g',
+    Path('/userdata/roms/eduke32/duke/duke3d_hrp.zip'),
+    '-g',
+    Path('/userdata/roms/eduke32/duke/duke3d_music-sc55.zip'),
+    '-g',
+    'foo',
+    '-x',
+    Path('/userdata/roms/eduke32/mod/mod.con'),
+    '-mx',
+    Path('/userdata/roms/eduke32/mod/mod2.con'),
+    '-mx',
+    Path('/userdata/roms/eduke32/mod/mod3.con'),
+    '-h',
+    Path('/userdata/roms/eduke32/mod/mod.def'),
+    '-mh',
+    Path('/userdata/roms/eduke32/mod/mod2.def'),
+    '-mh',
+    Path('/userdata/roms/eduke32/mod/mod3.def'),
+    '-j',
+    Path('/userdata/roms/eduke32/duke'),
+    '-j',
+    Path('/userdata/roms/eduke32/mod'),
+    '-map',
+    Path('/userdata/roms/eduke32/mod/mod.map'),
+  ])
+# ---
+# name: test_parse_args_errors[FILE = /duke/DUKE3D.GRP\nFILE = /duke/duke3d_hrp.zip\nFILE+ = /duke/blah.grp\nSPAM = ham\nCON =\nDIR][args]
+  list([
+    '-gamegrp',
+    Path('/userdata/roms/eduke32/duke/DUKE3D.GRP'),
+  ])
+# ---
+# name: test_parse_args_errors[FILE = /duke/DUKE3D.GRP\nFILE = /duke/duke3d_hrp.zip\nFILE+ = /duke/blah.grp\nSPAM = ham\nCON =\nDIR][message]
+  '''
+  5 error(s) found in /userdata/roms/eduke32/rom.eduke32:
+  line 2| FILE = /duke/duke3d_hrp.zip	<-- found another 'FILE', but there should only be one
+  line 3| FILE+ = /duke/blah.grp	<-- /userdata/roms/eduke32/duke/blah.grp does not exist
+  line 4| SPAM = ham	<-- KEY 'SPAM' is not valid
+  line 5| CON =	<-- KEY and/or VAL is empty; are you missing a '='?
+  line 6| DIR	<-- KEY and/or VAL is empty; are you missing a '='?
+  
+  '''
+# ---
+# name: test_parse_args_errors[FILE = /duke/DUKE3D.GRP\nFILE = /duke/duke3d_hrp.zip][args]
+  list([
+    '-gamegrp',
+    Path('/userdata/roms/eduke32/duke/DUKE3D.GRP'),
+  ])
+# ---
+# name: test_parse_args_errors[FILE = /duke/DUKE3D.GRP\nFILE = /duke/duke3d_hrp.zip][message]
+  '''
+  1 error(s) found in /userdata/roms/eduke32/rom.eduke32:
+  line 2| FILE = /duke/duke3d_hrp.zip	<-- found another 'FILE', but there should only be one
+  
+  '''
+# ---
+# name: test_parse_args_errors[FILE = /duke/blah.grp][args]
+  list([
+  ])
+# ---
+# name: test_parse_args_errors[FILE = /duke/blah.grp][message]
+  '''
+  1 error(s) found in /userdata/roms/eduke32/rom.eduke32:
+  line 1| FILE = /duke/blah.grp	<-- /userdata/roms/eduke32/duke/blah.grp does not exist
+  
+  '''
+# ---
+# name: test_parse_args_errors[FILE = foo = bar][args]
+  list([
+  ])
+# ---
+# name: test_parse_args_errors[FILE = foo = bar][message]
+  '''
+  1 error(s) found in /userdata/roms/eduke32/rom.eduke32:
+  line 1| FILE = foo = bar	<-- found another '=', but there should only be one
+  
+  '''
+# ---
+# name: test_parse_args_errors[FILE =][args]
+  list([
+  ])
+# ---
+# name: test_parse_args_errors[FILE =][message]
+  '''
+  1 error(s) found in /userdata/roms/eduke32/rom.eduke32:
+  line 1| FILE =	<-- KEY and/or VAL is empty; are you missing a '='?
+  
+  '''
+# ---
+# name: test_parse_args_errors[FILE][args]
+  list([
+  ])
+# ---
+# name: test_parse_args_errors[FILE][message]
+  '''
+  1 error(s) found in /userdata/roms/eduke32/rom.eduke32:
+  line 1| FILE	<-- KEY and/or VAL is empty; are you missing a '='?
+  
+  '''
+# ---
+# name: test_parse_args_errors[SPAM = ham][args]
+  list([
+  ])
+# ---
+# name: test_parse_args_errors[SPAM = ham][message]
+  '''
+  1 error(s) found in /userdata/roms/eduke32/rom.eduke32:
+  line 1| SPAM = ham	<-- KEY 'SPAM' is not valid
+  
+  '''
+# ---

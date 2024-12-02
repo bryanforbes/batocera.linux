@@ -10,8 +10,6 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, cast
 
-import evdev
-
 from .. import controllersConfig
 from ..exceptions import BatoceraException
 
@@ -281,6 +279,7 @@ def configure_wheels(
 def _reconfigure_angle_rotation(
     controller: Controller, rotation_angle: int, wanted_rotation_angle: int, wanted_deadzone: int, wanted_midzone: int
 ) -> tuple[str, subprocess.Popen[bytes]] | None:
+    import evdev
 
     if "joystick1left" not in controller.inputs:
         raise BatoceraException(f"Wheel {controller.real_name} has no joystick1left configured. Strange for a wheel.")

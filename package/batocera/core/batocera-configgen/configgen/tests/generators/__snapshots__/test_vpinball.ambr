@@ -1,0 +1,4105 @@
+# serializer version: 1
+# name: TestVPinballGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/vpinball/VPinballX_GL',
+      '-PrefPath',
+      '/userdata/system/configs/vpinball',
+      '-Ini',
+      '/userdata/system/configs/vpinball/VPinballX.ini',
+      '-Play',
+      '/userdata/roms/vpinball/rom/rom.vpx',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_RENDER_VSYNC': '0',
+    }),
+  )
+# ---
+# name: TestVPinballGenerator.test_generate[config]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'disabled'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'disabled'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'disabled'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'manual'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'manual'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'manual'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2', 'vpinball_flexdmd': 'screen2'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2', 'vpinball_flexdmd': 'screen2'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 1
+  FlexDMDWindowX = 448
+  FlexDMDWindowY = 0
+  FlexDMDWindowWidth = 1024
+  FlexDMDWindowHeight = 256
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 256
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 824
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2', 'vpinball_flexdmd': 'screen2'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 1
+  FlexDMDWindowX = 448
+  FlexDMDWindowY = 0
+  FlexDMDWindowWidth = 1024
+  FlexDMDWindowHeight = 256
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 256
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 824
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2', 'vpinball_pinmame': 'screen2'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2', 'vpinball_pinmame': 'screen2'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 1
+  PinMAMEWindowX = 448
+  PinMAMEWindowY = 0
+  PinMAMEWindowWidth = 1024
+  PinMAMEWindowHeight = 256
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 256
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 824
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2', 'vpinball_pinmame': 'screen2'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 1
+  PinMAMEWindowX = 448
+  PinMAMEWindowY = 0
+  PinMAMEWindowWidth = 1024
+  PinMAMEWindowHeight = 256
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 256
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 824
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 1080
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen2'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 1080
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen3'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 0
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen3'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 0
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'screen3'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 0
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_large'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 576
+  B2SBackglassHeight = 432
+  B2SDMDX = 0
+  B2SDMDY = 432
+  B2SDMDWidth = 576
+  B2SDMDHeight = 183
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_large'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 576
+  B2SBackglassHeight = 432
+  B2SDMDX = 0
+  B2SDMDY = 432
+  B2SDMDWidth = 576
+  B2SDMDHeight = 183
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_large'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 576
+  B2SBackglassHeight = 432
+  B2SDMDX = 0
+  B2SDMDY = 432
+  B2SDMDWidth = 576
+  B2SDMDHeight = 183
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_medium'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 0
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_medium'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 0
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_medium'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 0
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_small'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 384
+  B2SBackglassHeight = 280
+  B2SDMDX = 0
+  B2SDMDY = 280
+  B2SDMDWidth = 384
+  B2SDMDHeight = 118
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_small'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 384
+  B2SBackglassHeight = 280
+  B2SDMDX = 0
+  B2SDMDY = 280
+  B2SDMDWidth = 384
+  B2SDMDHeight = 118
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topleft_small'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 384
+  B2SBackglassHeight = 280
+  B2SDMDX = 0
+  B2SDMDY = 280
+  B2SDMDWidth = 384
+  B2SDMDHeight = 118
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_large'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1344
+  B2SBackglassY = 0
+  B2SBackglassWidth = 576
+  B2SBackglassHeight = 432
+  B2SDMDX = 1344
+  B2SDMDY = 432
+  B2SDMDWidth = 576
+  B2SDMDHeight = 183
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_large'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1344
+  B2SBackglassY = 0
+  B2SBackglassWidth = 576
+  B2SBackglassHeight = 432
+  B2SDMDX = 1344
+  B2SDMDY = 432
+  B2SDMDWidth = 576
+  B2SDMDHeight = 183
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_large'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1344
+  B2SBackglassY = 0
+  B2SBackglassWidth = 576
+  B2SBackglassHeight = 432
+  B2SDMDX = 1344
+  B2SDMDY = 432
+  B2SDMDWidth = 576
+  B2SDMDHeight = 183
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_medium'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1440
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 1440
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_medium'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1440
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 1440
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_medium'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1440
+  B2SBackglassY = 0
+  B2SBackglassWidth = 480
+  B2SBackglassHeight = 356
+  B2SDMDX = 1440
+  B2SDMDY = 356
+  B2SDMDWidth = 480
+  B2SDMDHeight = 151
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_small'}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1536
+  B2SBackglassY = 0
+  B2SBackglassWidth = 384
+  B2SBackglassHeight = 280
+  B2SDMDX = 1536
+  B2SDMDY = 280
+  B2SDMDWidth = 384
+  B2SDMDHeight = 118
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_small'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1536
+  B2SBackglassY = 0
+  B2SBackglassWidth = 384
+  B2SBackglassHeight = 280
+  B2SDMDX = 1536
+  B2SDMDY = 280
+  B2SDMDWidth = 384
+  B2SDMDHeight = 118
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{'vpinball_b2s': 'topright_small'}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 1536
+  B2SBackglassY = 0
+  B2SBackglassWidth = 384
+  B2SBackglassHeight = 280
+  B2SDMDX = 1536
+  B2SDMDY = 280
+  B2SDMDWidth = 384
+  B2SDMDHeight = 118
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{}-None]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1080, 'height': 1920, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 1080
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1080
+  Height = 1920
+  BGSet = 1
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_backglass[{}-[{'width': 1920, 'height': 1080, 'x': 0, 'y': 0}, {'width': 1920, 'height': 1080, 'x': 0, 'y': 0}]]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 1
+  B2SWindows = 1
+  B2SHideGrill = 0
+  B2SBackglassX = 0
+  B2SBackglassY = 0
+  B2SBackglassWidth = 1920
+  B2SBackglassHeight = 1080
+  B2SHideB2SDMD = 0
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_altcolor': '0'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 0
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_altsound': '0'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 0
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_balltrail': '0.5'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 1
+  BallTrailStrength = 0.5
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_customphysicalsetup': '1', 'vpinball_screenheight': '10'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 10
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_customphysicalsetup': '1', 'vpinball_screeninclination': '10'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 10
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_customphysicalsetup': '1', 'vpinball_screenplayery': '0'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 0
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_customphysicalsetup': '1', 'vpinball_screenplayerz': '30'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 30
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_customphysicalsetup': '1', 'vpinball_screenwidth': '20'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 20
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_customphysicalsetup': '1'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_folders': '0'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = 
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_inverseplayfieldandb2s': '0'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_inverseplayfieldandb2s': '1'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_maxframerate': '50'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 50
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_musicvolume': '20'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 20
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_nudgestrength': '0.04'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 0.04
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_pad_add_credit': '1'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_pbw': '0'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 0
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_pbw': '1'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_playfield': 'manual'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_playfieldmode': '2'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 2
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_presets': 'defaults'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_presets': 'highend'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 3
+  Sharpen = 2
+  DisableAO = 0
+  DynamicAO = 1
+  SSRefl = 1
+  PFReflection = 5
+  ForceAnisotropicFiltering = 1
+  AlphaRampAccuracy = 10
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_presets': 'lowend'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 0
+  Sharpen = 0
+  DisableAO = 1
+  DynamicAO = 0
+  SSRefl = 0
+  PFReflection = 3
+  ForceAnisotropicFiltering = 0
+  AlphaRampAccuracy = 5
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_presets': 'manual'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_sounddevice': 'sound-device-1'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = sound-device-1
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_sounddevicebg': 'sound-device-2'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = sound-device-2
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_soundvolume': '20'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 20
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_config[{'vpinball_vsync': '1'}]
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 1
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_existing
+  '''
+  [Foo]
+  Bar = 1
+  
+  [Standalone]
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_generate_existing_duplicate
+  '''
+  [Standalone]
+  LaunchTable = 
+  PinMAMEPath = ./
+  AltColor = 1
+  AltSound = 1
+  PinMAMEWindow = 0
+  FlexDMDWindow = 0
+  B2SBackglass = 0
+  B2SWindows = 0
+  B2SHideGrill = 1
+  DMDServer = 0
+  
+  [Player]
+  Sound3D = 
+  BallTrail = 0
+  BallTrailStrength = 0
+  NudgeStrength = 
+  MaxFramerate = 
+  SyncMode = 2
+  ExitGameKey = 62
+  FXAA = 
+  Sharpen = 
+  DisableAO = 
+  DynamicAO = 
+  SSRefl = 
+  PFReflection = 
+  ForceAnisotropicFiltering = 
+  AlphaRampAccuracy = 
+  ScreenWidth = 
+  ScreenHeight = 
+  ScreenInclination = 
+  ScreenPlayerY = 
+  ScreenPlayerZ = 
+  MusicVolume = 
+  SoundVolume = 
+  SoundDevice = 
+  SoundDeviceBG = 
+  JoyAddCreditKey = 0
+  PBWEnabled = 
+  FullScreen = 0
+  WindowPosX = 0
+  WindowPosY = 0
+  Width = 1920
+  Height = 1080
+  BGSet = 0
+  
+  [TableOverride]
+  ViewCabMode = 2
+  ViewCabRotation = 0
+  
+  
+  '''
+# ---
+# name: TestVPinballGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'coin': 'KEY_5',
+      'exit': 'KEY_F4',
+      'menu': 'KEY_ESC',
+      'pause': 'KEY_ESC',
+      'reset': 'KEY_F3',
+    }),
+    'name': 'vpinball',
+  })
+# ---

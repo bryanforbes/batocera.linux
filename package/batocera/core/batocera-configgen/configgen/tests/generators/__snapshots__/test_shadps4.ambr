@@ -1,0 +1,581 @@
+# serializer version: 1
+# name: TestShadPS4Generator.test_generate
+  tuple(
+    list([
+      '/usr/bin/shadps4/shadps4',
+      '/userdata/roms/ps4/ROMDIR/eboot.bin',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestShadPS4Generator.test_generate[config]
+  '''
+  [General]
+  isPS4Pro = false
+  isTrophyPopupDisabled = false
+  trophyNotificationDuration = 6.0
+  playBGM = false
+  BGMvolume = 50
+  enableDiscordRPC = false
+  logFilter = ""
+  logType = "async"
+  userName = "Batocera"
+  updateChannel = "Release"
+  chooseHomeTab = "General"
+  showSplash = false
+  autoUpdate = false
+  alwaysShowChangelog = false
+  sideTrophy = "right"
+  separateUpdateEnabled = false
+  compatibilityEnabled = false
+  checkCompatibilityOnStartup = false
+  
+  [Input]
+  cursorState = 1
+  cursorHideTimeout = 5
+  backButtonBehavior = "left"
+  useSpecialPad = false
+  specialPadClass = 1
+  isMotionControlsEnabled = true
+  useUnifiedInputConfig = true
+  
+  [GPU]
+  screenWidth = 1920
+  screenHeight = 1080
+  nullGpu = false
+  copyGPUBuffers = false
+  dumpShaders = false
+  patchShaders = true
+  vblankDivider = 1
+  Fullscreen = true
+  FullscreenMode = "Fullscreen (Borderless)"
+  allowHDR = false
+  
+  [Vulkan]
+  gpuId = -1
+  validation = false
+  validation_sync = false
+  validation_gpu = false
+  crashDiagnostic = false
+  hostMarkers = false
+  guestMarkers = false
+  rdocEnable = false
+  
+  [Debug]
+  DebugDump = false
+  CollectShader = false
+  isSeparateLogFilesEnabled = false
+  FPSColor = true
+  
+  [Keys]
+  TrophyKey = ""
+  
+  [GUI]
+  installDirs = [ "/userdata/roms/ps4",]
+  saveDataPath = "/userdata/saves/shadps4"
+  loadGameSizeEnabled = true
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  emulatorLanguage = "en_US"
+  backgroundImageOpacity = 50
+  showBackgroundImage = true
+  mw_width = 1920
+  mw_height = 1080
+  theme = 0
+  iconSize = 36
+  sliderPos = 0
+  iconSizeGrid = 69
+  sliderPosGrid = 0
+  gameTableMode = 0
+  geometry_x = 0
+  geometry_y = 0
+  geometry_w = 1920
+  geometry_h = 1080
+  pkgDirs = [ "/userdata/roms/ps4",]
+  elfDirs = []
+  recentFiles = []
+  
+  [Settings]
+  consoleLanguage = 1
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_config_rom
+  tuple(
+    list([
+      '/usr/bin/shadps4/shadps4',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestShadPS4Generator.test_generate_existing
+  '''
+  [General]
+  isPS4Pro = false
+  isTrophyPopupDisabled = false
+  trophyNotificationDuration = 6.0
+  playBGM = false
+  BGMvolume = 50
+  enableDiscordRPC = false
+  logFilter = ""
+  logType = "async"
+  userName = "Batocera"
+  updateChannel = "Release"
+  chooseHomeTab = "General"
+  showSplash = false
+  autoUpdate = false
+  alwaysShowChangelog = false
+  sideTrophy = "right"
+  separateUpdateEnabled = false
+  compatibilityEnabled = false
+  checkCompatibilityOnStartup = false
+  
+  [Input]
+  cursorState = 1
+  cursorHideTimeout = 5
+  backButtonBehavior = "left"
+  useSpecialPad = false
+  specialPadClass = 1
+  isMotionControlsEnabled = true
+  useUnifiedInputConfig = true
+  
+  [GPU]
+  screenWidth = 1920
+  screenHeight = 1080
+  nullGpu = false
+  copyGPUBuffers = false
+  dumpShaders = false
+  patchShaders = true
+  vblankDivider = 1
+  Fullscreen = true
+  FullscreenMode = "Fullscreen (Borderless)"
+  allowHDR = false
+  
+  [Vulkan]
+  gpuId = -1
+  validation = false
+  validation_sync = false
+  validation_gpu = false
+  crashDiagnostic = false
+  hostMarkers = false
+  guestMarkers = false
+  rdocEnable = false
+  
+  [Debug]
+  DebugDump = false
+  CollectShader = false
+  isSeparateLogFilesEnabled = false
+  FPSColor = true
+  
+  [Keys]
+  TrophyKey = ""
+  
+  [GUI]
+  installDirs = [ "/userdata/roms/ps4",]
+  saveDataPath = "/userdata/saves/shadps4"
+  loadGameSizeEnabled = true
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  emulatorLanguage = "en_US"
+  backgroundImageOpacity = 50
+  showBackgroundImage = true
+  mw_width = 1920
+  mw_height = 1080
+  theme = 0
+  iconSize = 36
+  sliderPos = 0
+  iconSizeGrid = 69
+  sliderPosGrid = 0
+  gameTableMode = 0
+  geometry_x = 0
+  geometry_y = 0
+  geometry_w = 1920
+  geometry_h = 1080
+  pkgDirs = [ "/userdata/roms/ps4",]
+  elfDirs = []
+  recentFiles = []
+  
+  [Settings]
+  consoleLanguage = 1
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available, incompatible version]
+  '''
+  [General]
+  isPS4Pro = false
+  isTrophyPopupDisabled = false
+  trophyNotificationDuration = 6.0
+  playBGM = false
+  BGMvolume = 50
+  enableDiscordRPC = false
+  logFilter = ""
+  logType = "async"
+  userName = "Batocera"
+  updateChannel = "Release"
+  chooseHomeTab = "General"
+  showSplash = false
+  autoUpdate = false
+  alwaysShowChangelog = false
+  sideTrophy = "right"
+  separateUpdateEnabled = false
+  compatibilityEnabled = false
+  checkCompatibilityOnStartup = false
+  
+  [Input]
+  cursorState = 1
+  cursorHideTimeout = 5
+  backButtonBehavior = "left"
+  useSpecialPad = false
+  specialPadClass = 1
+  isMotionControlsEnabled = true
+  useUnifiedInputConfig = true
+  
+  [GPU]
+  screenWidth = 1920
+  screenHeight = 1080
+  nullGpu = false
+  copyGPUBuffers = false
+  dumpShaders = false
+  patchShaders = true
+  vblankDivider = 1
+  Fullscreen = true
+  FullscreenMode = "Fullscreen (Borderless)"
+  allowHDR = false
+  
+  [Vulkan]
+  gpuId = -1
+  validation = false
+  validation_sync = false
+  validation_gpu = false
+  crashDiagnostic = false
+  hostMarkers = false
+  guestMarkers = false
+  rdocEnable = false
+  
+  [Debug]
+  DebugDump = false
+  CollectShader = false
+  isSeparateLogFilesEnabled = false
+  FPSColor = true
+  
+  [Keys]
+  TrophyKey = ""
+  
+  [GUI]
+  installDirs = [ "/userdata/roms/ps4",]
+  saveDataPath = "/userdata/saves/shadps4"
+  loadGameSizeEnabled = true
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  emulatorLanguage = "en_US"
+  backgroundImageOpacity = 50
+  showBackgroundImage = true
+  mw_width = 1920
+  mw_height = 1080
+  theme = 0
+  iconSize = 36
+  sliderPos = 0
+  iconSizeGrid = 69
+  sliderPosGrid = 0
+  gameTableMode = 0
+  geometry_x = 0
+  geometry_y = 0
+  geometry_w = 1920
+  geometry_h = 1080
+  pkgDirs = [ "/userdata/roms/ps4",]
+  elfDirs = []
+  recentFiles = []
+  
+  [Settings]
+  consoleLanguage = 1
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available, no discrete gpu]
+  '''
+  [General]
+  isPS4Pro = false
+  isTrophyPopupDisabled = false
+  trophyNotificationDuration = 6.0
+  playBGM = false
+  BGMvolume = 50
+  enableDiscordRPC = false
+  logFilter = ""
+  logType = "async"
+  userName = "Batocera"
+  updateChannel = "Release"
+  chooseHomeTab = "General"
+  showSplash = false
+  autoUpdate = false
+  alwaysShowChangelog = false
+  sideTrophy = "right"
+  separateUpdateEnabled = false
+  compatibilityEnabled = false
+  checkCompatibilityOnStartup = false
+  
+  [Input]
+  cursorState = 1
+  cursorHideTimeout = 5
+  backButtonBehavior = "left"
+  useSpecialPad = false
+  specialPadClass = 1
+  isMotionControlsEnabled = true
+  useUnifiedInputConfig = true
+  
+  [GPU]
+  screenWidth = 1920
+  screenHeight = 1080
+  nullGpu = false
+  copyGPUBuffers = false
+  dumpShaders = false
+  patchShaders = true
+  vblankDivider = 1
+  Fullscreen = true
+  FullscreenMode = "Fullscreen (Borderless)"
+  allowHDR = false
+  
+  [Vulkan]
+  gpuId = -1
+  validation = false
+  validation_sync = false
+  validation_gpu = false
+  crashDiagnostic = false
+  hostMarkers = false
+  guestMarkers = false
+  rdocEnable = false
+  
+  [Debug]
+  DebugDump = false
+  CollectShader = false
+  isSeparateLogFilesEnabled = false
+  FPSColor = true
+  
+  [Keys]
+  TrophyKey = ""
+  
+  [GUI]
+  installDirs = [ "/userdata/roms/ps4",]
+  saveDataPath = "/userdata/saves/shadps4"
+  loadGameSizeEnabled = true
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  emulatorLanguage = "en_US"
+  backgroundImageOpacity = 50
+  showBackgroundImage = true
+  mw_width = 1920
+  mw_height = 1080
+  theme = 0
+  iconSize = 36
+  sliderPos = 0
+  iconSizeGrid = 69
+  sliderPosGrid = 0
+  gameTableMode = 0
+  geometry_x = 0
+  geometry_y = 0
+  geometry_w = 1920
+  geometry_h = 1080
+  pkgDirs = [ "/userdata/roms/ps4",]
+  elfDirs = []
+  recentFiles = []
+  
+  [Settings]
+  consoleLanguage = 1
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available, unable to get gpu index]
+  '''
+  [General]
+  isPS4Pro = false
+  isTrophyPopupDisabled = false
+  trophyNotificationDuration = 6.0
+  playBGM = false
+  BGMvolume = 50
+  enableDiscordRPC = false
+  logFilter = ""
+  logType = "async"
+  userName = "Batocera"
+  updateChannel = "Release"
+  chooseHomeTab = "General"
+  showSplash = false
+  autoUpdate = false
+  alwaysShowChangelog = false
+  sideTrophy = "right"
+  separateUpdateEnabled = false
+  compatibilityEnabled = false
+  checkCompatibilityOnStartup = false
+  
+  [Input]
+  cursorState = 1
+  cursorHideTimeout = 5
+  backButtonBehavior = "left"
+  useSpecialPad = false
+  specialPadClass = 1
+  isMotionControlsEnabled = true
+  useUnifiedInputConfig = true
+  
+  [GPU]
+  screenWidth = 1920
+  screenHeight = 1080
+  nullGpu = false
+  copyGPUBuffers = false
+  dumpShaders = false
+  patchShaders = true
+  vblankDivider = 1
+  Fullscreen = true
+  FullscreenMode = "Fullscreen (Borderless)"
+  allowHDR = false
+  
+  [Vulkan]
+  gpuId = 0
+  validation = false
+  validation_sync = false
+  validation_gpu = false
+  crashDiagnostic = false
+  hostMarkers = false
+  guestMarkers = false
+  rdocEnable = false
+  
+  [Debug]
+  DebugDump = false
+  CollectShader = false
+  isSeparateLogFilesEnabled = false
+  FPSColor = true
+  
+  [Keys]
+  TrophyKey = ""
+  
+  [GUI]
+  installDirs = [ "/userdata/roms/ps4",]
+  saveDataPath = "/userdata/saves/shadps4"
+  loadGameSizeEnabled = true
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  emulatorLanguage = "en_US"
+  backgroundImageOpacity = 50
+  showBackgroundImage = true
+  mw_width = 1920
+  mw_height = 1080
+  theme = 0
+  iconSize = 36
+  sliderPos = 0
+  iconSizeGrid = 69
+  sliderPosGrid = 0
+  gameTableMode = 0
+  geometry_x = 0
+  geometry_y = 0
+  geometry_w = 1920
+  geometry_h = 1080
+  pkgDirs = [ "/userdata/roms/ps4",]
+  elfDirs = []
+  recentFiles = []
+  
+  [Settings]
+  consoleLanguage = 1
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available]
+  '''
+  [General]
+  isPS4Pro = false
+  isTrophyPopupDisabled = false
+  trophyNotificationDuration = 6.0
+  playBGM = false
+  BGMvolume = 50
+  enableDiscordRPC = false
+  logFilter = ""
+  logType = "async"
+  userName = "Batocera"
+  updateChannel = "Release"
+  chooseHomeTab = "General"
+  showSplash = false
+  autoUpdate = false
+  alwaysShowChangelog = false
+  sideTrophy = "right"
+  separateUpdateEnabled = false
+  compatibilityEnabled = false
+  checkCompatibilityOnStartup = false
+  
+  [Input]
+  cursorState = 1
+  cursorHideTimeout = 5
+  backButtonBehavior = "left"
+  useSpecialPad = false
+  specialPadClass = 1
+  isMotionControlsEnabled = true
+  useUnifiedInputConfig = true
+  
+  [GPU]
+  screenWidth = 1920
+  screenHeight = 1080
+  nullGpu = false
+  copyGPUBuffers = false
+  dumpShaders = false
+  patchShaders = true
+  vblankDivider = 1
+  Fullscreen = true
+  FullscreenMode = "Fullscreen (Borderless)"
+  allowHDR = false
+  
+  [Vulkan]
+  gpuId = 1
+  validation = false
+  validation_sync = false
+  validation_gpu = false
+  crashDiagnostic = false
+  hostMarkers = false
+  guestMarkers = false
+  rdocEnable = false
+  
+  [Debug]
+  DebugDump = false
+  CollectShader = false
+  isSeparateLogFilesEnabled = false
+  FPSColor = true
+  
+  [Keys]
+  TrophyKey = ""
+  
+  [GUI]
+  installDirs = [ "/userdata/roms/ps4",]
+  saveDataPath = "/userdata/saves/shadps4"
+  loadGameSizeEnabled = true
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  emulatorLanguage = "en_US"
+  backgroundImageOpacity = 50
+  showBackgroundImage = true
+  mw_width = 1920
+  mw_height = 1080
+  theme = 0
+  iconSize = 36
+  sliderPos = 0
+  iconSizeGrid = 69
+  sliderPosGrid = 0
+  gameTableMode = 0
+  geometry_x = 0
+  geometry_y = 0
+  geometry_w = 1920
+  geometry_h = 1080
+  pkgDirs = [ "/userdata/roms/ps4",]
+  elfDirs = []
+  recentFiles = []
+  
+  [Settings]
+  consoleLanguage = 1
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'shadps4',
+  })
+# ---
