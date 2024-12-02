@@ -1,0 +1,22 @@
+# serializer version: 1
+# name: TestPygameGenerator.test_generate
+  tuple(
+    list([
+      'pygame',
+      '/userdata/roms/pygame/rom.pygame',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestPygameGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'pygame',
+  })
+# ---
