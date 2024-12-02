@@ -1,0 +1,24 @@
+# serializer version: 1
+# name: TestFlatpakGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/flatpak',
+      'run',
+      '-v',
+      'ROMID',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFlatpakGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'flatpak',
+  })
+# ---

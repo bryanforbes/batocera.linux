@@ -1,0 +1,46 @@
+# serializer version: 1
+# name: TestDosBoxStagingGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/dosbox-staging',
+      '-fullscreen',
+      '-userconf',
+      '-exit',
+      'Path(/userdata/roms/dos/rom.pc/dosbox.bat)',
+      '-c',
+      'set ROOT=/userdata/roms/dos/rom.pc',
+      '-conf',
+      'Path(/userdata/system/configs/dosbox/dosbox.conf)',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestDosBoxStagingGenerator.test_generate_conf
+  tuple(
+    list([
+      '/usr/bin/dosbox-staging',
+      '-fullscreen',
+      '-userconf',
+      '-exit',
+      'Path(/userdata/roms/dos/rom.pc/dosbox.bat)',
+      '-c',
+      'set ROOT=/userdata/roms/dos/rom.pc',
+      '-conf',
+      'Path(/userdata/roms/dos/rom.pc/dosbox.cfg)',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestDosBoxStagingGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTCTRL',
+        'KEY_F9',
+      ]),
+    }),
+    'name': 'dosboxstaging',
+  })
+# ---
