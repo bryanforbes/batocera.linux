@@ -1,0 +1,342 @@
+# serializer version: 1
+# name: TestDhewm3Generator.test_generate
+  tuple(
+    list([
+      '/usr/bin/dhewm3',
+      '+set',
+      'fs_basepath',
+      '/userdata/roms/doom3',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestDhewm3Generator.test_generate[config]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta r_brightness "1"
+  seta sys_lang "english"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_generate_config[{'dhewm3_brightness': 1.6}]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta r_brightness "1.6"
+  seta sys_lang "english"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_generate_config[{'dhewm3_language': 'spanish'}]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta r_brightness "1"
+  seta sys_lang "spanish"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_generate_d3xp
+  tuple(
+    list([
+      '/usr/bin/dhewm3',
+      '+set',
+      'fs_basepath',
+      '/userdata/roms/doom3',
+      '+set',
+      'fs_game',
+      'd3xp',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestDhewm3Generator.test_generate_d3xp[config]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta r_brightness "1"
+  seta sys_lang "english"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_generate_existing[config]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta sys_lang "english"
+  seta r_brightness "1"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_generate_mods[d3le]
+  tuple(
+    list([
+      '/usr/bin/dhewm3',
+      '+set',
+      'fs_basepath',
+      '/userdata/roms/doom3',
+      '+set',
+      'fs_game_base',
+      'd3xp',
+      '+seta',
+      'com_allowconsole',
+      '1',
+      '+set',
+      'fs_game',
+      'd3le',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestDhewm3Generator.test_generate_mods[d3le][config]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta r_brightness "1"
+  seta sys_lang "english"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_generate_mods[perfected_roe]
+  tuple(
+    list([
+      '/usr/bin/dhewm3',
+      '+set',
+      'fs_basepath',
+      '/userdata/roms/doom3',
+      '+set',
+      'fs_game_base',
+      'd3xp',
+      '+set',
+      'fs_game',
+      'perfected_roe',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestDhewm3Generator.test_generate_mods[perfected_roe][config]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta r_brightness "1"
+  seta sys_lang "english"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_generate_mods[sikkmodd3xp]
+  tuple(
+    list([
+      '/usr/bin/dhewm3',
+      '+set',
+      'fs_basepath',
+      '/userdata/roms/doom3',
+      '+set',
+      'fs_game_base',
+      'd3xp',
+      '+set',
+      'fs_game',
+      'sikkmodd3xp',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestDhewm3Generator.test_generate_mods[sikkmodd3xp][config]
+  '''
+  seta r_mode "-1"
+  seta r_fullscreen "1"
+  seta r_customHeight "1080"
+  seta r_customWidth "1920"
+  bind "JOY_BTN_SOUTH" "_moveUp"
+  bind "JOY_BTN_EAST" "_moveDown"
+  bind "JOY_BTN_WEST" "_impulse19"
+  bind "JOY_BTN_NORTH" "_impulse13"
+  bind "JOY_BTN_LSTICK" "_strafe"
+  bind "JOY_BTN_RSTICK" "_speed"
+  bind "JOY_BTN_LSHOULDER" "_impulse15"
+  bind "JOY_BTN_RSHOULDER" "_impulse14"
+  bind "JOY_STICK1_UP" "_forward"
+  bind "JOY_STICK1_DOWN" "_back"
+  bind "JOY_STICK1_LEFT" "_moveLeft"
+  bind "JOY_STICK1_RIGHT" "_moveRight"
+  bind "JOY_STICK2_UP" "_lookUp"
+  bind "JOY_STICK2_DOWN" "_lookDown"
+  bind "JOY_STICK2_LEFT" "_left"
+  bind "JOY_STICK2_RIGHT" "_right"
+  bind "JOY_TRIGGER2" "_attack"
+  seta r_brightness "1"
+  seta sys_lang "english"
+  
+  '''
+# ---
+# name: TestDhewm3Generator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'restore_state': 'KEY_F9',
+      'save_state': 'KEY_F5',
+    }),
+    'name': 'dhewm3',
+  })
+# ---

@@ -148,7 +148,7 @@ class MameGenerator(Generator):
         # Set custom config path if option is selected or default path if not
         customCfg = system.config.get_bool("customcfg")
 
-        if system.name == "mame":
+        if system.name == "mame" or messMode == -1:
             if customCfg:
                 cfgPath = MAME_CONFIG / "custom"
             else:
