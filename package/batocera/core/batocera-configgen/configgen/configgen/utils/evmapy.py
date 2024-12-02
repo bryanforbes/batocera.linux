@@ -7,7 +7,8 @@ from collections import defaultdict
 from contextlib import AbstractContextManager
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TYPE_CHECKING, Final, Literal, NotRequired, TypedDict, cast
+from typing import TYPE_CHECKING, Final, Literal, NotRequired, cast
+from typing_extensions import TypedDict
 
 from ..batoceraPaths import CONFIGS, EVMAPY
 
@@ -57,12 +58,12 @@ class _KeysActionBase(TypedDict):
     description: NotRequired[str]
 
 
-class _KeysAction(_KeysActionBase):
+class _KeysAction(_KeysActionBase, closed=True):
     type: Literal['exec', 'key']
     target: str | list[str]
 
 
-class _KeysMouseAction(_KeysActionBase):
+class _KeysMouseAction(_KeysActionBase, closed=True):
     type: Literal['mouse']
 
 

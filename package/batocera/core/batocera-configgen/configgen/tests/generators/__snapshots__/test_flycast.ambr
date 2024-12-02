@@ -1,0 +1,1782 @@
+# serializer version: 1
+# name: TestFlycastGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/flycast',
+      '/userdata/roms/dreamcast/rom.chd',
+    ]),
+    dict({
+      'FLYCAST_BIOS_PATH': '/userdata/bios/dc',
+      'FLYCAST_DATADIR': '/userdata/saves/dreamcast',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_DIRS': '/userdata/system/configs',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves/dreamcast',
+    }),
+  )
+# ---
+# name: TestFlycastGenerator.test_generate[config]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate[p1-mapping]
+  '''
+  [analog]
+  bind0 = 0-:btn_analog_left
+  bind1 = 0+:btn_analog_right
+  bind2 = 1-:btn_analog_up
+  bind3 = 1+:btn_analog_down
+  bind4 = 2-:axis2_left
+  bind5 = 2+:axis2_right
+  bind6 = 3-:axis2_up
+  bind7 = 3+:axis2_down
+  
+  [digital]
+  bind0 = 0:btn_b
+  bind1 = 1:btn_a
+  bind2 = 257:btn_dpad1_down
+  bind3 = 6:btn_trigger_left
+  bind4 = 258:btn_dpad1_left
+  bind5 = 7:btn_trigger_right
+  bind6 = 259:btn_dpad1_right
+  bind7 = 9:btn_start
+  bind8 = 256:btn_dpad1_up
+  bind9 = 2:btn_y
+  bind10 = 3:btn_x
+  
+  [emulator]
+  dead_zone = 10
+  mapping_name = Default
+  rumble_power = 100
+  version = 3
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_arcade
+  tuple(
+    list([
+      '/usr/bin/flycast',
+      '/userdata/roms/dreamcast/rom.chd',
+    ]),
+    dict({
+      'FLYCAST_BIOS_PATH': '/userdata/bios/dc',
+      'FLYCAST_DATADIR': '/userdata/saves/dreamcast',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_DIRS': '/userdata/system/configs',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves/dreamcast',
+    }),
+  )
+# ---
+# name: TestFlycastGenerator.test_generate_arcade[config]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_arcade[p1-mapping]
+  '''
+  [analog]
+  bind0 = 0-:btn_analog_left
+  bind1 = 0+:btn_analog_right
+  bind2 = 1-:btn_analog_up
+  bind3 = 1+:btn_analog_down
+  bind4 = 2-:axis2_left
+  bind5 = 2+:axis2_right
+  bind6 = 3-:axis2_up
+  bind7 = 3+:axis2_down
+  
+  [digital]
+  bind0 = 0:btn_b
+  bind1 = 1:btn_a
+  bind2 = 257:btn_dpad1_down
+  bind3 = 6:btn_trigger_left
+  bind4 = 11:btn_dpad2_up
+  bind5 = 258:btn_dpad1_left
+  bind6 = 5:btn_z
+  bind7 = 4:btn_y
+  bind8 = 7:btn_trigger_right
+  bind9 = 12:btn_dpad2_down
+  bind10 = 259:btn_dpad1_right
+  bind11 = 8:btn_d
+  bind12 = 9:btn_start
+  bind13 = 256:btn_dpad1_up
+  bind14 = 2:btn_x
+  bind15 = 3:btn_c
+  
+  [emulator]
+  dead_zone = 10
+  mapping_name = Default
+  rumble_power = 100
+  version = 3
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_DSP': 'yes'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = yes
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_anisotropic': '4'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 4
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_ctrl1_pack': '3'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 3
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_language': '2'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 2
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun1_crosshair': 'Blue'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = Blue
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun1_crosshair': 'Green'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = Green
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun1_crosshair': 'Red'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = Red
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun1_crosshair': 'White'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = White
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun2_crosshair': 'Blue'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = Blue
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun2_crosshair': 'Green'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = Green
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun2_crosshair': 'Red'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = Red
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun2_crosshair': 'White'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = White
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun3_crosshair': 'Blue'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = Blue
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun3_crosshair': 'Green'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = Green
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun3_crosshair': 'Red'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = Red
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun3_crosshair': 'White'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = White
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun4_crosshair': 'Blue'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = Blue
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun4_crosshair': 'Green'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = Green
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun4_crosshair': 'Red'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = Red
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_lightgun4_crosshair': 'White'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = White
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_loadstate': 'yes'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = yes
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_per_game_vmu': '0'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_per_game_vmu': '1'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = yes
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_ratio': 'yes'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = yes
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_region': '2'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 2
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_render_resolution': '960', 'flycast.config.rend.Resolution': '1200', 'flycast.foo.bar': 'baz'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 1200
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  [foo]
+  bar = baz
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_render_resolution': '960'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 960
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_renderer': '0', 'flycast_sorting': '3'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 3
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_renderer': '0'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_renderer': '4', 'flycast_sorting': '3'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 5
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_renderer': '4'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 4
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_rotate': 'yes'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = yes
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_savestate': 'yes'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = yes
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_sorting': '2'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = yes
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_sorting': '3'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 3
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'flycast_winCE': 'yes'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = yes
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'retroachievements': 'on', 'retroachievements.username': 'username', 'retroachievements.password': 'password', 'retroachievements.hardcore': '0', 'retroachievements.token': 'token'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = yes
+  HardcoreMode = no
+  Token = token
+  UserName = username
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_config[{'retroachievements': 'on', 'retroachievements.username': 'username', 'retroachievements.password': 'password', 'retroachievements.hardcore': '1', 'retroachievements.token': 'token'}]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = yes
+  HardcoreMode = yes
+  Token = token
+  UserName = username
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_controllers[dreamcast]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  device2 = 0
+  device2.1 = 1
+  device2.2 = 1
+  maple_sdl_joystick_1 = 1
+  device3 = 0
+  device3.1 = 1
+  device3.2 = 1
+  maple_sdl_joystick_2 = 2
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_controllers[naomi]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  device2 = 0
+  device2.1 = 1
+  device2.2 = 1
+  maple_sdl_joystick_1 = 1
+  device3 = 0
+  device3.1 = 1
+  device3.2 = 1
+  maple_sdl_joystick_2 = 2
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_generate_existing[config]
+  '''
+  [input]
+  device1 = 0
+  device1.1 = 1
+  device1.2 = 1
+  maple_sdl_joystick_0 = 0
+  
+  [config]
+  rend.Resolution = 480
+  rend.WideScreen = no
+  rend.Rotate90 = no
+  pvr.rend = 0
+  rend.AnisotropicFiltering = 1
+  rend.PerStripSorting = no
+  Dreamcast.Language = 1
+  Dreamcast.Region = 1
+  Dreamcast.AutoLoadState = no
+  Dreamcast.AutoSaveState = no
+  Dreamcast.ForceWindowsCE = no
+  PerGameVmu = no
+  aica.DSPEnabled = no
+  rend.CrossHairColor1 = 0
+  rend.CrossHairColor2 = 0
+  rend.CrossHairColor3 = 0
+  rend.CrossHairColor4 = 0
+  
+  [window]
+  fullscreen = yes
+  width = 1920
+  height = 1080
+  
+  [achievements]
+  Enabled = no
+  
+  [foo]
+  bar = baz
+  
+  
+  '''
+# ---
+# name: TestFlycastGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'KEY_F7',
+      'fastforward': 'KEY_SPACE',
+      'menu': 'KEY_TAB',
+      'restore_state': 'KEY_F9',
+      'save_state': 'KEY_F8',
+    }),
+    'name': 'flycast',
+  })
+# ---

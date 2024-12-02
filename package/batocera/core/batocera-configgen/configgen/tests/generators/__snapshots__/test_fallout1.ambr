@@ -1,0 +1,264 @@
+# serializer version: 1
+# name: TestFallout1Generator.test_generate
+  tuple(
+    list([
+      'fallout1-ce',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestFallout1Generator.test_generate[config]
+  '''
+  [debug]
+  
+  [preferences]
+  game_difficulty = 1
+  combat_difficulty = 1
+  violence_level = 2
+  subtitles = 0
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  language = english
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate[ini]
+  '''
+  [MAIN]
+  SCALE_2X = 1
+  SCR_WIDTH = 1920
+  SCR_HEIGHT = 1080
+  WINDOWED = 0
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_config[{'fout1_combat_difficulty': '0'}]
+  '''
+  [debug]
+  
+  [preferences]
+  game_difficulty = 1
+  combat_difficulty = 0
+  violence_level = 2
+  subtitles = 0
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  language = english
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_config[{'fout1_game_difficulty': '0'}]
+  '''
+  [debug]
+  
+  [preferences]
+  game_difficulty = 0
+  combat_difficulty = 1
+  violence_level = 2
+  subtitles = 0
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  language = english
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_config[{'fout1_language': 'french'}]
+  '''
+  [debug]
+  
+  [preferences]
+  game_difficulty = 1
+  combat_difficulty = 1
+  violence_level = 2
+  subtitles = 0
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  language = french
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_config[{'fout1_subtitles': '1'}]
+  '''
+  [debug]
+  
+  [preferences]
+  game_difficulty = 1
+  combat_difficulty = 1
+  violence_level = 2
+  subtitles = 1
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  language = english
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_config[{'fout1_violence_level': '0'}]
+  '''
+  [debug]
+  
+  [preferences]
+  game_difficulty = 1
+  combat_difficulty = 1
+  violence_level = 0
+  subtitles = 0
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  language = english
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_existing[config]
+  '''
+  [debug]
+  debug = 1
+  
+  [preferences]
+  game_difficulty = 1
+  combat_difficulty = 1
+  violence_level = 2
+  subtitles = 0
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  language = english
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_existing[ini]
+  '''
+  [MAIN]
+  SCALE_2X = 1
+  SCR_WIDTH = 1920
+  SCR_HEIGHT = 1080
+  WINDOWED = 0
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_existing_src_config[config]
+  '''
+  [debug]
+  debug = 1
+  
+  [preferences]
+  game_difficulty = 1
+  combat_difficulty = 1
+  violence_level = 2
+  subtitles = 0
+  
+  [sound]
+  music_path1 = DATA/SOUND/MUSIC/
+  music_path2 = DATA/SOUND/MUSIC/
+  
+  [system]
+  language = english
+  critter_dat = CRITTER.DAT
+  critter_patches = DATA
+  master_dat = MASTER.DAT
+  master_patches = DATA
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_existing_src_config[ini]
+  '''
+  [MAIN]
+  SCALE_2X = 1
+  SCR_WIDTH = 1920
+  SCR_HEIGHT = 1080
+  WINDOWED = 0
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_generate_resolution
+  '''
+  [MAIN]
+  SCALE_2X = 0
+  SCR_WIDTH = 1024
+  SCR_HEIGHT = 768
+  WINDOWED = 0
+  
+  
+  '''
+# ---
+# name: TestFallout1Generator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_ESC',
+      'pause': 'KEY_ESC',
+      'restore_state': 'KEY_F7',
+      'save_state': 'KEY_F6',
+    }),
+    'name': 'fallout1',
+  })
+# ---
