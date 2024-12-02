@@ -1,0 +1,1427 @@
+# serializer version: 1
+# name: TestXeniaGenerator.test_generate
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia/xenia.exe',
+      'z:/userdata/roms/xbox360/rom.iso',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate[config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate[winetrick]
+  _CallList([
+    _Call(
+      tuple(
+        'vcrun2022',
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestXeniaGenerator.test_generate_canary
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia-canary/xenia_canary.exe',
+      'z:/userdata/roms/xbox360/rom.iso',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_canary[config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_canary[winetrick]
+  _CallList([
+    _Call(
+      tuple(
+        'vcrun2022',
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_achievement': 'True'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = true
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_cache': 'False'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = false
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_country': '5'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 5
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_headless': 'True'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = true
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_language': '2'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 2
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_license': '0'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 0
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_page_state': 'True'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = true
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_patches': 'True'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = true
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_readback_resolve': 'True'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = true
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_resolution': '16'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 16
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config[{'xenia_vsync': 'False'}][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = false
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config_patches[blah]
+  '''
+  [[patch]]
+  name = 'Test Patch'
+  is_enabled = false
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config_patches[patch 1]
+  '''
+  [[patch]]
+  name = "Test Patch 1"
+  is_enabled = true
+  
+  [[patch]]
+  name = "Test Patch 2"
+  is_enabled = true
+  
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config_patches[patch 2]
+  '''
+  [[patch]]
+  name = "Test Patch 3"
+  is_enabled = true
+  
+  [[patch]]
+  name = "Test Patch 4"
+  
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_config_rom[xenia-canary]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia-canary/xenia_canary.exe',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_config_rom[xenia]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia/xenia.exe',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_digital_title[xenia-canary-does not exist]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia-canary/xenia_canary.exe',
+      'z:/userdata/roms/xbox360/XBLA/rom.xbox360',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_digital_title[xenia-canary-exists]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia-canary/xenia_canary.exe',
+      'z:/userdata/roms/xbox360/XBLA/Battlezone',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_digital_title[xenia-does not exist]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia/xenia.exe',
+      'z:/userdata/roms/xbox360/XBLA/rom.xbox360',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_digital_title[xenia-exists]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia/xenia.exe',
+      'z:/userdata/roms/xbox360/XBLA/Battlezone',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_existing[xenia-canary][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_language = 1
+  user_country = 103
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_existing[xenia][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_language = 1
+  user_country = 103
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_nvidia[__GLX_VENDOR_LIBRARY_NAME]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia/xenia.exe',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'VK_ICD_FILENAMES': '/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json',
+      'VK_LAYER_PATH': '/usr/share/vulkan/explicit_layer.d',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_nvidia[__GLX_VENDOR_LIBRARY_NAME][environ]
+  dict({
+    'FOO': 'BAR',
+    'WINEARCH': 'win64',
+  })
+# ---
+# name: TestXeniaGenerator.test_generate_nvidia[__NV_PRIME_RENDER_OFFLOAD]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia/xenia.exe',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'VK_ICD_FILENAMES': '/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json',
+      'VK_LAYER_PATH': '/usr/share/vulkan/explicit_layer.d',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_nvidia[__NV_PRIME_RENDER_OFFLOAD][environ]
+  dict({
+    'FOO': 'BAR',
+    'WINEARCH': 'win64',
+  })
+# ---
+# name: TestXeniaGenerator.test_generate_nvidia[__VK_LAYER_NV_optimus]
+  tuple(
+    list([
+      '/usr/wine/wine-proton/bin/wine64',
+      '/userdata/system/wine-bottles/xbox360/xenia/xenia.exe',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib:/lib32:/usr/wine/wine-proton/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/usr/lib/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VKD3D_SHADER_CACHE_PATH': '/userdata/system/cache/xenia',
+      'VK_ICD_FILENAMES': '/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json',
+      'VK_LAYER_PATH': '/usr/share/vulkan/explicit_layer.d',
+      'WINEDLLOVERRIDES': 'winemenubuilder.exe=;dxgi,d3d8,d3d9,d3d10core,d3d11,d3d12,d3d12core=n',
+      'WINEPREFIX': '/userdata/system/wine-bottles/xbox360',
+    }),
+  )
+# ---
+# name: TestXeniaGenerator.test_generate_nvidia[__VK_LAYER_NV_optimus][environ]
+  dict({
+    'FOO': 'BAR',
+    'WINEARCH': 'win64',
+  })
+# ---
+# name: TestXeniaGenerator.test_generate_vulkan[new version][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_vulkan[old version, D3D12 config][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "vulkan"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_vulkan[old version, no config][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "d3d12"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_generate_vulkan[old version, vulkan config][config]
+  '''
+  [CPU]
+  break_on_unimplemented_instructions = false
+  
+  [Content]
+  license_mask = 1
+  
+  [D3D12]
+  d3d12_readback_resolve = false
+  
+  [Display]
+  fullscreen = true
+  internal_display_resolution = 8
+  
+  [GPU]
+  gpu = "vulkan"
+  vsync = true
+  framerate_limit = 0
+  clear_memory_page_state = false
+  render_target_path_d3d12 = "rtv"
+  query_occlusion_fake_sample_count = 1000
+  texture_cache_memory_limit_hard = 768
+  texture_cache_memory_limit_render_to_texture = 24
+  texture_cache_memory_limit_soft = 384
+  texture_cache_memory_limit_soft_lifetime = 30
+  
+  [General]
+  apply_patches = false
+  
+  [HID]
+  hid = "sdl"
+  
+  [Logging]
+  log_level = 1
+  
+  [Memory]
+  protect_zero = false
+  
+  [Storage]
+  cache_root = "/userdata/system/cache/xenia"
+  content_root = "/userdata/saves/xbox360"
+  mount_scratch = true
+  storage_root = "/userdata/system/configs/xenia"
+  mount_cache = true
+  
+  [UI]
+  headless = false
+  show_achievement_notification = false
+  
+  [Vulkan]
+  vulkan_sparse_shared_memory = false
+  
+  [XConfig]
+  user_country = 103
+  user_language = 1
+  
+  '''
+# ---
+# name: TestXeniaGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'xenia',
+  })
+# ---

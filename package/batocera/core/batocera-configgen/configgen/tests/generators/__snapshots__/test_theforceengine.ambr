@@ -1,0 +1,2768 @@
+# serializer version: 1
+# name: TestTheForceEngineGenerator.test_generate
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate[config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_api': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_api': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 0
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_api': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_api': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_aim': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_aim': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = false
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_aim': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_aim': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_run': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_run': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_run': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_auto_run': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = true
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_bilinear': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_bilinear': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_bilinear': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_bilinear': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = true
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_boba': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_boba': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_boba': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_boba': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = true
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_colour': '2'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_colour': '2'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 2
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_crosshair': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_crosshair': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_crosshair': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_crosshair': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = true
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_digital_audio': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_digital_audio': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_digital_audio': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_digital_audio': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = true
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_fight_music': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_fight_music': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_fight_music': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_fight_music': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = true
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_hd': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_hd': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_hd': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_hd': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 2
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 1
+  hdSprites = 1
+  hdHud = 1
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_menu_sound': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_menu_sound': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_menu_sound': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_menu_sound': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = true
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_mipmapping': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_mipmapping': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_mipmapping': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_mipmapping': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = true
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_postfx': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_postfx': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_postfx': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_postfx': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = true
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_rate': '30'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_rate': '30'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 30
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_render_res': '200'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_render_res': '200'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 266.6666666666667
+  gameHeight = 200
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_secret_msg': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_secret_msg': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = false
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_secret_msg': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_secret_msg': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_skip_cutscenes': 'initial'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-c0',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_skip_cutscenes': 'initial'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_skip_cutscenes': 'show'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_skip_cutscenes': 'show'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_skip_cutscenes': 'skip'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-c',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_skip_cutscenes': 'skip'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_smooth_vues': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_smooth_vues': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_smooth_vues': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_smooth_vues': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = true
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_vsync': '0'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_vsync': '0'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = false
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_vsync': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_vsync': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = false
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_widescreen': '1'}]
+  tuple(
+    list([
+      'theforceengine',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_config[{'force_widescreen': '1'}][config]
+  '''
+  [Window]
+  width = 1920
+  height = 1080
+  fullscreen = true
+  
+  [Graphics]
+  gameWidth = 1440
+  gameHeight = 1080
+  widescreen = true
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  scale = 1.000
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_existing[config]
+  '''
+  [Window]
+  fullscreen = true
+  width = 1920
+  height = 1080
+  
+  [Graphics]
+  widescreen = false
+  gameWidth = 1440
+  gameHeight = 1080
+  vsync = true
+  frameRateLimit = 60
+  renderer = 1
+  colorMode = 0
+  useBilinear = false
+  useMipmapping = false
+  reticleEnable = false
+  bloomEnabled = false
+  
+  [Hud]
+  scale = 1.000
+  hudScale = "Proportional"
+  hudPos = "Edge"
+  
+  [Enhancements]
+  hdTextures = 0
+  hdSprites = 0
+  hdHud = 0
+  
+  [Sound]
+  disableSoundInMenus = false
+  use16Channels = false
+  
+  [System]
+  
+  [A11y]
+  
+  [Game]
+  game = Dark Forces
+  
+  [Dark_Forces]
+  sourcePath = "/userdata/roms/theforceengine/Star Wars - Dark Forces/"
+  disableFightMusic = false
+  enableAutoaim = true
+  showSecretFoundMsg = true
+  autorun = false
+  bobaFettFacePlayer = false
+  smoothVUEs = false
+  
+  [Outlaws]
+  sourcePath = ""
+  
+  [CVar]
+  
+  [Spam]
+  
+  
+  '''
+# ---
+# name: TestTheForceEngineGenerator.test_generate_mod
+  tuple(
+    list([
+      'theforceengine',
+      '-udf_patch4.zip',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_generate_tfe_file
+  tuple(
+    list([
+      'theforceengine',
+      '-uother.zip',
+      '-gDARK',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'TFE_DATA_HOME': '/userdata/system/configs/theforceengine',
+    }),
+  )
+# ---
+# name: TestTheForceEngineGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'restore_state': list([
+        'KEY_LEFTALT',
+        'KEY_F9',
+      ]),
+      'save_state': list([
+        'KEY_LEFTALT',
+        'KEY_F5',
+      ]),
+    }),
+    'name': 'theforceengine',
+  })
+# ---

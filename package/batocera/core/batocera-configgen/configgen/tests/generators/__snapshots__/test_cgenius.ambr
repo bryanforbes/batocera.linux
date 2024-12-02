@@ -1,0 +1,506 @@
+# serializer version: 1
+# name: TestCGeniusGenerator.test_generate
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate[config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_aspect': '16:9'}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_aspect': '16:9'}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 16:9
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_cursor': 'true'}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_cursor': 'true'}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = true
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_filter': 1}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_filter': 1}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = 1
+  OGLfilter = nearest
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_quality': 'best'}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_quality': 'best'}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = best
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '200'}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '200'}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '240'}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '240'}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 240
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '360'}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '360'}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 360
+  gameWidth = 640
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '480'}]
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_config[{'cgenius_render': '480'}][config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 480
+  gameWidth = 640
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_controllers
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '''
+        030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,real name 2,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,real name 3,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,real name 4,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,real name 5,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+      ''',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_controllers[config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  [input1]
+  Fire = Joy1-B0
+  Jump = Joy1-B1
+  Down = Joy1-H4
+  Left = Joy1-H8
+  Run = Joy1-B5
+  Camlead = Joy1-B4
+  Right = Joy1-H2
+  Up = Joy1-H1
+  Status = Joy1-B2
+  Pogo = Joy1-B3
+  [input2]
+  Fire = Joy2-B0
+  Jump = Joy2-B1
+  Down = Joy2-H4
+  Left = Joy2-H8
+  Run = Joy2-B5
+  Camlead = Joy2-B4
+  Right = Joy2-H2
+  Up = Joy2-H1
+  Status = Joy2-B2
+  Pogo = Joy2-B3
+  [input3]
+  Fire = Joy3-B0
+  Jump = Joy3-B1
+  Down = Joy3-H4
+  Left = Joy3-H8
+  Run = Joy3-B5
+  Camlead = Joy3-B4
+  Right = Joy3-H2
+  Up = Joy3-H1
+  Status = Joy3-B2
+  Pogo = Joy3-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_generate_existing
+  tuple(
+    list([
+      'CGeniusExe',
+      'dir="."',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCGeniusGenerator.test_generate_existing[config]
+  '''
+  [FileHandling]
+  EnableLogfile = false
+  SearchPath1 = /userdata/roms/cgenius
+  SearchPath2 = /userdata/roms/cgenius/games
+  [Video]
+  aspect = 4:3
+  fullscreen = false
+  integerScaling = false
+  filter = none
+  OGLfilter = nearest
+  gameHeight = 200
+  gameWidth = 320
+  ShowCursor = false
+  [input0]
+  Fire = Joy0-B0
+  Jump = Joy0-B1
+  Down = Joy0-H4
+  Left = Joy0-H8
+  Run = Joy0-B5
+  Camlead = Joy0-B4
+  Right = Joy0-H2
+  Up = Joy0-H1
+  Status = Joy0-B2
+  Pogo = Joy0-B3
+  
+  '''
+# ---
+# name: TestCGeniusGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_ESC',
+      'pause': 'KEY_ESC',
+      'restore_state': 'KEY_F9',
+      'save_state': 'KEY_F6',
+    }),
+    'name': 'cgenius',
+  })
+# ---
