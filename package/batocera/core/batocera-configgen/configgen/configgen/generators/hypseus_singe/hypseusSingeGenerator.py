@@ -7,8 +7,6 @@ import shutil
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, cast
 
-import ffmpeg
-
 from ... import Command
 from ...batoceraPaths import CONFIGS, ROMS, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
@@ -59,6 +57,8 @@ class HypseusSingeGenerator(Generator):
 
     @staticmethod
     def get_resolution(video_path: Path) -> tuple[int, int] | None:
+        import ffmpeg
+
         probe = ffmpeg.probe(video_path)
         video_stream = next((stream for stream in probe['streams'] if stream['codec_type'] == 'video'), None)
 

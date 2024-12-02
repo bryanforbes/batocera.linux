@@ -1,0 +1,2133 @@
+# serializer version: 1
+# name: TestDrasticGenerator.test_generate
+  tuple(
+    list([
+      '/userdata/system/configs/drastic/drastic',
+      '/userdata/roms/nds/rom.nds',
+    ]),
+    dict({
+      'DISPLAY': '0.0',
+      'LIB_FB': '3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDrasticGenerator.test_generate[config]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate[subprocess-run]
+  _CallList([
+    _Call(
+      tuple(
+        'xxd /userdata/system/configs/drastic/drastic > drastic.txt',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "grep -q '3000 0000 0000' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "sed -i 's/3000 0000 0000/6c69 6e65 6172/g' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        'xxd -r drastic.txt > /userdata/system/configs/drastic/drastic',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+  ])
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_fix2d': '0'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_fix2d': '1'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 1
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_frameskip_type': '2'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 2
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_frameskip_type': '3'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 3
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_frameskip_value': '1'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_frameskip_value': '2'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 2
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_hires': '0'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_hires': '1'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 1
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_screen_orientation': '0'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_screen_orientation': '1'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 1
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_screen_orientation': '3'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 3
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_threaded': '0'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_config[{'drastic_threaded': '1'}]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 1
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_existing_root
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_lang[de_DE]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 3
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_lang[en_GB]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_lang[en_US]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 1
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_lang[es_ES]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 5
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_lang[fr_FR]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 2
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_lang[it_IT]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 4
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_lang[ja_JP]
+  '''
+  enable_sound = 1
+  compress_savestates = 1
+  savestate_snapshot = 1
+  firmware.username = Batocera
+  firmware.language = 0
+  firmware.favorite_color = 11
+  firmware.birthday_month = 11
+  firmware.birthday_day = 25
+  enable_cheats = 1
+  rtc_system_time = 1
+  use_rtc_custom_time = 0
+  rtc_custom_time = 0
+  frameskip_type = 0
+  frameskip_value = 1
+  safe_frameskip = 1
+  disable_edge_marking = 1
+  fix_main_2d_screen = 0
+  hires_3d = 0
+  threaded_3d = 0
+  screen_orientation = 0
+  screen_scaling = 0
+  screen_swap  = 0
+  controls_a[CONTROL_INDEX_UP]                           = 338          # Arrow Up        
+  controls_a[CONTROL_INDEX_DOWN]                         = 337          # Arrow Down      
+  controls_a[CONTROL_INDEX_LEFT]                         = 336          # Arrow Left      
+  controls_a[CONTROL_INDEX_RIGHT]                        = 335          # Arrow Right     
+  controls_a[CONTROL_INDEX_A]                            = 101          # E               
+  controls_a[CONTROL_INDEX_B]                            = 114          # R               
+  controls_a[CONTROL_INDEX_X]                            = 100          # D               
+  controls_a[CONTROL_INDEX_Y]                            = 102          # F               
+  controls_a[CONTROL_INDEX_L]                            = 99           # C               
+  controls_a[CONTROL_INDEX_R]                            = 118          # V               
+  controls_a[CONTROL_INDEX_START]                        = 13           # Return          
+  controls_a[CONTROL_INDEX_SELECT]                       = 32           # Space           
+  controls_a[CONTROL_INDEX_HINGE]                        = 104          # H               
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535        # PAD2KEY MOUSE   
+  controls_a[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 360          # Left Click      
+  controls_a[CONTROL_INDEX_MENU]                         = 314          # F1              
+  controls_a[CONTROL_INDEX_SAVE_STATE]                   = 318          # F5              
+  controls_a[CONTROL_INDEX_LOAD_STATE]                   = 320          # F7              
+  controls_a[CONTROL_INDEX_FAST_FORWARD]                 = 9            # Tab             
+  controls_a[CONTROL_INDEX_SWAP_SCREENS]                 = 315          # F2              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 316          # F3              
+  controls_a[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 317          # F4              
+  controls_a[CONTROL_INDEX_LOAD_GAME]                    = 65535        # DISABLED        
+  controls_a[CONTROL_INDEX_QUIT]                         = 325          # F12             
+  controls_a[CONTROL_INDEX_FAKE_MICROPHONE]              = 121          # Y               
+  controls_a[CONTROL_INDEX_UI_PAGE_UP]                   = 331          # PageUp          
+  controls_a[CONTROL_INDEX_UI_PAGE_DOWN]                 = 334          # PageDown        
+  controls_a[CONTROL_INDEX_UI_SWITCH]                    = 117          # U                 
+  
+  controls_b[CONTROL_INDEX_UP]                           = 65535   
+  controls_b[CONTROL_INDEX_DOWN]                         = 65535   
+  controls_b[CONTROL_INDEX_LEFT]                         = 65535   
+  controls_b[CONTROL_INDEX_RIGHT]                        = 65535   
+  controls_b[CONTROL_INDEX_A]                            = 65535   
+  controls_b[CONTROL_INDEX_B]                            = 65535   
+  controls_b[CONTROL_INDEX_X]                            = 65535   
+  controls_b[CONTROL_INDEX_Y]                            = 65535   
+  controls_b[CONTROL_INDEX_L]                            = 65535   
+  controls_b[CONTROL_INDEX_R]                            = 65535   
+  controls_b[CONTROL_INDEX_START]                        = 65535   
+  controls_b[CONTROL_INDEX_SELECT]                       = 65535   
+  controls_b[CONTROL_INDEX_HINGE]                        = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_UP]              = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_DOWN]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_LEFT]            = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_RIGHT]           = 65535   
+  controls_b[CONTROL_INDEX_TOUCH_CURSOR_PRESS]           = 65535   
+  controls_b[CONTROL_INDEX_MENU]                         = 65535   
+  controls_b[CONTROL_INDEX_SAVE_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_LOAD_STATE]                   = 65535   
+  controls_b[CONTROL_INDEX_FAST_FORWARD]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_SCREENS]                 = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_A]           = 65535   
+  controls_b[CONTROL_INDEX_SWAP_ORIENTATION_B]           = 65535   
+  controls_b[CONTROL_INDEX_LOAD_GAME]                    = 65535   
+  controls_b[CONTROL_INDEX_QUIT]                         = 65535   
+  controls_b[CONTROL_INDEX_FAKE_MICROPHONE]              = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_UP]                   = 65535   
+  controls_b[CONTROL_INDEX_UI_PAGE_DOWN]                 = 65535   
+  controls_b[CONTROL_INDEX_UI_SWITCH]                    = 65535     
+  '''
+# ---
+# name: TestDrasticGenerator.test_generate_scaling[bilinear, grep exits with 0]
+  _CallList([
+    _Call(
+      tuple(
+        'xxd /userdata/system/configs/drastic/drastic > drastic.txt',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "grep -q '3000 0000 0000' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "sed -i 's/3000 0000 0000/6c69 6e65 6172/g' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        'xxd -r drastic.txt > /userdata/system/configs/drastic/drastic',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+  ])
+# ---
+# name: TestDrasticGenerator.test_generate_scaling[nearest, grep exits with 0]
+  _CallList([
+    _Call(
+      tuple(
+        'xxd /userdata/system/configs/drastic/drastic > drastic.txt',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "grep -q '6c69 6e65 6172' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "sed -i 's/6c69 6e65 6172/3000 0000 0000/g' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        'xxd -r drastic.txt > /userdata/system/configs/drastic/drastic',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+  ])
+# ---
+# name: TestDrasticGenerator.test_generate_scaling[nearest, grep exits with 1]
+  _CallList([
+    _Call(
+      tuple(
+        'xxd /userdata/system/configs/drastic/drastic > drastic.txt',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "grep -q '6c69 6e65 6172' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+  ])
+# ---
+# name: TestDrasticGenerator.test_generate_scaling[no config, grep exits with 1]
+  _CallList([
+    _Call(
+      tuple(
+        'xxd /userdata/system/configs/drastic/drastic > drastic.txt',
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+    _Call(
+      tuple(
+        "grep -q '3000 0000 0000' drastic.txt",
+      ),
+      dict({
+        'shell': True,
+      }),
+    ),
+  ])
+# ---
+# name: TestDrasticGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'KEY_ESC',
+      'fastforward': 'KEY_TAB',
+      'menu': 'KEY_F1',
+      'restore_state': 'KEY_F7',
+      'save_state': 'KEY_F5',
+      'swap_screen': 'KEY_F2',
+    }),
+    'name': 'drastic',
+  })
+# ---
