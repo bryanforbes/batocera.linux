@@ -1,0 +1,444 @@
+# serializer version: 1
+# name: TestXash3dFwgsGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/xash3d',
+      '-fullscreen',
+      '-dev',
+      '-clientlib',
+      '/usr/lib/xash3d/hlsdk/hl/cl_dlls/client_amd64.so',
+      '-dll',
+      '/usr/lib/xash3d/hlsdk/hl/dlls/hl_amd64.so',
+      '-game',
+      'rom',
+      '+showfps',
+      '0',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib/xash3d',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XASH3D_BASEDIR': '/userdata/roms/xash3d_fwgs',
+      'XASH3D_EXTRAS_PAK1': '/usr/share/xash3d/valve/extras.pk3',
+    }),
+  )
+# ---
+# name: TestXash3dFwgsGenerator.test_generate[config]
+  '''
+  exec gamepad.cfg
+  exec custom.cfg
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate[custom config]
+  '''
+  
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate[gamepad]
+  '''
+  // Default gamepad bindings
+  
+  // == Bindings ==
+  // Same as this illustration except the SELECT + combinations that are different and follow Batocera conventions:
+  // https://raw.githubusercontent.com/krishenriksen/Half-Life-rg351p/da77c22b60c29589240b86608495574672105206/Half-Life/controls.png
+  //
+  // Left stick: Move/Strafe (Walk instead of run when pressed)
+  // Right stick: Look (Crouch when pressed)
+  // D-Pad Up: Spray
+  // D-Pad Down: Quick swap weapon
+  // D-Pad Left: Prev Weapon
+  // D-Pad Right: Next Weapon
+  // A: Use
+  // B: Jump
+  // X: Flashlight
+  // Y: Reload
+  // L1: Duck
+  // L2: Walk (instead of Run)
+  // R1: Fire
+  // R2: Alt-fire
+  // START: Pause
+  // SELECT + B: Menu
+  // SELECT + X: Quick Save
+  // SELECT + Y: Quick Load
+  // SELECT + L1: Screenshot
+  // SELECT + START: Quit
+  
+  joy_side_deadzone "4096"
+  joy_forward_deadzone "4096"
+  joy_pitch_deadzone "4096"
+  joy_yaw_deadzone "4096"
+  
+  bind DPAD_UP "impulse 201"
+  bind DPAD_DOWN "lastinv"
+  bind DPAD_LEFT "invprev"
+  bind DPAD_RIGHT "invnext"
+  
+  // NOTE: A, B, X, Y refer to physical positions on an XBox 360 controller.
+  // A<->B and X<->Y are reversed on a Nintendo controller.
+  bind A_BUTTON "+jump"
+  bind B_BUTTON "+use"
+  bind X_BUTTON "+reload"
+  bind Y_BUTTON "impulse 100"
+  
+  bind L1_BUTTON "+duck"
+  bind LTRIGGER "+speed"
+  
+  bind R1_BUTTON "+attack"
+  bind RTRIGGER "+attack2"
+  
+  bind START "pause"
+  bind STICK1 "+speed"
+  bind STICK2 "+duck"
+  
+  // While SELECT is pressed:
+  alias "+SelectHold" "bind A_BUTTON cancelselect; bind Y_BUTTON load quick; bind X_BUTTON save quick; bind L1_BUTTON screenshot; bind START quit"
+  
+  // When SELECT is released, restore the original bindings (duplicated above).
+  alias "-SelectHold" "bind A_BUTTON +jump; bind Y_BUTTON impulse 100; bind X_BUTTON +reload; bind L1_BUTTON +duck; bind START pause"
+  
+  bind BACK "+SelectHold"
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_existing
+  tuple(
+    list([
+      '/usr/bin/xash3d',
+      '-fullscreen',
+      '-dev',
+      '-clientlib',
+      '/usr/lib/xash3d/hlsdk/hl/cl_dlls/client_amd64.so',
+      '-dll',
+      '/usr/lib/xash3d/hlsdk/hl/dlls/hl_amd64.so',
+      '-game',
+      'rom',
+      '+showfps',
+      '0',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib/xash3d',
+      'SDL_GAMECONTROLLERCONFIG': '',
+      'XASH3D_BASEDIR': '/userdata/roms/xash3d_fwgs',
+      'XASH3D_EXTRAS_PAK1': '/usr/share/xash3d/valve/extras.pk3',
+    }),
+  )
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist
+  tuple(
+    list([
+      '/usr/bin/xash3d',
+      '-fullscreen',
+      '-dev',
+      '-clientlib',
+      '/usr/lib/xash3d/hlsdk/opfor/cl_dlls/client_amd64.so',
+      '-dll',
+      '/usr/lib/xash3d/hlsdk/opfor/dlls/opfor_amd64.so',
+      '-game',
+      'rom',
+      '+showfps',
+      '0',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib/xash3d',
+      'SDL_GAMECONTROLLERCONFIG': '',
+      'XASH3D_BASEDIR': '/userdata/roms/xash3d_fwgs',
+      'XASH3D_EXTRAS_PAK1': '/usr/share/xash3d/valve/extras.pk3',
+    }),
+  )
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist[config]
+  '''
+  exec gamepad.cfg
+  exec custom.cfg
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist[custom config]
+  '''
+  
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist[gamepad]
+  '''
+  // Default gamepad bindings
+  
+  // == Bindings ==
+  // Same as this illustration except the SELECT + combinations that are different and follow Batocera conventions:
+  // https://raw.githubusercontent.com/krishenriksen/Half-Life-rg351p/da77c22b60c29589240b86608495574672105206/Half-Life/controls.png
+  //
+  // Left stick: Move/Strafe (Walk instead of run when pressed)
+  // Right stick: Look (Crouch when pressed)
+  // D-Pad Up: Spray
+  // D-Pad Down: Quick swap weapon
+  // D-Pad Left: Prev Weapon
+  // D-Pad Right: Next Weapon
+  // A: Use
+  // B: Jump
+  // X: Flashlight
+  // Y: Reload
+  // L1: Duck
+  // L2: Walk (instead of Run)
+  // R1: Fire
+  // R2: Alt-fire
+  // START: Pause
+  // SELECT + B: Menu
+  // SELECT + X: Quick Save
+  // SELECT + Y: Quick Load
+  // SELECT + L1: Screenshot
+  // SELECT + START: Quit
+  
+  joy_side_deadzone "4096"
+  joy_forward_deadzone "4096"
+  joy_pitch_deadzone "4096"
+  joy_yaw_deadzone "4096"
+  
+  bind DPAD_UP "impulse 201"
+  bind DPAD_DOWN "lastinv"
+  bind DPAD_LEFT "invprev"
+  bind DPAD_RIGHT "invnext"
+  
+  // NOTE: A, B, X, Y refer to physical positions on an XBox 360 controller.
+  // A<->B and X<->Y are reversed on a Nintendo controller.
+  bind A_BUTTON "+jump"
+  bind B_BUTTON "+use"
+  bind X_BUTTON "+reload"
+  bind Y_BUTTON "impulse 100"
+  
+  bind L1_BUTTON "+duck"
+  bind LTRIGGER "+speed"
+  
+  bind R1_BUTTON "+attack"
+  bind RTRIGGER "+attack2"
+  
+  bind START "pause"
+  bind STICK1 "+speed"
+  bind STICK2 "+duck"
+  
+  // While SELECT is pressed:
+  alias "+SelectHold" "bind A_BUTTON cancelselect; bind Y_BUTTON load quick; bind X_BUTTON save quick; bind L1_BUTTON screenshot; bind START quit"
+  
+  // When SELECT is released, restore the original bindings (duplicated above).
+  alias "-SelectHold" "bind A_BUTTON +jump; bind Y_BUTTON impulse 100; bind X_BUTTON +reload; bind L1_BUTTON +duck; bind START pause"
+  
+  bind BACK "+SelectHold"
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_no_match
+  tuple(
+    list([
+      '/usr/bin/xash3d',
+      '-fullscreen',
+      '-dev',
+      '-clientlib',
+      '/usr/lib/xash3d/hlsdk/hl/cl_dlls/client_amd64.so',
+      '-dll',
+      '/usr/lib/xash3d/hlsdk/hl/dlls/hl_amd64.so',
+      '-game',
+      'rom',
+      '+showfps',
+      '0',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib/xash3d',
+      'SDL_GAMECONTROLLERCONFIG': '',
+      'XASH3D_BASEDIR': '/userdata/roms/xash3d_fwgs',
+      'XASH3D_EXTRAS_PAK1': '/usr/share/xash3d/valve/extras.pk3',
+    }),
+  )
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_no_match[config]
+  '''
+  exec gamepad.cfg
+  exec custom.cfg
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_no_match[custom config]
+  '''
+  
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_no_match[gamepad]
+  '''
+  // Default gamepad bindings
+  
+  // == Bindings ==
+  // Same as this illustration except the SELECT + combinations that are different and follow Batocera conventions:
+  // https://raw.githubusercontent.com/krishenriksen/Half-Life-rg351p/da77c22b60c29589240b86608495574672105206/Half-Life/controls.png
+  //
+  // Left stick: Move/Strafe (Walk instead of run when pressed)
+  // Right stick: Look (Crouch when pressed)
+  // D-Pad Up: Spray
+  // D-Pad Down: Quick swap weapon
+  // D-Pad Left: Prev Weapon
+  // D-Pad Right: Next Weapon
+  // A: Use
+  // B: Jump
+  // X: Flashlight
+  // Y: Reload
+  // L1: Duck
+  // L2: Walk (instead of Run)
+  // R1: Fire
+  // R2: Alt-fire
+  // START: Pause
+  // SELECT + B: Menu
+  // SELECT + X: Quick Save
+  // SELECT + Y: Quick Load
+  // SELECT + L1: Screenshot
+  // SELECT + START: Quit
+  
+  joy_side_deadzone "4096"
+  joy_forward_deadzone "4096"
+  joy_pitch_deadzone "4096"
+  joy_yaw_deadzone "4096"
+  
+  bind DPAD_UP "impulse 201"
+  bind DPAD_DOWN "lastinv"
+  bind DPAD_LEFT "invprev"
+  bind DPAD_RIGHT "invnext"
+  
+  // NOTE: A, B, X, Y refer to physical positions on an XBox 360 controller.
+  // A<->B and X<->Y are reversed on a Nintendo controller.
+  bind A_BUTTON "+jump"
+  bind B_BUTTON "+use"
+  bind X_BUTTON "+reload"
+  bind Y_BUTTON "impulse 100"
+  
+  bind L1_BUTTON "+duck"
+  bind LTRIGGER "+speed"
+  
+  bind R1_BUTTON "+attack"
+  bind RTRIGGER "+attack2"
+  
+  bind START "pause"
+  bind STICK1 "+speed"
+  bind STICK2 "+duck"
+  
+  // While SELECT is pressed:
+  alias "+SelectHold" "bind A_BUTTON cancelselect; bind Y_BUTTON load quick; bind X_BUTTON save quick; bind L1_BUTTON screenshot; bind START quit"
+  
+  // When SELECT is released, restore the original bindings (duplicated above).
+  alias "-SelectHold" "bind A_BUTTON +jump; bind Y_BUTTON impulse 100; bind X_BUTTON +reload; bind L1_BUTTON +duck; bind START pause"
+  
+  bind BACK "+SelectHold"
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_not_found
+  tuple(
+    list([
+      '/usr/bin/xash3d',
+      '-fullscreen',
+      '-dev',
+      '-clientlib',
+      '/usr/lib/xash3d/hlsdk/hl/cl_dlls/client_amd64.so',
+      '-dll',
+      '/usr/lib/xash3d/hlsdk/hl/dlls/hl_amd64.so',
+      '-game',
+      'rom',
+      '+showfps',
+      '0',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/usr/lib/xash3d',
+      'SDL_GAMECONTROLLERCONFIG': '',
+      'XASH3D_BASEDIR': '/userdata/roms/xash3d_fwgs',
+      'XASH3D_EXTRAS_PAK1': '/usr/share/xash3d/valve/extras.pk3',
+    }),
+  )
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_not_found[config]
+  '''
+  exec gamepad.cfg
+  exec custom.cfg
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_not_found[custom config]
+  '''
+  
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_generate_liblist_not_found[gamepad]
+  '''
+  // Default gamepad bindings
+  
+  // == Bindings ==
+  // Same as this illustration except the SELECT + combinations that are different and follow Batocera conventions:
+  // https://raw.githubusercontent.com/krishenriksen/Half-Life-rg351p/da77c22b60c29589240b86608495574672105206/Half-Life/controls.png
+  //
+  // Left stick: Move/Strafe (Walk instead of run when pressed)
+  // Right stick: Look (Crouch when pressed)
+  // D-Pad Up: Spray
+  // D-Pad Down: Quick swap weapon
+  // D-Pad Left: Prev Weapon
+  // D-Pad Right: Next Weapon
+  // A: Use
+  // B: Jump
+  // X: Flashlight
+  // Y: Reload
+  // L1: Duck
+  // L2: Walk (instead of Run)
+  // R1: Fire
+  // R2: Alt-fire
+  // START: Pause
+  // SELECT + B: Menu
+  // SELECT + X: Quick Save
+  // SELECT + Y: Quick Load
+  // SELECT + L1: Screenshot
+  // SELECT + START: Quit
+  
+  joy_side_deadzone "4096"
+  joy_forward_deadzone "4096"
+  joy_pitch_deadzone "4096"
+  joy_yaw_deadzone "4096"
+  
+  bind DPAD_UP "impulse 201"
+  bind DPAD_DOWN "lastinv"
+  bind DPAD_LEFT "invprev"
+  bind DPAD_RIGHT "invnext"
+  
+  // NOTE: A, B, X, Y refer to physical positions on an XBox 360 controller.
+  // A<->B and X<->Y are reversed on a Nintendo controller.
+  bind A_BUTTON "+jump"
+  bind B_BUTTON "+use"
+  bind X_BUTTON "+reload"
+  bind Y_BUTTON "impulse 100"
+  
+  bind L1_BUTTON "+duck"
+  bind LTRIGGER "+speed"
+  
+  bind R1_BUTTON "+attack"
+  bind RTRIGGER "+attack2"
+  
+  bind START "pause"
+  bind STICK1 "+speed"
+  bind STICK2 "+duck"
+  
+  // While SELECT is pressed:
+  alias "+SelectHold" "bind A_BUTTON cancelselect; bind Y_BUTTON load quick; bind X_BUTTON save quick; bind L1_BUTTON screenshot; bind START quit"
+  
+  // When SELECT is released, restore the original bindings (duplicated above).
+  alias "-SelectHold" "bind A_BUTTON +jump; bind Y_BUTTON impulse 100; bind X_BUTTON +reload; bind L1_BUTTON +duck; bind START pause"
+  
+  bind BACK "+SelectHold"
+  
+  '''
+# ---
+# name: TestXash3dFwgsGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'KEY_F10',
+      'menu': 'KEY_ESC',
+      'pause': 'KEY_ESC',
+      'restore_state': 'KEY_F7',
+      'save_state': 'KEY_F6',
+    }),
+    'name': 'xash3dFwgs',
+  })
+# ---

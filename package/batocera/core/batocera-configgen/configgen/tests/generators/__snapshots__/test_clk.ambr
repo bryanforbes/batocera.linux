@@ -1,0 +1,173 @@
+# serializer version: 1
+# name: TestClkGenerator.test_generate[amstradcpc]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/amstradcpc/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=RGB',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[archimedes]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/archimedes/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[atarist]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/atarist/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=RGB',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[colecovision]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/colecovision/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=SVideo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[electron]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/electron/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=RGB',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[macintosh]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/macintosh/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[mastersystem]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/mastersystem/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=SVideo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[msx1]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/msx1/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=RGB',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[msx2]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/msx2/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=RGB',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[oricatmos]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/oricatmos/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=RGB',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate[zxspectrum]
+  tuple(
+    list([
+      'clksignal',
+      '/userdata/roms/zxspectrum/rom.tzx',
+      '--rompath=/userdata/bios/',
+      '--output=RGB',
+      '--quickload',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_generate_zip
+  tuple(
+    list([
+      'clksignal',
+      '/tmp/clk_extracted/rom.tzx',
+      '--rompath=/userdata/bios/',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestClkGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'clk',
+  })
+# ---

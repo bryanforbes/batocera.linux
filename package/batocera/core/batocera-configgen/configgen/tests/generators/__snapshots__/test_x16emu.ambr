@@ -1,0 +1,243 @@
+# serializer version: 1
+# name: TestX16emuGenerator.test_generate
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-name.bas',
+      '-scale',
+      '2',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_autorun
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16/rom-dir',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-dir/rom.bas',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-dir/autorun.cmd',
+      '-scale',
+      '2',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_config[{'x16emu_quality': 'linear'}]
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-name.bas',
+      '-scale',
+      '2',
+      '-quality',
+      'linear',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_config[{'x16emu_ratio': '16:9'}]
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-name.bas',
+      '-scale',
+      '2',
+      '-widescreen',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_config[{'x16emu_ratio': '4:3'}]
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-name.bas',
+      '-scale',
+      '2',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_config[{'x16emu_scale': '3'}]
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-name.bas',
+      '-scale',
+      '3',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_controllers
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16/rom-dir',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-bas',
+      '/userdata/roms/commanderx16/rom-dir/rom.bas',
+      '-scale',
+      '2',
+      '-joy1',
+      '-joy2',
+      '-joy3',
+      '-joy4',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '''
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+      ''',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_rom[img]
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-sdcard',
+      '/userdata/roms/commanderx16/rom-name.img',
+      '-scale',
+      '2',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_generate_rom[prg]
+  tuple(
+    list([
+      'x16emu',
+      '-rom',
+      '/userdata/bios/commanderx16/rom.bin',
+      '-fsroot',
+      '/userdata/roms/commanderx16',
+      '-ram',
+      '2048',
+      '-rtc',
+      '-prg',
+      '/userdata/roms/commanderx16/rom-name.prg',
+      '-run',
+      '-scale',
+      '2',
+      '-joy1',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestX16emuGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'x16emu',
+  })
+# ---

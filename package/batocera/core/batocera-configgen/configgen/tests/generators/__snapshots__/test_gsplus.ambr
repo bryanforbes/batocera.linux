@@ -1,0 +1,235 @@
+# serializer version: 1
+# name: TestGSplusGenerator.test_generate
+  tuple(
+    list([
+      'GSplus',
+      '-fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestGSplusGenerator.test_generate[config]
+  '''
+  s7d1 = /userdata/roms/apple2/rom.po
+  s5d1 = 
+  s6d1 = 
+  bram1[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram1[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 06 00 05 06
+  bram1[20] = 01 00 00 00 00 00 00 01 00 00 00 00 03 02 02 02
+  bram1[30] = 00 00 00 00 00 00 00 00 08 00 01 02 03 04 05 06
+  bram1[40] = 07 0a 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d
+  bram1[50] = 0e 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[f0] = ff ff ff ff ff ff ff ff ff ff ff ff 13 24 b9 8e
+  bram3[00] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[10] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[20] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[30] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[40] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[50] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[60] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[70] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[80] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[90] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[a0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[b0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[c0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[d0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[e0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[f0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  g_limit_speed = 2
+  g_cfg_rom_path = /userdata/bios/ROM.03
+  
+  '''
+# ---
+# name: TestGSplusGenerator.test_generate_config[{'gsplus_bios_filename': 'ROM.00'}][config]
+  '''
+  s7d1 = /userdata/roms/apple2/rom.po
+  s5d1 = 
+  s6d1 = 
+  bram1[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram1[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 06 00 05 06
+  bram1[20] = 01 00 00 00 00 00 00 01 00 00 00 00 03 02 02 02
+  bram1[30] = 00 00 00 00 00 00 00 00 08 00 01 02 03 04 05 06
+  bram1[40] = 07 0a 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d
+  bram1[50] = 0e 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[f0] = ff ff ff ff ff ff ff ff ff ff ff ff 13 24 b9 8e
+  bram3[00] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[10] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[20] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[30] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[40] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[50] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[60] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[70] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[80] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[90] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[a0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[b0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[c0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[d0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[e0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  bram3[f0] = 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  g_limit_speed = 2
+  g_cfg_rom_path = /userdata/bios/ROM.00
+  
+  '''
+# ---
+# name: TestGSplusGenerator.test_generate_roms[do][config]
+  '''
+  s6d1 = /userdata/roms/apple2/rom.do
+  s5d1 = 
+  s7d1 = 
+  bram1[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram1[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 06 00 05 06
+  bram1[20] = 01 00 00 00 00 00 00 01 06 00 00 00 03 02 02 02
+  bram1[30] = 00 00 00 00 00 00 00 00 00 00 01 02 03 04 05 06
+  bram1[40] = 07 00 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d
+  bram1[50] = 0e 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[f0] = ff ff ff ff ff ff ff ff ff ff ff ff fe 17 54 bd
+  bram3[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram3[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 00 00 05 06
+  bram3[20] = 01 00 00 00 00 00 00 01 00 00 00 00 05 02 02 00
+  bram3[30] = 00 00 2d 2d 00 00 00 00 00 00 02 02 02 06 08 00
+  bram3[40] = 01 02 03 04 05 06 07 0a 00 01 02 03 04 05 06 07
+  bram3[50] = 08 09 0a 0b 0c 0d 0e 0f 00 00 ff ff ff ff ff ff
+  bram3[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[f0] = ff ff ff ff ff ff ff ff ff ff ff ff 05 cf af 65
+  g_limit_speed = 1
+  g_cfg_rom_path = /userdata/bios/ROM.03
+  
+  '''
+# ---
+# name: TestGSplusGenerator.test_generate_roms[dsk][config]
+  '''
+  s6d1 = /userdata/roms/apple2/rom.dsk
+  s5d1 = 
+  s7d1 = 
+  bram1[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram1[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 06 00 05 06
+  bram1[20] = 01 00 00 00 00 00 00 01 06 00 00 00 03 02 02 02
+  bram1[30] = 00 00 00 00 00 00 00 00 00 00 01 02 03 04 05 06
+  bram1[40] = 07 00 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d
+  bram1[50] = 0e 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[f0] = ff ff ff ff ff ff ff ff ff ff ff ff fe 17 54 bd
+  bram3[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram3[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 00 00 05 06
+  bram3[20] = 01 00 00 00 00 00 00 01 00 00 00 00 05 02 02 00
+  bram3[30] = 00 00 2d 2d 00 00 00 00 00 00 02 02 02 06 08 00
+  bram3[40] = 01 02 03 04 05 06 07 0a 00 01 02 03 04 05 06 07
+  bram3[50] = 08 09 0a 0b 0c 0d 0e 0f 00 00 ff ff ff ff ff ff
+  bram3[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[f0] = ff ff ff ff ff ff ff ff ff ff ff ff 05 cf af 65
+  g_limit_speed = 1
+  g_cfg_rom_path = /userdata/bios/ROM.03
+  
+  '''
+# ---
+# name: TestGSplusGenerator.test_generate_roms[nib][config]
+  '''
+  s6d1 = /userdata/roms/apple2/rom.nib
+  s5d1 = 
+  s7d1 = 
+  bram1[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram1[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 06 00 05 06
+  bram1[20] = 01 00 00 00 00 00 00 01 06 00 00 00 03 02 02 02
+  bram1[30] = 00 00 00 00 00 00 00 00 00 00 01 02 03 04 05 06
+  bram1[40] = 07 00 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d
+  bram1[50] = 0e 0f ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram1[f0] = ff ff ff ff ff ff ff ff ff ff ff ff fe 17 54 bd
+  bram3[00] = 00 00 00 01 00 00 0d 06 02 01 01 00 01 00 00 00
+  bram3[10] = 00 00 07 06 02 01 01 00 00 00 0f 06 00 00 05 06
+  bram3[20] = 01 00 00 00 00 00 00 01 00 00 00 00 05 02 02 00
+  bram3[30] = 00 00 2d 2d 00 00 00 00 00 00 02 02 02 06 08 00
+  bram3[40] = 01 02 03 04 05 06 07 0a 00 01 02 03 04 05 06 07
+  bram3[50] = 08 09 0a 0b 0c 0d 0e 0f 00 00 ff ff ff ff ff ff
+  bram3[60] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[70] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[80] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[90] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[a0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[b0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[c0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[d0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[e0] = ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+  bram3[f0] = ff ff ff ff ff ff ff ff ff ff ff ff 05 cf af 65
+  g_limit_speed = 1
+  g_cfg_rom_path = /userdata/bios/ROM.03
+  
+  '''
+# ---
+# name: TestGSplusGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTSHIFT',
+        'KEY_F6',
+      ]),
+      'menu': 'KEY_F4',
+      'pause': 'KEY_F4',
+    }),
+    'name': 'gsplus',
+  })
+# ---

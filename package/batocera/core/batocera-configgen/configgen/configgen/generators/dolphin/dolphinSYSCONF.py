@@ -91,7 +91,7 @@ def readWriteEntry(f: BinaryIO, setval: Mapping[str, int]):
 
 def readWriteFile(filepath: Path, setval: Mapping[str, int]):
     # open in read read/write depending of the action
-    if not setval:
+    if not setval:  # pragma: nocover
         f = filepath.open("rb")
     else:
         f = filepath.open("r+b")
@@ -140,6 +140,6 @@ def update(config: SystemConfig, filepath: Path, gameResolution: Resolution) -> 
     }
     readWriteFile(filepath, arg_setval)
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: nocover
     with setup_logging():
         readWriteFile(DOLPHIN_SAVES / "Wii" / "shared2" / "sys" / "SYSCONF", {})

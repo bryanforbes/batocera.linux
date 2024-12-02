@@ -1,0 +1,1176 @@
+# serializer version: 1
+# name: TestViceGenerator.test_generate[x128]
+  tuple(
+    list([
+      '/usr/bin/x128',
+      '/userdata/roms/c64/rom.d64',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestViceGenerator.test_generate[x128][joymap]
+  '''
+  # Batocera configured controllers
+  
+  !CLEAR
+  
+  # Generic Xbox pad
+  0 1 0 1 1 32
+  0 1 1 1 1 16
+  0 2 1 1 1 2
+  0 1 8 5 Quit emulator
+  0 2 2 1 1 4
+  0 1 5 0
+  0 1 4 0
+  0 2 3 1 1 8
+  0 1 8 4
+  0 1 9 0
+  0 2 0 1 1 1
+  0 1 2 0
+  0 1 3 1 1 64
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[x128][vicerc]
+  '''
+  [C128]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[x64]
+  tuple(
+    list([
+      '/usr/bin/x64',
+      '/userdata/roms/c64/rom.d64',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestViceGenerator.test_generate[x64][joymap]
+  '''
+  # Batocera configured controllers
+  
+  !CLEAR
+  
+  # Generic Xbox pad
+  0 1 0 1 1 32
+  0 1 1 1 1 16
+  0 2 1 1 1 2
+  0 1 8 5 Quit emulator
+  0 2 2 1 1 4
+  0 1 5 0
+  0 1 4 0
+  0 2 3 1 1 8
+  0 1 8 4
+  0 1 9 0
+  0 2 0 1 1 1
+  0 1 2 0
+  0 1 3 1 1 64
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[x64][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[x64dtv]
+  tuple(
+    list([
+      '/usr/bin/x64dtv',
+      '/userdata/roms/c64/rom.d64',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestViceGenerator.test_generate[x64dtv][joymap]
+  '''
+  # Batocera configured controllers
+  
+  !CLEAR
+  
+  # Generic Xbox pad
+  0 1 0 1 1 32
+  0 1 1 1 1 16
+  0 2 1 1 1 2
+  0 1 8 5 Quit emulator
+  0 2 2 1 1 4
+  0 1 5 0
+  0 1 4 0
+  0 2 3 1 1 8
+  0 1 8 4
+  0 1 9 0
+  0 2 0 1 1 1
+  0 1 2 0
+  0 1 3 1 1 64
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[x64dtv][vicerc]
+  '''
+  [C64DTV]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xpet]
+  tuple(
+    list([
+      '/usr/bin/xpet',
+      '/userdata/roms/c64/rom.d64',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestViceGenerator.test_generate[xpet][joymap]
+  '''
+  # Batocera configured controllers
+  
+  !CLEAR
+  
+  # Generic Xbox pad
+  0 1 0 1 1 32
+  0 1 1 1 1 16
+  0 2 1 1 1 2
+  0 1 8 5 Quit emulator
+  0 2 2 1 1 4
+  0 1 5 0
+  0 1 4 0
+  0 2 3 1 1 8
+  0 1 8 4
+  0 1 9 0
+  0 2 0 1 1 1
+  0 1 2 0
+  0 1 3 1 1 64
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xpet][vicerc]
+  '''
+  [PET]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xplus4]
+  tuple(
+    list([
+      '/usr/bin/xplus4',
+      '/userdata/roms/c64/rom.d64',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestViceGenerator.test_generate[xplus4][joymap]
+  '''
+  # Batocera configured controllers
+  
+  !CLEAR
+  
+  # Generic Xbox pad
+  0 1 0 1 1 32
+  0 1 1 1 1 16
+  0 2 1 1 1 2
+  0 1 8 5 Quit emulator
+  0 2 2 1 1 4
+  0 1 5 0
+  0 1 4 0
+  0 2 3 1 1 8
+  0 1 8 4
+  0 1 9 0
+  0 2 0 1 1 1
+  0 1 2 0
+  0 1 3 1 1 64
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xplus4][vicerc]
+  '''
+  [PLUS4]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xscpu64]
+  tuple(
+    list([
+      '/usr/bin/xscpu64',
+      '/userdata/roms/c64/rom.d64',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestViceGenerator.test_generate[xscpu64][joymap]
+  '''
+  # Batocera configured controllers
+  
+  !CLEAR
+  
+  # Generic Xbox pad
+  0 1 0 1 1 32
+  0 1 1 1 1 16
+  0 2 1 1 1 2
+  0 1 8 5 Quit emulator
+  0 2 2 1 1 4
+  0 1 5 0
+  0 1 4 0
+  0 2 3 1 1 8
+  0 1 8 4
+  0 1 9 0
+  0 2 0 1 1 1
+  0 1 2 0
+  0 1 3 1 1 64
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xscpu64][vicerc]
+  '''
+  [SCPU64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xvic]
+  tuple(
+    list([
+      '/usr/bin/xvic',
+      '/userdata/roms/c64/rom.d64',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestViceGenerator.test_generate[xvic][joymap]
+  '''
+  # Batocera configured controllers
+  
+  !CLEAR
+  
+  # Generic Xbox pad
+  0 1 0 1 0 32
+  0 1 1 1 0 16
+  0 2 1 1 0 2
+  0 1 8 5 Quit emulator
+  0 2 2 1 0 4
+  0 1 5 0
+  0 1 4 0
+  0 2 3 1 0 8
+  0 1 8 4
+  0 1 9 0
+  0 2 0 1 0 1
+  0 1 2 0
+  0 1 3 1 0 64
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate[xvic][vicerc]
+  '''
+  [VIC20]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_custom_config[vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  SomeOption=value
+  
+  [Blah]
+  SomeOtherOption=anothervalue
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_existing[x128][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=1
+  
+  [PLUS4]
+  SaveResourcesOnExit=1
+  
+  [SCPU64]
+  SaveResourcesOnExit=1
+  
+  [VIC20]
+  SaveResourcesOnExit=1
+  
+  [PET]
+  SaveResourcesOnExit=1
+  
+  [C128]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_existing[x64][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  [PLUS4]
+  SaveResourcesOnExit=1
+  
+  [SCPU64]
+  SaveResourcesOnExit=1
+  
+  [VIC20]
+  SaveResourcesOnExit=1
+  
+  [PET]
+  SaveResourcesOnExit=1
+  
+  [C128]
+  SaveResourcesOnExit=1
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_existing[x64dtv][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=1
+  
+  [PLUS4]
+  SaveResourcesOnExit=1
+  
+  [SCPU64]
+  SaveResourcesOnExit=1
+  
+  [VIC20]
+  SaveResourcesOnExit=1
+  
+  [PET]
+  SaveResourcesOnExit=1
+  
+  [C128]
+  SaveResourcesOnExit=1
+  
+  [C64DTV]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_existing[xpet][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=1
+  
+  [PLUS4]
+  SaveResourcesOnExit=1
+  
+  [SCPU64]
+  SaveResourcesOnExit=1
+  
+  [VIC20]
+  SaveResourcesOnExit=1
+  
+  [PET]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  [C128]
+  SaveResourcesOnExit=1
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_existing[xplus4][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=1
+  
+  [PLUS4]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  [SCPU64]
+  SaveResourcesOnExit=1
+  
+  [VIC20]
+  SaveResourcesOnExit=1
+  
+  [PET]
+  SaveResourcesOnExit=1
+  
+  [C128]
+  SaveResourcesOnExit=1
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_existing[xscpu64][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=1
+  
+  [PLUS4]
+  SaveResourcesOnExit=1
+  
+  [SCPU64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  [VIC20]
+  SaveResourcesOnExit=1
+  
+  [PET]
+  SaveResourcesOnExit=1
+  
+  [C128]
+  SaveResourcesOnExit=1
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_existing[xvic][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=1
+  
+  [PLUS4]
+  SaveResourcesOnExit=1
+  
+  [SCPU64]
+  SaveResourcesOnExit=1
+  
+  [VIC20]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  [PET]
+  SaveResourcesOnExit=1
+  
+  [C128]
+  SaveResourcesOnExit=1
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x128-no guns, gun_type=stack_light_rifle][vicerc]
+  '''
+  [C128]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x128-no guns, no metadata][vicerc]
+  '''
+  [C128]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x128-one gun, gun_type=foo][vicerc]
+  '''
+  [C128]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=14
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x128-one gun, gun_type=stack_light_rifle][vicerc]
+  '''
+  [C128]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=15
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64-no guns, gun_type=stack_light_rifle][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64-no guns, no metadata][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64-one gun, gun_type=foo][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=14
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64-one gun, gun_type=stack_light_rifle][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=15
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64dtv-no guns, gun_type=stack_light_rifle][vicerc]
+  '''
+  [C64DTV]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64dtv-no guns, no metadata][vicerc]
+  '''
+  [C64DTV]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64dtv-one gun, gun_type=foo][vicerc]
+  '''
+  [C64DTV]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=14
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[x64dtv-one gun, gun_type=stack_light_rifle][vicerc]
+  '''
+  [C64DTV]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=15
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xpet-no guns, gun_type=stack_light_rifle][vicerc]
+  '''
+  [PET]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xpet-no guns, no metadata][vicerc]
+  '''
+  [PET]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xpet-one gun, gun_type=foo][vicerc]
+  '''
+  [PET]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=14
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xpet-one gun, gun_type=stack_light_rifle][vicerc]
+  '''
+  [PET]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=15
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xplus4-no guns, gun_type=stack_light_rifle][vicerc]
+  '''
+  [PLUS4]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xplus4-no guns, no metadata][vicerc]
+  '''
+  [PLUS4]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xplus4-one gun, gun_type=foo][vicerc]
+  '''
+  [PLUS4]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=14
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xplus4-one gun, gun_type=stack_light_rifle][vicerc]
+  '''
+  [PLUS4]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=15
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xscpu64-no guns, gun_type=stack_light_rifle][vicerc]
+  '''
+  [SCPU64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xscpu64-no guns, no metadata][vicerc]
+  '''
+  [SCPU64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xscpu64-one gun, gun_type=foo][vicerc]
+  '''
+  [SCPU64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=14
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xscpu64-one gun, gun_type=stack_light_rifle][vicerc]
+  '''
+  [SCPU64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=15
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xvic-no guns, gun_type=stack_light_rifle][vicerc]
+  '''
+  [VIC20]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xvic-no guns, no metadata][vicerc]
+  '''
+  [VIC20]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xvic-one gun, gun_type=foo][vicerc]
+  '''
+  [VIC20]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=14
+  JoyDevice1=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_guns[xvic-one gun, gun_type=stack_light_rifle][vicerc]
+  '''
+  [VIC20]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=2
+  VICBorderMode=0
+  VICFullscreen=1
+  JoyPort1Device=15
+  JoyDevice1=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_noborder[x128][vicerc]
+  '''
+  [C128]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=0
+  VICBorderMode=3
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_noborder[x64][vicerc]
+  '''
+  [C64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=0
+  VICBorderMode=3
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_noborder[x64dtv][vicerc]
+  '''
+  [C64DTV]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=0
+  VICBorderMode=3
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_noborder[xpet][vicerc]
+  '''
+  [PET]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=0
+  VICBorderMode=3
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_noborder[xplus4][vicerc]
+  '''
+  [PLUS4]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=0
+  VICBorderMode=3
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_noborder[xscpu64][vicerc]
+  '''
+  [SCPU64]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=0
+  VICBorderMode=3
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyDevice2=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_generate_noborder[xvic][vicerc]
+  '''
+  [VIC20]
+  SaveResourcesOnExit=0
+  SoundDeviceName=alsa
+  SDLGLAspectMode=0
+  VICBorderMode=3
+  VICFullscreen=1
+  JoyPort1Device=1
+  JoyDevice1=4
+  JoyMapFile=/userdata/system/configs/vice/sdl-joymap.vjm
+  
+  
+  '''
+# ---
+# name: TestViceGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'vice',
+  })
+# ---

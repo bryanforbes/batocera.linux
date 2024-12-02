@@ -1,0 +1,1646 @@
+# serializer version: 1
+# name: TestEmulator.test_es_game_info[None]
+  dict({
+    'gametime': '0',
+    'image': '/userdata/roms/system/images/My custom rom-image.png',
+    'lang': 'en',
+    'lastplayed': '20250209T152311',
+    'name': 'My custom rom',
+    'path': '/userdata/roms/system/rom.zip',
+    'playcount': '3',
+    'thumbnail': '/userdata/roms/system/images/My custom rom-thumb.png',
+  })
+# ---
+# name: TestEmulator.test_es_game_info[name]
+  dict({
+    'gametime': '0',
+    'image': '/userdata/roms/system/images/My custom rom-image.png',
+    'lang': 'en',
+    'lastplayed': '20250209T152311',
+    'path': '/userdata/roms/system/rom.zip',
+    'playcount': '3',
+    'thumbnail': '/userdata/roms/system/images/My custom rom-thumb.png',
+  })
+# ---
+# name: TestEmulator.test_es_game_info[thumbnail]
+  dict({
+    'gametime': '0',
+    'image': '/userdata/roms/system/images/My custom rom-image.png',
+    'lang': 'en',
+    'lastplayed': '20250209T152311',
+    'name': 'My custom rom',
+    'path': '/userdata/roms/system/rom.zip',
+    'playcount': '3',
+  })
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-None-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-auto-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-big-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-medium-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders not required-thin-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-None-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-None-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-auto-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-auto-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-gameonly-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-gameonly-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-hidden-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-normal-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-None-normal-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-None-None]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-None-normal]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-auto-None]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-auto-normal]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-gameonly-None]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-gameonly-normal]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-hidden-normal]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-normal-None]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-auto-normal-normal]
+  'auto'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-None-None]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-None-normal]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-auto-None]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-auto-normal]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-gameonly-None]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-gameonly-normal]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-hidden-normal]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-normal-None]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-big-normal-normal]
+  'big'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-None-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-None-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-auto-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-auto-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-gameonly-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-gameonly-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-hidden-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-normal-None]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-medium-normal-normal]
+  'medium'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-None-None]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-None-normal]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-auto-None]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-auto-normal]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-gameonly-None]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-gameonly-normal]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-hidden-normal]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-normal-None]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[guns borders required-thin-normal-normal]
+  'thin'
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-None-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-auto-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-big-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-medium-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-None-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-None-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-None-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-auto-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-auto-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-auto-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-gameonly-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-gameonly-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-gameonly-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-hidden-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-hidden-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-hidden-normal]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-normal-None]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-normal-hidden]
+  None
+# ---
+# name: TestEmulator.test_guns_borders_size_name[no guns-thin-normal-normal]
+  None
+# ---
+# name: TestEmulator.test_init
+  dict({
+    'arch_option': 'arch',
+    'batterymode': 'balanced',
+    'bezel': 'none',
+    'controllers.bluetooth.enabled': '1',
+    'core': 'citra',
+    'core-forced': False,
+    'display.brightness': '35',
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'folder_userdata_roms_3ds_.this_should_be_folder': 'folder',
+    'folder_userdata_roms_3ds_.this_should_be_game': 'folder',
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'this_should_be_3ds': '3ds',
+    'this_should_be_folder': 'folder',
+    'this_should_be_game': 'game',
+    'this_should_be_global': 'global',
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init[renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'gb_arch_option': 'default',
+    'gb_option': 'default',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---
+# name: TestEmulator.test_init_emulator_from_batocera_conf
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'my-emulator-core',
+    'core-forced': True,
+    'emulator': 'my-emulator',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[None-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[None-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[None-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[None-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[None-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[false-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[false-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[false-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[false-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[false-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[foo-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[foo-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[foo-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[foo-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[foo-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[true-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[true-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[true-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[true-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings[true-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_es_settings_parse_error
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_core[args]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_core[game]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_core[global]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_core[system]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_emulator[args]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_emulator[game]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_emulator[global]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_forced_emulator[system]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_no_default_in_defaults_file
+  dict({
+    '3ds_arch_option': '3ds_arch_value',
+    '3ds_option': '3ds_value',
+    'core': '3ds_core',
+    'core-forced': False,
+    'emulator': '3ds_emulator',
+    'emulator-forced': False,
+    'showFPS': True,
+    'uimode': 'Full',
+  })
+# ---
+# name: TestEmulator.test_init_no_defaults_arch_files
+  dict({
+    'arch_option': 'none',
+    'bezel': 'consoles',
+    'core': 'gambatte',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+  })
+# ---
+# name: TestEmulator.test_init_no_defaults_arch_files[renderconfig]
+  dict({
+    'arch_option': 'default',
+    'gb_arch_option': 'gb_default',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---
+# name: TestEmulator.test_init_no_defaults_arch_files_no_shaderset
+  dict({
+    'arch_option': 'default',
+    'colorization': None,
+    'gb_arch_option': 'gb_default',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': None,
+  })
+# ---
+# name: TestEmulator.test_init_shaderset_none[3ds]
+  dict({
+    'arch_option': 'arch',
+    'colorization': None,
+    'gb_arch_option': 'default',
+    'gb_option': 'default',
+    'scanline': False,
+    'shader': None,
+  })
+# ---
+# name: TestEmulator.test_init_shaderset_none[gb]
+  dict({
+    'arch_option': 'arch',
+    'colorization': None,
+    'gb_arch_option': 'gb_arch',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': None,
+  })
+# ---
+# name: TestEmulator.test_init_shaderset_system
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'gambatte',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_shaderset_system[renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'gb_arch_option': 'gb_arch',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---
+# name: TestEmulator.test_init_shaderset_user[3ds]
+  dict({
+    'arch_option': 'mine_arch',
+    'gb_arch_option': 'mine_default',
+    'gb_option': 'mine_default',
+    'option': 'mine_default',
+  })
+# ---
+# name: TestEmulator.test_init_shaderset_user[gb]
+  dict({
+    'arch_option': 'mine_arch',
+    'gb_arch_option': 'mine_gb_arch',
+    'gb_option': 'mine_gb',
+    'option': 'mine_default',
+  })
+# ---
+# name: TestEmulator.test_init_use_guns[0-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_use_guns[0-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_use_guns[1-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_use_guns[1-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_use_guns[None-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_use_guns[None-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': True,
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_with_arch_defaults
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'pce',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_init_with_arch_defaults_options
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'glide64mk2',
+    'core-forced': False,
+    'emulator': 'mupen64plus',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+    'videomode': 'max-1920x1080',
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[autosave]
+  dict({
+    'arch_option': 'arch',
+    'autosave': 'value',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[netplayip]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.server.ip': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[netplaymode]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.mode': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[netplaypass]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.password': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[netplayport]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.server.port': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[netplaysession]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.server.session': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[state_filename]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'state_filename': 'value',
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_args[state_slot]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'state_slot': 'value',
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_use_wheels[0-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_use_wheels[0-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_use_wheels[1-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_use_wheels[1-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_use_wheels[None-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: TestEmulator.test_load_configs_use_wheels[None-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': True,
+    'video_frame_delay_auto': True,
+  })
+# ---

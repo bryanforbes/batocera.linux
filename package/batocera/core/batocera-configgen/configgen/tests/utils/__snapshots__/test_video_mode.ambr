@@ -1,0 +1,50 @@
+# serializer version: 1
+# name: test_check_mode_exists[1920x1080.120.00-True]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-resolution listModes',
+        ]),
+      ),
+      dict({
+        'shell': True,
+        'stdout': -1,
+      }),
+    ),
+  ])
+# ---
+# name: test_check_mode_exists[640x480.60.00-False]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-resolution listModes',
+        ]),
+      ),
+      dict({
+        'shell': True,
+        'stdout': -1,
+      }),
+    ),
+  ])
+# ---
+# name: test_check_mode_exists[max-1920x1080-True]
+  _CallList([
+  ])
+# ---
+# name: test_check_mode_exists[max-foo-False]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-resolution listModes',
+        ]),
+      ),
+      dict({
+        'shell': True,
+        'stdout': -1,
+      }),
+    ),
+  ])
+# ---

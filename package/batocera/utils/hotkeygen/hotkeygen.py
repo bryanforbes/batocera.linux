@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import errno
 import json
 import os
 import re
@@ -12,7 +13,6 @@ import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, TypedDict
-import errno
 
 import evdev
 import pyudev
@@ -61,7 +61,7 @@ def get_default_context() -> HotkeysContext:
     else:
         return {"name": "", "keys": {}}
 
-def get_common_context_keys() -> dict[str, int|str]:
+def get_common_context_keys() -> dict[str, list[int] | int | str]:
     keys = {}
     userkeys = {}
 
@@ -98,7 +98,7 @@ def get_context() -> HotkeysContext | None:
         return context
 
 def load_context_keys(keys: dict[str, list[str] | str]) -> dict[str, list[int] | int | str]:
-    res = {}
+    res: dict[str, list[int] | int | str] = {}
     for action, key_code_names in keys.items():
         if isinstance(key_code_names, list):
             codes: list[int] = []
@@ -114,7 +114,7 @@ def load_context_keys(keys: dict[str, list[str] | str]) -> dict[str, list[int] |
                 if key_code_names in ecodes.ecodes:
                     res[action] = ecodes.ecodes[key_code_names]
                 else:
-                    raise Exception(f"invalid key {data['keys'][action]!r}")
+                    raise Exception(f"invalid key {key_code_names!r}")
             else:
                 # command
                 res[action] = key_code_names

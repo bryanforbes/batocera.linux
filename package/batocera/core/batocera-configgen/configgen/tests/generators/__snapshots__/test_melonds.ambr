@@ -1,0 +1,1321 @@
+# serializer version: 1
+# name: TestMelonDSGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/melonDS',
+      '-f',
+      '/userdata/roms/nds/rom.nds',
+    ]),
+    dict({
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestMelonDSGenerator.test_generate[config]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_cheats': 'True'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = "True"
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_console': '1'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 1
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_framerate': 'False'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = "False"
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_layout': '1'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 1
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_osd': 'True'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = "True"
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_polygons': 'False'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = "False"
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_polygons': 'True'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = "True"
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_renderer': '0'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 0
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_resolution': '2'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 2
+  BetterPolygons = false
+  HiresCoordinates = true
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_resolution': '3'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 3
+  BetterPolygons = false
+  HiresCoordinates = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_rotation': '1'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 1
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_scaling': 'True'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = "True"
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_screensizing': '1'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 1
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_screenswap': 'True'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = "True"
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_config[{'melonds_vsync': 'True'}]
+  '''
+  MouseHide = false
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [3D]
+  Renderer = 1
+  
+  [Screen]
+  VSync = "True"
+  VSyncInterval = 1
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_generate_existing
+  '''
+  MouseHide = false
+  Foo = "bar"
+  LastBIOSFolder = "/userdata/bios"
+  PauseLostFocus = false
+  LastROMFolder = "/userdata/roms/nds"
+  SavestatePath = "/userdata/saves/nds"
+  CheatFilePath = "/userdata/cheats/melonDS"
+  SaveFilePath = "/userdata/saves/nds"
+  MouseHideSeconds = 5
+  LimitFPS = true
+  
+  [DS]
+  FirmwarePath = "/userdata/bios/firmware.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  
+  [DLDI]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dldi.bin"
+  Enable = true
+  
+  [3D]
+  Renderer = 1
+  
+  [DSi]
+  FullBIOSBoot = false
+  FirmwarePath = "/userdata/bios/dsi_firmware.bin"
+  BIOS9Path = "/userdata/bios/bios9.bin"
+  BIOS7Path = "/userdata/bios/bios7.bin"
+  NANDPath = "/userdata/bios/dsi_nand.bin"
+  
+  [Emu]
+  DirectBoot = true
+  ExternalBIOSEnable = true
+  ConsoleType = 0
+  
+  [Instance0]
+  EnableCheats = false
+  
+  [Screen]
+  VSync = false
+  
+  [3D.GL]
+  ScaleFactor = 5
+  BetterPolygons = false
+  
+  [DSi.SD]
+  FolderPath = "/userdata/saves/nds"
+  ImagePath = "dsisd.bin"
+  Enable = true
+  
+  [Instance0.Joystick]
+  A = 0
+  B = 1
+  Down = 260
+  Left = 264
+  R = 5
+  L = 4
+  Right = 258
+  Select = 8
+  Start = 9
+  Up = 257
+  X = 2
+  Y = 3
+  
+  [Instance0.Window0]
+  ScreenRotation = 0
+  ScreenSwap = false
+  ScreenLayout = 0
+  ScreenSizing = 0
+  IntegerScaling = 0
+  ShowOSD = false
+  
+  '''
+# ---
+# name: TestMelonDSGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'melonds',
+  })
+# ---

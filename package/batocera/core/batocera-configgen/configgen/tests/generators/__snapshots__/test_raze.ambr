@@ -1,0 +1,3559 @@
+# serializer version: 1
+# name: TestRazeGenerator.test_generate
+  tuple(
+    list([
+      'raze',
+      '-gamegrp',
+      '/userdata/roms/raze/duke/DUKE3D.GRP',
+      '-g',
+      '/userdata/roms/raze/duke/duke3d_hrp.zip',
+      '-exec',
+      '/userdata/system/configs/raze/raze.cfg',
+      '-nojoy',
+      '-width',
+      '1920',
+      '-height',
+      '1080',
+      '',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestRazeGenerator.test_generate[config]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=2
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate[script]
+  '''
+  # This file is automatically generated by razeGenerator.py
+  vid_fps false
+  echo BATOCERA
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_config[{'nologo': '1'}]
+  tuple(
+    list([
+      'raze',
+      '-gamegrp',
+      '/userdata/roms/raze/duke/DUKE3D.GRP',
+      '-g',
+      '/userdata/roms/raze/duke/duke3d_hrp.zip',
+      '-exec',
+      '/userdata/system/configs/raze/raze.cfg',
+      '-nojoy',
+      '-width',
+      '1920',
+      '-height',
+      '1080',
+      '-nologo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestRazeGenerator.test_generate_config[{'nologo': '1'}][script]
+  '''
+  # This file is automatically generated by razeGenerator.py
+  vid_fps false
+  echo BATOCERA
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_config[{'showFPS': 'true'}]
+  tuple(
+    list([
+      'raze',
+      '-gamegrp',
+      '/userdata/roms/raze/duke/DUKE3D.GRP',
+      '-g',
+      '/userdata/roms/raze/duke/duke3d_hrp.zip',
+      '-exec',
+      '/userdata/system/configs/raze/raze.cfg',
+      '-nojoy',
+      '-width',
+      '1920',
+      '-height',
+      '1080',
+      '',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestRazeGenerator.test_generate_config[{'showFPS': 'true'}][script]
+  '''
+  # This file is automatically generated by razeGenerator.py
+  vid_fps true
+  echo BATOCERA
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_existing[config]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  vid_preferbackend=2
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '0'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '0'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '0'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '0'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '0'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '1'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '1'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '1'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '1'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[amd64-{'raze_api': '1'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '0'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '0'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '0'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '0'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '0'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '1'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '1'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '1'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '1'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[arm64-{'raze_api': '1'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '0'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '0'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '0'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '0'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '0'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '1'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '1'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '1'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '1'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i386-{'raze_api': '1'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '0'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '0'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '0'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '0'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '0'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '1'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '1'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '1'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '1'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[i686-{'raze_api': '1'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '0'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '0'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '0'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '0'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '0'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=0
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '1'}-None]
+  '''
+  [Blood.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Blood.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Blood.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Duke.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Duke.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Duke.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Exhumed.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Exhumed.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Exhumed.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Nam.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Nam.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Nam.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [Redneck.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [Redneck.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [Redneck.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [ShadowWarrior.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [ShadowWarrior.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [ShadowWarrior.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [WW2GI.ConsoleVariables]
+  hud_size=8
+  m_sensitivity_x=6.0
+  m_sensitivity_y=5.5
+  
+  [WW2GI.Bindings]
+  F6=quicksave
+  F9=quickload
+  F12=screenshot
+  C=toggleconsole
+  Tab=togglemap
+  E=+Move_Forward
+  D=+Move_Backward
+  S=+Strafe_Left
+  F=+Strafe_Right
+  PgUp=+Quick_Kick
+  PgDn=+Alt_Fire
+  End=+Crouch
+  Home=+Fire
+  Del=toggle cl_autorun
+  Ins=+toggle_crouch
+  UpArrow=weapprev
+  DownArrow=weapnext
+  LeftArrow=invprev
+  RightArrow=invnext
+  X=invuse
+  B=+jump
+  Y=+open
+  A=+open
+  
+  [WW2GI.AutomapBindings]
+  PgUp=+Shrink_Screen
+  PgDn=+Enlarge_Screen
+  UpArrow=+am_panup
+  DownArrow=+am_pandown
+  LeftArrow=+am_panleft
+  RightArrow=+am_panright
+  Del=togglefollow
+  Ins=togglerotate
+  
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '1'}-{'foo': 'bar'}]
+  '''
+  [GlobalSettings]
+  foo=bar
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '1'}-{'gl_es': 'false', 'vid_preferbackend': '2'}]
+  '''
+  [GlobalSettings]
+  gl_es=false
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '1'}-{'gl_es': 'true'}]
+  '''
+  [GlobalSettings]
+  gl_es=true
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_generate_raze_api[x86_64-{'raze_api': '1'}-{'vid_preferbackend': '1'}]
+  '''
+  [GlobalSettings]
+  vid_preferbackend=1
+  
+  '''
+# ---
+# name: TestRazeGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'restore_state': 'KEY_F9',
+      'save_state': 'KEY_F6',
+    }),
+    'name': 'raze',
+  })
+# ---

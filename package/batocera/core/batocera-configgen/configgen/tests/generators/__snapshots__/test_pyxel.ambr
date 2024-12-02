@@ -1,0 +1,33 @@
+# serializer version: 1
+# name: TestPyxelGenerator.test_generate[py]
+  tuple(
+    list([
+      '/usr/bin/pyxel',
+      'run',
+      '/userdata/roms/pyxel/rom.py',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestPyxelGenerator.test_generate[pyxapp]
+  tuple(
+    list([
+      '/usr/bin/pyxel',
+      'play',
+      '/userdata/roms/pyxel/rom.pyxapp',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestPyxelGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'KEY_ESC',
+    }),
+    'name': 'pyxel',
+  })
+# ---
