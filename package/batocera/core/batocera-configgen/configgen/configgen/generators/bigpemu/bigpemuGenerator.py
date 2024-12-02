@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any, NotRequired, TypedDict
+from typing import TYPE_CHECKING, Any, NotRequired
+from typing_extensions import TypedDict
 
 from ... import Command
 from ...batoceraPaths import CONFIGS, mkdir_if_not_exists
@@ -17,21 +18,21 @@ if TYPE_CHECKING:
 bigPemuConfig = CONFIGS / "bigpemu" / "BigPEmuConfig.bigpcfg"
 
 
-class _ButtonSequence(TypedDict):
+class _ButtonSequence(TypedDict, closed=True):
     button: str
     keyboard: NotRequired[str]
 
 
-class _ButtonComboSequence(TypedDict):
+class _ButtonComboSequence(TypedDict, closed=True):
     buttons: tuple[str, str]
     keyboard: NotRequired[str]
 
 
-class _KeyboardSequence(TypedDict):
+class _KeyboardSequence(TypedDict, closed=True):
     keyboard: str
 
 
-class _BlankSequence(TypedDict):
+class _BlankSequence(TypedDict, closed=True):
     blank: None
 
 
