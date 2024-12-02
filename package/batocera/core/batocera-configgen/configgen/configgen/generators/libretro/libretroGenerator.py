@@ -57,7 +57,7 @@ class LibretroGenerator(Generator):
         rom_path = Path(rom)
 
         # Fix for the removed MESS/MAMEVirtual cores
-        if system.config['core'] in [ 'mess', 'mamevirtual' ]:
+        if system.config['core'] in [ 'mess', 'mamevirtual' ]:  # pragma: nocover
             system.config['core'] = 'mame'
 
         # Get the graphics backend first

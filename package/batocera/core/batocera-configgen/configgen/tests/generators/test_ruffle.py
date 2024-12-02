@@ -1,0 +1,40 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+import pytest
+
+from configgen.generators.ruffle.ruffleGenerator import RuffleGenerator
+from tests.generators.base import GeneratorBaseTest
+
+if TYPE_CHECKING:
+    from pytest_mock import MockerFixture
+    from syrupy.assertion import SnapshotAssertion
+
+
+class TestRuffleGenerator(GeneratorBaseTest):
+    @pytest.fixture
+    def generator_cls(self) -> type[RuffleGenerator]:
+        return RuffleGenerator
+
+    def test_get_mouse_mode(self, generator: RuffleGenerator) -> None:  # pyright: ignore
+        assert generator.getMouseMode({}, '')
+
+    def test_generate(
+        self,
+        generator: RuffleGenerator,
+        mocker: MockerFixture,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        assert (
+            generator.generate(
+                mocker.Mock(),
+                '/userdata/roms/flash/rom.swf',
+                {},
+                {},
+                {},
+                {},
+                {'width': 1920, 'height': 1080},
+            )
+            == snapshot
+        )

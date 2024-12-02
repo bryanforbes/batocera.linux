@@ -5,9 +5,8 @@ from collections.abc import Iterable, Mapping
 from dataclasses import InitVar, dataclass, field, replace
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, Literal, Self, TypedDict, Unpack, cast
-import evdev
 
-from .batoceraPaths import BATOCERA_ES_DIR, USER_ES_DIR
+from .batoceraPaths import BATOCERA_ES_DIR, HOME, USER_ES_DIR
 from .input import Input, InputDict, InputMapping
 
 if TYPE_CHECKING:
@@ -122,7 +121,7 @@ class Controller:
         mapped_button_ids: set[str] = set()
 
         for input in self.inputs.values():
-            if input.name is None:
+            if input.name is None:  # pragma: no cover
                 continue
             if input.name == 'hotkey':
                 hotkey_input = input
@@ -242,35 +241,41 @@ def write_sdl_controller_db(
 
     return outputFile
 
-def getMappingAxisRelaxValues(pad):
+
+class _RelaxedDict(TypedDict):
+    centered: bool
+    reversed: bool
+
+
+def get_mapping_axis_relaxed_values(pad: Controller) -> dict[str, _RelaxedDict]:
+    import evdev
+
     # read the sdl2 cache if possible for axis
-    cachePath = f"/userdata/system/.sdl2/{pad.guid}_{pad.name}.cache"
-    cacheFile = Path(cachePath)
-    if not cacheFile.exists():
-        return []
-    cacheContent = cacheFile.read_text(encoding="utf-8").splitlines()
-    n = int(cacheContent[0]) # number of lines of the cache
-    relaxValues = []
-    for i in range(1, n+1):
-        relaxValues.append(int(cacheContent[i]))
+    cache_file = Path(HOME / ".sdl2" / "{pad.guid}_{pad.name}.cache")
+    if not cache_file.exists():
+        return {}
+
+    cache_content = cache_file.read_text(encoding="utf-8").splitlines()
+    n = int(cache_content[0]) # number of lines of the cache
+
+    relaxed_values: list[int] = [int(cache_content[i]) for i in range(1, n+1)]
 
     # get full list of axis (in case one is not used in es)
-    devInfos = evdev.InputDevice(pad.device_path)
-    caps = devInfos.capabilities()
-    codeValues = {}
+    caps = evdev.InputDevice(pad.device_path).capabilities()
+    code_values: dict[int, int]  = {}
     i = 0
-    for code in caps[evdev.ecodes.EV_ABS]:
-        if code[0] < evdev.ecodes.ABS_HAT0X:
-            codeValues[code[0]] = relaxValues[i]
+    for code, _ in caps[evdev.ecodes.EV_ABS]:
+        if code < evdev.ecodes.ABS_HAT0X:
+            code_values[code] = relaxed_values[i]
             i = i+1
 
     # dict with es input names
-    res = {}
-    for x in pad.inputs:
-        if pad.inputs[x].type == "axis":
+    res: dict[str, _RelaxedDict] = {}
+    for x, input in pad.inputs.items():
+        if input.type == "axis":
             # sdl values : from -32000 to 32000 / do not put < 0 cause a wheel/pad could be not correctly centered
             # 3 possible initial positions <1----------------|-------2-------|----------------3>
-            val = codeValues[int(pad.inputs[x].code)]
+            val = code_values[int(cast(str, input.code))]
             res[x] = { "centered":  val > -4000 and val < 4000, "reversed": val > 4000 }
     return res
 

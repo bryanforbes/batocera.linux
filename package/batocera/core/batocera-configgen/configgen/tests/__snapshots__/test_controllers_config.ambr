@@ -1,0 +1,840 @@
+# serializer version: 1
+# name: test_get_games_meta_data[atomiswave-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[atomiswave-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[cave3rd-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[cave3rd-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[dreamcast-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_two': '2',
+  })
+# ---
+# name: test_get_games_meta_data[dreamcast-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[fbneo-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[fbneo-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[gaelco-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[gaelco-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[hikaru-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[hikaru-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[hypseus-singe-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[hypseus-singe-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[mame-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[mame-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[model2-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[model2-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[model3-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[model3-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[namco2x6-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[namco2x6-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[naomi-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[naomi-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[naomi2-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[naomi2-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[neogeo-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[neogeo-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[snes-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_five': '5',
+    'wheel_four': '42',
+    'wheel_three': '3',
+  })
+# ---
+# name: test_get_games_meta_data[snes-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+    'gun_foo': 'bar',
+    'wheel_four': '4',
+    'wheel_three': '3',
+  })
+# ---
+# name: test_get_games_meta_data[triforce-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[triforce-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-None-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-auto-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-big-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-medium-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders not required-thin-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-None-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-None-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-auto-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-auto-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-gameonly-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-gameonly-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-hidden-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-normal-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-None-normal-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-None-None]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-None-normal]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-auto-None]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-auto-normal]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-gameonly-None]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-gameonly-normal]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-hidden-normal]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-normal-None]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-auto-normal-normal]
+  'auto'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-None-None]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-None-normal]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-auto-None]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-auto-normal]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-gameonly-None]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-gameonly-normal]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-hidden-normal]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-normal-None]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-big-normal-normal]
+  'big'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-None-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-None-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-auto-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-auto-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-gameonly-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-gameonly-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-hidden-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-normal-None]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-medium-normal-normal]
+  'medium'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-None-None]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-None-normal]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-auto-None]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-auto-normal]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-gameonly-None]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-gameonly-normal]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-hidden-normal]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-normal-None]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[guns borders required-thin-normal-normal]
+  'thin'
+# ---
+# name: test_guns_borders_size_name[no guns-None-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-None-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-auto-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-big-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-medium-normal-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-None-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-None-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-None-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-auto-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-auto-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-auto-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-gameonly-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-gameonly-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-gameonly-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-hidden-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-hidden-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-hidden-normal]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-normal-None]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-normal-hidden]
+  None
+# ---
+# name: test_guns_borders_size_name[no guns-thin-normal-normal]
+  None
+# ---
+# name: test_short_name_from_path[/path/to/ABCDEFGHIGKLMNOPQRSTUVWXYZ!@#$%^&*abcdefghigklmnopqrstuvwxyz!@#$%^&*0123456789!@#$%^&*.zip]
+  'abcdefghigklmnopqrstuvwxyzabcdefghigklmnopqrstuvwxyz0123456789'
+# ---
+# name: test_short_name_from_path[/userdata/roms/system/blah (something [US]) [EN] (spam) foo.dsk]
+  'blahfoo'
+# ---
+# name: test_short_name_from_path[Path(/another/path/to/AbCdEf@#%!0&.bar.rom)]
+  'abcdef0bar'
+# ---
+# name: test_short_name_from_path[Path(/another/path/to/rom-name (something) suffix.rom)]
+  'romnamesuffix'
+# ---
+# name: test_short_name_from_path[Path(/another/path/to/rom-name [US] suffix.rom)]
+  'romnamesuffix'
+# ---

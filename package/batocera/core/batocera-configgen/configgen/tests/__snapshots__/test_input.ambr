@@ -1,0 +1,34 @@
+# serializer version: 1
+# name: TestInput.test_from_parent_element
+  list([
+    tuple(
+      'a',
+      Input(name='a', type='button', id='2', value='1', code='290'),
+    ),
+    tuple(
+      'down',
+      Input(name='down', type='hat', id='0', value='4', code=None),
+    ),
+  ])
+# ---
+# name: TestInput.test_init
+  Input(name='name', type='type', id='id', value='value', code=None)
+# ---
+# name: TestInput.test_init_with_code
+  Input(name='name', type='type', id='id', value='value', code='code')
+# ---
+# name: TestInput.test_replace[code]
+  Input(name='name', type='type', id='id', value='value', code='new_code')
+# ---
+# name: TestInput.test_replace[id]
+  Input(name='name', type='type', id='new_id', value='value', code=None)
+# ---
+# name: TestInput.test_replace[name]
+  Input(name='new_name', type='type', id='id', value='value', code=None)
+# ---
+# name: TestInput.test_replace[type]
+  Input(name='name', type='new_type', id='id', value='value', code=None)
+# ---
+# name: TestInput.test_replace[value]
+  Input(name='name', type='type', id='id', value='new_value', code=None)
+# ---

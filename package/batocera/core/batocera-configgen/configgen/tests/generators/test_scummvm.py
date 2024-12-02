@@ -1,0 +1,151 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Any
+
+import pytest
+
+from configgen.batoceraPaths import BIOS, CONFIGS
+from configgen.generators.scummvm.scummvmGenerator import ScummVMGenerator
+from tests.generators.base import GeneratorBaseTest
+
+if TYPE_CHECKING:
+    from pyfakefs.fake_filesystem import FakeFilesystem
+    from syrupy.assertion import SnapshotAssertion
+
+    from configgen.controller import ControllerMapping
+    from configgen.Emulator import Emulator
+
+
+@pytest.mark.usefixtures('fs')
+class TestScummVMGenerator(GeneratorBaseTest):
+    @pytest.fixture
+    def generator_cls(self) -> type[ScummVMGenerator]:
+        return ScummVMGenerator
+
+    @pytest.fixture
+    def system_name(self) -> str:
+        return 'scummvm'
+
+    @pytest.fixture
+    def emulator(self) -> str:
+        return 'scummvm'
+
+    @pytest.mark.parametrize(
+        ('mock_system_config', 'result'),
+        [
+            ({}, 16 / 9),
+            ({'scumm_stretch': 'even-pixels'}, 16 / 9),
+            ({'scumm_stretch': 'fit_force_aspect'}, 4 / 3),
+            ({'scumm_stretch': 'pixel-perfect'}, 4 / 3),
+        ],
+        ids=str,
+    )
+    def test_get_in_game_ratio(  # pyright: ignore
+        self, generator: ScummVMGenerator, mock_system_config: dict[str, Any], result: bool
+    ) -> None:
+        assert generator.getInGameRatio(mock_system_config, {'width': 0, 'height': 0}, '') == result
+
+    def test_generate(
+        self,
+        generator: ScummVMGenerator,
+        mock_system: Emulator,
+        two_player_controllers: ControllerMapping,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        assert (
+            generator.generate(
+                mock_system,
+                '/userdata/roms/scummvm/rom.scummvm',
+                two_player_controllers,
+                {},
+                {},
+                {},
+                {'width': 1920, 'height': 1080},
+            )
+            == snapshot
+        )
+        assert (BIOS / 'scummvm' / 'extra').is_dir()
+        assert (CONFIGS / 'scummvm' / 'scummvm.ini').read_text() == snapshot(name='config')
+
+    def test_generate_existing(
+        self,
+        generator: ScummVMGenerator,
+        fs: FakeFilesystem,
+        mock_system: Emulator,
+        one_player_controllers: ControllerMapping,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        fs.create_file(
+            CONFIGS / 'scummvm' / 'scummvm.ini',
+            contents="""[scummvm]
+gui_browser_native = true
+
+[foo]
+bar = true
+""",
+        )
+
+        generator.generate(
+            mock_system,
+            '/userdata/roms/scummvm/rom.scummvm',
+            one_player_controllers,
+            {},
+            {},
+            {},
+            {'width': 1920, 'height': 1080},
+        )
+        assert (CONFIGS / 'scummvm' / 'scummvm.ini').read_text() == snapshot
+
+    @pytest.mark.parametrize(
+        'mock_system_config',
+        [
+            {'scumm_scale': '7'},
+            {'scumm_scaler_mode': 'hq'},
+            {'scumm_stretch': 'even-pixels'},
+            {'scumm_renderer': 'software'},
+            {'scumm_language': 'en'},
+        ],
+        ids=str,
+    )
+    def test_generate_config(
+        self,
+        generator: ScummVMGenerator,
+        mock_system: Emulator,
+        one_player_controllers: ControllerMapping,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        assert (
+            generator.generate(
+                mock_system,
+                '/userdata/roms/scummvm/rom.scummvm',
+                one_player_controllers,
+                {},
+                {},
+                {},
+                {'width': 1920, 'height': 1080},
+            )
+            == snapshot
+        )
+
+    def test_generate_rom_dir(
+        self,
+        generator: ScummVMGenerator,
+        fs: FakeFilesystem,
+        mock_system: Emulator,
+        one_player_controllers: ControllerMapping,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        fs.create_file('/userdata/roms/scummvm/Day_of_the_Tentacle/tentacle.scummvm')
+
+        assert (
+            generator.generate(
+                mock_system,
+                '/userdata/roms/scummvm/Day_of_the_Tentacle',
+                one_player_controllers,
+                {},
+                {},
+                {},
+                {'width': 1920, 'height': 1080},
+            )
+            == snapshot
+        )
