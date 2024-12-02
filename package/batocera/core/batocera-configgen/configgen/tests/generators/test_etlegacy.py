@@ -1,0 +1,136 @@
+from __future__ import annotations
+
+import filecmp
+from typing import TYPE_CHECKING
+
+import pytest
+
+from configgen.batoceraPaths import CONFIGS, ROMS
+from configgen.generators.etlegacy.etlegacyGenerator import ETLegacyGenerator
+
+if TYPE_CHECKING:
+    from pyfakefs.fake_filesystem import FakeFilesystem
+    from syrupy.assertion import SnapshotAssertion
+
+    from configgen.controller import ControllerMapping
+    from configgen.Emulator import Emulator
+
+
+@pytest.mark.usefixtures('fs')
+class TestETLegacyGenerator:
+    @pytest.fixture
+    def system_name(self) -> str:
+        return 'etlegacy'
+
+    @pytest.fixture
+    def emulator(self) -> str:
+        return 'etlegacy'
+
+    def test_get_hotkeys_context(self, snapshot: SnapshotAssertion) -> None:
+        assert ETLegacyGenerator().getHotkeysContext() == snapshot
+
+    def test_get_mouse_mode(self) -> None:
+        assert ETLegacyGenerator().getMouseMode({}, '')
+
+    def test_get_in_game_ratio(self) -> None:
+        assert ETLegacyGenerator().getInGameRatio({}, {'width': 0, 'height': 0}, '') == 16 / 9
+
+    def test_generate(
+        self,
+        mock_system: Emulator,
+        fs: FakeFilesystem,
+        one_player_controllers: ControllerMapping,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        fs.create_file('/usr/share/etlegacy/legacy_2.82-dirty.pk3', contents='pk3')
+
+        command = ETLegacyGenerator().generate(
+            mock_system,
+            '',
+            one_player_controllers,
+            {},
+            {},
+            {},
+            {'width': 1920, 'height': 1080},
+        )
+
+        assert (command.array, command.env) == snapshot
+        assert (CONFIGS / 'etlegacy' / 'legacy' / 'etconfig.cfg').read_text() == snapshot(name='config')
+        assert filecmp.cmp(
+            '/usr/share/etlegacy/legacy_2.82-dirty.pk3', ROMS / 'etlegacy' / 'legacy' / 'legacy_2.82-dirty.pk3'
+        )
+
+    def test_generate_existing(
+        self,
+        mock_system: Emulator,
+        fs: FakeFilesystem,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        fs.create_file('/usr/share/etlegacy/legacy_2.82-dirty.pk3', contents='pk3')
+        fs.create_file(ROMS / 'etlegacy' / 'legacy' / 'legacy_2.82-dirty.pk3', contents='new pk3')
+        fs.create_file(
+            CONFIGS / 'etlegacy' / 'legacy' / 'etconfig.cfg',
+            contents="""seta r_mode "2"
+seta r_fullscreen "0"
+seta r_allowResize "1"
+seta r_customheight ""640""
+seta r_customwidth ""480""
+seta cl_lang "af"
+seta ui_cl_lang "af"
+seta foo "bar"
+""",
+        )
+
+        ETLegacyGenerator().generate(
+            mock_system,
+            '',
+            {},
+            {},
+            {},
+            {},
+            {'width': 1920, 'height': 1080},
+        )
+
+        assert (CONFIGS / 'etlegacy' / 'legacy' / 'etconfig.cfg').read_text() == snapshot
+        assert (ROMS / 'etlegacy' / 'legacy' / 'legacy_2.82-dirty.pk3').read_text() == 'new pk3'
+
+    def test_generate_old_pk3(
+        self,
+        mock_system: Emulator,
+        fs: FakeFilesystem,
+    ) -> None:
+        fs.create_file(ROMS / 'etlegacy' / 'legacy' / 'legacy_2.82-dirty.pk3', contents='old pk3')
+        fs.create_file('/usr/share/etlegacy/legacy_2.82-dirty.pk3', contents='pk3')
+
+        ETLegacyGenerator().generate(
+            mock_system,
+            '',
+            {},
+            {},
+            {},
+            {},
+            {'width': 1920, 'height': 1080},
+        )
+
+        assert (ROMS / 'etlegacy' / 'legacy' / 'legacy_2.82-dirty.pk3').read_text() == 'pk3'
+
+    @pytest.mark.mock_system_config({'etlegacy_language': 'af'})
+    def test_generate_language(
+        self,
+        mock_system: Emulator,
+        fs: FakeFilesystem,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        fs.create_file('/usr/share/etlegacy/legacy_2.82-dirty.pk3', contents='pk3')
+
+        ETLegacyGenerator().generate(
+            mock_system,
+            '',
+            {},
+            {},
+            {},
+            {},
+            {'width': 1920, 'height': 1080},
+        )
+
+        assert (CONFIGS / 'etlegacy' / 'legacy' / 'etconfig.cfg').read_text() == snapshot
