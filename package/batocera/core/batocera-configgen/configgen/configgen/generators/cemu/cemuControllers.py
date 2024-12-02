@@ -3,8 +3,6 @@ from __future__ import annotations
 import xml.etree.ElementTree as ET
 from typing import TYPE_CHECKING
 
-import pyudev
-
 from ...batoceraPaths import mkdir_if_not_exists
 from .cemuPaths import CEMU_CONTROLLER_PROFILES
 
@@ -19,6 +17,7 @@ if TYPE_CHECKING:
 # Additional controllers will either be a Pro Controller or Wiimote
 
 def generateControllerConfig(system: Emulator, playersControllers: Controllers) -> None:
+    import pyudev
 
     # -= Wii U controller types =-
     GAMEPAD = "Wii U GamePad"

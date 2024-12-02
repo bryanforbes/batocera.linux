@@ -1,0 +1,100 @@
+name: configggen
+on:
+  push:
+    paths:
+      - .github/workflows/configgen.yml
+      - package/batocera/core/batocera-configgen/configgen/pyprojet.toml
+      - package/batocera/core/batocera-configgen/configgen/configgen/**
+      - package/batocera/core/batocera-configgen/configgen/tests/**
+  pull_request:
+    paths:
+      - .github/workflows/configgen.yml
+      - package/batocera/core/batocera-configgen/configgen/pyprojet.toml
+      - package/batocera/core/batocera-configgen/configgen/configgen/**
+      - package/batocera/core/batocera-configgen/configgen/tests/**
+
+
+jobs:
+  test-changes:
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: read
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            tests:
+              - 'package/batocera/core/batocera-configgen/configgen/tests/**'
+              - 'package/batocera/core/batocera-configgen/configgen/pyproject.toml'
+
+    outputs:
+      has-changes: ${{ steps.changes.outputs.tests }}
+
+  lint:
+    runs-on: ubuntu-24.04
+
+    needs: [test-changes]
+    if: needs.test-changes.outputs.has-changes == 'true'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12.8
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.8'
+          cache: 'pip'
+          cache-dependency-path: package/batocera/core/batocera-configgen/configgen/pyproject.toml
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -e 'package/batocera/core/batocera-configgen/configgen[test]'
+
+      - name: Lint files
+        run: |
+          source .venv/bin/activate
+          cd ./package/batocera/core/batocera-configgen/configgen
+          ruff format --check tests
+          ruff check tests
+          pyright configgen tests
+
+  test:
+    runs-on: ubuntu-24.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group-id: [1, 2, 3, 4, 5]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12.8
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.8'
+          cache: 'pip'
+          cache-dependency-path: package/batocera/core/batocera-configgen/configgen/pyproject.toml
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -e 'package/batocera/core/batocera-configgen/configgen[test]'
+
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          cd ./package/batocera/core/batocera-configgen/configgen
+          py.test -n auto --test-group-count 5 --test-group ${{ matrix.test-group-id }}

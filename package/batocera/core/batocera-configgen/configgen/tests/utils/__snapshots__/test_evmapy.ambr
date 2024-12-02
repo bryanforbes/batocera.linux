@@ -1,0 +1,4091 @@
+# serializer version: 1
+# name: TestEvmapy.test_context[/userdata/roms/system/rom_name.game.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/userdata/roms/system/rom_name.game.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/roms/system/rom_name.game.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/roms/system/rom_name.game/padto.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/userdata/roms/system/rom_name.game/padto.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/roms/system/rom_name.game/padto.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/any.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/any.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/any.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/emulator.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/emulator.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/emulator.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/system.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/system.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/evmapy/system.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/hotkeys.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/hotkeys.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/userdata/system/configs/hotkeys.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/any.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/any.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/any.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/emulator.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/emulator.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/emulator.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/hotkeys.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/hotkeys.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/hotkeys.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/system.emulator.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/system.emulator.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/system.emulator.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/system.keys][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/system.keys][subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context[/usr/share/evmapy/system.keys][subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context_cleanup_on_raise[subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context_merge[event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0X",
+        "code": 0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "name": "ABS1X",
+        "code": 3,
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "name": "ABS1Y",
+        "code": 4,
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "a",
+        "code": 304
+      },
+      {
+        "name": "b",
+        "code": 305
+      },
+      {
+        "name": "hotkey",
+        "code": 314
+      },
+      {
+        "name": "l2",
+        "code": 312
+      },
+      {
+        "name": "l3",
+        "code": 317
+      },
+      {
+        "name": "pagedown",
+        "code": 311
+      },
+      {
+        "name": "pageup",
+        "code": 310
+      },
+      {
+        "name": "r2",
+        "code": 313
+      },
+      {
+        "name": "r3",
+        "code": 318
+      },
+      {
+        "name": "start",
+        "code": 315
+      },
+      {
+        "name": "x",
+        "code": 307
+      },
+      {
+        "name": "y",
+        "code": 308
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "r2",
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "r2"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "start"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": "l2",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/system.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "l2"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/system.keys"
+      },
+      {
+        "trigger": "y",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/emulator.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "y"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/emulator.keys"
+      },
+      {
+        "trigger": "x",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/any.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "x"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/any.keys"
+      },
+      {
+        "trigger": "b",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.emulator.keys"
+      },
+      {
+        "trigger": [
+          "b",
+          "hotkey"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.emulator.keys"
+      },
+      {
+        "trigger": "a",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.keys"
+      },
+      {
+        "trigger": [
+          "a",
+          "hotkey"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.keys"
+      },
+      {
+        "trigger": "hotkey",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/emulator.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "hotkey"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/emulator.keys"
+      },
+      {
+        "trigger": "HAT0Y:min",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/any.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "HAT0Y:min"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/any.keys"
+      },
+      {
+        "trigger": "HAT0X:min",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/hotkeys.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "HAT0X:min"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/hotkeys.keys"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context_merge[evmapy_merged.keys]
+  '''
+  {
+    "actions_player1": [
+      {
+        "trigger": "r2",
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "r2"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "start"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/roms/system/rom_name.game/padto.keys"
+      },
+      {
+        "trigger": "l2",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/system.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "l2"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/system.keys"
+      },
+      {
+        "trigger": "y",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/emulator.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "y"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/emulator.keys"
+      },
+      {
+        "trigger": "x",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/any.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "x"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/evmapy/any.keys"
+      },
+      {
+        "trigger": "b",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.emulator.keys"
+      },
+      {
+        "trigger": [
+          "b",
+          "hotkey"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.emulator.keys"
+      },
+      {
+        "trigger": "a",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.keys"
+      },
+      {
+        "trigger": [
+          "a",
+          "hotkey"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/system.keys"
+      },
+      {
+        "trigger": "select",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/emulator.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "select"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/emulator.keys"
+      },
+      {
+        "trigger": "up",
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/any.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "up"
+        ],
+        "type": "exec",
+        "target": "killall -9 /usr/share/evmapy/any.keys"
+      },
+      {
+        "trigger": "left",
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/hotkeys.keys"
+      },
+      {
+        "trigger": [
+          "hotkey",
+          "left"
+        ],
+        "type": "exec",
+        "target": "killall -9 /userdata/system/configs/hotkeys.keys"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_context_merge[subprocess.call post context]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'stop',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context_merge[subprocess.call]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'clear',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-evmapy',
+          'start',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestEvmapy.test_context_no_keysfiles[subprocess.call post context]
+  _CallList([
+  ])
+# ---
+# name: TestEvmapy.test_context_no_keysfiles[subprocess.call]
+  _CallList([
+  ])
+# ---
+# name: TestEvmapy.test_trigger_gun[2][event1.json]
+  '''
+  {
+    "buttons": [
+      {
+        "name": "left",
+        "code": 272
+      },
+      {
+        "name": "middle",
+        "code": 274
+      },
+      {
+        "name": "right",
+        "code": 273
+      },
+      {
+        "name": "1",
+        "code": 257
+      }
+    ],
+    "axes": [],
+    "actions": [
+      {
+        "trigger": "right",
+        "type": "key",
+        "target": "KEY_F4"
+      }
+    ],
+    "grab": false
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_gun[['left', 'right', 'middle']][event1.json]
+  '''
+  {
+    "buttons": [
+      {
+        "name": "left",
+        "code": 272
+      },
+      {
+        "name": "middle",
+        "code": 274
+      },
+      {
+        "name": "right",
+        "code": 273
+      },
+      {
+        "name": "1",
+        "code": 257
+      }
+    ],
+    "axes": [],
+    "actions": [
+      {
+        "trigger": [
+          "left",
+          "right",
+          "middle"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTALT",
+          "KEY_F4"
+        ]
+      },
+      {
+        "trigger": "right",
+        "type": "key",
+        "target": "KEY_F4"
+      }
+    ],
+    "grab": false
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_gun[['middle', '2']][event1.json]
+  '''
+  {
+    "buttons": [
+      {
+        "name": "left",
+        "code": 272
+      },
+      {
+        "name": "middle",
+        "code": 274
+      },
+      {
+        "name": "right",
+        "code": 273
+      },
+      {
+        "name": "1",
+        "code": 257
+      }
+    ],
+    "axes": [],
+    "actions": [
+      {
+        "trigger": "right",
+        "type": "key",
+        "target": "KEY_F4"
+      }
+    ],
+    "grab": false
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_gun[left][event1.json]
+  '''
+  {
+    "buttons": [
+      {
+        "name": "left",
+        "code": 272
+      },
+      {
+        "name": "middle",
+        "code": 274
+      },
+      {
+        "name": "right",
+        "code": 273
+      },
+      {
+        "name": "1",
+        "code": 257
+      }
+    ],
+    "axes": [],
+    "actions": [
+      {
+        "trigger": "left",
+        "type": "key",
+        "target": [
+          "KEY_LEFTALT",
+          "KEY_F4"
+        ]
+      },
+      {
+        "trigger": "right",
+        "type": "key",
+        "target": "KEY_F4"
+      }
+    ],
+    "grab": false
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1left-joystick1left-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS0X:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1left-joystick1left-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS0X:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1left-joystick1right-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS0X:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1left-joystick1right-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS0X:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1up-joystick1down-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS0Y:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1up-joystick1down-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS0Y:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1up-joystick1up-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS0Y:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick1up-joystick1up-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS0Y:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2left-joystick2left-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS1X:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2left-joystick2left-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS1X:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2left-joystick2right-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS1X:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2left-joystick2right-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1X",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS1X:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2up-joystick2down-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS1Y:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2up-joystick2down-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS1Y:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2up-joystick2up-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS1Y:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[joystick2up-joystick2up-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1Y",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS1Y:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[l2-l2-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS_OTHERS_l2",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS_OTHERS_l2:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[l2-l2-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS_OTHERS_l2",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS_OTHERS_l2:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[r2-r2-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS_OTHERS_r2",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS_OTHERS_r2:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis[r2-r2-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS_OTHERS_r2",
+        "code": 1,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS_OTHERS_r2:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_capability_not_found[with hotkey-has abs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": 0.0,
+        "max": 0.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS0Y:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_capability_not_found[with hotkey-has no abs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": 0.0,
+        "max": 0.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABS0Y:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_capability_not_found[without hotkey-has abs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": 0.0,
+        "max": 0.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS0Y:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_capability_not_found[without hotkey-has no abs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": 0.0,
+        "max": 0.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABS0Y:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value flipped-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value flipped-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value flipped-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value flipped-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value normal-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value normal-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value normal-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[down-value normal-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value flipped-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value flipped-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value flipped-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value flipped-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value normal-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value normal-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value normal-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[left-value normal-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value flipped-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value flipped-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value flipped-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value flipped-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value normal-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value normal-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEX:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value normal-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      },
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[right-value normal-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEX:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value flipped-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value flipped-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value flipped-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value flipped-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value normal-with hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value normal-with hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "ABSBASEY:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value normal-without hotkey-input first][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_axis_directional[up-value normal-without hotkey-input last][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABSBASEY",
+        "code": 1,
+        "min": -6384.0,
+        "max": 6384.0
+      },
+      {
+        "name": "ABSBASEX",
+        "code": 0,
+        "min": -16384.0,
+        "max": 16384.0
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "ABSBASEY:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_button[hotkey][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      },
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "start"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_button[no hotkey][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      },
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_button[select][event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      },
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "start"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[down-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "HAT0Y:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[down-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "HAT0Y:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[left-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "HAT0X:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[left-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "HAT0X:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[right-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "HAT0X:max"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[right-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "HAT0X:max",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[up-with hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "hotkey",
+          "HAT0Y:min"
+        ],
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_hat[up-without hotkey][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "HAT0Y",
+        "code": 17,
+        "min": -0.5,
+        "max": 0.5
+      },
+      {
+        "name": "HAT0X",
+        "code": 16,
+        "min": -0.5,
+        "max": 0.5
+      }
+    ],
+    "buttons": [
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "HAT0Y:min",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ]
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_key_with_mode[event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      },
+      {
+        "name": "hotkey",
+        "code": 314
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "key",
+        "target": [
+          "KEY_LEFTCTRL",
+          "KEY_Q"
+        ],
+        "mode": "sequence"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_mouse[joystick1-has all inputs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0X",
+        "code": 0,
+        "min": -32768,
+        "max": 32768
+      },
+      {
+        "name": "ABS0Y",
+        "code": 1,
+        "min": -12768,
+        "max": 12768
+      }
+    ],
+    "buttons": [],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "ABS0X:val",
+          "ABS0X:min",
+          "ABS0X:max"
+        ],
+        "type": "mouse",
+        "target": "X",
+        "mode": "any"
+      },
+      {
+        "trigger": [
+          "ABS0Y:val",
+          "ABS0Y:min",
+          "ABS0Y:max"
+        ],
+        "type": "mouse",
+        "target": "Y",
+        "mode": "any"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_mouse[joystick1-has missing inputs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS0X",
+        "code": 0,
+        "min": -32768,
+        "max": 32768
+      }
+    ],
+    "buttons": [],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "ABS0X:val",
+          "ABS0X:min",
+          "ABS0X:max"
+        ],
+        "type": "mouse",
+        "target": "X",
+        "mode": "any"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_mouse[joystick2-has all inputs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1X",
+        "code": 0,
+        "min": -32768,
+        "max": 32768
+      },
+      {
+        "name": "ABS1Y",
+        "code": 1,
+        "min": -12768,
+        "max": 12768
+      }
+    ],
+    "buttons": [],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "ABS1X:val",
+          "ABS1X:min",
+          "ABS1X:max"
+        ],
+        "type": "mouse",
+        "target": "X",
+        "mode": "any"
+      },
+      {
+        "trigger": [
+          "ABS1Y:val",
+          "ABS1Y:min",
+          "ABS1Y:max"
+        ],
+        "type": "mouse",
+        "target": "Y",
+        "mode": "any"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_trigger_mouse[joystick2-has missing inputs][event1.json]
+  '''
+  {
+    "axes": [
+      {
+        "name": "ABS1X",
+        "code": 0,
+        "min": -32768,
+        "max": 32768
+      }
+    ],
+    "buttons": [],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": [
+          "ABS1X:val",
+          "ABS1X:min",
+          "ABS1X:max"
+        ],
+        "type": "mouse",
+        "target": "X",
+        "mode": "any"
+      }
+    ]
+  }
+  '''
+# ---
+# name: TestEvmapy.test_two_controllers_one_action_definition[event1.json]
+  '''
+  {
+    "axes": [],
+    "buttons": [
+      {
+        "name": "start",
+        "code": 315
+      }
+    ],
+    "grab": false,
+    "actions": [
+      {
+        "trigger": "start",
+        "type": "exec",
+        "target": "killall -9 something"
+      }
+    ]
+  }
+  '''
+# ---

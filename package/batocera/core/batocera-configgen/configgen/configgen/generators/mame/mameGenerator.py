@@ -117,10 +117,10 @@ class MameGenerator(Generator):
             softList = 'fmtowns_cd'
 
         commandArray: list[str | Path] =  [ "/usr/bin/mame/mame" ]
-        
+
         # MAME options used here are explained as it's not always straightforward
         # A lot more options can be configured, just run mame -showusage and have a look
-        
+
         # set audio to pipewire to fix audio from 0.278
         commandArray += [ "-sound", "pipewire" ]
         # skip game info at start
@@ -156,7 +156,7 @@ class MameGenerator(Generator):
         # Set custom config path if option is selected or default path if not
         customCfg = system.config.get_bool("customcfg")
 
-        if messMode == -1:
+        if system.name == "mame" or messMode == -1:
             if customCfg:
                 cfgPath = MAME_CONFIG / "custom"
             else:

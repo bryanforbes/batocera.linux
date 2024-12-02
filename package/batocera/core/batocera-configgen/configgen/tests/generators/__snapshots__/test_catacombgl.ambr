@@ -1,0 +1,168 @@
+# serializer version: 1
+# name: TestCatacombGLGenerator.test_generate[Abyss]
+  tuple(
+    list([
+      '/usr/bin/CatacombGL',
+      '--savedir',
+      '/userdata/saves/CatacombGL',
+      '--abyss',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCatacombGLGenerator.test_generate[Abyss][config]
+  '''
+  pathabyssv113=/userdata/roms/catacomb/Abyss_sw13
+  pathabyssv124=/userdata/roms/catacomb/Abyss
+  patharmageddonv102=/userdata/roms/catacomb/Armageddon
+  pathapocalypsev101=/userdata/roms/catacomb/Apocalypse
+  pathcatacomb3dv122=/userdata/roms/catacomb/Cat3D
+  screenmode=fullscreen
+  WindowedScreenWidth=1920
+  WindowedScreenHeight=1080
+  
+  '''
+# ---
+# name: TestCatacombGLGenerator.test_generate[Abyss_SW13]
+  tuple(
+    list([
+      '/usr/bin/CatacombGL',
+      '--savedir',
+      '/userdata/saves/CatacombGL',
+      '--abyss',
+      '--abyss_sw13',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCatacombGLGenerator.test_generate[Abyss_SW13][config]
+  '''
+  pathabyssv113=/userdata/roms/catacomb/Abyss_sw13
+  pathabyssv124=/userdata/roms/catacomb/Abyss
+  patharmageddonv102=/userdata/roms/catacomb/Armageddon
+  pathapocalypsev101=/userdata/roms/catacomb/Apocalypse
+  pathcatacomb3dv122=/userdata/roms/catacomb/Cat3D
+  screenmode=fullscreen
+  WindowedScreenWidth=1920
+  WindowedScreenHeight=1080
+  
+  '''
+# ---
+# name: TestCatacombGLGenerator.test_generate[Apocalypse]
+  tuple(
+    list([
+      '/usr/bin/CatacombGL',
+      '--savedir',
+      '/userdata/saves/CatacombGL',
+      '--apocalypse',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCatacombGLGenerator.test_generate[Apocalypse][config]
+  '''
+  pathabyssv113=/userdata/roms/catacomb/Abyss_sw13
+  pathabyssv124=/userdata/roms/catacomb/Abyss
+  patharmageddonv102=/userdata/roms/catacomb/Armageddon
+  pathapocalypsev101=/userdata/roms/catacomb/Apocalypse
+  pathcatacomb3dv122=/userdata/roms/catacomb/Cat3D
+  screenmode=fullscreen
+  WindowedScreenWidth=1920
+  WindowedScreenHeight=1080
+  
+  '''
+# ---
+# name: TestCatacombGLGenerator.test_generate[Armageddon]
+  tuple(
+    list([
+      '/usr/bin/CatacombGL',
+      '--savedir',
+      '/userdata/saves/CatacombGL',
+      '--armageddon',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCatacombGLGenerator.test_generate[Armageddon][config]
+  '''
+  pathabyssv113=/userdata/roms/catacomb/Abyss_sw13
+  pathabyssv124=/userdata/roms/catacomb/Abyss
+  patharmageddonv102=/userdata/roms/catacomb/Armageddon
+  pathapocalypsev101=/userdata/roms/catacomb/Apocalypse
+  pathcatacomb3dv122=/userdata/roms/catacomb/Cat3D
+  screenmode=fullscreen
+  WindowedScreenWidth=1920
+  WindowedScreenHeight=1080
+  
+  '''
+# ---
+# name: TestCatacombGLGenerator.test_generate[Descent]
+  tuple(
+    list([
+      '/usr/bin/CatacombGL',
+      '--savedir',
+      '/userdata/saves/CatacombGL',
+      '--descent',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestCatacombGLGenerator.test_generate[Descent][config]
+  '''
+  pathabyssv113=/userdata/roms/catacomb/Abyss_sw13
+  pathabyssv124=/userdata/roms/catacomb/Abyss
+  patharmageddonv102=/userdata/roms/catacomb/Armageddon
+  pathapocalypsev101=/userdata/roms/catacomb/Apocalypse
+  pathcatacomb3dv122=/userdata/roms/catacomb/Cat3D
+  screenmode=fullscreen
+  WindowedScreenWidth=1920
+  WindowedScreenHeight=1080
+  
+  '''
+# ---
+# name: TestCatacombGLGenerator.test_generate_existing
+  '''
+  WindowedScreenWidth=1920
+  WindowedScreenHeight=1080
+  pathabyssv113=/userdata/roms/catacomb/Abyss_sw13
+  pathabyssv124=/userdata/roms/catacomb/Abyss
+  patharmageddonv102=/userdata/roms/catacomb/Armageddon
+  pathapocalypsev101=/userdata/roms/catacomb/Apocalypse
+  pathcatacomb3dv122=/userdata/roms/catacomb/Cat3D
+  screenmode=fullscreen
+  
+  '''
+# ---
+# name: TestCatacombGLGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_ESC',
+      'restore_state': list([
+        'KEY_F4',
+      ]),
+      'save_state': list([
+        'KEY_F3',
+      ]),
+    }),
+    'name': 'catacombgl',
+  })
+# ---

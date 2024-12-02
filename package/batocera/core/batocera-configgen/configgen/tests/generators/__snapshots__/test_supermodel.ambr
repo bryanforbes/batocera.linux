@@ -1,0 +1,4859 @@
+# serializer version: 1
+# name: TestSupermodelGenerator.test_generate
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-crosshairs=3',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'crosshairs': '2'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-crosshairs=2',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'crosshairs': '2'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'crt_colour': '1'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-crosshairs=3',
+      '-crtcolors=1',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'crt_colour': '1'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'engine3D': 'new3d'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-new3d',
+      '-crosshairs=3',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'engine3D': 'new3d'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'forceFeedback': '1'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-crosshairs=3',
+      '-force-feedback',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'forceFeedback': '1'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'joystickSensitivity': '80'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-crosshairs=3',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'joystickSensitivity': '80'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 80
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 80
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 80
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 80
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 80
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 80
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'m3_wideScreen': '1', 'bezel': 'none'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-wide-screen',
+      '-wide-bg',
+      '-crosshairs=3',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'m3_wideScreen': '1', 'bezel': 'none'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'ppcFreq': '80'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-crosshairs=3',
+      '-ppc-frequency=80',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'ppcFreq': '80'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'quadRendering': '1'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-quad-rendering',
+      '-crosshairs=3',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'quadRendering': '1'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'upscale_mode': '3'}]
+  tuple(
+    list([
+      'supermodel',
+      '-fullscreen',
+      '-channels=2',
+      '-multi-texture',
+      '-legacy-scsp',
+      '-legacy3d',
+      '-crosshairs=3',
+      '-upscalemode=3',
+      '-res=1920,1080',
+      '-log-output=/userdata/system/logs/Supermodel.log',
+      '/userdata/roms/model3/daytona2.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SDL_VIDEODRIVER': 'x11',
+    }),
+  )
+# ---
+# name: TestSupermodelGenerator.test_generate_config[{'upscale_mode': '3'}][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_config_driving[ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = ""
+  InputJoyDown2 = ""
+  InputJoyLeft2 = ""
+  InputJoyRight2 = ""
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = ""
+  InputKick2 = ""
+  InputGuard2 = ""
+  InputEscape2 = ""
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = ""
+  InputLongPass2 = ""
+  InputShoot2 = ""
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_BUTTON7"
+  InputBrake = "KEY_DOWN,JOY1_BUTTON8"
+  InputGearShiftUp = "KEY_Y,JOY1_BUTTON6,JOY1_RYAXIS_NEG"
+  InputGearShiftDown = "KEY_H,JOY1_BUTTON5,JOY1_RYAXIS_POS"
+  InputGearShift1 = "KEY_Q"
+  InputGearShift2 = "KEY_W"
+  InputGearShift3 = "KEY_E"
+  InputGearShift4 = "KEY_R"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z"
+  InputTwinJoyTurbo2 = "KEY_X"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = ""
+  InputGunY2 = ""
+  InputTrigger2 = ""
+  InputOffscreen2 = ""
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = ""
+  InputAnalogGunY2 = ""
+  InputAnalogTriggerLeft2 = ""
+  InputAnalogTriggerRight2 = ""
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = ""
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE,JOY1_BUTTON8"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T,JOY1_BUTTON8"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_controllers[ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2,JOY2_BUTTON10"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4,JOY2_BUTTON9"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = "JOY2_YAXIS_NEG"
+  InputJoyDown2 = "JOY2_YAXIS_POS"
+  InputJoyLeft2 = "JOY2_XAXIS_NEG"
+  InputJoyRight2 = "JOY2_XAXIS_POS"
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = "JOY2_BUTTON4"
+  InputKick2 = "JOY2_BUTTON1"
+  InputGuard2 = "JOY2_BUTTON2"
+  InputEscape2 = "JOY2_BUTTON3"
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = "JOY2_BUTTON4"
+  InputLongPass2 = "JOY2_BUTTON1"
+  InputShoot2 = "JOY2_BUTTON2"
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = "JOY2_XAXIS"
+  InputGunY2 = "JOY2_YAXIS"
+  InputTrigger2 = "JOY2_BUTTON4"
+  InputOffscreen2 = "JOY2_BUTTON1"
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = "JOY2_XAXIS"
+  InputAnalogGunY2 = "JOY2_YAXIS"
+  InputAnalogTriggerLeft2 = "JOY2_BUTTON4"
+  InputAnalogTriggerRight2 = "JOY2_BUTTON1"
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = "JOY2_YAXIS"
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S,JOY2_BUTTON4"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_guns[no guns][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = sdl
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = "KEY_1,JOY1_BUTTON10"
+  InputStart2 = "KEY_2,JOY2_BUTTON10"
+  InputCoin1 = "KEY_3,JOY1_BUTTON9"
+  InputCoin2 = "KEY_4,JOY2_BUTTON9"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = "JOY2_YAXIS_NEG"
+  InputJoyDown2 = "JOY2_YAXIS_POS"
+  InputJoyLeft2 = "JOY2_XAXIS_NEG"
+  InputJoyRight2 = "JOY2_XAXIS_POS"
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = "JOY2_BUTTON4"
+  InputKick2 = "JOY2_BUTTON1"
+  InputGuard2 = "JOY2_BUTTON2"
+  InputEscape2 = "JOY2_BUTTON3"
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = "JOY2_BUTTON4"
+  InputLongPass2 = "JOY2_BUTTON1"
+  InputShoot2 = "JOY2_BUTTON2"
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = "JOY_XAXIS_INV,MOUSE_XAXIS_INV"
+  InputAnalogJoyY = "JOY_YAXIS_INV,MOUSE_YAXIS_INV"
+  InputAnalogJoyTrigger = "KEY_A,JOY_BUTTON1,MOUSE_LEFT_BUTTON"
+  InputAnalogJoyEvent = "KEY_S,JOY_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputTrigger = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputOffscreen = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = "JOY2_XAXIS"
+  InputGunY2 = "JOY2_YAXIS"
+  InputTrigger2 = "JOY2_BUTTON4"
+  InputOffscreen2 = "JOY2_BUTTON1"
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = "MOUSE_XAXIS,JOY1_XAXIS"
+  InputAnalogGunY = "MOUSE_YAXIS,JOY1_YAXIS"
+  InputAnalogTriggerLeft = "KEY_A,JOY1_BUTTON4,MOUSE_LEFT_BUTTON"
+  InputAnalogTriggerRight = "KEY_S,JOY1_BUTTON2,MOUSE_RIGHT_BUTTON"
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = "JOY2_XAXIS"
+  InputAnalogGunY2 = "JOY2_YAXIS"
+  InputAnalogTriggerLeft2 = "JOY2_BUTTON4"
+  InputAnalogTriggerRight2 = "JOY2_BUTTON1"
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = "JOY2_YAXIS"
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S,JOY2_BUTTON4"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_guns[one gun][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = evdev
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = MOUSE1_BUTTONX1,JOY1_BUTTON10
+  InputStart2 = "KEY_2,JOY2_BUTTON10"
+  InputCoin1 = MOUSE1_BUTTONX2,JOY1_BUTTON9
+  InputCoin2 = "KEY_4,JOY2_BUTTON9"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = "JOY2_YAXIS_NEG"
+  InputJoyDown2 = "JOY2_YAXIS_POS"
+  InputJoyLeft2 = "JOY2_XAXIS_NEG"
+  InputJoyRight2 = "JOY2_XAXIS_POS"
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = "JOY2_BUTTON4"
+  InputKick2 = "JOY2_BUTTON1"
+  InputGuard2 = "JOY2_BUTTON2"
+  InputEscape2 = "JOY2_BUTTON3"
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = "JOY2_BUTTON4"
+  InputLongPass2 = "JOY2_BUTTON1"
+  InputShoot2 = "JOY2_BUTTON2"
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = MOUSE1_XAXIS_INV
+  InputAnalogJoyY = MOUSE1_YAXIS_INV
+  InputAnalogJoyTrigger = MOUSE1_LEFT_BUTTON
+  InputAnalogJoyEvent = KEY_S,MOUSE1_MIDDLE_BUTTON,JOY1_BUTTON2
+  InputAnalogJoyTrigger2 = "KEY_D,JOY_BUTTON2"
+  InputAnalogJoyEvent2 = "NONE"
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = MOUSE1_XAXIS
+  InputGunY = MOUSE1_YAXIS
+  InputTrigger = MOUSE1_LEFT_BUTTON
+  InputOffscreen = MOUSE1_RIGHT_BUTTON
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = "JOY2_XAXIS"
+  InputGunY2 = "JOY2_YAXIS"
+  InputTrigger2 = "JOY2_BUTTON4"
+  InputOffscreen2 = "JOY2_BUTTON1"
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = MOUSE1_XAXIS
+  InputAnalogGunY = MOUSE1_YAXIS
+  InputAnalogTriggerLeft = MOUSE1_LEFT_BUTTON
+  InputAnalogTriggerRight = MOUSE1_RIGHT_BUTTON
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = "JOY2_XAXIS"
+  InputAnalogGunY2 = "JOY2_YAXIS"
+  InputAnalogTriggerLeft2 = "JOY2_BUTTON4"
+  InputAnalogTriggerRight2 = "JOY2_BUTTON1"
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = "JOY2_YAXIS"
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S,JOY2_BUTTON4"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_generate_guns[two guns][ini]
+  '''
+  [ daytona2 ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  InputSystem = evdev
+  
+  [ dayto2pe ]
+  MusicVolume = 120
+  SoundVolume = 100
+  Balance = -10
+  InputJoy1XSaturation = 100
+  
+  [ dirtdvls ]
+  MusicVolume = 100
+  SoundVolume = 130
+  Balance = -20
+  
+  [ getbassur ]
+  WideScreen = 0
+  WideBackground = 0
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 10
+  
+  [ eca ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = -35
+  
+  [ fvipers2 ]
+  LegacySoundDSP = 1
+  MusicVolume = 100
+  SoundVolume = 170
+  Balance = 10
+  
+  [ harley ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 10
+  
+  [ lamachin ]
+  MusicVolume = 100
+  SoundVolume = 115
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ lemans24 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ lostwsga ]
+  MusicVolume = 100
+  SoundVolume = 105
+  Balance = 20
+  InputSystem = rawinput
+  CrosshairStyle = bmp
+  
+  [ magtruck ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ mgtrkbad ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 15
+  
+  [ oceanhun ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ oceanhuna ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  InputSystem = rawinput
+  
+  [ scud ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ scudplus ]
+  MusicVolume = 200
+  SoundVolume = 60
+  Balance = 0
+  InputJoy1XSaturation = 100
+  
+  [ skichamp ]
+  MusicVolume = 100
+  SoundVolume = 200
+  Balance = 10
+  ForceFeedback = 1
+  
+  [ spikeofe ]
+  MusicVolume = 120
+  SoundVolume = 120
+  Balance = 0
+  
+  [ spikeout ]
+  MusicVolume = 90
+  SoundVolume = 90
+  Balance = 0
+  
+  [ srally2 ]
+  SoundVolume = 155
+  MusicVolume = 140
+  Balance = 15
+  PowerPCFrequency = 75
+  InputJoy1XSaturation = 100
+  
+  [ swtrilgy ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vf3 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ vf3tb ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -5
+  
+  [ von2 ]
+  MusicVolume = 100
+  SoundVolume = 100
+  Balance = 0
+  
+  [ vs2 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs298 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ vs2v991 ]
+  MusicVolume = 100
+  SoundVolume = 110
+  Balance = -10
+  WideScreen = 0
+  WideBackground = 0
+  
+  [ Global ]
+  New3DEngine = true
+  QuadRendering = false
+  WideScreen = false
+  Stretch = false
+  WideBackground = false
+  RefreshRate = 60.000
+  LegacySoundDSP = false
+  Network = false
+  SimulateNet = true
+  PortIn = 1970
+  PortOut = 1971
+  AddressOut = "127.0.0.1"
+  InputStart1 = MOUSE1_BUTTONX1,JOY1_BUTTON10
+  InputStart2 = MOUSE2_BUTTONX1,JOY2_BUTTON10
+  InputCoin1 = MOUSE1_BUTTONX2,JOY1_BUTTON9
+  InputCoin2 = "KEY_4,JOY2_BUTTON9"
+  InputServiceA = "KEY_5"
+  InputServiceB = "KEY_7"
+  InputTestA = "KEY_6"
+  InputTestB = "KEY_8"
+  InputJoyUp = "KEY_UP,JOY1_YAXIS_NEG"
+  InputJoyDown = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputJoyLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputJoyRight = "KEY_RIGHT,JOY1_RIGHT,JOY1_POV1_RIGHT"
+  InputJoyUp2 = "JOY2_YAXIS_NEG"
+  InputJoyDown2 = "JOY2_YAXIS_POS"
+  InputJoyLeft2 = "JOY2_XAXIS_NEG"
+  InputJoyRight2 = "JOY2_XAXIS_POS"
+  InputPunch = "KEY_A,JOY1_BUTTON4"
+  InputKick = "KEY_S,JOY1_BUTTON2"
+  InputGuard = "KEY_D,JOY1_BUTTON1"
+  InputEscape = "KEY_F,JOY1_BUTTON3"
+  InputPunch2 = "JOY2_BUTTON4"
+  InputKick2 = "JOY2_BUTTON1"
+  InputGuard2 = "JOY2_BUTTON2"
+  InputEscape2 = "JOY2_BUTTON3"
+  InputShift = "KEY_A,JOY1_BUTTON4"
+  InputBeat = "KEY_S,JOY1_BUTTON2"
+  InputCharge = "KEY_D,JOY1_BUTTON1"
+  InputJump = "KEY_F,JOY1_BUTTON3"
+  InputShortPass = "KEY_A,JOY1_BUTTON4"
+  InputLongPass = "KEY_S,JOY1_BUTTON2"
+  InputShoot = "KEY_D,JOY1_BUTTON1"
+  InputShortPass2 = "JOY2_BUTTON4"
+  InputLongPass2 = "JOY2_BUTTON1"
+  InputShoot2 = "JOY2_BUTTON2"
+  InputSteeringLeft = "KEY_LEFT"
+  InputSteeringRight = "KEY_RIGHT"
+  InputSteering = "JOY1_XAXIS"
+  InputAccelerator = "KEY_UP,JOY1_YAXIS_NEG"
+  InputBrake = "KEY_DOWN,JOY1_DOWN,JOY1_POV1_DOWN"
+  InputGearShiftUp = "KEY_Y"
+  InputGearShiftDown = "KEY_H"
+  InputGearShift1 = "KEY_Q,JOY1_BUTTON5"
+  InputGearShift2 = "KEY_W,JOY1_BUTTON6"
+  InputGearShift3 = "KEY_E,JOY1_BUTTON7"
+  InputGearShift4 = "KEY_R,JOY1_BUTTON8"
+  InputGearShiftN = "KEY_T"
+  InputVR1 = "KEY_A,JOY1_BUTTON4"
+  InputVR2 = "KEY_S,JOY1_BUTTON2"
+  InputVR3 = "KEY_D,JOY1_BUTTON1"
+  InputVR4 = "KEY_F,JOY1_BUTTON3"
+  InputViewChange = "KEY_A,JOY1_BUTTON4"
+  InputHandBrake = "KEY_S,JOY1_BUTTON2"
+  InputRearBrake = "KEY_S,JOY1_BUTTON2"
+  InputMusicSelect = "KEY_D,JOY1_BUTTON1"
+  InputTwinJoyTurnLeft = "KEY_Q,JOY1_RXAXIS_NEG"
+  InputTwinJoyTurnRight = "KEY_W,JOY1_RXAXIS_POS"
+  InputTwinJoyForward = "KEY_UP,JOY1_YAXIS_NEG"
+  InputTwinJoyReverse = "KEY_DOWN,JOY1_YAXIS_POS"
+  InputTwinJoyStrafeLeft = "KEY_LEFT,JOY1_XAXIS_NEG"
+  InputTwinJoyStrafeRight = "KEY_RIGHT,JOY1_XAXIS_POS"
+  InputTwinJoyJump = "KEY_E,JOY1_BUTTON4"
+  InputTwinJoyCrouch = "KEY_R,JOY1_BUTTON2"
+  InputTwinJoyLeft1 = "NONE"
+  InputTwinJoyLeft2 = "NONE"
+  InputTwinJoyRight1 = "NONE"
+  InputTwinJoyRight2 = "NONE"
+  InputTwinJoyUp1 = "NONE"
+  InputTwinJoyUp2 = "NONE"
+  InputTwinJoyDown1 = "NONE"
+  InputTwinJoyDown2 = "NONE"
+  InputTwinJoyShot1 = "KEY_A,JOY1_BUTTON5"
+  InputTwinJoyShot2 = "KEY_S,JOY1_BUTTON6"
+  InputTwinJoyTurbo1 = "KEY_Z,JOY1_BUTTON7"
+  InputTwinJoyTurbo2 = "KEY_X,JOY1_BUTTON8"
+  InputAnalogJoyLeft = "KEY_LEFT"
+  InputAnalogJoyRight = "KEY_RIGHT"
+  InputAnalogJoyUp = "KEY_UP"
+  InputAnalogJoyDown = "KEY_DOWN"
+  InputAnalogJoyX = MOUSE1_XAXIS_INV
+  InputAnalogJoyY = MOUSE1_YAXIS_INV
+  InputAnalogJoyTrigger = MOUSE1_LEFT_BUTTON
+  InputAnalogJoyEvent = KEY_S,MOUSE1_MIDDLE_BUTTON,JOY1_BUTTON2
+  InputAnalogJoyTrigger2 = MOUSE2_LEFT_BUTTON
+  InputAnalogJoyEvent2 = MOUSE2_MIDDLE_BUTTON,JOY2_BUTTON1
+  InputGunLeft = "KEY_LEFT"
+  InputGunRight = "KEY_RIGHT"
+  InputGunUp = "KEY_UP"
+  InputGunDown = "KEY_DOWN"
+  InputGunX = MOUSE1_XAXIS
+  InputGunY = MOUSE1_YAXIS
+  InputTrigger = MOUSE1_LEFT_BUTTON
+  InputOffscreen = MOUSE1_RIGHT_BUTTON
+  InputAutoTrigger = 0
+  InputGunLeft2 = "NONE"
+  InputGunRight2 = "NONE"
+  InputGunUp2 = "NONE"
+  InputGunDown2 = "NONE"
+  InputGunX2 = MOUSE2_XAXIS
+  InputGunY2 = MOUSE2_YAXIS
+  InputTrigger2 = MOUSE2_LEFT_BUTTON
+  InputOffscreen2 = MOUSE2_RIGHT_BUTTON
+  InputAutoTrigger2 = 0
+  InputAnalogGunLeft = "KEY_LEFT"
+  InputAnalogGunRight = "KEY_RIGHT"
+  InputAnalogGunUp = "KEY_UP"
+  InputAnalogGunDown = "KEY_DOWN"
+  InputAnalogGunX = MOUSE1_XAXIS
+  InputAnalogGunY = MOUSE1_YAXIS
+  InputAnalogTriggerLeft = MOUSE1_LEFT_BUTTON
+  InputAnalogTriggerRight = MOUSE1_RIGHT_BUTTON
+  InputAnalogGunLeft2 = "NONE"
+  InputAnalogGunRight2 = "NONE"
+  InputAnalogGunUp2 = "NONE"
+  InputAnalogGunDown2 = "NONE"
+  InputAnalogGunX2 = MOUSE2_XAXIS
+  InputAnalogGunY2 = MOUSE2_YAXIS
+  InputAnalogTriggerLeft2 = MOUSE2_LEFT_BUTTON
+  InputAnalogTriggerRight2 = MOUSE2_RIGHT_BUTTON
+  InputSkiLeft = "KEY_LEFT"
+  InputSkiRight = "KEY_RIGHT"
+  InputSkiUp = "KEY_UP"
+  InputSkiDown = "KEY_DOWN"
+  InputSkiX = "JOY1_XAXIS"
+  InputSkiY = "JOY1_YAXIS"
+  InputSkiPollLeft = "KEY_A,JOY1_BUTTON4"
+  InputSkiPollRight = "KEY_S,JOY1_BUTTON2"
+  InputSkiSelect1 = "KEY_Q,JOY1_BUTTON1"
+  InputSkiSelect2 = "KEY_W,JOY1_BUTTON3"
+  InputSkiSelect3 = "KEY_E,JOY1_BUTTON5"
+  InputMagicalLeverUp1 = "KEY_UP"
+  InputMagicalLeverDown1 = "KEY_DOWN"
+  InputMagicalLeverUp2 = "NONE"
+  InputMagicalLeverDown2 = "NONE"
+  InputMagicalLever1 = "JOY1_YAXIS"
+  InputMagicalLever2 = "JOY2_YAXIS"
+  InputMagicalPedal1 = "KEY_A,JOY1_BUTTON4"
+  InputMagicalPedal2 = "KEY_S,JOY2_BUTTON4"
+  InputFishingRodLeft = "KEY_LEFT"
+  InputFishingRodRight = "KEY_RIGHT"
+  InputFishingRodUp = "KEY_UP"
+  InputFishingRodDown = "KEY_DOWN"
+  InputFishingStickLeft = "KEY_A"
+  InputFishingStickRight = "KEY_D"
+  InputFishingStickUp = "KEY_W"
+  InputFishingStickDown = "KEY_S"
+  InputFishingRodX = "JOY1_XAXIS"
+  InputFishingRodY = "JOY1_YAXIS"
+  InputFishingStickX = "JOY1_RXAXIS"
+  InputFishingStickY = "JOY1_RYAXIS"
+  InputFishingReel = "KEY_SPACE"
+  InputFishingCast = "KEY_Z,JOY1_BUTTON4"
+  InputFishingSelect = "KEY_X,JOY1_BUTTON2"
+  InputFishingTension = "KEY_T"
+  
+  
+  '''
+# ---
+# name: TestSupermodelGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'KEY_ESC',
+      'menu': list([
+        'KEY_LEFTALT',
+        'KEY_P',
+      ]),
+      'next_state': 'KEY_F6',
+      'pause': list([
+        'KEY_LEFTALT',
+        'KEY_P',
+      ]),
+      'reset': list([
+        'KEY_LEFTALT',
+        'KEY_R',
+      ]),
+      'restore_state': 'KEY_F7',
+      'save_state': 'KEY_F5',
+    }),
+    'name': 'supermodel',
+  })
+# ---

@@ -1,0 +1,58 @@
+# serializer version: 1
+# name: TestTheXTechGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/thextech',
+      '-u',
+      '/userdata/saves/thextech',
+      '--frameskip',
+      '-c',
+      '/userdata/roms/thextech/rom.smbx',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestTheXTechGenerator.test_generate_config[{'frameskip': '0'}]
+  tuple(
+    list([
+      '/usr/bin/thextech',
+      '-u',
+      '/userdata/saves/thextech',
+      '--no-frameskip',
+      '-c',
+      '/userdata/roms/thextech/rom.smbx',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestTheXTechGenerator.test_generate_config[{'rendering_mode': 'sw'}]
+  tuple(
+    list([
+      '/usr/bin/thextech',
+      '-u',
+      '/userdata/saves/thextech',
+      '-r',
+      'sw',
+      '--frameskip',
+      '-c',
+      '/userdata/roms/thextech/rom.smbx',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestTheXTechGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_ENTER',
+      'pause': 'KEY_ENTER',
+    }),
+    'name': 'thextech',
+  })
+# ---

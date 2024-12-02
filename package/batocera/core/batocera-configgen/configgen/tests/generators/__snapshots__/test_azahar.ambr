@@ -1,0 +1,3112 @@
+# serializer version: 1
+# name: TestAzaharGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/azahar',
+      '/userdata/roms/3ds/rom.3ds',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves/3ds',
+      'XDG_RUNTIME_DIR': '/userdata/saves/3ds/azaharplus-emu',
+    }),
+  )
+# ---
+# name: TestAzaharGenerator.test_generate[config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_async_shader_compilation': '1'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = true
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_custom_textures': '1-normal'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = true
+  custom_textures\default = false
+  async_custom_loading = true
+  async_custom_loading\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_custom_textures': '1-preload'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = true
+  custom_textures\default = false
+  async_custom_loading = false
+  async_custom_loading\default = false
+  preload_textures = true
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_graphics_api': '0'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 0
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_graphics_api': '1'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_is_new_3ds': '0'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_is_new_3ds': '1'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = true
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_resolution_factor': '4'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 4
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_screen_layout': '5-true'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = true
+  swap_screen\default = false
+  layout_option = 5
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_use_disk_shader_cache': '1'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = true
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_use_frame_limit': '0'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = false
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_use_vsync_new': '0'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = false
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_config[{'azahar_use_vsync_new': '1'}][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_existing[config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = true
+  profiles\size = 1
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[de_DE][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 2
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[en_AU][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 3
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[en_GB][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = -1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[en_US][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[es_ES][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 2
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[fr_FR][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 2
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[hu_HU][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 2
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[it_IT][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 2
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[ja_JP][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 0
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[ko_KR][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 5
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[pt_PT][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 2
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[ru_RU][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 2
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[zh_CN][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 4
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_lang[zh_TW][config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 6
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_no_sticks
+  tuple(
+    list([
+      '/usr/bin/azahar',
+      '/userdata/roms/3ds/rom.3ds',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '15000000010000000100000000010000,GPIO Controller 1,platform:Linux,b:b1,a:b0,dpdown:+a1,dpleft:-a0,rightshoulder:b5,leftshoulder:b4,dpright:+a0,back:b6,start:b7,dpup:-a1,y:b2,x:b3,guide:b8,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves/3ds',
+      'XDG_RUNTIME_DIR': '/userdata/saves/3ds/azaharplus-emu',
+    }),
+  )
+# ---
+# name: TestAzaharGenerator.test_generate_no_sticks[config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:1,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:0,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:15000000010000000100000000010000,axis:1,direction:+,threshold:0.5"
+  profiles\1\button_down = "engine:sdl,guid:15000000010000000100000000010000,axis:1,direction:+,threshold:0.5"
+  profiles\1\button_left = "engine:sdl,guid:15000000010000000100000000010000,axis:0,direction:+,threshold:0.5"
+  profiles\1\button_right = "engine:sdl,guid:15000000010000000100000000010000,axis:0,direction:+,threshold:0.5"
+  profiles\1\button_l = "button:4,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\button_start = "button:7,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\button_select = "button:6,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\button_zl = "None"
+  profiles\1\button_zr = "None"
+  profiles\1\button_home = "button:8,guid:15000000010000000100000000010000,engine:sdl"
+  profiles\1\circle_pad = ""
+  profiles\1\c_stick = ""
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_two_controllers
+  tuple(
+    list([
+      '/usr/bin/azahar',
+      '/userdata/roms/3ds/rom.3ds',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '''
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000004c0500006802000011810000,Sony PLAYSTATION(R)3 Controller,platform:Linux,b:b1,a:b0,dpdown:b14,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,leftstick:b11,dpleft:b15,rightshoulder:b5,leftshoulder:b4,righttrigger:a5,rightstick:b12,dpright:b16,back:b8,start:b9,dpup:b13,y:b2,x:b3,guide:b10,
+      ''',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves/3ds',
+      'XDG_RUNTIME_DIR': '/userdata/saves/3ds/azaharplus-emu',
+    }),
+  )
+# ---
+# name: TestAzaharGenerator.test_generate_two_controllers[config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 1
+  graphics_api\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_generate_vulkan[config]
+  '''
+  [Layout]
+  custom_layout = false
+  custom_layout\default = false
+  swap_screen = false
+  swap_screen\default = false
+  layout_option = 0
+  layout_option\default = false
+  
+  [System]
+  is_new_3ds = false
+  is_new_3ds\default = false
+  region_value = 1
+  region_value\default = false
+  
+  [UI]
+  fullscreen = true
+  fullscreen\default = false
+  displayTitleBars = false
+  displayTitleBars\default = false
+  firstStart = false
+  firstStart\default = false
+  hideInactiveMouse = true
+  hideInactiveMouse\default = false
+  enable_discord_presence = false
+  enable_discord_presence\default = false
+  calloutFlags = 1
+  calloutFlags\default = false
+  confirmClose = false
+  confirmclose\default = false
+  Paths\screenshotPath = /userdata/screenshots
+  Paths\screenshotPath\default = false
+  Updater\check_for_update_on_start = false
+  Updater\check_for_update_on_start\default = false
+  
+  [Renderer]
+  use_hw_renderer = true
+  use_hw_renderer\default = false
+  use_hw_shader = true
+  use_hw_shader\default = false
+  use_shader_jit = true
+  use_hw_shader_jit\default = false
+  graphics_api = 2
+  graphics_api\default = false
+  physical_device = 4
+  physical_device\default = false
+  use_vsync_new = true
+  use_vsync_new\default = false
+  resolution_factor = 1
+  resolution_factor\default = false
+  async_shader_compilation = false
+  async_shader_compilation\default = false
+  use_frame_limit = true
+  use_frame_limit\default = false
+  
+  [WebService]
+  enable_telemetry = false
+  enable_telemetry\default = false
+  
+  [Utility]
+  use_disk_shader_cache = false
+  use_disk_shader_cache\default = false
+  custom_textures = false
+  custom_textures\default = false
+  preload_textures = false
+  preload_textures\default = false
+  
+  [Controls]
+  profile = 0
+  profile\default = false
+  profiles\1\name = default
+  profiles\1\name\default = false
+  profiles\size = 1
+  profiles\size\default = false
+  profiles\1\button_a = "button:0,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\\1\\{x}\default = false
+  profiles\1\button_b = "button:1,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_x = "button:2,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_y = "button:3,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_up = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:up"
+  profiles\1\button_down = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:down"
+  profiles\1\button_left = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:left"
+  profiles\1\button_right = "engine:sdl,guid:030000005e0400000a0b000005040000,hat:0,direction:right"
+  profiles\1\button_l = "button:4,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_r = "button:5,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_start = "button:9,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_select = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zl = "button:6,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_zr = "button:7,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\button_home = "button:8,guid:030000005e0400000a0b000005040000,engine:sdl"
+  profiles\1\circle_pad = "axis_x:0,guid:030000005e0400000a0b000005040000,axis_y:1,engine:sdl"
+  profiles\1\c_stick = "axis_x:2,guid:030000005e0400000a0b000005040000,axis_y:3,engine:sdl"
+  
+  
+  '''
+# ---
+# name: TestAzaharGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_F4',
+      'reset': 'KEY_F6',
+      'screen_layout': 'KEY_F10',
+      'swap_screen': 'KEY_F9',
+    }),
+    'name': 'azahar',
+  })
+# ---

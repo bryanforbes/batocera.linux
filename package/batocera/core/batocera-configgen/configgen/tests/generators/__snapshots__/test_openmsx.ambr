@@ -1,0 +1,435 @@
+# serializer version: 1
+# name: TestOpenmsxGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-cassetteplayer',
+      '/userdata/roms/msx1/rom (foo) [bar].cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate[tcl]
+  '''
+  filepool add -path /userdata/bios/Machines -types system_rom -position 1
+  filepool add -path /userdata/bios/openmsx -types system_rom -position 2
+  
+  # -= Save state =-
+  savestate "rom  "
+  
+  # -= Screenshots =-
+  bind F5 {screenshot [utils::get_next_numbered_filename /userdata/screenshots/openmsx "[guess_title] " ".png"]}
+  
+  # -= Controller config =-
+  plug joyporta joystick1
+  dict set joystick1_config LEFT {-axis0 L_hat0}
+  dict set joystick1_config RIGHT {+axis0 R_hat0}
+  dict set joystick1_config UP {-axis1 U_hat0}
+  dict set joystick1_config DOWN {+axis1 D_hat0}
+  bind "joy1 button11 down" "toggle_osd_keyboard"
+  bind "joy1 button5 up" "set fastforward off"
+  bind "joy1 button5 down" "set fastforward on"
+  bind "joy1 button12 down" "toggle console"
+  bind "joy1 button8 down" "toggle pause"
+  bind "joy1 button9 down" "main_menu_toggle"
+  bind "joy1 button2 down" "keymatrixdown 6 0x80"
+  bind "joy1 button3 down" "keymatrixdown 6 0x40"
+  
+  '''
+# ---
+# name: TestOpenmsxGenerator.test_generate[xml]
+  '''
+  <!DOCTYPE settings SYSTEM 'settings.dtd'>
+  <?xml version="1.0" ?>
+  <settings>
+    <settings>
+      <setting id="renderer">SDLGL-PP</setting>
+      <setting id="fullscreen">true</setting>
+      <setting id="master_volume">100</setting>
+      <setting id="save_settings_on_exit">false</setting>
+      <setting id="vsync">true</setting>
+      <setting id="fullspeedwhenloading">true</setting>
+    </settings>
+    <bindings>
+      <bind key="keyb F6">cycle videosource</bind>
+    </bindings>
+  </settings>
+  '''
+# ---
+# name: TestOpenmsxGenerator.test_generate_config[{'hud': ''}]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-cassetteplayer',
+      '/userdata/roms/msx1/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_config[{'hud': ''}][xml]
+  '''
+  <!DOCTYPE settings SYSTEM 'settings.dtd'>
+  <?xml version="1.0" ?>
+  <settings>
+    <settings>
+      <setting id="renderer">SDLGL-PP</setting>
+      <setting id="fullscreen">true</setting>
+      <setting id="master_volume">100</setting>
+      <setting id="save_settings_on_exit">false</setting>
+      <setting id="vsync">true</setting>
+      <setting id="fullspeedwhenloading">true</setting>
+    </settings>
+    <bindings>
+      <bind key="keyb F6">cycle videosource</bind>
+    </bindings>
+  </settings>
+  '''
+# ---
+# name: TestOpenmsxGenerator.test_generate_config[{'hud': 'game'}]
+  tuple(
+    list([
+      'mangohud',
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-cassetteplayer',
+      '/userdata/roms/msx1/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_config[{'hud': 'game'}][xml]
+  '''
+  <!DOCTYPE settings SYSTEM 'settings.dtd'>
+  <?xml version="1.0" ?>
+  <settings>
+    <settings>
+      <setting id="renderer">SDLGL-PP</setting>
+      <setting id="fullscreen">true</setting>
+      <setting id="master_volume">100</setting>
+      <setting id="save_settings_on_exit">false</setting>
+      <setting id="vsync">true</setting>
+      <setting id="fullspeedwhenloading">true</setting>
+    </settings>
+    <bindings>
+      <bind key="keyb F6">cycle videosource</bind>
+    </bindings>
+  </settings>
+  '''
+# ---
+# name: TestOpenmsxGenerator.test_generate_config[{'openmsx_loading': 'false'}]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-cassetteplayer',
+      '/userdata/roms/msx1/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_config[{'openmsx_loading': 'false'}][xml]
+  '''
+  <!DOCTYPE settings SYSTEM 'settings.dtd'>
+  <?xml version="1.0" ?>
+  <settings>
+    <settings>
+      <setting id="renderer">SDLGL-PP</setting>
+      <setting id="fullscreen">true</setting>
+      <setting id="master_volume">100</setting>
+      <setting id="save_settings_on_exit">false</setting>
+      <setting id="vsync">true</setting>
+      <setting id="fullspeedwhenloading">false</setting>
+    </settings>
+    <bindings>
+      <bind key="keyb F6">cycle videosource</bind>
+    </bindings>
+  </settings>
+  '''
+# ---
+# name: TestOpenmsxGenerator.test_generate_controllers[tcl]
+  '''
+  filepool add -path /userdata/bios/Machines -types system_rom -position 1
+  filepool add -path /userdata/bios/openmsx -types system_rom -position 2
+  
+  # -= Save state =-
+  savestate "rom"
+  
+  # -= Screenshots =-
+  bind F5 {screenshot [utils::get_next_numbered_filename /userdata/screenshots/openmsx "[guess_title] " ".png"]}
+  
+  # -= Controller config =-
+  plug joyporta joystick1
+  dict set joystick1_config LEFT {-axis0 L_hat0}
+  dict set joystick1_config RIGHT {+axis0 R_hat0}
+  dict set joystick1_config UP {-axis1 U_hat0}
+  dict set joystick1_config DOWN {+axis1 D_hat0}
+  bind "joy1 button11 down" "toggle_osd_keyboard"
+  bind "joy1 button5 up" "set fastforward off"
+  bind "joy1 button5 down" "set fastforward on"
+  bind "joy1 button12 down" "toggle console"
+  bind "joy1 button8 down" "toggle pause"
+  bind "joy1 button9 down" "main_menu_toggle"
+  bind "joy1 button2 down" "keymatrixdown 6 0x80"
+  bind "joy1 button3 down" "keymatrixdown 6 0x40"
+  plug joyportb joystick2
+  dict set joystick2_config LEFT {-axis0 L_hat0}
+  dict set joystick2_config RIGHT {+axis0 R_hat0}
+  dict set joystick2_config UP {-axis1 U_hat0}
+  dict set joystick2_config DOWN {+axis1 D_hat0}
+  bind "joy2 button11 down" "toggle_osd_keyboard"
+  bind "joy2 button5 up" "set fastforward off"
+  bind "joy2 button5 down" "set fastforward on"
+  bind "joy2 button12 down" "toggle console"
+  bind "joy2 button8 down" "toggle pause"
+  bind "joy2 button9 down" "main_menu_toggle"
+  bind "joy2 button2 down" "keymatrixdown 6 0x80"
+  bind "joy2 button3 down" "keymatrixdown 6 0x40"
+  
+  '''
+# ---
+# name: TestOpenmsxGenerator.test_generate_disk[{'openmsx_disk': 'disk'}]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-diska',
+      '/userdata/roms/msx1/rom.dsk',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_disk[{'openmsx_disk': 'hda'}]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-hda',
+      '/userdata/roms/msx1/rom.dsk',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_laserdisc
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Pioneer_PX-7',
+      '-laserdisc',
+      '/userdata/roms/msx1/rom.ogv',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_openmsx_rom[dsk]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-diska',
+      '/userdata/roms/msx1/one.dsk',
+      '-diskb',
+      '/userdata/roms/msx1/two.dsk',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_openmsx_rom[rom]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-carta',
+      '/userdata/roms/msx1/one.rom',
+      '-cartb',
+      '/userdata/roms/msx1/two.rom',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_system[colecovision]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'ColecoVision_SGM',
+      '-cassetteplayer',
+      '/userdata/roms/colecovision/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_system[msx2+]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2+_JP',
+      '-cassetteplayer',
+      '/userdata/roms/msx2+/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_system[msx2]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-cassetteplayer',
+      '/userdata/roms/msx2/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_system[msxturbor]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSXturboR_with_IDE',
+      '-cassetteplayer',
+      '/userdata/roms/msxturbor/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_system[spectravideo]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Spectravideo_SVI-328',
+      '-cassetteplayer',
+      '/userdata/roms/spectravideo/rom.cas',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_zip[cas]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-cassetteplayer',
+      '/userdata/roms/msx1/rom.zip',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_zip[dsk]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Boosted_MSX2_EN',
+      '-diska',
+      '/userdata/roms/msx1/rom.zip',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_generate_zip[ogv]
+  tuple(
+    list([
+      '/usr/bin/openmsx',
+      '-machine',
+      'Pioneer_PX-7',
+      '-laserdisc',
+      '/userdata/roms/msx1/rom.zip',
+      '-script',
+      '/userdata/system/configs/openmsx/share/script.tcl',
+    ]),
+    dict({
+      'XDG_DATA_HOME': '/userdata/system/configs/openmsx/share',
+    }),
+  )
+# ---
+# name: TestOpenmsxGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'restore_state': 'KEY_F6',
+    }),
+    'name': 'openmsx',
+  })
+# ---

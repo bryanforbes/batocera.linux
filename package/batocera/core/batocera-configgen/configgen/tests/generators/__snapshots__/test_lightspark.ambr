@@ -1,0 +1,24 @@
+# serializer version: 1
+# name: TestLightsparkGenerator.test_generate
+  tuple(
+    list([
+      'lightspark',
+      '-s',
+      'local-with-networking',
+      '/userdata/roms/flash/rom.swf',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestLightsparkGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'lightspark',
+  })
+# ---

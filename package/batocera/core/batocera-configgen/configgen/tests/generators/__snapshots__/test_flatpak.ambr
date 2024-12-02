@@ -1,0 +1,21 @@
+# serializer version: 1
+# name: TestFlatpakGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/flatpak',
+      'run',
+      '-v',
+      'ROMID',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFlatpakGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'flatpak kill $(flatpak ps --columns=application | head -n 1)',
+    }),
+    'name': 'flatpak',
+  })
+# ---

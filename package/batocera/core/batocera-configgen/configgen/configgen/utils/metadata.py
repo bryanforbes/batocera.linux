@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 import logging
-from pathlib import Path
 import xml.etree.ElementTree as ET
+from pathlib import Path
 from typing import Final
 
 _logger = logging.getLogger(__name__)

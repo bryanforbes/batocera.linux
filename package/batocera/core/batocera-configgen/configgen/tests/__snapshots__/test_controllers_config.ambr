@@ -1,0 +1,165 @@
+# serializer version: 1
+# name: test_get_games_meta_data[atomiswave-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[atomiswave-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[cave3rd-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[cave3rd-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[dreamcast-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_two': '2',
+  })
+# ---
+# name: test_get_games_meta_data[dreamcast-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[fbneo-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[fbneo-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[gaelco-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[gaelco-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[hikaru-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[hikaru-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[hypseus-singe-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[hypseus-singe-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[mame-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[mame-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[model2-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[model2-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[model3-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[model3-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[namco2x6-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[namco2x6-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[naomi-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[naomi-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[naomi2-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[naomi2-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[neogeo-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[neogeo-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_get_games_meta_data[snes-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_five': '5',
+    'wheel_four': '42',
+    'wheel_three': '3',
+  })
+# ---
+# name: test_get_games_meta_data[snes-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+    'gun_foo': 'bar',
+    'wheel_four': '4',
+    'wheel_three': '3',
+  })
+# ---
+# name: test_get_games_meta_data[triforce-/path/to/wheel rom [US].zip]
+  dict({
+    'wheel_one': '1',
+  })
+# ---
+# name: test_get_games_meta_data[triforce-Path(/path/to/trackball#rom (US).zip)]
+  dict({
+  })
+# ---
+# name: test_short_name_from_path[/path/to/ABCDEFGHIGKLMNOPQRSTUVWXYZ!@#$%^&*abcdefghigklmnopqrstuvwxyz!@#$%^&*0123456789!@#$%^&*.zip]
+  'abcdefghigklmnopqrstuvwxyzabcdefghigklmnopqrstuvwxyz0123456789'
+# ---
+# name: test_short_name_from_path[/userdata/roms/system/blah (something [US]) [EN] (spam) foo.dsk]
+  'blahfoo'
+# ---
+# name: test_short_name_from_path[Path(/another/path/to/AbCdEf@#%!0&.bar.rom)]
+  'abcdef0bar'
+# ---
+# name: test_short_name_from_path[Path(/another/path/to/rom-name (something) suffix.rom)]
+  'romnamesuffix'
+# ---
+# name: test_short_name_from_path[Path(/another/path/to/rom-name [US] suffix.rom)]
+  'romnamesuffix'
+# ---

@@ -18,6 +18,7 @@ deps = [
     'configobj==5.0.8',
     'requests==2.32.3',
     'qrcode==8.0',
+    'pysdl2==0.9.17',
     'ffmpeg-python @ git+https://github.com/kkroening/ffmpeg-python.git@df129c7ba30aaa9ffffb81a48f53aa7253b0b4e6',
 ]
 lint = [
@@ -61,14 +62,13 @@ strictDictionaryInference = true
 strictSetInference = true
 reportMissingModuleSource = "none"
 reportDeprecated = "warning"
+enableExperimentalFeatures = true
 
 reportUnnecessaryTypeIgnoreComment = "warning"
-typeCheckingMode = "strict"
 reportPrivateUsage = "none"
 reportUnusedImport = "none"
 reportUnusedVariable = "none"
 reportImportCycles = "none"
-enableExperimentalFeatures = true
 deprecateTypingAliases = true
 
 enableTypeIgnoreComments = false  # Force pyright: ignore comments
@@ -85,7 +85,7 @@ quote-style = "single"
 preview = true
 explicit-preview-rules = true
 select = [
-    "TC", "PYI", "I", "UP", "F", "FA", "E", "W", "B", "C4", "SIM", "PTH", "G", "PERF", "PIE", "RET", "RUF"
+    "TC", "PYI", "I", "UP", "F", "FA", "E", "W", "B", "C4", "SIM", "PTH", "G", "PERF", "PIE", "RET", "PT", "RUF"
 ]
 ignore = ["SIM105", "SIM108", "E501", "RUF051"]
 

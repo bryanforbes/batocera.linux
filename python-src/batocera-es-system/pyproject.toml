@@ -34,5 +34,7 @@ include = [
 [tool.pyright]
 extends = "../../pyproject.toml"
 
+typeCheckingMode = "strict"
+
 [tool.ruff]
 extend = "../../pyproject.toml"

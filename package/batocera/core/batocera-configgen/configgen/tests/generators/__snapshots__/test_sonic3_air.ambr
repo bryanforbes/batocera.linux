@@ -1,0 +1,68 @@
+# serializer version: 1
+# name: TestSonic3AIRGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/sonic3-air/sonic3air_linux',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestSonic3AIRGenerator.test_generate[config.json]
+  '''
+  {
+  	// Paths
+  	"ScriptsDir":     "scripts",
+  	"MainScriptName": "main.lemon",
+  	"SaveStatesDir":  "/userdata/saves/sonic3-air",
+  	// Video
+  	"WindowSize": "1920 x 1080",
+  	"GameScreen": "400 x 224",		// Can be changed with numpad multiply/divide
+  	"Filtering": "0"				// Can be toggled with Alt + F
+  }
+  '''
+# ---
+# name: TestSonic3AIRGenerator.test_generate[settings.json]
+  '''
+  {
+      "Fullscreen": 1
+  }
+  '''
+# ---
+# name: TestSonic3AIRGenerator.test_generate_existing[config.json]
+  '''
+  {
+  	// Existing Paths
+  	"ScriptsDir":     "scripts",
+  	"MainScriptName": "foo.lemon",
+  	"SaveStatesDir":  "/userdata/saves/sonic3-air",
+  	// Existing Video
+  	"WindowSize": "1920 x 1080",
+  	"GameScreen": "400 x 224",		// Can be changed with numpad multiply/divide
+  	"Filtering": "1"				// Can be toggled with Alt + F
+  }
+  '''
+# ---
+# name: TestSonic3AIRGenerator.test_generate_existing[settings.json]
+  '''
+  {
+      "Fullscreen": 1
+  }
+  '''
+# ---
+# name: TestSonic3AIRGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'restore_state': 'KEY_F8',
+      'save_state': 'KEY_F5',
+    }),
+    'name': 'sonic3_air',
+  })
+# ---

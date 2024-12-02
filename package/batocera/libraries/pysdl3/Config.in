@@ -1,6 +1,9 @@
 config BR2_PACKAGE_PYSDL3
 	bool "pysdl3"
 	select BR2_PACKAGE_SDL3
+	select BR2_PACKAGE_PYTHON_REQUESTS
+	select BR2_PACKAGE_PYTHON_AIOHTTP
+	select BR2_PACKAGE_PYTHON_PACKAGING
 	help
 	  A pure Python wrapper for SDL3.
 

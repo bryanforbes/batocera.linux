@@ -1,0 +1,103 @@
+# serializer version: 1
+# name: TestDosBoxxGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/dosbox-x',
+      '-exit',
+      '-c',
+      'mount c /userdata/roms/dos/rom.pc',
+      '-c',
+      'c:',
+      '-c',
+      'dosbox.bat',
+      '-fastbioslogo',
+      '-conf',
+      '/userdata/system/configs/dosbox/dosboxx-custom.conf',
+    ]),
+    dict({
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestDosBoxxGenerator.test_generate[config]
+  '''
+  [sdl]
+  output = opengl
+  
+  
+  '''
+# ---
+# name: TestDosBoxxGenerator.test_generate_existing
+  tuple(
+    list([
+      '/usr/bin/dosbox-x',
+      '-exit',
+      '-c',
+      'mount c /userdata/roms/dos/rom.pc',
+      '-c',
+      'c:',
+      '-c',
+      'dosbox.bat',
+      '-fastbioslogo',
+      '-conf',
+      '/userdata/system/configs/dosbox/dosboxx-custom.conf',
+    ]),
+    dict({
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestDosBoxxGenerator.test_generate_existing[config]
+  '''
+  [something]
+  foo = true
+  
+  [sdl]
+  bar = false
+  output = opengl
+  
+  
+  '''
+# ---
+# name: TestDosBoxxGenerator.test_generate_game_config
+  tuple(
+    list([
+      '/usr/bin/dosbox-x',
+      '-exit',
+      '-c',
+      'mount c /userdata/roms/dos/rom.pc',
+      '-c',
+      'c:',
+      '-c',
+      'dosbox.bat',
+      '-fastbioslogo',
+      '-conf',
+      '/userdata/system/configs/dosbox/dosboxx-custom.conf',
+    ]),
+    dict({
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestDosBoxxGenerator.test_generate_game_config[config]
+  '''
+  [something]
+  foo = false
+  
+  [sdl]
+  output = opengl
+  
+  
+  '''
+# ---
+# name: TestDosBoxxGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTCTRL',
+        'KEY_F9',
+      ]),
+    }),
+    'name': 'dosboxx',
+  })
+# ---

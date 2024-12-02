@@ -26,7 +26,8 @@ BATOCERA_CONFIGGEN_INSTALL_STAGING = YES
 CONFIGGEN_DIR = $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/core/batocera-configgen
 
 define BATOCERA_CONFIGGEN_EXTRACT_CMDS
-	rsync -av --exclude=".*" --exclude="**/__pycache__/" --exclude="dist" $(CONFIGGEN_DIR)/configgen/ $(@D)
+	rsync -av --exclude=".*" --exclude="**/__pycache__/" \
+	    --exclude="dist" --exclude="htmlcov" $(CONFIGGEN_DIR)/configgen/ $(@D)
 	echo "__version__ = '$(BATOCERA_CONFIGGEN_VERSION)'" > $(@D)/configgen/__version__.py
 endef
 

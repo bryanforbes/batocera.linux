@@ -1,0 +1,313 @@
+# serializer version: 1
+# name: test_get_bezel_infos[0]
+  None
+# ---
+# name: test_get_bezel_infos[0][/userdata/decorations/arcade_1980s/default-90.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/default.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/default.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/default.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/default.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/userdata/decorations/arcade_1980s/default.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/default.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/default.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/default.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/default.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/userdata/decorations/arcade_1980s/games/rom to run.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/userdata/decorations/arcade_1980s/systems/dreamcast-90.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_get_bezel_infos[0][/userdata/decorations/arcade_1980s/systems/dreamcast.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_get_bezel_infos[0][/usr/share/batocera/datainit/decorations/arcade_1980s/default-90.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/usr/share/batocera/datainit/decorations/arcade_1980s/default.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/usr/share/batocera/datainit/decorations/arcade_1980s/games/dreamcast/rom to run.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/dreamcast/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/dreamcast/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/usr/share/batocera/datainit/decorations/arcade_1980s/games/rom to run.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[0][/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast-90.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_get_bezel_infos[0][/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_get_bezel_infos[90]
+  None
+# ---
+# name: test_get_bezel_infos[90][/userdata/decorations/arcade_1980s/default-90.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/default-90.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/default-90.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/default-90.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/default-90.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/userdata/decorations/arcade_1980s/default.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/default.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/default.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/default.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/default.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/userdata/decorations/arcade_1980s/games/rom to run.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/userdata/decorations/arcade_1980s/systems/dreamcast-90.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast-90.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast-90.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast-90.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast-90.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_get_bezel_infos[90][/userdata/decorations/arcade_1980s/systems/dreamcast.png]
+  dict({
+    'info': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.zip'),
+    'png': PosixPath('/userdata/decorations/arcade_1980s/systems/dreamcast.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_get_bezel_infos[90][/usr/share/batocera/datainit/decorations/arcade_1980s/default-90.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default-90.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default-90.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default-90.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default-90.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/usr/share/batocera/datainit/decorations/arcade_1980s/default.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/default.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/usr/share/batocera/datainit/decorations/arcade_1980s/games/dreamcast/rom to run.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/dreamcast/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/dreamcast/rom to run.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/dreamcast/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/usr/share/batocera/datainit/decorations/arcade_1980s/games/rom to run.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/rom to run.info'),
+    'layout': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.lay'),
+    'mamezip': PosixPath('/userdata/decorations/arcade_1980s/games/rom to run.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/games/rom to run.png'),
+    'specific_to_game': True,
+  })
+# ---
+# name: test_get_bezel_infos[90][/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast-90.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast-90.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast-90.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast-90.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast-90.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_get_bezel_infos[90][/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.png]
+  dict({
+    'info': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.info'),
+    'layout': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.lay'),
+    'mamezip': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.zip'),
+    'png': PosixPath('/usr/share/batocera/datainit/decorations/arcade_1980s/systems/dreamcast.png'),
+    'specific_to_game': False,
+  })
+# ---
+# name: test_gun_border_image[1024-768-0-0-4:3]
+  1
+# ---
+# name: test_gun_border_image[1024-768-0-0-None]
+  1
+# ---
+# name: test_gun_border_image[1024-768-1-0-4:3]
+  10
+# ---
+# name: test_gun_border_image[1024-768-1-0-None]
+  10
+# ---
+# name: test_gun_border_image[1024-768-2-0-4:3]
+  20
+# ---
+# name: test_gun_border_image[1024-768-2-0-None]
+  20
+# ---
+# name: test_gun_border_image[1024-768-2-1-4:3]
+  30
+# ---
+# name: test_gun_border_image[1024-768-2-1-None]
+  30
+# ---
+# name: test_gun_border_image[1280-720-0-0-4:3]
+  1
+# ---
+# name: test_gun_border_image[1280-720-0-0-None]
+  1
+# ---
+# name: test_gun_border_image[1280-720-1-0-4:3]
+  12
+# ---
+# name: test_gun_border_image[1280-720-1-0-None]
+  12
+# ---
+# name: test_gun_border_image[1280-720-2-0-4:3]
+  25
+# ---
+# name: test_gun_border_image[1280-720-2-0-None]
+  25
+# ---
+# name: test_gun_border_image[1280-720-2-1-4:3]
+  37
+# ---
+# name: test_gun_border_image[1280-720-2-1-None]
+  37
+# ---
+# name: test_gun_borders_size[big]
+  tuple(
+    2,
+    1,
+  )
+# ---
+# name: test_gun_borders_size[huge]
+  tuple(
+    0,
+    0,
+  )
+# ---
+# name: test_gun_borders_size[medium]
+  tuple(
+    2,
+    0,
+  )
+# ---
+# name: test_gun_borders_size[thin]
+  tuple(
+    1,
+    0,
+  )
+# ---
+# name: test_guns_borders_color_from_config[None]
+  '#ffffff'
+# ---
+# name: test_guns_borders_color_from_config[blue]
+  '#0000ff'
+# ---
+# name: test_guns_borders_color_from_config[green]
+  '#00ff00'
+# ---
+# name: test_guns_borders_color_from_config[magenta]
+  '#ffffff'
+# ---
+# name: test_guns_borders_color_from_config[red]
+  '#ff0000'
+# ---
+# name: test_guns_borders_color_from_config[white]
+  '#ffffff'
+# ---

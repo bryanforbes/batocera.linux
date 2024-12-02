@@ -1,0 +1,129 @@
+# serializer version: 1
+# name: TestMugenGenerator.test_generate
+  tuple(
+    list([
+      'batocera-wine',
+      'mugen',
+      'play',
+      '/userdata/roms/mugen/rom.pc',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMugenGenerator.test_generate[config]
+  '''
+  ﻿;-=====================================================-
+  ;        Configuration file for M.U.G.E.N
+  ;-=====================================================-
+  ; Game options configurable in M.U.G.E.N's options screen go here.
+  ; Does not include key config.
+  [Options]
+  ; Basic options
+  Difficulty = 8
+  Life = 350
+  Time = 120
+  GameSpeed = 0
+  
+  ; Team-only config
+  Team.1VS2Life = 150
+  Team.LoseOnKO = 0
+  
+  ;-------------------------------------------------------
+  [Config]
+   ;Set the game speed here. The default is 60 frames per second. The
+   ;larger the number, the faster it goes. Don't use a value less than 10.
+  GameSpeed = 60
+  
+   ;Game native width and height.
+   ;Recommended settings are:
+   ;  640x480   Standard definition 4:3
+   ; 1280x720   High definition 16:9
+   ; 1920x1080  Full HD 16:9
+  GameWidth = 1920
+  GameHeight = 1080
+  
+  [Video]
+  FullScreen = 1
+  Width = 1920
+  Height = 1080
+  
+  [Input]
+  P1.UseKeyboard = 1
+  P2.UseKeyboard = 1
+  P1.Joystick.type = 0
+  P2.Joystick.type = 0
+  
+  [P1 Keys]
+  Jump = 273
+  Crouch = 274
+  Left = 276
+  Right = 275
+  A = 44
+  B = 46
+  C = 47
+  X = 108
+  Y = 59
+  Z = 39
+  Start = 13
+  
+  [P2 Keys]
+  Jump = 119
+  Crouch = 115
+  Left = 97
+  Right = 100
+  A = 102
+  B = 103
+  C = 104
+  X = 114
+  Y = 116
+  Z = 121
+  Start = 117
+  
+  '''
+# ---
+# name: TestMugenGenerator.test_generate[settings-set]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          '/usr/bin/batocera-settings-set',
+          'mugen.virtual_desktop',
+          '0',
+        ]),
+      ),
+      dict({
+        'check': True,
+      }),
+    ),
+  ])
+# ---
+# name: TestMugenGenerator.test_generate_nvidia
+  tuple(
+    list([
+      'batocera-wine',
+      'mugen',
+      'play',
+      '/userdata/roms/mugen/rom.pc',
+    ]),
+    dict({
+      'VK_ICD_FILENAMES': '/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json',
+      'VK_LAYER_PATH': '/usr/share/vulkan/explicit_layer.d',
+    }),
+  )
+# ---
+# name: TestMugenGenerator.test_generate_nvidia[environ]
+  dict({
+    'FOO': 'BAR',
+  })
+# ---
+# name: TestMugenGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        '/usr/bin/batocera-wine mugen stop',
+      ]),
+    }),
+    'name': 'mugen',
+  })
+# ---
