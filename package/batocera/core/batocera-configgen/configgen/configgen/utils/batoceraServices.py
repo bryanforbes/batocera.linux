@@ -8,7 +8,7 @@ _logger = logging.getLogger(__name__)
 class batoceraServices:
 
     @staticmethod
-    def isServiceEnabled(name: str):
+    def isServiceEnabled(name: str):  # pragma: nocover
         proc = subprocess.Popen(["batocera-services list"], stdout=subprocess.PIPE, shell=True)
         (out, _) = proc.communicate()
         for valmod in out.decode().splitlines():
