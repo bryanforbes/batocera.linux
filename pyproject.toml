@@ -16,11 +16,14 @@ extend-exclude = [".venv*", "buildroot*", "output", "dl"]
 line-length = 120
 target-version = "py312"
 
+[tool.ruff.format]
+quote-style = "single"
+
 [tool.ruff.lint]
 preview = true
 explicit-preview-rules = true
 select = [
-    "TCH", "PYI", "I", "UP", "F", "E", "W", "B", "C4", "SIM", "PTH", "G", "PERF", "PIE", "RET", "RUF"
+    "TCH", "PYI", "I", "UP", "F", "E", "W", "B", "C4", "SIM", "PTH", "G", "PERF", "PIE", "RET", "PT", "RUF"
 ]
 ignore = ["SIM105", "SIM108", "E501"]
 
