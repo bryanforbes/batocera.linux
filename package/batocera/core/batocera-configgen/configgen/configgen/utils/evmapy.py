@@ -8,8 +8,6 @@ from contextlib import AbstractContextManager
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
-import evdev
-
 from ..controllersConfig import mouseButtonToCode
 
 if TYPE_CHECKING:
@@ -80,7 +78,7 @@ class evmapy(AbstractContextManager[None, None]):
         if os.path.exists(keysfile):
             eslog.debug(f"evmapy file to merge for hotkeys : {keysfile}")
             filesToMerge.append(keysfile)
-            
+
         if len(filesToMerge) == 0:
             return None
         if len(filesToMerge) == 1:
@@ -425,6 +423,8 @@ class evmapy(AbstractContextManager[None, None]):
             return trigger
 
     def __get_pad_min_max_axis(self, devicePath: str, axisCode: int) -> tuple[int, int]:
+        import evdev
+
         device = evdev.InputDevice(devicePath)
         capabilities = device.capabilities(False)
 

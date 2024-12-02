@@ -26,6 +26,7 @@ def set_hotkeygen_context(generator: Generator, system: Emulator, /) -> Iterator
         else:
             # should not happen while exit should always be there
             hkc["keys"] = {}
+
     # if uimod is not full (aka kiosk or children mode), remove the menu action
     if system.isOptSet("uimode") and system.config["uimode"] != "Full":
         if "menu" in hkc["keys"]:

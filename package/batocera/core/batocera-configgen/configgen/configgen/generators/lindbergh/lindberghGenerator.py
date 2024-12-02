@@ -11,9 +11,6 @@ import tarfile
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Final
 
-import requests
-from evdev import ecodes
-
 from ... import Command, controllersConfig
 from ...batoceraPaths import SAVES, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config, get_mapping_axis_relaxed_values
@@ -136,6 +133,8 @@ class LindberghGenerator(Generator):
 
     @staticmethod
     def download_file(url: str, destination: Path) -> None:
+        import requests
+
         eslog.debug("Downloading the file...")
         response = requests.get(url, stream=True)
         if response.status_code == 200:
@@ -340,6 +339,8 @@ class LindberghGenerator(Generator):
         if input_mode == 2:
             hkevent = hotkeygen.get_hotkeygen_event()
             if hkevent is not None:
+                from evdev import ecodes
+
                 self.setConf(conf, "TEST_BUTTON",   hkevent + ":KEY:" + str(ecodes.KEY_T))
                 # only 1 assignment possible for coins, let's it on the select button of player 1 for the moment
                 # could be set to hotkeygen/coin and on player1/select via .keys, but different from sdl
@@ -656,6 +657,8 @@ class LindberghGenerator(Generator):
             return lindberghCtrl_pad
 
     def setup_guns_evdev(self, conf, guns, shortRomName):
+        from evdev import ecodes
+
         nplayer = 1
 
         # common batocera mapping

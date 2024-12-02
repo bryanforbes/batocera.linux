@@ -8,8 +8,6 @@ import signal
 import subprocess
 from typing import TYPE_CHECKING
 
-import evdev
-
 from .. import controllersConfig
 
 if TYPE_CHECKING:
@@ -239,6 +237,8 @@ def getWheelsFromDevicesInfos(deviceInfos: DeviceInfoMapping) -> DeviceInfoDict:
     return { key: deviceInfo for key, deviceInfo in deviceInfos.items() if deviceInfo['isWheel']}
 
 def reconfigureAngleRotation(dev: str, wheelAxis: int, rotationAngle: int, wantedRotationAngle: int, wantedDeadzone: int, wantedMidzone: int) -> tuple[str, subprocess.Popen[bytes]] | tuple[None, None]:
+    import evdev
+
     devInfos = evdev.InputDevice(dev)
     caps = devInfos.capabilities()
 
