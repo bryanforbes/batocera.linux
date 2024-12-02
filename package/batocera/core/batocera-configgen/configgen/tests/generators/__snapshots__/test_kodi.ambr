@@ -1,0 +1,129 @@
+# serializer version: 1
+# name: TestKodiGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/batocera-kodilauncher',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestKodiGenerator.test_generate[advancedsettings.xml]
+  '<advancedsettings><splash>false</splash></advancedsettings>'
+# ---
+# name: TestKodiGenerator.test_generate[gpio controller xml]
+  '''
+  <?xml version="1.0" ?>
+  <buttonmap>
+  	<device name="GPIO Controller 1" provider="udev" vid="0001" pid="0001" buttoncount="9" axiscount="4">
+  		<controller id="game.controller.default">
+  			<feature name="b" button="1"/>
+  			<feature name="a" button="0"/>
+  			<feature axis="+1" name="down"/>
+  			<feature name="guide" button="8"/>
+  			<feature axis="-0" name="left"/>
+  			<feature name="rightbumper" button="5"/>
+  			<feature name="leftbumper" button="4"/>
+  			<feature axis="+0" name="right"/>
+  			<feature name="back" button="6"/>
+  			<feature name="start" button="7"/>
+  			<feature axis="-1" name="up"/>
+  			<feature name="y" button="2"/>
+  			<feature name="x" button="3"/>
+  		</controller>
+  	</device>
+  </buttonmap>
+  
+  '''
+# ---
+# name: TestKodiGenerator.test_generate[ps3 controller xml]
+  '''
+  <?xml version="1.0" ?>
+  <buttonmap>
+  	<device name="Sony PLAYSTATION(R)3 Controller" provider="udev" vid="054c" pid="0268" buttoncount="15" axiscount="6">
+  		<controller id="game.controller.default">
+  			<feature name="b" button="1"/>
+  			<feature name="a" button="0"/>
+  			<feature name="down" button="14"/>
+  			<feature name="guide" button="10"/>
+  			<feature axis="+2" name="lefttrigger"/>
+  			<feature name="left" button="15"/>
+  			<feature name="rightbumper" button="5"/>
+  			<feature name="leftbumper" button="4"/>
+  			<feature axis="+5" name="righttrigger"/>
+  			<feature name="right" button="16"/>
+  			<feature name="back" button="8"/>
+  			<feature name="start" button="9"/>
+  			<feature name="up" button="13"/>
+  			<feature name="y" button="2"/>
+  			<feature name="x" button="3"/>
+  			<feature name="leftstick">
+  				<left axis="-0"/>
+  				<right axis="+0"/>
+  				<up axis="-1"/>
+  				<down axis="+1"/>
+  			</feature>
+  			<feature name="rightstick">
+  				<left axis="-3"/>
+  				<right axis="+3"/>
+  				<up axis="-4"/>
+  				<down axis="+4"/>
+  			</feature>
+  		</controller>
+  	</device>
+  </buttonmap>
+  
+  '''
+# ---
+# name: TestKodiGenerator.test_generate[settings.xml]
+  '<settings version="2"><setting id="driver_linux">1</setting></settings>'
+# ---
+# name: TestKodiGenerator.test_generate[xbox pad xml]
+  '''
+  <?xml version="1.0" ?>
+  <buttonmap>
+  	<device name="Generic Xbox pad" provider="udev" vid="045e" pid="0b0a" buttoncount="13" axiscount="12">
+  		<controller id="game.controller.default">
+  			<feature name="b" button="0"/>
+  			<feature name="a" button="1"/>
+  			<feature axis="+5" name="down"/>
+  			<feature name="guide" button="8"/>
+  			<feature name="lefttrigger" button="6"/>
+  			<feature axis="-4" name="left"/>
+  			<feature name="rightbumper" button="5"/>
+  			<feature name="leftbumper" button="4"/>
+  			<feature name="righttrigger" button="7"/>
+  			<feature axis="+4" name="right"/>
+  			<feature name="start" button="9"/>
+  			<feature axis="-5" name="up"/>
+  			<feature name="y" button="2"/>
+  			<feature name="x" button="3"/>
+  			<feature name="leftstick">
+  				<left axis="-0"/>
+  				<right axis="+0"/>
+  				<up axis="-1"/>
+  				<down axis="+1"/>
+  			</feature>
+  			<feature name="rightstick">
+  				<left axis="-2"/>
+  				<right axis="+2"/>
+  				<up axis="-3"/>
+  				<down axis="+3"/>
+  			</feature>
+  		</controller>
+  	</device>
+  </buttonmap>
+  
+  '''
+# ---
+# name: TestKodiGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'kodi',
+  })
+# ---
