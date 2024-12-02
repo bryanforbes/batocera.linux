@@ -1,0 +1,329 @@
+# serializer version: 1
+# name: TestFsuaeGenerator.test_generate[A1000]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A1000',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A1000/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[A1200]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A1200',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A1200/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[A3000]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A3000',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A3000/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[A4000]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A4000',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A4000/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[A500+]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A500+',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A500+/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[A500]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A500',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A500/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[A600]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A600',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A600/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[CD32]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=CD32',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/CD32/rom',
+      '--zoom=auto',
+      '--cdrom_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--cdrom_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate[CDTV]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=CDTV',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/CDTV/rom',
+      '--zoom=auto',
+      '--cdrom_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--cdrom_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate_controllers
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A1200',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A1200/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom.lha',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom.lha',
+      '--joystick_port_0=Generic Xbox pad',
+      '--joystick_port_1=Sony PLAYSTATION(R)3 Controller',
+      '--joystick_port_2=Generic Xbox pad',
+      '--joystick_port_3=Sony PLAYSTATION(R)3 Controller',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate_disk_0[A1200]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A1200',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A1200/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom0.adf',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom0.adf',
+      '--floppy_image_1=/userdata/roms/amiga1200/rom1.adf',
+      '--floppy_drive_1=/userdata/roms/amiga1200/rom1.adf',
+      '--floppy_image_2=/userdata/roms/amiga1200/rom2.adf',
+      '--floppy_image_3=/userdata/roms/amiga1200/rom3.adf',
+      '--floppy_image_4=/userdata/roms/amiga1200/rom4.adf',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate_disk_0[CD32]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=CD32',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/CD32/rom',
+      '--zoom=auto',
+      '--cdrom_image_0=/userdata/roms/amiga1200/rom0.adf',
+      '--cdrom_drive_0=/userdata/roms/amiga1200/rom0.adf',
+      '--cdrom_image_1=/userdata/roms/amiga1200/rom1.adf',
+      '--cdrom_image_2=/userdata/roms/amiga1200/rom2.adf',
+      '--cdrom_image_3=/userdata/roms/amiga1200/rom3.adf',
+      '--cdrom_image_4=/userdata/roms/amiga1200/rom4.adf',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate_disk_x_5[A1200]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A1200',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A1200/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/userdata/roms/amiga1200/rom1.adf',
+      '--floppy_drive_0=/userdata/roms/amiga1200/rom1.adf',
+      '--floppy_image_1=/userdata/roms/amiga1200/rom2.adf',
+      '--floppy_drive_1=/userdata/roms/amiga1200/rom2.adf',
+      '--floppy_image_2=/userdata/roms/amiga1200/rom3.adf',
+      '--floppy_image_3=/userdata/roms/amiga1200/rom4.adf',
+      '--floppy_image_4=/userdata/roms/amiga1200/rom5.adf',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate_disk_x_5[CD32]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=CD32',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/CD32/rom',
+      '--zoom=auto',
+      '--cdrom_image_0=/userdata/roms/amiga1200/rom1.adf',
+      '--cdrom_drive_0=/userdata/roms/amiga1200/rom1.adf',
+      '--cdrom_image_1=/userdata/roms/amiga1200/rom2.adf',
+      '--cdrom_image_2=/userdata/roms/amiga1200/rom3.adf',
+      '--cdrom_image_3=/userdata/roms/amiga1200/rom4.adf',
+      '--cdrom_image_4=/userdata/roms/amiga1200/rom5.adf',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate_zip[A1200]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=A1200',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/A1200/rom',
+      '--zoom=auto',
+      '--floppy_image_0=/tmp/fsuae/rom1.ipf',
+      '--floppy_drive_0=/tmp/fsuae/rom1.ipf',
+      '--floppy_image_1=/tmp/fsuae/rom2.adf',
+      '--floppy_drive_1=/tmp/fsuae/rom2.adf',
+      '--floppy_image_2=/tmp/fsuae/rom3.dms',
+      '--floppy_image_3=/tmp/fsuae/rom4.adz',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_generate_zip[CD32]
+  tuple(
+    list([
+      '/usr/bin/fs-uae',
+      '--fullscreen',
+      '--amiga-model=CD32',
+      '--base_dir=/userdata/system/configs/fs-uae',
+      '--kickstarts_dir=/userdata/bios/amiga',
+      '--save_states_dir=/userdata/saves/amiga/CD32/rom',
+      '--zoom=auto',
+      '--cdrom_image_0=/tmp/fsuae/rom1.ipf',
+      '--cdrom_drive_0=/tmp/fsuae/rom1.ipf',
+      '--cdrom_image_1=/tmp/fsuae/rom2.adf',
+      '--cdrom_image_2=/tmp/fsuae/rom3.dms',
+      '--cdrom_image_3=/tmp/fsuae/rom4.adz',
+      '--joystick_port_0=Generic Xbox pad',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestFsuaeGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_F12',
+    }),
+    'name': 'fsuae',
+  })
+# ---

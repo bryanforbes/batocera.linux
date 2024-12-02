@@ -5,8 +5,6 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, cast
 
-from evdev import InputDevice
-
 from ... import Command
 from ...batoceraPaths import CACHE, CONFIGS, SAVES, mkdir_if_not_exists
 from ..Generator import Generator
@@ -28,6 +26,8 @@ class PlayGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
+        import evdev
+
         # Create necessary directories
         mkdir_if_not_exists(playConfig)
         mkdir_if_not_exists(playSaves)
@@ -112,7 +112,7 @@ class PlayGenerator(Generator):
         }
 
         # Functions to convert the GUID
-        def get_device_id(dev: InputDevice) -> str:
+        def get_device_id(dev: evdev.InputDevice) -> str:
             uniq = dev.uniq  # Unique string (e.g., MAC) for the device
 
             if uniq and re.match(r"^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$", uniq):
@@ -176,7 +176,7 @@ class PlayGenerator(Generator):
         nplayer = 1
         for playercontroller, pad in sorted(playersControllers.items()):
             controller = playersControllers[playercontroller]
-            dev = InputDevice(pad.device_path)
+            dev = evdev.InputDevice(pad.device_path)
             pad_guid = get_device_id(dev)
             provider_id = 1702257782
 

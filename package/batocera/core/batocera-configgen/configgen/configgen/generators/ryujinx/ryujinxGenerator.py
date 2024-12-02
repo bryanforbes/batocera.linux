@@ -6,9 +6,6 @@ import shutil
 from os import environ
 from typing import TYPE_CHECKING, Any, Final
 
-import evdev
-from evdev import InputDevice
-
 from ... import Command
 from ...batoceraPaths import BIOS, CACHE, CONFIGS, ROMS, SAVES, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
@@ -90,6 +87,8 @@ class RyujinxGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
+        import evdev
+
         mkdir_if_not_exists(ryujinxConf / "system")
 
         # Copy file & make executable (workaround)
@@ -180,7 +179,7 @@ class RyujinxGenerator(Generator):
                 ctrlConf = ryujinxCtrl
                 # we need to get the uuid for ryujinx controllers
                 # example xbox 360 - "id": "0-00000003-045e-0000-8e02-000014010000"
-                devices = [InputDevice(fn) for fn in evdev.list_devices()]
+                devices = [evdev.InputDevice(fn) for fn in evdev.list_devices()]
                 for dev in devices:
                     if dev.path == pad.device_path:
                         bustype = f"{dev.info.bustype:x}"

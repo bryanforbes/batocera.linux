@@ -6,8 +6,6 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, NotRequired, TypedDict
 
-import pyudev
-
 from .batoceraPaths import ES_GAMES_METADATA
 
 if TYPE_CHECKING:
@@ -111,6 +109,8 @@ class _Device(TypedDict):
     wheel_rotation: NotRequired[int]
 
 def getDevicesInformation() -> DeviceInfoDict:
+    import pyudev
+
     groups: dict[str | None, list[str]] = {}
     devices: dict[int, _Device] = {}
     context   = pyudev.Context()

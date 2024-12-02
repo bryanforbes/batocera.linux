@@ -8,8 +8,6 @@ from contextlib import AbstractContextManager
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
-import evdev
-
 if TYPE_CHECKING:
     from collections.abc import Mapping
     from types import TracebackType
@@ -421,6 +419,8 @@ class evmapy(AbstractContextManager[None, None]):
             return trigger
 
     def __get_pad_min_max_axis(self, devicePath: str, axisCode: int) -> tuple[int, int]:
+        import evdev
+
         device = evdev.InputDevice(devicePath)
         capabilities = device.capabilities(False)
 

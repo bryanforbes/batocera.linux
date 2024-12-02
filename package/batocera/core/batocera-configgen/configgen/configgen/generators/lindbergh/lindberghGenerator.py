@@ -11,8 +11,6 @@ import tarfile
 from pathlib import Path
 from typing import IO, TYPE_CHECKING, Any, Final, Literal
 
-from evdev import ecodes
-
 from ... import Command
 from ...batoceraPaths import SAVES, mkdir_if_not_exists
 from ...controller import (
@@ -350,6 +348,8 @@ class LindberghGenerator(Generator):
         if input_mode == 2:
             hkevent = hotkeygen.get_hotkeygen_event()
             if hkevent is not None:
+                from evdev import ecodes
+
                 self.setConf(conf, "TEST_BUTTON",   f"{hkevent}:KEY:{ecodes.KEY_T}")
                 # only 1 assignment possible for coins, let's it on the select button of player 1 for the moment
                 # could be set to hotkeygen/coin and on player1/select via .keys, but different from sdl
@@ -683,6 +683,8 @@ class LindberghGenerator(Generator):
             return lindberghCtrl_pad
 
     def setup_guns_evdev(self, conf: dict[str, Any], guns: Guns, shortRomName: str, /) -> None:
+        from evdev import ecodes
+
         nplayer = 1
 
         # common batocera mapping

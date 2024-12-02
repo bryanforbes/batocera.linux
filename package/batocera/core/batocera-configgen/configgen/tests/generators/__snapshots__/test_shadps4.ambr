@@ -1,0 +1,381 @@
+# serializer version: 1
+# name: TestShadPS4Generator.test_generate
+  tuple(
+    list([
+      '/usr/bin/shadps4/shadps4',
+      '/userdata/roms/ps4/ROMDIR/eboot.bin',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestShadPS4Generator.test_generate[config]
+  '''
+  [Settings]
+  consoleLanguage = 1
+  
+  [GUI]
+  mw_width = 1920
+  gameTableMode = 0
+  theme = 0
+  geometry_y = 0
+  geometry_h = 1080
+  geometry_w = 1920
+  geometry_x = 0
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  pkgDirs = []
+  recentFiles = []
+  installDir = "/userdata/roms/ps4"
+  sliderPosGrid = 0
+  emulatorLanguage = "en"
+  iconSize = 36
+  elfDirs = []
+  sliderPos = 0
+  iconSizeGrid = 69
+  mw_height = 1080
+  
+  [Debug]
+  DebugDump = false
+  
+  [Vulkan]
+  crashDiagnostic = false
+  rdocEnable = false
+  validation_gpu = false
+  validation_sync = false
+  rdocMarkersEnable = false
+  validation = false
+  gpuId = 0
+  
+  [GPU]
+  dumpShaders = false
+  vblankDivider = 1
+  copyGPUBuffers = false
+  nullGpu = false
+  screenHeight = 720
+  screenWidth = 1280
+  
+  [Input]
+  specialPadClass = 1
+  useSpecialPad = false
+  cursorHideTimeout = 5
+  cursorState = 1
+  
+  [General]
+  backButtonBehavior = "left"
+  showSplash = false
+  autoUpdate = false
+  userName = "Batocera"
+  logType = "sync"
+  BGMvolume = 50
+  playBGM = false
+  updateChannel = ""
+  logFilter = ""
+  Fullscreen = true
+  isPS4Pro = false
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_config_rom
+  tuple(
+    list([
+      '/usr/bin/shadps4/shadps4',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestShadPS4Generator.test_generate_existing
+  '''
+  [General]
+  Fullscreen = true
+  autoUpdate = false
+  userName = "Batocera"
+  
+  [GUI]
+  installDir = "/userdata/roms/ps4"
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  
+  [Vulkan]
+  gpuId = 0
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available, incompatible version]
+  '''
+  [Settings]
+  consoleLanguage = 1
+  
+  [GUI]
+  mw_width = 1920
+  gameTableMode = 0
+  theme = 0
+  geometry_y = 0
+  geometry_h = 1080
+  geometry_w = 1920
+  geometry_x = 0
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  pkgDirs = []
+  recentFiles = []
+  installDir = "/userdata/roms/ps4"
+  sliderPosGrid = 0
+  emulatorLanguage = "en"
+  iconSize = 36
+  elfDirs = []
+  sliderPos = 0
+  iconSizeGrid = 69
+  mw_height = 1080
+  
+  [Debug]
+  DebugDump = false
+  
+  [Vulkan]
+  crashDiagnostic = false
+  rdocEnable = false
+  validation_gpu = false
+  validation_sync = false
+  rdocMarkersEnable = false
+  validation = false
+  gpuId = 0
+  
+  [GPU]
+  dumpShaders = false
+  vblankDivider = 1
+  copyGPUBuffers = false
+  nullGpu = false
+  screenHeight = 720
+  screenWidth = 1280
+  
+  [Input]
+  specialPadClass = 1
+  useSpecialPad = false
+  cursorHideTimeout = 5
+  cursorState = 1
+  
+  [General]
+  backButtonBehavior = "left"
+  showSplash = false
+  autoUpdate = false
+  userName = "Batocera"
+  logType = "sync"
+  BGMvolume = 50
+  playBGM = false
+  updateChannel = ""
+  logFilter = ""
+  Fullscreen = true
+  isPS4Pro = false
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available, no discrete gpu]
+  '''
+  [Settings]
+  consoleLanguage = 1
+  
+  [GUI]
+  mw_width = 1920
+  gameTableMode = 0
+  theme = 0
+  geometry_y = 0
+  geometry_h = 1080
+  geometry_w = 1920
+  geometry_x = 0
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  pkgDirs = []
+  recentFiles = []
+  installDir = "/userdata/roms/ps4"
+  sliderPosGrid = 0
+  emulatorLanguage = "en"
+  iconSize = 36
+  elfDirs = []
+  sliderPos = 0
+  iconSizeGrid = 69
+  mw_height = 1080
+  
+  [Debug]
+  DebugDump = false
+  
+  [Vulkan]
+  crashDiagnostic = false
+  rdocEnable = false
+  validation_gpu = false
+  validation_sync = false
+  rdocMarkersEnable = false
+  validation = false
+  gpuId = 0
+  
+  [GPU]
+  dumpShaders = false
+  vblankDivider = 1
+  copyGPUBuffers = false
+  nullGpu = false
+  screenHeight = 720
+  screenWidth = 1280
+  
+  [Input]
+  specialPadClass = 1
+  useSpecialPad = false
+  cursorHideTimeout = 5
+  cursorState = 1
+  
+  [General]
+  backButtonBehavior = "left"
+  showSplash = false
+  autoUpdate = false
+  userName = "Batocera"
+  logType = "sync"
+  BGMvolume = 50
+  playBGM = false
+  updateChannel = ""
+  logFilter = ""
+  Fullscreen = true
+  isPS4Pro = false
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available, unable to get gpu index]
+  '''
+  [Settings]
+  consoleLanguage = 1
+  
+  [GUI]
+  mw_width = 1920
+  gameTableMode = 0
+  theme = 0
+  geometry_y = 0
+  geometry_h = 1080
+  geometry_w = 1920
+  geometry_x = 0
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  pkgDirs = []
+  recentFiles = []
+  installDir = "/userdata/roms/ps4"
+  sliderPosGrid = 0
+  emulatorLanguage = "en"
+  iconSize = 36
+  elfDirs = []
+  sliderPos = 0
+  iconSizeGrid = 69
+  mw_height = 1080
+  
+  [Debug]
+  DebugDump = false
+  
+  [Vulkan]
+  crashDiagnostic = false
+  rdocEnable = false
+  validation_gpu = false
+  validation_sync = false
+  rdocMarkersEnable = false
+  validation = false
+  gpuId = 0
+  
+  [GPU]
+  dumpShaders = false
+  vblankDivider = 1
+  copyGPUBuffers = false
+  nullGpu = false
+  screenHeight = 720
+  screenWidth = 1280
+  
+  [Input]
+  specialPadClass = 1
+  useSpecialPad = false
+  cursorHideTimeout = 5
+  cursorState = 1
+  
+  [General]
+  backButtonBehavior = "left"
+  showSplash = false
+  autoUpdate = false
+  userName = "Batocera"
+  logType = "sync"
+  BGMvolume = 50
+  playBGM = false
+  updateChannel = ""
+  logFilter = ""
+  Fullscreen = true
+  isPS4Pro = false
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_generate_vulkan[vulkan available]
+  '''
+  [Settings]
+  consoleLanguage = 1
+  
+  [GUI]
+  mw_width = 1920
+  gameTableMode = 0
+  theme = 0
+  geometry_y = 0
+  geometry_h = 1080
+  geometry_w = 1920
+  geometry_x = 0
+  addonInstallDir = "/userdata/roms/ps4/DLC"
+  pkgDirs = []
+  recentFiles = []
+  installDir = "/userdata/roms/ps4"
+  sliderPosGrid = 0
+  emulatorLanguage = "en"
+  iconSize = 36
+  elfDirs = []
+  sliderPos = 0
+  iconSizeGrid = 69
+  mw_height = 1080
+  
+  [Debug]
+  DebugDump = false
+  
+  [Vulkan]
+  crashDiagnostic = false
+  rdocEnable = false
+  validation_gpu = false
+  validation_sync = false
+  rdocMarkersEnable = false
+  validation = false
+  gpuId = 1
+  
+  [GPU]
+  dumpShaders = false
+  vblankDivider = 1
+  copyGPUBuffers = false
+  nullGpu = false
+  screenHeight = 720
+  screenWidth = 1280
+  
+  [Input]
+  specialPadClass = 1
+  useSpecialPad = false
+  cursorHideTimeout = 5
+  cursorState = 1
+  
+  [General]
+  backButtonBehavior = "left"
+  showSplash = false
+  autoUpdate = false
+  userName = "Batocera"
+  logType = "sync"
+  BGMvolume = 50
+  playBGM = false
+  updateChannel = ""
+  logFilter = ""
+  Fullscreen = true
+  isPS4Pro = false
+  
+  '''
+# ---
+# name: TestShadPS4Generator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'shadps4',
+  })
+# ---
