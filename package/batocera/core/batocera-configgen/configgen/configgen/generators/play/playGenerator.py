@@ -5,8 +5,6 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, cast
 
-import evdev
-
 from ... import Command
 from ...batoceraPaths import CACHE, CONFIGS, SAVES, configure_emulator, mkdir_if_not_exists
 from ..Generator import Generator
@@ -28,6 +26,8 @@ class PlayGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
+        import evdev
+
         # Create necessary directories
         mkdir_if_not_exists(playConfig)
         mkdir_if_not_exists(playSaves)
