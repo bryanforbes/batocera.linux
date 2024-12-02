@@ -1,0 +1,118 @@
+# serializer version: 1
+# name: TestRunner.test_get_environment
+  dict({
+    'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+    'LIBGL_DRIVERS_PATH': '/lib32/dri',
+    'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+    'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+    'WINEPREFIX': Path('/userdata/system/wine-bottles/my-bottle'),
+  })
+# ---
+# name: TestRunner.test_install_wine_trick[Popen]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          Path('/usr/wine/winetricks'),
+          '-q',
+          'some_trick',
+        ]),
+      ),
+      dict({
+        'env': dict({
+          'HOME': '/userdata/system',
+          'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+          'PATH': '/usr/wine/wine-tkg/lib/wine/i386-unix:/usr/wine/wine-tkg/lib/wine/x86_64-unix:/usr/wine/wine-tkg/bin:/bin:/usr/bin',
+          'WINEPREFIX': Path('/userdata/system/wine-bottles/my-bottle'),
+        }),
+        'stderr': -1,
+        'stdout': -1,
+      }),
+    ),
+  ])
+# ---
+# name: TestRunner.test_install_wine_trick[logging]
+  list([
+    tuple(
+      'configgen.utils.wine',
+      10,
+      "command: [PosixPath('/usr/wine/winetricks'), '-q', 'some_trick']",
+    ),
+    tuple(
+      'configgen.utils.wine',
+      10,
+      'out',
+    ),
+    tuple(
+      'configgen.utils.wine',
+      40,
+      'err',
+    ),
+  ])
+# ---
+# name: TestRunner.test_install_wine_trick_environment[Popen]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          Path('/usr/wine/winetricks'),
+          '-q',
+          'some_trick',
+        ]),
+      ),
+      dict({
+        'env': dict({
+          'FOO': 'BAR',
+          'HOME': '/userdata/system',
+          'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+          'PATH': '/usr/wine/wine-tkg/lib/wine/i386-unix:/usr/wine/wine-tkg/lib/wine/x86_64-unix:/usr/wine/wine-tkg/bin:/bin:/usr/bin',
+          'WINEPREFIX': Path('/userdata/system/wine-bottles/my-bottle'),
+        }),
+        'stderr': -1,
+        'stdout': -1,
+      }),
+    ),
+  ])
+# ---
+# name: TestRunner.test_regedit[Popen]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          Path('/usr/wine/wine-tkg/lib/wine/i386-unix/wine'),
+          'regedit',
+          Path('/path/to/some/regedit/file.regedit'),
+        ]),
+      ),
+      dict({
+        'env': dict({
+          'HOME': '/userdata/system',
+          'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+          'PATH': '/usr/wine/wine-tkg/lib/wine/i386-unix:/usr/wine/wine-tkg/lib/wine/x86_64-unix:/usr/wine/wine-tkg/bin:/bin:/usr/bin',
+          'WINEPREFIX': Path('/userdata/system/wine-bottles/my-bottle'),
+        }),
+        'stderr': -1,
+        'stdout': -1,
+      }),
+    ),
+  ])
+# ---
+# name: TestRunner.test_regedit[logging]
+  list([
+    tuple(
+      'configgen.utils.wine',
+      10,
+      "command: [PosixPath('/usr/wine/wine-tkg/lib/wine/i386-unix/wine'), 'regedit', PosixPath('/path/to/some/regedit/file.regedit')]",
+    ),
+    tuple(
+      'configgen.utils.wine',
+      10,
+      'out',
+    ),
+    tuple(
+      'configgen.utils.wine',
+      40,
+      'err',
+    ),
+  ])
+# ---
