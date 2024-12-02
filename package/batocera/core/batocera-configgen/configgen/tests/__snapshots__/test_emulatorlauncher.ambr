@@ -1,0 +1,2346 @@
+# serializer version: 1
+# name: test_call_external_scripts
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          Path('/path/to/scripts/script1.sh'),
+          'my_event',
+          'foo',
+          'bar',
+          Path('/my/stuff'),
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          Path('/path/to/scripts/sub_dir/subscript1.sh'),
+          'my_event',
+          'foo',
+          'bar',
+          Path('/my/stuff'),
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          Path('/path/to/scripts/sub_dir/sub_sub_dir/subscript2.sh'),
+          'my_event',
+          'foo',
+          'bar',
+          Path('/my/stuff'),
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          Path('/path/to/scripts/script2.sh'),
+          'my_event',
+          'foo',
+          'bar',
+          Path('/my/stuff'),
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_get_hud_config_has_hud[custom---{}---/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  background_alpha=0
+  
+  '''
+# ---
+# name: test_get_hud_config_has_hud[custom---{}---None]
+  '''
+  background_alpha=0
+  
+  '''
+# ---
+# name: test_get_hud_config_has_hud[custom--my_custom_stuff-{}---/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  my_custom_stuff
+  '''
+# ---
+# name: test_get_hud_config_has_hud[custom--my_custom_stuff-{}---None]
+  'my_custom_stuff'
+# ---
+# name: test_get_hud_config_has_hud[custom--my_custom_stuff\n%THUMBNAIL%\n%SYSTEMNAME%\n%GAMENAME%\n%EMULATORCORE%-{'name': 'GAMENAME', 'thumbnail': 'THUMBNAIL'}-emulator-core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  my_custom_stuff
+  THUMBNAIL
+  System Name
+  GAMENAME
+  emulator/core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[custom--my_custom_stuff\n%THUMBNAIL%\n%SYSTEMNAME%\n%GAMENAME%\n%EMULATORCORE%-{'name': 'GAMENAME', 'thumbnail': 'THUMBNAIL'}-emulator-core-None]
+  '''
+  my_custom_stuff
+  THUMBNAIL
+  System Name
+  GAMENAME
+  emulator/core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[custom--my_custom_stuff\n%THUMBNAIL%\n%SYSTEMNAME%\n%GAMENAME%\n%EMULATORCORE%-{'name': 'GAMENAME', 'thumbnail': 'THUMBNAIL'}-emulator-emulator-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  my_custom_stuff
+  THUMBNAIL
+  System Name
+  GAMENAME
+  emulator
+  '''
+# ---
+# name: test_get_hud_config_has_hud[custom--my_custom_stuff\n%THUMBNAIL%\n%SYSTEMNAME%\n%GAMENAME%\n%EMULATORCORE%-{'name': 'GAMENAME', 'thumbnail': 'THUMBNAIL'}-emulator-emulator-None]
+  '''
+  my_custom_stuff
+  THUMBNAIL
+  System Name
+  GAMENAME
+  emulator
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game--None-{}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{}-default_emulator-effective_core-None]
+  '''
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NE-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=top-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{}-default_emulator-effective_core-None]
+  '''
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-NW-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=top-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{}-default_emulator-effective_core-None]
+  '''
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SE-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-right
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=GAMETHUMBNAIL
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[game-SW-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0
+  legacy_layout=false
+  font_size=32
+  image_max_width=200
+  image=
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf--None-{}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{}-default_emulator-effective_core-None]
+  '''
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NE-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=top-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{}-default_emulator-effective_core-None]
+  '''
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-NW-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=top-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{}-default_emulator-effective_core-None]
+  '''
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SE-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-right
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'name': 'GAMENAME'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'name': 'GAMENAME'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=GAMENAME
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{'thumbnail': 'GAMETHUMBNAIL'}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{}-default_emulator-effective_core-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{}-default_emulator-effective_core-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=default_emulator/effective_core
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{}-emulator_name-emulator_name-/path/to/bezel]
+  '''
+  background_image=/path/to/bezel
+  legacy_layout=false
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_has_hud[perf-SW-None-{}-emulator_name-emulator_name-None]
+  '''
+  position=bottom-left
+  background_alpha=0.9
+  legacy_layout=false
+  custom_text=
+  custom_text=System Name
+  custom_text=emulator_name
+  fps
+  gpu_name
+  engine_version
+  vulkan_driver
+  resolution
+  ram
+  gpu_stats
+  gpu_temp
+  cpu_stats
+  cpu_temp
+  core_load
+  '''
+# ---
+# name: test_get_hud_config_no_hud_has_bezel[None]
+  '''
+  background_image=/path/to/bezel.png
+  legacy_layout=false
+  background_alpha=0
+  
+  '''
+# ---
+# name: test_get_hud_config_no_hud_has_bezel[none]
+  '''
+  background_image=/path/to/bezel.png
+  legacy_layout=false
+  background_alpha=0
+  
+  '''
+# ---
+# name: test_run_command
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'command',
+          'arg1',
+          'arg2',
+        ]),
+      ),
+      dict({
+        'env': dict({
+          'ENV_VAR_1': '1',
+        }),
+        'stderr': -1,
+        'stdout': -1,
+      }),
+    ),
+  ])
+# ---
+# name: test_run_command[logging]
+  list([
+    tuple(
+      'configgen.emulatorlauncher',
+      10,
+      'command: PYTEST_CURRENT_TEST=tests/test_emulatorlauncher.py::test_run_command (call) ENV_VAR_1=1 command arg1 arg2',
+    ),
+    tuple(
+      'configgen.emulatorlauncher',
+      10,
+      "command: ['command', 'arg1', 'arg2']",
+    ),
+    tuple(
+      'configgen.emulatorlauncher',
+      10,
+      "env: {'PYTEST_CURRENT_TEST': 'tests/test_emulatorlauncher.py::test_run_command (call)', 'ENV_VAR_1': '1'}",
+    ),
+    tuple(
+      'configgen.emulatorlauncher',
+      10,
+      'output',
+    ),
+    tuple(
+      'configgen.emulatorlauncher',
+      40,
+      'error',
+    ),
+  ])
+# ---

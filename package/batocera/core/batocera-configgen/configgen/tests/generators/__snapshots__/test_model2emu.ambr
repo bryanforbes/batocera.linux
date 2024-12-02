@@ -1,0 +1,2269 @@
+# serializer version: 1
+# name: TestModel2EmuGenerator.test_generate
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate[config-mode]
+  '-------rwx'
+# ---
+# name: TestModel2EmuGenerator.test_generate[config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate[winetricks]
+  _CallList([
+    _Call(
+      tuple(
+        'd3dx9',
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        'd3dcompiler_42',
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        'd3dx9_42',
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        'xact',
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        'xact_x64',
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_Software': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'GALLIUM_DRIVER': 'llvmpipe',
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'MESA_LOADER_DRIVER_OVERRIDE': 'llvmpipe',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+      '__GLX_VENDOR_LIBRARY_NAME': 'mesa',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_Software': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_bilinearFiltering': '0'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_bilinearFiltering': '0'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 0
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_crossHairs': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_crossHairs': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_enableMIP': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_enableMIP': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 1
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_fakeGouraud': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_fakeGouraud': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 1
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_filterTilemaps': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_filterTilemaps': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 1
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_forceFeedback': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_forceFeedback': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 1
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_forceManaged': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_forceManaged': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 1
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_fullscreenAA': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_fullscreenAA': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 1
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_meshTransparency': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_meshTransparency': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 1
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_renderRes': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_renderRes': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 1
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_trilinearFiltering': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_trilinearFiltering': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 1
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_useRawInput': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_useRawInput': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 1
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_xinput': '1'}]
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_config[{'model2_xinput': '1'}][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 1
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_config_rom
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_existing
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_existing[config-mode]
+  '-rw-r--r--'
+# ---
+# name: TestModel2EmuGenerator.test_generate_existing[config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  FullMode = 4
+  AutoFull = 1
+  ForceSync = 1
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  AutoMip = 0
+  MeshTransparency = 0
+  FSAA = 0
+  
+  [Input]
+  XInput = 0
+  UseRawInput = 0
+  EnableFF = 0
+  
+  [Foo]
+  Bar = 1
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_guns[config crossHairs 0, need_cross true][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 0
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_guns[config crossHairs 1, need_cross true][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_guns[no config, need_cross false][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 0
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_guns[no config, need_cross true][config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_nvidia
+  tuple(
+    list([
+      '/usr/wine/wine-tkg/lib/wine/i386-unix/wine',
+      '/userdata/system/wine-bottles/model2/model2emu/emulator_multicpu.exe',
+      'rom',
+    ]),
+    dict({
+      'LD_LIBRARY_PATH': '/lib32:/usr/wine/wine-tkg/lib/wine',
+      'LIBGL_DRIVERS_PATH': '/lib32/dri',
+      'PIPEWIRE_MODULE_DIR': '/usr/lib/pipewire-0.3:/lib32/pipewire-0.3',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'SPA_PLUGIN_DIR': '/usr/lib/spa-0.2:/lib32/spa-0.2',
+      'VK_ICD_FILENAMES': '/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json',
+      'VK_LAYER_PATH': '/usr/share/vulkan/explicit_layer.d',
+      'WINEPREFIX': '/userdata/system/wine-bottles/model2',
+    }),
+  )
+# ---
+# name: TestModel2EmuGenerator.test_generate_nvidia[environ]
+  dict({
+    'FOO': 'BAR',
+  })
+# ---
+# name: TestModel2EmuGenerator.test_generate_roms_dirs[config]
+  '''
+  [RomDirs]
+  Dir1 = z:\userdata\roms\model2
+  Dir2 = Z:\userdata\roms\model2\foo
+  
+  [Renderer]
+  SoftwareVertexProcessing = 0
+  Wireframe = 0			;Disables polygon filling (for debug purposes, don't change)
+  FakeGouraud = 0
+  Bilinear = 1
+  Trilinear = 0
+  FilterTilemaps = 0
+  ForceManaged = 0
+  ForceSync = 1
+  FullScreenWidth = 1920
+  FullScreenHeight = 1080
+  AutoMip = 0
+  MeshTransparency = 0
+  DrawCross = 1			;Show Crosshair in gun games
+  GammaR = 1.0			;Per Component Gamma correction (1.0 = no correction). Red
+  GammaG = 1.0			;Green
+  GammaB = 1.0			;Blue
+  WideScreenWindow = 0		;Set widescreen in windows mode: 0 - 4:3, 1 - 16:9, 2 - 16:10
+  FSAA = 0
+  FullMode = 4
+  Sound = 1
+  Frameskip = -1
+  AutoFull = 1
+  Filter = 20373472
+  
+  [Input]
+  XInput = 0
+  EnableFF = 0
+  HoldGears = 0			;Set to 1 to return to Neutral in driving games when the gear shift key is released
+  UseRawInput = 0
+  RawDevP1 = 0			;Assign specific RawInput devices to players. If you have more than 2 mice
+  RawDevP2 = 1			;set which one is assigned to each player (0-based)
+  FE_CENTERING_Gain = 0.5		;Global gain
+  FE_CENTERING_Coefficient = 10000	;0-10000
+  FE_CENTERING_Saturation = 10000	;0-10000
+  FE_CENTERING_Deadband = 1000	;10%
+  FE_CLUTCH_Gain = 1.0		;Global gain
+  FE_CLUTCH_Coefficient = 10000	;0-10000
+  FE_LEFT_Gain = 1.0		;Global gain
+  FE_LEFT_Magnitude = 10000		;0-10000
+  FE_RIGHT_Gain = 1.0		;Global gain
+  FE_RIGHT_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Gain = 1.0		;Global gain
+  FE_UNCENTERING_Magnitude = 10000	;0-10000
+  FE_UNCENTERING_Offset = -200
+  FE_UNCENTERING_Phase = 0
+  FE_UNCENTERING_Period = 56000
+  
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{'model2_scanlines': 'False'}-0]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{'model2_scanlines': 'False'}-1]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{'model2_scanlines': 'False'}-None]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{'model2_scanlines': 'True'}-0]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=1
+  	Options.scanlines.value=1
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{'model2_scanlines': 'True'}-1]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=1
+  	Options.scanlines.value=1
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{'model2_scanlines': 'True'}-None]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=1
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{}-0]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{}-1]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_scanlines_script[{}-None]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_widescreen_script[{'model2_ratio': 'False'}-false]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_widescreen_script[{'model2_ratio': 'False'}-true]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_widescreen_script[{'model2_ratio': 'True'}-false]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=true
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_widescreen_script[{'model2_ratio': 'True'}-true]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=true
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_widescreen_script[{}-false]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_generate_widescreen_script[{}-true]
+  '''
+  require("model2")
+  
+  function Init()
+  
+  	TestSurface = Video_CreateSurfaceFromFile("scripts\\scanlines_default.png");
+  	Options.scanlines.value=0
+  	wide=false
+  	press=0
+  end
+  
+  function Frame()
+  		if Input_IsKeyPressed(0x3F)==1 and press==0 then wide=not wide press=1
+  		elseif Input_IsKeyPressed(0x3F)==0 and press==1 then press=0
+  		end
+  
+  	if wide==true then
+  		Model2_SetWideScreen(1)
+  	else
+  		Model2_SetWideScreen(0)
+  	end
+  end
+  
+  function PostDraw()
+  		if Options.scanlines.value==1 then
+  		Video_DrawSurface(TestSurface,0,0);
+  	end
+  
+  end
+  
+  function health_1p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x3CA0,1800); -- 1P full health
+  end
+  
+  function health_2p_cheat_f(value)
+          I960_WriteWord(RAMBASE+0x42A0,1800); -- 2P full health
+  end
+  
+  Options =
+  {
+  	health_1p_cheat={name="1P Infinite Health",values={"Off","On"},runfunc=health_1p_cheat_f},
+  	health_2p_cheat={name="2P Infinite Health",values={"Off","On"},runfunc=health_2p_cheat_f},
+  	scanlines={name="Scanlines (50%)",values={"Off","On"}}
+  }
+  
+  '''
+# ---
+# name: TestModel2EmuGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'model2emu',
+  })
+# ---

@@ -1,0 +1,5964 @@
+# serializer version: 1
+# name: TestOpenJKDF2GeneratorGenerator.test_generate
+  tuple(
+    list([
+      '/userdata/roms/jkdf2/game/openjkdf2',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate[config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate[cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate[filemode]
+  '-rwxr-xr-x'
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate[plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_aspect': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_aspect': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": true,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_bloom': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_bloom': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": true,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_corpses': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_corpses': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": true,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_cross_line': '2.40'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 2.4,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_cross_size': '2.40'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 2.4,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_fist_cross': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": false,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_fist_cross': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_fov_vert': '0'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": false,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_fov_vert': '1'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_gamma': '2.00'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 2.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_hidpi': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": false,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_hidpi': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_hud_scale': '1.60'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 1.6,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_saber_cross': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": false,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_saber_cross': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_ssaa_multiple': '1.0'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_ssaa_multiple': '2.0'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 2.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_ssaa_multiple': '4.0'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 4.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_ssao': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_ssao': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": true,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_start': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_start': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": true,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_texture': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_texture': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": true,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_vsync': 'False'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_vsync': 'True'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": true,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_waggle': '0'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": false,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_cvars[{'jkdf2_waggle': '1'}][cvars]
+  '''
+  {
+      "g_bJankyPhysics": false,
+      "g_bKeepCorpses": false,
+      "g_bUseOldPlayerPhysics": false,
+      "g_canonicalCogTickrate": 0.019999999552965164,
+      "g_canonicalPhysTickrate": 0.03999999910593033,
+      "hud_crosshairLineWidth": 1.0,
+      "hud_crosshairScale": 1.0,
+      "hud_disableWeaponWaggle": true,
+      "hud_scale": 2.0,
+      "hud_setCrosshairOnFist": true,
+      "hud_setCrosshairOnLightsaber": true,
+      "menu_bFastMissionText": false,
+      "r_bEnableJkgm": true,
+      "r_bEnableTexturePrecache": true,
+      "r_enableBloom": false,
+      "r_enableOrigAspect": false,
+      "r_enableSSAO": false,
+      "r_enableTextureFilter": false,
+      "r_enableVsync": false,
+      "r_fov": 90,
+      "r_fovIsVertical": true,
+      "r_fpslimit": 0,
+      "r_fullscreen": true,
+      "r_gamma": 1.0,
+      "r_hidpi": true,
+      "r_ssaaMultiple": 1.0
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_aspect': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_aspect': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": true,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_bloom': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_bloom': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": true,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_corpses': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_corpses': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": true,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_cross_line': '2.40'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 2.4,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_cross_size': '2.40'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 2.4,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_fist_cross': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": false,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_fist_cross': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_fov_vert': '0'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": false,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_fov_vert': '1'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_gamma': '2.00'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 2.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_hidpi': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": false
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_hidpi': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_hud_scale': '1.60'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 1.6,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_saber_cross': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": false,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_saber_cross': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_ssaa_multiple': '1.0'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_ssaa_multiple': '2.0'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 2.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_ssaa_multiple': '4.0'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 4.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_ssao': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_ssao': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 1,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_start': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_start': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": true,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_texture': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_texture': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": true,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_vsync': 'False'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_vsync': 'True'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": true,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_waggle': '0'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": false,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_json[{'jkdf2_waggle': '1'}][config]
+  '''
+  {
+      "bDisableWeaponWaggle": true,
+      "bEnableJkgm": true,
+      "bEnableTexturePrecache": true,
+      "bFastMissionText": false,
+      "bJankyPhysics": false,
+      "bKeepCorpses": false,
+      "bUseOldPlayerPhysics": false,
+      "canonicalCogTickrate": 0.019999999552965164,
+      "canonicalPhysTickrate": 0.03999999910593033,
+      "crosshairLineWidth": 1.0,
+      "crosshairScale": 1.0,
+      "enablebloom": false,
+      "enablessao": 0,
+      "enablevsync": false,
+      "fov": 90,
+      "fovisvertical": true,
+      "fpslimit": 0,
+      "gamma": 1.0,
+      "hudScale": 2.0,
+      "originalaspect": false,
+      "setCrosshairOnFist": true,
+      "setCrosshairOnLightsaber": true,
+      "ssaamultiple": 1.0,
+      "texturefiltering": false,
+      "windowfullscreen": true,
+      "windowishidpi": true
+  }
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_aiming': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 0
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_aiming': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_crosshair': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_crosshair': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 1
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_dangerous': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 13
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_dangerous': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 3
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_difficulty': '0'}][plr]
+  '''
+  version 1
+  diff 0
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_difficulty': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_difficulty': '2'}][plr]
+  '''
+  version 1
+  diff 2
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_map_rotate': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 0
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_map_rotate': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_pickup': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 0
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 14
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_pickup': '1', 'jkdf2_dangerous': '1', 'jkdf2_weaker': '1', 'jkdf2_saber': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 15
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_pickup': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_reload': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 2
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_reload': '1', 'jkdf2_reload_saber': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 3
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_reload': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 1
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_reload_saber': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 1
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_reload_saber': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 2
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_saber': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 7
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_saber': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 9
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_saber_camera': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_saber_camera': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 1
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_scenes': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_scenes': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 1
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_subs': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_subs': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 1
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_switch': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 2
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 2
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_switch': '1', 'jkdf2_switch_dangerous': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_switch': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_switch_dangerous': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 1
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 1
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_switch_dangerous': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_weaker': '0'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 1
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 11
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_config_plr[{'jkdf2_weaker': '1'}][plr]
+  '''
+  version 1
+  diff 1
+  fullsubtitles 0
+  disablecutscenes 0
+  rotateoverlaymap 1
+  drawstatus 1
+  crosshair 0
+  sabercam 0
+  autoPickup 5
+  autoSwitch 3
+  autoReload 0
+  multiAutoPickup 15
+  multiAutoSwitch 3
+  multiAutoReload 3
+  autoAim 1
+  flags=24
+  bind 0 200 0x2
+  bind 0 208 0x6
+  bind 0 17 0x2
+  bind 0 31 0x6
+  bind 0 72 0x2
+  bind 0 80 0x6
+  bind 0 1 0x5
+  bind 1 75 0x6
+  bind 1 203 0x2
+  bind 1 205 0x6
+  bind 1 0 0x5
+  bind 1 12 0xd 0.400000
+  bind 2 30 0x6
+  bind 2 32 0x2
+  bind 2 79 0x6
+  bind 2 81 0x2
+  bind 2 264 0x6
+  bind 2 266 0x2
+  bind 3 184 0x2
+  bind 3 56 0x2
+  bind 4 78 0x2
+  bind 4 45 0x2
+  bind 4 259 0x2
+  bind 4 281 0x2
+  bind 5 46 0x2
+  bind 6 42 0x2
+  bind 6 54 0x2
+  bind 7 58 0x2
+  bind 8 201 0x6
+  bind 8 209 0x2
+  bind 8 265 0x6
+  bind 8 267 0x2
+  bind 8 13 0xd 0.300000
+  bind 8 14 0x1 4.000000
+  bind 9 199 0x2
+  bind 9 76 0x2
+  bind 10 157 0x2
+  bind 10 29 0x2
+  bind 10 256 0x2
+  bind 10 280 0x2
+  bind 11 44 0x2
+  bind 11 82 0x2
+  bind 11 257 0x2
+  bind 11 282 0x2
+  bind 12 57 0x2
+  bind 12 258 0x2
+  bind 13 2 0x2
+  bind 14 3 0x2
+  bind 15 4 0x2
+  bind 16 5 0x2
+  bind 17 6 0x2
+  bind 18 7 0x2
+  bind 19 8 0x2
+  bind 20 9 0x2
+  bind 21 10 0x2
+  bind 22 11 0x2
+  bind 23 67 0x2
+  bind 25 19 0x2
+  bind 25 27 0x2
+  bind 25 260 0x2
+  bind 26 26 0x2
+  bind 27 28 0x2
+  bind 27 262 0x2
+  bind 28 53 0x2
+  bind 28 34 0x2
+  bind 29 52 0x2
+  bind 30 40 0x2
+  bind 30 18 0x2
+  bind 31 39 0x2
+  bind 31 16 0x2
+  bind 32 33 0x2
+  bind 33 15 0x2
+  bind 34 13 0x2
+  bind 35 12 0x2
+  bind 36 47 0x2
+  bind 37 59 0x2
+  bind 38 20 0x2
+  bind 39 87 0x2
+  bind 40 88 0x2
+  bind 41 41 0x2
+  bind 42 63 0x2
+  bind 43 64 0x2
+  bind 44 65 0x2
+  bind 45 66 0x2
+  bind 56 62 0x2
+  bind 57 61 0x2
+  bind 58 60 0x2
+  end.
+  numCutscenes 1
+  01-02a.smk 1
+  
+  '''
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_existing_binary[filemode]
+  '-rw-r--r--'
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_generate_existing_old_binary[filemode]
+  '-rwxr-xr-x'
+# ---
+# name: TestOpenJKDF2GeneratorGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'KEY_F10',
+      'save_state': 'KEY_F9',
+      'screenshot': 'KEY_F12',
+    }),
+    'name': 'openjkdf2',
+  })
+# ---

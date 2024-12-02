@@ -1,0 +1,3093 @@
+# serializer version: 1
+# name: TestPPSSPPGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '''
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+      ''',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate[config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate[controls]
+  '''
+  [ControlMapping]
+  Circle = 10-190
+  Cross = 10-189
+  Down = 10-20
+  An.Left = 10-4001
+  An.Right = 10-4000
+  An.Up = 10-4003
+  An.Down = 10-4002
+  RightAn.Left = 10-4023
+  RightAn.Right = 10-4022
+  RightAn.Up = 10-4029
+  RightAn.Down = 10-4028
+  Left = 10-21
+  R = 10-192
+  L = 10-193
+  Right = 10-22
+  Select = 10-196
+  Start = 10-197
+  Up = 10-19
+  Triangle = 10-188
+  Square = 10-191
+  Rewind = 1-131
+  Fast-forward = 1-132
+  Save State = 1-133
+  Load State = 1-134
+  Previous Slot = 1-135
+  Next Slot = 1-136
+  Screenshot = 1-137
+  Pause = 1-139
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'anisotropic_filtering': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'anisotropic_filtering': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 1
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'autoframeskip': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'autoframeskip': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'autoframeskip': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'autoframeskip': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = True
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'curves_quality': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'curves_quality': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 0
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'curves_quality': '2'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'curves_quality': '2'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'disable_culling': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'disable_culling': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'disable_culling': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'disable_culling': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = True
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'duplicate_frames': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'duplicate_frames': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'duplicate_frames': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'duplicate_frames': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = True
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'enable_cheats': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'enable_cheats': 'True'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = True
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'frameskip': '2'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'frameskip': '2'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 2
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'frameskip': 'automatic'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'frameskip': 'automatic'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = automatic
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'hardware_tessellation': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'hardware_tessellation': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'hardware_tessellation': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'hardware_tessellation': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = True
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'internal_resolution': '2'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'internal_resolution': '2'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 2
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'lazy_texture_caching': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'lazy_texture_caching': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'lazy_texture_caching': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'lazy_texture_caching': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = True
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'ppsspp.Foo.Bar': 'Baz', 'ppsspp.General.EnableCheats': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'ppsspp.Foo.Bar': 'Baz', 'ppsspp.General.EnableCheats': 'True'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = True
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  [Foo]
+  Bar = Baz
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'retroachievements': '1', 'retroachievements.username': 'foobarbaz', 'retroachievements.hardcore': '1', 'retroachievements.encore': '1', 'retroachievements.unofficial': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'retroachievements': '1', 'retroachievements.username': 'foobarbaz', 'retroachievements.hardcore': '1', 'retroachievements.encore': '1', 'retroachievements.unofficial': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = foobarbaz
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsUserName = foobarbaz
+  AchievementsChallengeMode = True
+  AchievementsEncoreMode = True
+  AchievementsUnofficial = True
+  AchievementsSoundEffects = True
+  AchievementsEnable = True
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'retroachievements': '1', 'retroachievements.username': 'foobarbaz'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'retroachievements': '1', 'retroachievements.username': 'foobarbaz'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = foobarbaz
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsUserName = foobarbaz
+  AchievementsChallengeMode = False
+  AchievementsEncoreMode = False
+  AchievementsUnofficial = False
+  AchievementsSoundEffects = True
+  AchievementsEnable = True
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'rewind': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'rewind': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'rewind': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'rewind': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 300
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'showFPS': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'showFPS': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 3
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_buffer_effects': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_buffer_effects': 'False'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_buffer_effects': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_buffer_effects': 'True'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = True
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_gpu_readbacks': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_gpu_readbacks': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_gpu_readbacks': '2'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'skip_gpu_readbacks': '2'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 2
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'smart_2d': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'smart_2d': 'False'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'smart_2d': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'smart_2d': 'True'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = True
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'software_skinning': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'software_skinning': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = False
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'software_skinning': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'software_skinning': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'state_filename': '/userdata/saves/ppsspp/0.state'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+      '--state=/userdata/saves/ppsspp/0.state',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'state_filename': '/userdata/saves/ppsspp/0.state'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'state_slot': '4'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'state_slot': '4'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 4
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_deposterize': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_deposterize': 'False'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_filtering': '2'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_filtering': '2'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 2
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_scaling_level': '2'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_scaling_level': '2'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 2
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_scaling_type': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'texture_scaling_type': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 1
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'vsync': '0'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'vsync': '0'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'vsync': '1'}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_config[{'vsync': '1'}][config]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = True
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_existing[config]
+  '''
+  [Graphics]
+  ShowFPSCounter = 0
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  RewindFlipFrequency = 0
+  FirstRun = False
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_low_res[{'width': 480, 'height': 640}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+      '--dpi',
+      '0.5',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_low_res[{'width': 640, 'height': 480}]
+  tuple(
+    list([
+      '/usr/bin/PPSSPP',
+      '/userdata/roms/psp/rom.chd',
+      '--fullscreen',
+      '--dpi',
+      '0.5',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestPPSSPPGenerator.test_generate_vulkan[vulkan available, no discrete gpu]
+  '''
+  [Graphics]
+  GraphicsBackend = 3 (VULKAN)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_vulkan[vulkan available, unable to get gpu name]
+  '''
+  [Graphics]
+  GraphicsBackend = 3 (VULKAN)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_vulkan[vulkan available]
+  '''
+  [Graphics]
+  GraphicsBackend = 3 (VULKAN)
+  VulkanDevice = discrete1
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_generate_vulkan[vulkan not available]
+  '''
+  [Graphics]
+  GraphicsBackend = 0 (OPENGL)
+  InternalResolution = 1
+  SoftwareRenderer = False
+  FullScreen = True
+  VSync = False
+  FrameSkip = 0
+  FrameSkipType = 0
+  AutoFrameSkip = False
+  SkipBufferEffects = False
+  DisableRangeCulling = False
+  SkipGPUReadbackMode = 0
+  TextureBackoffCache = False
+  SplineBezierQuality = 2
+  RenderDuplicateFrames = False
+  InflightFrames = 3
+  HardwareTransform = True
+  SoftwareSkinning = True
+  HardwareTessellation = False
+  TexScalingType = 0
+  TexScalingLevel = 1
+  TexDeposterize = False
+  AnisotropyLevel = 4
+  TextureFiltering = 1
+  Smart2DTexFiltering = False
+  ShowFPSCounter = 0
+  DisplayIntegerScale = False
+  
+  [SystemParam]
+  NickName = Batocera
+  EncryptSave = False
+  MemStickSize = 32
+  
+  [General]
+  FirstRun = False
+  RewindFlipFrequency = 0
+  EnableCheats = False
+  CheckForNewVersion = False
+  StateSlot = 0
+  
+  [Upgrade]
+  UpgradeMessage = 
+  UpgradeVersion = 
+  DismissedVersion = 
+  
+  [Achievements]
+  AchievementsEnable = False
+  AchievementsChallengeMode = False
+  
+  
+  '''
+# ---
+# name: TestPPSSPPGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'fastforward': 'KEY_F2',
+      'menu': 'KEY_F9',
+      'next_slot': 'KEY_F6',
+      'pause': 'KEY_F9',
+      'previous_slot': 'KEY_F5',
+      'restore_state': 'KEY_F4',
+      'rewind': 'KEY_F1',
+      'save_state': 'KEY_F3',
+    }),
+    'name': 'ppsspp',
+  })
+# ---

@@ -1,0 +1,6091 @@
+# serializer version: 1
+# name: TestMupenGenerator.test_generate[glide64mk2]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-glide64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate[glide64mk2][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate[gliden64]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate[gliden64][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate[rice]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-rice.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate[rice][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'incrementalsavestates': '0'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'incrementalsavestates': '0'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = False
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'incrementalsavestates': '1'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'incrementalsavestates': '1'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64-deadzone1': '0.15'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64-deadzone1': '0.15'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 4915,4915
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64-sensitivity1': '0.5'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64-sensitivity1': '0.5'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 49152,49152
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64-sensitivity1': '1.5'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64-sensitivity1': '1.5'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 16384,16384
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus.Video-Rice.TextureEnhancement': '9', 'mupen64plus.CustomSection.CustomKey': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus.Video-Rice.TextureEnhancement': '9', 'mupen64plus.CustomSection.CustomKey': 'True'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 9
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [CustomSection]
+  CustomKey = True
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Anisotropic': '0'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Anisotropic': '0'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Anisotropic': '2'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Anisotropic': '2'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 2
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 2
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AntiAliasing': '0'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AntiAliasing': '0'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AntiAliasing': '2'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AntiAliasing': '2'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 2
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 2
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioBuffer': 'High'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioBuffer': 'High'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 16384
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioBuffer': 'Low'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioBuffer': 'Low'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 4096
+  PRIMARY_BUFFER_TARGET = 1024
+  SECONDARY_BUFFER_SIZE = 512
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioBuffer': 'Very High'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioBuffer': 'Very High'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 16384
+  PRIMARY_BUFFER_TARGET = 4096
+  SECONDARY_BUFFER_SIZE = 2048
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioSync': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioSync': 'False'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioSync': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_AudioSync': 'True'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = True
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_DisableExtraMem': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_DisableExtraMem': 'False'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_DisableExtraMem': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_DisableExtraMem': 'True'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = True
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_LoadHiResTextures': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_LoadHiResTextures': 'False'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_LoadHiResTextures': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_LoadHiResTextures': 'True'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 1
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = True
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '0'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '0'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '1'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '1'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = 0
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 1
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '2'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '2'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = 1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 2
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '3'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_Mipmapping': '3'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = 2
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 3
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_TextureEnhancement': '0'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_TextureEnhancement': '0'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_TextureEnhancement': '1'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_TextureEnhancement': '1'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 1
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_fb_read_always': '-1'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_fb_read_always': '-1'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_fb_read_always': '1'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_fb_read_always': '1'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = 1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_frameskip': '0'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_frameskip': '0'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_frameskip': '1'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_frameskip': '1'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 1
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_frameskip': 'automatic'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_frameskip': 'automatic'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 1
+  maxframeskip = 5
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '16/9', 'ratio': '4/3'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '16/9', 'ratio': '4/3'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = 1
+  aspect = 1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 2
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '16/9'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '16/9'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = 1
+  aspect = 1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 2
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '4/3', 'ratio': '16/9'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '4/3', 'ratio': '16/9'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = 0
+  aspect = 0
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 1
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '4/3'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'mupen64plus_ratio': '4/3'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = 0
+  aspect = 0
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 1
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'ratio': '16/9'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'ratio': '16/9'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = 1
+  aspect = 1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 2
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'ratio': '4/3'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'ratio': '4/3'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = 0
+  aspect = 0
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 1
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'showFPS': True}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'showFPS': True}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 4
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = True
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'state_filename': 'foo.state'}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '--savestate',
+      'foo.state',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'state_filename': 'foo.state'}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_config[{'state_slot': 1}]
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_config[{'state_slot': 1}][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  CurrentStateSlot = 1
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers[config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'GPIO Controller 1'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(1)
+  A Button = button(0)
+  C Button U = button(2)
+  B Button = button(3)
+  Start = button(7)
+  L Trig = 
+  R Trig = button(5)
+  Z Trig = button(4)
+  DPad U = 
+  DPad D = 
+  DPad R = 
+  DPad L = 
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control2]
+  Version = 2
+  mode = 0
+  device = 1
+  name = b'Sony PLAYSTATION(R)3 Controller'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(1) axis(3+)
+  A Button = button(0)
+  C Button U = axis(4-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = axis(2+)
+  DPad U = button(13)
+  DPad D = button(14)
+  DPad R = button(16)
+  DPad L = button(15)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(4+)
+  C Button L = axis(3-)
+  
+  [Input-SDL-Control3]
+  Version = 2
+  mode = 0
+  device = 2
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  [Input-SDL-Control4]
+  Version = 2
+  mode = 0
+  device = 3
+  name = b'Anbernic pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(1) axis(2+)
+  A Button = button(0)
+  C Button U = axis(3+) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = button(13)
+  DPad D = button(14)
+  DPad R = button(16)
+  DPad L = button(15)
+  Y Axis = axis(1+,1-)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3-)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_direction_buttons_for_axis[False][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'stick'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(3)
+  A Button = button(4)
+  C Button U = button(5)
+  B Button = button(6)
+  Start = button(10)
+  L Trig = 
+  R Trig = button(8)
+  Z Trig = button(7)
+  DPad U = 
+  DPad D = 
+  DPad R = 
+  DPad L = 
+  Y Axis = button(11)
+  X Axis = button(13)
+  C Button D = 
+  C Button L = 
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_direction_buttons_for_axis[True][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'stick'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(3)
+  A Button = button(4)
+  C Button U = button(5)
+  B Button = button(6)
+  Start = button(10)
+  L Trig = 
+  R Trig = button(8)
+  Z Trig = button(7)
+  DPad U = 
+  DPad D = 
+  DPad R = 
+  DPad L = 
+  Y Axis = button(11, 12)
+  X Axis = button(13, 14)
+  C Button D = 
+  C Button L = 
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_hat_for_axis[config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Xtension 2P Player 1'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(1)
+  A Button = button(0)
+  C Button U = button(2)
+  B Button = button(3)
+  Start = button(7)
+  L Trig = 
+  R Trig = button(5)
+  Z Trig = button(4)
+  DPad U = 
+  DPad D = 
+  DPad R = 
+  DPad L = 
+  Y Axis = hat(0 Up Down)
+  X Axis = hat(0 Left Right)
+  C Button D = 
+  C Button L = 
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_keyboard[config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Keyboard'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = 
+  A Button = 
+  C Button U = 
+  B Button = 
+  Start = 
+  L Trig = 
+  R Trig = 
+  Z Trig = 
+  DPad U = 
+  DPad D = 
+  DPad R = 
+  DPad L = 
+  Y Axis = 
+  X Axis = 
+  C Button D = 
+  C Button L = 
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_n64_mapping[1][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(8)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(2)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = button(0)
+  C Button L = button(3)
+  
+  [Input-SDL-Control2]
+  Version = 2
+  mode = 0
+  device = 1
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control3]
+  Version = 2
+  mode = 0
+  device = 2
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control4]
+  Version = 2
+  mode = 0
+  device = 3
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_n64_mapping[2][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control2]
+  Version = 2
+  mode = 0
+  device = 1
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(8)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(2)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = button(0)
+  C Button L = button(3)
+  
+  [Input-SDL-Control3]
+  Version = 2
+  mode = 0
+  device = 2
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control4]
+  Version = 2
+  mode = 0
+  device = 3
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_n64_mapping[3][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control2]
+  Version = 2
+  mode = 0
+  device = 1
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control3]
+  Version = 2
+  mode = 0
+  device = 2
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(8)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(2)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = button(0)
+  C Button L = button(3)
+  
+  [Input-SDL-Control4]
+  Version = 2
+  mode = 0
+  device = 3
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_n64_mapping[4][config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control2]
+  Version = 2
+  mode = 0
+  device = 1
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control3]
+  Version = 2
+  mode = 0
+  device = 2
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(2)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control4]
+  Version = 2
+  mode = 0
+  device = 3
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(8)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(2)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = button(0)
+  C Button L = button(3)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_controllers_user_mapping[config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 164,164
+  AnalogPeak = 16384,16384
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(1)
+  A Button = button(2)
+  C Button U = button(9)
+  B Button = button(3)
+  Start = button(12)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(0)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = 
+  C Button L = 
+  
+  [Input-SDL-Control2]
+  Version = 2
+  mode = 0
+  device = 1
+  name = b'SWITCH CO.,LTD. Controller (Dinput)'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 82,82
+  AnalogPeak = 8192,8192
+  mouse = False
+  Mempak switch = 
+  Rumblepak switch = 
+  C Button R = button(8)
+  A Button = button(1)
+  C Button U = button(9)
+  B Button = button(2)
+  Start = button(6)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(12)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = button(0)
+  C Button L = button(3)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_existing[config]
+  '''
+  [CoreEvents]
+  Version = 1
+  Joy Mapping Stop = 
+  Joy Mapping Save State = 
+  Joy Mapping Load State = 
+  Joy Mapping Screenshot = 
+  Joy Mapping Increment Slot = 
+  Joy Mapping Fast Forward = 
+  Joy Mapping Reset = 
+  Joy Mapping Pause = 
+  
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  [Input-SDL-Control2]
+  Version = 2
+  plugged = False
+  
+  [Custom]
+  Foo = Bar
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_n64dd
+  tuple(
+    list([
+      '/usr/bin/mupen64plus',
+      '--corelib',
+      '/usr/lib/libmupen64plus.so.2.0.0',
+      '--gfx',
+      '/usr/lib/mupen64plus/mupen64plus-video-gliden64mk2.so',
+      '--configdir',
+      '/userdata/system/configs/mupen64',
+      '--datadir',
+      '/userdata/system/configs/mupen64',
+      '/userdata/roms/n64dd/rom.z64',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestMupenGenerator.test_generate_n64dd[config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = /userdata/bios/64DD_IPL.bin
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_rotated[config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 328,328
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_generate_wheel[config]
+  '''
+  [Core]
+  Version = 1.01
+  ScreenshotPath = /userdata/screenshots
+  SaveStatePath = /userdata/saves/n64
+  SaveSRAMPath = /userdata/saves/n64
+  SharedDataPath = /userdata/system/configs/mupen64
+  SaveFilenameFormat = 1000
+  DisableExtraMem = False
+  AutoStateSlotIncrement = True
+  
+  [Audio-SDL]
+  AUDIO_SYNC = False
+  PRIMARY_BUFFER_SIZE = 8192
+  PRIMARY_BUFFER_TARGET = 2048
+  SECONDARY_BUFFER_SIZE = 1024
+  
+  [Video-General]
+  Version = 1
+  ScreenWidth = 1920
+  ScreenHeight = 1080
+  Fullscreen = True
+  VerticalSync = True
+  
+  [Video-Glide64mk2]
+  Version = 1
+  adjust_aspect = -1
+  aspect = -1
+  filtering = -1
+  wrpAnisotropic = 1
+  wrpAntiAliasing = 0
+  ghq_hirs = 0
+  autoframeskip = 0
+  maxframeskip = 0
+  fb_read_always = -1
+  show_fps = 8
+  
+  [Video-GLideN64]
+  AspectRatio = 3
+  
+  [Video-Rice]
+  Version = 1
+  Mipmapping = 0
+  AnisotropicFiltering = 0
+  MultiSampling = 0
+  LoadHiResTextures = False
+  TextureEnhancement = 0
+  ShowFPS = False
+  
+  [64DD]
+  IPL-ROM = 
+  Disk = 
+  
+  [Input-SDL-Control1]
+  Version = 2
+  mode = 0
+  device = 0
+  name = b'Generic Xbox pad'
+  plugged = True
+  plugin = 2
+  AnalogDeadzone = 0,0
+  AnalogPeak = 32768,32768
+  mouse = False
+  Mempak switch = button(11)
+  Rumblepak switch = button(12)
+  C Button R = button(0) axis(2+)
+  A Button = button(1)
+  C Button U = axis(3-) button(2)
+  B Button = button(3)
+  Start = button(9)
+  L Trig = button(4)
+  R Trig = button(5)
+  Z Trig = button(6)
+  DPad U = hat(0 Up)
+  DPad D = hat(0 Down)
+  DPad R = hat(0 Right)
+  DPad L = hat(0 Left)
+  Y Axis = axis(1-,1+)
+  X Axis = axis(0-,0+)
+  C Button D = axis(3+)
+  C Button L = axis(2-)
+  
+  
+  '''
+# ---
+# name: TestMupenGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'KEY_ESC',
+      'menu': 'KEY_P',
+      'pause': 'KEY_P',
+      'restore_state': 'KEY_F7',
+      'save_state': 'KEY_F5',
+    }),
+    'name': 'mupen64',
+  })
+# ---

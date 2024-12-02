@@ -1,0 +1,266 @@
+# serializer version: 1
+# name: TestVita3kGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/vita3k/Vita3K',
+      '-F',
+      '-w',
+      '-f',
+      '-c',
+      '/userdata/system/configs/vita3k/config.yml',
+      '/userdata/roms/psvita/rom.zip',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestVita3kGenerator.test_generate[config]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_anisotropic': '8'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 8
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_fxaa': '0'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_fxaa': '1'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'true'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_gfxbackend': 'Vulkan'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: Vulkan
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_linear': '0'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_linear': '1'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'true'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_resolution': '3'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 3
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_surface': '0'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'false'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_surface': '1'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_vsync': '0'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'false'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_config[{'vita3k_vsync': '1'}]
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_existing
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  foo: bar
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_existing_empty
+  '''
+  ---
+  pref-path: /userdata/saves/psvita
+  backend-renderer: OpenGL
+  resolution-multiplier: 1
+  enable-fxaa: 'false'
+  v-sync: 'true'
+  anisotropic-filtering: 1
+  enable-linear-filter: 'false'
+  disable-surface-sync: 'true'
+  ...
+  
+  '''
+# ---
+# name: TestVita3kGenerator.test_generate_read_only
+  tuple(
+    list([
+      '/usr/bin/vita3k/Vita3K',
+      '-F',
+      '-w',
+      '-f',
+      '-c',
+      '/userdata/system/configs/vita3k/config.yml',
+      '-r',
+      'foo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+      'XDG_DATA_HOME': '/userdata/saves',
+    }),
+  )
+# ---
+# name: TestVita3kGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTCTRL',
+        'KEY_Q',
+      ]),
+      'menu': 'KEY_ENTER',
+      'pause': 'KEY_ENTER',
+    }),
+    'name': 'vita3k',
+  })
+# ---

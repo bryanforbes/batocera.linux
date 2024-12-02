@@ -1,0 +1,127 @@
+# serializer version: 1
+# name: TestUnixSettings.test_disable_all
+  '''
+  foo=something
+  spam=1
+  somepassword=1234thisisreallysecure
+  
+  '''
+# ---
+# name: TestUnixSettings.test_disable_all[logging]
+  list([
+    tuple(
+      'configgen.settings.unixSettings',
+      10,
+      'Disabling foo. from /tmp/test.ini',
+    ),
+  ])
+# ---
+# name: TestUnixSettings.test_get_all
+  dict({
+    'bar': '2',
+    'folder_userdata_roms_dreamcast_romdir_.bar': '4',
+    'folder_userdata_roms_dreamcast_romdir_.foo': '3',
+    'foo': '1',
+  })
+# ---
+# name: TestUnixSettings.test_get_all[folder]
+  dict({
+    'bar': '4',
+    'foo': '3',
+  })
+# ---
+# name: TestUnixSettings.test_get_all[rom]
+  dict({
+    'bar': '6',
+    'foo': '5',
+  })
+# ---
+# name: TestUnixSettings.test_get_all[with defaults]
+  dict({
+    'bar': '2',
+    'baz': '',
+    'folder_userdata_roms_dreamcast_romdir_.bar': '4',
+    'folder_userdata_roms_dreamcast_romdir_.foo': '3',
+    'foo': '1',
+    'ham': 'default',
+    'spam': 'auto',
+  })
+# ---
+# name: TestUnixSettings.test_get_all[with name and defaults]
+  dict({
+    'dreamcast.bar': '2',
+    'dreamcast.baz': '',
+    'dreamcast.folder_userdata_roms_dreamcast_romdir_.bar': '4',
+    'dreamcast.folder_userdata_roms_dreamcast_romdir_.foo': '3',
+    'dreamcast.foo': '1',
+    'dreamcast.ham': 'default',
+    'dreamcast.spam': 'auto',
+  })
+# ---
+# name: TestUnixSettings.test_get_all[with names]
+  dict({
+    'controllers.one': '1',
+    'controllers.three': '3',
+    'controllers.two': '2',
+  })
+# ---
+# name: TestUnixSettings.test_read
+  dict({
+    'foo.bar': '1',
+    'foo.baz': '2',
+    'spam.bam': '4',
+    'spam.ham': '3',
+  })
+# ---
+# name: TestUnixSettings.test_remove
+  '''
+  foo=1
+  foo.bar=3
+  
+  '''
+# ---
+# name: TestUnixSettings.test_separator
+  '''
+  foo	=	bar
+  spam	=	1
+  somepassword	=	1234thisisreallysecure
+  
+  '''
+# ---
+# name: TestUnixSettings.test_write
+  '''
+  foo=bar
+  spam=1
+  somepassword=1234thisisreallysecure
+  
+  '''
+# ---
+# name: TestUnixSettings.test_write[logging]
+  list([
+    tuple(
+      'configgen.settings.unixSettings',
+      10,
+      'Creating parser for /tmp/test.ini',
+    ),
+    tuple(
+      'configgen.settings.unixSettings',
+      40,
+      "[Errno 2] No such file or directory in the fake filesystem: '/tmp/test.ini'",
+    ),
+    tuple(
+      'configgen.settings.unixSettings',
+      10,
+      'Writing foo = bar to /tmp/test.ini',
+    ),
+    tuple(
+      'configgen.settings.unixSettings',
+      10,
+      'Writing spam = 1 to /tmp/test.ini',
+    ),
+    tuple(
+      'configgen.settings.unixSettings',
+      10,
+      'Writing somepassword = ******** to /tmp/test.ini',
+    ),
+  ])
+# ---

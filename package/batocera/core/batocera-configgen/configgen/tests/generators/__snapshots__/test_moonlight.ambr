@@ -1,0 +1,456 @@
+# serializer version: 1
+# name: TestMoonlightGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/moonlight',
+      'stream',
+      '-config',
+      '/userdata/system/configs/moonlight/staging/moonlight.conf',
+      '-app',
+      'My Rom',
+      '-debug',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_DIRS': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestMoonlightGenerator.test_generate[config]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate[controllerdb]
+  '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,'
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_bitrate': '0'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = 5000
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_bitrate': '1'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = 10000
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_bitrate': '2'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = 20000
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_bitrate': '3'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = 50000
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_codec': 'h264'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = h264
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_framerate': '0'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 30
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_framerate': '1'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_framerate': '2'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 120
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_quitapp': 'False'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_quitapp': 'True'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = true
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_remote': 'no'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_remote': 'yes'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = yes
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_resolution': '0'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_resolution': '1'}]
+  '''
+  width = 1920
+  height = 1080
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_resolution': '2'}]
+  '''
+  width = 3840
+  height = 2160
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_rotate': '90'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 90
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_sops': 'False'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = false
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_sops': 'True'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_surround': '7.1'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  surround = 7.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_viewonly': 'False'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = false
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_config[{'moonlight_viewonly': 'True'}]
+  '''
+  width = 1280
+  height = 720
+  rotate = 0
+  fps = 60
+  bitrate = -1
+  codec = auto
+  sops = true
+  quitappafter = false
+  viewonly = true
+  platform = sdl
+  keydir = /userdata/system/configs/moonlight/keydir
+  remote = no
+  #surround = 5.1
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_generate_rom_with_config_file
+  tuple(
+    list([
+      '/usr/bin/moonlight',
+      'stream',
+      '-config',
+      '/path/to/moonlight.conf',
+      '-app',
+      'Another Rom',
+      '-debug',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_DATA_DIRS': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestMoonlightGenerator.test_generate_user_config
+  '''
+  width = 640
+  height = 480
+  rotate = 90
+  foo = bar
+  
+  '''
+# ---
+# name: TestMoonlightGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'moonlight',
+  })
+# ---

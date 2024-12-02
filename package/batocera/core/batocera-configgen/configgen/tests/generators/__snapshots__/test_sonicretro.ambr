@@ -1,0 +1,1855 @@
+# serializer version: 1
+# name: TestSonicRetroGenerator.test_generate[rom.scd]
+  tuple(
+    list([
+      'soniccd',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestSonicRetroGenerator.test_generate[rom.scd][config]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate[rom.son]
+  tuple(
+    list([
+      'sonic2013',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestSonicRetroGenerator.test_generate[rom.son][config]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'devmenu': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'devmenu': '1'}]
+  '''
+  [Dev]
+  DevMenu=true
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'hqmode': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=false
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'hqmode': '1'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'language': '1'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=1
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'scalingmode': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=0
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'skipstart': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'skipstart': '1'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'vsync': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=false
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_sonic2013[{'vsync': '1'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'devmenu': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'devmenu': '1'}]
+  '''
+  [Dev]
+  DevMenu=true
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'hqmode': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=false
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'hqmode': '1'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'language': '1'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=1
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'scalingmode': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=0
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'spindash': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=0
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'vsync': '0'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=false
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_config_soniccd[{'vsync': '1'}]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=0
+  StartingScene=0
+  UseSteamDir=false
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  OriginalControls=-1
+  DisableTouchControls=true
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_existing
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  Up=11
+  Down=12
+  Left=13
+  Right=14
+  A=0
+  B=1
+  C=2
+  X=3
+  Y=22
+  Z=23
+  L=9
+  R=10
+  Select=4
+  Start=6
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_game_config_bin[5250b0e2effa4d48894106c7d5d1ad32]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  GameType=1
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_game_config_bin[5771433883e568715e7ac994bb22f5ed]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  GameType=1
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_game_config_bin[9fe2dae0a8a2c7d8ef0bed639b3c749f]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  GameType=1
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_game_config_bin[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_game_config_bin[e723aab26026e4e6d4522c4356ef5a98]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  GameType=1
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_game_config_bin[f958285af4a09d2023b4e4f453691c4f]
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  GameType=1
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_generate_no_player_one
+  '''
+  [Dev]
+  DevMenu=false
+  EngineDebugMode=false
+  StartingCategory=255
+  StartingScene=255
+  StartingPlayer=255
+  StartingSaveFile=255
+  FastForwardSpeed=8
+  UseHQModes=true
+  DataFile=Data.rsdk
+  
+  [Game]
+  SkipStartMenu=false
+  Language=0
+  
+  [Window]
+  FullScreen=true
+  Borderless=true
+  VSync=true
+  ScalingMode=2
+  WindowScale=2
+  ScreenWidth=424
+  RefreshRate=60
+  DimLimit=-1
+  
+  [Audio]
+  BGMVolume=1.000000
+  SFXVolume=1.000000
+  
+  [Keyboard 1]
+  Up=82
+  Down=81
+  Left=80
+  Right=79
+  A=29
+  B=27
+  C=6
+  X=4
+  Y=22
+  Z=7
+  L=20
+  R=8
+  Start=40
+  Select=43
+  
+  [Controller 1]
+  
+  
+  '''
+# ---
+# name: TestSonicRetroGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_ENTER',
+      'pause': 'KEY_ENTER',
+    }),
+    'name': 'sonicretro',
+  })
+# ---

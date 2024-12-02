@@ -1,0 +1,455 @@
+# serializer version: 1
+# name: TestYmirGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/ymir',
+      '-p',
+      '/userdata/system/configs/ymir',
+      '/userdata/roms/saturn/rom.cue',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestYmirGenerator.test_generate[config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_aspect': '1.3333333333333333'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.3333333333333333
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_aspect': '1.5'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_aspect': '1.6'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.6
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_aspect': '1.7777777777777778'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.777777777777778
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_interlace': '0'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = false
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_interlace': '1'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_meshes': '0'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_meshes': '1'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = true
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_rotation': '90CW'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = false
+  Rotation = "90CW"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_rotation': 'Normal'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  ForcedAspect = 1.5
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_existing[config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ForcedAspect = 1.5
+  ThreadedDeinterlacer = true
+  ForceIntegerScaling = false
+  TransparentMeshes = false
+  Rotation = "Normal"
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': 'killall -9 ymir',
+      'restore_state': 'KEY_F3',
+      'save_state': 'KEY_F2',
+    }),
+    'name': 'ymir',
+  })
+# ---

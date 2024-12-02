@@ -1,0 +1,180 @@
+# serializer version: 1
+# name: TestDevilutionXGenerator.test_generate
+  tuple(
+    list([
+      'devilutionx',
+      '--data-dir',
+      '/userdata/roms/devilutionx',
+      '--config-dir',
+      '/userdata/system/configs/devilutionx',
+      '--save-dir',
+      '/userdata/saves/devilutionx',
+      '--diablo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDevilutionXGenerator.test_generate[config]
+  '''
+  [Graphics]
+  fit to screen = 0
+  
+  
+  '''
+# ---
+# name: TestDevilutionXGenerator.test_generate_config[{'devilutionx_stretch': 'false'}]
+  tuple(
+    list([
+      'devilutionx',
+      '--data-dir',
+      '/userdata/roms/devilutionx',
+      '--config-dir',
+      '/userdata/system/configs/devilutionx',
+      '--save-dir',
+      '/userdata/saves/devilutionx',
+      '--diablo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDevilutionXGenerator.test_generate_config[{'devilutionx_stretch': 'false'}][config]
+  '''
+  [Graphics]
+  fit to screen = 0
+  
+  
+  '''
+# ---
+# name: TestDevilutionXGenerator.test_generate_config[{'devilutionx_stretch': 'true'}]
+  tuple(
+    list([
+      'devilutionx',
+      '--data-dir',
+      '/userdata/roms/devilutionx',
+      '--config-dir',
+      '/userdata/system/configs/devilutionx',
+      '--save-dir',
+      '/userdata/saves/devilutionx',
+      '--diablo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDevilutionXGenerator.test_generate_config[{'devilutionx_stretch': 'true'}][config]
+  '''
+  [Graphics]
+  fit to screen = 1
+  
+  
+  '''
+# ---
+# name: TestDevilutionXGenerator.test_generate_config[{'showFPS': 'true'}]
+  tuple(
+    list([
+      'devilutionx',
+      '--data-dir',
+      '/userdata/roms/devilutionx',
+      '--config-dir',
+      '/userdata/system/configs/devilutionx',
+      '--save-dir',
+      '/userdata/saves/devilutionx',
+      '--diablo',
+      '-f',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDevilutionXGenerator.test_generate_config[{'showFPS': 'true'}][config]
+  '''
+  [Graphics]
+  fit to screen = 0
+  
+  
+  '''
+# ---
+# name: TestDevilutionXGenerator.test_generate_existing
+  '''
+  [Graphics]
+  foo = 1
+  fit to screen = 0
+  
+  [Something]
+  bar = 0
+  
+  
+  '''
+# ---
+# name: TestDevilutionXGenerator.test_generate_rom[foo.mpq]
+  tuple(
+    list([
+      'devilutionx',
+      '--data-dir',
+      '/userdata/roms/devilutionx',
+      '--config-dir',
+      '/userdata/system/configs/devilutionx',
+      '--save-dir',
+      '/userdata/saves/devilutionx',
+      '--diablo',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDevilutionXGenerator.test_generate_rom[hellfire.mpq]
+  tuple(
+    list([
+      'devilutionx',
+      '--data-dir',
+      '/userdata/roms/devilutionx',
+      '--config-dir',
+      '/userdata/system/configs/devilutionx',
+      '--save-dir',
+      '/userdata/saves/devilutionx',
+      '--hellfire',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDevilutionXGenerator.test_generate_rom[spawn.mpq]
+  tuple(
+    list([
+      'devilutionx',
+      '--data-dir',
+      '/userdata/roms/devilutionx',
+      '--config-dir',
+      '/userdata/system/configs/devilutionx',
+      '--save-dir',
+      '/userdata/saves/devilutionx',
+      '--spawn',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+    }),
+  )
+# ---
+# name: TestDevilutionXGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+      'menu': 'KEY_ESC',
+      'pause': 'KEY_ESC',
+      'restore_state': 'KEY_F3',
+      'save_state': 'KEY_F2',
+    }),
+    'name': 'devilutionx',
+  })
+# ---

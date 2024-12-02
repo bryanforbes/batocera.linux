@@ -1,0 +1,119 @@
+# serializer version: 1
+# name: TestWineGenerator.test_generate
+  tuple(
+    list([
+      'batocera-wine',
+      'windows',
+      'play',
+      '/userdata/roms/windows/rom.wine',
+    ]),
+    dict({
+      'LANG': 'de_DE.UTF-8',
+      'LC_ALL': 'de_DE.UTF-8',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestWineGenerator.test_generate_config[{'sdl_config': 'false'}]
+  tuple(
+    list([
+      'batocera-wine',
+      'windows',
+      'play',
+      '/userdata/roms/windows/rom.wine',
+    ]),
+    dict({
+      'LANG': 'de_DE.UTF-8',
+      'LC_ALL': 'de_DE.UTF-8',
+    }),
+  )
+# ---
+# name: TestWineGenerator.test_generate_config[{'sdl_config': 'true'}]
+  tuple(
+    list([
+      'batocera-wine',
+      'windows',
+      'play',
+      '/userdata/roms/windows/rom.wine',
+    ]),
+    dict({
+      'LANG': 'de_DE.UTF-8',
+      'LC_ALL': 'de_DE.UTF-8',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestWineGenerator.test_generate_language_raises
+  tuple(
+    list([
+      'batocera-wine',
+      'windows',
+      'play',
+      '/userdata/roms/windows/rom.wine',
+    ]),
+    dict({
+      'LANG': 'en_US.UTF-8',
+      'LC_ALL': 'en_US.UTF-8',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestWineGenerator.test_generate_no_language
+  tuple(
+    list([
+      'batocera-wine',
+      'windows',
+      'play',
+      '/userdata/roms/windows/rom.wine',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestWineGenerator.test_generate_nvidia
+  tuple(
+    list([
+      'batocera-wine',
+      'windows',
+      'play',
+      '/userdata/roms/windows/rom.wine',
+    ]),
+    dict({
+      'LANG': 'de_DE.UTF-8',
+      'LC_ALL': 'de_DE.UTF-8',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'VK_ICD_FILENAMES': '/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.i686.json',
+    }),
+  )
+# ---
+# name: TestWineGenerator.test_generate_nvidia[environ]
+  dict({
+    'FOO': 'BAR',
+  })
+# ---
+# name: TestWineGenerator.test_generate_windows_installers
+  tuple(
+    list([
+      'batocera-wine',
+      'windows',
+      'install',
+      '/userdata/roms/windows_installers/rom.wine',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestWineGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': '/usr/bin/batocera-wine windows stop',
+    }),
+    'name': 'wine',
+  })
+# ---

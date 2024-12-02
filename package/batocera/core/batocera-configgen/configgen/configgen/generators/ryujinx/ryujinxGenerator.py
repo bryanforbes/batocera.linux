@@ -6,8 +6,6 @@ import shutil
 from os import environ
 from typing import TYPE_CHECKING, Any, Final
 
-import evdev
-
 from ... import Command
 from ...batoceraPaths import BIOS, CACHE, CONFIGS, ROMS, SAVES, configure_emulator, mkdir_if_not_exists
 from ...controller import generate_sdl_game_controller_config
@@ -89,6 +87,8 @@ class RyujinxGenerator(Generator):
         }
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
+        import evdev
+
         mkdir_if_not_exists(ryujinxConf / "system")
 
         # Copy file & make executable (workaround)

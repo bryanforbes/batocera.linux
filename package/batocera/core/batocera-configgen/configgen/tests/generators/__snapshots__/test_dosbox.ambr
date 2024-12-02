@@ -1,0 +1,199 @@
+# serializer version: 1
+# name: TestDosBoxGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/dosbox',
+      '-fullscreen',
+      '-userconf',
+      '-exit',
+      '/userdata/roms/dos/rom.pc/dosbox.bat',
+      '-c',
+      'set ROOT=/userdata/roms/dos/rom.pc',
+      '-conf',
+      '/userdata/system/configs/dosbox/dosbox-custom.conf',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestDosBoxGenerator.test_generate[config]
+  '''
+  [sdl]
+  output = opengl
+  
+  [cpu]
+  core = auto
+  cputype = auto
+  cycles = auto
+  
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_config[{'dosbox_cpu_core': 'dynamic'}][config]
+  '''
+  [sdl]
+  output = opengl
+  
+  [cpu]
+  core = dynamic
+  cputype = auto
+  cycles = auto
+  
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_config[{'dosbox_cpu_cputype': '386'}][config]
+  '''
+  [sdl]
+  output = opengl
+  
+  [cpu]
+  core = auto
+  cputype = 386
+  cycles = auto
+  
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_config[{'dosbox_cpu_cycles': 'max'}][config]
+  '''
+  [sdl]
+  output = opengl
+  
+  [cpu]
+  core = auto
+  cputype = auto
+  cycles = max
+  
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_existing
+  tuple(
+    list([
+      '/usr/bin/dosbox',
+      '-fullscreen',
+      '-userconf',
+      '-exit',
+      '/userdata/roms/dos/rom.pc/dosbox.bat',
+      '-c',
+      'set ROOT=/userdata/roms/dos/rom.pc',
+      '-conf',
+      '/userdata/system/configs/dosbox/dosbox-custom.conf',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestDosBoxGenerator.test_generate_existing[config]
+  '''
+  [foo]
+  bar = baz
+  
+  [sdl]
+  output = 1
+  ham = spam
+  
+  [cpu]
+  core = 2
+  cputype = 3
+  cycles = 4
+  blah = bam
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_existing[custom config]
+  '''
+  [foo]
+  bar = custom baz
+  
+  [sdl]
+  output = opengl
+  ham = custom spam
+  
+  [cpu]
+  core = auto
+  cputype = auto
+  cycles = auto
+  blah = custom bam
+  
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_existing_rom_config
+  tuple(
+    list([
+      '/usr/bin/dosbox',
+      '-fullscreen',
+      '-userconf',
+      '-exit',
+      '/userdata/roms/dos/rom.pc/dosbox.bat',
+      '-c',
+      'set ROOT=/userdata/roms/dos/rom.pc',
+      '-conf',
+      '/userdata/roms/dos/rom.pc/dosbox.cfg',
+      '-conf',
+      '/userdata/system/configs/dosbox/dosbox-custom.conf',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestDosBoxGenerator.test_generate_existing_rom_config[config]
+  '''
+  [foo]
+  bar = baz
+  
+  [sdl]
+  output = 1
+  ham = spam
+  
+  [cpu]
+  core = 2
+  cputype = 3
+  cycles = 4
+  blah = bam
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_existing_rom_config[custom config]
+  '''
+  [sdl]
+  output = opengl
+  
+  [cpu]
+  core = auto
+  cputype = auto
+  cycles = auto
+  
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_generate_existing_rom_config[rom config]
+  '''
+  [foo]
+  bar = user baz
+  
+  [sdl]
+  output = 5
+  ham = user spam
+  
+  [cpu]
+  core = 6
+  cputype = 7
+  cycles = 8
+  blah = user bam
+  
+  '''
+# ---
+# name: TestDosBoxGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTCTRL',
+        'KEY_F9',
+      ]),
+    }),
+    'name': 'dosbox',
+  })
+# ---

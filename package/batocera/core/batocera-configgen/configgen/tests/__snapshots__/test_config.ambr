@@ -1,0 +1,1017 @@
+# serializer version: 1
+# name: test_load_configs
+  dict({
+    'arch_option': 'arch',
+    'batterymode': 'balanced',
+    'bezel': 'none',
+    'controllers.bluetooth.enabled': '1',
+    'core': 'citra',
+    'core-forced': False,
+    'display.brightness': '35',
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'folder_userdata_roms_3ds_.this_should_be_folder': 'folder',
+    'folder_userdata_roms_3ds_.this_should_be_game': 'folder',
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'this_should_be_3ds': '3ds',
+    'this_should_be_folder': 'folder',
+    'this_should_be_game': 'game',
+    'this_should_be_global': 'global',
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs[renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'gb_arch_option': 'default',
+    'gb_option': 'default',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---
+# name: test_load_configs_args[autosave]
+  dict({
+    'arch_option': 'arch',
+    'autosave': 'value',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_args[netplayip]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.server.ip': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_args[netplaymode]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.mode': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_args[netplaypass]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.password': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_args[netplayport]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.server.port': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_args[netplaysession]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'netplay.server.session': 'value',
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_args[state_filename]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'state_filename': 'value',
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_args[state_slot]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'state_slot': 'value',
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[None-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[None-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[None-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[None-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[None-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[false-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[false-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[false-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[false-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[false-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[foo-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[foo-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[foo-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[foo-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[foo-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[true-Full]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[true-Kid]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Kid',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[true-Kiosk]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Kiosk',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[true-None]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings[true-bar]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_es_settings_parse_error
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': False,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_core[args]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_core[game]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_core[global]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_core[system]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'blah',
+    'core-forced': True,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_emulator[args]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_emulator[game]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_emulator[global]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_forced_emulator[system]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'blah',
+    'emulator-forced': True,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_no_default_in_defaults_file
+  dict({
+    '3ds_arch_option': '3ds_arch_value',
+    '3ds_option': '3ds_value',
+    'core': '3ds_core',
+    'core-forced': False,
+    'emulator': '3ds_emulator',
+    'emulator-forced': False,
+    'showFPS': True,
+    'uimode': 'Full',
+  })
+# ---
+# name: test_load_configs_no_default_in_defaults_file[renderconfig]
+  dict({
+  })
+# ---
+# name: test_load_configs_no_defaults_arch_files
+  dict({
+    'arch_option': 'none',
+    'bezel': 'consoles',
+    'core': 'gambatte',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+  })
+# ---
+# name: test_load_configs_no_defaults_arch_files[renderconfig]
+  dict({
+    'arch_option': 'default',
+    'gb_arch_option': 'gb_default',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---
+# name: test_load_configs_no_defaults_arch_files_no_shaderset
+  dict({
+    'arch_option': 'none',
+    'bezel': 'consoles',
+    'core': 'gambatte',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'shaderset': 'none',
+    'showFPS': True,
+    'uimode': 'Full',
+  })
+# ---
+# name: test_load_configs_no_defaults_arch_files_no_shaderset[renderconfig]
+  dict({
+    'arch_option': 'default',
+    'colorization': None,
+    'gb_arch_option': 'gb_default',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': None,
+  })
+# ---
+# name: test_load_configs_shaderset_none[3ds]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'none',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_shaderset_none[3ds][renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'colorization': None,
+    'gb_arch_option': 'default',
+    'gb_option': 'default',
+    'scanline': False,
+    'shader': None,
+  })
+# ---
+# name: test_load_configs_shaderset_none[gb]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'gambatte',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'none',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_shaderset_none[gb][renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'colorization': None,
+    'gb_arch_option': 'gb_arch',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': None,
+  })
+# ---
+# name: test_load_configs_shaderset_system
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'gambatte',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_shaderset_system[renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'gb_arch_option': 'gb_arch',
+    'gb_option': 'gb',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---
+# name: test_load_configs_shaderset_user[3ds]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'mine',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_shaderset_user[3ds][renderconfig]
+  dict({
+    'arch_option': 'mine_arch',
+    'gb_arch_option': 'mine_default',
+    'gb_option': 'mine_default',
+    'option': 'mine_default',
+  })
+# ---
+# name: test_load_configs_shaderset_user[gb]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'gambatte',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'mine',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_shaderset_user[gb][renderconfig]
+  dict({
+    'arch_option': 'mine_arch',
+    'gb_arch_option': 'mine_gb_arch',
+    'gb_option': 'mine_gb',
+    'option': 'mine_default',
+  })
+# ---
+# name: test_load_configs_use_guns[0-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_guns[0-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_guns[1-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_guns[1-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_guns[None-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_guns[None-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_guns': True,
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_wheels[0-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_wheels[0-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '0',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_wheels[1-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_wheels[1-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': '1',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_wheels[None-False]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_use_wheels[None-True]
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'citra',
+    'core-forced': False,
+    'emulator': 'citra',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'use_wheels': True,
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_with_arch_defaults
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'pce',
+    'core-forced': False,
+    'emulator': 'libretro',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+  })
+# ---
+# name: test_load_configs_with_arch_defaults[renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'gb_arch_option': 'default',
+    'gb_option': 'default',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---
+# name: test_load_configs_with_arch_defaults_options
+  dict({
+    'arch_option': 'arch',
+    'bezel': 'consoles',
+    'core': 'glide64mk2',
+    'core-forced': False,
+    'emulator': 'mupen64plus',
+    'emulator-forced': False,
+    'hud_support': True,
+    'shaderset': 'sharp-bilinear-simple',
+    'showFPS': True,
+    'uimode': 'Full',
+    'video_frame_delay_auto': True,
+    'videomode': 'max-1920x1080',
+  })
+# ---
+# name: test_load_configs_with_arch_defaults_options[renderconfig]
+  dict({
+    'arch_option': 'arch',
+    'gb_arch_option': 'default',
+    'gb_option': 'default',
+    'scanline': False,
+    'shader': 'interpolation/sharp-bilinear-simple',
+  })
+# ---

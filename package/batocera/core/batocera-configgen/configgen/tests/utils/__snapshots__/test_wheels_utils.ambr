@@ -1,0 +1,861 @@
+# serializer version: 1
+# name: test_configure_wheels_wheel_rotation[260-1-1]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-173',
+          '-M',
+          '173',
+          '-z',
+          '0',
+          '-c',
+          '1',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[260-1-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-172',
+          '-M',
+          '172',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[260-1-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-173',
+          '-M',
+          '173',
+          '-z',
+          '1',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[260-2-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-172',
+          '-M',
+          '172',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[260-2-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-174',
+          '-M',
+          '174',
+          '-z',
+          '2',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[260-3-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-174',
+          '-M',
+          '174',
+          '-z',
+          '4',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[260-4-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-174',
+          '-M',
+          '174',
+          '-z',
+          '5',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[260-None-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-173',
+          '-M',
+          '173',
+          '-z',
+          '0',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[None-1-1]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-180',
+          '-M',
+          '180',
+          '-z',
+          '0',
+          '-c',
+          '1',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[None-1-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-179',
+          '-M',
+          '179',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[None-1-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-180',
+          '-M',
+          '180',
+          '-z',
+          '1',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[None-2-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-179',
+          '-M',
+          '179',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[None-2-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-181',
+          '-M',
+          '181',
+          '-z',
+          '2',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[None-3-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-181',
+          '-M',
+          '181',
+          '-z',
+          '4',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation[None-4-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-181',
+          '-M',
+          '181',
+          '-z',
+          '5',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-1-1]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-173',
+          '-M',
+          '173',
+          '-z',
+          '0',
+          '-c',
+          '1',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-1-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-172',
+          '-M',
+          '172',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-1-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-173',
+          '-M',
+          '173',
+          '-z',
+          '1',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-2-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-172',
+          '-M',
+          '172',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-2-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-174',
+          '-M',
+          '174',
+          '-z',
+          '2',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-3-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-174',
+          '-M',
+          '174',
+          '-z',
+          '4',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-4-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-174',
+          '-M',
+          '174',
+          '-z',
+          '5',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[260-None-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-173',
+          '-M',
+          '173',
+          '-z',
+          '0',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[None-1-1]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-180',
+          '-M',
+          '180',
+          '-z',
+          '0',
+          '-c',
+          '1',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[None-1-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-179',
+          '-M',
+          '179',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[None-1-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-180',
+          '-M',
+          '180',
+          '-z',
+          '1',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[None-2-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-179',
+          '-M',
+          '179',
+          '-z',
+          '0',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[None-2-None]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-181',
+          '-M',
+          '181',
+          '-z',
+          '2',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[None-3-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-181',
+          '-M',
+          '181',
+          '-z',
+          '4',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_config_override[None-4-2]
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-181',
+          '-M',
+          '181',
+          '-z',
+          '5',
+          '-c',
+          '2',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
+# name: test_configure_wheels_wheel_rotation_two_controllers
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event1',
+          '-a',
+          '0',
+          '-m',
+          '-173',
+          '-M',
+          '173',
+          '-z',
+          '0',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'batocera-wheel-calibrator',
+          '-d',
+          '/dev/input/event2',
+          '-a',
+          '0',
+          '-m',
+          '-195',
+          '-M',
+          '195',
+          '-z',
+          '0',
+          '-c',
+          '0',
+        ]),
+      ),
+      dict({
+        'stderr': -1,
+        'stdout': sentinel.pipein,
+      }),
+    ),
+  ])
+# ---
