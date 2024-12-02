@@ -1,0 +1,216 @@
+# serializer version: 1
+# name: TestYmirGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/ymir',
+      '-p',
+      '/userdata/system/configs/ymir',
+      '/userdata/roms/saturn/rom.cue',
+    ]),
+    dict({
+    }),
+  )
+# ---
+# name: TestYmirGenerator.test_generate[config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ForcedAspect = 1.3333333333333333
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_aspect': '0'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ForcedAspect = 1.3333333333333333
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_aspect': '1'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ForcedAspect = 1.777777777777778
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_interlace': '0'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = false
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ForcedAspect = 1.3333333333333333
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_config[{'ymir_interlace': '1'}][config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ForcedAspect = 1.3333333333333333
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_generate_existing[config]
+  '''
+  [General]
+  BoostEmuThreadPriority = true
+  BoostProcessPriority = true
+  EnableRewindBuffer = false
+  PauseWhenUnfocused = false
+  PreloadDiscImagesToRAM = false
+  RewindCompressionLevel = 12
+  
+  [System]
+  AutoDetectRegion = true
+  
+  [Video]
+  AutoResizeWindow = false
+  Deinterlace = true
+  FullScreen = true
+  ForceAspectRatio = true
+  DisplayVideoOutputInWindow = false
+  ForcedAspect = 1.3333333333333333
+  
+  [General.PathOverrides]
+  BackupMemory = ""
+  Dumps = ""
+  ExportedBackups = ""
+  IPLROMImages = "/userdata/bios"
+  PersistentState = ""
+  ROMCartImages = "/userdata/roms/saturn"
+  SaveStates = "/userdata/saves/ymir"
+  
+  '''
+# ---
+# name: TestYmirGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'ymir',
+  })
+# ---

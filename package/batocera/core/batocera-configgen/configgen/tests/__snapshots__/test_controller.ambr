@@ -1,0 +1,34 @@
+# serializer version: 1
+# name: TestController.test_generate_sdl_game_db_line
+  '030000005e040000a102000007010000,real name,platform:Linux,b:b1,a:b0,dpdown:b16,dpright:+a0,dpleft:-a0,dpup:h0.1,leftx:a0,lefty:a1,righty:a3~,lefttrigger:a2,guide:b10,'
+# ---
+# name: TestController.test_generate_sdl_game_db_line_hotkey_not_button
+  '030000005e040000a102000007010000,real name,platform:Linux,b:b1,a:b0,dpdown:b16,dpright:+a0,dpleft:-a0,dpup:h0.1,leftx:a0,lefty:a1,righty:a3~,lefttrigger:a2,'
+# ---
+# name: TestController.test_generate_sdl_game_db_line_ignore_buttons
+  '030000005e040000a102000007010000,real name,platform:Linux,b:b1,a:b0,dpdown:b16,dpright:+a0,dpleft:-a0,dpup:h0.1,leftx:a0,lefty:a1,righty:a3~,lefttrigger:a2,'
+# ---
+# name: TestController.test_generate_sdl_game_db_line_no_hotkey
+  '030000005e040000a102000007010000,real name,platform:Linux,b:b1,a:b0,dpdown:b16,dpright:+a0,dpleft:-a0,dpup:h0.1,leftx:a0,lefty:a1,righty:a3~,lefttrigger:a2,'
+# ---
+# name: TestController.test_init
+  Controller(name='name', type='joystick', guid='guid', player_number=1, index=0, real_name='real name', device_path='/dev/null', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'a': Input(name='a', type='button', id='1', value='1', code='305')})
+# ---
+# name: TestController.test_load_for_players
+  list([
+    Controller(name='Test Controller', type='joystick', guid='2', player_number=1, index=0, real_name='Test Controller', device_path='/dev/event/input1', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'b': Input(name='b', type='button', id='0', value='1', code='222')}),
+    Controller(name='Test Controller', type='joystick', guid='2', player_number=2, index=22, real_name='Something else', device_path='/dev/event/input2', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'b': Input(name='b', type='button', id='0', value='1', code='222')}),
+    Controller(name='Test Controller', type='joystick', guid='20', player_number=3, index=2, real_name='Test Controller', device_path='/dev/event/input3', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'b': Input(name='b', type='button', id='0', value='1', code='222')}),
+    Controller(name='Test Controller', type='joystick', guid='1', player_number=4, index=4, real_name='Test Controller', device_path='/dev/event/input4', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'a': Input(name='a', type='button', id='0', value='1', code='111')}),
+    Controller(name='Test Controller 2', type='joystick', guid='3', player_number=5, index=6, real_name='Test controller 2', device_path='/dev/event/input6', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'x': Input(name='x', type='button', id='0', value='1', code='111')}),
+  ])
+# ---
+# name: TestController.test_load_for_players_no_user_config
+  list([
+    Controller(name='Test Controller', type='joystick', guid='1', player_number=1, index=0, real_name='Test Controller', device_path='/dev/event/input1', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'a': Input(name='a', type='button', id='0', value='1', code='111')}),
+    Controller(name='Test Controller', type='joystick', guid='1', player_number=2, index=22, real_name='Something else', device_path='/dev/event/input2', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'a': Input(name='a', type='button', id='0', value='1', code='111')}),
+    Controller(name='Test Controller', type='joystick', guid='20', player_number=3, index=2, real_name='Test Controller', device_path='/dev/event/input3', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'a': Input(name='a', type='button', id='0', value='1', code='111')}),
+    Controller(name='Test Controller', type='joystick', guid='1', player_number=4, index=4, real_name='Test Controller', device_path='/dev/event/input4', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'a': Input(name='a', type='button', id='0', value='1', code='111')}),
+    Controller(name='Test Controller 2', type='joystick', guid='3', player_number=5, index=6, real_name='Test controller 2', device_path='/dev/event/input6', button_count=1, hat_count=2, axis_count=3, physical_device_path=None, physical_index=None, inputs={'x': Input(name='x', type='button', id='0', value='1', code='111')}),
+  ])
+# ---

@@ -1,0 +1,738 @@
+# serializer version: 1
+# name: TestXemuGenerator.test_generate
+  tuple(
+    list([
+      '/usr/bin/xemu',
+      '-config_path',
+      '/userdata/system/configs/xemu/xemu.toml',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestXemuGenerator.test_generate[config]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_chihiro
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "128"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/cerbios.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/chihiro/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "OPENGL"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_api': 'OPENGL'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "OPENGL"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_aspect': '16x9'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "16x9"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_bootanim': 'true'}]
+  '''
+  [general]
+  skip_boot_anim = true
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_memory': '128'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "128"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_networktype': 'nat'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = true
+  backend = "nat"
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_render': '2'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 2
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_scaling': 'stretch'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "stretch"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_udpbind': '10.10.10.10'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  bind_addr = "10.10.10.10"
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_udpremote': '10.10.10.10'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  remote_addr = "10.10.10.10"
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_use_dsp': 'true'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = true
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_config[{'xemu_vsync': 'false'}]
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = false
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_controllers
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  port2 = "030000005e0400000a0b000005040000"
+  port3 = "030000005e0400000a0b000005040000"
+  port4 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_generate_existing
+  '''
+  [general]
+  skip_boot_anim = false
+  show_welcome = false
+  screenshot_dir = "/userdata/screenshots"
+  
+  [sys]
+  mem_limit = "64"
+  
+  [sys.files]
+  flashrom_path = "/userdata/bios/Complex_4627.bin"
+  bootrom_path = "/userdata/bios/mcpx_1.0.bin"
+  hdd_path = "/userdata/saves/xbox/xbox_hdd.qcow2"
+  eeprom_path = "/userdata/saves/xbox/xemu_eeprom.bin"
+  dvd_path = "/userdata/roms/xbox/rom.iso"
+  
+  [audio]
+  use_dsp = false
+  
+  [display]
+  renderer = "VULKAN"
+  
+  [display.quality]
+  surface_scale = 1
+  
+  [display.window]
+  fullscreen_on_startup = true
+  startup_size = "1920x1080"
+  vsync = true
+  
+  [display.ui]
+  show_menubar = false
+  fit = "scale"
+  aspect_ratio = "auto"
+  
+  [input.bindings]
+  port1 = "030000005e0400000a0b000005040000"
+  
+  [net]
+  enable = false
+  
+  [net.udp]
+  remote_addr = "10.10.10.10"
+  bind_addr = "10.10.10.10"
+  
+  
+  '''
+# ---
+# name: TestXemuGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'xemu',
+  })
+# ---

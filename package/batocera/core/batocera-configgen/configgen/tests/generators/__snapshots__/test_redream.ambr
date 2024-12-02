@@ -1,0 +1,309 @@
+# serializer version: 1
+# name: TestRedreamGenerator.test_generate
+  tuple(
+    list([
+      '/userdata/system/configs/redream/redream',
+      '/userdata/roms/dreamcast/rom.chd',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestRedreamGenerator.test_generate[config]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate[filemode]
+  '-rwxrwxr-x'
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamBroadcast': 'pal'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=pal
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamCable': 'rgb'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=rgb
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamFrameSkip': '1'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=1
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamLanguage': 'german'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=german
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamRatio': '16:9'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=16:9
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamRegion': 'europe'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=europe
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamRender': 'hle_perpixel'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perpixel
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamResolution': '3'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=3
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_config[{'redreamVsync': '1'}]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=1
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_controllers
+  tuple(
+    list([
+      '/userdata/system/configs/redream/redream',
+      '/userdata/roms/dreamcast/rom.chd',
+    ]),
+    dict({
+      'SDL_GAMECONTROLLERCONFIG': '''
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+        030000004c0500006802000011810000,Sony PLAYSTATION(R)3 Controller,platform:Linux,b:b1,a:b0,dpdown:b14,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,leftstick:b11,dpleft:b15,rightshoulder:b5,leftshoulder:b4,righttrigger:a5,rightstick:b12,dpright:b16,back:b8,start:b9,dpup:b13,y:b2,x:b3,guide:b10,
+        030000007e0500000920000011810000,Nintendo Co.. Ltd. Pro Controller,platform:Linux,b:b3,a:b2,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b8,leftstick:b12,dpleft:h0.8,rightshoulder:b7,leftshoulder:b6,righttrigger:b9,rightstick:b13,dpright:h0.2,back:b10,start:b11,dpup:h0.1,y:b4,x:b5,guide:b0,
+        030000004c0500006802000011810000,Sony PLAYSTATION(R)3 Controller,platform:Linux,b:b1,a:b0,dpdown:b14,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,leftstick:b11,dpleft:b15,rightshoulder:b5,leftshoulder:b4,righttrigger:a5,rightstick:b12,dpright:b16,back:b8,start:b9,dpup:b13,y:b2,x:b3,guide:b10,
+        030000005e0400000a0b000005040000,Generic Xbox pad,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,
+      ''',
+      'SDL_JOYSTICK_HIDAPI': '0',
+    }),
+  )
+# ---
+# name: TestRedreamGenerator.test_generate_controllers[config]
+  '''
+  gamedir=/userdata/roms/dreamcast
+  mode=exclusive fullscreen
+  fullmode=exclusive fullscreen
+  port0=dev:4,desc:030000005e0400000a0b000005040000,type:controller
+  profile0=name:030000005e0400000a0b000005040000,type:controller,deadzone:12,crosshair:1,b:joy0,a:joy1,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,turbo:joy4,rtrig:joy7,dpad_right:hat3,menu:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  port1=dev:5,desc:030000004c0500006802000011810000,type:controller
+  profile1=name:030000004c0500006802000011810000,type:controller,deadzone:12,crosshair:1,b:joy1,a:joy0,dpad_down:joy14,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:+axis2,dpad_left:joy15,turbo:joy4,rtrig:+axis5,dpad_right:joy16,menu:joy8,start:joy9,dpad_up:joy13,y:joy2,x:joy3,exit:f10
+  port2=dev:6,desc:030000007e0500000920000011810000,type:controller
+  profile2=name:030000007e0500000920000011810000,type:controller,deadzone:12,crosshair:1,b:joy1,a:joy0,dpad_down:hat1,ljoy_left:-axis0,ljoy_right:+axis0,ljoy_up:-axis1,ljoy_down:+axis1,ltrig:joy6,dpad_left:hat2,rtrig:joy7,dpad_right:hat3,turbo:joy8,start:joy9,dpad_up:hat0,y:joy2,x:joy3,exit:f10
+  port3=dev:7,desc:030000004c0500006802000011810000,type:controller
+  width=1920
+  height=1080
+  fullwidth=1920
+  fullheight=1080
+  res=2
+  aspect=4:3
+  frameskip=0
+  vsync=0
+  renderer=hle_perstrip
+  region=usa
+  language=english
+  broadcast=ntsc
+  cable=vga
+  
+  '''
+# ---
+# name: TestRedreamGenerator.test_generate_existing_different[filemode]
+  '-rwxrwxr-x'
+# ---
+# name: TestRedreamGenerator.test_generate_existing_same[filemode]
+  '-rw-r--r--'
+# ---
+# name: TestRedreamGenerator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'redream',
+  })
+# ---
