@@ -9,6 +9,15 @@ dependencies = [
 [project.scripts]
 emulatorlauncher = "configgen.emulatorlauncher:launch"
 
+[project.optional-dependencies]
+tests = [
+    "pytest==8.*",
+    "pytest_mock==3.*",
+    "coverage[toml]==7.*",
+    "pyfakefs==5.7.*",
+    "syrupy==4.8.*",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -26,3 +35,23 @@ extends = "../../../../../pyproject.toml"
 
 [tool.ruff]
 extend = "../../../../../pyproject.toml"
+
+[tool.pytest.ini_options]
+addopts = "--cov=configgen --cov-branch --cov-report=term"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.report]
+exclude_also = [
+    "raise NotImplementedError",
+    "^\\s+pass$",
+    "^\\s*if (?:typing\\.)?TYPE_CHECKING:",
+    "^\\s*\\.\\.\\.\\s*$"
+]
+partial_branches = [
+    "^\\s*if not TYPE_CHECKING:"
+]
+omit = [
+    "configgen/types.py"
+]

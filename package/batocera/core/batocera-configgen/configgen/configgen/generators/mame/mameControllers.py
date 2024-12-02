@@ -308,6 +308,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
         mameXml = codecs.open(str(configFile), "w", "utf-8")
         dom_string = os.linesep.join([s for s in config.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
         mameXml.write(dom_string)
+        mameXml.close()
 
     # Write alt config (if used, custom config is turned off or file doesn't exist yet)
     if sysName in specialControlList and overwriteSystem:
@@ -315,6 +316,7 @@ def generatePadsConfig(cfgPath: Path, playersControllers: ControllerMapping, sys
         mameXml_alt = codecs.open(str(configFile_alt), "w", "utf-8")
         dom_string_alt = os.linesep.join([s for s in config_alt.toprettyxml().splitlines() if s.strip()]) # remove ugly empty lines while minicom adds them...
         mameXml_alt.write(dom_string_alt)
+        mameXml_alt.close()
 
 def reverseMapping(key: str) -> str | None:
     if key == "joystick1down":

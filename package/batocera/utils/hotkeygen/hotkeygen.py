@@ -60,7 +60,7 @@ def get_default_context() -> HotkeysContext:
     else:
         return {"name": "", "keys": {}}
 
-def get_common_context_keys() -> dict[str, int|str]:
+def get_common_context_keys() -> dict[str, list[int] | int | str]:
     keys = {}
     userkeys = {}
 
@@ -98,7 +98,7 @@ def get_context() -> HotkeysContext | None:
         return context
 
 def load_context_keys(keys: dict[str, list[str] | str]) -> dict[str, list[int] | int | str]:
-    res = {}
+    res: dict[str, list[int] | int | str] = {}
     for action, key_code_names in keys.items():
         if isinstance(key_code_names, list):
             codes: list[int] = []
@@ -114,7 +114,7 @@ def load_context_keys(keys: dict[str, list[str] | str]) -> dict[str, list[int] |
                 if key_code_names in ecodes.ecodes:
                     res[action] = ecodes.ecodes[key_code_names]
                 else:
-                    raise Exception(f"invalid key {data['keys'][action]!r}")
+                    raise Exception(f"invalid key {key_code_names!r}")
             else:
                 # command
                 res[action] = key_code_names
@@ -223,7 +223,7 @@ def print_mapping(
                         print(
                             f"  {ECODES_NAMES[k]:-<15}-> {associations[k]:-<15}-> {key_names}"
                         )
-                    if isinstance(key_codes, str):
+                    elif isinstance(key_codes, str):
                         print(f"  {ECODES_NAMES[k]:-<15}-> {associations[k]:-<15}-> {key_codes}")
                     else:
                         print(f"  {ECODES_NAMES[k]:-<15}-> {associations[k]:-<15}-> {ECODES_NAMES[key_codes]}")
@@ -231,7 +231,7 @@ def print_mapping(
                     print(f"  {ECODES_NAMES[k]:-<15}-> {associations[k]:15}")
 
 
-def send_keys(target: evdev.UInput, keys: int | list[int] | str) -> None:
+def send_keys(target: evdev.UInput, keys: int | list[int]) -> None:
     if isinstance(keys, list):
         for x in keys:
             target.write(ecodes.EV_KEY, x, 1)

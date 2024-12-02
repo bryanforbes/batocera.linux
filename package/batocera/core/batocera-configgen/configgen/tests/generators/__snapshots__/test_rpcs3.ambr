@@ -1,0 +1,4348 @@
+# serializer version: 1
+# name: TestRpcs3Generator.test_generate
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate[config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate[controllerdb]
+  '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,'
+# ---
+# name: TestRpcs3Generator.test_generate[currentsettings]
+  '''
+  [main_window]
+  confirmationBoxExitGame = false
+  infoBoxEnabledInstallPUP = false
+  infoBoxEnabledWelcome = false
+  
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate[input]
+  '''
+  ﻿Player 1 Input:
+    Handler: SDL
+    Device: real name 1 1
+    Config:
+      Left Stick Left: LS X-
+      Left Stick Down: LS Y-
+      Left Stick Right: LS X+
+      Left Stick Up: LS Y+
+      Right Stick Left: RS X-
+      Right Stick Down: RS Y-
+      Right Stick Right: RS X+
+      Right Stick Up: RS Y+
+      Start: Start
+      Select: Back
+      PS Button: Guide
+      Square: X
+      Cross: A
+      Circle: B
+      Triangle: Y
+      Left: Left
+      Down: Down
+      Right: Right
+      Up: Up
+      R1: RB
+      R2: RT
+      R3: RS
+      L1: LB
+      L2: LT
+      L3: LS
+      IR Nose: ""
+      IR Tail: ""
+      IR Left: ""
+      IR Right: ""
+      Tilt Left: ""
+      Tilt Right: ""
+      Motion Sensor X:
+        Axis: X
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: Y
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: Z
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: RY
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Pressure Intensity Deadzone: 0
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 8000
+      Right Stick Deadzone: 8000
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 8000
+      Right Pad Squircling Factor: 8000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 20
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 10
+      Player LED enabled: true
+      Enable Large Vibration Motor: true
+      Enable Small Vibration Motor: true
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_aa': 'Disabled'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_aa': 'Disabled'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Disabled
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_anisotropic': '4'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_anisotropic': '4'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: '4'
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_async_texture': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_async_texture': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: 'True'
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audio_16bit': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audio_16bit': 'False'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audio_16bit': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audio_16bit': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: true
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audio_format': 'Stereo'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audio_format': 'Stereo'}][config]
+  '''
+  Audio:
+    Audio Format: Stereo
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audiobuffer': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audiobuffer': 'False'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: 'False'
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audiobuffer_duration': '10'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_audiobuffer_duration': '10'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 10
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_colorbuffers': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_colorbuffers': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: 'True'
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_crosshairs': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_crosshairs': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: 'True'
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '20'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '20'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Off
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: '20'
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '30'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '30'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: '30'
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '50'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '50'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: '50'
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '59.94'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '59.94'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: '59.94'
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '60'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': '60'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: '60'
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': 'Off'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_framelimit': 'Off'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Off
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_gui': 'False'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_gui': 'False'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_gui': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_gui': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_maxcpu_preemptcount': '50'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_maxcpu_preemptcount': '50'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: '50'
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_num_compilers': '1'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_num_compilers': '1'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: '1'
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_ppudecoder': 'Interpreter (dynamic)'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_ppudecoder': 'Interpreter (dynamic)'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Interpreter (dynamic)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_resolution_scale': '200'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_resolution_scale': '200'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '200'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_rsx': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_rsx': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: 'True'
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_scaling': 'Nearest'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_scaling': 'Nearest'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Nearest
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_shader': 'Ultra'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_shader': 'Ultra'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: Ultra
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_shadermode': 'Async with Shader Interpreter'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_shadermode': 'Async with Shader Interpreter'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async with Shader Interpreter
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spublocksize': 'Mega'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spublocksize': 'Mega'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Mega
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spudecoder': 'Recompiler (ASMJIT)'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spudecoder': 'Recompiler (ASMJIT)'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (ASMJIT)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuloopdetection': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuloopdetection': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: 'True'
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_sputhreads': '2'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_sputhreads': '2'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: '2'
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuxfloataccuracy': 'accurate'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuxfloataccuracy': 'accurate'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: true
+    Approximate xfloat: false
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuxfloataccuracy': 'approximate'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuxfloataccuracy': 'approximate'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuxfloataccuracy': 'relaxed'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_spuxfloataccuracy': 'relaxed'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: false
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_stretchdisplay': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_stretchdisplay': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: 'True'
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_timestretch': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_timestretch': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: true
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_timestretch_threshold': '15'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_timestretch_threshold': '15'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 15
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_vertexcache': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_vertexcache': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: 'True'
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_vsync': 'True'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_vsync': 'True'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: 'True'
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_zcull': 'Approximate'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_zcull': 'Approximate'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: false
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_zcull': 'Relaxed'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'rpcs3_zcull': 'Relaxed'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: false
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: true
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'use_guns': '1'}]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_config[{'use_guns': '1'}][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Camera: Fake
+    Camera type: PS Eye
+    Move: Gun
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_controllers[input]
+  '''
+  ﻿Player 1 Input:
+    Handler: SDL
+    Device: real name 1 1
+    Config:
+      Left Stick Left: LS X-
+      Left Stick Down: LS Y-
+      Left Stick Right: LS X+
+      Left Stick Up: LS Y+
+      Right Stick Left: RS X-
+      Right Stick Down: RS Y-
+      Right Stick Right: RS X+
+      Right Stick Up: RS Y+
+      Start: Start
+      Select: Back
+      PS Button: Guide
+      Square: X
+      Cross: A
+      Circle: B
+      Triangle: Y
+      Left: Left
+      Down: Down
+      Right: Right
+      Up: Up
+      R1: RB
+      R2: RT
+      R3: RS
+      L1: LB
+      L2: LT
+      L3: LS
+      IR Nose: ""
+      IR Tail: ""
+      IR Left: ""
+      IR Right: ""
+      Tilt Left: ""
+      Tilt Right: ""
+      Motion Sensor X:
+        Axis: X
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: Y
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: Z
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: RY
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Pressure Intensity Deadzone: 0
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 8000
+      Right Stick Deadzone: 8000
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 8000
+      Right Pad Squircling Factor: 8000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 20
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 10
+      Player LED enabled: true
+      Enable Large Vibration Motor: true
+      Enable Small Vibration Motor: true
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  Player 2 Input:
+    Handler: SDL
+    Device: real name 1 2
+    Config:
+      Left Stick Left: LS X-
+      Left Stick Down: LS Y-
+      Left Stick Right: LS X+
+      Left Stick Up: LS Y+
+      Right Stick Left: RS X-
+      Right Stick Down: RS Y-
+      Right Stick Right: RS X+
+      Right Stick Up: RS Y+
+      Start: Start
+      Select: Back
+      PS Button: Guide
+      Square: X
+      Cross: A
+      Circle: B
+      Triangle: Y
+      Left: Left
+      Down: Down
+      Right: Right
+      Up: Up
+      R1: RB
+      R2: RT
+      R3: RS
+      L1: LB
+      L2: LT
+      L3: LS
+      IR Nose: ""
+      IR Tail: ""
+      IR Left: ""
+      IR Right: ""
+      Tilt Left: ""
+      Tilt Right: ""
+      Motion Sensor X:
+        Axis: X
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: Y
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: Z
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: RY
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Pressure Intensity Deadzone: 0
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 8000
+      Right Stick Deadzone: 8000
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 8000
+      Right Pad Squircling Factor: 8000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 20
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 10
+      Player LED enabled: true
+      Enable Large Vibration Motor: false
+      Enable Small Vibration Motor: false
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  Player 3 Input:
+    Handler: Evdev
+    Device: /dev/input/event3
+    Config:
+      Start: Start
+      Select: Select
+      PS Button: Mode
+      Cross: A
+      Circle: B
+      Down: Hat0 Y+
+      Left Stick Left: LX-
+      Left Stick Right: LX+
+      Left Stick Up: LY-
+      Left Stick Down: LY+
+      Right Stick Left: RX-
+      Right Stick Right: RX+
+      Right Stick Up: RY-
+      Right Stick Down: RY+
+      L2: TL 2
+      Left: Hat0 X-
+      R2: TR 2
+      Right: Hat0 X+
+      Up: Hat0 Y-
+      Square: X
+      Triangle: Y
+      R1: TR
+      R3: Thumb R
+      L1: TL
+      L3: Thumb L
+      Motion Sensor X:
+        Axis: X
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: Y
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: Z
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: RY
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 30
+      Right Stick Deadzone: 30
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 5000
+      Right Pad Squircling Factor: 5000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 0
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 50
+      Player LED enabled: true
+      Enable Large Vibration Motor: true
+      Enable Small Vibration Motor: true
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  Player 4 Input:
+    Handler: Evdev
+    Device: /dev/input/event4
+    Config:
+      Start: Start
+      Select: Select
+      PS Button: Mode
+      Cross: A
+      Circle: B
+      Down: Hat0 Y+
+      Left Stick Left: LX-
+      Left Stick Right: LX+
+      Left Stick Up: LY-
+      Left Stick Down: LY+
+      Right Stick Left: RX-
+      Right Stick Right: RX+
+      Right Stick Up: RY-
+      Right Stick Down: RY+
+      L2: TL 2
+      Left: Hat0 X-
+      R2: TR 2
+      Right: Hat0 X+
+      Up: Hat0 Y-
+      Square: X
+      Triangle: Y
+      R1: TR
+      R3: Thumb R
+      L1: TL
+      L3: Thumb L
+      Motion Sensor X:
+        Axis: X
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: Y
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: Z
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: RY
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 30
+      Right Stick Deadzone: 30
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 5000
+      Right Pad Squircling Factor: 5000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 0
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 50
+      Player LED enabled: true
+      Enable Large Vibration Motor: false
+      Enable Small Vibration Motor: false
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  Player 5 Input:
+    Handler: DualShock 3
+    Device: "DS3 Pad #1"
+    Config:
+      Left Stick Left: LS X-
+      Left Stick Down: LS Y-
+      Left Stick Right: LS X+
+      Left Stick Up: LS Y+
+      Right Stick Left: RS X-
+      Right Stick Down: RS Y-
+      Right Stick Right: RS X+
+      Right Stick Up: RS Y+
+      Start: Options
+      Select: Share
+      PS Button: PS Button
+      Square: Square
+      Cross: Cross
+      Circle: Circle
+      Triangle: Triangle
+      Left: Left
+      Down: Down
+      Right: Right
+      Up: Up
+      R1: R1
+      R2: R2
+      R3: R3
+      L1: L1
+      L2: L2
+      L3: L3
+      Motion Sensor X:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 40
+      Right Stick Deadzone: 40
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 8000
+      Right Pad Squircling Factor: 8000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 20
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 10
+      Player LED enabled: true
+      Enable Large Vibration Motor: true
+      Enable Small Vibration Motor: true
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  Player 6 Input:
+    Handler: DualShock 4
+    Device: "DS4 Pad #1"
+    Config:
+      Left Stick Left: LS X-
+      Left Stick Down: LS Y-
+      Left Stick Right: LS X+
+      Left Stick Up: LS Y+
+      Right Stick Left: RS X-
+      Right Stick Down: RS Y-
+      Right Stick Right: RS X+
+      Right Stick Up: RS Y+
+      Start: Options
+      Select: Share
+      PS Button: PS Button
+      Square: Square
+      Cross: Cross
+      Circle: Circle
+      Triangle: Triangle
+      Left: Left
+      Down: Down
+      Right: Right
+      Up: Up
+      R1: R1
+      R2: R2
+      R3: R3
+      L1: L1
+      L2: L2
+      L3: L3
+      Motion Sensor X:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 40
+      Right Stick Deadzone: 40
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 8000
+      Right Pad Squircling Factor: 8000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 20
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 10
+      Player LED enabled: true
+      Enable Large Vibration Motor: true
+      Enable Small Vibration Motor: true
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  Player 7 Input:
+    Handler: DualSense
+    Device: "DualSense Pad #1"
+    Config:
+      Left Stick Left: LS X-
+      Left Stick Down: LS Y-
+      Left Stick Right: LS X+
+      Left Stick Up: LS Y+
+      Right Stick Left: RS X-
+      Right Stick Down: RS Y-
+      Right Stick Right: RS X+
+      Right Stick Up: RS Y+
+      Start: Options
+      Select: Share
+      PS Button: PS Button
+      Square: Square
+      Cross: Cross
+      Circle: Circle
+      Triangle: Triangle
+      Left: Left
+      Down: Down
+      Right: Right
+      Up: Up
+      R1: R1
+      R2: R2
+      R3: R3
+      L1: L1
+      L2: L2
+      L3: L3
+      Motion Sensor X:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Y:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor Z:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Motion Sensor G:
+        Axis: ""
+        Mirrored: false
+        Shift: 0
+      Pressure Intensity Button: ""
+      Pressure Intensity Percent: 50
+      Pressure Intensity Toggle Mode: false
+      Left Stick Multiplier: 100
+      Right Stick Multiplier: 100
+      Left Stick Deadzone: 40
+      Right Stick Deadzone: 40
+      Left Trigger Threshold: 0
+      Right Trigger Threshold: 0
+      Left Pad Squircling Factor: 8000
+      Right Pad Squircling Factor: 8000
+      Color Value R: 0
+      Color Value G: 0
+      Color Value B: 20
+      Blink LED when battery is below 20%: true
+      Use LED as a battery indicator: false
+      LED battery indicator brightness: 10
+      Player LED enabled: true
+      Enable Large Vibration Motor: false
+      Enable Small Vibration Motor: false
+      Switch Vibration Motors: false
+      Mouse Movement Mode: Relative
+      Mouse Deadzone X Axis: 60
+      Mouse Deadzone Y Axis: 60
+      Mouse Acceleration X Axis: 200
+      Mouse Acceleration Y Axis: 250
+      Left Stick Lerp Factor: 100
+      Right Stick Lerp Factor: 100
+      Analog Button Lerp Factor: 100
+      Trigger Lerp Factor: 100
+      Device Class Type: 0
+      Vendor ID: 1356
+      Product ID: 616
+    Buddy Device: ""
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_existing[config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Foo: {}
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_existing[currentsettings]
+  '''
+  [main_window]
+  confirmationBoxExitGame = false
+  infoBoxEnabledInstallPUP = false
+  infoBoxEnabledWelcome = false
+  
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_firmware[\nfoo:bar:baz\nspam:ham:bam\n-False]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_firmware[\nfoo:bar:baz\nspam:ham:bam\n-True]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '--installfw',
+      '/userdata/bios/PS3UPDAT.PUP',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_firmware[\nrelease:400:800\n-False]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_firmware[\nrelease:400:800\n-True]
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/roms/ps3/rom_dir/PS3_GAME/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_psn_rom
+  tuple(
+    list([
+      '/usr/bin/rpcs3',
+      '/userdata/system/configs/rpcs3/dev_hdd0/game/123456789/USRDIR/EBOOT.BIN',
+      '--no-gui',
+    ]),
+    dict({
+      'QT_QPA_PLATFORM': 'xcb',
+      'SDL_GAMECONTROLLERCONFIG': '030000005e0400000a0b000005040000,real name 1,platform:Linux,b:b0,a:b1,dpdown:h0.4,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,leftstick:b11,dpleft:h0.8,rightshoulder:b5,leftshoulder:b4,righttrigger:b7,rightstick:b12,dpright:h0.2,back:b8,start:b9,dpup:h0.1,y:b2,x:b3,',
+      'SDL_JOYSTICK_HIDAPI': '0',
+      'XDG_CACHE_HOME': '/userdata/system/cache',
+      'XDG_CONFIG_HOME': '/userdata/system/configs',
+    }),
+  )
+# ---
+# name: TestRpcs3Generator.test_generate_ratio[mock_system_config0-resolution0][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 4:3
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_ratio[mock_system_config1-resolution1][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 4:3
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_vulkan[False-None-mock_system_config0][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: OpenGL
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_vulkan[False-None-mock_system_config1][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: Vulkan
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_vulkan[True-None-mock_system_config2][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: Vulkan
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_generate_vulkan[True-discrete name-mock_system_config3][config]
+  '''
+  Audio:
+    Audio Format: Automatic
+    Convert to 16 bit: false
+    Desired Audio Buffer Duration: 100
+    Enable Buffering: true
+    Enable Time Stretching: false
+    Master Volume: 100
+    Renderer: Cubeb
+    Time Stretching Threshold: 75
+  Core:
+    Accurate xfloat: false
+    Approximate xfloat: true
+    Max CPU Preempt Count: 0
+    PPU Decoder: Recompiler (LLVM)
+    Preferred SPU Threads: 0
+    Relaxed xfloat: true
+    SPU Block Size: Safe
+    SPU Cache: true
+    SPU Decoder: Recompiler (LLVM)
+    SPU loop detection: false
+  Input/Output:
+    Show move cursor: false
+  Log: {}
+  Miscellaneous:
+    Exit RPCS3 when process finishes: true
+    Prevent display sleep while running games: true
+    Show shader compilation hint: false
+    Show trophy popups: false
+    Start games in fullscreen mode: true
+  Net: {}
+  Savestate: {}
+  System: {}
+  VFS: {}
+  Video:
+    Accurate ZCULL stats: true
+    Anisotropic Filter Override: 0
+    Aspect ratio: 16:9
+    Asynchronous Texture Streaming 2: false
+    Disable Vertex Cache: false
+    Frame limit: Auto
+    MSAA: Auto
+    Multithreaded RSX: false
+    Output Scaling Mode: Bilinear
+    Relaxed ZCULL Sync: false
+    Renderer: Vulkan
+    Resolution: 1280x720
+    Resolution Scale: '100'
+    Second Frame Limit: 0
+    Shader Compiler Threads: 0
+    Shader Mode: Async Shader Recompiler
+    Shader Precision: High
+    Stretch To Display Area: false
+    VSync: false
+    Vulkan:
+      Adapter: discrete name
+    Write Color Buffers: false
+  
+  '''
+# ---
+# name: TestRpcs3Generator.test_get_hotkeys_context
+  dict({
+    'keys': dict({
+      'exit': list([
+        'KEY_LEFTALT',
+        'KEY_F4',
+      ]),
+    }),
+    'name': 'rpcs3',
+  })
+# ---
+# name: TestRpcs3Generator.test_get_in_game_ratio
+  1.7777777777777777
+# ---

@@ -1,0 +1,53 @@
+# serializer version: 1
+# name: test_set_hotkeygen_context
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'hotkeygen',
+          '--new-context',
+          'test',
+          '{"exit": ["KEY_LEFTALT", "KEY_F4"]}',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'hotkeygen',
+          '--default-context',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
+# name: test_set_hotkeygen_context_cleanup
+  _CallList([
+    _Call(
+      tuple(
+        list([
+          'hotkeygen',
+          '--new-context',
+          'test',
+          '{"exit": ["KEY_LEFTALT", "KEY_F4"]}',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+    _Call(
+      tuple(
+        list([
+          'hotkeygen',
+          '--default-context',
+        ]),
+      ),
+      dict({
+      }),
+    ),
+  ])
+# ---
