@@ -10,8 +10,6 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, cast
 
-import evdev
-
 from .. import controllersConfig
 
 if TYPE_CHECKING:
@@ -280,6 +278,8 @@ def configure_wheels(
 def _reconfigure_angle_rotation(
     controller: Controller, rotation_angle: int, wanted_rotation_angle: int, wanted_deadzone: int, wanted_midzone: int
 ) -> tuple[str, subprocess.Popen[bytes]] | None:
+    import evdev
+
     wheel_axis = int(controller.inputs["joystick1left"].id)
     input_device = evdev.InputDevice(controller.device_path)
     caps = input_device.capabilities()

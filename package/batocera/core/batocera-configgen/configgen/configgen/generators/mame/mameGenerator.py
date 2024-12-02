@@ -32,6 +32,7 @@ from .mamePaths import MAME_BIOS, MAME_CHEATS, MAME_CONFIG, MAME_DEFAULT_DATA, M
 if TYPE_CHECKING:
     from ...Emulator import Emulator
     from ...types import HotkeysContext, Resolution
+    from .mameTypes import MameControlScheme
 
 _logger = logging.getLogger(__name__)
 
@@ -152,7 +153,7 @@ class MameGenerator(Generator):
         else:
             customCfg = False
 
-        if system.name == "mame":
+        if system.name == "mame" or messMode == -1:
             if customCfg:
                 cfgPath = MAME_CONFIG / "custom"
             else:
@@ -446,10 +447,6 @@ class MameGenerator(Generator):
                         if checkFile.is_dir():
                             shutil.rmtree(checkFile)
                     mkdir_if_not_exists(softDir / "hash")
-                    # Clear existing hashfile links
-                    for hashFile in (softDir / "hash").iterdir():
-                        if hashFile.suffix == '.xml':
-                            hashFile.unlink()
                     (softDir / "hash" / f"{softList}.xml").symlink_to(f"/usr/bin/mame/hash/{softList}.xml")
                     if softList in subdirSoftList:
                         (softDir / softList).symlink_to(romDirname.parents[0], target_is_directory=True)
@@ -635,7 +632,8 @@ class MameGenerator(Generator):
             return
         elif "layout" in bz_infos and bz_infos["layout"].exists():
             (tmpZipDir / 'default.lay').symlink_to(bz_infos["layout"])
-            (tmpZipDir / bz_infos["png"].name).symlink_to(bz_infos["png"])
+            pngFile = tmpZipDir / bz_infos["png"].name
+            pngFile.symlink_to(bz_infos["png"])
         else:
             pngFile = tmpZipDir / "default.png"
             pngFile.symlink_to(bz_infos["png"])
@@ -779,7 +777,7 @@ class MameGenerator(Generator):
 
         raise Exception("display element not found")
 
-def getMameControlScheme(system: Emulator, rom_path: Path) -> str:
+def getMameControlScheme(system: Emulator, rom_path: Path) -> MameControlScheme:
     # Game list files
     mameCapcom = MAME_DEFAULT_DATA / 'mameCapcom.txt'
     mameKInstinct = MAME_DEFAULT_DATA / 'mameKInstinct.txt'
@@ -795,7 +793,7 @@ def getMameControlScheme(system: Emulator, rom_path: Path) -> str:
         controllerType = "auto"
 
     if controllerType in [ "default", "neomini", "neocd", "twinstick", "qbert" ]:
-        return controllerType
+        return controllerType  # pyright: ignore[reportReturnType]
     else:
         capcomList = set(mameCapcom.read_text().split())
         mkList = set(mameMKombat.read_text().split())
