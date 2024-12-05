@@ -25,6 +25,8 @@ import logging
 import signal
 import subprocess
 import time
+from collections import deque
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from sys import exit
 from typing import TYPE_CHECKING
@@ -40,13 +42,17 @@ from .utils.logger import setup_logging
 from .utils.squashfs import squashfs_rom
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable, Mapping
+    from collections.abc import Iterable, Iterator, Mapping
 
     from .Command import Command
     from .generators.Generator import Generator
     from .types import DeviceInfoDict, GunDict, Resolution
 
 _logger = logging.getLogger(__name__)
+
+def _exhaust(iterator: Iterator[object]) -> None:
+    # Consume iterator at C speed (see https://docs.python.org/3/library/itertools.html#itertools-recipes)
+    deque(iterator, maxlen=0)
 
 def main(args: argparse.Namespace, maxnbplayers: int) -> int:
     # squashfs roms if squashed
@@ -496,14 +502,21 @@ def runCommand(command: Command) -> int:
     if not command.array:
         return -1
 
-    proc = subprocess.Popen(command.array, env=command.env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     exitcode = -1
 
     try:
-        out, err = proc.communicate()
+        # Consume stdout and stderr in two threads so logging continues while the subprocess is running
+        with (
+            subprocess.Popen(command.array, env=command.env, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as proc,
+            ThreadPoolExecutor(2) as pool,
+        ):
+            # Run _exhaust() in a thread and pass it a generator that constantly iterates through one of the
+            # subprocess' pipes
+            pool.submit(_exhaust, (_logger.debug(line[:-1].decode()) for line in proc.stdout))  # pyright: ignore
+            pool.submit(_exhaust, (_logger.error(line[:-1].decode()) for line in proc.stderr))  # pyright: ignore
+
+        proc.poll()  # block until the process and reading from the pipes is complete
         exitcode = proc.returncode
-        _logger.debug(out.decode())
-        _logger.error(err.decode())
     except BrokenPipeError:
         # Seeing BrokenPipeError? This is probably caused by head truncating output in the front-end
         # Examine es-core/src/platform.cpp::runSystemCommand for additional context
