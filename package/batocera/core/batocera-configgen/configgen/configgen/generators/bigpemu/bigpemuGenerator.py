@@ -251,14 +251,8 @@ class BigPEmuGenerator(Generator):
         config["BigPEmuConfig"]["Video"]["DisplayFrequency"] = int(round(float(videoMode.getRefreshRate())))
 
         # User selections
-        if system.isOptSet("bigpemu_vsync"):
-            config["BigPEmuConfig"]["Video"]["VSync"] = system.config["bigpemu_vsync"]
-        else:
-            config["BigPEmuConfig"]["Video"]["VSync"] = 1
-        if system.isOptSet("bigpemu_ratio"):
-            config["BigPEmuConfig"]["Video"]["ScreenAspect"] = int(system.config["bigpemu_ratio"])
-        else:
-            config["BigPEmuConfig"]["Video"]["ScreenAspect"] = 2
+        config["BigPEmuConfig"]["Video"]["VSync"] = system.config.get("bigpemu_vsync", 1)
+        config["BigPEmuConfig"]["Video"]["ScreenAspect"] = system.config.get_int("bigpemu_ratio", 2)
         config["BigPEmuConfig"]["Video"]["LockAspect"] = 1
 
         # Controller config
@@ -402,7 +396,7 @@ class BigPEmuGenerator(Generator):
 
         config["BigPEmuConfig"]["ScriptsEnabled"] += [
             script_name for script_name, script_option in scripts
-            if system.isOptSet(script_option) and system.config[script_option] == "1"
+            if system.config.get_bool(script_option)
         ]
 
         # Remove duplicates just in case (as a precaution)
@@ -411,16 +405,10 @@ class BigPEmuGenerator(Generator):
         # ScriptSettings
         config["BigPEmuConfig"]["ScriptSettings"] = {}
 
-        if system.isOptSet("bigpemu_doom"):
-            config["BigPEmuConfig"]["ScriptSettings"]["DOOM-Music"] = system.config["bigpemu_doom"]
-        else:
-            config["BigPEmuConfig"]["ScriptSettings"]["DOOM-Music"] = 0
+        config["BigPEmuConfig"]["ScriptSettings"]["DOOM-Music"] = system.config.get("bigpemu_doom", 0)
 
         # Screen filter
-        if system.isOptSet("bigpemu_screenfilter"):
-            config["BigPEmuConfig"]["Video"]["ScreenFilter"] = system.config["bigpemu_screenfilter"]
-        else:
-            config["BigPEmuConfig"]["Video"]["ScreenFilter"] = 0
+        config["BigPEmuConfig"]["Video"]["ScreenFilter"] = system.config.get("bigpemu_screenfilter", 0)
 
         # Close off input
         config["BigPEmuConfig"]["Input"]["InputVer"] = 2

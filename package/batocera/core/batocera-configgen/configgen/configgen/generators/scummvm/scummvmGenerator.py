@@ -73,29 +73,20 @@ class ScummVMGenerator(Generator):
         ## user options
 
         # scale factor
-        if system.isOptSet("scumm_scale"):
-            commandArray.append(f"--scale-factor={system.config['scumm_scale']}")
-        else:
-            commandArray.append("--scale-factor=3")
+        commandArray.append(f"--scale-factor={system.config.get('scumm_scale', '3')}")
 
         # sclaer mode
-        if system.isOptSet("scumm_scaler_mode"):
-            commandArray.append(f"--scaler={system.config['scumm_scaler_mode']}")
-        else:
-            commandArray.append("--scaler=normal")
+        commandArray.append(f"--scaler={system.config.get('scumm_scaler_mode', 'normal')}")
 
         #  stretch mode
-        if system.isOptSet("scumm_stretch"):
+        if "scumm_stretch" in system.config:
             commandArray.append(f"--stretch-mode={system.config['scumm_stretch']}")
 
         # renderer
-        if system.isOptSet("scumm_renderer"):
-            commandArray.append(f"--renderer={system.config['scumm_renderer']}")
-        else:
-            commandArray.append("--renderer=opengl")
+        commandArray.append(f"--renderer={system.config.get('scumm_renderer', 'opengl')}")
 
         # language
-        if system.isOptSet("scumm_language"):
+        if "scumm_language" in system.config:
             commandArray.extend(["-q", f"{system.config['scumm_language']}"])
 
         # logging

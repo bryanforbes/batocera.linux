@@ -139,7 +139,7 @@ class Gun:
 
     @classmethod
     def get_and_precalibrate_all(cls, system: Emulator, rom: str | Path, /) -> GunDict:
-        if not system.isOptSet('use_guns') or not system.getOptBoolean('use_guns'):
+        if not system.config.use_guns:
             _logger.info('guns disabled.')
             return {}
 

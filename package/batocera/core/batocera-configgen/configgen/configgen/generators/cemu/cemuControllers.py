@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import xml.etree.cElementTree as ET
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 import pyudev
 
@@ -168,12 +168,6 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         }
     }
 
-    def getOption(option: str, defaultValue: str) -> Any:
-        if (system.isOptSet(option)):
-            return system.config[option]
-        else:
-            return defaultValue
-
     def addTextElement(parent: ET.Element, name: str, value: str) -> None:
         element = ET.SubElement(parent, name)
         element.text = value
@@ -241,7 +235,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
 
         # Set type from controller combination
         type = PRO # default
-        if system.isOptSet('cemu_controller_combination') and system.config["cemu_controller_combination"] != '0':
+        if system.config.get('cemu_controller_combination', '0') != '0':
             if system.config["cemu_controller_combination"] == '1':
                 if (nplayer == 0):
                     type = GAMEPAD
@@ -272,7 +266,7 @@ def generateControllerConfig(system: Emulator, playersControllers: ControllerMap
         addTextElement(controllerNode, 'api', api)
         addTextElement(controllerNode, 'uuid', f"{guid_n[pad.index]}_{pad.guid}") # controller guid
         addTextElement(controllerNode, 'display_name', pad.real_name) # controller name
-        addTextElement(controllerNode, 'rumble', getOption('cemu_rumble', '0')) # % chosen
+        addTextElement(controllerNode, 'rumble', system.config.get('cemu_rumble', '0')) # % chosen
         addAnalogControl(controllerNode, 'axis')
         addAnalogControl(controllerNode, 'rotation')
         addAnalogControl(controllerNode, 'trigger')

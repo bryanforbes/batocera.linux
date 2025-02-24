@@ -38,9 +38,9 @@ class CannonballGenerator(Generator):
         ET.SubElement(video, "mode").text = "1"  # fullscreen
         window = ET.SubElement(video, "window")
         ET.SubElement(window, "scale").text = "2" # scale
-        ET.SubElement(video, "fps_counter").text = "1" if (system.isOptSet("showFPS") and system.getOptBoolean("showFPS")) else "0"
-        ET.SubElement(video, "widescreen").text = "1" if (system.isOptSet("ratio") and system.config["ratio"] == "1") else "0"
-        ET.SubElement(video, "hires").text = "1" if (system.isOptSet("highResolution") and system.config["highResolution"] == "1") else "0"
+        ET.SubElement(video, "fps_counter").text = system.config.get_bool('showFPS', return_values=('1', '0'))
+        ET.SubElement(video, "widescreen").text = "1" if (system.config.get("ratio") == "1") else "0"
+        ET.SubElement(video, "hires").text = "1" if (system.config.get("highResolution") == "1") else "0"
         ET.SubElement(video, "vsync").text = "1"  # default vsync to 1
         ET.SubElement(video, "scanlines").text = "0"
         ET.SubElement(video, "fps").text = "2" # 60 fps
