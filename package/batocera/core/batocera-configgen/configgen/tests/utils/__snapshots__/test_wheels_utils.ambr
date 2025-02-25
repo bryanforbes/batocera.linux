@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_reconfigure_controllers_wheel_rotation[260-1-1]
+# name: test_configure_wheels_wheel_rotation[260-1-1]
   _CallList([
     _Call(
       tuple(
@@ -26,7 +26,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[260-1-2]
+# name: test_configure_wheels_wheel_rotation[260-1-2]
   _CallList([
     _Call(
       tuple(
@@ -53,7 +53,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[260-1-None]
+# name: test_configure_wheels_wheel_rotation[260-1-None]
   _CallList([
     _Call(
       tuple(
@@ -80,7 +80,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[260-2-2]
+# name: test_configure_wheels_wheel_rotation[260-2-2]
   _CallList([
     _Call(
       tuple(
@@ -107,7 +107,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[260-2-None]
+# name: test_configure_wheels_wheel_rotation[260-2-None]
   _CallList([
     _Call(
       tuple(
@@ -134,7 +134,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[260-3-2]
+# name: test_configure_wheels_wheel_rotation[260-3-2]
   _CallList([
     _Call(
       tuple(
@@ -161,7 +161,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[260-4-2]
+# name: test_configure_wheels_wheel_rotation[260-4-2]
   _CallList([
     _Call(
       tuple(
@@ -188,7 +188,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[260-None-None]
+# name: test_configure_wheels_wheel_rotation[260-None-None]
   _CallList([
     _Call(
       tuple(
@@ -215,7 +215,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[None-1-1]
+# name: test_configure_wheels_wheel_rotation[None-1-1]
   _CallList([
     _Call(
       tuple(
@@ -242,7 +242,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[None-1-2]
+# name: test_configure_wheels_wheel_rotation[None-1-2]
   _CallList([
     _Call(
       tuple(
@@ -269,7 +269,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[None-1-None]
+# name: test_configure_wheels_wheel_rotation[None-1-None]
   _CallList([
     _Call(
       tuple(
@@ -296,7 +296,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[None-2-2]
+# name: test_configure_wheels_wheel_rotation[None-2-2]
   _CallList([
     _Call(
       tuple(
@@ -323,7 +323,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[None-2-None]
+# name: test_configure_wheels_wheel_rotation[None-2-None]
   _CallList([
     _Call(
       tuple(
@@ -350,7 +350,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[None-3-2]
+# name: test_configure_wheels_wheel_rotation[None-3-2]
   _CallList([
     _Call(
       tuple(
@@ -377,7 +377,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation[None-4-2]
+# name: test_configure_wheels_wheel_rotation[None-4-2]
   _CallList([
     _Call(
       tuple(
@@ -404,7 +404,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-1-1]
+# name: test_configure_wheels_wheel_rotation_config_override[260-1-1]
   _CallList([
     _Call(
       tuple(
@@ -431,7 +431,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-1-2]
+# name: test_configure_wheels_wheel_rotation_config_override[260-1-2]
   _CallList([
     _Call(
       tuple(
@@ -458,7 +458,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-1-None]
+# name: test_configure_wheels_wheel_rotation_config_override[260-1-None]
   _CallList([
     _Call(
       tuple(
@@ -485,7 +485,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-2-2]
+# name: test_configure_wheels_wheel_rotation_config_override[260-2-2]
   _CallList([
     _Call(
       tuple(
@@ -512,7 +512,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-2-None]
+# name: test_configure_wheels_wheel_rotation_config_override[260-2-None]
   _CallList([
     _Call(
       tuple(
@@ -539,7 +539,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-3-2]
+# name: test_configure_wheels_wheel_rotation_config_override[260-3-2]
   _CallList([
     _Call(
       tuple(
@@ -566,7 +566,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-4-2]
+# name: test_configure_wheels_wheel_rotation_config_override[260-4-2]
   _CallList([
     _Call(
       tuple(
@@ -593,7 +593,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[260-None-None]
+# name: test_configure_wheels_wheel_rotation_config_override[260-None-None]
   _CallList([
     _Call(
       tuple(
@@ -620,7 +620,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[None-1-1]
+# name: test_configure_wheels_wheel_rotation_config_override[None-1-1]
   _CallList([
     _Call(
       tuple(
@@ -647,7 +647,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[None-1-2]
+# name: test_configure_wheels_wheel_rotation_config_override[None-1-2]
   _CallList([
     _Call(
       tuple(
@@ -674,7 +674,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[None-1-None]
+# name: test_configure_wheels_wheel_rotation_config_override[None-1-None]
   _CallList([
     _Call(
       tuple(
@@ -701,7 +701,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[None-2-2]
+# name: test_configure_wheels_wheel_rotation_config_override[None-2-2]
   _CallList([
     _Call(
       tuple(
@@ -728,7 +728,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[None-2-None]
+# name: test_configure_wheels_wheel_rotation_config_override[None-2-None]
   _CallList([
     _Call(
       tuple(
@@ -755,7 +755,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[None-3-2]
+# name: test_configure_wheels_wheel_rotation_config_override[None-3-2]
   _CallList([
     _Call(
       tuple(
@@ -782,7 +782,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_config_override[None-4-2]
+# name: test_configure_wheels_wheel_rotation_config_override[None-4-2]
   _CallList([
     _Call(
       tuple(
@@ -809,7 +809,7 @@
     ),
   ])
 # ---
-# name: test_reconfigure_controllers_wheel_rotation_two_controllers
+# name: test_configure_wheels_wheel_rotation_two_controllers
   _CallList([
     _Call(
       tuple(

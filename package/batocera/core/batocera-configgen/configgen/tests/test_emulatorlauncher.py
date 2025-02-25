@@ -834,26 +834,13 @@ class TestStartRom:
         return mocker.patch('configgen.utils.hotkeygen.set_hotkeygen_context')
 
     @pytest.fixture(autouse=True)
-    def wheels_utils_reconfigure_controllers(self, mocker: MockerFixture) -> Mock:
-        return mocker.patch(
-            'configgen.utils.wheelsUtils.reconfigureControllers',
-            return_value=(
-                [mocker.sentinel.wheel_process_1, mocker.sentinel.wheel_process_2],
-                mocker.sentinel.new_player_controllers,
-                mocker.sentinel.new_device_infos,
-            ),
+    def wheels_utils_configure_wheels(self, mocker: MockerFixture) -> Mock:
+        configure_wheels = mocker.patch('configgen.utils.wheelsUtils.configure_wheels')
+        configure_wheels.return_value.__enter__.return_value = (
+            mocker.sentinel.new_player_controllers,
+            mocker.sentinel.wheels,
         )
-
-    @pytest.fixture
-    def wheels_utils_reset_controllers(self, mocker: MockerFixture) -> Mock:
-        return mocker.patch('configgen.utils.wheelsUtils.resetControllers')
-
-    @pytest.fixture(autouse=True)
-    def wheels_utils_get_wheels_from_devices_infos(self, mocker: MockerFixture) -> Mock:
-        return mocker.patch(
-            'configgen.utils.wheelsUtils.getWheelsFromDevicesInfos',
-            return_value=mocker.sentinel.new_wheels,
-        )
+        return configure_wheels
 
     @pytest.fixture(autouse=True)
     def video_mode_get_current_mode(self, mocker: MockerFixture) -> Mock:
@@ -891,6 +878,7 @@ class TestStartRom:
         cprofile_profile: Mock,
         controllers_get_games_metadata: Mock,
         gun_get_and_precalibrate_all: Mock,
+        wheels_utils_configure_wheels: Mock,
         get_generator: Mock,
         generator: Mock,
         video_mode_change_mode: Mock,
@@ -899,7 +887,6 @@ class TestStartRom:
         system_guns_borders_size_name: Mock,
         system_guns_border_ratio_type: Mock,
         video_mode_change_mouse: Mock,
-        wheels_utils_reset_controllers: Mock,
         mock_command: Command,
     ) -> None:
         from configgen.emulatorlauncher import start_rom
@@ -928,6 +915,9 @@ class TestStartRom:
         emulator_class.assert_called_once_with(default_args, '/userdata/roms/foo/bar.squashfs')
         controllers_get_games_metadata.assert_called_once_with('system_name', '/var/squashfs/bar/bar.zip')
         gun_get_and_precalibrate_all.assert_called_once_with(mock_system, '/var/squashfs/bar/bar.zip')
+        wheels_utils_configure_wheels.assert_called_once_with(
+            mocker.sentinel.player_controllers, mock_system, mocker.sentinel.metadata
+        )
         get_generator.assert_called_once_with('default-emulator')
         cprofile_profile.disable.assert_not_called()
         cprofile_profile.enable.assert_not_called()
@@ -960,7 +950,7 @@ class TestStartRom:
             'default-emulator',
             'default-core',
             '/userdata/roms/foo/bar.squashfs',
-            mocker.sentinel.player_controllers,
+            mocker.sentinel.new_player_controllers,
             mocker.sentinel.precalibrated_guns,
         )
         evmapy.return_value.__enter__.assert_called_once_with()
@@ -971,10 +961,10 @@ class TestStartRom:
         generator.generate.assert_called_once_with(
             mock_system,
             '/var/squashfs/bar/bar.zip',
-            mocker.sentinel.player_controllers,
+            mocker.sentinel.new_player_controllers,
             mocker.sentinel.metadata,
             mocker.sentinel.precalibrated_guns,
-            {},
+            mocker.sentinel.wheels,
             {'width': 1920, 'height': 1080},
         )
         system_guns_borders_size_name.assert_called_once_with(mocker.sentinel.precalibrated_guns)
@@ -993,7 +983,7 @@ class TestStartRom:
         evmapy.return_value.__exit__.assert_called_once_with(None, None, None)
         video_mode_change_mode.assert_not_called()
         video_mode_change_mouse.assert_not_called()
-        wheels_utils_reset_controllers.assert_not_called()
+        wheels_utils_configure_wheels.return_value.__exit__.assert_called_once_with(None, None, None)
 
         assert Path(SAVES / 'system_name').is_dir()
 
@@ -1205,10 +1195,10 @@ class TestStartRom:
         generator.generate.assert_called_once_with(
             mock_system,
             '/var/squashfs/bar/bar.zip',
-            mocker.sentinel.player_controllers,
+            mocker.sentinel.new_player_controllers,
             mocker.sentinel.metadata,
             mocker.sentinel.precalibrated_guns,
-            {},
+            mocker.sentinel.wheels,
             {'width': 1080, 'height': 1920},
         )
 
@@ -1269,76 +1259,6 @@ class TestStartRom:
         )
 
         assert video_mode_change_mouse.call_args_list == [mocker.call(True), mocker.call(False)]
-
-    @pytest.mark.parametrize('empty_process_list', [False, True])
-    def test_wheels(
-        self,
-        mocker: MockerFixture,
-        default_args: Namespace,
-        mock_system: Emulator,
-        wheels_utils_reconfigure_controllers: Mock,
-        wheels_utils_reset_controllers: Mock,
-        wheels_utils_get_wheels_from_devices_infos: Mock,
-        evmapy: Mock,
-        generator: Mock,
-        empty_process_list: bool,
-    ) -> None:
-        from configgen.emulatorlauncher import start_rom
-
-        mocker.patch('configgen.emulatorlauncher.callExternalScripts')
-        mocker.patch('configgen.emulatorlauncher.runCommand', return_value=mocker.sentinel.run_command)
-        mocker.patch('configgen.emulatorlauncher.getHudBezel', return_value=None)
-
-        mock_system.config['use_wheels'] = True
-
-        if empty_process_list:
-            wheels_utils_reconfigure_controllers.return_value = (
-                [],
-                mocker.sentinel.new_player_controllers,
-                mocker.sentinel.new_device_infos,
-            )
-
-        assert (
-            start_rom(
-                default_args,
-                8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
-            )
-            == mocker.sentinel.run_command
-        )
-
-        wheels_utils_reconfigure_controllers.assert_called_once_with(
-            mocker.sentinel.player_controllers,
-            mock_system,
-            '/var/squashfs/bar/bar.zip',
-            mocker.sentinel.metadata,
-            mocker.sentinel.get_devices_information,
-        )
-        wheels_utils_get_wheels_from_devices_infos.assert_called_once_with(mocker.sentinel.new_device_infos)
-        evmapy.assert_called_once_with(
-            'system_name',
-            'default-emulator',
-            'default-core',
-            '/userdata/roms/foo/bar.squashfs',
-            mocker.sentinel.new_player_controllers,
-            mocker.sentinel.precalibrated_guns,
-        )
-        generator.generate.assert_called_once_with(
-            mock_system,
-            '/var/squashfs/bar/bar.zip',
-            mocker.sentinel.new_player_controllers,
-            mocker.sentinel.metadata,
-            mocker.sentinel.precalibrated_guns,
-            mocker.sentinel.new_wheels,
-            {'width': 1920, 'height': 1080},
-        )
-        if empty_process_list:
-            wheels_utils_reset_controllers.assert_not_called()
-        else:
-            wheels_utils_reset_controllers.assert_called_once_with(
-                [mocker.sentinel.wheel_process_1, mocker.sentinel.wheel_process_2]
-            )
 
     def test_execution_directory(
         self,
@@ -1498,7 +1418,7 @@ class TestStartRom:
         video_mode_get_current_mode: Mock,
         video_mode_change_mode: Mock,
         video_mode_change_mouse: Mock,
-        wheels_utils_reset_controllers: Mock,
+        wheels_utils_configure_wheels: Mock,
     ) -> None:
         from configgen.emulatorlauncher import start_rom
 
@@ -1506,11 +1426,12 @@ class TestStartRom:
         mocker.patch('configgen.emulatorlauncher.runCommand', return_value=mocker.sentinel.run_command)
         mocker.patch('configgen.emulatorlauncher.getHudBezel', return_value=None)
 
+        test_exception = Exception('Test exception')
         mock_system.config['use_wheels'] = '1'
         mock_system.config['videomode'] = '640x480.120.00'
         video_mode_get_current_mode.return_value = '1440x900.120.00'
         generator.getMouseMode.return_value = True
-        generator.generate.side_effect = Exception('Test exception')
+        generator.generate.side_effect = test_exception
 
         with pytest.raises(Exception, match='^Test exception$'):
             start_rom(
@@ -1522,13 +1443,13 @@ class TestStartRom:
 
         assert video_mode_change_mode.call_args_list == [mocker.call('640x480.120.00'), mocker.call('1440x900.120.00')]
         assert video_mode_change_mouse.call_args_list == [mocker.call(True), mocker.call(False)]
-        wheels_utils_reset_controllers.assert_called_once_with(
-            [mocker.sentinel.wheel_process_1, mocker.sentinel.wheel_process_2]
+        wheels_utils_configure_wheels.return_value.__exit__.assert_called_once_with(
+            Exception, test_exception, mocker.ANY
         )
 
     @pytest.mark.parametrize(
         'raising_fixture',
-        [lf('video_mode_change_mode'), lf('video_mode_change_mouse'), lf('wheels_utils_reset_controllers')],
+        [lf('video_mode_change_mode'), lf('video_mode_change_mouse')],
     )
     def test_cleanup_raises(
         self,
@@ -1539,7 +1460,7 @@ class TestStartRom:
         video_mode_get_current_mode: Mock,
         video_mode_change_mode: Mock,
         video_mode_change_mouse: Mock,
-        wheels_utils_reset_controllers: Mock,
+        wheels_utils_configure_wheels: Mock,
         raising_fixture: Mock,
     ) -> None:
         from configgen.emulatorlauncher import start_rom
@@ -1548,17 +1469,15 @@ class TestStartRom:
         mocker.patch('configgen.emulatorlauncher.runCommand', return_value=mocker.sentinel.run_command)
         mocker.patch('configgen.emulatorlauncher.getHudBezel', return_value=None)
 
+        test_exception = Exception('Test exception')
+
         mock_system.config['use_wheels'] = '1'
         mock_system.config['videomode'] = '640x480.120.00'
         video_mode_get_current_mode.return_value = '1440x900.120.00'
         generator.getMouseMode.return_value = True
-        generator.generate.side_effect = Exception('Test exception')
+        generator.generate.side_effect = test_exception
 
-        raising_fixture.side_effect = (
-            Exception('Cleanup exception')
-            if raising_fixture is wheels_utils_reset_controllers
-            else [None, Exception('Cleanup exception')]
-        )
+        raising_fixture.side_effect = [None, Exception('Cleanup exception')]
 
         with pytest.raises(Exception, match='^Test exception$'):
             start_rom(
@@ -1570,6 +1489,6 @@ class TestStartRom:
 
         assert video_mode_change_mode.call_args_list == [mocker.call('640x480.120.00'), mocker.call('1440x900.120.00')]
         assert video_mode_change_mouse.call_args_list == [mocker.call(True), mocker.call(False)]
-        wheels_utils_reset_controllers.assert_called_once_with(
-            [mocker.sentinel.wheel_process_1, mocker.sentinel.wheel_process_2]
+        wheels_utils_configure_wheels.return_value.__exit__.assert_called_once_with(
+            Exception, test_exception, mocker.ANY
         )
