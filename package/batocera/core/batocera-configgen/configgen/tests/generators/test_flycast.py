@@ -7,13 +7,13 @@ import pytest
 from configgen.batoceraPaths import CONFIGS, DEFAULTS_DIR, SAVES
 from configgen.generators.flycast.flycastGenerator import FlycastGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -40,7 +40,7 @@ class TestFlycastGenerator(GeneratorBaseTest):
         self,
         generator: FlycastGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -60,7 +60,7 @@ class TestFlycastGenerator(GeneratorBaseTest):
         assert (SAVES / 'dreamcast' / 'flycast' / 'vmu_save_A2.bin').is_file()
         assert (CONFIGS / 'flycast' / 'emu.cfg').read_text() == snapshot(name='config')
         assert (
-            CONFIGS / 'flycast' / 'mappings' / f'SDL_{one_player_controllers[1].real_name}.cfg'
+            CONFIGS / 'flycast' / 'mappings' / f'SDL_{one_player_controllers[0].real_name}.cfg'
         ).read_text() == snapshot(name='p1-mapping')
 
     @pytest.mark.system_name('naomi')
@@ -68,7 +68,7 @@ class TestFlycastGenerator(GeneratorBaseTest):
         self,
         generator: FlycastGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -88,7 +88,7 @@ class TestFlycastGenerator(GeneratorBaseTest):
         assert (SAVES / 'dreamcast' / 'flycast' / 'vmu_save_A2.bin').is_file()
         assert (CONFIGS / 'flycast' / 'emu.cfg').read_text() == snapshot(name='config')
         assert (
-            CONFIGS / 'flycast' / 'mappings' / f'SDL_{one_player_controllers[1].real_name}_arcade.cfg'
+            CONFIGS / 'flycast' / 'mappings' / f'SDL_{one_player_controllers[0].real_name}_arcade.cfg'
         ).read_text() == snapshot(name='p1-mapping')
 
     def test_generate_existing(
@@ -96,7 +96,7 @@ class TestFlycastGenerator(GeneratorBaseTest):
         generator: FlycastGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -192,7 +192,7 @@ bar = baz
         self,
         generator: FlycastGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -220,7 +220,7 @@ bar = baz
         generator.generate(
             mock_system,
             '/userdata/roms/dreamcast/rom.chd',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, gpio_controller_1),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, gpio_controller_1),
             {},
             [],
             {},

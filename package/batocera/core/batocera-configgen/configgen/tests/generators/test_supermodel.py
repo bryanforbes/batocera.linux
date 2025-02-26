@@ -9,7 +9,7 @@ from configgen.batoceraPaths import CONFIGS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.supermodel.supermodelGenerator import SupermodelGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
     from configgen.gun import Guns
 
@@ -82,7 +82,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         self,
         generator: SupermodelGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -107,7 +107,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         generator: SupermodelGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(SAVES / 'supermodel' / 'NVRAM' / '0.nv', contents='new 0')
         fs.create_file(CONFIGS / 'supermodel' / 'Assets' / 'bar.txt', contents='new assets bar')
@@ -132,7 +132,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         generator: SupermodelGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(SAVES / 'supermodel' / 'NVRAM' / '0.nv', contents='new 0')
         fs.create_file(SAVES / 'supermodel' / 'NVRAM' / '0.nv.bak', contents='old 0 bak')
@@ -177,7 +177,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         self,
         generator: SupermodelGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -199,7 +199,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         self,
         generator: SupermodelGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -224,7 +224,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/model3/daytona2.zip',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller),
+            make_player_controller_list(generic_xbox_pad, ps3_controller),
             {},
             [],
             {},
@@ -247,7 +247,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/model3/daytona2.zip',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller),
+            make_player_controller_list(generic_xbox_pad, ps3_controller),
             {},
             guns,
             {},

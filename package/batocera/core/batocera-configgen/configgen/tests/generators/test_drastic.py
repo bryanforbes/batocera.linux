@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -69,7 +69,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
         self,
         generator: DrasticGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         subprocess_run: Mock,
     ) -> None:
@@ -97,7 +97,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
         generator: DrasticGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'drastic' / 'drastic', contents='drastic bin')
@@ -122,7 +122,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
         generator: DrasticGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_dir(CONFIGS / 'drastic' / 'config')
         fs.create_file(CONFIGS / 'drastic' / 'drastic', contents='old drastic bin')
@@ -162,7 +162,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
         self,
         generator: DrasticGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -194,7 +194,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
         self,
         generator: DrasticGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -222,7 +222,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
         self,
         generator: DrasticGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         subprocess_run: Mock,
     ) -> None:

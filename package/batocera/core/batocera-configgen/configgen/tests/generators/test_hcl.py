@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 @pytest.mark.usefixtures('fs')
@@ -27,7 +27,7 @@ class TestHclGenerator(GeneratorBaseTest):
         self,
         generator: HclGenerator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -49,7 +49,7 @@ class TestHclGenerator(GeneratorBaseTest):
     def test_generate_not_downloaded(
         self,
         generator: HclGenerator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         caplog: pytest.LogCaptureFixture,
     ) -> None:

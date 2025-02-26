@@ -7,13 +7,13 @@ import pytest
 from configgen.config import SystemConfig
 from configgen.generators.x16emu.x16emuGenerator import X16emuGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -49,7 +49,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         self,
         generator: X16emuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -79,7 +79,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         self,
         generator: X16emuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -101,7 +101,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         generator: X16emuGenerator,
         extension: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -122,7 +122,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         generator: X16emuGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/commanderx16/rom-dir/autorun.cmd')
@@ -151,7 +151,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/commanderx16/rom-dir/rom.bas',
-                make_player_controller_dict(
+                make_player_controller_list(
                     generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad
                 ),
                 {},

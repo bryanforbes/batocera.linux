@@ -35,7 +35,7 @@ rom_file2.p8
             generator.generate(
                 mock_system,
                 '/userdata/roms/pico8/rom.m3u',
-                {},
+                [],
                 {},
                 [],
                 {},

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 class TestUqmGenerator(GeneratorBaseTest):
@@ -25,7 +25,7 @@ class TestUqmGenerator(GeneratorBaseTest):
         self,
         generator: UqmGenerator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -52,7 +52,7 @@ class TestUqmGenerator(GeneratorBaseTest):
         self,
         generator: UqmGenerator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:

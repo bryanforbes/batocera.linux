@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -92,7 +92,7 @@ is_enabled = false
         self,
         generator: XeniaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         wine_install_wine_trick: Mock,
     ) -> None:
@@ -133,7 +133,7 @@ is_enabled = false
         self,
         generator: XeniaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         wine_install_wine_trick: Mock,
     ) -> None:
@@ -169,7 +169,7 @@ is_enabled = false
         self,
         generator: XeniaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -193,7 +193,7 @@ is_enabled = false
         fs: FakeFilesystem,
         exists: bool,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/xbox360/XBLA/rom.xbox360', contents='Battlezone\r\nfoo')
@@ -220,7 +220,7 @@ is_enabled = false
         emulator: str,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         for dll in ['d3d12.dll', 'd3d12core.dll', 'd3d11.dll', 'd3d10core.dll', 'd3d9.dll', 'd3d8.dll', 'dxgi.dll']:
@@ -306,7 +306,7 @@ user_language = 0
         generator: XeniaGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         shutil.copytree('/usr/xenia-canary', '/userdata/system/wine-bottles/xbox360/xenia-canary')
         fs.create_file('/userdata/system/wine-bottles/xbox360/xenia-canary/differing.txt', contents='old contents')
@@ -331,7 +331,7 @@ user_language = 0
         generator: XeniaGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file('/userdata/system/wine-bottles/xbox360/xenia/xenia.exe', contents='xenia.exe')
         fs.create_file(
@@ -355,7 +355,7 @@ user_language = 0
         self,
         generator: XeniaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         shutil.rmtree('/userdata/system/wine-bottles/xbox360/drive_c')
 
@@ -378,7 +378,7 @@ user_language = 0
         generator: XeniaGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file('/userdata/system/wine-bottles/xbox360/xenia/xenia.exe', contents='other xenia.exe')
         fs.create_file(
@@ -422,7 +422,7 @@ user_language = 0
         self,
         generator: XeniaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -445,7 +445,7 @@ user_language = 0
         generator: XeniaGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -504,7 +504,7 @@ name = 'Test Patch 4'
         self,
         generator: XeniaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -525,7 +525,7 @@ name = 'Test Patch 4'
         self,
         generator: XeniaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         vulkan_is_available: Mock,
     ) -> None:
         vulkan_is_available.return_value = False
@@ -555,7 +555,7 @@ name = 'Test Patch 4'
         generator: XeniaGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/var/tmp/nvidia.prime')

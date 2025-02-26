@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -145,7 +145,7 @@ FE_UNCENTERING_Period=56000
         self,
         generator: Model2EmuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         wine_install_wine_trick: Mock,
     ) -> None:
@@ -176,7 +176,7 @@ FE_UNCENTERING_Period=56000
         generator: Model2EmuGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/system/wine-bottles/model2/xinput_cfg.done')
@@ -225,7 +225,7 @@ Bar = 1
         self,
         generator: Model2EmuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -265,7 +265,7 @@ Bar = 1
         self,
         generator: Model2EmuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -289,7 +289,7 @@ Bar = 1
         generator: Model2EmuGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'model2' / 'foo')
@@ -323,7 +323,7 @@ Bar = 1
         mocker: MockerFixture,
         generator: Model2EmuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         needs_cross: bool,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -345,7 +345,7 @@ Bar = 1
         generator: Model2EmuGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/var/tmp/nvidia.prime')
@@ -436,7 +436,7 @@ Options =
         generator.generate(
             mock_system,
             '/userdata/roms/model2/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -517,7 +517,7 @@ Options =
         generator.generate(
             mock_system,
             '/userdata/roms/model2/rom.zip',
-            {},
+            [],
             {},
             [],
             {},

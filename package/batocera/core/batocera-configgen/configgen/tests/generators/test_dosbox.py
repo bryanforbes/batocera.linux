@@ -36,7 +36,7 @@ class TestDosBoxGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -86,7 +86,7 @@ blah = custom bam
             generator.generate(
                 mock_system,
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -137,7 +137,7 @@ blah = user bam
             generator.generate(
                 mock_system,
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -164,7 +164,7 @@ blah = user bam
         generator.generate(
             mock_system,
             '/userdata/roms/dos/rom.pc',
-            {},
+            [],
             {},
             [],
             {},

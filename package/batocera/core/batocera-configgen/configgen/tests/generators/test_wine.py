@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -61,7 +61,7 @@ class TestWineGenerator(GeneratorBaseTest):
         self,
         generator: WineGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -82,7 +82,7 @@ class TestWineGenerator(GeneratorBaseTest):
         self,
         generator: WineGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -102,7 +102,7 @@ class TestWineGenerator(GeneratorBaseTest):
         self,
         generator: WineGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         subprocess_check_output: Mock,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -125,7 +125,7 @@ class TestWineGenerator(GeneratorBaseTest):
         self,
         generator: WineGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         subprocess_check_output: Mock,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -149,7 +149,7 @@ class TestWineGenerator(GeneratorBaseTest):
         self,
         generator: WineGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -170,7 +170,7 @@ class TestWineGenerator(GeneratorBaseTest):
         generator: WineGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/var/tmp/nvidia.prime')
@@ -195,7 +195,7 @@ class TestWineGenerator(GeneratorBaseTest):
         self,
         generator: WineGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         with pytest.raises(Exception, match='invalid system foo'):
             generator.generate(

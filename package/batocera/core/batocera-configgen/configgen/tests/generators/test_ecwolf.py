@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 @pytest.mark.usefixtures('fs')
@@ -27,7 +27,7 @@ class TestECWolfGenerator(GeneratorBaseTest):
         generator: ECWolfGenerator,
         mocker: MockerFixture,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir('/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf')
@@ -54,7 +54,7 @@ class TestECWolfGenerator(GeneratorBaseTest):
         generator: ECWolfGenerator,
         mocker: MockerFixture,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir('/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf')
@@ -89,7 +89,7 @@ Bar = 1;
         generator: ECWolfGenerator,
         mocker: MockerFixture,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir('/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf')
@@ -123,7 +123,7 @@ Bar = 1;
         contents: str,
         mocker: MockerFixture,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir('/userdata/roms/ecwolf/wolf3d14')
@@ -147,7 +147,7 @@ Bar = 1;
         generator: ECWolfGenerator,
         mocker: MockerFixture,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/ecwolf/wolf3d14')
@@ -171,7 +171,7 @@ Bar = 1;
         generator: ECWolfGenerator,
         mocker: MockerFixture,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/ecwolf/Wolfenstein 3D.pk3')

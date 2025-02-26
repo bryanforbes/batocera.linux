@@ -41,7 +41,7 @@ class TestLibretroGeneratorPocketSNES(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 '/var/run/squashfs/rom_name',
-                {},
+                [],
                 {},
                 [],
                 {},

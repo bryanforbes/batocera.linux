@@ -11,7 +11,7 @@ from tests.generators.base import GeneratorBaseTest
 if TYPE_CHECKING:
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -29,7 +29,7 @@ class TestGSplusGenerator(GeneratorBaseTest):
         self,
         generator: GSplusGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -58,7 +58,7 @@ class TestGSplusGenerator(GeneratorBaseTest):
         self,
         generator: GSplusGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -79,7 +79,7 @@ class TestGSplusGenerator(GeneratorBaseTest):
         generator: GSplusGenerator,
         mock_system: Emulator,
         extension: str,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(

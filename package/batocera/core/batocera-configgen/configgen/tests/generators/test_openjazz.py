@@ -8,7 +8,7 @@ from configgen.batoceraPaths import CONFIGS
 from configgen.config import SystemConfig
 from configgen.generators.openjazz.openjazzGenerator import OpenJazzGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
@@ -50,7 +50,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/openjazz/rom.game',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -83,7 +83,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/openjazz/rom.game',
-            make_player_controller_dict(nintendo_pro_controller),
+            make_player_controller_list(nintendo_pro_controller),
             {},
             [],
             {},
@@ -103,7 +103,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/openjazz/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -121,7 +121,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/openjazz/rom.game',
-            make_player_controller_dict(nintendo_pro_controller),
+            make_player_controller_list(nintendo_pro_controller),
             {},
             [],
             {},
@@ -139,7 +139,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/openjazz/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -159,7 +159,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/openjazz/rom.game',
-                make_player_controller_dict(generic_xbox_pad, ps3_controller),
+                make_player_controller_list(generic_xbox_pad, ps3_controller),
                 {},
                 [],
                 {},

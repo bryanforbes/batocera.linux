@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -48,7 +48,7 @@ class TestRazeGenerator(GeneratorBaseTest):
         generator: RazeGenerator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/raze/duke/DUKE3D.GRP')
@@ -82,7 +82,7 @@ FILE+ = /duke/duke3d_hrp.zip
         generator: RazeGenerator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -126,7 +126,7 @@ FILE+ = /duke/duke3d_hrp.zip
         generator: RazeGenerator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/raze/duke/DUKE3D.GRP')
@@ -179,7 +179,7 @@ FILE+ = /duke/duke3d_hrp.zip
         existing_config: dict[str, str] | None,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/raze/duke/DUKE3D.GRP')
@@ -216,7 +216,7 @@ FILE+ = /duke/duke3d_hrp.zip
         generator: RazeGenerator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(
             '/userdata/roms/raze/rom.raze',

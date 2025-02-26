@@ -11,7 +11,7 @@ from configgen.batoceraPaths import BIOS, CONFIGS, DATAINIT_DIR
 from configgen.config import SystemConfig
 from configgen.generators.pcsx2.pcsx2Generator import Pcsx2Generator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
     from configgen.gun import Guns
     from configgen.types import DeviceInfoMapping, Resolution
@@ -69,7 +69,7 @@ class TestPcsx2Generator(GeneratorBaseTest):
         self,
         generator: Pcsx2Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -95,7 +95,7 @@ class TestPcsx2Generator(GeneratorBaseTest):
         generator: Pcsx2Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'PCSX2' / 'inis' / 'PCSX2_ui.ini')
@@ -207,7 +207,7 @@ guncon2_numdevice = 1
         self,
         generator: Pcsx2Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -304,7 +304,7 @@ guncon2_numdevice = 1
         generator: Pcsx2Generator,
         mocker: MockerFixture,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         mocker.patch('time.time', return_value=1.1)
@@ -329,7 +329,7 @@ guncon2_numdevice = 1
         generator: Pcsx2Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -401,7 +401,7 @@ guncon2_numdevice = 1
         self,
         generator: Pcsx2Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         vulkan_is_available: Mock,
     ) -> None:
@@ -440,7 +440,7 @@ guncon2_numdevice = 1
         mock_system: Emulator,
         metadata: dict[str, Any],
         guns: Guns,
-        two_player_controllers: ControllerMapping,
+        two_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -488,7 +488,7 @@ guncon2_numdevice = 1
         generator.generate(
             mock_system,
             '/userdata/roms/ps2/rom.chd',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller),
+            make_player_controller_list(generic_xbox_pad, ps3_controller),
             metadata,
             [],
             wheels,
@@ -518,7 +518,7 @@ guncon2_numdevice = 1
         generator.generate(
             mock_system,
             '/userdata/roms/ps2/rom.chd',
-            make_player_controller_dict(*itertools.repeat(generic_xbox_pad, num_controllers)),
+            make_player_controller_list(*itertools.repeat(generic_xbox_pad, num_controllers)),
             {},
             [],
             {},

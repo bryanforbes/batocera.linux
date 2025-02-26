@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 class TestStellaGenerator(GeneratorBaseTest):
@@ -22,7 +22,7 @@ class TestStellaGenerator(GeneratorBaseTest):
     def test_generate(
         self,
         generator: StellaGenerator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:

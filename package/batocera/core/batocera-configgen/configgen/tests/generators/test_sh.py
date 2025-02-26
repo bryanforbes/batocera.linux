@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 @pytest.mark.usefixtures('fs')
@@ -30,7 +30,7 @@ class TestShGenerator(GeneratorBaseTest):
         self,
         generator: ShGenerator,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -53,7 +53,7 @@ class TestShGenerator(GeneratorBaseTest):
         generator: ShGenerator,
         fs: FakeFilesystem,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/ports/rom.sh/run.sh')

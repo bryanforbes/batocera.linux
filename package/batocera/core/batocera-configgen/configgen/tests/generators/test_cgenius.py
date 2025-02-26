@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -58,7 +58,7 @@ class TestCGeniusGenerator(GeneratorBaseTest):
         self,
         generator: CGeniusGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -81,7 +81,7 @@ class TestCGeniusGenerator(GeneratorBaseTest):
         generator: CGeniusGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -146,7 +146,7 @@ Pogo = Joy0-B9
         self,
         generator: CGeniusGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -175,12 +175,12 @@ Pogo = Joy0-B9
             generator.generate(
                 mock_system,
                 '/userdata/roms/cgenius/rom.cgenius',
-                {
-                    n: generic_xbox_pad.replace(
+                [
+                    generic_xbox_pad.replace(
                         player_number=n, index=n - 1, real_name=f'real name {n}', device_path=f'/dev/input/event{n}'
                     )
                     for n in range(1, 6)
-                },
+                ],
                 {},
                 [],
                 {},

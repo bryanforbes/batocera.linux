@@ -10,13 +10,13 @@ from configgen.batoceraPaths import CONFIGS
 from configgen.config import SystemConfig
 from configgen.generators.redream.redreamGenerator import RedreamGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -57,7 +57,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
         self,
         generator: RedreamGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -81,7 +81,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
         generator: RedreamGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(CONFIGS / 'redream')
@@ -103,7 +103,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
         generator: RedreamGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'redream' / 'redream', contents='older redream bin')
@@ -138,7 +138,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
         self,
         generator: RedreamGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -165,7 +165,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/dreamcast/rom.chd',
-                make_player_controller_dict(
+                make_player_controller_list(
                     generic_xbox_pad, ps3_controller, nintendo_pro_controller, ps3_controller, generic_xbox_pad
                 ),
                 {},

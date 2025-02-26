@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 @pytest.mark.usefixtures('fs')
@@ -41,7 +41,7 @@ class TestCatacombGLGenerator(GeneratorBaseTest):
         generator: CatacombGLGenerator,
         mocker: MockerFixture,
         rom_name: str,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -63,7 +63,7 @@ class TestCatacombGLGenerator(GeneratorBaseTest):
         generator: CatacombGLGenerator,
         fs: FakeFilesystem,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(

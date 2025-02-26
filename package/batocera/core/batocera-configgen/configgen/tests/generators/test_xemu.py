@@ -9,13 +9,13 @@ from configgen.batoceraPaths import CONFIGS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.xemu.xemuGenerator import XemuGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -58,7 +58,7 @@ class TestXemuGenerator(GeneratorBaseTest):
         self,
         generator: XemuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -81,7 +81,7 @@ class TestXemuGenerator(GeneratorBaseTest):
         generator: XemuGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(SAVES / 'xbox' / 'xbox_hdd.qcow2', contents='saved xbox_hdd.qcow2')
@@ -157,7 +157,7 @@ bind_addr = "10.10.10.10"
         self,
         generator: XemuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -177,7 +177,7 @@ bind_addr = "10.10.10.10"
         self,
         generator: XemuGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -202,7 +202,7 @@ bind_addr = "10.10.10.10"
         generator.generate(
             mock_system,
             '/userdata/roms/chihiro/rom.iso',
-            make_player_controller_dict(
+            make_player_controller_list(
                 generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad
             ),
             {},

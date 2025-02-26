@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -43,7 +43,7 @@ class TestETLegacyGenerator(GeneratorBaseTest):
         generator: ETLegacyGenerator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/usr/share/etlegacy/legacy_2.83-dirty.pk3', contents='pk3')
@@ -90,7 +90,7 @@ seta foo "bar"
         generator.generate(
             mock_system,
             '',
-            {},
+            [],
             {},
             [],
             {},
@@ -112,7 +112,7 @@ seta foo "bar"
         generator.generate(
             mock_system,
             '',
-            {},
+            [],
             {},
             [],
             {},
@@ -134,7 +134,7 @@ seta foo "bar"
         generator.generate(
             mock_system,
             '',
-            {},
+            [],
             {},
             [],
             {},

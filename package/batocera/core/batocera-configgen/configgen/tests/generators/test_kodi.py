@@ -7,14 +7,14 @@ import pytest
 from configgen.batoceraPaths import HOME
 from configgen.generators.kodi.kodiGenerator import KodiGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
 
 
 @pytest.mark.usefixtures('fs')
@@ -36,7 +36,7 @@ class TestKodiGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.ANY,
                 '',
-                make_player_controller_dict(generic_xbox_pad, ps3_controller, gpio_controller_1),
+                make_player_controller_list(generic_xbox_pad, ps3_controller, gpio_controller_1),
                 {},
                 [],
                 {},
@@ -92,7 +92,7 @@ class TestKodiGenerator(GeneratorBaseTest):
         generator: KodiGenerator,
         fs: FakeFilesystem,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(
             HOME / '.kodi' / 'userdata' / 'addon_data' / 'peripheral.joystick' / 'settings.xml', contents='existing'
@@ -146,7 +146,7 @@ class TestKodiGenerator(GeneratorBaseTest):
         generator.generate(
             mocker.ANY,
             '',
-            {},
+            [],
             {},
             [],
             {},

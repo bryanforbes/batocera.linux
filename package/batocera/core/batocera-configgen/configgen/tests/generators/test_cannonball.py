@@ -12,7 +12,7 @@ from tests.generators.base import GeneratorBaseTest
 if TYPE_CHECKING:
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -34,7 +34,7 @@ class TestCannonballGenerator(GeneratorBaseTest):
         self,
         generator: CannonballGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -56,7 +56,7 @@ class TestCannonballGenerator(GeneratorBaseTest):
         self,
         generator: CannonballGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         mock_system.config = SystemConfig({'showFPS': 'true', 'ratio': '1', 'highResolution': '1'})

@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.types import Resolution
 
 
@@ -47,7 +47,7 @@ class TestVKQuakeGenerator(GeneratorBaseTest):
         self,
         generator: VKQuakeGenerator,
         rom_name: str,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:

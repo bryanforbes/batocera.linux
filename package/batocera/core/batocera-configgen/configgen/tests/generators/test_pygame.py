@@ -37,7 +37,7 @@ class TestPygameGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/pygame/rom.pygame',
-                {},
+                [],
                 {},
                 [],
                 {},

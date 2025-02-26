@@ -26,7 +26,7 @@ class TestDosBoxStagingGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -44,7 +44,7 @@ class TestDosBoxStagingGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},

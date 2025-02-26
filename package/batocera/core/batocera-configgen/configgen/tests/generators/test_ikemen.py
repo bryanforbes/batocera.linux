@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 @pytest.mark.usefixtures('fs')
@@ -25,7 +25,7 @@ class TestIkemenGenerator(GeneratorBaseTest):
     def test_generate(
         self,
         generator: IkemenGenerator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -48,7 +48,7 @@ class TestIkemenGenerator(GeneratorBaseTest):
         self,
         generator: IkemenGenerator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:

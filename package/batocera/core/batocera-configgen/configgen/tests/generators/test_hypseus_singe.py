@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
     from configgen.generators.Generator import Generator
     from configgen.types import Resolution
@@ -97,7 +97,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         ffmpeg_probe: Mock,
     ) -> None:
@@ -151,7 +151,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -195,7 +195,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -220,7 +220,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         generator: Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / mock_system.name / 'ace.daphne' / 'ace.commands', contents='-one 1 -two 2\n')
@@ -270,7 +270,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -301,7 +301,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/singe/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -383,7 +383,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/{rom_name}.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -411,7 +411,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -442,7 +442,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/foobarbaz.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -465,7 +465,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -488,7 +488,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -512,7 +512,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -537,7 +537,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -560,7 +560,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -581,7 +581,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -604,7 +604,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -626,7 +626,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [mocker.Mock()],
                 {},
@@ -662,7 +662,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [mocker.Mock()],
                 {},
@@ -688,7 +688,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/ace.daphne',
-                {},
+                [],
                 {},
                 [],
                 {},

@@ -39,7 +39,7 @@ class TestLibretroGeneratorBeetleSaturn(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             {},
@@ -61,7 +61,7 @@ class TestLibretroGeneratorBeetleSaturn(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             wheels,

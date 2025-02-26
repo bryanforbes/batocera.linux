@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 import pytest
 
 from tests.generators.libretro.base import LibretroBaseCoreTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from syrupy.assertion import SnapshotAssertion
@@ -48,7 +48,7 @@ class TestLibretroGeneratorPicodrive(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            make_player_controller_dict(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
             {},
             [],
             {},
@@ -78,12 +78,12 @@ class TestLibretroGeneratorPicodrive(LibretroBaseCoreTest):
         guid: str | None,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(generic_xbox_pad)
+        controllers = make_player_controller_list(generic_xbox_pad)
 
         if name is not None:
-            controllers[1].name = name
+            controllers[0].name = name
         if guid is not None:
-            controllers[1].guid = guid
+            controllers[0].guid = guid
 
         generator.generate(
             mock_system,

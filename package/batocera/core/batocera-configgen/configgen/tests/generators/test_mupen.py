@@ -9,13 +9,13 @@ from configgen.batoceraPaths import CONFIGS, DATAINIT_DIR
 from configgen.config import SystemConfig
 from configgen.generators.mupen.mupenGenerator import MupenGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 _CORE_DIR: Final = (
@@ -71,7 +71,7 @@ class TestMupenGenerator(GeneratorBaseTest):
         self,
         generator: MupenGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -93,7 +93,7 @@ class TestMupenGenerator(GeneratorBaseTest):
         self,
         generator: MupenGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -115,7 +115,7 @@ class TestMupenGenerator(GeneratorBaseTest):
         generator: MupenGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -169,7 +169,7 @@ Foo = Bar
         self,
         generator: MupenGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -233,7 +233,7 @@ Foo = Bar
         self,
         generator: MupenGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -262,7 +262,7 @@ Foo = Bar
         generator.generate(
             mock_system,
             '/userdata/roms/n64/rom.z64',
-            make_player_controller_dict(gpio_controller_1, ps3_controller, generic_xbox_pad),
+            make_player_controller_list(gpio_controller_1, ps3_controller, generic_xbox_pad),
             {},
             [],
             {},
@@ -274,7 +274,7 @@ Foo = Bar
         self,
         generator: MupenGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(

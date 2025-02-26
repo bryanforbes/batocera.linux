@@ -16,7 +16,7 @@ from tests.generators.libretro.utils import (
     get_first_extension,
     get_systems_for_core_iter,
 )
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable
@@ -150,7 +150,7 @@ class LibretroBaseCoreTest(GeneratorBaseMixin, LibretroBaseMixin):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -201,7 +201,7 @@ class LibretroBaseCoreTest(GeneratorBaseMixin, LibretroBaseMixin):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             {},
@@ -223,7 +223,7 @@ class LibretroBaseCoreTest(GeneratorBaseMixin, LibretroBaseMixin):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             {},
@@ -277,7 +277,7 @@ class LibretroBaseCoreTest(GeneratorBaseMixin, LibretroBaseMixin):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             {},
@@ -304,7 +304,7 @@ class LibretroBaseCoreTest(GeneratorBaseMixin, LibretroBaseMixin):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, keyboard_controller, anbernic_pad),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, keyboard_controller, anbernic_pad),
             {},
             [],
             {},
@@ -331,7 +331,7 @@ class LibretroBaseCoreTest(GeneratorBaseMixin, LibretroBaseMixin):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            make_player_controller_dict(*controllers),
+            make_player_controller_list(*controllers),
             metadata,
             [
                 mocker.Mock(mouse_index=42),

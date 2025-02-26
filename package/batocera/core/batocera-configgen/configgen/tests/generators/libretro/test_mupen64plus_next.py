@@ -7,7 +7,7 @@ from pytest_lazy_fixtures import lf
 
 from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
@@ -58,7 +58,7 @@ class TestLibretroGeneratorMupen64PlusNext(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, keyboard_controller),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, keyboard_controller),
             {},
             [],
             {},
@@ -88,7 +88,7 @@ class TestLibretroGeneratorMupen64PlusNext(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.z64',
-            make_player_controller_dict(first_controller, generic_xbox_pad, ps3_controller, keyboard_controller),
+            make_player_controller_list(first_controller, generic_xbox_pad, ps3_controller, keyboard_controller),
             {},
             [],
             {},
@@ -128,7 +128,7 @@ class TestLibretroGeneratorMupen64PlusNext(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.z64',
-            make_player_controller_dict(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
             {},
             [],
             {},
@@ -159,7 +159,7 @@ class TestLibretroGeneratorMupen64PlusNext(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             {'foo': {}} if has_wheels else {},  # pyright: ignore

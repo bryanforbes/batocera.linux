@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -74,7 +74,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
         self,
         generator: VPinballGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -96,7 +96,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
         generator: VPinballGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'vpinball' / 'VPinballX.ini', contents='[Foo]\nBar = 1')
@@ -120,7 +120,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
         generator: VPinballGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'vpinball' / 'VPinballX.ini', contents='[Foo]\nBar = 1\nBar = 2')
@@ -171,7 +171,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
         self,
         generator: VPinballGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -244,7 +244,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
         self,
         generator: VPinballGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(

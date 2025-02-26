@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -48,7 +48,7 @@ class TestVita3kGenerator(GeneratorBaseTest):
         self,
         generator: Vita3kGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -70,7 +70,7 @@ class TestVita3kGenerator(GeneratorBaseTest):
         generator: Vita3kGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -102,7 +102,7 @@ foo: bar
         generator: Vita3kGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'vita3k' / 'config.yml')
@@ -139,7 +139,7 @@ foo: bar
         self,
         generator: Vita3kGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -158,7 +158,7 @@ foo: bar
         generator: Vita3kGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_dir(CONFIGS / 'vita3k' / 'ux0')
         fs.create_dir(CONFIGS / 'vita3k' / 'data')
@@ -195,7 +195,7 @@ foo: bar
         generator: Vita3kGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(SAVES / 'psvita' / 'ux0' / 'app' / 'foo')

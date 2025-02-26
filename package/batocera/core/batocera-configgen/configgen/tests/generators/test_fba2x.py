@@ -7,13 +7,13 @@ import pytest
 from configgen.batoceraPaths import CONFIGS
 from configgen.generators.fba2x.fba2xGenerator import Fba2xGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -35,7 +35,7 @@ class TestFba2xGenerator(GeneratorBaseTest):
         self,
         generator: Fba2xGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -57,7 +57,7 @@ class TestFba2xGenerator(GeneratorBaseTest):
         generator: Fba2xGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -101,7 +101,7 @@ Bar = 2
         self,
         generator: Fba2xGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -120,7 +120,7 @@ Bar = 2
         self,
         generator: Fba2xGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -146,7 +146,7 @@ Bar = 2
         generator.generate(
             mock_system,
             '/userdata/roms/neogeo/sfa.zip',
-            make_player_controller_dict(generic_xbox_pad, gpio_controller_1),
+            make_player_controller_list(generic_xbox_pad, gpio_controller_1),
             {},
             [],
             {},

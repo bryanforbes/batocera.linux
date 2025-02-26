@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -52,7 +52,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
         self,
         generator: CorsixTHGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -74,7 +74,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
         generator: CorsixTHGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'corsixth' / 'config.txt', contents='check_for_updates = true\n')
@@ -103,7 +103,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
         self,
         generator: CorsixTHGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -151,7 +151,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
         generator: CorsixTHGenerator,
         lang: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         subprocess_check_output: Mock,
     ) -> None:
@@ -174,7 +174,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
         self,
         generator: CorsixTHGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         subprocess_check_output: Mock,
     ) -> None:
@@ -197,7 +197,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
         generator: CorsixTHGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'corsixth' / 'MP3')

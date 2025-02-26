@@ -36,7 +36,7 @@ class TestTsugaruGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/fmtowns/rom.bin',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -57,7 +57,7 @@ class TestTsugaruGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/fmtowns/rom.{extension}',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -84,7 +84,7 @@ class TestTsugaruGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/fmtowns/rom.bin',
-                {},
+                [],
                 {},
                 [],
                 {},

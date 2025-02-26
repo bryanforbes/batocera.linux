@@ -9,14 +9,14 @@ import pytest
 from configgen.batoceraPaths import BIOS, CONFIGS
 from configgen.generators.duckstation_legacy.duckstationLegacyGenerator import DuckstationLegacyGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -51,7 +51,7 @@ class TestDuckstationLegacyGenerator(GeneratorBaseTest):
         self,
         generator: DuckstationLegacyGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -76,7 +76,7 @@ class TestDuckstationLegacyGenerator(GeneratorBaseTest):
         generator: DuckstationLegacyGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/usr/bin/duckstation-qt')
@@ -99,7 +99,7 @@ class TestDuckstationLegacyGenerator(GeneratorBaseTest):
         generator: DuckstationLegacyGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -181,7 +181,7 @@ Bar = baz
         generator: DuckstationLegacyGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -214,7 +214,7 @@ rom/rom4.chd
         generator: DuckstationLegacyGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_dir(BIOS)
 
@@ -301,7 +301,7 @@ rom/rom4.chd
         self,
         generator: DuckstationLegacyGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -322,7 +322,7 @@ rom/rom4.chd
         fs: FakeFilesystem,
         bios_filename: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         (BIOS / 'scph5501.bin').unlink()
@@ -363,7 +363,7 @@ rom/rom4.chd
         self,
         generator: DuckstationLegacyGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -396,7 +396,7 @@ rom/rom4.chd
         generator.generate(
             mock_system,
             '/userdata/roms/psx/rom.chd',
-            make_player_controller_dict(*itertools.repeat(generic_xbox_pad, controller_count)),
+            make_player_controller_list(*itertools.repeat(generic_xbox_pad, controller_count)),
             {},
             [],
             {},
@@ -426,7 +426,7 @@ rom/rom4.chd
         generator.generate(
             mock_system,
             '/userdata/roms/psx/rom.chd',
-            make_player_controller_dict(*itertools.repeat(generic_xbox_pad, 5)),
+            make_player_controller_list(*itertools.repeat(generic_xbox_pad, 5)),
             metadata,
             [mocker.Mock()],
             {},

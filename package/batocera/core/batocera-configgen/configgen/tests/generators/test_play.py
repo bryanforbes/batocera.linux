@@ -8,7 +8,7 @@ from configgen.batoceraPaths import CONFIGS
 from configgen.config import SystemConfig
 from configgen.generators.play.playGenerator import PlayGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -76,7 +76,7 @@ class TestPlayGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/namco2x6/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -97,7 +97,7 @@ class TestPlayGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/namco2x6/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -112,7 +112,7 @@ class TestPlayGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 'config',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -128,7 +128,7 @@ class TestPlayGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/namco2x6/rom.chd',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -156,7 +156,7 @@ class TestPlayGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/namco2x6/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -175,7 +175,7 @@ class TestPlayGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/namco2x6/rom.zip',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],
             {},

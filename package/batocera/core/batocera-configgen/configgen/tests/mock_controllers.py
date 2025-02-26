@@ -7,7 +7,7 @@ from typing import Literal, cast
 
 import pytest
 
-from configgen.controller import Controller, ControllerDict, ControllerMapping
+from configgen.controller import Controller, ControllerList, Controllers
 from configgen.input import Input
 
 
@@ -413,18 +413,18 @@ def make_player_controller(controller: Controller, player_number: int, /) -> Con
     )
 
 
-def make_player_controller_dict(*controllers: Controller) -> ControllerDict:
-    return {
-        player_number: make_player_controller(controller, player_number)
+def make_player_controller_list(*controllers: Controller) -> ControllerList:
+    return [
+        make_player_controller(controller, player_number)
         for player_number, controller in enumerate(controllers, start=1)
-    }
+    ]
 
 
 @pytest.fixture
-def one_player_controllers(generic_xbox_pad: Controller) -> ControllerMapping:
-    return make_player_controller_dict(generic_xbox_pad)
+def one_player_controllers(generic_xbox_pad: Controller) -> Controllers:
+    return make_player_controller_list(generic_xbox_pad)
 
 
 @pytest.fixture
-def two_player_controllers(generic_xbox_pad: Controller) -> ControllerMapping:
-    return make_player_controller_dict(generic_xbox_pad, generic_xbox_pad)
+def two_player_controllers(generic_xbox_pad: Controller) -> Controllers:
+    return make_player_controller_list(generic_xbox_pad, generic_xbox_pad)

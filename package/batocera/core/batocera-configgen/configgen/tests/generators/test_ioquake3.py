@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
     from configgen.types import Resolution
 
@@ -58,7 +58,7 @@ class TestIOQuake3Generator(GeneratorBaseTest):
         generator: IOQuake3Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'quake3' / 'baseq3')
@@ -98,7 +98,7 @@ class TestIOQuake3Generator(GeneratorBaseTest):
         generator: IOQuake3Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'quake3' / 'baseq3')
@@ -132,7 +132,7 @@ class TestIOQuake3Generator(GeneratorBaseTest):
         generator: IOQuake3Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'quake3' / 'ioquake3', contents='new ioquake3 bin')

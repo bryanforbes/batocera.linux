@@ -30,7 +30,7 @@ class TestDosBoxxGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -57,7 +57,7 @@ bar = false
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -87,7 +87,7 @@ foo = false
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/dos/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},

@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 class TestTaradinoGenerator(GeneratorBaseTest):
@@ -23,7 +23,7 @@ class TestTaradinoGenerator(GeneratorBaseTest):
         self,
         generator: TaradinoGenerator,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (

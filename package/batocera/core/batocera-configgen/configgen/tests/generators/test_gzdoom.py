@@ -47,7 +47,7 @@ class TestGZDoomGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/gzdoom/romdir/rom.wad',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -88,7 +88,7 @@ echo BATOCERA
         generator.generate(
             mock_system,
             '/userdata/roms/gzdoom/romdir/rom.wad',
-            {},
+            [],
             {},
             [],
             {},
@@ -115,7 +115,7 @@ Path=/yet/another/path
         generator.generate(
             mock_system,
             '/userdata/roms/gzdoom/romdir/rom.wad',
-            {},
+            [],
             {},
             [],
             {},
@@ -141,7 +141,7 @@ Path=/yet/another/path
             generator.generate(
                 mock_system,
                 '/userdata/roms/gzdoom/romdir/rom.wad',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -164,7 +164,7 @@ Path=/yet/another/path
             generator.generate(
                 mock_system,
                 '/userdata/roms/gzdoom/romdir/rom.gzdoom',
-                {},
+                [],
                 {},
                 [],
                 {},

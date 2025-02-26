@@ -10,7 +10,7 @@ from configgen.controller import Controller
 from configgen.gun import Gun
 from configgen.input import Input
 from configgen.utils.evmapy import evmapy
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -153,7 +153,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(minimal_controller),
+            make_player_controller_list(minimal_controller),
             [],
         ):
             assert subprocess_call.call_args_list == snapshot(name='subprocess.call')
@@ -218,7 +218,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad),
             [],
         ):
             assert subprocess_call.call_args_list == snapshot(name='subprocess.call')
@@ -238,7 +238,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(minimal_controller),
+            make_player_controller_list(minimal_controller),
             [],
         ):
             assert subprocess_call.call_args_list == snapshot(name='subprocess.call')
@@ -274,7 +274,7 @@ class TestEvmapy:
                 'emulator',
                 'core',
                 '/userdata/roms/system/rom_name.game',
-                make_player_controller_dict(minimal_controller),
+                make_player_controller_list(minimal_controller),
                 [],
             ),
         ):
@@ -307,7 +307,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(minimal_controller, minimal_controller),
+            make_player_controller_list(minimal_controller, minimal_controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -365,7 +365,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -421,7 +421,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -497,7 +497,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -576,7 +576,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -641,7 +641,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -688,7 +688,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -748,7 +748,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [],
         ):
             assert Path('/var/run/evmapy/event1.json').read_text() == snapshot(name='event1.json')
@@ -798,7 +798,7 @@ class TestEvmapy:
             'emulator',
             'core',
             '/userdata/roms/system/rom_name.game',
-            make_player_controller_dict(controller),
+            make_player_controller_list(controller),
             [
                 Gun(
                     node='/dev/input/event1',
