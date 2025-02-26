@@ -6,7 +6,7 @@ import pytest
 
 from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -56,7 +56,7 @@ class TestLibretroGeneratorDesmume(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/nds/rom.{default_extension}',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller),
+            make_player_controller_list(generic_xbox_pad, ps3_controller),
             {},
             [],
             {},

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -58,7 +58,7 @@ class TestSonic3AIRGenerator(GeneratorBaseTest):
         self,
         generator: Sonic3AIRGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -83,7 +83,7 @@ class TestSonic3AIRGenerator(GeneratorBaseTest):
         generator: Sonic3AIRGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(

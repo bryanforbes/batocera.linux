@@ -59,7 +59,7 @@ class TestLibretroGeneratorHatarib(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/atarist/rom.{extension}',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -92,7 +92,7 @@ class TestLibretroGeneratorHatarib(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/atarist/rom.{extension}',
-            {},
+            [],
             {},
             [],
             {},
@@ -131,7 +131,7 @@ bBar = FALSE
         generator.generate(
             mock_system,
             '/userdata/roms/atarist/rom.zip',
-            {},
+            [],
             {},
             [],
             {},

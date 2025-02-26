@@ -48,7 +48,7 @@ class TestLibretroGeneratorPx68k(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             '/userdata/roms/x68000/rom.dim',
-            {},
+            [],
             {},
             [],
             {},

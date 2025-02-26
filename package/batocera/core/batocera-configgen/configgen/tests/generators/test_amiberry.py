@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
     from configgen.generators.Generator import Generator
 
@@ -47,7 +47,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -68,14 +68,14 @@ class TestAmiberryGenerator(GeneratorBaseTest):
             name='overlay.cfg'
         )
         assert Path(
-            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{one_player_controllers[1].real_name}.cfg'
+            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{one_player_controllers[0].real_name}.cfg'
         ).read_text() == snapshot(name='controller.cfg')
 
     def test_generate_hdf(
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -97,7 +97,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         generator: Generator,
         extension: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -119,7 +119,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         generator: Generator,
         extension: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -139,7 +139,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         fs: FakeFilesystem,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -163,7 +163,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         fs: FakeFilesystem,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -190,7 +190,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         fs: FakeFilesystem,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -215,7 +215,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         fs: FakeFilesystem,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -239,7 +239,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         fs: FakeFilesystem,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -268,7 +268,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         generator: Generator,
         extension: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         fs: FakeFilesystem,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -293,7 +293,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         fs: FakeFilesystem,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -319,7 +319,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -366,7 +366,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -387,14 +387,14 @@ class TestAmiberryGenerator(GeneratorBaseTest):
             name='overlay.cfg'
         )
         assert Path(
-            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{one_player_controllers[1].real_name}.cfg'
+            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{one_player_controllers[0].real_name}.cfg'
         ).read_text() == snapshot(name='controller.cfg')
 
     def test_generate_two_controllers(
         self,
         generator: Generator,
         mock_system: Emulator,
-        two_player_controllers: ControllerMapping,
+        two_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -415,8 +415,8 @@ class TestAmiberryGenerator(GeneratorBaseTest):
             name='overlay.cfg'
         )
         assert Path(
-            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{two_player_controllers[1].real_name}.cfg'
+            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{two_player_controllers[0].real_name}.cfg'
         ).read_text() == snapshot(name='controller1.cfg')
         assert Path(
-            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{two_player_controllers[2].real_name}.cfg'
+            CONFIGS / 'amiberry' / 'conf' / 'retroarch' / 'inputs' / f'{two_player_controllers[1].real_name}.cfg'
         ).read_text() == snapshot(name='controller2.cfg')

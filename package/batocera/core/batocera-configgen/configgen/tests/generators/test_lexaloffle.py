@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -44,7 +44,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         generator: LexaloffleGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'pico-8' / 'pico8', st_mode=stat.S_IXUSR)
@@ -69,7 +69,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         generator: LexaloffleGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -96,7 +96,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         self,
         generator: LexaloffleGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         with pytest.raises(
             Exception, match='^The Lexaloffle generator has been called for an unknwon system: something_else.$'
@@ -116,7 +116,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         self,
         generator: LexaloffleGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         with pytest.raises(Exception, match='^Lexaloffle official binary not found at '):
             generator.generate(
@@ -135,7 +135,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         generator: LexaloffleGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(BIOS / ('pico-8/pico8' if mock_system.name == 'pico8' else 'voxatron/vox'))
 
@@ -157,7 +157,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         rom_name: str,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'pico-8' / 'pico8', st_mode=stat.S_IXUSR)
@@ -181,7 +181,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         generator: LexaloffleGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'pico-8' / 'pico8', st_mode=stat.S_IXUSR)
@@ -204,7 +204,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         generator: LexaloffleGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'pico-8' / 'pico8', st_mode=stat.S_IXUSR)

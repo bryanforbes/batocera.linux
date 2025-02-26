@@ -35,7 +35,7 @@ class TestLibretroGeneratorScummVM(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/scummvm/game.scummvm',
-                {},
+                [],
                 {},
                 [],
                 {},

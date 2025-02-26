@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -49,7 +49,7 @@ class TestFallout2Generator(GeneratorBaseTest):
         self,
         generator: Fallout2Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -74,7 +74,7 @@ class TestFallout2Generator(GeneratorBaseTest):
         generator: Fallout2Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -116,7 +116,7 @@ SCALE_2X = 0
         generator: Fallout2Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -159,7 +159,7 @@ SCALE_2X = 0
         generator: Fallout2Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(ROMS / 'fallout2-ce' / 'fallout2-ce', contents='new fallout bin')
 
@@ -180,7 +180,7 @@ SCALE_2X = 0
         generator: Fallout2Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(ROMS / 'fallout2-ce' / 'fallout2-ce', contents='old fallout bin')
         fs.utime(str(ROMS / 'fallout2-ce' / 'fallout2-ce'), (0, 0))
@@ -217,7 +217,7 @@ SCALE_2X = 0
         generator.generate(
             mock_system,
             '',
-            {},
+            [],
             {},
             [],
             {},
@@ -235,7 +235,7 @@ SCALE_2X = 0
         generator.generate(
             mock_system,
             '',
-            {},
+            [],
             {},
             [],
             {},

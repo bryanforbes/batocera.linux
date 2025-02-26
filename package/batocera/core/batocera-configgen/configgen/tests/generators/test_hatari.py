@@ -8,13 +8,13 @@ from configgen.batoceraPaths import BIOS, CONFIGS
 from configgen.controller import Controller
 from configgen.generators.hatari.hatariGenerator import HatariGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -37,7 +37,7 @@ class TestHatariGenerator(GeneratorBaseTest):
         generator: HatariGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'etos256us.img')
@@ -62,7 +62,7 @@ class TestHatariGenerator(GeneratorBaseTest):
         generator: HatariGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'etos256us.img')
@@ -110,7 +110,7 @@ bBar = FALSE
         generator: HatariGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'etos256us.img')
@@ -143,7 +143,7 @@ bBar = FALSE
             generator.generate(
                 mock_system,
                 '/userdata/roms/atarist/rom.st',
-                make_player_controller_dict(
+                make_player_controller_list(
                     generic_xbox_pad,
                     Controller(
                         name='Mock',
@@ -186,7 +186,7 @@ bBar = FALSE
         generator: HatariGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / 'etos256us.img')
@@ -210,7 +210,7 @@ bBar = FALSE
         generator: HatariGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(CONFIGS / 'hatari')
@@ -235,7 +235,7 @@ bBar = FALSE
         generator: HatariGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'hatari' / 'blank.st', contents='blank')
@@ -292,7 +292,7 @@ bBar = FALSE
         language: str,
         model: str | None,
         bios_prefix: str,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(BIOS / f'{bios_prefix}{"" if language == "auto" else language}.img')
@@ -319,7 +319,7 @@ bBar = FALSE
         self,
         generator: HatariGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         with pytest.raises(Exception, match=r'^no bios found for machine'):
             generator.generate(

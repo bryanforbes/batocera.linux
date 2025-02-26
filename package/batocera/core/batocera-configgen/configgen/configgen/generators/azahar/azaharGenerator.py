@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import logging
 from os import environ
-from pathlib import Path
 from typing import TYPE_CHECKING
 
 from ... import Command
@@ -13,7 +12,9 @@ from ...utils.configparser import CaseSensitiveRawConfigParser
 from ..Generator import Generator
 
 if TYPE_CHECKING:
-    from ...controller import ControllerMapping
+    from pathlib import Path
+
+    from ...controller import Controllers
     from ...Emulator import Emulator
     from ...input import InputMapping
     from ...types import HotkeysContext
@@ -34,7 +35,7 @@ class AzaharGenerator(Generator):
         AzaharGenerator.writeAZAHARConfig(CONFIGS / "azahar" / "qt-config.ini", system, playersControllers)
 
         commandArray = ['/usr/bin/azahar', rom]
-        
+
         return Command.Command(array=commandArray, env={
             "XDG_CONFIG_HOME":CONFIGS,
             "XDG_DATA_HOME":SAVES / "3ds",
@@ -57,7 +58,7 @@ class AzaharGenerator(Generator):
     def writeAZAHARConfig(
         azaharConfigFile: Path,
         system: Emulator,
-        playersControllers: ControllerMapping
+        playersControllers: Controllers
     ) -> None:
         # Pads
         azaharButtons = {
@@ -220,8 +221,7 @@ class AzaharGenerator(Generator):
             azaharConfig.set("Controls", r"profiles\1\name", "default")
             azaharConfig.set("Controls", r"profiles\size", "1")
 
-        for index in playersControllers :
-            controller = playersControllers[index]
+        for controller in playersControllers:
             # We only care about player 1
             if controller.player_number != 1:
                 continue

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -53,7 +53,7 @@ class TestTheForceEngineGenerator(GeneratorBaseTest):
         generator: TheForceEngineGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'theforceengine' / 'rom.tfe')
@@ -77,7 +77,7 @@ class TestTheForceEngineGenerator(GeneratorBaseTest):
         generator: TheForceEngineGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'theforceengine' / 'rom.tfe')
@@ -176,7 +176,7 @@ sourcePath = "/tmp"
         generator: TheForceEngineGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'theforceengine' / 'rom.tfe')
@@ -200,7 +200,7 @@ sourcePath = "/tmp"
         generator: TheForceEngineGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'theforceengine' / 'rom.tfe')
@@ -224,7 +224,7 @@ sourcePath = "/tmp"
         generator: TheForceEngineGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'theforceengine' / 'Mods' / 'v3.zip')

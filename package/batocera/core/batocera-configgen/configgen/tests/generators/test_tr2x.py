@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import ControllerList
     from configgen.Emulator import Emulator
     from configgen.types import Resolution
 
@@ -65,7 +65,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         self,
         generator: TR2XGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -91,7 +91,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         generator: TR2XGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'traider2' / 'music')
@@ -125,7 +125,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         mock_system: Emulator,
         copytree: Mock,
         exception: Exception,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         copytree.side_effect = exception
@@ -149,7 +149,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         fs: FakeFilesystem,
         generator: TR2XGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'traider2' / 'cfg' / 'TR2X.json5', contents='{{')

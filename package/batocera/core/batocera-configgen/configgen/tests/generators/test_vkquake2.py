@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.types import Resolution
 
 
@@ -60,7 +60,7 @@ class TestVKQuake2Generator(GeneratorBaseTest):
         generator: VKQuake2Generator,
         fs: FakeFilesystem,
         rom_name: str,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -85,7 +85,7 @@ class TestVKQuake2Generator(GeneratorBaseTest):
         self,
         generator: VKQuake2Generator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
     ) -> None:
         fs.create_file('/userdata/roms/quake2/quake2', contents='newer quake2 bin')
@@ -108,7 +108,7 @@ class TestVKQuake2Generator(GeneratorBaseTest):
         self,
         generator: VKQuake2Generator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         mocker: MockerFixture,
     ) -> None:
         fs.remove_object('/usr/bin/vkquake2')

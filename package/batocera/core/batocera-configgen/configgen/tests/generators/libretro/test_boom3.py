@@ -32,7 +32,7 @@ class TestLibretroGeneratorBoom3(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/doom3/rom.d3',
-                {},
+                [],
                 {},
                 [],
                 {},

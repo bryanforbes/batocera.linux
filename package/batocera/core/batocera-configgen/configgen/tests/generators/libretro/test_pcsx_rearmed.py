@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 import pytest
 
 from tests.generators.libretro.base import LibretroBaseCoreTest, parametrize_guns
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from syrupy.assertion import SnapshotAssertion
@@ -65,7 +65,7 @@ class TestLibretroGeneratorPCSXRearmed(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             {},
@@ -104,7 +104,7 @@ class TestLibretroGeneratorPCSXRearmed(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            make_player_controller_dict(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
             metadata,
             [],
             {},

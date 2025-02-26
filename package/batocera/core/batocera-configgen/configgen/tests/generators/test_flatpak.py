@@ -33,7 +33,7 @@ class TestFlatpakGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/flatpak/rom.flatpak',
-                {},
+                [],
                 {},
                 [],
                 {},

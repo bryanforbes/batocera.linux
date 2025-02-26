@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 @pytest.mark.usefixtures(
@@ -39,7 +39,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         self,
         generator: shadPS4Generator,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -61,7 +61,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         generator: shadPS4Generator,
         fs: FakeFilesystem,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'shadps4' / 'user' / 'config.toml')
@@ -81,7 +81,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         self,
         generator: shadPS4Generator,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -111,7 +111,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         self,
         generator: shadPS4Generator,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -130,7 +130,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         generator: shadPS4Generator,
         vulkan_is_available: Mock,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         vulkan_is_available.return_value = False
 

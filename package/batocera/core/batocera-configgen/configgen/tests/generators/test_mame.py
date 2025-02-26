@@ -14,7 +14,7 @@ from configgen.generators.mame.mameGenerator import MameGenerator
 from configgen.generators.mame.mamePaths import MAME_CONFIG, MAME_DEFAULT_DATA
 from configgen.utils.bezels import createTransparentBezel
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from collections.abc import Mapping
@@ -228,7 +228,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/mame/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -262,7 +262,7 @@ class TestMameGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/mame/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -729,7 +729,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/{rom}',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -770,7 +770,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/adam/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -802,7 +802,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/adam/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -837,7 +837,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/mame/some/subdir/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -868,7 +868,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/bbc/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -889,7 +889,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/fm7/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -919,7 +919,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/coco/rom.{rom_extension}',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -963,7 +963,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/coco/zonx.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -996,7 +996,7 @@ class TestMameGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/coco/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -1026,7 +1026,7 @@ foo;\\n*RUN\\n*OTHER\\n*STUFF
             generator.generate(
                 mock_system,
                 '/userdata/roms/coco/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -1065,7 +1065,7 @@ foo;\\n*RUN\\n*OTHER\\n*STUFF
             generator.generate(
                 mock_system,
                 '/userdata/roms/fmtowns/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -1096,7 +1096,7 @@ foo;\\n*RUN\\n*OTHER\\n*STUFF
             generator.generate(
                 mock_system,
                 '/userdata/roms/electron/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -1650,7 +1650,7 @@ def test_generate_pads_config(
 
     generatePadsConfig(
         MAME_CONFIG,
-        make_player_controller_dict(generic_xbox_pad, ps3_controller, gpio_controller_1),
+        make_player_controller_list(generic_xbox_pad, ps3_controller, gpio_controller_1),
         model_name,
         'default',
         False,

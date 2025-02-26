@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -35,7 +35,7 @@ class TestEDuke32Generator(GeneratorBaseTest):
         generator: EDuke32Generator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/eduke32/duke/DUKE3D.GRP')
@@ -69,7 +69,7 @@ FILE+ = /duke/duke3d_hrp.zip
         generator: EDuke32Generator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -107,7 +107,7 @@ FILE+ = /duke/duke3d_hrp.zip
         self,
         generator: EDuke32Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -140,7 +140,7 @@ FILE+ = /duke/duke3d_hrp.zip
         generator: EDuke32Generator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/eduke32/duke/DUKE3D.GRP')
@@ -172,7 +172,7 @@ FILE+ = /duke/duke3d_hrp.zip
         generator: EDuke32Generator,
         mock_system: Emulator,
         fs: FakeFilesystem,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file(
             '/userdata/roms/eduke32/rom.eduke32',

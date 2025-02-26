@@ -80,7 +80,7 @@ class TestLibretroGeneratorDosboxPure(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 rom_path,
-                {},
+                [],
                 {},
                 [],
                 {},

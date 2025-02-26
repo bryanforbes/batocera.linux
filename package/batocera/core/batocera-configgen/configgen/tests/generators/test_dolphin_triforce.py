@@ -10,13 +10,13 @@ from configgen.batoceraPaths import CONFIGS
 from configgen.config import SystemConfig
 from configgen.generators.dolphin_triforce.dolphinTriforceGenerator import DolphinTriforceGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
     from configgen.types import Resolution
 
@@ -67,7 +67,7 @@ class TestDolphinTriforceGenerator(GeneratorBaseTest):
         self,
         generator: DolphinTriforceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -97,7 +97,7 @@ class TestDolphinTriforceGenerator(GeneratorBaseTest):
         generator: DolphinTriforceGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -183,7 +183,7 @@ Bar = 1
         generator: DolphinTriforceGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         for file in _INI_FILES:
             fs.create_file(CONFIGS / 'dolphin-triforce' / 'GameSettings' / file.name, contents='newer config')
@@ -223,7 +223,7 @@ Bar = 1
         self,
         generator: DolphinTriforceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -263,7 +263,7 @@ Bar = 1
         self,
         generator: DolphinTriforceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -295,7 +295,7 @@ Bar = 1
         self,
         generator: DolphinTriforceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -318,7 +318,7 @@ Bar = 1
         ps3_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(generic_xbox_pad, generic_xbox_pad, ps3_controller)
+        controllers = make_player_controller_list(generic_xbox_pad, generic_xbox_pad, ps3_controller)
 
         generator.generate(
             mock_system,
@@ -341,7 +341,7 @@ Bar = 1
         ps3_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(generic_xbox_pad, generic_xbox_pad, ps3_controller)
+        controllers = make_player_controller_list(generic_xbox_pad, generic_xbox_pad, ps3_controller)
 
         generator.generate(
             mock_system,
@@ -362,7 +362,7 @@ Bar = 1
         ps3_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(generic_xbox_pad, generic_xbox_pad, ps3_controller)
+        controllers = make_player_controller_list(generic_xbox_pad, generic_xbox_pad, ps3_controller)
 
         generator.generate(
             mock_system,
@@ -383,7 +383,7 @@ Bar = 1
         keyboard_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(keyboard_controller)
+        controllers = make_player_controller_list(keyboard_controller)
 
         generator.generate(
             mock_system,
@@ -404,7 +404,7 @@ Bar = 1
         gpio_controller_2: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(gpio_controller_2)
+        controllers = make_player_controller_list(gpio_controller_2)
 
         generator.generate(
             mock_system,

@@ -6,7 +6,7 @@ import pytest
 
 from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest, parametrize_guns
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
@@ -52,7 +52,7 @@ class TestLibretroGeneratorSnes9x(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            {},
+            [],
             {},
             [],
             {},
@@ -77,7 +77,7 @@ class TestLibretroGeneratorSnes9x(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, keyboard_controller),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, keyboard_controller),
             {},
             [],
             {},
@@ -109,7 +109,7 @@ class TestLibretroGeneratorSnes9x(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 '/var/run/squashfs/rom_name',
-                {},
+                [],
                 {},
                 [],
                 {},

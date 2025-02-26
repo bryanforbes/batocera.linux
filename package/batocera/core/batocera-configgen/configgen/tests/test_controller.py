@@ -8,6 +8,7 @@ import pytest
 from configgen.batoceraPaths import BATOCERA_ES_DIR, HOME, USER_ES_DIR
 from configgen.controller import Controller, get_mapping_axis_relaxed_values
 from configgen.input import Input
+from tests.mock_controllers import make_player_controller
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -214,7 +215,7 @@ class TestController:
 
         assert (
             Controller.load_for_players(
-                7,
+                6,
                 Namespace(
                     # P1: matches user test controller with guid and name
                     p1index=0,
@@ -248,42 +249,105 @@ class TestController:
                     p4nbbuttons=1,
                     p4nbhats=2,
                     p4nbaxes=3,
-                    # P5: matches no controllers
-                    p5index=5,
-                    p5guid='4',
-                    p5name='Non existent',
-                    p5devicepath='/dev/event/input5',
+                    # P5: matches system test controller 2 with name and guid
+                    p5index=6,
+                    p5guid='3',
+                    p5name='Test controller 2',
+                    p5devicepath='/dev/event/input6',
                     p5nbbuttons=1,
                     p5nbhats=2,
                     p5nbaxes=3,
-                    # P6: matches system test controller 2 with name and guid
-                    p6index=6,
-                    p6guid='3',
-                    p6name='Test controller 2',
-                    p6devicepath='/dev/event/input6',
-                    p6nbbuttons=1,
-                    p6nbhats=2,
-                    p6nbaxes=3,
-                    # P7: not passed to emulatorlauncher
-                    p7index=None,
-                    p7guid=None,
-                    p7name=None,
-                    p7devicepath=None,
-                    p7nbbuttons=None,
-                    p7nbhats=None,
-                    p7nbaxes=None,
+                    # P6: not passed to emulatorlauncher
+                    p6index=None,
+                    p6guid=None,
+                    p6name=None,
+                    p6devicepath=None,
+                    p6nbbuttons=None,
+                    p6nbhats=None,
+                    p6nbaxes=None,
+                ),
+            )
+            == snapshot
+        )
+
+    def test_load_for_players_no_user_config(self, fs: FakeFilesystem, snapshot: SnapshotAssertion) -> None:
+        fs.create_file(
+            BATOCERA_ES_DIR / 'es_input.cfg',
+            contents="""<?xml version="1.0"?>
+<inputList>
+	<inputConfig type="joystick" deviceName="Test Controller" deviceGUID="1">
+		<input name="a" type="button" id="0" value="1" code="111" />
+	</inputConfig>
+	<inputConfig type="joystick" deviceName="Test Controller 2" deviceGUID="3">
+		<input name="x" type="button" id="0" value="1" code="111" />
+	</inputConfig>
+</inputList>
+""",
+        )
+
+        assert (
+            Controller.load_for_players(
+                6,
+                Namespace(
+                    # P1: matches test controller with guid and name
+                    p1index=0,
+                    p1guid='1',
+                    p1name='Test Controller',
+                    p1devicepath='/dev/event/input1',
+                    p1nbbuttons=1,
+                    p1nbhats=2,
+                    p1nbaxes=3,
+                    # P2: matches test controller with guid
+                    p2index=22,
+                    p2guid='1',
+                    p2name='Something else',
+                    p2devicepath='/dev/event/input2',
+                    p2nbbuttons=1,
+                    p2nbhats=2,
+                    p2nbaxes=3,
+                    # P3: matches test controller with name
+                    p3index=2,
+                    p3guid='20',
+                    p3name='Test Controller',
+                    p3devicepath='/dev/event/input3',
+                    p3nbbuttons=1,
+                    p3nbhats=2,
+                    p3nbaxes=3,
+                    # P4: matches test controller with name and guid
+                    p4index=4,
+                    p4guid='1',
+                    p4name='Test Controller',
+                    p4devicepath='/dev/event/input4',
+                    p4nbbuttons=1,
+                    p4nbhats=2,
+                    p4nbaxes=3,
+                    # P5: matches test controller 2 with name and guid
+                    p5index=6,
+                    p5guid='3',
+                    p5name='Test controller 2',
+                    p5devicepath='/dev/event/input6',
+                    p5nbbuttons=1,
+                    p5nbhats=2,
+                    p5nbaxes=3,
+                    # P6: not passed to emulatorlauncher
+                    p6index=None,
+                    p6guid=None,
+                    p6name=None,
+                    p6devicepath=None,
+                    p6nbbuttons=None,
+                    p6nbhats=None,
+                    p6nbaxes=None,
                 ),
             )
             == snapshot
         )
 
     @pytest.mark.usefixtures('fs')
-    def test_load_for_players_no_files(self) -> None:
-        assert (
+    def test_load_for_players_no_files_raises(self) -> None:
+        with pytest.raises(Exception, match='^Could not find controller data for "Test Controller" with GUID "2"$'):
             Controller.load_for_players(
-                7,
+                1,
                 Namespace(
-                    # P1: matches user test controller with guid and name
                     p1index=0,
                     p1guid='2',
                     p1name='Test Controller',
@@ -291,58 +355,40 @@ class TestController:
                     p1nbbuttons=1,
                     p1nbhats=2,
                     p1nbaxes=3,
-                    # P2: matches user test controller with guid
-                    p2index=22,
-                    p2guid='2',
-                    p2name='Something else',
-                    p2devicepath='/dev/event/input2',
-                    p2nbbuttons=1,
-                    p2nbhats=2,
-                    p2nbaxes=3,
-                    # P3: matches user test controller with name
-                    p3index=2,
-                    p3guid='20',
-                    p3name='Test Controller',
-                    p3devicepath='/dev/event/input3',
-                    p3nbbuttons=1,
-                    p3nbhats=2,
-                    p3nbaxes=3,
-                    # P4: matches system test controller with name and guid
-                    p4index=4,
-                    p4guid='1',
-                    p4name='Test Controller',
-                    p4devicepath='/dev/event/input4',
-                    p4nbbuttons=1,
-                    p4nbhats=2,
-                    p4nbaxes=3,
-                    # P5: matches no controllers
-                    p5index=5,
-                    p5guid='4',
-                    p5name='Non existent',
-                    p5devicepath='/dev/event/input5',
-                    p5nbbuttons=1,
-                    p5nbhats=2,
-                    p5nbaxes=3,
-                    # P6: matches system test controller 2 with name and guid
-                    p6index=6,
-                    p6guid='3',
-                    p6name='Test controller 2',
-                    p6devicepath='/dev/event/input6',
-                    p6nbbuttons=1,
-                    p6nbhats=2,
-                    p6nbaxes=3,
-                    # P7: not passed to emulatorlauncher
-                    p7index=None,
-                    p7guid=None,
-                    p7name=None,
-                    p7devicepath=None,
-                    p7nbbuttons=None,
-                    p7nbhats=None,
-                    p7nbaxes=None,
                 ),
             )
-            == {}
+
+    def test_load_for_players_raises(self, fs: FakeFilesystem) -> None:
+        fs.create_file(
+            BATOCERA_ES_DIR / 'es_input.cfg',
+            contents="""<?xml version="1.0"?>
+<inputList>
+</inputList>
+""",
         )
+
+        with pytest.raises(Exception, match='^Could not find controller data for "Test Controller" with GUID "2"$'):
+            Controller.load_for_players(
+                1,
+                Namespace(
+                    p1index=0,
+                    p1guid='2',
+                    p1name='Test Controller',
+                    p1devicepath='/dev/event/input1',
+                    p1nbbuttons=1,
+                    p1nbhats=2,
+                    p1nbaxes=3,
+                ),
+            )
+
+    def test_find_player_number(self, generic_xbox_pad: Controller) -> None:
+        player1 = make_player_controller(generic_xbox_pad, 1)
+        player2 = make_player_controller(generic_xbox_pad, 2)
+
+        assert Controller.find_player_number([], 1) is None
+        assert Controller.find_player_number([player1], 1) is player1
+        assert Controller.find_player_number([player1, player2], 1) is player1
+        assert Controller.find_player_number([player1, player2], 2) is player2
 
 
 @pytest.mark.usefixtures('fs')

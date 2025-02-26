@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -47,7 +47,7 @@ class TestSonicManiaGenerator(GeneratorBaseTest):
         self,
         generator: SonicManiaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -70,7 +70,7 @@ class TestSonicManiaGenerator(GeneratorBaseTest):
         generator: SonicManiaGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         fs.create_file('/userdata/roms/sonic-mania/sonic-mania', contents='existing sonic mania bin')
 
@@ -99,7 +99,7 @@ class TestSonicManiaGenerator(GeneratorBaseTest):
         self,
         generator: SonicManiaGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(

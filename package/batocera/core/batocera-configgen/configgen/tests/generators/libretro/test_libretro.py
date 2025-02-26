@@ -78,7 +78,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/rom.smc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -106,7 +106,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -127,7 +127,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/rom.smc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -150,7 +150,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/{mock_system.name}/rom.smc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -199,7 +199,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
             generator.generate(
                 mock_system,
                 '/userdata/roms/unknown/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -230,7 +230,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
         generator.generate(
             mock_system,
             '/userdata/roms/unknown/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -270,7 +270,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
         generator.generate(
             mock_system,
             '/userdata/roms/unknown/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -292,7 +292,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
         generator.generate(
             mock_system,
             '/userdata/roms/unknown/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -324,7 +324,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
         generator.generate(
             mock_system,
             '/userdata/roms/unknown/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -355,7 +355,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
         generator.generate(
             mock_system,
             '/userdata/roms/unknown/rom.zip',
-            {},
+            [],
             {},
             [],
             {},
@@ -423,7 +423,7 @@ class TestLibretroGenerator(GeneratorBaseTest, LibretroBaseMixin):
             generator.generate(
                 mock_system,
                 '/userdata/roms/unknown/rom.zip',
-                {},
+                [],
                 {},
                 [],
                 {},

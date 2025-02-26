@@ -33,7 +33,7 @@ class TestSteamGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/steam/Steam.steam',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -55,7 +55,7 @@ class TestSteamGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/steam/rom.steam',
-                {},
+                [],
                 {},
                 [],
                 {},

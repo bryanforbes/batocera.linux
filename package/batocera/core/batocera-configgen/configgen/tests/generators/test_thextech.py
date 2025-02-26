@@ -38,7 +38,7 @@ class TestTheXTechGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/thextech/rom.rott',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -67,7 +67,7 @@ class TestTheXTechGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/thextech/rom.rott',
-                {},
+                [],
                 {},
                 [],
                 {},

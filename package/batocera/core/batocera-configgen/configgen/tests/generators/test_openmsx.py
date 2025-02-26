@@ -9,13 +9,13 @@ import pytest
 from configgen.batoceraPaths import CONFIGS
 from configgen.generators.openmsx.openmsxGenerator import OpenmsxGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -47,7 +47,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         self,
         generator: OpenmsxGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -70,7 +70,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         self,
         generator: OpenmsxGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -99,7 +99,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         self,
         generator: OpenmsxGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -127,7 +127,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/msx1/rom.cas',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],
             {},
@@ -139,7 +139,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         self,
         generator: OpenmsxGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -160,7 +160,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         self,
         generator: OpenmsxGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -183,7 +183,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         extension: str,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir('/userdata/roms/msx1')
@@ -211,7 +211,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         extension: str,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/msx1/rom.openmsx', contents=f'one.{extension}\ntwo.{extension}\n')

@@ -16,7 +16,7 @@ from configgen.config import SystemConfig
 from configgen.generators.lindbergh.lindberghGenerator import LindberghGenerator
 from configgen.utils.download import DownloadException
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -141,7 +141,7 @@ class TestLindberghGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/lindbergh/rom_dir/rom.game',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -210,7 +210,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -236,7 +236,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -253,7 +253,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -279,7 +279,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -301,7 +301,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -349,7 +349,7 @@ EMULATE_CARDREADER 1
             generator.generate(
                 mock_system,
                 '/userdata/roms/lindbergh/rom_dir/rom.game',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -373,7 +373,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/Virtua Tennis 3/vtennis3.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -400,7 +400,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/Virtua Tennis 3/vtennis3.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -424,7 +424,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -449,7 +449,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -471,7 +471,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -495,7 +495,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -523,7 +523,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/outr2sdx.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -557,7 +557,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -580,7 +580,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/rom.game',
-            {},
+            [],
             {},
             [],
             {},
@@ -618,7 +618,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],
             {},
@@ -649,7 +649,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             '/userdata/roms/lindbergh/rom_dir/rom.game',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],
             {},
@@ -690,7 +690,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            make_player_controller_dict(g920_wheel, g920_wheel, g920_wheel),
+            make_player_controller_list(g920_wheel, g920_wheel, g920_wheel),
             {},
             [],
             {
@@ -738,7 +738,7 @@ EMULATE_CARDREADER 1
         generator.generate(
             mock_system,
             f'/userdata/roms/lindbergh/rom_dir/{rom_name}.game',
-            make_player_controller_dict(*controllers, generic_xbox_pad),
+            make_player_controller_list(*controllers, generic_xbox_pad),
             {},
             [],
             {},

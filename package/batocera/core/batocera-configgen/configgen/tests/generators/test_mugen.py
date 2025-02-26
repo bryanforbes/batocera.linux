@@ -87,7 +87,7 @@ GameHeight = 720
             generator.generate(
                 mocker.ANY,
                 '/userdata/roms/mugen/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -108,7 +108,7 @@ GameHeight = 720
             generator.generate(
                 mocker.ANY,
                 '/userdata/roms/mugen/rom.pc',
-                {},
+                [],
                 {},
                 [],
                 {},

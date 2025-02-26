@@ -8,7 +8,7 @@ from configgen.batoceraPaths import CONFIGS
 from configgen.config import SystemConfig
 from configgen.generators.citra.citraGenerator import CitraGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller, make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -54,7 +54,7 @@ class TestCitraGenerator(GeneratorBaseTest):
         self,
         generator: CitraGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -76,7 +76,7 @@ class TestCitraGenerator(GeneratorBaseTest):
         generator: CitraGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/usr/bin/citra-qt')
@@ -100,7 +100,7 @@ class TestCitraGenerator(GeneratorBaseTest):
         generator: CitraGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -167,7 +167,7 @@ profiles\size = 1
         self,
         generator: CitraGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -186,7 +186,7 @@ profiles\size = 1
         self,
         generator: CitraGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         vulkan_is_available: Mock,
         vulkan_has_discrete_gpu: Mock,
@@ -233,7 +233,7 @@ profiles\size = 1
         self,
         generator: CitraGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -260,10 +260,7 @@ profiles\size = 1
             generator.generate(
                 mock_system,
                 '/userdata/roms/3ds/rom.3ds',
-                {
-                    2: make_player_controller(ps3_controller, 2),
-                    1: make_player_controller(generic_xbox_pad, 1),
-                },
+                make_player_controller_list(generic_xbox_pad, ps3_controller),
                 {},
                 [],
                 {},
@@ -284,7 +281,7 @@ profiles\size = 1
             generator.generate(
                 mock_system,
                 '/userdata/roms/3ds/rom.3ds',
-                make_player_controller_dict(gpio_controller_1),
+                make_player_controller_list(gpio_controller_1),
                 {},
                 [],
                 {},

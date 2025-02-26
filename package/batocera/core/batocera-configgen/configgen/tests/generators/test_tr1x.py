@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import ControllerList
     from configgen.Emulator import Emulator
     from configgen.types import Resolution
 
@@ -95,7 +95,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         generator: TR1XGenerator,
         mock_system: Emulator,
         download: Mock,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -122,7 +122,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         fs: FakeFilesystem,
         mock_system: Emulator,
         download: Mock,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'traider1' / 'music')
@@ -154,7 +154,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         mock_system: Emulator,
         copytree: Mock,
         exception: Exception,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         copytree.side_effect = exception
@@ -179,7 +179,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         mock_system: Emulator,
         download: Mock,
         exception: Exception,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         download.side_effect = exception
@@ -204,7 +204,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         generator: TR1XGenerator,
         mock_system: Emulator,
         download: Mock,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -236,7 +236,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         fs: FakeFilesystem,
         mock_system: Emulator,
         download: Mock,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'traider1' / 'music')
@@ -264,7 +264,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         mock_system: Emulator,
         download: Mock,
         exception: type[Exception],
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: ControllerList,
         snapshot: SnapshotAssertion,
     ) -> None:
         download.side_effect = exception

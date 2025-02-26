@@ -8,7 +8,7 @@ from configgen.batoceraPaths import CONFIGS
 from configgen.config import SystemConfig
 from configgen.generators.cemu.cemuGenerator import CemuGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -72,7 +72,7 @@ class TestCemuGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/cemu/rom.wua',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -96,7 +96,7 @@ class TestCemuGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/tmp/rom',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -118,7 +118,7 @@ class TestCemuGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 'config',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -164,7 +164,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/cemu/rom.wua',
-            {},
+            [],
             {},
             [],
             {},
@@ -205,7 +205,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/cemu/rom.wua',
-            {},
+            [],
             {},
             [],
             {},
@@ -298,7 +298,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/cemu/rom.wua',
-            {},
+            [],
             {},
             [],
             {},
@@ -321,7 +321,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/cemu/rom.wua',
-            {},
+            [],
             {},
             [],
             {},
@@ -352,7 +352,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/cemu/rom.wua',
-            {},
+            [],
             {},
             [],
             {},
@@ -376,7 +376,7 @@ class TestCemuGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/cemu/rom.wua',
-                make_player_controller_dict(generic_xbox_pad, ps3_controller, generic_xbox_pad),
+                make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
                 {},
                 [],
                 {},
@@ -421,7 +421,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/cemu/rom.wua',
-            make_player_controller_dict(generic_xbox_pad, ps3_controller, generic_xbox_pad),
+            make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],
             {},
@@ -475,8 +475,8 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         fs.create_file('/userdata/roms/cemu/rom.wua', contents='rom.wua')
 
-        controllers = make_player_controller_dict(wiimote, wiimote)
-        for controller in controllers.values():
+        controllers = make_player_controller_list(wiimote, wiimote)
+        for controller in controllers:
             controller.real_name = controller.name
 
         generator.generate(
@@ -531,8 +531,8 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         fs.create_file('/userdata/roms/cemu/rom.wua', contents='rom.wua')
 
-        controllers = make_player_controller_dict(generic_xbox_pad, wiimote)
-        for controller in controllers.values():
+        controllers = make_player_controller_list(generic_xbox_pad, wiimote)
+        for controller in controllers:
             controller.real_name = controller.name
 
         generator.generate(

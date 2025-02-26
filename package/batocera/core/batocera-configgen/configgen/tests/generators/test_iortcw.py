@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -43,7 +43,7 @@ class TestIORTCWGenerator(GeneratorBaseTest):
         self,
         generator: IORTCWGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -105,7 +105,7 @@ seta cl_language "3"
         generator.generate(
             mock_system,
             '',
-            {},
+            [],
             {},
             [],
             {},
@@ -134,7 +134,7 @@ seta cl_language "3"
         generator.generate(
             mock_system,
             '',
-            {},
+            [],
             {},
             [],
             {},

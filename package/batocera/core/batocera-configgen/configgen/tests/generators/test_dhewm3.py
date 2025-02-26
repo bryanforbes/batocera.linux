@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -44,7 +44,7 @@ class TestDhewm3Generator(GeneratorBaseTest):
         self,
         generator: Dhewm3Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -66,7 +66,7 @@ class TestDhewm3Generator(GeneratorBaseTest):
         generator: Dhewm3Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -112,7 +112,7 @@ seta sys_lang "english"
         self,
         generator: Dhewm3Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         Path('/userdata/roms/doom3/rom.d3').write_text('d3xp/pak000.pk4')
@@ -140,7 +140,7 @@ seta sys_lang "english"
         generator: Dhewm3Generator,
         mod_directory: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         Path('/userdata/roms/doom3/rom.d3').write_text(f'{mod_directory}/pak000.pk4')
@@ -169,7 +169,7 @@ seta sys_lang "english"
         self,
         generator: Dhewm3Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(

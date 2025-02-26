@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -40,7 +40,7 @@ class TestSdlPopGenerator(GeneratorBaseTest):
         self,
         generator: SdlPopGenerator,
         mock_system: Emulator,
-        two_player_controllers: ControllerMapping,
+        two_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -66,7 +66,7 @@ class TestSdlPopGenerator(GeneratorBaseTest):
         generator: SdlPopGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        two_player_controllers: ControllerMapping,
+        two_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'sdlpop' / 'SDLPoP.cfg', contents='user config')

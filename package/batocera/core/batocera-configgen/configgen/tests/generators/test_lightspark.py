@@ -31,7 +31,7 @@ class TestLightsparkGenerator(GeneratorBaseTest):
             generator.generate(
                 mocker.Mock(),
                 '/userdata/roms/flash/rom.swf',
-                {},
+                [],
                 {},
                 [],
                 {},

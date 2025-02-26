@@ -10,7 +10,7 @@ import pytest
 from configgen.controller import Controller
 from configgen.input import Input
 from configgen.utils.wheelsUtils import configure_wheels
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -161,7 +161,7 @@ def test_configure_wheels(
     get_devices_information: Mock,
     os_kill: Mock,
 ) -> None:
-    controllers = make_player_controller_dict(generic_xbox_pad, ps3_controller)
+    controllers = make_player_controller_list(generic_xbox_pad, ps3_controller)
     expected_controllers = copy.deepcopy(controllers)
 
     with configure_wheels(controllers, mock_system, {}) as (controllers, wheels):
@@ -173,8 +173,8 @@ def test_configure_wheels(
 
 
 def test_configure_wheels_no_controllers(mock_system: Emulator, get_devices_information: Mock, os_kill: Mock) -> None:
-    with configure_wheels({}, mock_system, {}) as (controllers, wheels):
-        assert controllers == {}
+    with configure_wheels([], mock_system, {}) as (controllers, wheels):
+        assert controllers == []
         assert wheels == {}
 
     get_devices_information.assert_not_called()
@@ -184,15 +184,15 @@ def test_configure_wheels_no_controllers(mock_system: Emulator, get_devices_info
 def test_configure_wheels_no_device_info(
     mock_system: Emulator, generic_xbox_pad: Controller, ps3_controller: Controller, os_kill: Mock
 ) -> None:
-    original_controllers = make_player_controller_dict(generic_xbox_pad, ps3_controller)
+    original_controllers = make_player_controller_list(generic_xbox_pad, ps3_controller)
     expected_controllers = copy.deepcopy(original_controllers)
 
     with configure_wheels(original_controllers, mock_system, {}) as (controllers, wheels):
         assert controllers == expected_controllers
         assert wheels == {}
 
+    assert controllers[0] is not original_controllers[0]
     assert controllers[1] is not original_controllers[1]
-    assert controllers[2] is not original_controllers[2]
 
     os_kill.assert_not_called()
 
@@ -204,10 +204,10 @@ def test_configure_wheels_no_wheels(
     get_devices_information: Mock,
     os_kill: Mock,
 ) -> None:
-    original_controllers = make_player_controller_dict(generic_xbox_pad, ps3_controller)
+    original_controllers = make_player_controller_list(generic_xbox_pad, ps3_controller)
     device_info = {
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0]),
         original_controllers[1].device_path: _device_info_from_controller(original_controllers[1]),
-        original_controllers[2].device_path: _device_info_from_controller(original_controllers[2]),
     }
     expected_controllers = copy.deepcopy(original_controllers)
 
@@ -217,8 +217,8 @@ def test_configure_wheels_no_wheels(
         assert controllers == expected_controllers
         assert wheels == {}
 
+    assert controllers[0] is not original_controllers[0]
     assert controllers[1] is not original_controllers[1]
-    assert controllers[2] is not original_controllers[2]
 
     os_kill.assert_not_called()
 
@@ -230,14 +230,14 @@ def test_configure_wheels_player_1_wheel(
     get_devices_information: Mock,
     os_kill: Mock,
 ) -> None:
-    original_controllers = make_player_controller_dict(g920_wheel, ps3_controller)
+    original_controllers = make_player_controller_list(g920_wheel, ps3_controller)
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
-        original_controllers[2].device_path: _device_info_from_controller(original_controllers[2]),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0], is_wheel=True),
+        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1]),
     }
     expected_controllers = copy.deepcopy(original_controllers)
     expected_wheels = {
-        original_controllers[1].device_path: copy.deepcopy(device_info[original_controllers[1].device_path])
+        original_controllers[0].device_path: copy.deepcopy(device_info[original_controllers[0].device_path])
     }
 
     get_devices_information.return_value = device_info
@@ -246,8 +246,8 @@ def test_configure_wheels_player_1_wheel(
         assert controllers == expected_controllers
         assert wheels == expected_wheels
 
+    assert controllers[0] is not original_controllers[0]
     assert controllers[1] is not original_controllers[1]
-    assert controllers[2] is not original_controllers[2]
 
     os_kill.assert_not_called()
 
@@ -259,17 +259,17 @@ def test_configure_wheels_player_2_wheel(
     get_devices_information: Mock,
     os_kill: Mock,
 ) -> None:
-    original_controllers = make_player_controller_dict(ps3_controller, g920_wheel)
+    original_controllers = make_player_controller_list(ps3_controller, g920_wheel)
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1]),
-        original_controllers[2].device_path: _device_info_from_controller(original_controllers[2], is_wheel=True),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0]),
+        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
     }
-    expected_controllers = {
-        1: original_controllers[2].replace(player_number=1),
-        2: original_controllers[1].replace(player_number=2),
-    }
+    expected_controllers = [
+        original_controllers[1].replace(player_number=1),
+        original_controllers[0].replace(player_number=2),
+    ]
     expected_wheels = {
-        original_controllers[2].device_path: copy.deepcopy(device_info[original_controllers[2].device_path])
+        original_controllers[1].device_path: copy.deepcopy(device_info[original_controllers[1].device_path])
     }
 
     get_devices_information.return_value = device_info
@@ -278,8 +278,8 @@ def test_configure_wheels_player_2_wheel(
         assert controllers == expected_controllers
         assert wheels == expected_wheels
 
-    assert controllers[1] is not original_controllers[2]
-    assert controllers[2] is not original_controllers[1]
+    assert controllers[0] is not original_controllers[1]
+    assert controllers[1] is not original_controllers[0]
 
     os_kill.assert_not_called()
 
@@ -368,9 +368,9 @@ def test_configure_wheels_wheel_buttons(
     }
     original_key = original_key_mapping[metadata_key]
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0], is_wheel=True),
     }
     expected_controllers = copy.deepcopy(original_controllers)
     expected_wheels = copy.deepcopy(device_info)
@@ -378,8 +378,8 @@ def test_configure_wheels_wheel_buttons(
     get_devices_information.return_value = device_info
 
     if original_key != remapped_key:
-        del expected_controllers[1].inputs[original_key]
-        expected_controllers[1].inputs[remapped_key] = mock_controller.inputs[original_key].replace(name=remapped_key)
+        del expected_controllers[0].inputs[original_key]
+        expected_controllers[0].inputs[remapped_key] = mock_controller.inputs[original_key].replace(name=remapped_key)
 
     with configure_wheels(original_controllers, mock_system, {f'wheel_{metadata_key}': metadata_value}) as (
         controllers,
@@ -395,15 +395,15 @@ def test_configure_wheels_wheel_buttons(
 def test_configure_wheels_buttons_swap(
     mock_system: Emulator, mock_controller: Controller, get_devices_information: Mock, os_kill: Mock
 ) -> None:
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0], is_wheel=True),
     }
     expected_controllers = copy.deepcopy(original_controllers)
     expected_wheels = copy.deepcopy(device_info)
 
-    expected_controllers[1].inputs['r2'] = mock_controller.inputs['l2'].replace(name='r2')
-    expected_controllers[1].inputs['l2'] = mock_controller.inputs['r2'].replace(name='l2')
+    expected_controllers[0].inputs['r2'] = mock_controller.inputs['l2'].replace(name='r2')
+    expected_controllers[0].inputs['l2'] = mock_controller.inputs['r2'].replace(name='l2')
 
     get_devices_information.return_value = device_info
 
@@ -420,9 +420,9 @@ def test_configure_wheels_buttons_swap(
 def test_configure_wheels_skip_metadata_keys(
     mock_system: Emulator, mock_controller: Controller, get_devices_information: Mock, os_kill: Mock
 ) -> None:
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0], is_wheel=True),
     }
     expected_controllers = copy.deepcopy(original_controllers)
     expected_wheels = copy.deepcopy(device_info)
@@ -439,9 +439,9 @@ def test_configure_wheels_skip_metadata_keys(
 def test_configure_wheels_no_wheel_mapping(
     mock_system: Emulator, mock_controller: Controller, get_devices_information: Mock, os_kill: Mock
 ) -> None:
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0], is_wheel=True),
     }
     expected_controllers = copy.deepcopy(original_controllers)
     expected_wheels = copy.deepcopy(device_info)
@@ -477,9 +477,9 @@ def test_configure_wheels_no_emulator_mapping(
     metadata_value: str,
     os_kill: Mock,
 ) -> None:
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0], is_wheel=True),
     }
     expected_controllers = copy.deepcopy(original_controllers)
     expected_wheels = copy.deepcopy(device_info)
@@ -502,9 +502,9 @@ def test_configure_wheels_missing_input(
 ) -> None:
     del mock_controller.inputs['r2']
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(original_controllers[1], is_wheel=True),
+        original_controllers[0].device_path: _device_info_from_controller(original_controllers[0], is_wheel=True),
     }
     expected_controllers = copy.deepcopy(original_controllers)
     expected_wheels = copy.deepcopy(device_info)
@@ -544,10 +544,10 @@ def test_configure_wheels_no_reconfigure(
     if metadata_rotation:
         metadata['wheel_rotation'] = metadata_rotation
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270
         ),
     }
     expected_controllers = copy.deepcopy(original_controllers)
@@ -587,10 +587,10 @@ def test_configure_wheels_no_capabilities(
 
     evdev.InputDevice.return_value = mock_input_device
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270
         ),
     }
     expected_controllers = copy.deepcopy(original_controllers)
@@ -649,10 +649,10 @@ def test_configure_wheels_wheel_rotation(
     if midzone:
         metadata['wheel_midzone'] = midzone
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
         ),
     }
     expected_controllers = copy.deepcopy(original_controllers)
@@ -661,15 +661,15 @@ def test_configure_wheels_wheel_rotation(
     get_devices_information.return_value = device_info
 
     with configure_wheels(original_controllers, mock_system, metadata) as (controllers, wheels):
-        assert controllers == {
-            1: expected_controllers[1].replace(
+        assert controllers == [
+            expected_controllers[0].replace(
                 guid='03000000010000000100000001000000',
                 device_path='/dev/input/event40',
                 index=1,
                 physical_device_path='/dev/input/event1',
                 physical_index=0,
             )
-        }
+        ]
         assert wheels == {
             **expected_wheels,
             '/dev/input/event40': {
@@ -732,10 +732,10 @@ def test_configure_wheels_wheel_rotation_config_override(
         metadata['wheel_midzone'] = '8'
         mock_system.config['wheel_midzone'] = midzone
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
         ),
     }
     expected_device_info = copy.deepcopy(device_info)
@@ -744,15 +744,15 @@ def test_configure_wheels_wheel_rotation_config_override(
     get_devices_information.return_value = device_info
 
     with configure_wheels(original_controllers, mock_system, metadata) as (controllers, wheels):
-        assert controllers == {
-            1: expected_controllers[1].replace(
+        assert controllers == [
+            expected_controllers[0].replace(
                 guid='03000000010000000100000001000000',
                 device_path='/dev/input/event40',
                 index=1,
                 physical_device_path='/dev/input/event1',
                 physical_index=0,
             )
-        }
+        ]
         assert wheels == {
             **expected_device_info,
             '/dev/input/event40': {
@@ -799,16 +799,16 @@ def test_configure_wheels_wheel_rotation_two_controllers(
 
     subprocess_popen.side_effect = [mock_popen1, mock_popen2]
 
-    original_controllers = {
-        1: mock_controller,
-        2: mock_controller.replace(player_number=2, index=1, device_path='/dev/input/event2'),
-    }
+    original_controllers = [
+        mock_controller,
+        mock_controller.replace(player_number=2, index=1, device_path='/dev/input/event2'),
+    ]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
         ),
-        original_controllers[2].device_path: _device_info_from_controller(
-            original_controllers[2], is_wheel=True, wheel_rotation=360, is_joystick=True, joystick_index=1
+        original_controllers[1].device_path: _device_info_from_controller(
+            original_controllers[1], is_wheel=True, wheel_rotation=360, is_joystick=True, joystick_index=1
         ),
     }
     expected_controllers = copy.deepcopy(original_controllers)
@@ -817,22 +817,22 @@ def test_configure_wheels_wheel_rotation_two_controllers(
     get_devices_information.return_value = device_info
 
     with configure_wheels(original_controllers, mock_system, {'wheel_rotation': '260'}) as (controllers, wheels):
-        assert controllers == {
-            1: expected_controllers[1].replace(
+        assert controllers == [
+            expected_controllers[0].replace(
                 guid='03000000010000000100000001000000',
                 device_path='/dev/input/event20',
                 index=2,
                 physical_device_path='/dev/input/event1',
                 physical_index=0,
             ),
-            2: expected_controllers[2].replace(
+            expected_controllers[1].replace(
                 guid='03000000010000000100000001000000',
                 device_path='/dev/input/event21',
                 index=3,
                 physical_device_path='/dev/input/event2',
                 physical_index=1,
             ),
-        }
+        ]
         assert wheels == {
             **expected_device_info,
             '/dev/input/event20': {
@@ -874,19 +874,19 @@ def test_configure_wheels_recompute_ids(
 
     subprocess_popen.side_effect = [mock_popen1, mock_popen2, mock_popen3]
 
-    original_controllers = {
-        1: mock_controller,
-        2: mock_controller.replace(player_number=2, index=1, device_path='/dev/input/event4'),
-        3: mock_controller.replace(player_number=3, index=2, device_path='/dev/input/something5'),
-    }
+    original_controllers = [
+        mock_controller,
+        mock_controller.replace(player_number=2, index=1, device_path='/dev/input/event4'),
+        mock_controller.replace(player_number=3, index=2, device_path='/dev/input/something5'),
+    ]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
         ),
         '/dev/input/event2': cast('DeviceInfo', {'isWheel': False, 'isJoystick': False, 'eventId': 2}),
         '/dev/input/event3': cast('DeviceInfo', {'isWheel': False, 'isJoystick': True, 'eventId': 3}),
-        original_controllers[2].device_path: _device_info_from_controller(
-            original_controllers[2], is_joystick=True, joystick_index=3
+        original_controllers[1].device_path: _device_info_from_controller(
+            original_controllers[1], is_joystick=True, joystick_index=3
         ),
     }
     expected_device_info = copy.deepcopy(device_info)
@@ -895,17 +895,17 @@ def test_configure_wheels_recompute_ids(
     get_devices_information.return_value = device_info
 
     with configure_wheels(original_controllers, mock_system, {'wheel_rotation': '260'}) as (controllers, wheels):
-        assert controllers == {
-            1: expected_controllers[1].replace(
+        assert controllers == [
+            expected_controllers[0].replace(
                 guid='03000000010000000100000001000000',
                 device_path='/dev/input/event40',
                 index=3,
                 physical_device_path='/dev/input/event1',
                 physical_index=0,
             ),
-            2: expected_controllers[2].replace(index=2),
-            3: expected_controllers[3],
-        }
+            expected_controllers[1].replace(index=2),
+            expected_controllers[2],
+        ]
         assert wheels == {
             '/dev/input/event1': expected_device_info['/dev/input/event1'],
             '/dev/input/event40': {
@@ -933,10 +933,10 @@ def test_configure_wheels_raises(
     test_exception = Exception('Test exception')
     mock_fd.readline.side_effect = test_exception
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
         ),
     }
 
@@ -969,10 +969,10 @@ def test_configure_wheels_context_cleanup(
     mock_popen.pid = mocker.sentinel.popen_pid
     subprocess_popen.return_value = mock_popen
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
         ),
     }
 
@@ -1006,10 +1006,10 @@ def test_configure_wheels_context_cleanup_fails(
     mock_popen.pid = mocker.sentinel.popen_pid
     subprocess_popen.return_value = mock_popen
 
-    original_controllers = {1: mock_controller}
+    original_controllers = [mock_controller]
     device_info = {
-        original_controllers[1].device_path: _device_info_from_controller(
-            original_controllers[1], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
+        original_controllers[0].device_path: _device_info_from_controller(
+            original_controllers[0], is_wheel=True, wheel_rotation=270, is_joystick=True, joystick_index=0
         ),
     }
 

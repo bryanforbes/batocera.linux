@@ -3,17 +3,18 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from ...batoceraPaths import BIOS, SCREENSHOTS
+from ...controller import Controller
 from .mupenPaths import MUPEN_CONFIG_DIR, MUPEN_SAVES
 
 if TYPE_CHECKING:
-    from ...controller import ControllerMapping
+    from ...controller import Controllers
     from ...Emulator import Emulator
     from ...input import Input
     from ...types import Resolution
     from ...utils.configparser import CaseSensitiveConfigParser
 
 
-def setMupenConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, controllers: ControllerMapping, gameResolution: Resolution):
+def setMupenConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, controllers: Controllers, gameResolution: Resolution):
 
     # Hotkeys
     setHotKeyConfig(iniConfig, controllers, system)
@@ -221,12 +222,12 @@ def setMupenConfig(iniConfig: CaseSensitiveConfigParser, system: Emulator, contr
                 iniConfig.add_section(custom_section)
             iniConfig.set(custom_section, custom_option, str(user_config_value))
 
-def setHotKeyConfig(iniConfig: CaseSensitiveConfigParser, controllers: ControllerMapping, system: Emulator):
+def setHotKeyConfig(iniConfig: CaseSensitiveConfigParser, controllers: Controllers, system: Emulator):
     if not iniConfig.has_section("CoreEvents"):
         iniConfig.add_section("CoreEvents")
     iniConfig.set("CoreEvents", "Version", "1")
 
-    if (controller := controllers.get(1)) is not None:
+    if controller := Controller.find_player_number(controllers, 1):
         if 'hotkey' in controller.inputs:
             if 'start' in controller.inputs:
                 iniConfig.set("CoreEvents", "Joy Mapping Stop", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["start"])}"')

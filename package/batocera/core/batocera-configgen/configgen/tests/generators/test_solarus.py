@@ -7,12 +7,12 @@ import pytest
 from configgen.batoceraPaths import CONFIGS
 from configgen.generators.solarus.solarusGenerator import SolarusGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -34,7 +34,7 @@ class TestSolarusGenerator(GeneratorBaseTest):
         self,
         generator: SolarusGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -64,7 +64,7 @@ class TestSolarusGenerator(GeneratorBaseTest):
         self,
         generator: SolarusGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -89,7 +89,7 @@ class TestSolarusGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/solarus/rom.solarus',
-            make_player_controller_dict(keyboard_controller, generic_xbox_pad),
+            make_player_controller_list(keyboard_controller, generic_xbox_pad),
             {},
             [],
             {},

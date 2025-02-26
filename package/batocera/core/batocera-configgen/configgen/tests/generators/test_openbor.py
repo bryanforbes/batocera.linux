@@ -7,13 +7,13 @@ import pytest
 from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.openbor.openborGenerator import OpenborGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -44,7 +44,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         generator: OpenborGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -77,7 +77,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         self,
         generator: OpenborGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -97,7 +97,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         self,
         generator: OpenborGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -133,7 +133,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         rom_name: str,
         core_number: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -165,7 +165,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         generator.generate(
             mock_system,
             '/userdata/roms/openbor/rom.pak',
-            make_player_controller_dict(ps3_controller, keyboard_controller),
+            make_player_controller_list(ps3_controller, keyboard_controller),
             {},
             [],
             {},

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
     from configgen.gun import Guns
 
@@ -44,7 +44,7 @@ class TestViceGenerator(GeneratorBaseTest):
         self,
         generator: ViceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -68,7 +68,7 @@ class TestViceGenerator(GeneratorBaseTest):
         generator: ViceGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -110,7 +110,7 @@ SaveResourcesOnExit=1
         self,
         generator: ViceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -139,7 +139,7 @@ SaveResourcesOnExit=1
         self,
         generator: ViceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         guns: Guns,
         metadata: dict[str, Any],
         snapshot: SnapshotAssertion,
@@ -165,7 +165,7 @@ SaveResourcesOnExit=1
         self,
         generator: ViceGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(

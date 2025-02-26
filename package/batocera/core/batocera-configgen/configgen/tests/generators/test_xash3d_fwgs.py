@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -60,7 +60,7 @@ class TestXash3dFwgsGenerator(GeneratorBaseTest):
         generator: Xash3dFwgsGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_dir(ROMS / 'xash3d_fwgs' / 'rom')
@@ -105,7 +105,7 @@ gamedll "dlls\opfor.dll"
             generator.generate(
                 mock_system,
                 '/userdata/roms/xash3d_fwgs/rom.game',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -138,7 +138,7 @@ some other stuff
             generator.generate(
                 mock_system,
                 '/userdata/roms/xash3d_fwgs/rom.game',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -172,7 +172,7 @@ gamedll "dlls\foo.dll"
             generator.generate(
                 mock_system,
                 '/userdata/roms/xash3d_fwgs/rom.game',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -204,7 +204,7 @@ gamedll "dlls\foo.dll"
             generator.generate(
                 mock_system,
                 '/userdata/roms/xash3d_fwgs/rom.game',
-                {},
+                [],
                 {},
                 [],
                 {},

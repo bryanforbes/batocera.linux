@@ -8,13 +8,12 @@ from configgen.batoceraPaths import CONFIGS
 from configgen.config import SystemConfig
 from configgen.generators.ppsspp.ppssppGenerator import PPSSPPGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
     from configgen.types import Resolution
 
@@ -43,7 +42,7 @@ class TestPPSSPPGenerator(GeneratorBaseTest):
         self,
         generator: PPSSPPGenerator,
         mock_system: Emulator,
-        two_player_controllers: ControllerMapping,
+        two_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -66,7 +65,7 @@ class TestPPSSPPGenerator(GeneratorBaseTest):
         generator: PPSSPPGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'ppsspp' / 'gamecontrollerdb.txt')
@@ -132,7 +131,7 @@ UpgradeMessage = asdf
         self,
         generator: PPSSPPGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -165,7 +164,7 @@ UpgradeMessage = asdf
         self,
         generator: PPSSPPGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -185,7 +184,7 @@ UpgradeMessage = asdf
         generator: PPSSPPGenerator,
         mock_system: Emulator,
         resolution: Resolution,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -201,13 +200,11 @@ UpgradeMessage = asdf
             == snapshot
         )
 
-    def test_generate_no_player_1(
-        self, generator: PPSSPPGenerator, mock_system: Emulator, generic_xbox_pad: Controller
-    ) -> None:
+    def test_generate_no_player_1(self, generator: PPSSPPGenerator, mock_system: Emulator) -> None:
         generator.generate(
             mock_system,
             '/userdata/roms/psp/rom.chd',
-            {2: make_player_controller(generic_xbox_pad, 2)},
+            [],
             {},
             [],
             {},

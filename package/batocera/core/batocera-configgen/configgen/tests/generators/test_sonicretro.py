@@ -8,7 +8,6 @@ from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.sonicretro.sonicretroGenerator import SonicRetroGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -17,7 +16,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -78,7 +77,7 @@ class TestSonicRetroGenerator(GeneratorBaseTest):
         rom_dir: str,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'sonicretro' / rom_dir / 'Data.rsdk')
@@ -102,7 +101,7 @@ class TestSonicRetroGenerator(GeneratorBaseTest):
         generator: SonicRetroGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'sonicretro' / 'rom.son' / 'Data.rsdk')
@@ -146,7 +145,7 @@ DevMenu=true
         generator: SonicRetroGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'sonicretro' / 'rom.son' / 'Data.rsdk')
@@ -182,7 +181,7 @@ DevMenu=true
         generator: SonicRetroGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'sonicretro' / 'rom.scd' / 'Data.rsdk')
@@ -203,7 +202,6 @@ DevMenu=true
         generator: SonicRetroGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        generic_xbox_pad: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'sonicretro' / 'rom.son' / 'Data.rsdk')
@@ -211,7 +209,7 @@ DevMenu=true
         generator.generate(
             mock_system,
             '/userdata/roms/sonicretro/rom.son',
-            {2: make_player_controller(generic_xbox_pad, 2)},
+            [],
             {},
             [],
             {},
@@ -241,7 +239,6 @@ DevMenu=true
         hash: str,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        generic_xbox_pad: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'sonicretro' / 'rom.son' / 'Data.rsdk')
@@ -250,7 +247,7 @@ DevMenu=true
         generator.generate(
             mock_system,
             '/userdata/roms/sonicretro/rom.son',
-            {2: make_player_controller(generic_xbox_pad, 2)},
+            [],
             {},
             [],
             {},

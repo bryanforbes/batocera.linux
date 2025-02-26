@@ -8,13 +8,13 @@ import pytest
 
 from configgen.generators.fsuae.fsuaeGenerator import FsuaeGenerator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
 
 
@@ -41,7 +41,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         self,
         generator: FsuaeGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -63,7 +63,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         generator: FsuaeGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/amiga1200/rom1.adf', contents='rom1')
@@ -91,7 +91,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         generator: FsuaeGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/userdata/roms/amiga1200/rom0.adf', contents='rom0')
@@ -119,7 +119,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         generator: FsuaeGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file('/tmp/fsuae/foo.txt')
@@ -163,7 +163,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
             generator.generate(
                 mock_system,
                 '/userdata/roms/amiga1200/rom.lha',
-                make_player_controller_dict(
+                make_player_controller_list(
                     generic_xbox_pad, ps3_controller, generic_xbox_pad, ps3_controller, generic_xbox_pad
                 ),
                 {},

@@ -11,13 +11,13 @@ from configgen.generators.dolphin.dolphinGenerator import DolphinGenerator
 from configgen.gun import Gun
 from configgen.types import DeviceInfo, Resolution
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
     from configgen.generators.Generator import Generator
 
@@ -130,7 +130,7 @@ AspectRatio = {gfx_aspect_ratio}
             generator.generate(
                 mock_system,
                 '/userdata/roms/gamecube/rom.gcz',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -151,7 +151,7 @@ AspectRatio = {gfx_aspect_ratio}
             generator.generate(
                 mock_system,
                 '/userdata/roms/gamecube/rom.gcz',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -171,7 +171,7 @@ AspectRatio = {gfx_aspect_ratio}
             generator.generate(
                 mock_system,
                 '/userdata/roms/gamecube/rom.gcz',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -256,7 +256,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -296,7 +296,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -328,7 +328,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -365,7 +365,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -396,7 +396,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -460,7 +460,7 @@ Baz = 1
             generator.generate(
                 mock_system,
                 '/userdata/roms/gamecube/rom.gcz',
-                {},
+                [],
                 {},
                 [],
                 {},
@@ -489,7 +489,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -513,7 +513,7 @@ Baz = 1
         self,
         generator: Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
@@ -555,7 +555,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -583,7 +583,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -606,7 +606,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},
@@ -642,7 +642,7 @@ Baz = 1
         fs: FakeFilesystem,
         rom_infix: str,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -692,7 +692,7 @@ Baz = 1
         keyboard_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(
+        controllers = make_player_controller_list(
             generic_xbox_pad, ps3_controller, generic_xbox_pad, keyboard_controller, generic_xbox_pad
         )
 
@@ -740,7 +740,7 @@ Baz = 1
         ps3_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(
+        controllers = make_player_controller_list(
             generic_xbox_pad, ps3_controller, generic_xbox_pad, ps3_controller, generic_xbox_pad
         )
 
@@ -847,7 +847,7 @@ Baz = 1
         generic_xbox_pad: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(generic_xbox_pad)
+        controllers = make_player_controller_list(generic_xbox_pad)
         mock_system.config['use_guns'] = '1'
 
         generator.generate(
@@ -932,7 +932,7 @@ Baz = 1
         ps3_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(
+        controllers = make_player_controller_list(
             generic_xbox_pad, ps3_controller, generic_xbox_pad, ps3_controller, generic_xbox_pad
         )
         mock_system.config['use_wheels'] = '1'
@@ -975,7 +975,7 @@ Baz = 1
         generator.generate(
             mock_system,
             '/userdata/roms/gamecube/rom.gcz',
-            {},
+            [],
             {},
             [],
             {},

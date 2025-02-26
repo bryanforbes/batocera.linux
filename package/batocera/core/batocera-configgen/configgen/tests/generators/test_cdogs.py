@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
 
 
 class TestCdogsGenerator(GeneratorBaseTest):
@@ -232,7 +232,7 @@ class TestCdogsGenerator(GeneratorBaseTest):
         self,
         generator: CdogsGenerator,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -252,7 +252,7 @@ class TestCdogsGenerator(GeneratorBaseTest):
         self,
         generator: CdogsGenerator,
         mocker: MockerFixture,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
     ) -> None:
         with pytest.raises(FileNotFoundError):
             generator.generate(

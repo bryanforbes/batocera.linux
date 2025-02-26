@@ -38,7 +38,7 @@ class TestLibretroGeneratorOpera(LibretroBaseCoreTest):
         generator.generate(
             mock_system,
             f'/userdata/roms/{mock_system.name}/rom_disc.{default_extension}',
-            {},
+            [],
             {},
             [],
             {},

@@ -46,7 +46,7 @@ class TestLibretroGeneratorTyrQuake(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/quake/{rom_name}.quake',
-                {},
+                [],
                 {},
                 [],
                 {},

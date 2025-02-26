@@ -8,7 +8,7 @@ from configgen.batoceraPaths import BIOS, CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.rpcs3.rpcs3Generator import Rpcs3Generator
 from tests.generators.base import GeneratorBaseTest
-from tests.mock_controllers import make_player_controller_dict
+from tests.mock_controllers import make_player_controller_list
 
 if TYPE_CHECKING:
     from unittest.mock import Mock
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from pytest_mock import MockerFixture
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import Controller, ControllerMapping
+    from configgen.controller import Controller, Controllers
     from configgen.Emulator import Emulator
     from configgen.types import Resolution
 
@@ -48,7 +48,7 @@ class TestRpcs3Generator(GeneratorBaseTest):
         self,
         generator: Rpcs3Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -78,7 +78,7 @@ class TestRpcs3Generator(GeneratorBaseTest):
         generator: Rpcs3Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -175,7 +175,7 @@ Foo: {}
         mocker: MockerFixture,
         generator: Rpcs3Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -206,7 +206,7 @@ Foo: {}
         self,
         generator: Rpcs3Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
         vulkan_is_available: Mock,
     ) -> None:
@@ -233,7 +233,7 @@ Foo: {}
         self,
         generator: Rpcs3Generator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         resolution: Resolution,
         snapshot: SnapshotAssertion,
     ) -> None:
@@ -264,7 +264,7 @@ Foo: {}
         contents: str,
         update_exists: bool,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(CONFIGS / 'rpcs3' / 'dev_flash' / 'vsh' / 'etc' / 'version.txt', contents=contents)
@@ -289,7 +289,7 @@ Foo: {}
         generator: Rpcs3Generator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(ROMS / 'ps3' / 'rom.psn', contents='123456789')
@@ -329,7 +329,7 @@ Foo: {}
         ds5_controller: Controller,
         snapshot: SnapshotAssertion,
     ) -> None:
-        controllers = make_player_controller_dict(
+        controllers = make_player_controller_list(
             generic_xbox_pad,
             generic_xbox_pad,
             generic_xbox_pad,

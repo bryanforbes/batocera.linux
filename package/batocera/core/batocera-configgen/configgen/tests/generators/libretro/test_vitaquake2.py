@@ -36,7 +36,7 @@ class TestLibretroGeneratorVitaQuake2(LibretroBaseCoreTest):
             generator.generate(
                 mock_system,
                 f'/userdata/roms/vitaquake2/{rom_name}.quake2',
-                {},
+                [],
                 {},
                 [],
                 {},

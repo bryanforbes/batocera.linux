@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from pyfakefs.fake_filesystem import FakeFilesystem
     from syrupy.assertion import SnapshotAssertion
 
-    from configgen.controller import ControllerMapping
+    from configgen.controller import Controllers
     from configgen.Emulator import Emulator
 
 
@@ -34,7 +34,7 @@ class TestMelonDSGenerator(GeneratorBaseTest):
         self,
         generator: MelonDSGenerator,
         mock_system: Emulator,
-        two_player_controllers: ControllerMapping,
+        two_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         assert (
@@ -56,7 +56,7 @@ class TestMelonDSGenerator(GeneratorBaseTest):
         generator: MelonDSGenerator,
         fs: FakeFilesystem,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         fs.create_file(
@@ -113,7 +113,7 @@ BetterPolygons = true
         self,
         generator: MelonDSGenerator,
         mock_system: Emulator,
-        one_player_controllers: ControllerMapping,
+        one_player_controllers: Controllers,
         snapshot: SnapshotAssertion,
     ) -> None:
         generator.generate(
