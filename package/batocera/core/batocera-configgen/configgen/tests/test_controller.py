@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 import pytest
 
 from configgen.batoceraPaths import BATOCERA_ES_DIR, HOME, USER_ES_DIR
-from configgen.controller import Controller, get_mapping_axis_relaxed_values
+from configgen.controller import Controller
 from configgen.input import Input
 from tests.mock_controllers import make_player_controller
 
@@ -390,18 +390,16 @@ class TestController:
         assert Controller.find_player_number([player1, player2], 1) is player1
         assert Controller.find_player_number([player1, player2], 2) is player2
 
+    @pytest.mark.usefixtures('fs')
+    def test_get_mapping_axis_relaxed_values(self, generic_xbox_pad: Controller) -> None:
+        assert generic_xbox_pad.get_mapping_axis_relaxed_values() == {}
 
-@pytest.mark.usefixtures('fs')
-def test_get_mapping_axis_relaxed_values(generic_xbox_pad: Controller) -> None:
-    assert get_mapping_axis_relaxed_values(generic_xbox_pad) == {}
-
-
-def test_get_mapping_axis_relaxed_values_with_cache_file(
-    mocker: MockerFixture, evdev: Mock, fs: FakeFilesystem, ps3_controller: Controller
-) -> None:
-    fs.create_file(
-        HOME / '.sdl2' / f'{ps3_controller.guid}_{ps3_controller.name}.cache',
-        contents="""6
+    def test_get_mapping_axis_relaxed_values_with_cache_file(
+        self, mocker: MockerFixture, evdev: Mock, fs: FakeFilesystem, ps3_controller: Controller
+    ) -> None:
+        fs.create_file(
+            HOME / '.sdl2' / f'{ps3_controller.guid}_{ps3_controller.name}.cache',
+            contents="""6
 4000
 -4000
 3999
@@ -409,61 +407,60 @@ def test_get_mapping_axis_relaxed_values_with_cache_file(
 -4001
 -3999
 """,
-    )
+        )
 
-    mock_input_device = mocker.Mock()
-    mock_input_device.capabilities.return_value = {
-        0: [],
-        1: [],
-        3: [
-            (0, {}),
-            (1, {}),
-            (2, {}),
-            (3, {}),
-            (4, {}),
-            (5, {}),
-            (0x10, {}),
-        ],
-    }
+        mock_input_device = mocker.Mock()
+        mock_input_device.capabilities.return_value = {
+            0: [],
+            1: [],
+            3: [
+                (0, {}),
+                (1, {}),
+                (2, {}),
+                (3, {}),
+                (4, {}),
+                (5, {}),
+                (0x10, {}),
+            ],
+        }
 
-    evdev.InputDevice.return_value = mock_input_device
+        evdev.InputDevice.return_value = mock_input_device
 
-    assert get_mapping_axis_relaxed_values(ps3_controller) == {
-        'joystick1left': {'centered': False, 'reversed': False},
-        'joystick1up': {'centered': False, 'reversed': False},
-        'joystick2left': {'centered': False, 'reversed': True},
-        'joystick2up': {'centered': False, 'reversed': False},
-        'l2': {'centered': True, 'reversed': False},
-        'r2': {'centered': True, 'reversed': False},
-    }
+        assert ps3_controller.get_mapping_axis_relaxed_values() == {
+            'joystick1left': {'centered': False, 'reversed': False},
+            'joystick1up': {'centered': False, 'reversed': False},
+            'joystick2left': {'centered': False, 'reversed': True},
+            'joystick2up': {'centered': False, 'reversed': False},
+            'l2': {'centered': True, 'reversed': False},
+            'r2': {'centered': True, 'reversed': False},
+        }
 
-
-def test_get_mapping_axis_relaxed_values_with_cache_file_not_found(
-    mocker: MockerFixture, evdev: Mock, fs: FakeFilesystem, ps3_controller: Controller
-) -> None:
-    fs.create_file(
-        HOME / '.sdl2' / f'{ps3_controller.guid}_{ps3_controller.name}.cache',
-        contents="""1
+    def test_get_mapping_axis_relaxed_values_with_cache_file_not_found(
+        self, mocker: MockerFixture, evdev: Mock, fs: FakeFilesystem, ps3_controller: Controller
+    ) -> None:
+        fs.create_file(
+            HOME / '.sdl2' / f'{ps3_controller.guid}_{ps3_controller.name}.cache',
+            contents="""1
 4001
 """,
-    )
+        )
 
-    mock_input_device = mocker.Mock()
-    mock_input_device.capabilities.return_value = {
-        0: [],
-        1: [],
-        3: [
-            (0x10, {}),
-        ],
-    }
+        mock_input_device = mocker.Mock()
+        mock_input_device.capabilities.return_value = {
+            0: [],
+            1: [],
+            3: [
+                (0x10, {}),
+            ],
+        }
 
-    evdev.InputDevice.return_value = mock_input_device
+        evdev.InputDevice.return_value = mock_input_device
 
-    assert get_mapping_axis_relaxed_values(ps3_controller) == {
-        'joystick1left': {'centered': True, 'reversed': False},
-        'joystick1up': {'centered': True, 'reversed': False},
-        'joystick2left': {'centered': True, 'reversed': False},
-        'joystick2up': {'centered': True, 'reversed': False},
-        'l2': {'centered': True, 'reversed': False},
-        'r2': {'centered': True, 'reversed': False},
-    }
+        assert ps3_controller.get_mapping_axis_relaxed_values() == {
+            'joystick1left': {'centered': True, 'reversed': False},
+            'joystick1up': {'centered': True, 'reversed': False},
+            'joystick2left': {'centered': True, 'reversed': False},
+            'joystick2up': {'centered': True, 'reversed': False},
+            'l2': {'centered': True, 'reversed': False},
+            'r2': {'centered': True, 'reversed': False},
+        }
