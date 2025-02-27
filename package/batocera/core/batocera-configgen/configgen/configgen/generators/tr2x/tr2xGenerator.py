@@ -42,7 +42,7 @@ class TR2XGenerator(Generator):
         tr2xConfigPath = tr2xRomPath / "cfg" / "TR2X.json5"
         tr2xSourcePath = Path("/usr/bin/tr2x")
 
-        # Copy files & folders if they don’t exist
+        # Copy files & folders if they don't exist
         for item in tr2xSourcePath.iterdir():
             dest = tr2xRomPath / item.name
             try:
@@ -69,7 +69,7 @@ class TR2XGenerator(Generator):
 
         if tr2xConfigPath.exists():
             try:
-                with open(tr2xConfigPath, "r", encoding="utf-8") as f:
+                with tr2xConfigPath.open(encoding="utf-8") as f:
                     config_data = json.load(f)
             except json.JSONDecodeError:
                 _logger.debug("Invalid JSON format in %s, overwriting with default settings.", tr2xConfigPath)
@@ -83,7 +83,7 @@ class TR2XGenerator(Generator):
             }
         )
 
-        with open(tr2xConfigPath, "w", encoding="utf-8") as f:
+        with tr2xConfigPath.open("w", encoding="utf-8") as f:
             json.dump(config_data, f, indent=2)
 
         commandArray = [tr2xRomPath / "TR2X"]

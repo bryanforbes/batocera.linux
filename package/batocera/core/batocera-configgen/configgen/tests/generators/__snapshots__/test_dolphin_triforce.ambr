@@ -641,7 +641,11 @@
   '''
 # ---
 # name: TestDolphinTriforceGenerator.test_generate_controllers_hotkey_not_button[hotkeys]
-  ''
+  '''
+  [Hotkeys1]
+  Device = SDL/0/GPIO Controller 2
+  
+  '''
 # ---
 # name: TestDolphinTriforceGenerator.test_generate_controllers_keyboard[gcpadnew]
   '''
@@ -663,7 +667,11 @@
   '''
 # ---
 # name: TestDolphinTriforceGenerator.test_generate_controllers_keyboard[hotkeys]
-  ''
+  '''
+  [Hotkeys1]
+  Device = SDL/0/Keyboard
+  
+  '''
 # ---
 # name: TestDolphinTriforceGenerator.test_generate_controllers_rumble
   '''

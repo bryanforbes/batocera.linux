@@ -54,7 +54,7 @@ class TR1XGenerator(Generator):
         tr1xRomPath.mkdir(parents=True, exist_ok=True)
         dataDir.mkdir(parents=True, exist_ok=True)
 
-        # Copy files & folders if they don’t exist
+        # Copy files & folders if they don't exist
         for item in tr1xSourcePath.iterdir():
             dest = tr1xRomPath / item.name
             try:
@@ -130,7 +130,7 @@ class TR1XGenerator(Generator):
                             destination = dataDir / stripped_file
                             if not destination.exists():
                                 destination.parent.mkdir(parents=True, exist_ok=True)
-                                with zip_ref.open(file) as source, open(destination, "wb") as target:
+                                with zip_ref.open(file) as source, destination.open("wb") as target:
                                     shutil.copyfileobj(source, target)
 
                     expansionZipPath.unlink()

@@ -337,9 +337,8 @@ class Rpcs3Generator(Generator):
             commandArray.append("--no-gui")
 
         # firmware not installed and available : instead of starting the game, install it
-        if Rpcs3Generator.getFirmwareVersion() is None:
-          if (BIOS / "PS3UPDAT.PUP").exists():
-            commandArray = [RPCS3_BIN, "--installfw", BIOS / "PS3UPDAT.PUP"]
+        if Rpcs3Generator.getFirmwareVersion() is None and (BIOS / "PS3UPDAT.PUP").exists():
+          commandArray = [RPCS3_BIN, "--installfw", BIOS / "PS3UPDAT.PUP"]
 
         return Command.Command(
             array=commandArray,
@@ -357,8 +356,7 @@ class Rpcs3Generator(Generator):
         screenRatio = gameResolution["width"] / gameResolution["height"]
         if screenRatio < 1.6:
             return (4,3)
-        else:
-            return (16,9)
+        return (16,9)
 
     def getInGameRatio(self, config, gameResolution, rom):
         return 16/9
@@ -372,6 +370,6 @@ class Rpcs3Generator(Generator):
                 matches = re.match("^release:(.*):", line)
                 if matches:
                     return matches[1]
-        except:
+        except Exception:
             return None
         return None
