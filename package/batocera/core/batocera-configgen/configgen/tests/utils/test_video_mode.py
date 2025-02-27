@@ -35,8 +35,13 @@ if TYPE_CHECKING:
     from configgen.types import Resolution, ScreenInfo
 
 
-def test_change_mode(mocker: MockerFixture, subprocess_run: Mock) -> None:
-    mocker.patch('configgen.utils.videoMode.checkModeExists', return_value=True)
+@pytest.fixture
+def check_mode_exists(mocker: MockerFixture) -> Mock:
+    return mocker.patch('configgen.utils.videoMode.checkModeExists')
+
+
+def test_change_mode(subprocess_run: Mock, check_mode_exists: Mock) -> None:
+    check_mode_exists.return_value = True
 
     changeMode('1920x1080.120.0')
 
@@ -45,16 +50,16 @@ def test_change_mode(mocker: MockerFixture, subprocess_run: Mock) -> None:
     )
 
 
-def test_change_mode_check_fails(mocker: MockerFixture, subprocess_run: Mock) -> None:
-    mocker.patch('configgen.utils.videoMode.checkModeExists', return_value=False)
+def test_change_mode_check_fails(subprocess_run: Mock, check_mode_exists: Mock) -> None:
+    check_mode_exists.return_value = False
 
     changeMode('1920x1080.120.0')
 
     subprocess_run.assert_not_called()
 
 
-def test_change_mode_first_fails(mocker: MockerFixture, subprocess_run: Mock) -> None:
-    mocker.patch('configgen.utils.videoMode.checkModeExists', return_value=True)
+def test_change_mode_first_fails(mocker: MockerFixture, subprocess_run: Mock, check_mode_exists: Mock) -> None:
+    check_mode_exists.return_value = True
 
     subprocess_run.side_effect = [
         subprocess.CalledProcessError(1, ['batocera-resolution', 'setMode', '1920x1080.120.0']),
@@ -69,8 +74,8 @@ def test_change_mode_first_fails(mocker: MockerFixture, subprocess_run: Mock) ->
     ]
 
 
-def test_change_mode_fails(mocker: MockerFixture, subprocess_run: Mock) -> None:
-    mocker.patch('configgen.utils.videoMode.checkModeExists', return_value=True)
+def test_change_mode_fails(subprocess_run: Mock, check_mode_exists: Mock) -> None:
+    check_mode_exists.return_value = True
 
     subprocess_run.side_effect = subprocess.CalledProcessError(1, ['batocera-resolution', 'setMode', '1920x1080.120.0'])
 

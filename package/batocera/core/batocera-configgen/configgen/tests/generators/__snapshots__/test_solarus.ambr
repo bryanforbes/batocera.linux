@@ -87,6 +87,9 @@
   
   '''
 # ---
+# name: TestSolarusGenerator.test_generate_no_controllers[pads]
+  ''
+# ---
 # name: TestSolarusGenerator.test_get_hotkeys_context
   dict({
     'keys': dict({

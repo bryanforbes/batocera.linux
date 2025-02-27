@@ -83,7 +83,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
             ({}, 4 / 3),
             ({'hypseus_ratio': 'force_ratio'}, 4 / 3),
             ({'hypseus_ratio': 'stretch'}, 16 / 9),
-            ({'hypseus_ratio': 'original'}, None),  # TODO: This is wrong
+            ({'hypseus_ratio': 'original'}, 4 / 3),
         ],
         ids=str,
     )

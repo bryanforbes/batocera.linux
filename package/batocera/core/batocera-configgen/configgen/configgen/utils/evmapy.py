@@ -63,7 +63,7 @@ class evmapy(AbstractContextManager[None, None]):
                 f"/usr/share/evmapy/{self.emulator}.keys" ,
                 "/usr/share/evmapy/any.keys",
         ]:
-            if os.path.exists(keysfile) and not (os.path.isdir(self.rom) and keysfile == f"{self.rom}.keys"):  # f"{rom}.keys" is forbidden for directories, it must be inside  # noqa: E701
+            if os.path.exists(keysfile) and not (os.path.isdir(self.rom) and keysfile == f"{self.rom}.keys"):  # f"{rom}.keys" is forbidden for directories, it must be inside
                 _logger.debug("evmapy file to merge : %s", keysfile)
                 filesToMerge.append(keysfile)
 
@@ -274,7 +274,7 @@ class evmapy(AbstractContextManager[None, None]):
                             trigger = self.__trigger_mapper(action["trigger"], known_buttons_alias, known_buttons_names, absbasex_positive, absbasey_positive)
                             if "mode" not in action:
                                 mode = self.__trigger_mapper_mode(action["trigger"])
-                                if mode != None:
+                                if mode is not None:
                                     action["mode"] = mode
                             action["trigger"] = trigger
                             if isinstance(trigger, list):
@@ -395,7 +395,7 @@ class evmapy(AbstractContextManager[None, None]):
             new_trigger = []
             for x in trigger:
                 mode = self.__trigger_mapper_mode_string(x)
-                if mode != None:
+                if mode is not None:
                     return mode
             return None
         return self.__trigger_mapper_mode_string(trigger)

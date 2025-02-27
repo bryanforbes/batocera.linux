@@ -96,3 +96,20 @@ class TestSolarusGenerator(GeneratorBaseTest):
             {'width': 1920, 'height': 1080},
         )
         assert (CONFIGS / 'solarus' / 'pads.ini').read_text() == snapshot(name='pads')
+
+    def test_generate_no_controllers(
+        self,
+        generator: SolarusGenerator,
+        mock_system: Emulator,
+        snapshot: SnapshotAssertion,
+    ) -> None:
+        generator.generate(
+            mock_system,
+            '/userdata/roms/solarus/rom.solarus',
+            [],
+            {},
+            [],
+            {},
+            {'width': 1920, 'height': 1080},
+        )
+        assert (CONFIGS / 'solarus' / 'pads.ini').read_text() == snapshot(name='pads')
