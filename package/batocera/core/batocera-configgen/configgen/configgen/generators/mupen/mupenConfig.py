@@ -227,51 +227,50 @@ def setHotKeyConfig(iniConfig: CaseSensitiveConfigParser, controllers: Controlle
         iniConfig.add_section("CoreEvents")
     iniConfig.set("CoreEvents", "Version", "1")
 
-    if controller := Controller.find_player_number(controllers, 1):
-        if 'hotkey' in controller.inputs:
-            if 'start' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Stop", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["start"])}"')
-            if system.isOptSet("mupen64-controller1") and system.config["mupen64-controller1"] == "n64limited":
-                if 'y' in controller.inputs:
-                    iniConfig.set("CoreEvents", "Joy Mapping Save State", "")
-                if 'x' in controller.inputs:
-                    iniConfig.set("CoreEvents", "Joy Mapping Load State", "")
-                if 'pageup' in controller.inputs:
-                    iniConfig.set("CoreEvents", "Joy Mapping Screenshot", "")
-                if 'up' in controller.inputs:
-                    iniConfig.set("CoreEvents", "Joy Mapping Increment Slot", "")
-                if 'right' in controller.inputs:
-                    iniConfig.set("CoreEvents", "Joy Mapping Fast Forward", "")
-                if 'a' in controller.inputs:
-                    iniConfig.set("CoreEvents", "Joy Mapping Reset", "")
-                if 'b' in controller.inputs:
-                    iniConfig.set("CoreEvents", "Joy Mapping Pause", "")
-                return
-
+    if (controller := Controller.find_player_number(controllers, 1)) and 'hotkey' in controller.inputs:
+        if 'start' in controller.inputs:
+            iniConfig.set("CoreEvents", "Joy Mapping Stop", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["start"])}"')
+        if system.isOptSet("mupen64-controller1") and system.config["mupen64-controller1"] == "n64limited":
             if 'y' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Save State", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["y"])}"')
+                iniConfig.set("CoreEvents", "Joy Mapping Save State", "")
             if 'x' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Load State", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["x"])}"')
+                iniConfig.set("CoreEvents", "Joy Mapping Load State", "")
             if 'pageup' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Screenshot", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["pageup"])}"')
+                iniConfig.set("CoreEvents", "Joy Mapping Screenshot", "")
             if 'up' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Increment Slot", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["up"])}"')
+                iniConfig.set("CoreEvents", "Joy Mapping Increment Slot", "")
             if 'right' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Fast Forward", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["right"])}"')
+                iniConfig.set("CoreEvents", "Joy Mapping Fast Forward", "")
             if 'a' in controller.inputs:
-                iniConfig.set("CoreEvents", "Joy Mapping Reset", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["a"])}"')
+                iniConfig.set("CoreEvents", "Joy Mapping Reset", "")
             if 'b' in controller.inputs:
-                #iniConfig.set("CoreEvents", "Joy Mapping Pause", '"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["b"])}"')
                 iniConfig.set("CoreEvents", "Joy Mapping Pause", "")
+            return
+
+        if 'y' in controller.inputs:
+            iniConfig.set("CoreEvents", "Joy Mapping Save State", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["y"])}"')
+        if 'x' in controller.inputs:
+            iniConfig.set("CoreEvents", "Joy Mapping Load State", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["x"])}"')
+        if 'pageup' in controller.inputs:
+            iniConfig.set("CoreEvents", "Joy Mapping Screenshot", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["pageup"])}"')
+        if 'up' in controller.inputs:
+            iniConfig.set("CoreEvents", "Joy Mapping Increment Slot", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["up"])}"')
+        if 'right' in controller.inputs:
+            iniConfig.set("CoreEvents", "Joy Mapping Fast Forward", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["right"])}"')
+        if 'a' in controller.inputs:
+            iniConfig.set("CoreEvents", "Joy Mapping Reset", f'"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["a"])}"')
+        if 'b' in controller.inputs:
+            #iniConfig.set("CoreEvents", "Joy Mapping Pause", '"J{controller.index}{createButtonCode(controller.inputs["hotkey"])}/{createButtonCode(controller.inputs["b"])}"')
+            iniConfig.set("CoreEvents", "Joy Mapping Pause", "")
 
 
 def createButtonCode(button: Input):
     if(button.type == 'axis'):
         if button.value == '-1':
             return f'A{button.id}-'
-        else:
-            return f'A{button.id}+'
+        return f'A{button.id}+'
     if(button.type == 'button'):
         return f'B{button.id}'
     if(button.type == 'hat'):
         return f'H{button.id}V{button.value}'
+    return None

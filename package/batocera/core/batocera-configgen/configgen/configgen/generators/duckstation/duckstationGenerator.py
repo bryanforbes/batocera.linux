@@ -237,7 +237,7 @@ class DuckstationGenerator(Generator):
         # Aspect Ratio
         if system.isOptSet("duckstation_ratio"):
             settings.set("Display", "AspectRatio", system.config["duckstation_ratio"])
-            if not system.config["duckstation_ratio"] == "4:3":
+            if system.config["duckstation_ratio"] != "4:3":
                 system.config['bezel'] = "none"
         else:
             settings.set("Display", "AspectRatio", "Auto (Game Native)")
@@ -298,11 +298,8 @@ class DuckstationGenerator(Generator):
         if not settings.has_section("Cheevos"):
             settings.add_section("Cheevos")
         # RetroAchievements
-        if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements') == True:
-            headers   = {"Content-type": "text/plain", "User-Agent": "Batocera.linux"}
-            login_url = "https://retroachievements.org/"
+        if system.isOptSet('retroachievements') and system.getOptBoolean('retroachievements'):
             username  = system.config.get('retroachievements.username', "")
-            password  = system.config.get('retroachievements.password', "")
             hardcore  = system.config.get('retroachievements.hardcore', "")
             presence  = system.config.get('retroachievements.richpresence', "")
             indicator = system.config.get('retroachievements.challenge_indicators', "")
@@ -590,7 +587,7 @@ def find_bios(bios_lists: Mapping[str, Sequence[str]]):
     try:
         files_lower = {f.name.lower(): f.name for f in BIOS.iterdir()}
     except OSError:
-        raise Exception(f"Unable to read BIOS directory: {BIOS}")
+        raise Exception(f"Unable to read BIOS directory: {BIOS}") from None
 
     for region, bios_list in bios_lists.items():
         for bios in bios_list:

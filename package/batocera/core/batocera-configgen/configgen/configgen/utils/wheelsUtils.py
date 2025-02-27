@@ -245,7 +245,7 @@ def configure_wheels(
             _reset_controllers(procs)
         except Exception:
             _logger.error('hum, unable to reset wheel controllers !')
-            pass  # don't fail
+            # don't fail
 
 
 def _reconfigure_angle_rotation(
