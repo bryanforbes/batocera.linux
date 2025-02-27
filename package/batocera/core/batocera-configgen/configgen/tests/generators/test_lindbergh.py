@@ -130,9 +130,7 @@ class TestLindberghGenerator(GeneratorBaseTest):
 
     @pytest.fixture(autouse=True)
     def get_mapping_axis_relaxed_values(self, mocker: MockerFixture) -> Mock:
-        return mocker.patch(
-            'configgen.generators.lindbergh.lindberghGenerator.get_mapping_axis_relaxed_values', return_value={}
-        )
+        return mocker.patch('configgen.controller.Controller.get_mapping_axis_relaxed_values', return_value={})
 
     def test_get_in_game_ratio(self, generator: Generator) -> None:
         assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
