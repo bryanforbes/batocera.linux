@@ -60,6 +60,23 @@ class TestDXX_RebirthGenerator(GeneratorBaseTest):
         )
         assert (CONFIGS / f'{rom_path[-3:]}-rebirth' / 'descent.cfg').read_text() == snapshot(name='config')
 
+    def test_generate_raises(
+        self,
+        generator: DXX_RebirthGenerator,
+        mock_system: Emulator,
+        one_player_controllers: Controllers,
+    ) -> None:
+        with pytest.raises(Exception, match='^Unknown rom type: /userdata/roms/dxx-rebirth/foo.rom$'):
+            generator.generate(
+                mock_system,
+                '/userdata/roms/dxx-rebirth/foo.rom',
+                one_player_controllers,
+                {},
+                [],
+                {},
+                {'width': 1920, 'height': 1080},
+            )
+
     @pytest.mark.parametrize(
         'mock_system_config',
         [
