@@ -6,7 +6,7 @@ import pytest
 
 from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
-from configgen.generators.sonicretro.sonicretroGenerator import SonicRetroGenerator
+from configgen.generators.sonicretro.sonicretroGenerator import SonicRetroGenerator, _get_resolved_path_md5
 from tests.generators.base import GeneratorBaseTest
 
 if TYPE_CHECKING:
@@ -37,11 +37,8 @@ class TestSonicRetroGenerator(GeneratorBaseTest):
     @pytest.fixture(autouse=True)
     def reset_md5_cache(self) -> None:
         # Since the MD5 cache is based on path and we use the same rom name across multiple tests,
-        # we have to manually delete the cache to ensure new hashes get populated. Since we're using
-        # the private name convention, we have to access it via the mangled name (see
-        # https://docs.python.org/3/reference/expressions.html#private-name-mangling)
-        if hasattr(SonicRetroGenerator._SonicRetroGenerator__getMD5, 'md5'):  # pyright: ignore
-            delattr(SonicRetroGenerator._SonicRetroGenerator__getMD5, 'md5')  # pyright: ignore
+        # we have to manually delete the cache to ensure new hashes get populated.
+        _get_resolved_path_md5.cache_clear()
 
     @pytest.fixture
     def md5(self, mocker: MockerFixture) -> Mock:
