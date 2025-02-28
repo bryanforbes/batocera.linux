@@ -28,6 +28,8 @@ class DXX_RebirthGenerator(Generator):
             dxx_rebirth = "d1x-rebirth"
         elif rom_path.suffix == ".d2x":
             dxx_rebirth = "d2x-rebirth"
+        else:
+            raise Exception(f"Unknown rom type: {rom}")
 
         ## Configuration
         rebirthConfigDir = CONFIGS / dxx_rebirth
