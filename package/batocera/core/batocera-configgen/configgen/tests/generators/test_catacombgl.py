@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.catacombgl.catacombglGenerator import CatacombGLGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -24,7 +25,7 @@ class TestCatacombGLGenerator(GeneratorBaseTest):
         return CatacombGLGenerator
 
     def test_get_in_game_ratio(self, generator: CatacombGLGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     @pytest.mark.parametrize(
         'rom_name',
@@ -47,7 +48,7 @@ class TestCatacombGLGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.ANY,
-                f'/userdata/roms/catacomb/Catacomb {rom_name}.game',
+                ROMS / 'catacomb' / f'Catacomb {rom_name}.game',
                 one_player_controllers,
                 {},
                 [],
@@ -75,7 +76,7 @@ WindowedScreenHeight=480
         )
         generator.generate(
             mocker.ANY,
-            '/userdata/roms/catacomb/Catacomb Abyss.game',
+            ROMS / 'catacomb' / 'Catacomb Abyss.game',
             one_player_controllers,
             {},
             [],

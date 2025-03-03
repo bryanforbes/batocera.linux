@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.melonds.melondsGenerator import MelonDSGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -40,7 +40,7 @@ class TestMelonDSGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/nds/rom.nds',
+                ROMS / 'nds' / 'rom.nds',
                 two_player_controllers,
                 {},
                 [],
@@ -78,7 +78,7 @@ BetterPolygons = true
 
         generator.generate(
             mock_system,
-            '/userdata/roms/nds/rom.nds',
+            ROMS / 'nds' / 'rom.nds',
             one_player_controllers,
             {},
             [],
@@ -118,7 +118,7 @@ BetterPolygons = true
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/nds/rom.nds',
+            ROMS / 'nds' / 'rom.nds',
             one_player_controllers,
             {},
             [],

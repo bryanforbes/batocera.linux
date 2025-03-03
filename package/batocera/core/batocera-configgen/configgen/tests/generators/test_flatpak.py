@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -21,7 +22,7 @@ class TestFlatpakGenerator(GeneratorBaseTest):
         return FlatpakGenerator
 
     def test_get_mouse_mode(self, generator: FlatpakGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_generate(
         self, generator: FlatpakGenerator, fs: FakeFilesystem, mocker: MockerFixture, snapshot: SnapshotAssertion
@@ -32,7 +33,7 @@ class TestFlatpakGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/flatpak/rom.flatpak',
+                ROMS / 'flatpak' / 'rom.flatpak',
                 [],
                 {},
                 [],

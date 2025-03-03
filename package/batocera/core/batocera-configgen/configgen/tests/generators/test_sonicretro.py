@@ -65,7 +65,7 @@ class TestSonicRetroGenerator(GeneratorBaseTest):
     ) -> None:
         fs.create_file(ROMS / 'sonicretro' / rom_dir / 'Data.rsdk', contents=hash)
 
-        assert generator.getMouseMode(SystemConfig({}), f'/userdata/roms/sonicretro/{rom_dir}') == result
+        assert generator.getMouseMode(SystemConfig({}), ROMS / 'sonicretro' / f'{rom_dir}') == result
 
     @pytest.mark.parametrize('rom_dir', ['rom.son', 'rom.scd'])
     def test_generate(
@@ -82,7 +82,7 @@ class TestSonicRetroGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/sonicretro/{rom_dir}',
+                ROMS / 'sonicretro' / f'{rom_dir}',
                 one_player_controllers,
                 {},
                 [],
@@ -111,7 +111,7 @@ DevMenu=true
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sonicretro/rom.son',
+            ROMS / 'sonicretro' / 'rom.son',
             one_player_controllers,
             {},
             [],
@@ -149,7 +149,7 @@ DevMenu=true
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sonicretro/rom.son',
+            ROMS / 'sonicretro' / 'rom.son',
             one_player_controllers,
             {},
             [],
@@ -185,7 +185,7 @@ DevMenu=true
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sonicretro/rom.scd',
+            ROMS / 'sonicretro' / 'rom.scd',
             one_player_controllers,
             {},
             [],
@@ -205,7 +205,7 @@ DevMenu=true
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sonicretro/rom.son',
+            ROMS / 'sonicretro' / 'rom.son',
             [],
             {},
             [],
@@ -243,7 +243,7 @@ DevMenu=true
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sonicretro/rom.son',
+            ROMS / 'sonicretro' / 'rom.son',
             [],
             {},
             [],

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.gzdoom.gzdoomGenerator import GZDoomGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -40,13 +41,13 @@ class TestGZDoomGenerator(GeneratorBaseTest):
         return fs
 
     def test_get_in_game_ratio(self, generator: GZDoomGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(self, generator: GZDoomGenerator, mock_system: Emulator, snapshot: SnapshotAssertion) -> None:
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/gzdoom/romdir/rom.wad',
+                ROMS / 'gzdoom' / 'romdir' / 'rom.wad',
                 [],
                 {},
                 [],
@@ -87,7 +88,7 @@ echo BATOCERA
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gzdoom/romdir/rom.wad',
+            ROMS / 'gzdoom' / 'romdir' / 'rom.wad',
             [],
             {},
             [],
@@ -114,7 +115,7 @@ Path=/yet/another/path
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gzdoom/romdir/rom.wad',
+            ROMS / 'gzdoom' / 'romdir' / 'rom.wad',
             [],
             {},
             [],
@@ -140,7 +141,7 @@ Path=/yet/another/path
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/gzdoom/romdir/rom.wad',
+                ROMS / 'gzdoom' / 'romdir' / 'rom.wad',
                 [],
                 {},
                 [],
@@ -163,7 +164,7 @@ Path=/yet/another/path
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/gzdoom/romdir/rom.gzdoom',
+                ROMS / 'gzdoom' / 'romdir' / 'rom.gzdoom',
                 [],
                 {},
                 [],

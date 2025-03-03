@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import BATOCERA_CONF, ES_SETTINGS, USER_SHADERS
+from configgen.batoceraPaths import BATOCERA_CONF, ES_SETTINGS, ROMS, USER_SHADERS
 from configgen.Emulator import Emulator
 
 if TYPE_CHECKING:
@@ -172,7 +172,7 @@ global.this_should_be_game=global
 """,
         )
 
-        emulator = Emulator(default_args, '/userdata/roms/3ds/rom#1=2.game')
+        emulator = Emulator(default_args, ROMS / '3ds' / 'rom#1=2.game')
 
         assert emulator.config.data == snapshot
         assert emulator.renderconfig.data == snapshot(name='renderconfig')
@@ -184,15 +184,15 @@ global.this_should_be_game=global
 
     def test_init_with_arch_defaults(self, default_args: Namespace, snapshot: SnapshotAssertion) -> None:
         default_args.system = 'pcengine'
-        assert Emulator(default_args, '').config.data == snapshot
+        assert Emulator(default_args, Path()).config.data == snapshot
 
     def test_init_with_arch_defaults_options(self, default_args: Namespace, snapshot: SnapshotAssertion) -> None:
         default_args.system = 'n64'
-        assert Emulator(default_args, '').config.data == snapshot
+        assert Emulator(default_args, Path()).config.data == snapshot
 
     def test_init_shaderset_system(self, default_args: Namespace, snapshot: SnapshotAssertion) -> None:
         default_args.system = 'gb'
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.config.data == snapshot
         assert emulator.renderconfig.data == snapshot(name='renderconfig')
@@ -208,7 +208,7 @@ global.shaderset=none
 """,
         )
         default_args.system = name
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.renderconfig.data == snapshot
 
@@ -249,14 +249,14 @@ gb:
         )
         default_args.system = name
 
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.renderconfig.data == snapshot
 
     def test_init_not_found(self, default_args: Namespace) -> None:
         default_args.system = 'foo'
         with pytest.raises(Exception, match=r'^No emulator found$'):
-            Emulator(default_args, '')
+            Emulator(default_args, Path())
 
     def test_init_no_defaults_arch_files(
         self, default_args: Namespace, fs: FakeFilesystem, snapshot: SnapshotAssertion
@@ -265,7 +265,7 @@ gb:
         fs.remove('/usr/share/batocera/shaders/configs/sharp-bilinear-simple/rendering-defaults-arch.yml')
 
         default_args.system = 'gb'
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.config.data == snapshot
         assert emulator.renderconfig.data == snapshot(name='renderconfig')
@@ -283,7 +283,7 @@ global.shaderset=none
         fs.remove('/usr/share/batocera/shaders/configs/rendering-defaults-arch.yml')
 
         default_args.system = 'gb'
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.renderconfig.data == snapshot
 
@@ -302,7 +302,7 @@ global.shaderset=none
     3ds_arch_option: 3ds_arch_value
 """)
 
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.config.data == snapshot
 
@@ -324,7 +324,7 @@ global.shaderset=none
         else:
             default_args.emulator = 'blah'
 
-        assert Emulator(default_args, '/userdata/roms/3ds/rom#1=2.game').config.data == snapshot
+        assert Emulator(default_args, ROMS / '3ds' / 'rom#1=2.game').config.data == snapshot
 
     @pytest.mark.parametrize('source', ['global', 'system', 'game', 'args'])
     def test_init_forced_core(
@@ -344,7 +344,7 @@ global.shaderset=none
         else:
             default_args.core = 'blah'
 
-        assert Emulator(default_args, '/userdata/roms/3ds/rom#1=2.game').config.data == snapshot
+        assert Emulator(default_args, ROMS / '3ds' / 'rom#1=2.game').config.data == snapshot
 
     @pytest.mark.parametrize('lightgun', [False, True])
     @pytest.mark.parametrize('config_value', [None, '0', '1'])
@@ -365,7 +365,7 @@ global.use_guns={config_value}
             )
         default_args.lightgun = lightgun
 
-        assert Emulator(default_args, '').config.data == snapshot
+        assert Emulator(default_args, Path()).config.data == snapshot
 
     @pytest.mark.parametrize('wheel', [False, True])
     @pytest.mark.parametrize('config_value', [None, '0', '1'])
@@ -386,7 +386,7 @@ global.use_wheels={config_value}
             )
         default_args.wheel = wheel
 
-        assert Emulator(default_args, '').config.data == snapshot
+        assert Emulator(default_args, Path()).config.data == snapshot
 
     @pytest.mark.parametrize(
         'arg',
@@ -404,7 +404,7 @@ global.use_wheels={config_value}
     def test_load_configs_args(self, default_args: Namespace, arg: str, snapshot: SnapshotAssertion) -> None:
         setattr(default_args, arg, 'value')
 
-        assert Emulator(default_args, '').config.data == snapshot
+        assert Emulator(default_args, Path()).config.data == snapshot
 
     @pytest.mark.parametrize('ui_mode', ['Full', 'Kiosk', 'Kid', 'bar', None])
     @pytest.mark.parametrize('draw_framerate', ['true', 'false', 'foo', None])
@@ -421,15 +421,15 @@ global.use_wheels={config_value}
 </config>
 """)
 
-        assert Emulator(default_args, '').config.data == snapshot
+        assert Emulator(default_args, Path()).config.data == snapshot
 
     def test_init_es_settings_parse_error(self, default_args: Namespace, snapshot: SnapshotAssertion) -> None:
         ES_SETTINGS.unlink()
 
-        assert Emulator(default_args, '').config.data == snapshot
+        assert Emulator(default_args, Path()).config.data == snapshot
 
     def test_is_opt_set(self, default_args: Namespace) -> None:
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.isOptSet('hud_support')
         assert not emulator.isOptSet('foo')
@@ -449,7 +449,7 @@ global.disabled=disabled
 global.foo=foo
 """,
         )
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.getOptBoolean('hud_support')
         assert emulator.getOptBoolean('one')
@@ -472,7 +472,7 @@ global.value=something
 global.novalue=
 """,
         )
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         assert emulator.getOptString('value') == 'something'
         assert emulator.getOptString('novalue') == ''
@@ -499,7 +499,7 @@ global.novalue=
         borders_mode: str | None,
         snapshot: SnapshotAssertion,
     ) -> None:
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         if borders_size is not None:
             emulator.config['controllers.guns.borderssize'] = borders_size
@@ -514,7 +514,7 @@ global.novalue=
 
     @pytest.mark.parametrize('value', [None, 'foo', '4:3'])
     def test_guns_border_ratio_type(self, default_args: Namespace, value: str | None) -> None:
-        emulator = Emulator(default_args, '')
+        emulator = Emulator(default_args, Path())
 
         if value:
             emulator.config['controllers.guns.bordersratio'] = value

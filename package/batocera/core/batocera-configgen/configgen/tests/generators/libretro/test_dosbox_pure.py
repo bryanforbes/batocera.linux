@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest
 
 if TYPE_CHECKING:
@@ -68,7 +70,9 @@ class TestLibretroGeneratorDosboxPure(LibretroBaseCoreTest):
     ) -> None:
         rom_stem = 'rom dir' if rom_has_space else 'rom_dir'
         rom_path = (
-            f'/var/run/squashfs/{rom_stem}' if extension == 'squashfs' else f'/userdata/roms/dos/{rom_stem}.{extension}'
+            Path(f'/var/run/squashfs/{rom_stem}')
+            if extension == 'squashfs'
+            else (ROMS / 'dos' / f'{rom_stem}.{extension}')
         )
 
         if batfile == 1:

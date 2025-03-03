@@ -2,11 +2,12 @@ from __future__ import annotations
 
 import shutil
 import stat
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.redream.redreamGenerator import RedreamGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -51,7 +52,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: RedreamGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -63,7 +64,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/dreamcast/rom.chd',
+                ROMS / 'dreamcast' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -89,7 +90,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/dreamcast/rom.chd',
+            ROMS / 'dreamcast' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -110,7 +111,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/dreamcast/rom.chd',
+            ROMS / 'dreamcast' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -143,7 +144,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/dreamcast/rom.chd',
+            ROMS / 'dreamcast' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -164,7 +165,7 @@ class TestRedreamGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/dreamcast/rom.chd',
+                ROMS / 'dreamcast' / 'rom.chd',
                 make_player_controller_list(
                     generic_xbox_pad, ps3_controller, nintendo_pro_controller, ps3_controller, generic_xbox_pad
                 ),

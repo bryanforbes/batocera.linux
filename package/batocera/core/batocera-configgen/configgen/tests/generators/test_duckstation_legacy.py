@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import BIOS, CONFIGS
+from configgen.batoceraPaths import BIOS, CONFIGS, ROMS
 from configgen.generators.duckstation_legacy.duckstationLegacyGenerator import DuckstationLegacyGenerator
 from tests.generators.base import GeneratorBaseTest
 from tests.mock_controllers import make_player_controller_list
@@ -57,7 +57,7 @@ class TestDuckstationLegacyGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psx/rom.chd',
+                ROMS / 'psx' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -84,7 +84,7 @@ class TestDuckstationLegacyGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psx/rom.chd',
+                ROMS / 'psx' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -166,7 +166,7 @@ Bar = baz
 
         generator.generate(
             mock_system,
-            '/userdata/roms/psx/rom.chd',
+            ROMS / 'psx' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -196,7 +196,7 @@ rom/rom4.chd
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psx/rom.m3u',
+                ROMS / 'psx' / 'rom.m3u',
                 one_player_controllers,
                 {},
                 [],
@@ -221,7 +221,7 @@ rom/rom4.chd
         with pytest.raises(Exception, match='^No PSX1 BIOS found$'):
             generator.generate(
                 mock_system,
-                '/userdata/roms/psx/rom.chd',
+                ROMS / 'psx' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -306,7 +306,7 @@ rom/rom4.chd
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/psx/rom.chd',
+            ROMS / 'psx' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -330,7 +330,7 @@ rom/rom4.chd
 
         generator.generate(
             mock_system,
-            '/userdata/roms/psx/rom.chd',
+            ROMS / 'psx' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -368,7 +368,7 @@ rom/rom4.chd
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/psx/rom.chd',
+            ROMS / 'psx' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -395,7 +395,7 @@ rom/rom4.chd
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/psx/rom.chd',
+            ROMS / 'psx' / 'rom.chd',
             make_player_controller_list(*itertools.repeat(generic_xbox_pad, controller_count)),
             {},
             [],
@@ -425,7 +425,7 @@ rom/rom4.chd
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/psx/rom.chd',
+            ROMS / 'psx' / 'rom.chd',
             make_player_controller_list(*itertools.repeat(generic_xbox_pad, 5)),
             metadata,
             [mocker.Mock()],

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.tsugaru.tsugaruGenerator import TsugaruGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -35,7 +36,7 @@ class TestTsugaruGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/fmtowns/rom.bin',
+                ROMS / 'fmtowns' / 'rom.bin',
                 [],
                 {},
                 [],
@@ -56,7 +57,7 @@ class TestTsugaruGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/fmtowns/rom.{extension}',
+                ROMS / 'fmtowns' / f'rom.{extension}',
                 [],
                 {},
                 [],
@@ -83,7 +84,7 @@ class TestTsugaruGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/fmtowns/rom.bin',
+                ROMS / 'fmtowns' / 'rom.bin',
                 [],
                 {},
                 [],

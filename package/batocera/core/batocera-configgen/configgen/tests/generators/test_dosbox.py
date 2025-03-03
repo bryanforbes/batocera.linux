@@ -35,7 +35,7 @@ class TestDosBoxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/dos/rom.pc',
+                ROMS / 'dos' / 'rom.pc',
                 [],
                 {},
                 [],
@@ -85,7 +85,7 @@ blah = custom bam
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/dos/rom.pc',
+                ROMS / 'dos' / 'rom.pc',
                 [],
                 {},
                 [],
@@ -136,7 +136,7 @@ blah = user bam
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/dos/rom.pc',
+                ROMS / 'dos' / 'rom.pc',
                 [],
                 {},
                 [],
@@ -163,7 +163,7 @@ blah = user bam
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/dos/rom.pc',
+            ROMS / 'dos' / 'rom.pc',
             [],
             {},
             [],

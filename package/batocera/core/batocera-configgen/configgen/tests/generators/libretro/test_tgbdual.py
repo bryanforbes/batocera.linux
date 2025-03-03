@@ -46,7 +46,7 @@ foo:baz.zip
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/rom.{extension}',
+                ROMS / mock_system.name / f'rom.{extension}',
                 [],
                 {},
                 [],
@@ -85,7 +85,7 @@ foo:baz.zip
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/rom.gb',
+                ROMS / mock_system.name / 'rom.gb',
                 [],
                 {},
                 [],
@@ -152,7 +152,7 @@ foo:baz.zip
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/rom.{extension}',
+                ROMS / mock_system.name / f'rom.{extension}',
                 [],
                 {},
                 [],

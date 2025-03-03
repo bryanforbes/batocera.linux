@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, DEFAULTS_DIR, SAVES
+from configgen.batoceraPaths import CONFIGS, DEFAULTS_DIR, ROMS, SAVES
 from configgen.generators.flycast.flycastGenerator import FlycastGenerator
 from tests.generators.base import GeneratorBaseTest
 from tests.mock_controllers import make_player_controller_list
@@ -46,7 +46,7 @@ class TestFlycastGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/dreamcast/rom.chd',
+                ROMS / 'dreamcast' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -74,7 +74,7 @@ class TestFlycastGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/dreamcast/rom.chd',
+                ROMS / 'dreamcast' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -122,7 +122,7 @@ bar = baz
 
         generator.generate(
             mock_system,
-            '/userdata/roms/dreamcast/rom.chd',
+            ROMS / 'dreamcast' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -197,7 +197,7 @@ bar = baz
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/dreamcast/rom.chd',
+            ROMS / 'dreamcast' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -219,7 +219,7 @@ bar = baz
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/dreamcast/rom.chd',
+            ROMS / 'dreamcast' / 'rom.chd',
             make_player_controller_list(generic_xbox_pad, ps3_controller, gpio_controller_1),
             {},
             [],

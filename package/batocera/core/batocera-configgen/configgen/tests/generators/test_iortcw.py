@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -37,7 +38,7 @@ class TestIORTCWGenerator(GeneratorBaseTest):
         return fs
 
     def test_get_in_game_ratio(self, generator: IORTCWGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -49,7 +50,7 @@ class TestIORTCWGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '',
+                Path(),
                 one_player_controllers,
                 {},
                 [],
@@ -104,7 +105,7 @@ seta cl_language "3"
         )
         generator.generate(
             mock_system,
-            '',
+            Path(),
             [],
             {},
             [],
@@ -133,7 +134,7 @@ seta cl_language "3"
     ) -> None:
         generator.generate(
             mock_system,
-            '',
+            Path(),
             [],
             {},
             [],

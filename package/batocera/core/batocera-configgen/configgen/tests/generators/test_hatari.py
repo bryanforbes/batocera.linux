@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import BIOS, CONFIGS
+from configgen.batoceraPaths import BIOS, CONFIGS, ROMS
 from configgen.controller import Controller
 from configgen.generators.hatari.hatariGenerator import HatariGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -45,7 +45,7 @@ class TestHatariGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.st',
+                ROMS / 'atarist' / 'rom.st',
                 one_player_controllers,
                 {},
                 [],
@@ -85,7 +85,7 @@ bBar = FALSE
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.st',
+                ROMS / 'atarist' / 'rom.st',
                 one_player_controllers,
                 {},
                 [],
@@ -118,7 +118,7 @@ bBar = FALSE
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.st',
+                ROMS / 'atarist' / 'rom.st',
                 one_player_controllers,
                 {},
                 [],
@@ -142,7 +142,7 @@ bBar = FALSE
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.st',
+                ROMS / 'atarist' / 'rom.st',
                 make_player_controller_list(
                     generic_xbox_pad,
                     Controller(
@@ -194,7 +194,7 @@ bBar = FALSE
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.hd',
+                ROMS / 'atarist' / 'rom.hd',
                 one_player_controllers,
                 {},
                 [],
@@ -219,7 +219,7 @@ bBar = FALSE
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.gemdos',
+                ROMS / 'atarist' / 'rom.gemdos',
                 one_player_controllers,
                 {},
                 [],
@@ -244,7 +244,7 @@ bBar = FALSE
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.gemdos',
+                ROMS / 'atarist' / 'rom.gemdos',
                 one_player_controllers,
                 {},
                 [],
@@ -305,7 +305,7 @@ bBar = FALSE
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.st',
+                ROMS / 'atarist' / 'rom.st',
                 one_player_controllers,
                 {},
                 [],
@@ -324,7 +324,7 @@ bBar = FALSE
         with pytest.raises(Exception, match=r'^no bios found for machine'):
             generator.generate(
                 mock_system,
-                '/userdata/roms/atarist/rom.st',
+                ROMS / 'atarist' / 'rom.st',
                 one_player_controllers,
                 {},
                 [],

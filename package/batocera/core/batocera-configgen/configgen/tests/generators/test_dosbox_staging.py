@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.dosboxstaging.dosboxstagingGenerator import DosBoxStagingGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -25,7 +26,7 @@ class TestDosBoxStagingGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/dos/rom.pc',
+                ROMS / 'dos' / 'rom.pc',
                 [],
                 {},
                 [],
@@ -43,7 +44,7 @@ class TestDosBoxStagingGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/dos/rom.pc',
+                ROMS / 'dos' / 'rom.pc',
                 [],
                 {},
                 [],

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.samcoupe.samcoupeGenerator import SamcoupeGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -29,7 +30,7 @@ class TestSamcoupeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/samcoupe/rom.dsk',
+                ROMS / 'samcoupe' / 'rom.dsk',
                 one_player_controllers,
                 {},
                 [],

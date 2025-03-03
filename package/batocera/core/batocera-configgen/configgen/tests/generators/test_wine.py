@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+from pathlib import Path
 from subprocess import CalledProcessError
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.wine.wineGenerator import WineGenerator
 from tests.conftest import get_os_environ
@@ -55,7 +57,7 @@ class TestWineGenerator(GeneratorBaseTest):
     def test_get_mouse_mode(  # pyright: ignore
         self, generator: WineGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getMouseMode(SystemConfig(mock_system_config), '') == result
+        assert generator.getMouseMode(SystemConfig(mock_system_config), Path()) == result
 
     def test_generate(
         self,
@@ -67,7 +69,7 @@ class TestWineGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/windows/rom.wine',
+                ROMS / 'windows' / 'rom.wine',
                 one_player_controllers,
                 {},
                 [],
@@ -88,7 +90,7 @@ class TestWineGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/windows_installers/rom.wine',
+                ROMS / 'windows_installers' / 'rom.wine',
                 one_player_controllers,
                 {},
                 [],
@@ -111,7 +113,7 @@ class TestWineGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/windows/rom.wine',
+                ROMS / 'windows' / 'rom.wine',
                 one_player_controllers,
                 {},
                 [],
@@ -134,7 +136,7 @@ class TestWineGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/windows/rom.wine',
+                ROMS / 'windows' / 'rom.wine',
                 one_player_controllers,
                 {},
                 [],
@@ -155,7 +157,7 @@ class TestWineGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/windows/rom.wine',
+                ROMS / 'windows' / 'rom.wine',
                 one_player_controllers,
                 {},
                 [],
@@ -178,7 +180,7 @@ class TestWineGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/windows/rom.wine',
+                ROMS / 'windows' / 'rom.wine',
                 one_player_controllers,
                 {},
                 [],
@@ -200,7 +202,7 @@ class TestWineGenerator(GeneratorBaseTest):
         with pytest.raises(Exception, match='invalid system foo'):
             generator.generate(
                 mock_system,
-                '/userdata/roms/windows_installers/rom.wine',
+                ROMS / 'windows_installers' / 'rom.wine',
                 one_player_controllers,
                 {},
                 [],

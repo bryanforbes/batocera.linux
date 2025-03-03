@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.raze.razeGenerator import RazeGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -35,7 +36,7 @@ class TestRazeGenerator(GeneratorBaseTest):
         return 'raze'
 
     def test_get_in_game_ratio(self, generator: RazeGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     @pytest.fixture(autouse=True)
     def architecture(self, mocker: MockerFixture, request: pytest.FixtureRequest) -> Mock:
@@ -63,7 +64,7 @@ FILE+ = /duke/duke3d_hrp.zip
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/raze/rom.raze',
+                ROMS / 'raze' / 'rom.raze',
                 one_player_controllers,
                 {},
                 [],
@@ -103,7 +104,7 @@ FILE+ = /duke/duke3d_hrp.zip
 
         generator.generate(
             mock_system,
-            '/userdata/roms/raze/rom.raze',
+            ROMS / 'raze' / 'rom.raze',
             one_player_controllers,
             {},
             [],
@@ -141,7 +142,7 @@ FILE+ = /duke/duke3d_hrp.zip
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/raze/rom.raze',
+                ROMS / 'raze' / 'rom.raze',
                 one_player_controllers,
                 {},
                 [],
@@ -201,7 +202,7 @@ FILE+ = /duke/duke3d_hrp.zip
 
         generator.generate(
             mock_system,
-            '/userdata/roms/raze/rom.raze',
+            ROMS / 'raze' / 'rom.raze',
             one_player_controllers,
             {},
             [],
@@ -228,7 +229,7 @@ FILE+ = /duke/duke3d_hrp.zip
         with pytest.raises(Exception, match=r'^2 error\(s\) found in /userdata/roms/raze/rom\.raze'):
             generator.generate(
                 mock_system,
-                '/userdata/roms/raze/rom.raze',
+                ROMS / 'raze' / 'rom.raze',
                 one_player_controllers,
                 {},
                 [],

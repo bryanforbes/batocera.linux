@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.drastic.drasticGenerator import DrasticGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -76,7 +76,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/nds/rom.nds',
+                ROMS / 'nds' / 'rom.nds',
                 one_player_controllers,
                 {},
                 [],
@@ -105,7 +105,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/nds/rom.nds',
+            ROMS / 'nds' / 'rom.nds',
             one_player_controllers,
             {},
             [],
@@ -129,7 +129,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/nds/rom.nds',
+            ROMS / 'nds' / 'rom.nds',
             one_player_controllers,
             {},
             [],
@@ -167,7 +167,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/nds/rom.nds',
+            ROMS / 'nds' / 'rom.nds',
             one_player_controllers,
             {},
             [],
@@ -199,7 +199,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/nds/rom.nds',
+            ROMS / 'nds' / 'rom.nds',
             one_player_controllers,
             {},
             [],
@@ -228,7 +228,7 @@ class TestDrasticGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/nds/rom.nds',
+            ROMS / 'nds' / 'rom.nds',
             one_player_controllers,
             {},
             [],

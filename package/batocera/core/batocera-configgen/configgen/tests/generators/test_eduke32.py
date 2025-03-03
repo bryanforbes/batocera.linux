@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.generators.eduke32.eduke32Generator import EDuke32Generator
 from tests.generators.base import GeneratorBaseTest
 
@@ -50,7 +50,7 @@ FILE+ = /duke/duke3d_hrp.zip
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/eduke32/rom.eduke32',
+                ROMS / 'eduke32' / 'rom.eduke32',
                 one_player_controllers,
                 {},
                 [],
@@ -92,7 +92,7 @@ FILE+ = /duke/duke3d_hrp.zip
 
         generator.generate(
             mock_system,
-            '/userdata/roms/eduke32/rom.eduke32',
+            ROMS / 'eduke32' / 'rom.eduke32',
             one_player_controllers,
             {},
             [],
@@ -113,7 +113,7 @@ FILE+ = /duke/duke3d_hrp.zip
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/fury/rom.grp',
+                ROMS / 'fury' / 'rom.grp',
                 one_player_controllers,
                 {},
                 [],
@@ -155,7 +155,7 @@ FILE+ = /duke/duke3d_hrp.zip
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/eduke32/rom.eduke32',
+                ROMS / 'eduke32' / 'rom.eduke32',
                 one_player_controllers,
                 {},
                 [],
@@ -184,7 +184,7 @@ FILE+ = /duke/duke3d_hrp.zip
         with pytest.raises(Exception, match=r'^2 error\(s\) found in /userdata/roms/eduke32/rom\.eduke32'):
             generator.generate(
                 mock_system,
-                '/userdata/roms/eduke32/rom.eduke32',
+                ROMS / 'eduke32' / 'rom.eduke32',
                 one_player_controllers,
                 {},
                 [],

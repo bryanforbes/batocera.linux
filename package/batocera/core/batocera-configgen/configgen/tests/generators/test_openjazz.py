@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.openjazz.openjazzGenerator import OpenJazzGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -38,7 +39,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
         mocker.patch('pathlib.PosixPath.open', side_effect=Exception('Test exception'))
 
     def test_get_in_game_ratio(self, generator: OpenJazzGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -49,7 +50,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/openjazz/rom.game',
+                ROMS / 'openjazz' / 'rom.game',
                 [],
                 {},
                 [],
@@ -82,7 +83,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/openjazz/rom.game',
+            ROMS / 'openjazz' / 'rom.game',
             make_player_controller_list(nintendo_pro_controller),
             {},
             [],
@@ -102,7 +103,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/openjazz/rom.game',
+            ROMS / 'openjazz' / 'rom.game',
             [],
             {},
             [],
@@ -120,7 +121,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/openjazz/rom.game',
+            ROMS / 'openjazz' / 'rom.game',
             make_player_controller_list(nintendo_pro_controller),
             {},
             [],
@@ -138,7 +139,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/openjazz/rom.game',
+            ROMS / 'openjazz' / 'rom.game',
             [],
             {},
             [],
@@ -158,7 +159,7 @@ class TestOpenJazzGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/openjazz/rom.game',
+                ROMS / 'openjazz' / 'rom.game',
                 make_player_controller_list(generic_xbox_pad, ps3_controller),
                 {},
                 [],

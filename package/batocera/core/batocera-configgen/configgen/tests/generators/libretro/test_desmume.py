@@ -55,7 +55,7 @@ class TestLibretroGeneratorDesmume(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/nds/rom.{default_extension}',
+            ROMS / 'nds' / f'rom.{default_extension}',
             make_player_controller_list(generic_xbox_pad, ps3_controller),
             {},
             [],

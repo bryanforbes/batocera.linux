@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import BIOS, CONFIGS, DATAINIT_DIR
+from configgen.batoceraPaths import BIOS, CONFIGS, DATAINIT_DIR, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.pcsx2.pcsx2Generator import Pcsx2Generator
 from tests.generators.base import GeneratorBaseTest
@@ -61,8 +61,7 @@ class TestPcsx2Generator(GeneratorBaseTest):
         self, generator: Pcsx2Generator, mock_system_config: dict[str, Any], resolution: Resolution, result: bool
     ) -> None:
         assert (
-            generator.getInGameRatio(SystemConfig(mock_system_config), resolution, '/userdata/roms/ps2/rom.chd')
-            == result
+            generator.getInGameRatio(SystemConfig(mock_system_config), resolution, ROMS / 'ps2' / 'rom.chd') == result
         )
 
     def test_generate(
@@ -75,7 +74,7 @@ class TestPcsx2Generator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/ps2/rom.chd',
+                ROMS / 'ps2' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -172,7 +171,7 @@ guncon2_numdevice = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/ps2/rom.chd',
+            ROMS / 'ps2' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -213,7 +212,7 @@ guncon2_numdevice = 1
         assert (
             generator.generate(
                 mock_system,
-                'config',
+                Path('config'),
                 one_player_controllers,
                 {},
                 [],
@@ -312,7 +311,7 @@ guncon2_numdevice = 1
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/ps2/rom.chd',
+                ROMS / 'ps2' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -350,7 +349,7 @@ guncon2_numdevice = 1
         )
         generator.generate(
             mock_system,
-            '/userdata/roms/ps2/rom.chd',
+            ROMS / 'ps2' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -408,7 +407,7 @@ guncon2_numdevice = 1
         vulkan_is_available.return_value = True
         generator.generate(
             mock_system,
-            '/userdata/roms/ps2/rom.chd',
+            ROMS / 'ps2' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -445,7 +444,7 @@ guncon2_numdevice = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/ps2/rom.chd',
+            ROMS / 'ps2' / 'rom.chd',
             two_player_controllers,
             metadata,
             guns,
@@ -487,7 +486,7 @@ guncon2_numdevice = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/ps2/rom.chd',
+            ROMS / 'ps2' / 'rom.chd',
             make_player_controller_list(generic_xbox_pad, ps3_controller),
             metadata,
             [],
@@ -517,7 +516,7 @@ guncon2_numdevice = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/ps2/rom.chd',
+            ROMS / 'ps2' / 'rom.chd',
             make_player_controller_list(*itertools.repeat(generic_xbox_pad, num_controllers)),
             {},
             [],

@@ -46,7 +46,7 @@ class TestLibretroGeneratorYabasanshiro(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             make_player_controller_list(generic_xbox_pad, ps3_controller, keyboard_controller),
             {},
             [],

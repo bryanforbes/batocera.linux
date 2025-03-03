@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest, parametrize_guns
 from tests.generators.libretro.utils import get_configs_with_base
 from tests.mock_controllers import make_player_controller_list
@@ -85,7 +87,7 @@ class TestLibretroGeneratorGenesisPlusGX(LibretroBaseCoreTest):
     ) -> None:
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             [],
             {},
             [],
@@ -113,7 +115,7 @@ class TestLibretroGeneratorGenesisPlusGX(LibretroBaseCoreTest):
     ) -> None:
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             make_player_controller_list(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
             {},
             [],
@@ -154,7 +156,7 @@ class TestLibretroGeneratorGenesisPlusGX(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             controllers,
             {},
             [],
@@ -174,7 +176,7 @@ class TestLibretroGeneratorGenesisPlusGX(LibretroBaseCoreTest):
         assert (
             generator.generate(
                 mock_system,
-                '/var/run/squashfs/rom_name',
+                Path('/var/run/squashfs/rom_name'),
                 [],
                 {},
                 [],

@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.steam.steamGenerator import SteamGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -21,7 +23,7 @@ class TestSteamGenerator(GeneratorBaseTest):
         return SteamGenerator
 
     def test_get_mouse_mode(self, generator: SteamGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_generate(
         self,
@@ -32,7 +34,7 @@ class TestSteamGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/steam/Steam.steam',
+                ROMS / 'steam' / 'Steam.steam',
                 [],
                 {},
                 [],
@@ -54,7 +56,7 @@ class TestSteamGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/steam/rom.steam',
+                ROMS / 'steam' / 'rom.steam',
                 [],
                 {},
                 [],

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -59,7 +60,7 @@ class TestLibretroGeneratorMesenS(LibretroBaseCoreTest):
         assert (
             generator.generate(
                 mock_system,
-                '/var/run/squashfs/rom_name',
+                Path('/var/run/squashfs/rom_name'),
                 [],
                 {},
                 [],

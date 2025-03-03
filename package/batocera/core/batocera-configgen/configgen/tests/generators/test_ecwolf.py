@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.generators.ecwolf.ecwolfGenerator import ECWolfGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -35,7 +35,7 @@ class TestECWolfGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf',
+                ROMS / 'ecwolf' / 'Wolfenstein 3D.ecwolf',
                 one_player_controllers,
                 {},
                 [],
@@ -74,7 +74,7 @@ Bar = 1;
 
         generator.generate(
             mocker.Mock(),
-            '/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf',
+            ROMS / 'ecwolf' / 'Wolfenstein 3D.ecwolf',
             one_player_controllers,
             {},
             [],
@@ -98,7 +98,7 @@ Bar = 1;
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf',
+                ROMS / 'ecwolf' / 'Wolfenstein 3D.ecwolf',
                 one_player_controllers,
                 {},
                 [],
@@ -132,7 +132,7 @@ Bar = 1;
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf',
+                ROMS / 'ecwolf' / 'Wolfenstein 3D.ecwolf',
                 one_player_controllers,
                 {},
                 [],
@@ -156,7 +156,7 @@ Bar = 1;
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ecwolf/Wolfenstein 3D.ecwolf',
+                ROMS / 'ecwolf' / 'Wolfenstein 3D.ecwolf',
                 one_player_controllers,
                 {},
                 [],
@@ -179,7 +179,7 @@ Bar = 1;
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ecwolf/Wolfenstein 3D.pk3',
+                ROMS / 'ecwolf' / 'Wolfenstein 3D.pk3',
                 one_player_controllers,
                 {},
                 [],

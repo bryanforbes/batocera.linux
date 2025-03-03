@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.devilutionx.devilutionxGenerator import DevilutionXGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -43,7 +44,7 @@ class TestDevilutionXGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: DevilutionXGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -55,7 +56,7 @@ class TestDevilutionXGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/devilutionx/diablo.mpq',
+                ROMS / 'devilutionx' / 'diablo.mpq',
                 one_player_controllers,
                 {},
                 [],
@@ -87,7 +88,7 @@ bar = 0
 
         generator.generate(
             mock_system,
-            '/userdata/roms/devilutionx/diablo.mpq',
+            ROMS / 'devilutionx' / 'diablo.mpq',
             one_player_controllers,
             {},
             [],
@@ -116,7 +117,7 @@ bar = 0
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/devilutionx/diablo.mpq',
+                ROMS / 'devilutionx' / 'diablo.mpq',
                 one_player_controllers,
                 {},
                 [],
@@ -146,7 +147,7 @@ bar = 0
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/devilutionx/{rom}',
+                ROMS / 'devilutionx' / f'{rom}',
                 one_player_controllers,
                 {},
                 [],

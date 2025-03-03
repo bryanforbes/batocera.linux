@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.abuse.abuseGenerator import AbuseGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -29,7 +30,7 @@ class TestAbuseGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/abuse/abuse.game',
+                ROMS / 'abuse' / 'abuse.game',
                 one_player_controllers,
                 {},
                 [],

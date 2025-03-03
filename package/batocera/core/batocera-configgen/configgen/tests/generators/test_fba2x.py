@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.fba2x.fba2xGenerator import Fba2xGenerator
 from tests.generators.base import GeneratorBaseTest
 from tests.mock_controllers import make_player_controller_list
@@ -41,7 +41,7 @@ class TestFba2xGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/neogeo/rom.zip',
+                ROMS / 'neogeo' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -74,7 +74,7 @@ Bar = 2
         )
         generator.generate(
             mock_system,
-            '/userdata/roms/neogeo/rom.zip',
+            ROMS / 'neogeo' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -106,7 +106,7 @@ Bar = 2
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/neogeo/rom.zip',
+            ROMS / 'neogeo' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -125,7 +125,7 @@ Bar = 2
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/neogeo/sfa.zip',
+            ROMS / 'neogeo' / 'sfa.zip',
             one_player_controllers,
             {},
             [],
@@ -145,7 +145,7 @@ Bar = 2
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/neogeo/sfa.zip',
+            ROMS / 'neogeo' / 'sfa.zip',
             make_player_controller_list(generic_xbox_pad, gpio_controller_1),
             {},
             [],

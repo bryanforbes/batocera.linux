@@ -87,7 +87,7 @@ class TestLibretroGeneratorSuperBrosWar(LibretroBaseCoreTest):
         with pytest.raises(FileNotFoundError):
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/rom.game',
+                ROMS / mock_system.name / 'rom.game',
                 [],
                 {},
                 [],

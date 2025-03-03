@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -42,7 +43,7 @@ class TestRpcs3Generator(GeneratorBaseTest):
         return fs
 
     def test_get_in_game_ratio(self, generator: Rpcs3Generator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 1, 'height': 1}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 1, 'height': 1}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -54,7 +55,7 @@ class TestRpcs3Generator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/ps3/rom_dir',
+                ROMS / 'ps3' / 'rom_dir',
                 one_player_controllers,
                 {},
                 [],
@@ -105,7 +106,7 @@ Foo: {}
 
         generator.generate(
             mock_system,
-            '/userdata/roms/ps3/rom_dir',
+            ROMS / 'ps3' / 'rom_dir',
             one_player_controllers,
             {},
             [],
@@ -181,7 +182,7 @@ Foo: {}
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/ps3/rom_dir',
+                ROMS / 'ps3' / 'rom_dir',
                 one_player_controllers,
                 {},
                 [mocker.Mock()],
@@ -213,7 +214,7 @@ Foo: {}
         vulkan_is_available.return_value = True
         generator.generate(
             mock_system,
-            '/userdata/roms/ps3/rom_dir',
+            ROMS / 'ps3' / 'rom_dir',
             one_player_controllers,
             {},
             [],
@@ -239,7 +240,7 @@ Foo: {}
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/ps3/rom_dir',
+            ROMS / 'ps3' / 'rom_dir',
             one_player_controllers,
             {},
             [],
@@ -274,7 +275,7 @@ Foo: {}
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/ps3/rom_dir',
+                ROMS / 'ps3' / 'rom_dir',
                 one_player_controllers,
                 {},
                 [],
@@ -297,7 +298,7 @@ Foo: {}
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/ps3/rom.psn',
+                ROMS / 'ps3' / 'rom.psn',
                 one_player_controllers,
                 {},
                 [],
@@ -341,7 +342,7 @@ Foo: {}
         )
         generator.generate(
             mock_system,
-            '/userdata/roms/ps3/rom_dir',
+            ROMS / 'ps3' / 'rom_dir',
             controllers,
             {},
             [],

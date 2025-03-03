@@ -35,7 +35,7 @@ class TestKodiGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.ANY,
-                '',
+                mocker.ANY,
                 make_player_controller_list(generic_xbox_pad, ps3_controller, gpio_controller_1),
                 {},
                 [],
@@ -114,7 +114,7 @@ class TestKodiGenerator(GeneratorBaseTest):
 
         generator.generate(
             mocker.ANY,
-            '',
+            mocker.ANY,
             one_player_controllers,
             {},
             [],
@@ -145,7 +145,7 @@ class TestKodiGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mocker.ANY,
-            '',
+            mocker.ANY,
             [],
             {},
             [],

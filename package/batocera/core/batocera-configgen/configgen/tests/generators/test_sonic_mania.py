@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.sonic_mania.sonic_maniaGenerator import SonicManiaGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -38,10 +39,10 @@ class TestSonicManiaGenerator(GeneratorBaseTest):
         return fs
 
     def test_get_mouse_mode(self, generator: SonicManiaGenerator) -> None:  # pyright: ignore
-        assert not generator.getMouseMode(SystemConfig({}), '')
+        assert not generator.getMouseMode(SystemConfig({}), Path())
 
     def test_get_in_game_ratio(self, generator: SonicManiaGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -53,7 +54,7 @@ class TestSonicManiaGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/sonic-mania/rom.sman',
+                ROMS / 'sonic-mania' / 'rom.sman',
                 one_player_controllers,
                 {},
                 [],
@@ -76,7 +77,7 @@ class TestSonicManiaGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sonic-mania/rom.sman',
+            ROMS / 'sonic-mania' / 'rom.sman',
             one_player_controllers,
             {},
             [],
@@ -104,7 +105,7 @@ class TestSonicManiaGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/sonic-mania/rom.sman',
+            ROMS / 'sonic-mania' / 'rom.sman',
             one_player_controllers,
             {},
             [],

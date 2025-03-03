@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.gsplus.gsplusGenerator import GSplusGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -35,7 +35,7 @@ class TestGSplusGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/apple2/rom.po',
+                ROMS / 'apple2' / 'rom.po',
                 one_player_controllers,
                 {},
                 [],
@@ -63,7 +63,7 @@ class TestGSplusGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/apple2/rom.po',
+            ROMS / 'apple2' / 'rom.po',
             one_player_controllers,
             {},
             [],
@@ -84,7 +84,7 @@ class TestGSplusGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            f'/userdata/roms/apple2/rom.{extension}',
+            ROMS / 'apple2' / f'rom.{extension}',
             one_player_controllers,
             {},
             [],

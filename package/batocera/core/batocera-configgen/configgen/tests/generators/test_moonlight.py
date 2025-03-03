@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.moonlight.moonlightGenerator import MoonlightGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -55,7 +55,7 @@ rom-with-config;Another Rom;/path/to/moonlight.conf
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/monlight/rom.moonlight',
+                ROMS / 'monlight' / 'rom.moonlight',
                 one_player_controllers,
                 {},
                 [],
@@ -77,7 +77,7 @@ rom-with-config;Another Rom;/path/to/moonlight.conf
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/monlight/rom-with-config.moonlight',
+                ROMS / 'monlight' / 'rom-with-config.moonlight',
                 one_player_controllers,
                 {},
                 [],
@@ -97,7 +97,7 @@ rom-with-config;Another Rom;/path/to/moonlight.conf
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/monlight/not-found.moonlight',
+                ROMS / 'monlight' / 'not-found.moonlight',
                 one_player_controllers,
                 {},
                 [],
@@ -126,7 +126,7 @@ foo = bar
 
         generator.generate(
             mock_system,
-            '/userdata/roms/monlight/rom.moonlight',
+            ROMS / 'monlight' / 'rom.moonlight',
             one_player_controllers,
             {},
             [],
@@ -171,7 +171,7 @@ foo = bar
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/monlight/rom.moonlight',
+            ROMS / 'monlight' / 'rom.moonlight',
             one_player_controllers,
             {},
             [],

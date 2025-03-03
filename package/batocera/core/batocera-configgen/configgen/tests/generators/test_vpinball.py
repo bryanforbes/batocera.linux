@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.vpinball.vpinballGenerator import VPinballGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -68,7 +69,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
         )
 
     def test_get_in_game_ratio(self, generator: VPinballGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -80,7 +81,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/vpinball/rom/rom.vpx',
+                ROMS / 'vpinball' / 'rom' / 'rom.vpx',
                 one_player_controllers,
                 {},
                 [],
@@ -104,7 +105,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/vpinball/rom/rom.vpx',
+            ROMS / 'vpinball' / 'rom' / 'rom.vpx',
             one_player_controllers,
             {},
             [],
@@ -127,7 +128,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/vpinball/rom/rom.vpx',
+            ROMS / 'vpinball' / 'rom' / 'rom.vpx',
             one_player_controllers,
             {},
             [],
@@ -176,7 +177,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/vpinball/rom/rom.vpx',
+            ROMS / 'vpinball' / 'rom' / 'rom.vpx',
             one_player_controllers,
             {},
             [],
@@ -249,7 +250,7 @@ class TestVPinballGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/vpinball/rom/rom.vpx',
+            ROMS / 'vpinball' / 'rom' / 'rom.vpx',
             one_player_controllers,
             {},
             [],

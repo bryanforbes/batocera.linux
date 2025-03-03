@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.vice.viceGenerator import ViceGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -50,7 +50,7 @@ class TestViceGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/c64/rom.d64',
+                ROMS / 'c64' / 'rom.d64',
                 one_player_controllers,
                 {},
                 [],
@@ -95,7 +95,7 @@ SaveResourcesOnExit=1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/c64/rom.d64',
+            ROMS / 'c64' / 'rom.d64',
             one_player_controllers,
             {},
             [],
@@ -115,7 +115,7 @@ SaveResourcesOnExit=1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/c64/rom.d64',
+            ROMS / 'c64' / 'rom.d64',
             one_player_controllers,
             {},
             [],
@@ -146,7 +146,7 @@ SaveResourcesOnExit=1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/c64/rom.d64',
+            ROMS / 'c64' / 'rom.d64',
             one_player_controllers,
             metadata,
             guns,
@@ -170,7 +170,7 @@ SaveResourcesOnExit=1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/c64/rom.d64',
+            ROMS / 'c64' / 'rom.d64',
             one_player_controllers,
             {},
             [],

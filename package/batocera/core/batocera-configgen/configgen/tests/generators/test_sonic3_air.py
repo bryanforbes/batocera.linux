@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.sonic3_air.sonic3_airGenerator import Sonic3AIRGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -49,10 +50,10 @@ class TestSonic3AIRGenerator(GeneratorBaseTest):
         return fs
 
     def test_get_mouse_mode(self, generator: Sonic3AIRGenerator) -> None:  # pyright: ignore
-        assert not generator.getMouseMode(SystemConfig({}), '')
+        assert not generator.getMouseMode(SystemConfig({}), Path())
 
     def test_get_in_game_ratio(self, generator: Sonic3AIRGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -64,7 +65,7 @@ class TestSonic3AIRGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/sonic3-air/rom.s3air',
+                ROMS / 'sonic3-air' / 'rom.s3air',
                 one_player_controllers,
                 {},
                 [],
@@ -104,7 +105,7 @@ class TestSonic3AIRGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sonic3-air/rom.s3air',
+            ROMS / 'sonic3-air' / 'rom.s3air',
             one_player_controllers,
             {},
             [],

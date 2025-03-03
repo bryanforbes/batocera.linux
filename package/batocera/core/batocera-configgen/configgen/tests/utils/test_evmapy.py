@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Literal
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.controller import Controller
 from configgen.gun import Gun
 from configgen.input import Input
@@ -152,7 +153,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(minimal_controller),
             [],
         ):
@@ -217,7 +218,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(generic_xbox_pad),
             [],
         ):
@@ -237,7 +238,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(minimal_controller),
             [],
         ):
@@ -273,7 +274,7 @@ class TestEvmapy:
                 'system',
                 'emulator',
                 'core',
-                '/userdata/roms/system/rom_name.game',
+                ROMS / 'system' / 'rom_name.game',
                 make_player_controller_list(minimal_controller),
                 [],
             ),
@@ -306,7 +307,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(minimal_controller, minimal_controller),
             [],
         ):
@@ -364,7 +365,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [],
         ):
@@ -420,7 +421,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [],
         ):
@@ -496,7 +497,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [],
         ):
@@ -575,7 +576,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [],
         ):
@@ -640,7 +641,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [],
         ):
@@ -687,7 +688,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [],
         ):
@@ -747,7 +748,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [],
         ):
@@ -797,7 +798,7 @@ class TestEvmapy:
             'system',
             'emulator',
             'core',
-            '/userdata/roms/system/rom_name.game',
+            ROMS / 'system' / 'rom_name.game',
             make_player_controller_list(controller),
             [
                 Gun(

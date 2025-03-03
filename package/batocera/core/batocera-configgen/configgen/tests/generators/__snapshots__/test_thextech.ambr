@@ -7,7 +7,7 @@
       '/userdata/saves/thextech',
       '--frameskip',
       '-c',
-      '/userdata/roms/thextech/rom.rott',
+      '/userdata/roms/thextech/rom.smbx',
     ]),
     dict({
     }),
@@ -21,7 +21,7 @@
       '/userdata/saves/thextech',
       '--no-frameskip',
       '-c',
-      '/userdata/roms/thextech/rom.rott',
+      '/userdata/roms/thextech/rom.smbx',
     ]),
     dict({
     }),
@@ -37,7 +37,7 @@
       'sw',
       '--frameskip',
       '-c',
-      '/userdata/roms/thextech/rom.rott',
+      '/userdata/roms/thextech/rom.smbx',
     ]),
     dict({
     }),

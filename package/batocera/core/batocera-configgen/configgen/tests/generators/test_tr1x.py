@@ -88,7 +88,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: TR1XGenerator, resolution: Resolution, result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig({}), resolution, '') == result
+        assert generator.getInGameRatio(SystemConfig({}), resolution, Path()) == result
 
     def test_generate(
         self,
@@ -101,7 +101,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider1/Tomb Raider.croft',
+                ROMS / 'traider1' / 'Tomb Raider.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -114,7 +114,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (ROMS / 'traider1' / 'TR1X').read_text() == 'tr1x bin'
         assert (ROMS / 'traider1' / 'foo' / 'bar').read_text() == 'bar'
         assert (ROMS / 'traider1' / 'foo' / 'ham' / 'spam').read_text() == 'spam'
-        download.assert_called_once_with('https://lostartefacts.dev/aux/tr1x/music.zip', Path(ROMS / 'traider1'))
+        download.assert_called_once_with('https://lostartefacts.dev/aux/tr1x/music.zip', ROMS / 'traider1')
 
     def test_generate_second_run(
         self,
@@ -133,7 +133,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider1/Tomb Raider.croft',
+                ROMS / 'traider1' / 'Tomb Raider.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -162,7 +162,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider1/Tomb Raider.croft',
+                ROMS / 'traider1' / 'Tomb Raider.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -187,7 +187,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider1/Tomb Raider.croft',
+                ROMS / 'traider1' / 'Tomb Raider.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -210,7 +210,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider1/Tomb Raider.croft',
+                ROMS / 'traider1' / 'Tomb Raider.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -225,8 +225,8 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (ROMS / 'traider1' / 'data' / 'bar.txt').exists()
 
         assert download.call_args_list == [
-            mocker.call('https://lostartefacts.dev/aux/tr1x/music.zip', Path(ROMS / 'traider1')),
-            mocker.call('https://lostartefacts.dev/aux/tr1x/trub-music.zip', Path(ROMS / 'traider1')),
+            mocker.call('https://lostartefacts.dev/aux/tr1x/music.zip', ROMS / 'traider1'),
+            mocker.call('https://lostartefacts.dev/aux/tr1x/trub-music.zip', ROMS / 'traider1'),
         ]
 
     @pytest.mark.mock_system_config({'tr1x-expansion': '1'})
@@ -245,7 +245,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider1/Tomb Raider.croft',
+                ROMS / 'traider1' / 'Tomb Raider.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -272,7 +272,7 @@ class TestTR1XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider1/Tomb Raider.croft',
+                ROMS / 'traider1' / 'Tomb Raider.croft',
                 one_player_controllers,
                 {},
                 [],

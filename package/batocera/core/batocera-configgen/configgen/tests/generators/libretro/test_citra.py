@@ -39,7 +39,7 @@ class TestLibretroGeneratorCitra(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             [],
             {},
             [],
@@ -69,7 +69,7 @@ class TestLibretroGeneratorCitra(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/3ds/rom.{default_extension}',
+            ROMS / '3ds' / f'rom.{default_extension}',
             make_player_controller_list(generic_xbox_pad, ps3_controller),
             {},
             [],

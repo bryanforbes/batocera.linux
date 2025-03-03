@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.bigpemu.bigpemuGenerator import BigPEmuGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -52,7 +53,7 @@ class TestBigPEmuGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: BigPEmuGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -64,7 +65,7 @@ class TestBigPEmuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/jaguar/rom.zip',
+                ROMS / 'jaguar' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -87,7 +88,7 @@ class TestBigPEmuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/jaguar/rom.zip',
+            ROMS / 'jaguar' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -124,7 +125,7 @@ class TestBigPEmuGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/jaguar/rom.zip',
+            ROMS / 'jaguar' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -144,7 +145,7 @@ class TestBigPEmuGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/jaguar/rom.zip',
+            ROMS / 'jaguar' / 'rom.zip',
             make_player_controller_list(
                 generic_xbox_pad,
                 ps3_controller,
@@ -174,7 +175,7 @@ class TestBigPEmuGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/jaguar/rom.zip',
+            ROMS / 'jaguar' / 'rom.zip',
             make_player_controller_list(
                 gpio_controller_1,
                 gpio_controller_2,

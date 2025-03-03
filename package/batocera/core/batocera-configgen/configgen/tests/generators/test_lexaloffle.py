@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import stat
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import BIOS, HOME
+from configgen.batoceraPaths import BIOS, HOME, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.lexaloffle.lexaloffleGenerator import LexaloffleGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -37,7 +38,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         return 'pico8_official'
 
     def test_get_in_game_ratio(self, generator: LexaloffleGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 4 / 3
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 4 / 3
 
     def test_generate(
         self,
@@ -52,7 +53,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/pico8/rom.p8',
+                ROMS / 'pico8' / 'rom.p8',
                 one_player_controllers,
                 {},
                 [],
@@ -80,7 +81,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/voxatron/rom.png',
+                ROMS / 'voxatron' / 'rom.png',
                 one_player_controllers,
                 {},
                 [],
@@ -103,7 +104,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         ):
             generator.generate(
                 mock_system,
-                '/userdata/roms/voxatron/rom.png',
+                ROMS / 'voxatron' / 'rom.png',
                 one_player_controllers,
                 {},
                 [],
@@ -121,7 +122,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         with pytest.raises(Exception, match='^Lexaloffle official binary not found at '):
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/rom.png',
+                ROMS / mock_system.name / 'rom.png',
                 one_player_controllers,
                 {},
                 [],
@@ -142,7 +143,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         with pytest.raises(Exception, match='^File /.* is not set as executable$'):
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/rom.png',
+                ROMS / mock_system.name / 'rom.png',
                 one_player_controllers,
                 {},
                 [],
@@ -165,7 +166,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/pico8/{rom_name}.png',
+                ROMS / 'pico8' / f'{rom_name}.png',
                 one_player_controllers,
                 {},
                 [],
@@ -189,7 +190,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/pico8/rom.png',
+                ROMS / 'pico8' / 'rom.png',
                 one_player_controllers,
                 {},
                 [],
@@ -213,7 +214,7 @@ class TestLexaloffleGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/pico8/rom_dir/rom.m3u',
+                ROMS / 'pico8' / 'rom_dir' / 'rom.m3u',
                 one_player_controllers,
                 {},
                 [],

@@ -6,6 +6,7 @@ from zipfile import ZipFile
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.fsuae.fsuaeGenerator import FsuaeGenerator
 from tests.generators.base import GeneratorBaseTest
 from tests.mock_controllers import make_player_controller_list
@@ -47,7 +48,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga1200/rom.lha',
+                ROMS / 'amiga1200' / 'rom.lha',
                 one_player_controllers,
                 {},
                 [],
@@ -75,7 +76,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga1200/rom1.adf',
+                ROMS / 'amiga1200' / 'rom1.adf',
                 one_player_controllers,
                 {},
                 [],
@@ -103,7 +104,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga1200/rom1.adf',
+                ROMS / 'amiga1200' / 'rom1.adf',
                 one_player_controllers,
                 {},
                 [],
@@ -135,7 +136,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga1200/rom.zip',
+                ROMS / 'amiga1200' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -162,7 +163,7 @@ class TestFsuaeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga1200/rom.lha',
+                ROMS / 'amiga1200' / 'rom.lha',
                 make_player_controller_list(
                     generic_xbox_pad, ps3_controller, generic_xbox_pad, ps3_controller, generic_xbox_pad
                 ),

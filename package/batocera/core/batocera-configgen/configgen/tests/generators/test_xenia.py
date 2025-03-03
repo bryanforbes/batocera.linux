@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.xenia.xeniaGenerator import XeniaGenerator
 from tests.conftest import get_os_environ
@@ -86,7 +87,7 @@ is_enabled = false
         return fs
 
     def test_get_mouse_mode(self, generator: XeniaGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_generate(
         self,
@@ -99,7 +100,7 @@ is_enabled = false
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xbox360/rom.iso',
+                ROMS / 'xbox360' / 'rom.iso',
                 one_player_controllers,
                 {},
                 [],
@@ -140,7 +141,7 @@ is_enabled = false
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xbox360/rom.iso',
+                ROMS / 'xbox360' / 'rom.iso',
                 one_player_controllers,
                 {},
                 [],
@@ -175,7 +176,7 @@ is_enabled = false
         assert (
             generator.generate(
                 mock_system,
-                'config',
+                Path('config'),
                 one_player_controllers,
                 {},
                 [],
@@ -203,7 +204,7 @@ is_enabled = false
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xbox360/XBLA/rom.xbox360',
+                ROMS / 'xbox360' / 'XBLA' / 'rom.xbox360',
                 one_player_controllers,
                 {},
                 [],
@@ -278,7 +279,7 @@ user_language = 0
 
         generator.generate(
             mock_system,
-            'config',
+            Path('config'),
             one_player_controllers,
             {},
             [],
@@ -315,7 +316,7 @@ user_language = 0
 
         generator.generate(
             mock_system,
-            'config',
+            Path('config'),
             one_player_controllers,
             {},
             [],
@@ -340,7 +341,7 @@ user_language = 0
 
         generator.generate(
             mock_system,
-            'config',
+            Path('config'),
             one_player_controllers,
             {},
             [],
@@ -361,7 +362,7 @@ user_language = 0
 
         generator.generate(
             mock_system,
-            'config',
+            Path('config'),
             one_player_controllers,
             {},
             [],
@@ -387,7 +388,7 @@ user_language = 0
 
         generator.generate(
             mock_system,
-            'config',
+            Path('config'),
             one_player_controllers,
             {},
             [],
@@ -427,7 +428,7 @@ user_language = 0
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/xbox360/rom.iso',
+            ROMS / 'xbox360' / 'rom.iso',
             one_player_controllers,
             {},
             [],
@@ -472,7 +473,7 @@ name = 'Test Patch 4'
         )
         generator.generate(
             mock_system,
-            '/userdata/roms/xbox360/some name(subtitle)[US].iso',
+            ROMS / 'xbox360' / 'some name(subtitle)[US].iso',
             one_player_controllers,
             {},
             [],
@@ -509,7 +510,7 @@ name = 'Test Patch 4'
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/xbox360/rom.iso',
+            ROMS / 'xbox360' / 'rom.iso',
             one_player_controllers,
             {},
             [],
@@ -533,7 +534,7 @@ name = 'Test Patch 4'
         with pytest.raises(SystemExit):
             generator.generate(
                 mock_system,
-                '/userdata/roms/xbox360/rom.iso',
+                ROMS / 'xbox360' / 'rom.iso',
                 one_player_controllers,
                 {},
                 [],
@@ -563,7 +564,7 @@ name = 'Test Patch 4'
         assert (
             generator.generate(
                 mock_system,
-                'config',
+                Path('config'),
                 one_player_controllers,
                 {},
                 [],

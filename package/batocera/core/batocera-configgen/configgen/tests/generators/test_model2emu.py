@@ -152,7 +152,7 @@ FE_UNCENTERING_Period=56000
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/model2/rom.zip',
+                ROMS / 'model2' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -202,7 +202,7 @@ Bar = 1
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/model2/rom.zip',
+                ROMS / 'model2' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -231,7 +231,7 @@ Bar = 1
         assert (
             generator.generate(
                 mock_system,
-                'config',
+                Path('config'),
                 one_player_controllers,
                 {},
                 [],
@@ -271,7 +271,7 @@ Bar = 1
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/model2/rom.zip',
+                ROMS / 'model2' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -298,7 +298,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/model2/rom.zip',
+            ROMS / 'model2' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -329,7 +329,7 @@ Bar = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/model2/rom.zip',
+            ROMS / 'model2' / 'rom.zip',
             one_player_controllers,
             {},
             [mocker.Mock(needs_cross=needs_cross)],
@@ -353,7 +353,7 @@ Bar = 1
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/model2/rom.zip',
+                ROMS / 'model2' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -435,7 +435,7 @@ Options =
 
         generator.generate(
             mock_system,
-            '/userdata/roms/model2/rom.zip',
+            ROMS / 'model2' / 'rom.zip',
             [],
             {},
             [],
@@ -516,7 +516,7 @@ Options =
 
         generator.generate(
             mock_system,
-            '/userdata/roms/model2/rom.zip',
+            ROMS / 'model2' / 'rom.zip',
             [],
             {},
             [],

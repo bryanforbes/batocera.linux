@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.ppsspp.ppssppGenerator import PPSSPPGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -33,10 +34,10 @@ class TestPPSSPPGenerator(GeneratorBaseTest):
         return 'ppsspp'
 
     def test_get_mouse_mode(self, generator: PPSSPPGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_get_in_game_ratio(self, generator: PPSSPPGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -48,7 +49,7 @@ class TestPPSSPPGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psp/rom.chd',
+                ROMS / 'psp' / 'rom.chd',
                 two_player_controllers,
                 {},
                 [],
@@ -87,7 +88,7 @@ UpgradeMessage = asdf
 
         generator.generate(
             mock_system,
-            '/userdata/roms/psp/rom.chd',
+            ROMS / 'psp' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -137,7 +138,7 @@ UpgradeMessage = asdf
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psp/rom.chd',
+                ROMS / 'psp' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -169,7 +170,7 @@ UpgradeMessage = asdf
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/psp/rom.chd',
+            ROMS / 'psp' / 'rom.chd',
             one_player_controllers,
             {},
             [],
@@ -190,7 +191,7 @@ UpgradeMessage = asdf
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psp/rom.chd',
+                ROMS / 'psp' / 'rom.chd',
                 one_player_controllers,
                 {},
                 [],
@@ -203,7 +204,7 @@ UpgradeMessage = asdf
     def test_generate_no_player_1(self, generator: PPSSPPGenerator, mock_system: Emulator) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/psp/rom.chd',
+            ROMS / 'psp' / 'rom.chd',
             [],
             {},
             [],
