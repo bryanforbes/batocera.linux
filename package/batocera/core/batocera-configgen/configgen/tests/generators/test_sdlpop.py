@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SCREENSHOTS
+from configgen.batoceraPaths import CONFIGS, ROMS, SCREENSHOTS
 from configgen.generators.sdlpop.sdlpopGenerator import SdlPopGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -46,7 +46,7 @@ class TestSdlPopGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/sdlpop/rom.sdlpop',
+                ROMS / 'sdlpop' / 'rom.sdlpop',
                 two_player_controllers,
                 {},
                 [],
@@ -77,7 +77,7 @@ class TestSdlPopGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/sdlpop/rom.sdlpop',
+            ROMS / 'sdlpop' / 'rom.sdlpop',
             two_player_controllers,
             {},
             [],

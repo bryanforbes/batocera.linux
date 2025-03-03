@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
@@ -48,7 +49,7 @@ class TestAzaharGenerator(GeneratorBaseTest):
     def test_get_mouse_mode(  # pyright: ignore
         self, generator: AzaharGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getMouseMode(SystemConfig(mock_system_config), '') == result
+        assert generator.getMouseMode(SystemConfig(mock_system_config), Path()) == result
 
     def test_generate(
         self,
@@ -60,7 +61,7 @@ class TestAzaharGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/3ds/rom.3ds',
+                Path('/userdata/roms/3ds/rom.3ds'),
                 one_player_controllers,
                 {},
                 [],
@@ -110,7 +111,7 @@ profiles\size = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/3ds/rom.3ds',
+            Path('/userdata/roms/3ds/rom.3ds'),
             one_player_controllers,
             {},
             [],
@@ -148,7 +149,7 @@ profiles\size = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/3ds/rom.3ds',
+            Path('/userdata/roms/3ds/rom.3ds'),
             one_player_controllers,
             {},
             [],
@@ -175,7 +176,7 @@ profiles\size = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/3ds/rom.3ds',
+            Path('/userdata/roms/3ds/rom.3ds'),
             one_player_controllers,
             {},
             [],
@@ -214,7 +215,7 @@ profiles\size = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/3ds/rom.3ds',
+            Path('/userdata/roms/3ds/rom.3ds'),
             one_player_controllers,
             {},
             [],
@@ -235,7 +236,7 @@ profiles\size = 1
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/3ds/rom.3ds',
+                Path('/userdata/roms/3ds/rom.3ds'),
                 make_player_controller_list(generic_xbox_pad, ps3_controller),
                 {},
                 [],
@@ -256,7 +257,7 @@ profiles\size = 1
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/3ds/rom.3ds',
+                Path('/userdata/roms/3ds/rom.3ds'),
                 make_player_controller_list(gpio_controller_1),
                 {},
                 [],

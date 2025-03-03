@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import BIOS, CONFIGS
+from configgen.batoceraPaths import BIOS, CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.scummvm.scummvmGenerator import ScummVMGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -44,7 +45,7 @@ class TestScummVMGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: ScummVMGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -56,7 +57,7 @@ class TestScummVMGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/scummvm/rom.scummvm',
+                ROMS / 'scummvm' / 'rom.scummvm',
                 two_player_controllers,
                 {},
                 [],
@@ -88,7 +89,7 @@ bar = true
 
         generator.generate(
             mock_system,
-            '/userdata/roms/scummvm/rom.scummvm',
+            ROMS / 'scummvm' / 'rom.scummvm',
             one_player_controllers,
             {},
             [],
@@ -118,7 +119,7 @@ bar = true
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/scummvm/rom.scummvm',
+                ROMS / 'scummvm' / 'rom.scummvm',
                 one_player_controllers,
                 {},
                 [],
@@ -141,7 +142,7 @@ bar = true
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/scummvm/Day_of_the_Tentacle',
+                ROMS / 'scummvm' / 'Day_of_the_Tentacle',
                 one_player_controllers,
                 {},
                 [],

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest
 
 if TYPE_CHECKING:
@@ -34,7 +35,7 @@ class TestLibretroGeneratorScummVM(LibretroBaseCoreTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/scummvm/game.scummvm',
+                ROMS / 'scummvm' / 'game.scummvm',
                 [],
                 {},
                 [],

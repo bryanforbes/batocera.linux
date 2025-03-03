@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import filecmp
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -43,7 +44,7 @@ class TestVKQuake2Generator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: VKQuake2Generator, resolution: Resolution, result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig({}), resolution, '') == result
+        assert generator.getInGameRatio(SystemConfig({}), resolution, Path()) == result
 
     @pytest.mark.parametrize(
         'rom_name',
@@ -67,7 +68,7 @@ class TestVKQuake2Generator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                f'/userdata/roms/quake2/{rom_name}.quake2',
+                ROMS / 'quake2' / f'{rom_name}.quake2',
                 one_player_controllers,
                 {},
                 [],
@@ -93,7 +94,7 @@ class TestVKQuake2Generator(GeneratorBaseTest):
 
         generator.generate(
             mocker.Mock(),
-            '/userdata/roms/quake2/Quake II.quake2',
+            ROMS / 'quake2' / 'Quake II.quake2',
             one_player_controllers,
             {},
             [],
@@ -116,7 +117,7 @@ class TestVKQuake2Generator(GeneratorBaseTest):
         with pytest.raises(FileNotFoundError, match=r'^Source directory \/usr\/bin\/vkquake2 does not exist\.$'):
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/quake2/Quake II.quake2',
+                ROMS / 'quake2' / 'Quake II.quake2',
                 one_player_controllers,
                 {},
                 [],

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest
 
 if TYPE_CHECKING:
@@ -37,7 +38,7 @@ class TestLibretroGeneratorOpera(LibretroBaseCoreTest):
     ) -> None:
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom_disc.{default_extension}',
+            ROMS / mock_system.name / f'rom_disc.{default_extension}',
             [],
             {},
             [],

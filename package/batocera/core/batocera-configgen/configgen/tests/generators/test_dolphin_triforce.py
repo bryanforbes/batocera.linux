@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Any, Final
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.dolphin_triforce.dolphinTriforceGenerator import DolphinTriforceGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -61,7 +61,7 @@ class TestDolphinTriforceGenerator(GeneratorBaseTest):
         resolution: Resolution,
         result: bool,
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), resolution, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), resolution, Path()) == result
 
     def test_generate(
         self,
@@ -73,7 +73,7 @@ class TestDolphinTriforceGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/triforce/rom.gcm',
+                ROMS / 'triforce' / 'rom.gcm',
                 one_player_controllers,
                 {},
                 [],
@@ -164,7 +164,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/rom.gcm',
+            ROMS / 'triforce' / 'rom.gcm',
             one_player_controllers,
             {},
             [],
@@ -191,7 +191,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/rom.gcm',
+            ROMS / 'triforce' / 'rom.gcm',
             one_player_controllers,
             {},
             [],
@@ -228,7 +228,7 @@ Bar = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/rom.gcm',
+            ROMS / 'triforce' / 'rom.gcm',
             one_player_controllers,
             {},
             [],
@@ -268,7 +268,7 @@ Bar = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/rom.gcm',
+            ROMS / 'triforce' / 'rom.gcm',
             one_player_controllers,
             {},
             [],
@@ -300,7 +300,7 @@ Bar = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/rom.gcm',
+            ROMS / 'triforce' / 'rom.gcm',
             one_player_controllers,
             {},
             [],
@@ -322,7 +322,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/rom.gcm',
+            ROMS / 'triforce' / 'rom.gcm',
             controllers,
             {},
             [],
@@ -345,7 +345,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/rom.gcm',
+            ROMS / 'triforce' / 'rom.gcm',
             controllers,
             {},
             [],
@@ -366,7 +366,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/virtua.gcm',
+            ROMS / 'triforce' / 'virtua.gcm',
             controllers,
             {},
             [],
@@ -387,7 +387,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/virtua.gcm',
+            ROMS / 'triforce' / 'virtua.gcm',
             controllers,
             {},
             [],
@@ -408,7 +408,7 @@ Bar = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/triforce/virtua.gcm',
+            ROMS / 'triforce' / 'virtua.gcm',
             controllers,
             {},
             [],

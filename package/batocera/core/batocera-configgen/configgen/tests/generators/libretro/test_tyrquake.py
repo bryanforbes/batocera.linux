@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest
 
 if TYPE_CHECKING:
@@ -45,7 +46,7 @@ class TestLibretroGeneratorTyrQuake(LibretroBaseCoreTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/quake/{rom_name}.quake',
+                ROMS / 'quake' / f'{rom_name}.quake',
                 [],
                 {},
                 [],

@@ -50,7 +50,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/openbor/rom.pak',
+                ROMS / 'openbor' / 'rom.pak',
                 one_player_controllers,
                 {},
                 [],
@@ -82,7 +82,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/openbor/rom.pak',
+            ROMS / 'openbor' / 'rom.pak',
             one_player_controllers,
             {},
             [],
@@ -103,7 +103,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/openbor/rom.pak',
+                ROMS / 'openbor' / 'rom.pak',
                 one_player_controllers,
                 {},
                 [],
@@ -139,7 +139,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/openbor/{rom_name}.pak',
+                ROMS / 'openbor' / f'{rom_name}.pak',
                 one_player_controllers,
                 {},
                 [],
@@ -164,7 +164,7 @@ class TestOpenborGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/openbor/rom.pak',
+            ROMS / 'openbor' / 'rom.pak',
             make_player_controller_list(ps3_controller, keyboard_controller),
             {},
             [],

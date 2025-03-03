@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, Any, Final
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, DATAINIT_DIR
+from configgen.batoceraPaths import CONFIGS, DATAINIT_DIR, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.mupen.mupenGenerator import MupenGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -61,7 +61,8 @@ class TestMupenGenerator(GeneratorBaseTest):
         self, generator: MupenGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
         assert (
-            MupenGenerator().getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+            MupenGenerator().getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path())
+            == result
         )
 
     @pytest.mark.parametrize('core', ['gliden64', 'glide64mk2', 'rice'])
@@ -75,7 +76,7 @@ class TestMupenGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/n64/rom.z64',
+                ROMS / 'n64' / 'rom.z64',
                 one_player_controllers,
                 {},
                 [],
@@ -97,7 +98,7 @@ class TestMupenGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/n64dd/rom.z64',
+                ROMS / 'n64dd' / 'rom.z64',
                 one_player_controllers,
                 {},
                 [],
@@ -162,7 +163,7 @@ Foo = Bar
         )
         generator.generate(
             mock_system,
-            '/userdata/roms/n64/rom.z64',
+            ROMS / 'n64' / 'rom.z64',
             one_player_controllers,
             {},
             [],
@@ -180,7 +181,7 @@ Foo = Bar
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/n64/rom.z64',
+            ROMS / 'n64' / 'rom.z64',
             one_player_controllers,
             {},
             [],
@@ -245,7 +246,7 @@ Foo = Bar
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/n64/rom.z64',
+                ROMS / 'n64' / 'rom.z64',
                 one_player_controllers,
                 {},
                 [],
@@ -267,7 +268,7 @@ Foo = Bar
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/n64/rom.z64',
+            ROMS / 'n64' / 'rom.z64',
             make_player_controller_list(gpio_controller_1, ps3_controller, generic_xbox_pad),
             {},
             [],
@@ -285,7 +286,7 @@ Foo = Bar
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/n64/rom.z64',
+            ROMS / 'n64' / 'rom.z64',
             one_player_controllers,
             {},
             [],

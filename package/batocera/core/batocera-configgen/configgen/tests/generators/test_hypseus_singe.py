@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import filecmp
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
@@ -90,7 +91,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: Generator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     @pytest.mark.parametrize('system_name', ['daphne', 'singe'])
     def test_generate(
@@ -104,7 +105,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 one_player_controllers,
                 {},
                 [],
@@ -150,7 +151,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -194,7 +195,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -228,7 +229,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 one_player_controllers,
                 {},
                 [],
@@ -269,7 +270,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -300,7 +301,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/singe/ace.daphne',
+                ROMS / 'singe' / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -382,7 +383,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/{rom_name}.daphne',
+                ROMS / mock_system.name / f'{rom_name}.daphne',
                 [],
                 {},
                 [],
@@ -410,7 +411,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -441,7 +442,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/foobarbaz.daphne',
+                ROMS / mock_system.name / 'foobarbaz.daphne',
                 [],
                 {},
                 [],
@@ -464,7 +465,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -487,7 +488,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -511,7 +512,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -536,7 +537,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -559,7 +560,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -580,7 +581,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -603,7 +604,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],
@@ -625,7 +626,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [mocker.Mock()],
@@ -661,7 +662,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [mocker.Mock()],
@@ -687,7 +688,7 @@ class TestHypseusSingeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/ace.daphne',
+                ROMS / mock_system.name / 'ace.daphne',
                 [],
                 {},
                 [],

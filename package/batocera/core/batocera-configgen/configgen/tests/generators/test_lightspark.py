@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.lightspark.lightsparkGenerator import LightsparkGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -19,7 +21,7 @@ class TestLightsparkGenerator(GeneratorBaseTest):
         return LightsparkGenerator
 
     def test_get_mouse_mode(self, generator: LightsparkGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_generate(
         self,
@@ -30,7 +32,7 @@ class TestLightsparkGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/flash/rom.swf',
+                ROMS / 'flash' / 'rom.swf',
                 [],
                 {},
                 [],

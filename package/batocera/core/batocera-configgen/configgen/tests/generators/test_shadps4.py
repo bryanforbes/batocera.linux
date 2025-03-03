@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.shadps4.shadps4Generator import shadPS4Generator
 from tests.generators.base import GeneratorBaseTest
@@ -33,7 +34,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         return vulkan_is_available
 
     def test_get_in_game_ratio(self, generator: shadPS4Generator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -45,7 +46,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.ANY,
-                '/userdata/roms/ps4/ROMDIR/rom.ps4',
+                ROMS / 'ps4' / 'ROMDIR' / 'rom.ps4',
                 one_player_controllers,
                 {},
                 [],
@@ -68,7 +69,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
 
         generator.generate(
             mocker.ANY,
-            '/userdata/roms/ps4/ROMDIR/rom.ps4',
+            ROMS / 'ps4' / 'ROMDIR' / 'rom.ps4',
             one_player_controllers,
             {},
             [],
@@ -87,7 +88,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.ANY,
-                'config',
+                Path('config'),
                 one_player_controllers,
                 {},
                 [],
@@ -116,7 +117,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mocker.ANY,
-            '/userdata/roms/ps4/ROMDIR/rom.ps4',
+            ROMS / 'ps4' / 'ROMDIR' / 'rom.ps4',
             one_player_controllers,
             {},
             [],
@@ -137,7 +138,7 @@ class TestShadPS4Generator(GeneratorBaseTest):
         with pytest.raises(SystemExit):
             generator.generate(
                 mocker.ANY,
-                '/userdata/roms/ps4/ROMDIR/rom.ps4',
+                ROMS / 'ps4' / 'ROMDIR' / 'rom.ps4',
                 one_player_controllers,
                 {},
                 [],

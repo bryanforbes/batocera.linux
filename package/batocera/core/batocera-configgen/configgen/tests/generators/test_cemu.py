@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.cemu.cemuGenerator import CemuGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -57,7 +58,7 @@ class TestCemuGenerator(GeneratorBaseTest):
     def test_get_mouse_mode(  # pyright: ignore
         self, generator: Generator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getMouseMode(SystemConfig(mock_system_config), '') == result
+        assert generator.getMouseMode(SystemConfig(mock_system_config), Path()) == result
 
     def test_generate(
         self,
@@ -71,7 +72,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cemu/rom.wua',
+                ROMS / 'cemu' / 'rom.wua',
                 [],
                 {},
                 [],
@@ -95,7 +96,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/tmp/rom',
+                Path('/tmp/rom'),
                 [],
                 {},
                 [],
@@ -117,7 +118,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                'config',
+                Path('config'),
                 [],
                 {},
                 [],
@@ -163,7 +164,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             [],
             {},
             [],
@@ -204,7 +205,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             [],
             {},
             [],
@@ -297,7 +298,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             [],
             {},
             [],
@@ -320,7 +321,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             [],
             {},
             [],
@@ -351,7 +352,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             [],
             {},
             [],
@@ -375,7 +376,7 @@ class TestCemuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cemu/rom.wua',
+                ROMS / 'cemu' / 'rom.wua',
                 make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
                 {},
                 [],
@@ -420,7 +421,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],
@@ -481,7 +482,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             controllers,
             {},
             [],
@@ -537,7 +538,7 @@ class TestCemuGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/cemu/rom.wua',
+            ROMS / 'cemu' / 'rom.wua',
             controllers,
             {},
             [],

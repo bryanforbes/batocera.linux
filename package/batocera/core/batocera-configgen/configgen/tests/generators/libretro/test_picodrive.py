@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from tests.generators.libretro.base import LibretroBaseCoreTest
 from tests.mock_controllers import make_player_controller_list
 
@@ -47,7 +48,7 @@ class TestLibretroGeneratorPicodrive(LibretroBaseCoreTest):
     ) -> None:
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             make_player_controller_list(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
             {},
             [],
@@ -87,7 +88,7 @@ class TestLibretroGeneratorPicodrive(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             controllers,
             {},
             [],

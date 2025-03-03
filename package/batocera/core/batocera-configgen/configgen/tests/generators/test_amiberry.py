@@ -6,7 +6,7 @@ from zipfile import ZipFile
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.amiberry.amiberryGenerator import AmiberryGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -53,7 +53,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom.lha',
+                ROMS / 'amiga500' / 'rom.lha',
                 one_player_controllers,
                 {},
                 [],
@@ -81,7 +81,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom.hdf',
+                ROMS / 'amiga500' / 'rom.hdf',
                 one_player_controllers,
                 {},
                 [],
@@ -103,7 +103,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/amiga500/rom.{extension}',
+                ROMS / 'amiga500' / f'rom.{extension}',
                 one_player_controllers,
                 {},
                 [],
@@ -125,7 +125,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/amiga500/rom.{extension}',
+                ROMS / 'amiga500' / f'rom.{extension}',
                 one_player_controllers,
                 {},
                 [],
@@ -149,7 +149,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom1.adf',
+                ROMS / 'amiga500' / 'rom1.adf',
                 one_player_controllers,
                 {},
                 [],
@@ -176,7 +176,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom1.adf',
+                ROMS / 'amiga500' / 'rom1.adf',
                 one_player_controllers,
                 {},
                 [],
@@ -201,7 +201,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom1.adf',
+                ROMS / 'amiga500' / 'rom1.adf',
                 one_player_controllers,
                 {},
                 [],
@@ -225,7 +225,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom (Disk 1 of 2).adf',
+                ROMS / 'amiga500' / 'rom (Disk 1 of 2).adf',
                 one_player_controllers,
                 {},
                 [],
@@ -252,7 +252,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom (Disk 1 of 5).adf',
+                ROMS / 'amiga500' / 'rom (Disk 1 of 5).adf',
                 one_player_controllers,
                 {},
                 [],
@@ -279,7 +279,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom.zip',
+                ROMS / 'amiga500' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -305,7 +305,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom.zip',
+                ROMS / 'amiga500' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -325,7 +325,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom.foo',
+                ROMS / 'amiga500' / 'rom.foo',
                 one_player_controllers,
                 {},
                 [],
@@ -372,7 +372,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom.lha',
+                ROMS / 'amiga500' / 'rom.lha',
                 one_player_controllers,
                 {},
                 [],
@@ -400,7 +400,7 @@ class TestAmiberryGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/amiga500/rom.lha',
+                ROMS / 'amiga500' / 'rom.lha',
                 two_player_controllers,
                 {},
                 [],

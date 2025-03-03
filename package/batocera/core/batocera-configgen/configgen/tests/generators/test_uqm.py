@@ -34,7 +34,7 @@ class TestUqmGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '',
+                mocker.Mock(),
                 one_player_controllers,
                 {},
                 [],
@@ -61,7 +61,7 @@ class TestUqmGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '',
+                mocker.Mock(),
                 one_player_controllers,
                 {},
                 [],

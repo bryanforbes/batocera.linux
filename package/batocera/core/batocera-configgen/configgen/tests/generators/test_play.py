@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.play.playGenerator import PlayGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -69,13 +70,13 @@ class TestPlayGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: PlayGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(self, generator: PlayGenerator, mock_system: Emulator, snapshot: SnapshotAssertion) -> None:
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/namco2x6/rom.zip',
+                ROMS / 'namco2x6' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -96,7 +97,7 @@ class TestPlayGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/namco2x6/rom.zip',
+            ROMS / 'namco2x6' / 'rom.zip',
             [],
             {},
             [],
@@ -111,7 +112,7 @@ class TestPlayGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                'config',
+                Path('config'),
                 [],
                 {},
                 [],
@@ -127,7 +128,7 @@ class TestPlayGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/namco2x6/rom.chd',
+                ROMS / 'namco2x6' / 'rom.chd',
                 [],
                 {},
                 [],
@@ -155,7 +156,7 @@ class TestPlayGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/namco2x6/rom.zip',
+            ROMS / 'namco2x6' / 'rom.zip',
             [],
             {},
             [],
@@ -174,7 +175,7 @@ class TestPlayGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/namco2x6/rom.zip',
+            ROMS / 'namco2x6' / 'rom.zip',
             make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],

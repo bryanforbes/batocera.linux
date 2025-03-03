@@ -32,7 +32,7 @@ class TestIkemenGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ikemen/rom.ikemen',
+                ROMS / 'ikemen' / 'rom.ikemen',
                 one_player_controllers,
                 {},
                 [],
@@ -63,7 +63,7 @@ class TestIkemenGenerator(GeneratorBaseTest):
         )
         generator.generate(
             mocker.Mock(),
-            '/userdata/roms/ikemen/rom.ikemen',
+            ROMS / 'ikemen' / 'rom.ikemen',
             one_player_controllers,
             {},
             [],

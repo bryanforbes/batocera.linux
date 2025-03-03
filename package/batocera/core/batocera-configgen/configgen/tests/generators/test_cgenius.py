@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
@@ -37,7 +38,7 @@ class TestCGeniusGenerator(GeneratorBaseTest):
         return fs
 
     def test_get_mouse_mode(self, generator: CGeniusGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     @pytest.mark.parametrize(
         ('mock_system_config', 'result'),
@@ -52,7 +53,7 @@ class TestCGeniusGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: CGeniusGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -64,7 +65,7 @@ class TestCGeniusGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cgenius/rom.cgenius',
+                ROMS / 'cgenius' / 'rom.cgenius',
                 one_player_controllers,
                 {},
                 [],
@@ -116,7 +117,7 @@ Pogo = Joy0-B9
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cgenius/rom.cgenius',
+                ROMS / 'cgenius' / 'rom.cgenius',
                 one_player_controllers,
                 {},
                 [],
@@ -152,7 +153,7 @@ Pogo = Joy0-B9
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cgenius/rom.cgenius',
+                ROMS / 'cgenius' / 'rom.cgenius',
                 one_player_controllers,
                 {},
                 [],
@@ -174,7 +175,7 @@ Pogo = Joy0-B9
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cgenius/rom.cgenius',
+                ROMS / 'cgenius' / 'rom.cgenius',
                 [
                     generic_xbox_pad.replace(
                         player_number=n, index=n - 1, real_name=f'real name {n}', device_path=f'/dev/input/event{n}'

@@ -35,7 +35,7 @@ def test_squashfs_rom(subprocess_call: Mock, snapshot: SnapshotAssertion) -> Non
     input_rom = Path('/path/to/rom-name.squashfs')
 
     with squashfs_rom(input_rom) as rom:
-        assert rom == '/var/run/squashfs/rom-name'
+        assert rom == Path('/var/run/squashfs/rom-name')
         assert Path('/var/run/squashfs/rom-name').is_dir()
 
     assert not Path('/var/run/squashfs/rom-name').exists()
@@ -67,7 +67,7 @@ def test_squashfs_rom_single_file(fs: FakeFilesystem, subprocess_call: Mock, sna
     input_rom = Path('/path/to/rom-name.squashfs')
 
     with squashfs_rom(input_rom) as rom:
-        assert rom == '/var/run/squashfs/rom-name/rom-name'
+        assert rom == Path('/var/run/squashfs/rom-name/rom-name')
 
     assert not Path('/var/run/squashfs/rom-name').exists()
     assert subprocess_call.call_args_list == snapshot(name='calls')
@@ -113,7 +113,7 @@ def test_squashfs_rom_linked(fs: FakeFilesystem, subprocess_call: Mock, snapshot
     input_rom = Path('/path/to/rom-name.squashfs')
 
     with squashfs_rom(input_rom) as rom:
-        assert rom == '/var/run/squashfs/rom-name/actual-rom'
+        assert rom == Path('/var/run/squashfs/rom-name/actual-rom')
 
     assert not Path('/var/run/squashfs/rom-name').exists()
     assert subprocess_call.call_args_list == snapshot(name='calls')
@@ -197,7 +197,7 @@ def test_squashfs_rom_existing(fs: FakeFilesystem, subprocess_call: Mock, snapsh
     input_rom = Path('/path/to/rom-name.squashfs')
 
     with squashfs_rom(input_rom) as rom:
-        assert rom == '/var/run/squashfs/rom-name'
+        assert rom == Path('/var/run/squashfs/rom-name')
         assert Path('/var/run/squashfs/rom-name').is_dir()
 
     assert not Path('/var/run/squashfs/rom-name').exists()
@@ -210,7 +210,7 @@ def test_squashfs_rom_existing_rmdir_fails(fs: FakeFilesystem, subprocess_call: 
     input_rom = Path('/path/to/rom-name.squashfs')
 
     with squashfs_rom(input_rom) as rom:
-        assert rom == '/var/run/squashfs/rom-name'
+        assert rom == Path('/var/run/squashfs/rom-name')
 
     assert Path('/var/run/squashfs/rom-name').exists()
     subprocess_call.assert_not_called()

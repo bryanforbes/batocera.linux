@@ -238,7 +238,7 @@ class TestCdogsGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '',
+                mocker.Mock(),
                 one_player_controllers,
                 {},
                 [],
@@ -257,7 +257,7 @@ class TestCdogsGenerator(GeneratorBaseTest):
         with pytest.raises(FileNotFoundError):
             generator.generate(
                 mocker.Mock(),
-                '',
+                mocker.Mock(),
                 one_player_controllers,
                 {},
                 [],

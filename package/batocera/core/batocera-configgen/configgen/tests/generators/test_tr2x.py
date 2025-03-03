@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -59,7 +60,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: TR2XGenerator, resolution: Resolution, result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig({}), resolution, '') == result
+        assert generator.getInGameRatio(SystemConfig({}), resolution, Path()) == result
 
     def test_generate(
         self,
@@ -71,7 +72,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider2/Tomb Raider 2.croft',
+                ROMS / 'traider2' / 'Tomb Raider 2.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -103,7 +104,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider2/Tomb Raider 2.croft',
+                ROMS / 'traider2' / 'Tomb Raider 2.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -133,7 +134,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider2/Tomb Raider 2.croft',
+                ROMS / 'traider2' / 'Tomb Raider 2.croft',
                 one_player_controllers,
                 {},
                 [],
@@ -156,7 +157,7 @@ class TestTR2XGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/traider2/Tomb Raider 2.croft',
+                ROMS / 'traider2' / 'Tomb Raider 2.croft',
                 one_player_controllers,
                 {},
                 [],

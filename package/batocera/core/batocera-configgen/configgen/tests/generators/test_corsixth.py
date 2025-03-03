@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import subprocess
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -58,7 +59,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '',
+                Path(),
                 one_player_controllers,
                 {},
                 [],
@@ -81,7 +82,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -108,7 +109,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -159,7 +160,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -182,7 +183,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -204,7 +205,7 @@ class TestCorsixTHGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],

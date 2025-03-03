@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.easyrpg.easyrpgGenerator import EasyRPGGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -39,7 +39,7 @@ class TestEasyRPGGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/easyrpg/rom.easyrpg',
+                ROMS / 'easyrpg' / 'rom.easyrpg',
                 one_player_controllers,
                 {},
                 [],
@@ -65,7 +65,7 @@ class TestEasyRPGGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/easyrpg/rom.easyrpg',
+                ROMS / 'easyrpg' / 'rom.easyrpg',
                 one_player_controllers,
                 {},
                 [],
@@ -84,7 +84,7 @@ class TestEasyRPGGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/easyrpg/rom.easyrpg',
+            ROMS / 'easyrpg' / 'rom.easyrpg',
             two_player_controllers,
             {},
             [],

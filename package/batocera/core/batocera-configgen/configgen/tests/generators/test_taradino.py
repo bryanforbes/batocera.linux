@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.taradino.taradinoGenerator import TaradinoGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -29,7 +30,7 @@ class TestTaradinoGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/rott/rom.rott',
+                ROMS / 'rott' / 'rom.rott',
                 one_player_controllers,
                 {},
                 [],

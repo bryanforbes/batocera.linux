@@ -24,7 +24,7 @@ class TestJazz2_NativeGenerator(GeneratorBaseTest):
         return Jazz2_NativeGenerator
 
     def test_get_in_game_ratio(self, generator: Jazz2_NativeGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -39,7 +39,7 @@ class TestJazz2_NativeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '',
+                mocker.Mock(),
                 one_player_controllers,
                 {},
                 [],

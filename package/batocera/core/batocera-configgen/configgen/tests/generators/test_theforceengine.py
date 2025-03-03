@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
@@ -32,7 +33,7 @@ class TestTheForceEngineGenerator(GeneratorBaseTest):
         return 'theforceengine'
 
     def test_get_mouse_mode(self, generator: TheForceEngineGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     @pytest.mark.parametrize(
         ('mock_system_config', 'result'),
@@ -46,7 +47,7 @@ class TestTheForceEngineGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: TheForceEngineGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -61,7 +62,7 @@ class TestTheForceEngineGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/theforceengine/rom.tfe',
+                ROMS / 'theforceengine' / 'rom.tfe',
                 one_player_controllers,
                 {},
                 [],
@@ -119,7 +120,7 @@ sourcePath = "/tmp"
 
         generator.generate(
             mock_system,
-            '/userdata/roms/theforceengine/rom.tfe',
+            ROMS / 'theforceengine' / 'rom.tfe',
             one_player_controllers,
             {},
             [],
@@ -184,7 +185,7 @@ sourcePath = "/tmp"
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/theforceengine/rom.tfe',
+                ROMS / 'theforceengine' / 'rom.tfe',
                 one_player_controllers,
                 {},
                 [],
@@ -209,7 +210,7 @@ sourcePath = "/tmp"
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/theforceengine/rom.tfe',
+                ROMS / 'theforceengine' / 'rom.tfe',
                 one_player_controllers,
                 {},
                 [],
@@ -233,7 +234,7 @@ sourcePath = "/tmp"
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/theforceengine/rom.tfe',
+                ROMS / 'theforceengine' / 'rom.tfe',
                 one_player_controllers,
                 {},
                 [],

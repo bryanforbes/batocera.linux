@@ -41,7 +41,7 @@ class TestLibretroGeneratorMenafenWswan(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/{rom_name}.zip',
+            ROMS / mock_system.name / f'{rom_name}.zip',
             [],
             {},
             [],

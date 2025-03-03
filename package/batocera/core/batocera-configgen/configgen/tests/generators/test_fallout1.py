@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import filecmp
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -40,10 +41,10 @@ class TestFallout1Generator(GeneratorBaseTest):
         return fs
 
     def test_get_mouse_mode(self, generator: Fallout1Generator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_get_in_game_ratio(self, generator: Fallout1Generator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -55,7 +56,7 @@ class TestFallout1Generator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '',
+                Path(),
                 one_player_controllers,
                 {},
                 [],
@@ -100,7 +101,7 @@ SCALE_2X = 0
         )
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -143,7 +144,7 @@ SCALE_2X = 0
 
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -165,7 +166,7 @@ SCALE_2X = 0
 
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -187,7 +188,7 @@ SCALE_2X = 0
 
         generator.generate(
             mock_system,
-            '',
+            Path(),
             one_player_controllers,
             {},
             [],
@@ -216,7 +217,7 @@ SCALE_2X = 0
     ) -> None:
         generator.generate(
             mock_system,
-            '',
+            Path(),
             [],
             {},
             [],
@@ -234,7 +235,7 @@ SCALE_2X = 0
     ) -> None:
         generator.generate(
             mock_system,
-            '',
+            Path(),
             [],
             {},
             [],

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -27,10 +28,10 @@ class GeneratorBaseTest(GeneratorBaseMixin):
         )
 
     def test_get_mouse_mode(self, generator: Generator) -> None:
-        assert not generator.getMouseMode(SystemConfig({}), '')
+        assert not generator.getMouseMode(SystemConfig({}), Path())
 
     def test_execution_directory(self, generator: Generator) -> None:
-        assert generator.executionDirectory(SystemConfig({}), '') is None
+        assert generator.executionDirectory(SystemConfig({}), Path()) is None
 
     def test_supports_internal_bezels(self, generator: Generator) -> None:
         assert not generator.supportsInternalBezels()
@@ -39,7 +40,7 @@ class GeneratorBaseTest(GeneratorBaseMixin):
         assert not generator.hasInternalMangoHUDCall()
 
     def test_get_in_game_ratio(self, generator: Generator) -> None:
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 1920, 'height': 1080}, '') == 4 / 3
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 1920, 'height': 1080}, Path()) == 4 / 3
 
     def test_get_hotkeys_context(self, generator: Generator, snapshot: SnapshotAssertion) -> None:
         assert generator.getHotkeysContext() == snapshot

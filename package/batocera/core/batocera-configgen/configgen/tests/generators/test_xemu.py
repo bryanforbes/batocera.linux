@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import filecmp
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.xemu.xemuGenerator import XemuGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -52,7 +53,7 @@ class TestXemuGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: XemuGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -64,7 +65,7 @@ class TestXemuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xbox/rom.iso',
+                ROMS / 'xbox' / 'rom.iso',
                 one_player_controllers,
                 {},
                 [],
@@ -125,7 +126,7 @@ bind_addr = "10.10.10.10"
 
         generator.generate(
             mock_system,
-            '/userdata/roms/xbox/rom.iso',
+            ROMS / 'xbox' / 'rom.iso',
             one_player_controllers,
             {},
             [],
@@ -162,7 +163,7 @@ bind_addr = "10.10.10.10"
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/xbox/rom.iso',
+            ROMS / 'xbox' / 'rom.iso',
             one_player_controllers,
             {},
             [],
@@ -182,7 +183,7 @@ bind_addr = "10.10.10.10"
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/chihiro/rom.iso',
+            ROMS / 'chihiro' / 'rom.iso',
             one_player_controllers,
             {},
             [],
@@ -201,7 +202,7 @@ bind_addr = "10.10.10.10"
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/chihiro/rom.iso',
+            ROMS / 'chihiro' / 'rom.iso',
             make_player_controller_list(
                 generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad
             ),

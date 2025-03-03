@@ -51,7 +51,7 @@ class TestLibretroGeneratorParallelN64(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             make_player_controller_list(generic_xbox_pad, ps3_controller, keyboard_controller),
             {},
             [],
@@ -80,7 +80,7 @@ class TestLibretroGeneratorParallelN64(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.z64',
+            ROMS / mock_system.name / 'rom.z64',
             make_player_controller_list(first_controller, generic_xbox_pad, ps3_controller, keyboard_controller),
             {},
             [],
@@ -120,7 +120,7 @@ class TestLibretroGeneratorParallelN64(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.z64',
+            ROMS / mock_system.name / 'rom.z64',
             make_player_controller_list(generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad),
             {},
             [],
@@ -151,7 +151,7 @@ class TestLibretroGeneratorParallelN64(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             [],
             {},
             [],

@@ -4,7 +4,6 @@ import logging
 import xml.etree.ElementTree as ET
 from collections.abc import Mapping
 from dataclasses import InitVar, dataclass, field
-from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import yaml
@@ -15,6 +14,7 @@ from .settings.unixSettings import UnixSettings
 
 if TYPE_CHECKING:
     from argparse import Namespace
+    from pathlib import Path
     from typing_extensions import deprecated
 
     from .gun import Guns
@@ -82,16 +82,14 @@ def _load_system_config(system_name: str, default_yml: Path, default_arch_yml: P
 @dataclass(slots=True)
 class Emulator:
     args: InitVar[Namespace]
-    rom: InitVar[str]
+    rom: InitVar[Path]
 
     name: str = field(init=False)
     config: SystemConfig = field(init=False)
     renderconfig: Config = field(init=False)
 
-    def __post_init__(self, args: Namespace, rom: str, /) -> None:
+    def __post_init__(self, args: Namespace, rom: Path, /) -> None:
         self.name = args.system
-
-        rom_path = Path(rom)
 
         # read the configuration from the system name
         system_data = _load_system_config(
@@ -106,7 +104,7 @@ class Emulator:
 
         # sanitize rule by EmulationStation
         # see FileData::getConfigurationName() on batocera-emulationstation
-        gsname = rom_path.name.replace('=', '').replace('#', '')
+        gsname = rom.name.replace('=', '').replace('#', '')
         _logger.info('game settings name: %s', gsname)
 
         # load configuration from batocera.conf
@@ -114,7 +112,7 @@ class Emulator:
 
         global_settings = settings.get_all('global')
         system_settings = settings.get_all(args.system)
-        folder_settings = settings.get_all(f'{args.system}.folder["{rom_path.parent}"]')
+        folder_settings = settings.get_all(f'{args.system}.folder["{rom.parent}"]')
         game_settings = settings.get_all(f'{args.system}["{gsname}"]')
 
         # update config

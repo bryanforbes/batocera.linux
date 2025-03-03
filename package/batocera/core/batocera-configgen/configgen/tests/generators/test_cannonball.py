@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.cannonball.cannonballGenerator import CannonballGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -40,7 +40,7 @@ class TestCannonballGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cannonball/rom.cannonball',
+                ROMS / 'cannonball' / 'rom.cannonball',
                 one_player_controllers,
                 {},
                 [],
@@ -64,7 +64,7 @@ class TestCannonballGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/cannonball/rom.cannonball',
+                ROMS / 'cannonball' / 'rom.cannonball',
                 one_player_controllers,
                 {},
                 [],

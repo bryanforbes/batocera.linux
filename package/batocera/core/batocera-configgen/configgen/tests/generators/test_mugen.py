@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -38,7 +39,7 @@ class TestMugenGenerator(GeneratorBaseTest):
         )
 
     def test_get_in_game_ratio(self, generator: MugenGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -86,7 +87,7 @@ GameHeight = 720
         assert (
             generator.generate(
                 mocker.ANY,
-                '/userdata/roms/mugen/rom.pc',
+                ROMS / 'mugen' / 'rom.pc',
                 [],
                 {},
                 [],
@@ -107,7 +108,7 @@ GameHeight = 720
         assert (
             generator.generate(
                 mocker.ANY,
-                '/userdata/roms/mugen/rom.pc',
+                ROMS / 'mugen' / 'rom.pc',
                 [],
                 {},
                 [],

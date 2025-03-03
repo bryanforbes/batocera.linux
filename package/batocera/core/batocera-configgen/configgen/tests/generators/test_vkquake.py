@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.vkquake.vkquakeGenerator import VKQuakeGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -33,7 +35,7 @@ class TestVKQuakeGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: VKQuakeGenerator, resolution: Resolution, result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig({}), resolution, '') == result
+        assert generator.getInGameRatio(SystemConfig({}), resolution, Path()) == result
 
     @pytest.mark.parametrize(
         'rom_name',
@@ -54,7 +56,7 @@ class TestVKQuakeGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                f'/userdata/roms/quake/{rom_name}',
+                ROMS / 'quake' / rom_name,
                 one_player_controllers,
                 {},
                 [],

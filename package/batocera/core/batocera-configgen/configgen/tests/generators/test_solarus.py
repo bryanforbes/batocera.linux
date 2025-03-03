@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.solarus.solarusGenerator import SolarusGenerator
 from tests.generators.base import GeneratorBaseTest
 from tests.mock_controllers import make_player_controller_list
@@ -40,7 +40,7 @@ class TestSolarusGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/solarus/rom.solarus',
+                ROMS / 'solarus' / 'rom.solarus',
                 one_player_controllers,
                 {},
                 [],
@@ -69,7 +69,7 @@ class TestSolarusGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/solarus/rom.solarus',
+            ROMS / 'solarus' / 'rom.solarus',
             one_player_controllers,
             {},
             [],
@@ -88,7 +88,7 @@ class TestSolarusGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/solarus/rom.solarus',
+            ROMS / 'solarus' / 'rom.solarus',
             make_player_controller_list(keyboard_controller, generic_xbox_pad),
             {},
             [],
@@ -105,7 +105,7 @@ class TestSolarusGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/solarus/rom.solarus',
+            ROMS / 'solarus' / 'rom.solarus',
             [],
             {},
             [],

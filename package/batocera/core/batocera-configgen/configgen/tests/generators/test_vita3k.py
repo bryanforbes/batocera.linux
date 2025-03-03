@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.vita3k.vita3kGenerator import Vita3kGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -39,10 +40,10 @@ class TestVita3kGenerator(GeneratorBaseTest):
     def test_get_mouse_mode(  # pyright: ignore
         self, generator: Vita3kGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getMouseMode(SystemConfig(mock_system_config), '') == result
+        assert generator.getMouseMode(SystemConfig(mock_system_config), Path()) == result
 
     def test_get_in_game_ratio(self, generator: Vita3kGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -54,7 +55,7 @@ class TestVita3kGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psvita/rom.zip',
+                ROMS / 'psvita' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -88,7 +89,7 @@ foo: bar
         )
         generator.generate(
             mock_system,
-            '/userdata/roms/psvita/rom.zip',
+            ROMS / 'psvita' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -109,7 +110,7 @@ foo: bar
 
         generator.generate(
             mock_system,
-            '/userdata/roms/psvita/rom.zip',
+            ROMS / 'psvita' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -144,7 +145,7 @@ foo: bar
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/psvita/rom.zip',
+            ROMS / 'psvita' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -169,7 +170,7 @@ foo: bar
 
         generator.generate(
             mock_system,
-            '/userdata/roms/psvita/rom.zip',
+            ROMS / 'psvita' / 'rom.zip',
             one_player_controllers,
             {},
             [],
@@ -203,7 +204,7 @@ foo: bar
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/psvita/rom name[foo].zip',
+                ROMS / 'psvita' / 'rom name[foo].zip',
                 one_player_controllers,
                 {},
                 [],

@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+from pathlib import Path
 from struct import pack
 from typing import TYPE_CHECKING, Any, cast
 
 import pytest
 
-from configgen.batoceraPaths import BIOS, CONFIGS, SAVES
+from configgen.batoceraPaths import BIOS, CONFIGS, ROMS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.dolphin.dolphinGenerator import DolphinGenerator
 from configgen.gun import Gun
@@ -123,13 +124,13 @@ AspectRatio = {gfx_aspect_ratio}
 """,
         )
 
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), resolution, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), resolution, Path()) == result
 
     def test_generate(self, generator: Generator, mock_system: Emulator, snapshot: SnapshotAssertion) -> None:
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/gamecube/rom.gcz',
+                ROMS / 'gamecube' / 'rom.gcz',
                 [],
                 {},
                 [],
@@ -150,7 +151,7 @@ AspectRatio = {gfx_aspect_ratio}
         with pytest.raises(ValueError, match=r"^Invalid system name : 'foo'$"):
             generator.generate(
                 mock_system,
-                '/userdata/roms/gamecube/rom.gcz',
+                ROMS / 'gamecube' / 'rom.gcz',
                 [],
                 {},
                 [],
@@ -170,7 +171,7 @@ AspectRatio = {gfx_aspect_ratio}
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/gamecube/rom.gcz',
+                ROMS / 'gamecube' / 'rom.gcz',
                 [],
                 {},
                 [],
@@ -255,7 +256,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -295,7 +296,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -327,7 +328,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -364,7 +365,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -395,7 +396,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -459,7 +460,7 @@ Baz = 1
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/gamecube/rom.gcz',
+                ROMS / 'gamecube' / 'rom.gcz',
                 [],
                 {},
                 [],
@@ -488,7 +489,7 @@ Baz = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -518,7 +519,7 @@ Baz = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/wii/rom.gcz',
+            ROMS / 'wii' / 'rom.gcz',
             one_player_controllers,
             {},
             [],
@@ -554,7 +555,7 @@ Baz = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -582,7 +583,7 @@ Baz = 1
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -605,7 +606,7 @@ Baz = 1
     def test_generate_vulkan(self, generator: Generator, mock_system: Emulator, snapshot: SnapshotAssertion) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],
@@ -651,7 +652,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/wii/rom.{rom_infix}.gcz',
+            ROMS / 'wii' / f'rom.{rom_infix}.gcz',
             one_player_controllers,
             {},
             [],
@@ -698,7 +699,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.gcz',
+            ROMS / mock_system.name / 'rom.gcz',
             controllers,
             {},
             [],
@@ -746,7 +747,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.gcz',
+            ROMS / mock_system.name / 'rom.gcz',
             controllers,
             {},
             [],
@@ -852,7 +853,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             controllers,
             metadata,
             [
@@ -939,7 +940,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.gcz',
+            ROMS / mock_system.name / 'rom.gcz',
             controllers,
             metadata,
             [],
@@ -974,7 +975,7 @@ Baz = 1
 
         generator.generate(
             mock_system,
-            '/userdata/roms/gamecube/rom.gcz',
+            ROMS / 'gamecube' / 'rom.gcz',
             [],
             {},
             [],

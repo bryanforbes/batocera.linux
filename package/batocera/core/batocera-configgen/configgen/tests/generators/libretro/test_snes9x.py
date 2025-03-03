@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -51,7 +52,7 @@ class TestLibretroGeneratorSnes9x(LibretroBaseCoreTest):
     ) -> None:
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             [],
             {},
             [],
@@ -76,7 +77,7 @@ class TestLibretroGeneratorSnes9x(LibretroBaseCoreTest):
 
         generator.generate(
             mock_system,
-            f'/userdata/roms/{mock_system.name}/rom.{default_extension}',
+            ROMS / mock_system.name / f'rom.{default_extension}',
             make_player_controller_list(generic_xbox_pad, ps3_controller, keyboard_controller),
             {},
             [],
@@ -108,7 +109,7 @@ class TestLibretroGeneratorSnes9x(LibretroBaseCoreTest):
         assert (
             generator.generate(
                 mock_system,
-                '/var/run/squashfs/rom_name',
+                Path('/var/run/squashfs/rom_name'),
                 [],
                 {},
                 [],

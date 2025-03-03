@@ -227,7 +227,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/mame/rom.zip',
+                ROMS / 'mame' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -242,7 +242,7 @@ class TestMameGenerator(GeneratorBaseTest):
         write_bezel_config.assert_called_once_with(
             None,
             mock_system,
-            Path('/userdata/roms/mame/rom.zip'),
+            ROMS / 'mame' / 'rom.zip',
             '',
             {'width': 1920, 'height': 1080},
             mocker.sentinel.guns_borders_size_name_1,
@@ -261,7 +261,7 @@ class TestMameGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/mame/rom.zip',
+            ROMS / 'mame' / 'rom.zip',
             [],
             {},
             [],
@@ -275,7 +275,7 @@ class TestMameGenerator(GeneratorBaseTest):
             mocker.call(
                 None,
                 mock_system,
-                Path('/userdata/roms/mame/rom.zip'),
+                ROMS / 'mame' / 'rom.zip',
                 '',
                 {'width': 1920, 'height': 1080},
                 mocker.sentinel.guns_borders_size_name_1,
@@ -284,7 +284,7 @@ class TestMameGenerator(GeneratorBaseTest):
             mocker.call(
                 None,
                 mock_system,
-                Path('/userdata/roms/mame/rom.zip'),
+                ROMS / 'mame' / 'rom.zip',
                 '',
                 {'width': 1920, 'height': 1080},
                 mocker.sentinel.guns_borders_size_name_2,
@@ -343,7 +343,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/mame/rom.zip',
+                ROMS / 'mame' / 'rom.zip',
                 mocker.sentinel.players_controllers,  # pyright: ignore
                 {},
                 mocker.sentinel.guns,  # pyright: ignore
@@ -381,7 +381,7 @@ class TestMameGenerator(GeneratorBaseTest):
         write_bezel_config.assert_called_once_with(
             bezel,
             mock_system,
-            Path('/userdata/roms/mame/rom.zip'),
+            ROMS / 'mame' / 'rom.zip',
             '',
             {'width': 1920, 'height': 1080},
             mocker.sentinel.guns_borders_size_name_1,
@@ -403,7 +403,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/mame/rom.zip',
+                ROMS / 'mame' / 'rom.zip',
                 mocker.sentinel.players_controllers,  # pyright: ignore
                 {},
                 mocker.sentinel.guns,  # pyright: ignore
@@ -485,7 +485,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/mame/{rom_name}.zip',
+                ROMS / 'mame' / f'{rom_name}.zip',
                 mocker.sentinel.players_controllers,  # pyright: ignore
                 {},
                 mocker.sentinel.guns,  # pyright: ignore
@@ -728,7 +728,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/{rom}',
+                ROMS / mock_system.name / rom,
                 [],
                 {},
                 [],
@@ -751,7 +751,7 @@ class TestMameGenerator(GeneratorBaseTest):
         write_bezel_config.assert_called_once_with(
             None,
             mock_system,
-            Path(f'/userdata/roms/{mock_system.name}/{rom}'),
+            ROMS / mock_system.name / rom,
             _MESS_SYSTEMS.get(mock_system.name, {'system_name': ''})['system_name'],
             {'width': 1920, 'height': 1080},
             mocker.sentinel.guns_borders_size_name_1,
@@ -769,7 +769,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/adam/rom.zip',
+                ROMS / 'adam' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -801,7 +801,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/adam/rom.zip',
+                ROMS / 'adam' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -836,7 +836,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/mame/some/subdir/rom.zip',
+                ROMS / 'mame' / 'some' / 'subdir' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -867,7 +867,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/bbc/rom.zip',
+                ROMS / 'bbc' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -888,7 +888,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/fm7/rom.zip',
+                ROMS / 'fm7' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -918,7 +918,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/coco/rom.{rom_extension}',
+                ROMS / 'coco' / f'rom.{rom_extension}',
                 [],
                 {},
                 [],
@@ -962,7 +962,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/coco/zonx.zip',
+                ROMS / 'coco' / 'zonx.zip',
                 [],
                 {},
                 [],
@@ -995,7 +995,7 @@ class TestMameGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/coco/rom.zip',
+                ROMS / 'coco' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -1025,7 +1025,7 @@ foo;\\n*RUN\\n*OTHER\\n*STUFF
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/coco/rom.zip',
+                ROMS / 'coco' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -1064,7 +1064,7 @@ foo;\\n*RUN\\n*OTHER\\n*STUFF
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/fmtowns/rom.zip',
+                ROMS / 'fmtowns' / 'rom.zip',
                 [],
                 {},
                 [],
@@ -1095,7 +1095,7 @@ foo;\\n*RUN\\n*OTHER\\n*STUFF
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/electron/rom.zip',
+                ROMS / 'electron' / 'rom.zip',
                 [],
                 {},
                 [],

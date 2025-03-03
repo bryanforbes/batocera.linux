@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.x16emu.x16emuGenerator import X16emuGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -43,7 +45,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: X16emuGenerator, mock_system_config: dict[str, Any], result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, '') == result
+        assert generator.getInGameRatio(SystemConfig(mock_system_config), {'width': 0, 'height': 0}, Path()) == result
 
     def test_generate(
         self,
@@ -55,7 +57,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/commanderx16/rom-name.bas',
+                ROMS / 'commanderx16' / 'rom-name.bas',
                 one_player_controllers,
                 {},
                 [],
@@ -85,7 +87,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/commanderx16/rom-name.bas',
+                ROMS / 'commanderx16' / 'rom-name.bas',
                 one_player_controllers,
                 {},
                 [],
@@ -107,7 +109,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/commanderx16/rom-name.{extension}',
+                ROMS / 'commanderx16' / f'rom-name.{extension}',
                 one_player_controllers,
                 {},
                 [],
@@ -130,7 +132,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/commanderx16/rom-dir/rom.bas',
+                ROMS / 'commanderx16' / 'rom-dir' / 'rom.bas',
                 one_player_controllers,
                 {},
                 [],
@@ -150,7 +152,7 @@ class TestX16emuGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/commanderx16/rom-dir/rom.bas',
+                ROMS / 'commanderx16' / 'rom-dir' / 'rom.bas',
                 make_player_controller_list(
                     generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad, generic_xbox_pad
                 ),

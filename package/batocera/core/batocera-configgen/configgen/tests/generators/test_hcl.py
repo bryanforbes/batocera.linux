@@ -36,7 +36,7 @@ class TestHclGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '',
+                mocker.Mock(),
                 one_player_controllers,
                 {},
                 [],
@@ -55,7 +55,7 @@ class TestHclGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mocker.Mock(),
-            '',
+            mocker.Mock(),
             one_player_controllers,
             {},
             [],

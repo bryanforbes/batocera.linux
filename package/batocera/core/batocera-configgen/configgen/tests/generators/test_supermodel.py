@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, Any, Final
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS, SAVES
+from configgen.batoceraPaths import CONFIGS, ROMS, SAVES
 from configgen.config import SystemConfig
 from configgen.generators.supermodel.supermodelGenerator import SupermodelGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -73,7 +73,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
     ) -> None:
         assert (
             generator.getInGameRatio(
-                SystemConfig(mock_system_config), {'width': 1, 'height': 1}, '/userdata/roms/model3/daytona2.zip'
+                SystemConfig(mock_system_config), {'width': 1, 'height': 1}, ROMS / 'model3' / 'daytona2.zip'
             )
             == result
         )
@@ -88,7 +88,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/model3/daytona2.zip',
+                ROMS / 'model3' / 'daytona2.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -115,7 +115,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/model3/daytona2.zip',
+            ROMS / 'model3' / 'daytona2.zip',
             one_player_controllers,
             {},
             [],
@@ -144,7 +144,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/model3/daytona2.zip',
+            ROMS / 'model3' / 'daytona2.zip',
             one_player_controllers,
             {},
             [],
@@ -183,7 +183,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/model3/daytona2.zip',
+                ROMS / 'model3' / 'daytona2.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -204,7 +204,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/model3/daytona2.zip',
+            ROMS / 'model3' / 'daytona2.zip',
             one_player_controllers,
             {},
             [],
@@ -223,7 +223,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/model3/daytona2.zip',
+            ROMS / 'model3' / 'daytona2.zip',
             make_player_controller_list(generic_xbox_pad, ps3_controller),
             {},
             [],
@@ -246,7 +246,7 @@ class TestSupermodelGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/model3/daytona2.zip',
+            ROMS / 'model3' / 'daytona2.zip',
             make_player_controller_list(generic_xbox_pad, ps3_controller),
             {},
             guns,

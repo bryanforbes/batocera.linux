@@ -68,7 +68,7 @@ class TestXash3dFwgsGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xash3d_fwgs/rom.game',
+                ROMS / 'xash3d_fwgs' / 'rom.game',
                 one_player_controllers,
                 {},
                 [],
@@ -104,7 +104,7 @@ gamedll "dlls\opfor.dll"
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xash3d_fwgs/rom.game',
+                ROMS / 'xash3d_fwgs' / 'rom.game',
                 [],
                 {},
                 [],
@@ -137,7 +137,7 @@ some other stuff
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xash3d_fwgs/rom.game',
+                ROMS / 'xash3d_fwgs' / 'rom.game',
                 [],
                 {},
                 [],
@@ -171,7 +171,7 @@ gamedll "dlls\foo.dll"
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xash3d_fwgs/rom.game',
+                ROMS / 'xash3d_fwgs' / 'rom.game',
                 [],
                 {},
                 [],
@@ -203,7 +203,7 @@ gamedll "dlls\foo.dll"
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/xash3d_fwgs/rom.game',
+                ROMS / 'xash3d_fwgs' / 'rom.game',
                 [],
                 {},
                 [],

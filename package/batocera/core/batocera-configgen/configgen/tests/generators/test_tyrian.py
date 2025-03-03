@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -25,7 +26,7 @@ class TestTyrianGenerator(GeneratorBaseTest):
         return TyrianGenerator
 
     def test_get_in_game_ratio(self, generator: TyrianGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     def test_generate(
         self,
@@ -40,7 +41,7 @@ class TestTyrianGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '',
+                mocker.Mock(),
                 one_player_controllers,
                 {},
                 [],
@@ -59,7 +60,7 @@ class TestTyrianGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mocker.Mock(),
-            '',
+            mocker.Mock(),
             one_player_controllers,
             {},
             [],

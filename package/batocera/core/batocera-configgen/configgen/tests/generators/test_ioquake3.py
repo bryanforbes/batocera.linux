@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import filecmp
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
@@ -50,7 +51,7 @@ class TestIOQuake3Generator(GeneratorBaseTest):
     def test_get_in_game_ratio(  # pyright: ignore
         self, generator: IOQuake3Generator, resolution: Resolution, result: bool
     ) -> None:
-        assert generator.getInGameRatio(SystemConfig({}), resolution, '') == result
+        assert generator.getInGameRatio(SystemConfig({}), resolution, Path()) == result
 
     @pytest.mark.parametrize('core', ['ioquake3', 'vkquake3'])
     def test_generate(
@@ -68,7 +69,7 @@ class TestIOQuake3Generator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/quake3/Quake III Arena.quake3',
+                ROMS / 'quake3' / 'Quake III Arena.quake3',
                 one_player_controllers,
                 {},
                 [],
@@ -106,7 +107,7 @@ class TestIOQuake3Generator(GeneratorBaseTest):
 
         generator.generate(
             mock_system,
-            '/userdata/roms/quake3/Quake III Arena.quake3',
+            ROMS / 'quake3' / 'Quake III Arena.quake3',
             one_player_controllers,
             {},
             [],
@@ -154,7 +155,7 @@ bind PAD0_LEFTSHOULDER "weapnext"
 
         generator.generate(
             mock_system,
-            '/userdata/roms/quake3/Quake III Arena.quake3',
+            ROMS / 'quake3' / 'Quake III Arena.quake3',
             one_player_controllers,
             {},
             [],

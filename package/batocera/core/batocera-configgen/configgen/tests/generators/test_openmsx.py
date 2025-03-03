@@ -6,7 +6,7 @@ from zipfile import ZipFile
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.generators.openmsx.openmsxGenerator import OpenmsxGenerator
 from tests.generators.base import GeneratorBaseTest
 from tests.mock_controllers import make_player_controller_list
@@ -53,7 +53,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/msx1/rom (foo) [bar].cas',
+                ROMS / 'msx1' / 'rom (foo) [bar].cas',
                 one_player_controllers,
                 {},
                 [],
@@ -76,7 +76,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/{mock_system.name}/rom.cas',
+                ROMS / mock_system.name / 'rom.cas',
                 one_player_controllers,
                 {},
                 [],
@@ -105,7 +105,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/msx1/rom.cas',
+                ROMS / 'msx1' / 'rom.cas',
                 one_player_controllers,
                 {},
                 [],
@@ -126,7 +126,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
     ) -> None:
         generator.generate(
             mock_system,
-            '/userdata/roms/msx1/rom.cas',
+            ROMS / 'msx1' / 'rom.cas',
             make_player_controller_list(generic_xbox_pad, ps3_controller, generic_xbox_pad),
             {},
             [],
@@ -145,7 +145,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/msx1/rom.ogv',
+                ROMS / 'msx1' / 'rom.ogv',
                 one_player_controllers,
                 {},
                 [],
@@ -166,7 +166,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/msx1/rom.dsk',
+                ROMS / 'msx1' / 'rom.dsk',
                 one_player_controllers,
                 {},
                 [],
@@ -194,7 +194,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/msx1/rom.zip',
+                ROMS / 'msx1' / 'rom.zip',
                 one_player_controllers,
                 {},
                 [],
@@ -219,7 +219,7 @@ class TestOpenmsxGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/msx1/rom.openmsx',
+                ROMS / 'msx1' / 'rom.openmsx',
                 one_player_controllers,
                 {},
                 [],

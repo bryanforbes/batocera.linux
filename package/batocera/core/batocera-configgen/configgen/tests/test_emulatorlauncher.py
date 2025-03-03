@@ -12,7 +12,7 @@ import pytest
 from pytest_lazy_fixtures import lf
 from syrupy.filters import paths
 
-from configgen.batoceraPaths import SAVES, SYSTEM_SCRIPTS, USER_SCRIPTS
+from configgen.batoceraPaths import ROMS, SAVES, SYSTEM_SCRIPTS, USER_SCRIPTS
 from configgen.Command import Command
 from tests.mock_emulator import MockEmulator
 
@@ -113,24 +113,24 @@ def test_main(mocker: MockerFixture, squashfs_rom: Mock) -> None:
     from configgen.emulatorlauncher import main
 
     start_rom = mocker.patch('configgen.emulatorlauncher.start_rom', return_value=mocker.sentinel.start_rom_result)
-    args = mocker.Mock(rom='/userdata/roms/foo/bar.zip')
+    args = mocker.Mock(rom=ROMS / 'foo' / 'bar.zip')
 
     assert main(args, 10) == mocker.sentinel.start_rom_result
 
     squashfs_rom.assert_not_called()
-    start_rom.assert_called_once_with(args, 10, '/userdata/roms/foo/bar.zip', '/userdata/roms/foo/bar.zip')
+    start_rom.assert_called_once_with(args, 10, ROMS / 'foo' / 'bar.zip', ROMS / 'foo' / 'bar.zip')
 
 
 def test_main_squashfs(mocker: MockerFixture, squashfs_rom: Mock) -> None:
     from configgen.emulatorlauncher import main
 
     start_rom = mocker.patch('configgen.emulatorlauncher.start_rom', return_value=mocker.sentinel.start_rom_result)
-    args = mocker.Mock(rom='/userdata/roms/foo/bar.squashfs')
+    args = mocker.Mock(rom=ROMS / 'foo' / 'bar.squashfs')
 
     assert main(args, 10) == mocker.sentinel.start_rom_result
 
-    squashfs_rom.assert_called_once_with('/userdata/roms/foo/bar.squashfs')
-    start_rom.assert_called_once_with(args, 10, mocker.sentinel.rom, '/userdata/roms/foo/bar.squashfs')
+    squashfs_rom.assert_called_once_with(ROMS / 'foo' / 'bar.squashfs')
+    start_rom.assert_called_once_with(args, 10, mocker.sentinel.rom, ROMS / 'foo' / 'bar.squashfs')
 
 
 class TestGetHudBezel:
@@ -215,7 +215,7 @@ class TestGetHudBezel:
         from configgen.emulatorlauncher import getHudBezel
 
         hud_bezel = getHudBezel(
-            mock_system, generator, '/path/to/rom.zip', {'width': 1920, 'height': 1080}, borders_size, None
+            mock_system, generator, Path('/path/to/rom.zip'), {'width': 1920, 'height': 1080}, borders_size, None
         )
 
         assert hud_bezel is not None
@@ -226,7 +226,7 @@ class TestGetHudBezel:
             if bezel_tattoo is not None
             else '/userdata/mybezels/dreamcast.png'
         )
-        get_bezel_infos.assert_called_once_with('/path/to/rom.zip', 'consoles', 'dreamcast', 'default-emulator')
+        get_bezel_infos.assert_called_once_with(Path('/path/to/rom.zip'), 'consoles', 'dreamcast', 'default-emulator')
         if bezel_tattoo:
             bezels_util_tattoo_image.assert_called_once_with(
                 Path('/userdata/mybezels/dreamcast.png'), Path('/tmp/bezel_tattooed.png'), mock_system
@@ -286,7 +286,9 @@ class TestGetHudBezel:
 
         from configgen.emulatorlauncher import getHudBezel
 
-        hud_bezel = getHudBezel(mock_system, generator, '', {'width': 640, 'height': 360}, borders_size or None, None)
+        hud_bezel = getHudBezel(
+            mock_system, generator, Path(), {'width': 640, 'height': 360}, borders_size or None, None
+        )
 
         assert hud_bezel is not None
         assert hud_bezel == Path('/tmp') / (
@@ -370,7 +372,7 @@ class TestGetHudBezel:
         from configgen.emulatorlauncher import getHudBezel
 
         hud_bezel = getHudBezel(
-            mock_system, generator, '/path/to/rom.zip', {'width': 1440, 'height': 810}, borders_size, None
+            mock_system, generator, Path('/path/to/rom.zip'), {'width': 1440, 'height': 810}, borders_size, None
         )
 
         assert hud_bezel is not None
@@ -429,7 +431,8 @@ class TestGetHudBezel:
         from configgen.emulatorlauncher import getHudBezel
 
         assert (
-            getHudBezel(mock_system, generator, '/path/to/rom.zip', {'width': 1920, 'height': 1080}, None, None) is None
+            getHudBezel(mock_system, generator, Path('/path/to/rom.zip'), {'width': 1920, 'height': 1080}, None, None)
+            is None
         )
         bezels_util_resize_image.assert_called_once_with(
             Path('/path/to/bezel/file.png'), Path('/tmp/bezel.png'), 1920, 1080, False
@@ -444,7 +447,7 @@ class TestGetHudBezel:
 
         from configgen.emulatorlauncher import getHudBezel
 
-        assert getHudBezel(mock_system, generator, '', {'width': 1920, 'height': 1080}, None, None) is None
+        assert getHudBezel(mock_system, generator, Path(), {'width': 1920, 'height': 1080}, None, None) is None
 
     @pytest.mark.parametrize('bezel_tattoo', [None, '0'])
     @pytest.mark.parametrize('bezel', [None, '', 'none'])
@@ -465,7 +468,7 @@ class TestGetHudBezel:
 
         from configgen.emulatorlauncher import getHudBezel
 
-        assert getHudBezel(mock_system, generator, '', {'width': 1920, 'height': 1080}, None, None) is None
+        assert getHudBezel(mock_system, generator, Path(), {'width': 1920, 'height': 1080}, None, None) is None
 
     @pytest.mark.usefixtures('get_bezel_infos')
     def test_no_bezel_info(self, generator: Mock, mock_system: Emulator, get_bezel_infos: Mock) -> None:
@@ -474,10 +477,12 @@ class TestGetHudBezel:
         mock_system.name = 'system-name'
 
         assert (
-            getHudBezel(mock_system, generator, '/path/to/rom.zip', {'width': 1920, 'height': 1080}, 'medium', None)
+            getHudBezel(
+                mock_system, generator, Path('/path/to/rom.zip'), {'width': 1920, 'height': 1080}, 'medium', None
+            )
             is None
         )
-        get_bezel_infos.assert_called_once_with('/path/to/rom.zip', 'consoles', 'system-name', 'default-emulator')
+        get_bezel_infos.assert_called_once_with(Path('/path/to/rom.zip'), 'consoles', 'system-name', 'default-emulator')
 
     @pytest.mark.parametrize(
         ('info_exists', 'has_size'), [(True, True), (True, False), (True, None), (False, True), (False, False)]
@@ -516,9 +521,10 @@ class TestGetHudBezel:
         from configgen.emulatorlauncher import getHudBezel
 
         assert (
-            getHudBezel(mock_system, generator, '/path/to/rom.zip', {'width': 1920, 'height': 1080}, None, None) is None
+            getHudBezel(mock_system, generator, Path('/path/to/rom.zip'), {'width': 1920, 'height': 1080}, None, None)
+            is None
         )
-        get_bezel_infos.assert_called_once_with('/path/to/rom.zip', 'consoles', '', 'default-emulator')
+        get_bezel_infos.assert_called_once_with(Path('/path/to/rom.zip'), 'consoles', '', 'default-emulator')
         if not info_exists or not has_size:
             bezels_util_fast_image_size.assert_called_once_with(Path('/path/to/bezel/file.png'))
         else:
@@ -558,9 +564,10 @@ class TestGetHudBezel:
         from configgen.emulatorlauncher import getHudBezel
 
         assert (
-            getHudBezel(mock_system, generator, '/path/to/rom.zip', {'width': 1920, 'height': 1080}, None, None) is None
+            getHudBezel(mock_system, generator, Path('/path/to/rom.zip'), {'width': 1920, 'height': 1080}, None, None)
+            is None
         )
-        get_bezel_infos.assert_called_once_with('/path/to/rom.zip', 'consoles', '', 'default-emulator')
+        get_bezel_infos.assert_called_once_with(Path('/path/to/rom.zip'), 'consoles', '', 'default-emulator')
 
 
 @pytest.mark.parametrize('line_to_omit', [None, 'name', 'thumbnail'])
@@ -638,7 +645,13 @@ def test_get_hud_config_no_hud_has_bezel(
 
     assert (
         getHudConfig(
-            mock_system, 'System Name', 'default-emulator', 'effective-core', 'rom-path', {}, Path('/path/to/bezel.png')
+            mock_system,
+            'System Name',
+            'default-emulator',
+            'effective-core',
+            Path('rom-path'),
+            {},
+            Path('/path/to/bezel.png'),
         )
         == snapshot
     )
@@ -699,7 +712,13 @@ def test_get_hud_config_has_hud(
 
     assert (
         getHudConfig(
-            mock_system, 'System Name', emulator, core, 'rom-path', gameinfos, None if bezel is None else Path(bezel)
+            mock_system,
+            'System Name',
+            emulator,
+            core,
+            Path('rom-path'),
+            gameinfos,
+            None if bezel is None else Path(bezel),
         )
         == snapshot
     )
@@ -900,8 +919,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -912,9 +931,9 @@ class TestStartRom:
         }
         assert os.environ['SDL_RENDER_VSYNC'] == '1'
 
-        emulator_class.assert_called_once_with(default_args, '/userdata/roms/foo/bar.squashfs')
-        controllers_get_games_metadata.assert_called_once_with('system_name', '/var/squashfs/bar/bar.zip')
-        gun_get_and_precalibrate_all.assert_called_once_with(mock_system, '/var/squashfs/bar/bar.zip')
+        emulator_class.assert_called_once_with(default_args, ROMS / 'foo' / 'bar.squashfs')
+        controllers_get_games_metadata.assert_called_once_with('system_name', Path('/var/squashfs/bar/bar.zip'))
+        gun_get_and_precalibrate_all.assert_called_once_with(mock_system, Path('/var/squashfs/bar/bar.zip'))
         wheels_utils_configure_wheels.assert_called_once_with(
             mocker.sentinel.player_controllers, mock_system, mocker.sentinel.metadata
         )
@@ -926,22 +945,22 @@ class TestStartRom:
             mocker.call(
                 SYSTEM_SCRIPTS,
                 'gameStart',
-                ['system_name', 'default-emulator', 'default-core', '/var/squashfs/bar/bar.zip'],
+                ['system_name', 'default-emulator', 'default-core', Path('/var/squashfs/bar/bar.zip')],
             ),
             mocker.call(
                 USER_SCRIPTS,
                 'gameStart',
-                ['system_name', 'default-emulator', 'default-core', '/var/squashfs/bar/bar.zip'],
+                ['system_name', 'default-emulator', 'default-core', Path('/var/squashfs/bar/bar.zip')],
             ),
             mocker.call(
                 USER_SCRIPTS,
                 'gameStop',
-                ['system_name', 'default-emulator', 'default-core', '/var/squashfs/bar/bar.zip'],
+                ['system_name', 'default-emulator', 'default-core', Path('/var/squashfs/bar/bar.zip')],
             ),
             mocker.call(
                 SYSTEM_SCRIPTS,
                 'gameStop',
-                ['system_name', 'default-emulator', 'default-core', '/var/squashfs/bar/bar.zip'],
+                ['system_name', 'default-emulator', 'default-core', Path('/var/squashfs/bar/bar.zip')],
             ),
         ]
 
@@ -949,7 +968,7 @@ class TestStartRom:
             'system_name',
             'default-emulator',
             'default-core',
-            '/userdata/roms/foo/bar.squashfs',
+            ROMS / 'foo' / 'bar.squashfs',
             mocker.sentinel.new_player_controllers,
             mocker.sentinel.precalibrated_guns,
         )
@@ -957,10 +976,10 @@ class TestStartRom:
         set_hotkeygen_context.assert_called_once_with(generator, mock_system)
         set_hotkeygen_context.return_value.__enter__.assert_called_once_with()
 
-        generator.executionDirectory.assert_called_once_with(mock_system.config, '/var/squashfs/bar/bar.zip')
+        generator.executionDirectory.assert_called_once_with(mock_system.config, Path('/var/squashfs/bar/bar.zip'))
         generator.generate.assert_called_once_with(
             mock_system,
-            '/var/squashfs/bar/bar.zip',
+            Path('/var/squashfs/bar/bar.zip'),
             mocker.sentinel.new_player_controllers,
             mocker.sentinel.metadata,
             mocker.sentinel.precalibrated_guns,
@@ -972,7 +991,7 @@ class TestStartRom:
         get_hud_bezel.assert_called_once_with(
             mock_system,
             generator,
-            '/var/squashfs/bar/bar.zip',
+            Path('/var/squashfs/bar/bar.zip'),
             {'width': 1920, 'height': 1080},
             mocker.sentinel.guns_borders_size_name,
             mocker.sentinel.guns_border_ratio_type,
@@ -1009,8 +1028,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1031,8 +1050,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1064,8 +1083,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1095,8 +1114,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1124,8 +1143,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1157,8 +1176,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1186,15 +1205,15 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
 
         generator.generate.assert_called_once_with(
             mock_system,
-            '/var/squashfs/bar/bar.zip',
+            Path('/var/squashfs/bar/bar.zip'),
             mocker.sentinel.new_player_controllers,
             mocker.sentinel.metadata,
             mocker.sentinel.precalibrated_guns,
@@ -1224,8 +1243,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1252,8 +1271,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1282,8 +1301,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1308,8 +1327,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1337,8 +1356,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1385,8 +1404,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
             == mocker.sentinel.run_command
         )
@@ -1397,7 +1416,7 @@ class TestStartRom:
             mocker.sentinel.systemname,
             'default-emulator',
             'default-core',
-            '/var/squashfs/bar/bar.zip',
+            Path('/var/squashfs/bar/bar.zip'),
             mocker.sentinel.extracted_game_info,
             mocker.sentinel.hud_bezel if bezel_is_not_none else None,
         )
@@ -1437,8 +1456,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
 
         assert video_mode_change_mode.call_args_list == [mocker.call('640x480.120.00'), mocker.call('1440x900.120.00')]
@@ -1483,8 +1502,8 @@ class TestStartRom:
             start_rom(
                 default_args,
                 8,
-                '/var/squashfs/bar/bar.zip',
-                '/userdata/roms/foo/bar.squashfs',
+                Path('/var/squashfs/bar/bar.zip'),
+                ROMS / 'foo' / 'bar.squashfs',
             )
 
         assert video_mode_change_mode.call_args_list == [mocker.call('640x480.120.00'), mocker.call('1440x900.120.00')]

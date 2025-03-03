@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.pyxel.pyxelGenerator import PyxelGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -31,7 +32,7 @@ class TestPyxelGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                f'/userdata/roms/pyxel/rom.{extension}',
+                ROMS / 'pyxel' / f'rom.{extension}',
                 one_player_controllers,
                 {},
                 [],

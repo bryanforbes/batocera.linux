@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.generators.stella.stellaGenerator import StellaGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -29,7 +30,7 @@ class TestStellaGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/atari2600/rom.a26',
+                ROMS / 'atari2600' / 'rom.a26',
                 one_player_controllers,
                 {},
                 [],

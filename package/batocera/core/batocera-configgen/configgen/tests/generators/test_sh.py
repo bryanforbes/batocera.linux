@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from configgen.batoceraPaths import ROMS
 from configgen.config import SystemConfig
 from configgen.generators.sh.shGenerator import ShGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -24,7 +25,7 @@ class TestShGenerator(GeneratorBaseTest):
         return ShGenerator
 
     def test_get_mouse_mode(self, generator: ShGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_generate(
         self,
@@ -36,7 +37,7 @@ class TestShGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ports/rom.sh',
+                ROMS / 'ports' / 'rom.sh',
                 one_player_controllers,
                 {},
                 [],
@@ -61,7 +62,7 @@ class TestShGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mocker.Mock(),
-                '/userdata/roms/ports/rom.sh',
+                ROMS / 'ports' / 'rom.sh',
                 one_player_controllers,
                 {},
                 [],

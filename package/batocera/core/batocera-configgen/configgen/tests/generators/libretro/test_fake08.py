@@ -34,7 +34,7 @@ rom_file2.p8
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/pico8/rom.m3u',
+                ROMS / 'pico8' / 'rom.m3u',
                 [],
                 {},
                 [],

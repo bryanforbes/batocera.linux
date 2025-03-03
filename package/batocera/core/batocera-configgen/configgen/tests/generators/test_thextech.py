@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import SAVES
+from configgen.batoceraPaths import ROMS, SAVES
 from configgen.generators.thextech.thextechGenerator import TheXTechGenerator
 from tests.generators.base import GeneratorBaseTest
 
@@ -37,7 +37,7 @@ class TestTheXTechGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/thextech/rom.rott',
+                ROMS / 'thextech' / 'rom.smbx',
                 [],
                 {},
                 [],
@@ -66,7 +66,7 @@ class TestTheXTechGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                '/userdata/roms/thextech/rom.rott',
+                ROMS / 'thextech' / 'rom.smbx',
                 [],
                 {},
                 [],

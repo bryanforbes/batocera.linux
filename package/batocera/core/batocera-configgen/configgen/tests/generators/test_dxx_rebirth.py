@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
 
-from configgen.batoceraPaths import CONFIGS
+from configgen.batoceraPaths import CONFIGS, ROMS
 from configgen.config import SystemConfig
 from configgen.generators.dxx_rebirth.dxx_rebirthGenerator import DXX_RebirthGenerator
 from tests.generators.base import GeneratorBaseTest
@@ -32,10 +33,10 @@ class TestDXX_RebirthGenerator(GeneratorBaseTest):
         return 'dxx-rebirth'
 
     def test_get_mouse_mode(self, generator: DXX_RebirthGenerator) -> None:  # pyright: ignore
-        assert generator.getMouseMode(SystemConfig({}), '')
+        assert generator.getMouseMode(SystemConfig({}), Path())
 
     def test_get_in_game_ratio(self, generator: DXX_RebirthGenerator) -> None:  # pyright: ignore
-        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, '') == 16 / 9
+        assert generator.getInGameRatio(SystemConfig({}), {'width': 0, 'height': 0}, Path()) == 16 / 9
 
     @pytest.mark.parametrize('rom_path', ['descent1/descent.d1x', 'descent2/descent.d2x'])
     def test_generate(
@@ -49,7 +50,7 @@ class TestDXX_RebirthGenerator(GeneratorBaseTest):
         assert (
             generator.generate(
                 mock_system,
-                f'/userdata/roms/dxx-rebirth/{rom_path}',
+                ROMS / 'dxx-rebirth' / rom_path,
                 one_player_controllers,
                 {},
                 [],
@@ -69,7 +70,7 @@ class TestDXX_RebirthGenerator(GeneratorBaseTest):
         with pytest.raises(Exception, match='^Unknown rom type: /userdata/roms/dxx-rebirth/foo.rom$'):
             generator.generate(
                 mock_system,
-                '/userdata/roms/dxx-rebirth/foo.rom',
+                ROMS / 'dxx-rebirth' / 'foo.rom',
                 one_player_controllers,
                 {},
                 [],
@@ -110,7 +111,7 @@ Multisample=0
 
         generator.generate(
             mock_system,
-            '/userdata/roms/dxx-rebirth/descent1/descent.d1x',
+            ROMS / 'dxx-rebirth' / 'descent1' / 'descent.d1x',
             one_player_controllers,
             {},
             [],
