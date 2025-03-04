@@ -417,6 +417,6 @@ class BigPEmuGenerator(Generator):
         return Command.Command(array=commandArray, env=environment)
 
     def getInGameRatio(self, config, gameResolution, rom):
-        if "bigpemu_ratio" in config and config['bigpemu_ratio'] == "8":
+        if config.get('bigpemu_ratio') == "8":
             return 16/9
         return 4/3
