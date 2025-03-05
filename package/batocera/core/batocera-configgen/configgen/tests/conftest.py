@@ -25,7 +25,12 @@ if TYPE_CHECKING:
     from syrupy.types import SerializableData
 
 
-pytest_plugins = ['tests.mock_controllers', 'tests.mock_emulator']
+pytest_plugins = [
+    'tests.mock_controllers',
+    'tests.mock_emulator',
+    'tests.generators.base',
+    'tests.generators.libretro.base',
+]
 
 
 def pytest_configure(config: pytest.Config) -> None:
