@@ -44,6 +44,10 @@ class TestMupenGenerator(GeneratorBaseTest):
             _CORE_DIR / 'controllers' / 'input.xml',
             target_path=DATAINIT_DIR / 'system' / 'configs' / 'mupen64' / 'input.xml',
         )
+        fs.add_real_file(
+            _CORE_DIR / 'controllers' / 'input.toml',
+            target_path=DATAINIT_DIR / 'system' / 'configs' / 'mupen64' / 'input.toml',
+        )
         return fs
 
     @pytest.mark.parametrize(
