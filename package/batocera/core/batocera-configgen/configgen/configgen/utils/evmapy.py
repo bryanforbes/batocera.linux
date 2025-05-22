@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import subprocess
 from collections import defaultdict
-from contextlib import AbstractContextManager
+from contextlib import AbstractAsyncContextManager
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Final, Literal, NotRequired, TypedDict, cast
@@ -88,7 +89,7 @@ def _keys_mouse_action_to_evmapy_action(
 
 
 @dataclass(slots=True)
-class evmapy(AbstractContextManager[None, None]):
+class evmapy(AbstractAsyncContextManager[None, None]):
     # evmapy is a process that map pads to keyboards (for pygame for example)
     __started: bool = field(init=False, default=False)
 
@@ -99,12 +100,12 @@ class evmapy(AbstractContextManager[None, None]):
     controllers: Controllers
     guns: Guns
 
-    def __enter__(self) -> None:
-        if self.__prepare():
+    async def __aenter__(self) -> None:
+        if await self.__prepare():
             self.__started = True
             subprocess.call(['batocera-evmapy', 'start'])
 
-    def __exit__(
+    async def __aexit__(
         self,
         exc_type: type[BaseException] | None,
         exc_value: BaseException | None,
@@ -184,7 +185,7 @@ class evmapy(AbstractContextManager[None, None]):
 
         return merged_file
 
-    def __prepare(self) -> bool:
+    async def __prepare(self) -> bool:
         keys_file = self.__build_merged_keys_file()
 
         if keys_file is None:
@@ -198,18 +199,25 @@ class evmapy(AbstractContextManager[None, None]):
         pad_action_config: _KeysConfig = json.loads(keys_file.read_text())
 
         # configure guns
-        for ngun, gun in enumerate(self.guns, start=1):
-            if (actions := pad_action_config.get(f'actions_gun{ngun}')) is not None:
-                self.__write_gun_config(gun, actions, keys_file)
+        gun_coroutines = [
+            self.__write_gun_config(gun, actions, keys_file)
+            for ngun, gun in enumerate(self.guns, start=1)
+            if (actions := pad_action_config.get(f'actions_gun{ngun}')) is not None
+        ]
 
         # configure each player
-        for pad in self.controllers:
-            if (actions := pad_action_config.get(f'actions_player{pad.player_number}')) is not None:
-                self.__write_controller_config(pad, actions, keys_file)
+        pad_coroutines = [
+            self.__write_controller_config(pad, actions, keys_file)
+            for pad in self.controllers
+            if (actions := pad_action_config.get(f'actions_player{pad.player_number}')) is not None
+        ]
+
+        if gun_coroutines or pad_coroutines:
+            await asyncio.gather(*gun_coroutines, *pad_coroutines)
 
         return True
 
-    def __write_gun_config(self, gun: Gun, actions: _KeysActions, keys_file: Path, /) -> None:
+    async def __write_gun_config(self, gun: Gun, actions: _KeysActions, keys_file: Path, /) -> None:
         config_file = _EVMAPY_RUN_DIR / f'{Path(gun.node).name}.json'
         _logger.debug('config file for keysfile is %s (from %s) - gun', config_file, keys_file)
 
@@ -229,7 +237,7 @@ class evmapy(AbstractContextManager[None, None]):
 
         config_file.write_text(json.dumps(evmapy_config, indent=2))
 
-    def __write_controller_config(self, controller: Controller, keys_actions: _KeysActions, keys_file: Path, /) -> None:
+    async def __write_controller_config(self, controller: Controller, keys_actions: _KeysActions, keys_file: Path, /) -> None:
         config_file = _EVMAPY_RUN_DIR / f'{Path(controller.device_path).name}.json'
         _logger.debug('config file for keysfile is %s (from %s)', config_file, keys_file)
 
@@ -249,6 +257,9 @@ class evmapy(AbstractContextManager[None, None]):
         known_button_codes: dict[str, str] = {}
         known_button_aliases: dict[str, str] = {}
         known_axis_codes: set[str] = set()
+
+        # Cache axis data so it's only called once per controller
+        axis_ranges = self.__get_all_axis_min_max(controller.device_path)
 
         for input in controller.inputs.values():
             if input.type == 'button':
@@ -310,7 +321,7 @@ class evmapy(AbstractContextManager[None, None]):
                         axis_name = input.name
 
                     if (axis_id and axis_name) or axis_id == '_OTHERS_':
-                        axis_min, axis_max = self.__get_pad_min_max_axis(controller.device_path, int(input.code))
+                        axis_min, axis_max = axis_ranges.get(int(input.code), (0, 0))
 
                         known_button_names.add(f'ABS{axis_id}{axis_name}:min')
                         known_button_names.add(f'ABS{axis_id}{axis_name}:max')
@@ -517,19 +528,15 @@ class evmapy(AbstractContextManager[None, None]):
 
         return trigger
 
-    def __get_pad_min_max_axis(self, device_path: str, axis_code: int, /) -> tuple[int, int]:
+    def __get_all_axis_min_max(self, device_path: str) -> dict[int, tuple[int, int]]:
         import evdev
 
         device = evdev.InputDevice(device_path)
-        capabilities = device.capabilities(False)
 
-        for event_type in capabilities:
-            if event_type == 3:  # "EV_ABS"
-                for abs_code, val in capabilities[event_type]:
-                    if abs_code == axis_code:
-                        return val.min, val.max
-
-        return 0, 0  # not found
+        return {
+            abs_code: (val.min, val.max)
+            for abs_code, val in device.capabilities(False).get(3, [])
+        }
 
     def __get_pad_min_max_axis_for_keys(self, min: float, max: float, /) -> tuple[float, float]:
         val_range = (max - min) / 2  # for each side

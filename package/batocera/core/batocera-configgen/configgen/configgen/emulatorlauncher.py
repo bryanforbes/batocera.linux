@@ -9,12 +9,14 @@ profiler.start()
 
 ### import always needed ###
 import argparse
+import asyncio
 import json
 import logging
 import os
 import signal
 import subprocess
 import time
+from asyncio import subprocess as aiosubprocess
 from pathlib import Path
 from sys import exit
 from typing import TYPE_CHECKING
@@ -32,7 +34,7 @@ from .utils.logger import setup_logging
 from .utils.squashfs import squashfs_rom
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
+    from collections.abc import Iterable, Iterator
     from types import FrameType
 
     from .Command import Command
@@ -41,15 +43,15 @@ if TYPE_CHECKING:
 
 _logger = logging.getLogger(__name__)
 
-def main(args: argparse.Namespace, maxnbplayers: int) -> int:
+async def main(args: argparse.Namespace, maxnbplayers: int) -> int:
     # squashfs roms if squashed
     if args.rom.suffix == ".squashfs":
         with squashfs_rom(args.rom) as rom:
-            return start_rom(args, maxnbplayers, rom, args.rom)
+            return await start_rom(args, maxnbplayers, rom, args.rom)
     else:
-        return start_rom(args, maxnbplayers, args.rom, args.rom)
+        return await start_rom(args, maxnbplayers, args.rom, args.rom)
 
-def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_rom: Path) -> int:
+async def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_rom: Path) -> int:
     player_controllers = Controller.load_for_players(maxnbplayers, args)
 
     # find the system to run
@@ -131,40 +133,40 @@ def start_rom(args: argparse.Namespace, maxnbplayers: int, rom: Path, original_r
             os.environ.update({'SDL_RENDER_VSYNC': system.config["sdlvsync"]})
 
             # run a script before emulator starts
-            callExternalScripts(SYSTEM_SCRIPTS, "gameStart", [systemName, system.config.emulator, effectiveCore, rom])
-            callExternalScripts(USER_SCRIPTS, "gameStart", [systemName, system.config.emulator, effectiveCore, rom])
+            await callExternalScripts(SYSTEM_SCRIPTS, "gameStart", [systemName, system.config.emulator, effectiveCore, rom])
+            await callExternalScripts(USER_SCRIPTS, "gameStart", [systemName, system.config.emulator, effectiveCore, rom])
 
             # run the emulator
             from .utils.evmapy import evmapy
-            with (
-                evmapy(systemName, system.config.emulator, effectiveCore, original_rom, player_controllers, guns),
-                set_hotkeygen_context(generator, system)
+            async with evmapy(
+                systemName, system.config.emulator, effectiveCore, original_rom, player_controllers, guns
             ):
-                # change directory if wanted
-                executionDirectory = generator.executionDirectory(system.config, rom)
-                if executionDirectory is not None:
-                    os.chdir(executionDirectory)
+                with set_hotkeygen_context(generator, system):
+                    # change directory if wanted
+                    executionDirectory = generator.executionDirectory(system.config, rom)
+                    if executionDirectory is not None:
+                        os.chdir(executionDirectory)
 
-                cmd = generator.generate(system, rom, player_controllers, metadata, guns, wheels, gameResolution)
+                    cmd = generator.generate(system, rom, player_controllers, metadata, guns, wheels, gameResolution)
 
-                if system.config.get_bool('hud_support'):
-                    hud_bezel = getHudBezel(system, generator, rom, gameResolution, system.guns_borders_size_name(guns), system.guns_border_ratio_type(guns))
-                    if ((hud := system.config.get('hud')) and hud != "none") or hud_bezel is not None:
-                        cmd.env["MANGOHUD_DLSYM"] = "1"
-                        hudconfig = getHudConfig(system, args.systemname, system.config.emulator, effectiveCore, rom, hud_bezel)
-                        hud_config_file = Path('/var/run/hud.config')
-                        with hud_config_file.open('w') as f:
-                            f.write(hudconfig)
-                        cmd.env["MANGOHUD_CONFIGFILE"] = hud_config_file
-                        if not generator.hasInternalMangoHUDCall():
-                            cmd.array.insert(0, "mangohud")
+                    if system.config.get_bool('hud_support'):
+                        hud_bezel = getHudBezel(system, generator, rom, gameResolution, system.guns_borders_size_name(guns), system.guns_border_ratio_type(guns))
+                        if ((hud := system.config.get('hud')) and hud != "none") or hud_bezel is not None:
+                            cmd.env["MANGOHUD_DLSYM"] = "1"
+                            hudconfig = getHudConfig(system, args.systemname, system.config.emulator, effectiveCore, rom, hud_bezel)
+                            hud_config_file = Path('/var/run/hud.config')
+                            with hud_config_file.open('w') as f:
+                                f.write(hudconfig)
+                            cmd.env["MANGOHUD_CONFIGFILE"] = hud_config_file
+                            if not generator.hasInternalMangoHUDCall():
+                                cmd.array.insert(0, "mangohud")
 
-                with profiler.pause():
-                    exitCode = runCommand(cmd)
+                    with profiler.pause():
+                        exitCode = runCommand(cmd)
 
             # run a script after emulator shuts down
-            callExternalScripts(USER_SCRIPTS, "gameStop", [systemName, system.config.emulator, effectiveCore, rom])
-            callExternalScripts(SYSTEM_SCRIPTS, "gameStop", [systemName, system.config.emulator, effectiveCore, rom])
+            await callExternalScripts(USER_SCRIPTS, "gameStop", [systemName, system.config.emulator, effectiveCore, rom])
+            await callExternalScripts(SYSTEM_SCRIPTS, "gameStop", [systemName, system.config.emulator, effectiveCore, rom])
 
         finally:
             # always restore the resolution
@@ -332,17 +334,26 @@ def getHudBezel(system: Emulator, generator: Generator, rom: Path, gameResolutio
     _logger.debug("applying bezel %s", overlay_png_file)
     return overlay_png_file
 
-def callExternalScripts(folder: Path, event: str, args: Iterable[str | Path]) -> None:
+async def callExternalScripts(folder: Path, event: str, args: Iterable[str | Path]) -> None:
     if not folder.is_dir():
         return
 
-    for file in folder.iterdir():
-        if file.is_dir():
-            callExternalScripts(file, event, args)
-        else:
-            if os.access(file, os.X_OK):
-                _logger.debug("calling external script: %s", [file, event, *args])
-                subprocess.call([file, event, *args])
+    def collect_scripts(path: Path) -> Iterator[Path]:
+        if not path.is_dir():
+            return
+
+        for file in path.iterdir():
+            if file.is_dir():
+                yield from collect_scripts(file)
+            elif os.access(file, os.X_OK):
+                yield file
+
+    async def run_script(script: Path) -> None:
+        _logger.debug("calling external script: %s", [script, event, *args])
+        proc = await aiosubprocess.create_subprocess_exec(script, *[event, *args])
+        await proc.wait()
+
+    await asyncio.gather(*(run_script(file) for file in collect_scripts(folder)))
 
 def hudConfig_protectStr(string: str | Path | None) -> str:
     if string is None:
@@ -431,7 +442,7 @@ def signal_handler(signal: int, frame: FrameType | None):
         _logger.debug('killing proc')
         proc.kill()
 
-def launch() -> None:
+async def launch_async() -> None:
     with setup_logging():
         global proc
         proc = None
@@ -476,7 +487,7 @@ def launch() -> None:
         args = parser.parse_args()
         exitcode = 0
         try:
-            exitcode = main(args, maxnbplayers)
+            exitcode = await main(args, maxnbplayers)
         except BaseBatoceraException as e:
             _logger.exception("configgen exception: ")
             exitcode = e.exit_code
@@ -505,6 +516,9 @@ def launch() -> None:
         _logger.debug("Exiting configgen with status %s", exitcode)
 
         exit(exitcode)
+
+def launch() -> None:
+    asyncio.run(launch_async())
 
 if __name__ == '__main__':
     launch()
