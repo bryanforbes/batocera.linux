@@ -3,9 +3,11 @@ include $(sort $(wildcard $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*.mk 
 
 UPDATE_PO_FILES_BUILD_DIR := $(BUILD_DIR)/batocera-locale-update
 
+.PHONY: clean-po-files
 clean-po-files:
 	rm -rf $(UPDATE_PO_FILES_BUILD_DIR)
 
+.PHONY: update-po-files
 update-po-files: clean-po-files host-batocera-es-system
 	@mkdir -p $(UPDATE_PO_FILES_BUILD_DIR)
 	@echo '$(EMULATOR_INFO_PATHS_ALL)' > $(UPDATE_PO_FILES_BUILD_DIR)/info_files.txt
@@ -24,6 +26,9 @@ SYSTEMS_REPORT_TMPDIR := /tmp/systems-report
 SYSTEMS_REPORT_DIR := $(BASE_DIR)/systems-report
 
 $(SYSTEMS_REPORT_TMPDIR)/%/.config:
+	@mkdir -p $(@D)/build/buildroot-config
+	@# Link to the already built buildroot config binary to speed up the process
+	@ln -sf $(BUILD_DIR)/buildroot-config/conf $(@D)/build/buildroot-config/conf
 	@$(MAKE) O=$(@D) -C $(CANONICAL_CURDIR) BR2_EXTERNAL="$(BR2_EXTERNAL)" batocera-$*_defconfig
 
 $(SYSTEMS_REPORT_TMPDIR)/%/info_files.txt:
@@ -33,6 +38,7 @@ $(SYSTEMS_REPORT_TMPDIR)/%/info_files.txt:
 
 ifdef SYSTEMS_REPORT_TARGETS
 define inner-systems-report-targets
+$(SYSTEMS_REPORT_TMPDIR)/$(1)/.config: $(BUILD_DIR)/buildroot-config/conf
 $(SYSTEMS_REPORT_TMPDIR)/$(1)/info_files.txt: $(SYSTEMS_REPORT_TMPDIR)/$(1)/.config
 systems-report: $(SYSTEMS_REPORT_TMPDIR)/$(1)/info_files.txt
 endef
@@ -40,6 +46,7 @@ endef
 $(foreach target,$(filter-out x86_wow64,$(SYSTEMS_REPORT_TARGETS)),$(eval $(call inner-systems-report-targets,$(target))))
 endif
 
+.PHONY: systems-report
 systems-report: host-batocera-es-system
 ifdef SYSTEMS_REPORT_TARGETS
 	@mkdir -p $(SYSTEMS_REPORT_DIR)
@@ -56,7 +63,3 @@ ifdef SYSTEMS_REPORT_TARGETS
 else
 	@$(error "No SYSTEMS_REPORT_TARGETS defined!")
 endif
-
-.PHONY: clean-po-files \
-	update-po-files \
-	systems-report
