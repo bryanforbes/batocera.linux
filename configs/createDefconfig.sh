@@ -1,48 +1,68 @@
-#!/bin/sh
+#!/bin/bash
 
-BNAME=$1
+BOARD_FILE="$1"
+EXTRA_OPTS_FILE="$2"
+DEFCONFIG_FILE="$3"
 
-FBOARD="${BNAME}.board"
-
-if ! test -e "${FBOARD}"
+if ! test -e "${BOARD_FILE}"
 then
-    echo "file ${FBOARD} not found" >&2
+    echo "file ${BOARD_FILE} not found" >&2
     exit 1
 fi
 
-TMPL0="${BNAME}_defconfig.tmpl0"
-TMPL1="${BNAME}_defconfig.tmpl1"
-CONFDIR=$(dirname "${FBOARD}")
-FDEFCONFIG="${BNAME}_defconfig"
+CONFIG_DIR="$(dirname ${BOARD_FILE})"
+
+TMPL0="${DEFCONFIG_FILE}.tmpl0"
+TMPL1="${DEFCONFIG_FILE}.tmpl1"
 
 > "${TMPL0}" || exit 1 # level 0
 > "${TMPL1}" || exit 1 # level 1 (includes of includes)
 
-# For untracked local changes
-touch -a "${CONFDIR}/batocera-board.local.common"
+# Include only if the file exists:
+# -include something.local
 
-grep -E 'include ' "${FBOARD}" | while read INC X
-do
-    echo "# from file ${X}" >> "${TMPL0}"
-    cat "${CONFDIR}/${X}"   >> "${TMPL0}"
-    echo                    >> "${TMPL0}"
-done
+# Include always:
+# include something.local
 
-grep -E 'include ' "${TMPL0}" | while read INC X
-do
-    echo "# from file ${X}" >> "${TMPL1}"
-    cat "${CONFDIR}/${X}"   >> "${TMPL1}"
-    echo                    >> "${TMPL1}"
-done
+include-file() {
+    local INCLUDED_FILE="${1}"
+    local OUTFILE="${2}"
 
-> "${FDEFCONFIG}" || exit 1
-grep -vE '^include ' "${TMPL1}" >> "${FDEFCONFIG}"
-grep -vE '^include ' "${TMPL0}" >> "${FDEFCONFIG}"
+    echo "# from file ${INCLUDED_FILE}"  >> "${OUTFILE}"
+    cat "${CONFIG_DIR}/${INCLUDED_FILE}" >> "${OUTFILE}"
+    echo                                 >> "${OUTFILE}"
+}
+
+parse-includes() {
+    local INFILE="${1}"
+    local OUTFILE="${2}"
+
+    while read INC X; do
+        if [ "${INC#-}" = "$INC" ] && [ ! -f "${CONFIG_DIR}/${X}" ]; then
+            echo "Error: included file ${X} not found (included from ${INFILE})" >&2
+            exit 1
+        fi
+
+        if [ -f "${CONFIG_DIR}/${X}" ]; then
+            include-file "${X}" "${OUTFILE}"
+        fi
+    done < <(grep -E '^-?include ' "${INFILE}")
+}
+
+parse-includes "${BOARD_FILE}" "${TMPL0}"
+parse-includes "${TMPL0}" "${TMPL1}"
+
+> "${DEFCONFIG_FILE}" || exit 1
+grep -vE '^-?include ' "${TMPL1}" >> "${DEFCONFIG_FILE}"
+grep -vE '^-?include ' "${TMPL0}" >> "${DEFCONFIG_FILE}"
 
 rm -f "${TMPL1}" || exit 1
 rm -f "${TMPL0}" || exit 1
 
-echo "### from board file ###"   >> "${FDEFCONFIG}" || exit 1
-grep -vE '^include ' "${FBOARD}" >> "${FDEFCONFIG}" || exit 1
+echo "### from board file ###"   >> "${DEFCONFIG_FILE}" || exit 1
+grep -vE '^-?include ' "${BOARD_FILE}" >> "${DEFCONFIG_FILE}" || exit 1
+
+echo "### from add-extra-opt ###"  >> "${DEFCONFIG_FILE}" || exit 1
+grep -vE '^-?include ' "${EXTRA_OPTS_FILE}" >> "${DEFCONFIG_FILE}" || exit 1
 
 exit 0
