@@ -10,10 +10,10 @@ BATOCERA_SYSLINUX_EFI_SITE = binaries
 BATOCERA_SYSLINUX_EFI_DEPENDENCIES = host-dosfstools host-mtools
 
 define BATOCERA_SYSLINUX_EFI_EXTRACT_CMDS
-	cp -R $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/boot/batocera-syslinux-efi/binaries/* $(@D)
+	cp -R $(BATOCERA_SYSLINUX_EFI_PKGDIR)/binaries/* $(@D)
 endef
 
-define BATOCERA_SYSLINUX_EFI_INSTALL_TARGET_CMDS
+define BATOCERA_SYSLINUX_EFI_INSTALL_IMAGES_CMDS
 	mkdir -p $(BINARIES_DIR)/syslinux/efi64
 	cp $(@D)/bootx64.selfsigned.efi  $(BINARIES_DIR)/syslinux/bootx64.efi
 	cp $(@D)/fbx64.selfsigned.efi    $(BINARIES_DIR)/syslinux/fbx64.efi
