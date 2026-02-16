@@ -116,7 +116,7 @@ HOST_PKGS_TO_RESET = $(addprefix host-,$(TARGET_PKGS))
 PKGS_TO_RESET = $(sort $(TARGET_PKGS) $(HOST_PKGS_TO_RESET))
 
 # All supported targets based on the board files in configs/, sorted for consistency
-TARGETS := $(sort $(patsubst batocera-%.board,%,$(notdir $(wildcard $(PROJECT_DIR)/configs/*.board))))
+TARGETS := $(sort $(patsubst batocera-%.board,%,$(notdir $(wildcard $(PROJECT_DIR)/configs/batocera-*.board))))
 
 # All supported targets for systems report generation
 SYSTEMS_REPORT_TARGETS := $(filter-out $(SYSTEMS_REPORT_EXCLUDE_TARGETS) x86_wow64,$(TARGETS))
@@ -124,22 +124,29 @@ SYSTEMS_REPORT_TARGETS := $(filter-out $(SYSTEMS_REPORT_EXCLUDE_TARGETS) x86_wow
 # All defconfig files for systems report targets, generated from the board files
 SYSTEMS_REPORT_DEFCONFIGS = $(foreach target,$(SYSTEMS_REPORT_TARGETS),$(call target-defconfig,$(target)))
 
+SDKS := $(sort $(patsubst sdk-%.board,%,$(notdir $(wildcard $(PROJECT_DIR)/configs/sdk-*.board))))
+
 # define build command based on whether we are building direct or inside a docker build container
 ifdef DIRECT_BUILD
-define MAKE_BUILDROOT
-	make $(MAKE_OPTS) O=$(OUTPUT_DIR)/$* \
+define MAKE_BUILDROOT_ARGS
+	make $(MAKE_OPTS) O=$(1) \
 		BR2_EXTERNAL=$(PROJECT_DIR) \
 		BR2_DL_DIR=$(DL_DIR) \
 		BR2_CCACHE_DIR=$(CCACHE_DIR) \
 		-C $(PROJECT_DIR)/buildroot
 endef
 else # DIRECT_BUILD
-define MAKE_BUILDROOT
-	$(RUN_DOCKER) make $(MAKE_OPTS) O=/$* \
+define MAKE_BUILDROOT_ARGS
+	$(call RUN_DOCKER_ARGS,$(1)) \
+		make $(MAKE_OPTS) O=/$(notdir $(1)) \
 			BR2_EXTERNAL=/build \
 			-C /build/buildroot
 endef
 endif # DIRECT_BUILD
+
+define MAKE_BUILDROOT
+	$(call MAKE_BUILDROOT_ARGS,$(OUTPUT_DIR)/$*)
+endef
 
 .PHONY: help
 help:
@@ -248,6 +255,20 @@ ifeq ($(OS),Darwin)
 	$(call REQUIRE,gfind,Please install findutils from Homebrew)
 endif
 
+sdk-output-dir = $(OUTPUT_DIR)/sdk/$(1)
+sdk-file = $(PROJECT_DIR)/configs/sdk-$(1).board
+sdk-defconfig = $(PROJECT_DIR)/configs/sdk-$(1)_defconfig
+
+SDK_OUTPUT_DIR_PATTERN = $(call sdk-output-dir,%)
+SDK_FILE_PATTERN = $(call sdk-file,%)
+SDK_DEFCONFIG_PATTERN = $(call sdk-defconfig,%)
+
+SDK_OUTPUT_DIR_INITIALIZED = $(SDK_OUTPUT_DIR_PATTERN)/.stamp_initialized
+
+SDK_FILE = $(call sdk-file,$*)
+SDK_DEFCONFIG = $(call sdk-defconfig,$*)
+SDK_OUTPUT_DIR = $(call sdk-output-dir,$*)
+
 # Target macros for files or directories (actual files)
 target-output-dir = $(OUTPUT_DIR)/$(1)
 target-board-file = $(PROJECT_DIR)/configs/batocera-$(1).board
@@ -278,6 +299,13 @@ TARGET_OUTPUT_DIR_INITIALIZED = $(TARGET_OUTPUT_DIR_PATTERN)/.stamp_initialized
 %/.stamp_initialized:
 	@mkdir -p $(@D)
 	@touch $@
+
+.PRECIOUS: $(SDK_DEFCONFIG_PATTERN)
+$(SDK_DEFCONFIG_PATTERN): $(SDK_BOARD_FILE_PATTERN) $(USER_DEFCONFIG)
+	@$(PROJECT_DIR)/configs/createDefconfig.sh \
+		$(SDK_FILE) \
+		$(USER_DEFCONFIG) \
+		$(SDK_DEFCONFIG)
 
 .PRECIOUS: $(TARGET_DEFCONFIG_PATTERN)
 $(TARGET_DEFCONFIG_PATTERN): $(TARGET_BOARD_FILE_PATTERN) \
@@ -479,3 +507,32 @@ uart:
 	$(if $(wildcard $(TARGET_SYSTEMS_REPORT_DIR)/*),,$(error $* not built))
 	@$(call MESSAGE,Serving systems report at $(call TERM_URL,http://localhost:8000/batocera_systemsReport.html))
 	python3 -m http.server --directory $(TARGET_SYSTEMS_REPORT_DIR)/
+
+.PHONY: _check-new-target
+_check-new-target:
+	$(if $(TARGET),,$(error TARGET is required))
+
+.SECONDEXPANSION:
+.PHONY: new-target
+new-target: _check-new-target
+new-target: | $(DOCKER_IMAGE_AVAILABLE) $(DL_DIR_INITIALIZED) $(CCACHE_DIR_INITIALIZED) $$(call target-output-dir,$$(TARGET))/.stamp_initialized
+	@$(call MAKE_BUILDROOT_ARGS,$(call target-output-dir,$(TARGET))) menuconfig
+	@$(call MAKE_BUILDROOT_ARGS,$(call target-output-dir,$(TARGET))) savedefconfig
+
+%-sdk-supported:
+	$(if $(filter $*,$(SDKS)),,$(error $* not supported))
+
+%-sdk-defconfig: $(SDK_DEFCONFIG_PATTERN) | %-sdk-supported
+	@:
+
+%-sdk-config: %-sdk-defconfig | $(DOCKER_IMAGE_AVAILABLE) $(DL_DIR_INITIALIZED) $(CCACHE_DIR_INITIALIZED) $(SDK_OUTPUT_DIR_INITIALIZED)
+	@$(call MESSAGE,Generating buildroot makefile)
+	@$(call MAKE_BUILDROOT_ARGS,$(SDK_OUTPUT_DIR)) sdk-$*_defconfig
+
+%-sdk: %-sdk-config
+	@$(call MESSAGE,Building SDK)
+	@$(call MAKE_BUILDROOT_ARGS,$(SDK_OUTPUT_DIR)) BR2_SDK_PREFIX='batocera-sdk_$$(GNU_TARGET_NAME)_$$(HOSTARCH)' sdk
+
+%-sdk-shell: %-sdk-config
+	@$(call MESSAGE,$(if $(CMD),Executing command,Starting interactive shell))
+	@$(call RUN_DOCKER_ARGS,$(SDK_OUTPUT_DIR))

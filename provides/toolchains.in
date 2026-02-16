@@ -1,0 +1,14 @@
+config BR2_TOOLCHAIN_EXTERNAL_BATOCERA_X86_64
+	bool "Batocera x86_64 toolchain"
+	depends on BR2_x86_64
+	depends on BR2_HOSTARCH = "x86_64" || BR2_HOSTARCH = "aarch64"
+	select BR2_TOOLCHAIN_EXTERNAL_GLIBC
+	select BR2_TOOLCHAIN_HAS_SSP
+	select BR2_INSTALL_LIBSTDCPP
+	select BR2_TOOLCHAIN_HEADERS_AT_LEAST_6_18
+	select BR2_TOOLCHAIN_GCC_AT_LEAST_13
+	select BR2_TOOLCHAIN_HAS_OPENMP
+	help
+	  Pre-built Batocera toolchain for x86_64 targets.
+
+	  Supports both x86_64 and aarch64 build hosts.

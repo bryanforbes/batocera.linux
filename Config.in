@@ -1,5 +1,7 @@
 menu "batocera.linux"
 
+source "$BR2_EXTERNAL_BATOCERA_PATH/toolchain/toolchain-external-batocera-x86-64/Config.in.options"
+
 menu "System"
   source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/core/batocera-system/Config.in"
   source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/core/batocera-configgen/Config.in"

@@ -1,6 +1,7 @@
 /output
 /dl
 /configs/batocera-*_defconfig
+/configs/sdk-*_defconfig
 /configs/batocera-board.local.common
 /configs/.user_defconfig
 /.auto.deps

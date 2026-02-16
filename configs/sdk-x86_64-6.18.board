@@ -1,0 +1,7 @@
+include sdk-common.board
+
+BR2_x86_64=y
+BR2_KERNEL_HEADERS_6_18=y
+BR2_GCC_ENABLE_OPENMP=y
+BR2_TARGET_OPTIMIZATION="-pipe -fsigned-char"
+BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/patches $(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/x86/patches"

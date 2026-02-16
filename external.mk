@@ -1,5 +1,10 @@
 include $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/pkg-emulator-info.mk
-include $(sort $(wildcard $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*.mk $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*/*.mk $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*/*/*.mk $(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*/*/*/*.mk))
+include $(sort $(wildcard \
+	$(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*.mk \
+	$(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*/*.mk \
+	$(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*/*/*.mk \
+	$(BR2_EXTERNAL_BATOCERA_PATH)/package/batocera/*/*/*/*/*.mk \
+	$(BR2_EXTERNAL_BATOCERA_PATH)/toolchain/*/*.mk))
 
 UPDATE_PO_FILES_BUILD_DIR := $(BUILD_DIR)/batocera-locale-update
 

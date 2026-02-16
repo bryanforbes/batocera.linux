@@ -1,0 +1,9 @@
+if BR2_TOOLCHAIN_EXTERNAL_BATOCERA_X86_64
+
+config BR2_TOOLCHAIN_EXTERNAL_PREFIX
+	default "x86_64-batocera-linux-gnu"
+
+config BR2_PACKAGE_PROVIDES_TOOLCHAIN_EXTERNAL
+	default "toolchain-external-batocera-x86-64"
+
+endif
