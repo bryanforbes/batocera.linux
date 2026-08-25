@@ -36,6 +36,8 @@ config-settings-package = { pygobject-stubs = { config = "Gtk3,Gdk3" } }
 [tool.uv.sources]
 batocera-common = { workspace = true }
 batocera-launch = { workspace = true }
+batocera-launch-libretro = { workspace = true }
+batocera-launch-mame-common = { workspace = true }
 
 [tool.uv.workspace]
 members = [
@@ -150,6 +152,8 @@ extra-standard-library = ["typing_extensions", "_typeshed"]
 known-first-party = [
     "batocera_common",
     "batocera_launch",
+    "batocera_launch_libretro",
+    "batocera_launch_mame_common",
     "configgen",
     "batocera_es_system"
 ]
