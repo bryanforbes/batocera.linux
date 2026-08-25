@@ -7,6 +7,7 @@ dev = [
     "pytest-mock==3.15.1",
     "pytest-cov==7.1.0",
     "pytest-xdist==3.8.0",
+    "pyfakefs==6.2.0",
     "coverage[toml]==7.15.4",
     "pygobject-stubs @ git+https://github.com/pygobject/pygobject-stubs.git@959c470767cd44a74912ba182e9fb202d0d96519",
 ]
@@ -34,6 +35,7 @@ config-settings-package = { pygobject-stubs = { config = "Gtk3,Gdk3" } }
 
 [tool.uv.sources]
 batocera-common = { workspace = true }
+batocera-launch = { workspace = true }
 
 [tool.uv.workspace]
 members = [
@@ -56,6 +58,10 @@ strict = true
 omit = ["**/python-src/*/tests/**"]
 
 [tool.pyright]
+include = [
+    "python-src",
+    "package/batocera/core/batocera-configgen/configgen",
+]
 exclude = [
     ".venv*",
     "buildroot*",
@@ -135,12 +141,17 @@ quote-style = "single"
 preview = true
 explicit-preview-rules = true
 select = [
-    "TC", "PYI", "I", "UP", "F", "FA", "E", "W", "B", "C4", "SIM", "PTH", "G", "PERF", "PIE", "RET", "RUF"
+    "TC", "PYI", "I", "UP", "F", "FA", "E", "W", "B", "C4", "SIM", "PTH", "G", "PERF", "PIE", "RET", "PT", "RUF"
 ]
 ignore = ["SIM105", "SIM108", "E501", "RUF051"]
 
 [tool.ruff.lint.isort]
 extra-standard-library = ["typing_extensions", "_typeshed"]
-known-first-party = ["batocera_common", "configgen", "batocera_es_system"]
+known-first-party = [
+    "batocera_common",
+    "batocera_launch",
+    "configgen",
+    "batocera_es_system"
+]
 combine-as-imports = true
 required-imports = ["from __future__ import annotations"]
