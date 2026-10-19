@@ -20,225 +20,23 @@
 
 from __future__ import annotations
 
-import inspect
+import itertools
+import keyword
+import re
 import subprocess
 import textwrap
-from types import UnionType
-from typing import (
-    TYPE_CHECKING,
-    Annotated,
-    Any,
-    TypeAliasType,
-    cast,
-    get_args,
-    get_origin,
-    is_protocol,
-)
+import xml.etree.ElementTree as ET
+from typing import TYPE_CHECKING
 
-from dbus_fast import SignatureTree
-from dbus_fast.annotations import DBusSignature
-
-from .interface import (
-    DBusInterface,
-    get_dbus_method_info,
-    get_dbus_property_info,
-    get_interface_name,
-    iterate_dbus_methods,
-    iterate_dbus_properties,
-)
+from dbus_fast import SignatureTree, SignatureType
 
 if TYPE_CHECKING:
-    from collections.abc import Callable, Iterator
+    from collections.abc import Iterable, Sequence
     from pathlib import Path
-    from types import ModuleType
 
 
-def _get_imports(annotation: Any, imports: dict[str, set[str]], /) -> None:
-    args = get_args(annotation)
-
-    for arg in args:
-        _get_imports(arg, imports)
-
-    if getattr(annotation, '__module__', None) is not None:
-        module: str = annotation.__module__
-
-        if module in ('builtins', 'inspect'):
-            return
-
-        imports[module].add(annotation.__name__)
-
-
-def _split_annotation(
-    annotation: object,
-    location: str,
-    /,
-    *,
-    output: bool = False,
-) -> tuple[object, str]:
-    if output and (annotation is None or annotation is type(None)):
-        return type(None), ''
-
-    if get_origin(annotation) is not Annotated:
-        raise TypeError(f'{location}: expected Annotated[..., DBusSignature(...)]')
-
-    python_type, *metadata = get_args(annotation)
-    signatures = [item.signature for item in metadata if isinstance(item, DBusSignature)]
-
-    if len(signatures) != 1:
-        raise TypeError(f'{location}: expected exactly one DBusSignature')
-
-    signature = signatures[0]
-
-    try:
-        tree = SignatureTree(signature)
-    except Exception as error:
-        raise TypeError(f'{location}: invalid D-Bus signature {signature!r}') from error
-
-    if not tree.types or (not output and len(tree.types) != 1):
-        raise TypeError(
-            f'{location}: expected {"one or more output types" if output else "one complete argument type"}'
-        )
-
-    return python_type, signature
-
-
-def _render_type(annotation: object, imports: set[str], /) -> str:
-    if annotation is None or annotation is type(None):
-        return 'None'
-
-    if annotation is Ellipsis:
-        return '...'
-
-    if isinstance(annotation, TypeAliasType):
-        imports.add(cast('str', annotation.__module__))
-        return f'{annotation.__module__}.{annotation.__name__}'
-
-    origin = get_origin(annotation)
-
-    if origin is UnionType:
-        return ' | '.join(_render_type(argument, imports) for argument in get_args(annotation))
-
-    if origin in (list, dict, tuple, set, frozenset):
-        arguments = ', '.join(_render_type(argument, imports) for argument in get_args(annotation))
-        return f'{origin.__name__}[{arguments}]'
-
-    if isinstance(annotation, type):
-        if annotation.__module__ == 'builtins':
-            return annotation.__qualname__
-
-        if '<locals>' not in annotation.__qualname__:
-            imports.add(annotation.__module__)
-            return f'{annotation.__module__}.{annotation.__qualname__}'
-
-    raise TypeError(f'Unsupported Python annotation: {annotation!r}')
-
-
-def _generate_method(method: Callable[..., Any], imports: set[str], /) -> str:
-    signature = inspect.signature(method, eval_str=True)
-    parameters = list(signature.parameters.values())
-
-    if not parameters or parameters[0].name != 'self':
-        raise TypeError(f'{method.__qualname__}: expected an instance method')
-
-    rendered_parameters = [parameters[0]]
-    wire_types: list[str] = []
-    argument_names: list[str] = []
-
-    for parameter in parameters[1:]:
-        location = f'{method.__qualname__}.{parameter.name}'
-
-        if parameter.kind not in (
-            inspect.Parameter.POSITIONAL_ONLY,
-            inspect.Parameter.POSITIONAL_OR_KEYWORD,
-        ):
-            raise TypeError(f'{location}: expected a positional parameter')
-
-        if parameter.default is not inspect.Parameter.empty:
-            raise TypeError(f'{location}: default values are unsupported')
-
-        python_type, wire_type = _split_annotation(
-            parameter.annotation,
-            location,
-        )
-        rendered_parameters.append(parameter.replace(annotation=_render_type(python_type, imports)))
-        wire_types.append(wire_type)
-        argument_names.append(parameter.name)
-
-    python_return, wire_return = _split_annotation(
-        signature.return_annotation,
-        f'{method.__qualname__} return',
-        output=True,
-    )
-
-    rendered_signature = signature.replace(
-        parameters=rendered_parameters,
-        return_annotation=_render_type(python_return, imports),
-    ).format(quote_annotation_strings=False)
-
-    method_name = get_dbus_method_info(method)['name']
-    input_signature = ''.join(wire_types)
-    body = ', '.join(argument_names)
-
-    return f"""\
-async def {method.__name__}{rendered_signature}:
-    return await self._call_method({method_name!r}, {input_signature!r}, [{body}], {wire_return!r})
-"""
-
-
-def _generate_property(name: str, prop: property, imports: set[str], /) -> str:
-    getter = prop.fget
-    assert getter is not None
-
-    signature = inspect.signature(getter, eval_str=True)
-
-    python_type, wire_type = _split_annotation(
-        signature.return_annotation,
-        f'{getter.__qualname__} return',
-    )
-
-    rendered_type = _render_type(python_type, imports)
-    wire_name = get_dbus_property_info(prop)['name']
-
-    setter_string = ''
-
-    if prop.fset is not None:
-        setter_string = f"""\
-async def set_{name}(self, value: {rendered_type}, /) -> None:
-    await self._set_property({wire_name!r}, {wire_type!r}, value)
-"""
-
-    return f"""\
-async def get_{name}(self) -> {rendered_type}:
-    return await self._get_property({wire_name!r}, {wire_type!r})
-{setter_string}"""
-
-
-def _generate_proxy(interface: type[DBusInterface], imports: set[str], /) -> str:
-    properties = (_generate_property(name, prop, imports) for name, prop in iterate_dbus_properties(interface))
-    methods = (_generate_method(method, imports) for _, method in iterate_dbus_methods(interface))
-
-    return f"""\
-@dataclass(slots=True, frozen=True)
-class {interface.__name__}Proxy(DBusProxy):
-    __dbus_interface_name__: ClassVar[str] = '{get_interface_name(interface)}'
-
-{textwrap.indent('\n'.join(properties), prefix='    ')}
-{textwrap.indent('\n'.join(methods), prefix='    ')}
-"""
-
-
-def _get_interfaces_from_module(module: ModuleType) -> Iterator[type[DBusInterface]]:
-    for attribute in vars(module).values():
-        if is_protocol(attribute) and DBusInterface in attribute.__mro__ and attribute is not DBusInterface:
-            yield attribute
-
-
-def _get_generation_note(generation_command: str, output_file: Path | None, /) -> str:
+def _get_generation_note() -> str:
     dbus_module_name = __name__.rsplit('.', 1)[0]
-    arguments = generation_command
-
-    if output_file is not None:
-        arguments += f' {output_file}'
 
     return f"""\
 # This file is part of The Batocera Linux Distribution (https://batocera.org).
@@ -261,16 +59,415 @@ def _get_generation_note(generation_command: str, output_file: Path | None, /) -
 # YOU MUST RETAIN THE LICENSE AND COPYRIGHT NOTICES ABOVE IN ANY
 # REDISTRIBUTED VERSION OF THIS FILE.
 
-# NOTE: This file is auto-generated by `python -m {dbus_module_name} {arguments}`. Do not edit manually.
+# NOTE: This file was auto-generated by `python -m {dbus_module_name}`
 """
 
 
-def generate_proxies(
-    interfaces: ModuleType, format_as: Path, header_command: str, header_output_file: Path | None, /
+_separate_acronyms_pattern = re.compile(r'(.)([A-Z][a-z]+)')
+_separate_words_pattern = re.compile(r'([a-z0-9])([A-Z])')
+
+
+def _pascal_to_snake(name: str) -> str:
+    name = _separate_acronyms_pattern.sub(r'\1_\2', name)
+    return _separate_words_pattern.sub(r'\1_\2', name).lower()
+
+
+_TOKEN_TO_PYTHON_TYPE: dict[str, str] = {
+    'y': 'int',
+    'n': 'int',
+    'q': 'int',
+    'i': 'int',
+    'u': 'int',
+    'x': 'int',
+    't': 'int',
+    'h': 'int',
+    'b': 'bool',
+    'd': 'float',
+    's': 'str',
+    'o': 'str',
+    'g': 'str',
+    'v': 'dbus_fast.Variant',
+}
+
+
+def _dbus_struct_to_python_type(info: SignatureType, imports: set[str], /) -> str:
+    return f'tuple[{", ".join(_signature_type_to_python_type(child, imports) for child in info.children)}]'
+
+
+def _dbus_dict_to_python_type(info: SignatureType, imports: set[str], /) -> str:
+    return f'dict[{_signature_type_to_python_type(info.children[0], imports)}, {_signature_type_to_python_type(info.children[1], imports)}]'
+
+
+def _dbus_array_to_python_type(info: SignatureType, imports: set[str], /) -> str:
+    child = info.children[0]
+
+    if child.token == 'y':
+        return 'bytes'
+
+    if child.token == '{':
+        return _dbus_dict_to_python_type(child, imports)
+
+    return f'list[{_signature_type_to_python_type(child, imports)}]'
+
+
+def _signature_type_to_python_type(info: SignatureType, imports: set[str], /) -> str:
+    python_type = _TOKEN_TO_PYTHON_TYPE.get(info.token)
+
+    if python_type is not None:
+        if info.token == 'v':
+            imports.add('dbus_fast')
+
+        return python_type
+
+    if info.token == 'a':
+        return _dbus_array_to_python_type(info, imports)
+
+    if info.token == '(':
+        return _dbus_struct_to_python_type(info, imports)
+
+    raise TypeError(f'Unsupported D-Bus type: {info.signature!r}')
+
+
+def _dbus_type_to_python_type(dbus_type: str, imports: set[str], /) -> str:
+    tree = SignatureTree(dbus_type)
+
+    python_types = [_signature_type_to_python_type(info, imports) for info in tree.types]
+
+    if not python_types:
+        return 'None'
+
+    if len(python_types) == 1:
+        return python_types[0]
+
+    return 'tuple[' + ', '.join(python_types) + ']'
+
+
+def _generate_signature(
+    method: str, args: Iterable[tuple[str, str]], return_type: str, /, *, overload: bool = False, is_async: bool = True
 ) -> str:
+    decorator = '@overload\n' if overload else ''
+    arguments = ' '.join(f'{arg_name}: {python_type},' for arg_name, python_type in args)
+    suffix = ' ...' if overload else ''
+    async_prefix = 'async ' if is_async else ''
+
+    return f'{decorator}{async_prefix}def {method}(self, {arguments} /) -> {return_type}:{suffix}'
+
+
+def _generate_get_signature(property_name: str, property_type: str, /, *, overload: bool = False) -> str:
+    return _generate_signature('get', [('name', f'Literal[{property_name!r}]')], property_type, overload=overload)
+
+
+def _generate_set_signature(property_name: str, property_type: str, /, *, overload: bool = False) -> str:
+    return _generate_signature(
+        'set', [('name', f'Literal[{property_name!r}]'), ('value', property_type)], 'None', overload=overload
+    )
+
+
+def _generate_watch_signature(property_name: str, property_type: str, /, *, overload: bool = False) -> str:
+    return _generate_signature(
+        'watch',
+        [('name', f'Literal[{property_name!r}]'), ('callback', f'DBusPropertyCallback[{property_type} | None]')],
+        'Unwatch',
+        overload=overload,
+        is_async=False,
+    )
+
+
+def _generate_get(overloads: list[tuple[str, str]], /) -> str:
+    if not overloads:
+        return ''
+
+    if len(overloads) == 1:
+        get_signature = _generate_get_signature(*overloads[0])
+    else:
+        get_signature = '\n'.join(_generate_get_signature(*overload, overload=True) for overload in overloads)
+        get_signature += '\nasync def get(self, name: str, /) -> Any:'
+
+    return f"""\
+{get_signature}
+    return await self._get(name)
+"""
+
+
+def _generate_set(overloads: list[tuple[str, str]], /) -> str:
+    if not overloads:
+        return ''
+
+    if len(overloads) == 1:
+        set_signature = _generate_set_signature(*overloads[0])
+    else:
+        set_signature = '\n'.join(_generate_set_signature(*overload, overload=True) for overload in overloads)
+        set_signature += '\nasync def set(self, name: str, value: object, /) -> None:'
+
+    return f"""\
+{set_signature}
+    return await self._set(name, value)
+"""
+
+
+def _generate_watch(overloads: list[tuple[str, str]], /) -> str:
+    if not overloads:
+        return ''
+
+    if len(overloads) == 1:
+        watch_signature = _generate_watch_signature(*overloads[0])
+    else:
+        watch_signature = '\n'.join(_generate_watch_signature(*overload, overload=True) for overload in overloads)
+        watch_signature += '\ndef watch(self, name: str, callback: DBusPropertyCallback[Any], /) -> Unwatch:'
+
+    return f"""\
+{watch_signature}
+    return self._add_property_callback(name, callback)
+"""
+
+
+def _generate_properties(
+    class_name: str, property_nodes: Iterable[ET.Element[str]], imports: set[str], /
+) -> tuple[str, str, str]:
+    typeddict_lines: list[str] = []
+    dbus_property_signatures_lines: list[str] = []
+    get_overloads: list[tuple[str, str]] = []
+    set_overloads: list[tuple[str, str]] = []
+    watch_overloads: list[tuple[str, str]] = []
+
+    for property_node in property_nodes:
+        wire_name = property_node.attrib['name']
+        wire_type = property_node.attrib['type']
+        python_type = _dbus_type_to_python_type(wire_type, imports)
+
+        typeddict_lines.append(f'{wire_name}: {python_type}')
+        dbus_property_signatures_lines.append(f'{wire_name!r}: {wire_type!r},')
+
+        overload = (wire_name, python_type)
+
+        access = property_node.attrib.get('access')
+        if access in ('readwrite', 'read', None):
+            get_overloads.append(overload)
+
+        if access in ('readwrite', 'write'):
+            set_overloads.append(overload)
+
+        watch_overloads.append(overload)
+
+    methods = f'{_generate_get(get_overloads)}{_generate_set(set_overloads)}'
+
+    if typeddict_lines:
+        methods += f"""\
+async def get_all(self) -> _{class_name}AllProperties:
+    return await self._get_all()
+"""
+    methods += _generate_watch(watch_overloads)
+
+    if typeddict_lines:
+        methods += f"""\
+def watch_all(self, callback: DBusCallback[_{class_name}ChangedProperties, list[str]], /) -> Unwatch:
+    return self._watch_all(callback)
+"""
+
+    if not methods:
+        return '', '', ''
+
+    return (
+        f"""\
+class _{class_name}AllProperties(TypedDict, closed=True):
+{textwrap.indent('\n'.join(typeddict_lines), prefix='    ')}
+
+class _{class_name}ChangedProperties(TypedDict, closed=True, total=False):
+{textwrap.indent('\n'.join(typeddict_lines), prefix='    ')}
+""",
+        f"""\
+__dbus_property_signatures__: ClassVar[dict[str, str]] = {{
+{textwrap.indent('\n'.join(dbus_property_signatures_lines), prefix='    ')}
+}}
+""",
+        methods,
+    )
+
+
+def _generate_on_signature(signal_name: str, signal_types: Iterable[str], /, *, overload: bool = False) -> str:
+    return _generate_signature(
+        'on',
+        [('name', f'Literal[{signal_name!r}]'), ('callback', f'DBusCallback[{", ".join(signal_types) or "()"}]')],
+        'Unwatch',
+        overload=overload,
+        is_async=False,
+    )
+
+
+def _generate_on(overloads: Sequence[tuple[str, Iterable[str]]], /) -> str:
+    if not overloads:
+        return ''
+
+    if len(overloads) == 1:
+        on_signature = _generate_on_signature(*overloads[0])
+    else:
+        on_signature = '\n'.join(_generate_on_signature(*overload, overload=True) for overload in overloads)
+        on_signature += '\ndef on(self, name: str, callback: DBusCallback[*tuple[Any, ...]], /) -> Unwatch:'
+
+    return f"""\
+{on_signature}
+    return self._add_signal_callback(name, callback)
+"""
+
+
+def _generate_signals(signal_nodes: Iterable[ET.Element[str]], imports: set[str], /) -> tuple[str, str]:
+    dbus_signal_signatures_lines: list[str] = []
+    on_signatures: list[tuple[str, list[str]]] = []
+
+    for signal_node in signal_nodes:
+        wire_name = signal_node.attrib['name']
+        wire_types: list[str] = []
+        python_types: list[str] = []
+
+        for arg in signal_node.iterfind('./arg'):
+            wire_type = arg.attrib['type']
+            wire_types.append(wire_type)
+            python_types.append(_dbus_type_to_python_type(wire_type, imports))
+
+        dbus_signal_signatures_lines.append(f'{wire_name!r}: {"".join(wire_types)!r},')
+        on_signatures.append((wire_name, python_types))
+
+    on = _generate_on(on_signatures)
+
+    if not on:
+        return '', ''
+
+    return (
+        f"""\
+__dbus_signal_signatures__: ClassVar[dict[str, str]] = {{
+{textwrap.indent('\n'.join(dbus_signal_signatures_lines), prefix='    ')}
+}}
+""",
+        on,
+    )
+
+
+def _generate_call_signature(
+    method_name: str, args: Iterable[tuple[str, str]], return_type: str, /, *, overload: bool = False
+) -> str:
+    return _generate_signature(
+        'call',
+        itertools.chain([('_dbus_method_name', f'Literal[{method_name!r}]')], args),
+        return_type,
+        overload=overload,
+    )
+
+
+def _generate_call(method_nodes: Iterable[ET.Element[str]], imports: set[str], /) -> tuple[str, str]:
+    dbus_method_signatures: list[tuple[str, tuple[str, str]]] = []
+    call_signatures: list[tuple[str, list[tuple[str, str]], str]] = []
+
+    for method_node in method_nodes:
+        wire_name = method_node.attrib['name']
+        wire_param_types: list[str] = []
+        wire_returns: list[str] = []
+
+        python_params: list[tuple[str, str]] = []
+        python_returns: list[str] = []
+
+        index = 0
+
+        for arg in method_node.iterfind('./arg'):
+            match arg.attrib.get('direction'):
+                case 'out':
+                    wire_returns.append(arg.attrib['type'])
+                    python_returns.append(_dbus_type_to_python_type(arg.attrib['type'], imports))
+                case _:
+                    python_name = _pascal_to_snake(arg.attrib.get('name') or f'arg_{index}')
+
+                    if python_name == 'self' or keyword.iskeyword(python_name):
+                        python_name = f'_{python_name}'
+
+                    wire_type = arg.attrib['type']
+
+                    wire_param_types.append(wire_type)
+                    python_params.append((python_name, _dbus_type_to_python_type(wire_type, imports)))
+
+                    index += 1
+
+        dbus_method_signatures.append((wire_name, (''.join(wire_param_types), ''.join(wire_returns))))
+
+        if not python_returns:
+            python_return = 'None'
+        elif len(python_returns) == 1:
+            python_return = python_returns[0]
+        else:
+            python_return = f'tuple[{", ".join(python_returns)}]'
+
+        call_signatures.append((wire_name, python_params, python_return))
+
+    if not call_signatures:
+        return '', ''
+
+    if len(call_signatures) == 1:
+        method_name, python_params, python_return = call_signatures[0]
+
+        call_signature = _generate_call_signature(method_name, python_params, python_return)
+        args = ', '.join(f'{arg_name}' for arg_name, _ in python_params)
+
+    else:
+        call_signature = (
+            '\n'.join(
+                _generate_call_signature(method_name, python_params, python_return, overload=True)
+                for method_name, python_params, python_return in call_signatures
+            )
+            + '\nasync def call(self, _dbus_method_name: str, /, *args: object) -> Any:'
+        )
+        args = '*args'
+
+    return (
+        f"""\
+__dbus_method_signatures__: ClassVar[dict[str, tuple[str, str | None]]] = {{
+{
+            textwrap.indent(
+                '\n'.join(
+                    f'{wire_name!r}: ({param_types!r}, {return_types!r}),'
+                    for wire_name, (param_types, return_types) in dbus_method_signatures
+                ),
+                prefix='    ',
+            )
+        }
+}}
+""",
+        f"""\
+{call_signature}
+    return await self._call(_dbus_method_name, {args})
+""",
+    )
+
+
+def _generate_proxy_from_xml(interface: ET.Element[str], interface_prefix: str, imports: set[str], /) -> str:
+    full_interface_name = interface.attrib['name']
+    class_name = full_interface_name.removeprefix(interface_prefix).replace('.', '')
+
+    method_signatures, call_method = _generate_call(interface.iterfind('./method'), imports)
+    property_typeddicts, property_signatures, property_methods = _generate_properties(
+        class_name, interface.iterfind('./property'), imports
+    )
+    signal_signatures, signal_methods = _generate_signals(interface.iterfind('./signal'), imports)
+
+    return f"""\
+{property_typeddicts}
+@cached_dataclass(frozen=True)
+class {class_name}(DBusProxy):
+    __dbus_interface_name__: ClassVar[str] = '{full_interface_name}'
+
+{textwrap.indent(method_signatures, prefix='    ')}
+{textwrap.indent(property_signatures, prefix='    ')}
+{textwrap.indent(signal_signatures, prefix='    ')}
+
+{textwrap.indent(property_methods, prefix='    ')}
+{textwrap.indent(signal_methods, prefix='    ')}
+{textwrap.indent(call_method, prefix='    ')}
+"""
+
+
+def generate_proxies_from_xml(xml: ET.Element[str], interface_prefix: str, output_file: Path, /) -> str:
     imports: set[str] = set()
 
-    body = '\n'.join(_generate_proxy(interface, imports) for interface in _get_interfaces_from_module(interfaces))
+    interfaces = xml.iterfind('./interface')
+
+    body: list[str] = [_generate_proxy_from_xml(interface, interface_prefix, imports) for interface in interfaces]
 
     imports_string = '\n'.join(f'import {module}' for module in sorted(imports)).strip()
 
@@ -283,22 +480,24 @@ if TYPE_CHECKING:
 
     output = (
         f"""\
-{_get_generation_note(header_command, header_output_file)}
+{_get_generation_note()}
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import TYPE_CHECKING, ClassVar
+from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Any, ClassVar, Final, Literal, overload
+from typing_extensions import TypedDict
 
-from batocera_common.dbus import DBusProxy
+from batocera_common.dataclasses import cached_dataclass, cached_property
+from batocera_common.dbus import DBusCallback, DBusPropertiesProxy, DBusPropertyCallback, DBusProxy, DBusSignalsProxy, Unwatch
 
 {imports_string}
-{body}
+{'\n'.join(body)}
 """.strip()
         + '\n'
     )
 
     fixed = subprocess.run(
-        ['ruff', 'check', '--select=I001', '--select=F401', '--stdin-filename', format_as, '--fix', '-'],
+        ['ruff', 'check', '--select=I001', '--select=F401', '--stdin-filename', output_file, '--fix', '-'],
         input=output,
         capture_output=True,
         text=True,
@@ -306,9 +505,18 @@ from batocera_common.dbus import DBusProxy
     ).stdout
 
     return subprocess.run(
-        ['ruff', 'format', '--quiet', '--stdin-filename', format_as, '-'],
+        ['ruff', 'format', '--quiet', '--stdin-filename', output_file, '-'],
         input=fixed,
         capture_output=True,
         text=True,
         check=True,
     ).stdout
+
+
+def generate_proxies_from_string(xml_string: str, interface_prefix: str, output_file: Path, /) -> str:
+    xml = ET.fromstring(xml_string)
+    return generate_proxies_from_xml(xml, interface_prefix, output_file)
+
+
+def generate_proxies(xml_file: Path, interface_prefix: str, output_file: Path, /) -> None:
+    output_file.write_text(generate_proxies_from_xml(ET.parse(xml_file).getroot(), interface_prefix, output_file))

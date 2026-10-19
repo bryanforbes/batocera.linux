@@ -26,6 +26,7 @@ define HOTKEYGEN_INSTALL_CONFIG_FILES
 
 	$(INSTALL) -m 0644 $(@D)/resources/config/specific/*.mapping $(TARGET_DIR)/usr/share/hotkeygen/
 	$(INSTALL) -m 0644 $(@D)/resources/dbus/hotkeygen.conf $(TARGET_DIR)/usr/share/dbus-1/system.d/hotkeygen.conf
+	$(INSTALL) -m 0644 $(@D)/resources/dbus/org.batocera.Hotkeygen.xml $(TARGET_DIR)/usr/share/dbus-1/interfaces/org.batocera.Hotkeygen.xml
 endef
 
 HOTKEYGEN_POST_INSTALL_TARGET_HOOKS += HOTKEYGEN_INSTALL_CONFIG_FILES

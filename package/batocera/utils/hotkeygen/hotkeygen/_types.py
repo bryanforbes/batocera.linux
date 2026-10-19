@@ -45,3 +45,8 @@ class HotkeysContextMapping(TypedDict):
 class PersistedHotkeysContext(TypedDict):
     context: HotkeysContextMapping
     include_common: bool
+
+
+type DeviceTuple = tuple[str, str, str, str]  # device_node, name, filename, full_path
+type KeysMappingDict = dict[int, str]
+type DevicesMappingsDict = dict[DeviceTuple, tuple[KeysMappingDict, KeysMappingDict]]
