@@ -20,7 +20,35 @@
 
 from __future__ import annotations
 
-from typing import Final
+import logging
+from typing import TYPE_CHECKING, Final, Literal
+
+from batocera_common.dbus.proxies.connman_manager import Manager
+
+if TYPE_CHECKING:
+    from batocera_common.dbus import Bus
+
+_logger = logging.getLogger(__name__)
+
 
 CONNMAN_BUS_NAME: Final = 'net.connman'
-CONNMAN_MANAGER_PATH: Final = '/'
+
+
+async def is_connected(bus: Bus, /) -> bool:
+    manager_object = bus.get_object(CONNMAN_BUS_NAME, '/')
+    manager_proxy = manager_object.get_proxy(Manager)
+
+    try:
+        properties = await manager_proxy.call('GetProperties')
+    except Exception:
+        _logger.exception('Unable to get the connman connection state')
+        return False
+
+    if (state_object := properties.get('State')) is None:
+        return False
+
+    state: Literal['online', 'ready', 'offline', 'idle'] = state_object.value
+
+    _logger.debug('state: %s', state)
+
+    return state in ('online', 'ready')

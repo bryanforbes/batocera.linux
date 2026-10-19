@@ -24,14 +24,14 @@ import asyncio
 import logging
 from dataclasses import dataclass, field
 from enum import Enum, auto
-from typing import TYPE_CHECKING, Self
+from typing import TYPE_CHECKING, Any, Self
 
 from dbus_fast import BusType, NameFlag, RequestNameReply
 from dbus_fast.aio import MessageBus
 
-from .interface import DBusInterface
-from .path import DBusPath
+from .exported import DBusExported
 from .proxy import DBusObjectProxy
+from .service import Service
 
 if TYPE_CHECKING:
     from types import TracebackType
@@ -148,8 +148,13 @@ class Bus:
         except Exception:
             _logger.exception('Failed to clean up D-Bus during context exit')
 
-    def get_path[I: DBusInterface](self, path: str, interface: type[I], /) -> DBusPath[I]:
-        return DBusPath(self.__message_bus, path, interface)
+    def export[S: Service](self, path: str, object: S, /) -> DBusExported[S]:
+        exported = DBusExported(path, object)
+        self.__message_bus.export(exported.path, exported.service)
+        return exported
+
+    def unexport(self, exported: DBusExported[Any], /) -> None:
+        self.__message_bus.unexport(exported.path, exported.service)
 
     def get_object(self, bus_name: str, path: str, /) -> DBusObjectProxy:
         return DBusObjectProxy(self.__message_bus, bus_name, path)

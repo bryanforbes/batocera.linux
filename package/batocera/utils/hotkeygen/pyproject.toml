@@ -22,9 +22,6 @@ build-backend = "hatchling.build"
 include = [
     "/hotkeygen",
 ]
-exclude = [
-    "/hotkeygen/dbus/_generate_client_interfaces.py"
-]
 
 [tool.pytest]
 minversion = "9.0"

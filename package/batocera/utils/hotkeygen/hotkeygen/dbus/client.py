@@ -26,7 +26,7 @@ from dbus_fast import Variant
 
 from batocera_common.dataclasses import cached_dataclass, cached_property
 from hotkeygen.dbus.common import DBUS_BUS_NAME, DBUS_PATH
-from hotkeygen.dbus.proxies import HotkeygenInterfaceProxy
+from hotkeygen.dbus.proxies import Hotkeygen
 
 if TYPE_CHECKING:
     from batocera_common.dbus import Bus
@@ -38,25 +38,26 @@ class HotkeygenClient:
     bus: Bus
 
     @cached_property
-    def hotkeygen_proxy(self) -> HotkeygenInterfaceProxy:
+    def hotkeygen_proxy(self) -> Hotkeygen:
         hotkeygen_object = self.bus.get_object(DBUS_BUS_NAME, DBUS_PATH)
-        return hotkeygen_object.get_proxy(HotkeygenInterfaceProxy)
+        return hotkeygen_object.get_proxy(Hotkeygen)
 
     async def set_context(self, context: HotkeysContextMapping, include_common: bool, /) -> None:
-        await self.hotkeygen_proxy.set_context(
+        await self.hotkeygen_proxy.call(
+            'SetContext',
             context['name'],
             {action: Variant('s' if isinstance(keys, str) else 'as', keys) for action, keys in context['keys'].items()},
             include_common,
         )
 
     async def set_default_context(self) -> None:
-        await self.hotkeygen_proxy.set_default_context()
+        await self.hotkeygen_proxy.call('SetDefaultContext')
 
     async def reload(self) -> None:
-        await self.hotkeygen_proxy.reload()
+        await self.hotkeygen_proxy.call('Reload')
 
     async def list_config(self) -> None:
-        dbus_context, dbus_mappings = await self.hotkeygen_proxy.get_details()
+        dbus_context, dbus_mappings = await self.hotkeygen_proxy.call('GetDetails')
 
         context: HotkeysContext = {
             'name': dbus_context[0],
@@ -79,19 +80,19 @@ class HotkeygenClient:
                 print_mapping(mapping, associations, context)
 
     async def reset_mouse_position(self) -> None:
-        await self.hotkeygen_proxy.reset_mouse_position()
+        await self.hotkeygen_proxy.call('ResetMousePosition')
 
     async def send_hotkey(self, key: str, delay: int, /) -> None:
-        await self.hotkeygen_proxy.send_hotkey(key, delay)
+        await self.hotkeygen_proxy.call('SendHotkey', key, delay)
 
     async def get_system_default_mapping_config(self) -> tuple[dict[str, str], dict[str, str]]:
-        return await self.hotkeygen_proxy.get_system_default_mapping_config()
+        return await self.hotkeygen_proxy.call('GetSystemDefaultMappingConfig')
 
     async def get_device_mapping_config(self) -> dict[str, dict[str, str]]:
-        return await self.hotkeygen_proxy.get_device_mapping_config()
+        return await self.hotkeygen_proxy.call('GetDeviceMappingConfig')
 
     async def set_device_mapping_config(self, filename: str, key: str, action: str, /) -> None:
-        await self.hotkeygen_proxy.set_device_mapping_config(filename, key, action)
+        await self.hotkeygen_proxy.call('SetDeviceMappingConfig', filename, key, action)
 
     async def remove_device_mapping_config(self, filename: str, key: str, /) -> None:
-        await self.hotkeygen_proxy.remove_device_mapping_config(filename, key)
+        await self.hotkeygen_proxy.call('RemoveDeviceMappingConfig', filename, key)
